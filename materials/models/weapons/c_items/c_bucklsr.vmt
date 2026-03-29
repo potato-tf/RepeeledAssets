@@ -1,0 +1,55 @@
+"UnlitTwoTexture"
+{
+	"$basetexture" "models/weapons/c_items/c_bucklsr"
+        "$texture2" "models/weapons/c_items/c_bucklsr"
+	"$surfaceprop"	"default"
+	"$additive"	1
+	"$model" 1
+	"$nodecal" "1"
+		
+	 "$temp" "[0 0]"
+	 "$pilot" 0.0
+	 "$pilot2" 0.0
+
+	"$basemapalphaphongmask" "1"
+
+
+	"$phong" "1"
+	"$phongexponent" "2.5"
+	"$phongboost" "1.75"	
+	"$lightwarptexture" "models/lightwarps/weapon_lightwarp"
+	"$phongfresnelranges"	"[.25 .5 1]"
+
+	"$rimlight" "1"
+	"$rimlightexponent" "10"	
+	"$rimlightboost" "1.5"
+
+	"$ambientocclusion" "1"
+
+	"$glowcolor" "1"
+
+	// Cloaking
+	"$cloakPassEnabled" "1"
+	"Proxies"
+	{
+		"weapon_invis"
+		{
+		}
+		"ModelGlowColor"
+		{
+			"resultVar" "$glowcolor"
+		}
+		"Equals"
+		{
+			"srcVar1"  "$glowcolor"
+			"resultVar" "$selfillumtint"
+		}
+		"Equals"
+		{
+			"srcVar1"  "$glowcolor"
+			"resultVar" "$color2"
+		}
+	}
+}
+
+

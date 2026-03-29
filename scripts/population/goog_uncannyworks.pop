@@ -1,0 +1,199 @@
+
+// protection from my based awesome and redpilled onelineification of the main popfile
+
+ah_so_uncanny
+{
+	Templates
+	{
+		W3_MetalHealthBar
+		{
+			Name		"Metal Progress"
+			Class		Sniper
+			ClassIcon	metal
+			Scale		0.01
+			Health		10001
+			Attributes	SuppressFire
+			Attributes	IgnoreFlag
+			Attributes	MiniBoss
+			Attributes	UseBossHealthBar
+			Action		Idle
+			NoGlow	1
+			WeaponRestrictions	MeleeOnly
+			Tag	bot_monolith_healthbar
+			FireInput   // gets sent to hell
+			{
+				Target		"!self"
+				Action		"$SetLocalOrigin"
+				Param		"64 -1504 -11384"
+				Delay 		0.01
+				Repeats		1
+			}
+			FireInput 
+			{
+				Target		"@f@monolith_bot_filter@player"
+				Action		"RunScriptCode"
+				Param		"self.TakeDamage(10000, DMG_GENERIC, First())"
+				Delay 		0.01
+				Repeats		1
+			}
+			CharacterAttributes
+			{
+				"hand scale"	0
+				"head scale"	0
+				"torso scale"	0
+				"move speed penalty"	0.001
+				"voice pitch scale"		0
+				"increased jump height"	0.01
+				"damage force reduction"		0
+				"override footstep sound set"	9
+				"airblast vulnerability multiplier"	0
+				"no_jump"	1
+				"no_duck"	1
+			}
+		}
+
+		
+		W4_Obstacle_Homer	// only 1 spawns on the last goal
+		{
+			Class	Soldier
+			Name	"Giant Homing Nuke Soldier"
+			ClassIcon	soldier_homing_nuke_nys
+			Skill	Expert
+			Health	4269
+			Item	"Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+			Item	"Tyrantium Helmet"
+			Attributes	AlwaysCrit
+			WeaponRestrictions	PrimaryOnly
+			Attributes	MiniBoss
+			Action	Mobber
+
+			ItemAttributes
+			{
+				ItemName	"Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+				"fire rate penalty"	7.7
+				"Projectile speed decreased"	 0.33
+				"damage bonus"	2
+				"attach particle effect"	704
+				"mod no reload DISPLAY ONLY"	1
+				"mod max primary clip override"	-1
+				"add cond when active"	"36"
+				"mod projectile heat seek power"	360
+				"mod projectile heat aim error"		90
+				"mod projectile heat aim time"		2
+				"blast dmg to self increased"		0
+				"projectile trail particle"			"~eyeboss_projectile"
+				"use large smoke explosion"			1
+			}
+			ItemAttributes
+			{
+				ItemName	"Tyrantium Helmet"
+				"set item tint RGB"	8208497
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.25
+				"damage force reduction"	0.4
+				"airblast vulnerability multiplier"	0.4
+				"override footstep sound set"	3
+			}
+			FireInput
+			{
+				Target	"player"
+				Action	"$DisplayTextChat"
+				Param	"{blue}Giant Homing Nuke Soldier {reset}: red team. you are {b600ff}purple"
+				Delay	10
+				Repeats	1
+			}
+			FireInput
+			{
+				Target	"player"
+				Action	"$DisplayTextChat"
+				Param	"{blue}Giant Homing Nuke Soldier {reset}: you will be {b600ff}purple"
+				Delay	30
+				Repeats	1
+			}
+		}
+
+	}
+	PointTemplates
+	{
+        rockettimestop
+        {
+            OnSpawnOutput
+            {
+                Target !activator
+                Action RunScriptCode
+                Param "
+                vecOriginLast <- self.GetOrigin()
+                flVelocityStrength <- 2
+                bLaunchedThisTick <- true
+                function Think()
+                {
+                    if(!self.IsValid()) return
+                    if(bLaunchedThisTick) return bLaunchedThisTick = false
+                    local vecOrigin = self.GetOrigin()
+                    if(!Uncannyworks.bTimeStop)
+                    {
+                        flVelocityStrength = 2
+                    }
+                    else
+                    {
+                        flVelocityStrength *= 0.92
+                        self.SetAbsOrigin(vecOriginLast + self.GetAbsVelocity() * (-0.015 * (1 - flVelocityStrength)))
+                    }
+                    vecOriginLast = vecOrigin
+                    return -1
+                }
+                AddThinkToEnt(self, `Think`)"
+            }
+        }
+
+        textualtimer_v3
+		{
+            OnSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                IncludeScript(`textualtimer_v3`, getroottable())
+                TextualTimer.SetParams({
+                    minutes = 0
+                    seconds = 15
+                    x = -1
+                    y = 0.55
+                    color = `255 0 0`
+					automatic = false
+                    relayname = `boss_deploy_relay`
+                })
+                TextualTimer.AddCallbacks({
+                    `10` : function()
+                    {
+                        EntFire(`tf_gamerules`, `PlayVO`, `Announcer.RoundEnds10seconds`)
+                    }
+                    `5` : function()
+                    {
+                        EntFire(`tf_gamerules`, `PlayVO`, `Announcer.RoundEnds5seconds`)
+                    }
+                    `4` : function()
+                    {
+                        EntFire(`tf_gamerules`, `PlayVO`, `Announcer.RoundEnds4seconds`)
+                    }
+                    `3` : function()
+                    {
+                        EntFire(`tf_gamerules`, `PlayVO`, `Announcer.RoundEnds3seconds`)
+                    }
+                    `2` : function()
+                    {
+                        EntFire(`tf_gamerules`, `PlayVO`, `Announcer.RoundEnds2seconds`)
+                    }
+                    `1` : function()
+                    {
+                        EntFire(`tf_gamerules`, `PlayVO`, `Announcer.RoundEnds1seconds`)
+                    }
+                })
+                "
+            }
+		}
+
+	}
+}

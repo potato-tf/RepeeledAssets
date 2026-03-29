@@ -1,0 +1,8 @@
+"UnlitGeneric"
+{
+	"$basetexture" "hud/leaderboard_class_spell_meteor_swordstonehel"
+	"$ignorez" 1
+	"$no_fullbright" 1
+	"$translucent" 1
+	"%keywords" "tf"
+}

@@ -1,0 +1,6 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/brewstersmodels/littlenightmaresii/tv_screen1"
+               "$envmap" "env_cubemap"
+               "$halflambert" 1
+}

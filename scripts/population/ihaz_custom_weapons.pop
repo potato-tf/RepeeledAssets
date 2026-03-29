@@ -1,0 +1,81 @@
+WaveSchedule
+{
+
+FixSetCustomModelInput 1 
+
+ExtendedUpgrades  
+{
+
+Soupa
+{
+Name "Unstable Overclock: Autoloader Mechanism"
+Attribute "passive reload" 
+Cap 1
+Increment 1
+Cost 0
+SecondaryAttributes //Secondary attributes applied when upgrade is applied, for each upgrade level
+{
+"reload time increased" 0.35
+"special item description" "-35% reload speed -30% primary ammo capacity"
+"hidden primary max ammo bonus" -0.3
+}
+Description "Weapon is automatically reloaded when not active -35% reload speed -30% primary ammo capacity"
+AllowPlayerClass Scout
+AllowedWeapons
+{
+ItemName "Super Shotgun"
+}
+}
+
+pellets
+{
+Name "+20% bullets per shot"
+Attribute "bullets per shot bonus" 
+Cap 1.8
+Increment 0.2
+Cost 400
+AllowPlayerClass Scout
+AllowedWeapons
+{
+ItemName "Super Shotgun"
+}
+}
+
+}
+	
+CustomWeapon  
+{
+
+"Super Shotgun"
+{
+OriginalItemName "The Force-a-Nature"
+"damage bonus HIDDEN" 1.3
+"scattergun has knockback" -1
+"bullets per shot bonus" 1
+"reload time increased" 1.2
+// "spread penalty" 0.9
+"maxammo primary reduced" 0.6
+"damage penalty" 1
+"crit mod disabled" 0
+"weapon always gib" 1
+"special item description" "Starts out with +30% damage"
+"special item description 2" "Rip and Tear!"
+"custom item model" "models/weapons/c_models/c_funny_doom_db.mdl"
+"custom weapon fire sound" "=80|trespasser/sg-1.wav"
+"clip size penalty" "0.15"
+}
+
+
+}
+
+ExtraLoadoutItems
+{
+
+Scout
+{
+Primary "Super Shotgun"
+}
+
+}
+
+}

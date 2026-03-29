@@ -1,0 +1,20 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/brewstersmodels/littlenightmaresii/tv_base"
+	"$bumpmap" "models/brewstersmodels/littlenightmaresii/tv_basen"
+	"$halflambert"			"1"
+	"$nocull"			"1"
+
+	"$phong"				"1"
+	"$phongalbedotint"		"1"
+	"$phongboost"			"10"
+	"$phongexponent"		"6"
+	"$phongexponenttexture" "models/brewstersmodels/littlenightmaresii/albedotint"
+	"$phongfresnelranges"	"[0.1 1 8]"
+
+	"$rimlight"				"1"
+	"$rimlightboost"		"2"
+	"$rimlightexponent"		"4"
+
+}
+

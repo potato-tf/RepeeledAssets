@@ -1,0 +1,12 @@
+"UnlitGeneric"
+{
+	"$basetexture" "models/brewstersmodels/littlenightmaresii/tv_screen3"
+  "Proxies" 
+       { 
+         "AnimatedTexture" 
+         { 
+            "animatedTextureVar" "$basetexture" "animatedtextureframenumvar" "$frame" 
+            "animatedTextureFrameRate" "30" 
+         }
+    } 
+}

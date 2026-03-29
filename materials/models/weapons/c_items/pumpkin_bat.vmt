@@ -1,0 +1,70 @@
+"VertexlitGeneric"
+{
+	"$baseTexture" "models/weapons/c_items/pumpkin_bat"
+	"$selfillummask" "models/weapons/c_items/pumpkin_bat_illum"
+	
+	"$selfillum" "1"
+
+	"$phong" "1"
+	"$phongexponent" "3"
+	"$phongboost" ".5"	
+	"$lightwarptexture" "models/player/pyro/pyro_lightwarp"
+	"$phongfresnelranges"	"[2 0 2]"
+	"$phongtint" "[.7 .25 .7]"
+	
+	"$basemapalphaphongmask" "1"
+	
+	
+
+	// Rim lighting parameters
+	"$rimlight" "1"												// To enable rim lighting (requires phong)
+	"$rimlightexponent" "2"										// Exponent for phong component of rim lighting	
+	"$rimlightboost" "1"	
+
+	
+	"$glowcolor" "1"
+
+	// Cloaking
+	"$cloakPassEnabled" "1"
+	"Proxies"
+	{
+		"weapon_invis"
+		{
+		}
+		"ModelGlowColor"
+		{
+			"resultVar" "$glowcolor"
+		}
+		"Equals"
+		{
+			"srcVar1"  "$glowcolor"
+			"resultVar" "$selfillumtint"
+		}
+		"Equals"
+		{
+			"srcVar1"  "$glowcolor"
+			"resultVar" "$color2"
+		}
+		"Sine"
+		{
+			"sineperiod" "1"
+			"sinemin" 1
+			"sinemax" 1
+			"resultVar" "$selfillumtint[0]"
+		}
+		"Sine"
+		{
+			"sineperiod" "2"
+			"sinemin" .5
+			"sinemax" 1
+			"resultVar" "$selfillumtint[1]"
+		}
+		"Sine"
+		{
+			"sineperiod" "2"
+			"sinemin" .5
+			"sinemax" 1
+			"resultVar" "$selfillumtint[2]"
+		}
+	}
+}

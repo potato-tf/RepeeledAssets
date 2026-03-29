@@ -1,0 +1,891 @@
+// ducks for bump in the night by PDA Expert
+// each duck spawn will have 5 of each, there will always be 5 on every area and then 10 extra ones are spawned on two of the three areas
+// 3 bonus ducks are spawned, which are worth 5 ducks a pop
+WaveSchedule
+{
+    PointTemplates
+    {
+        // Front Ducks
+
+        fd_underbridge
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "0 1300 364"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "0 1410 364"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "0 1520 364"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "0 1630 364"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "0 1740 364"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        fd_cross
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "126 142 366"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "36 252 366"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-54 362 366"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-144 472 366"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-234 582 366"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        fd_neartank
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "462 1884 368"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "462 1774 368"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "0 2285 355"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "110 2285 355"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-110 2285 355"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        fd_sides
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-214 1074 370"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-214 964 370"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-214 854 370"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "209 742 366"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "209 632 366"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+
+        // Mid Ducks
+
+        md_pit_entrance_right
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1354 120 330"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1354 230 330"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1354 340 330"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1244 340 330"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1134 340 330"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }        
+        
+        md_pit_entrance_left
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "1134 117 335"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "1134 227 335"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "1134 337 335"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "1024 337 335"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "914 337 335"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        md_left
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "542 -28 365"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "542 -138 365"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "542 -248 365"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "542 -358 365"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "542 -468 365"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        md_right
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-861 -260 362"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-771 -370 362"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-681 -480 362"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-591 -590 362"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-501 -700 362"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        md_topleft
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1308 -323 746"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1308 -433 746"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1308 -543 746"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1308 -653 746"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1308 -763 746"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+        
+        md_topright
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "1210 -965 556"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "1210 -1075 556"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "1210 -1185 556"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "1210 -1295 556"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "1210 -1405 556"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        md_left_halftop
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1113 618 586"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1113 508 586"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1113 398 586"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1113 288 586"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1113 178 586"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        md_right_halftop
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "417 586 554"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "527 586 554"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "637 586 554"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "747 586 554"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "857 586 554"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        // Hatch Ducks
+
+        hd_left_bridge
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-742 -965 362"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-742 -1075 362"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-742 -1185 362"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-742 -1295 362"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-742 -1405 362"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        hd_right_bridge
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "571 -965 362"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "571 -1075 362"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "571 -1185 362"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "571 -1295 362"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "571 -1405 362"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        hd_pit_left
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1347 -684 138"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1347 -794 138"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1347 -904 138"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1347 -1014 138"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-1347 -1114 138"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }        
+        
+        hd_pit_right
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "1151 -684 138"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "1151 -794 138"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "1151 -904 138"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "1151 -1014 138"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "1151 -1114 138"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        hd_hatch
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "126 -1863 430"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "16 -1863 430"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-94 -1863 430"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-204 -1863 430"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect"
+                "origin" "-314 -1863 430"
+                "pickup_particle" "merasmus_blood"
+                "OnRedPickup" "general_counter,Add,1,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+        
+        // Bonus Ducks
+
+        bonus_duck // template
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect_bonus"
+                "origin" "0 0 10"
+                "pickup_sound" "ui.cratesmash_ultrarare_short"
+                "pickup_particle" "mvm_loot_explosion"
+                "skin" "2"
+                "OnRedPickup" "general_counter,Add,5,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        bd_houseleft
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect_bonus"
+                "origin" "-619 1338 650"
+                "pickup_sound" "ui.cratesmash_ultrarare_short"
+                "pickup_particle" "mvm_loot_explosion"
+                "skin" "2"
+                "OnRedPickup" "general_counter,Add,5,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        bd_houseright
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect_bonus"
+                "origin" "578 1299 706"
+                "pickup_sound" "ui.cratesmash_ultrarare_short"
+                "pickup_particle" "mvm_loot_explosion"
+                "skin" "2"
+                "OnRedPickup" "general_counter,Add,5,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        bd_merasmus
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect_bonus"
+                "origin" "-99 -2385 926"
+                "pickup_sound" "ui.cratesmash_ultrarare_short"
+                "pickup_particle" "mvm_loot_explosion"
+                "skin" "2"
+                "OnRedPickup" "general_counter,Add,5,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        bd_right_ramp
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect_bonus"
+                "origin" "360 237 938"
+                "pickup_sound" "ui.cratesmash_ultrarare_short"
+                "pickup_particle" "mvm_loot_explosion"
+                "skin" "2"
+                "OnRedPickup" "general_counter,Add,5,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        bd_funnyspot
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect_bonus"
+                "origin" "-964 -800 724"
+                "pickup_sound" "ui.cratesmash_ultrarare_short"
+                "pickup_particle" "mvm_loot_explosion"
+                "skin" "2"
+                "OnRedPickup" "general_counter,Add,5,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        bd_pitcorner
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect_bonus"
+                "origin" "-1481 -941 390"
+                "pickup_sound" "ui.cratesmash_ultrarare_short"
+                "pickup_particle" "mvm_loot_explosion"
+                "skin" "2"
+                "OnRedPickup" "general_counter,Add,5,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        bd_peopledontlookhereithink
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect_bonus"
+                "origin" "1208 -1417 306"
+                "pickup_sound" "ui.cratesmash_ultrarare_short"
+                "pickup_particle" "mvm_loot_explosion"
+                "skin" "2"
+                "OnRedPickup" "general_counter,Add,5,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+
+        bd_frontbridge
+        {
+            tf_halloween_pickup
+            {
+                "targetname" "duck_collect_bonus"
+                "origin" "27 1178 583"
+                "pickup_sound" "ui.cratesmash_ultrarare_short"
+                "pickup_particle" "mvm_loot_explosion"
+                "skin" "2"
+                "OnRedPickup" "general_counter,Add,5,0,-1"
+                "OnRedPickup" "!self,Kill,,0.5,-1"
+            }
+        }
+    }
+}

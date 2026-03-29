@@ -1,0 +1,77 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models/weapons/c_items/c_biker_color_blue"
+   	$phongexponenttexture "models/weapons/c_items/c_biker_rim"
+	$BasemapAlphaPhongMask "1"
+	"$phongalbedotint" "1"
+	"$phong" "1"
+	"$phongexponent" "0"
+	"$phongboost" "40"	
+	"$lightwarptexture" "models/lightwarps/softened_weapon_lightwarp"
+	"$phongfresnelranges"	"[.25 .5 1]"
+	"$tempvar" "0"
+	"$yellow" "0"
+	"$selfillumfresnel" "1"
+	"$selfillumfresnelminmaxexp" "[0 1 12]"
+	"$selfillum" "1"
+	"$selfillumtint" "[3.4 3.4 3.3]"
+	
+	"$glowcolor" "1"
+	"$halflambert"		"1"
+	"$rimmask" "1"
+	"$rimlight" "1"						
+	"$rimlightexponent" "25"				
+	"$rimlightboost" "12"								// Boost for ambient cube component of rim lighting
+	
+	// Cloaking
+	"$cloakPassEnabled" "1"
+	"Proxies"
+	{
+		"weapon_invis"
+		{
+		}
+		"ModelGlowColor"
+		{
+			"resultVar" "$glowcolor"
+		}
+		"Equals"
+		{
+			"srcVar1"  "$glowcolor"
+			"resultVar" "$selfillumtint"
+		}
+		"Equals"
+		{
+			"srcVar1"  "$glowcolor"
+			"resultVar" "$color2"
+		}
+		"CommunityWeapon"
+		{
+			"resultVar" "$commweapon"
+		}
+		"Multiply"
+		{
+			"srcVar1"  "$commweapon"
+			"srcVar2"  "$commadd_phongexponent" 
+			"resultVar" "$tempvar" 
+		}
+		"Add"
+		{
+			"srcVar1"  "$tempvar" 
+			"srcVar2"  "$basephongexponent" 
+			"resultVar" "$phongexponent" 
+		}
+		"Multiply"
+		{
+			"srcVar1"  "$commweapon"
+			"srcVar2"  "$commadd_phongboost" 
+			"resultVar" "$tempvar" 
+		}
+		"Add"
+		{
+			"srcVar1"  "$tempvar" 
+			"srcVar2"  "$basephongboost"
+			"resultVar" "$phongboost" 
+		}
+
+	}
+}
