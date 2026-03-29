@@ -1,0 +1,4847 @@
+#base robot_standard.pop
+#base robot_giant.pop
+#base decay_ducks.pop
+
+// Bump in the Night - Decay Intermediate
+// Made by PDA Expert as an April Fools mission.
+// Centered around one gimmick only, likely going to be short.
+
+// Wave Structure :
+// W1 : Simple introduction
+// W2 : Giants are added to the mix
+// W3 : Tank is introduced
+// W4 : Mostly a test of everything prior
+// W5 : A boss fight
+
+WaveSchedule
+{
+	StartingCurrency 0
+	RespawnWaveTime	1
+	CanBotsAttackWhileInSpawnRoom No
+
+    PrecacheModel "models/props_lakeside_event/bomb_temp.mdl"
+    PrecacheModel "models\player\items\taunts\bumpercar\parts\bumpercar.mdl"
+    PrecacheModel "models\player\items\taunts\bumpercar\parts\bumpercar_nolights.mdl"
+    PrecacheModel "models\props_halloween\fortune_teller_narrow_full.mdl"
+    PrecacheModel "models\bots\merasmus\merasmas_misfortune_teller.mdl"
+    PrecacheModel "models/props_viaduct_event/house_hat01.mdl"
+    PrecacheModel "models\props_halloween\carnival_barricade02.mdl"
+    PrecacheModel "models\props_halloween\carnival_barricade01.mdl"
+    PrecacheModel "models\props_halloween\carnival_poster_004.mdl"
+    PrecacheModel "models\props_halloween\carnival_poster_002.mdl"
+    PrecacheModel "models\props_halloween\carnival_poster_001.mdl"
+    PrecacheModel "models\props_frontline\tank_turret.mdl"
+    PrecacheModel "models/bots/boss_bot/boss_tank_color.mdl"
+
+    PrecacheSound "music/laser_beam_instrumental_intro.mp3"
+    PrecacheSound "music/laser_beam_instrumental_loop.mp3"
+    PrecacheSound "music/laser_beam_vocals_intro.mp3"
+    PrecacheSound "music/laser_beam_vocals_loop.mp3"
+
+    NoReanimators 1
+    ForceRedMoney 1
+    ExtendedUpgradesOnly 1
+
+    BodyPartScaleSpeed 10
+
+    SpellsEnabled 1
+    BotsDropSpells 1
+
+	BonusRatioHalf 2
+	BonusRatioFull 3
+
+    SpellDropRateCommon 0
+    SpellDropRateGiant 1
+    NoCritPumpkin 1
+    NoSkeletonSplit 1
+
+	SpellBookNormalRoll
+	{
+		"Fireball" 2
+		"Fireball" 2
+		"Fireball" 2
+		"Fireball" 2
+		"Fireball" 2
+		"Fireball" 2
+        "Superjump" 2
+        "Superjump" 2
+		"Healing Aura" 1
+		"Healing Aura" 1
+		"Healing Aura" 1
+		"Fireball" 10
+        "Summon Monoculus" 1
+
+        // duped for rarity
+		"Fireball" 2
+		"Fireball" 2
+		"Fireball" 2
+		"Fireball" 2
+		"Fireball" 2
+		"Fireball" 2
+        "Superjump" 2
+        "Superjump" 2
+		"Healing Aura" 1
+		"Healing Aura" 1
+		"Healing Aura" 1
+	}
+
+	SpellBookRareRoll
+	{
+		"Fireball" 10
+	}
+
+    CustomWeapon
+    {
+        "Boss Goggles"
+        {
+            OriginalItemName "Titanium Tank Participant Medal 2017"
+            "custom item model" "models/workshop/player/items/heavy/sbox2014_war_goggles/sbox2014_war_goggles.mdl"
+        }
+        "Boss Cannon"
+        {
+            OriginalItemName "The Hot Case"
+            "attachment name" "flag"
+            "attachment scale" 0.75
+            "attachment offset" "0 15 -87"
+            "attachment angles" "0 -90 0"
+            "custom item model" "models\props_frontline\tank_turret.mdl"
+            "item color rgb" 1376511
+        }
+        "Boss Bottle"
+        {
+            OriginalItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+            "no_attack" 1
+            "no_jump" 1
+            "move speed penalty" 0.075
+            "custom item model" "models/weapons/c_models/c_bottle/c_bottle.mdl"
+        }
+        "Boss Caber"
+        {
+            OriginalItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+            "no_attack" 1
+            "no_jump" 1
+            "move speed penalty" 0.5
+            "hand scale" 1.3
+            "custom item model" "models/workshop/weapons/c_models/c_caber/c_caber.mdl"
+        }
+        "Boss Nothing"
+        {
+            OriginalItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+            "no_attack" 1
+            "no_jump" 1
+            "move speed penalty" 0.22
+            "custom item model" "models/empty.mdl"
+        }
+        "Boss' Loose Cannon"
+        {
+            OriginalItemName "The Loose Cannon"
+            "paintkit_proto_def_index" 241
+            "set_item_texture_wear" 0
+            "grenade launcher mortar mode" 0
+            "fire rate bonus" 0.2
+            "faster reload rate" 0.84
+            "clip size bonus" 2
+            "damage bonus" 2
+            "fuse bonus" 1
+            "custom projectile model" "models/props_lakeside_event/bomb_temp.mdl"
+            "explosion particle" "merasmus_bomb_explosion"
+            "custom kill icon" "merasmus_grenade"
+            "blast dmg to self increased" 0.01
+        }
+        "Boss' Banana Barrage"
+        {
+            OriginalItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+            "fire rate bonus" 0.1
+            "faster reload rate" 0.2
+            "projectile spread angle penalty" 5
+            "projectile speed increased" 0.7
+            "grenade bounce speed" 1.05
+            "grenade bounce damage" 0.01
+            "clip size bonus" 1.25
+            "damage penalty" 0.1
+            "fuse bonus" 1.5
+            "damage blast push" 90
+            "add cond on hit" 126
+            "add cond on hit duration" 2
+            "mult projectile scale" 1.5
+            "blast radius decreased" 0.2
+            "projectile trail particle" "~rockettrail_airstrike_line"
+            "custom item model" "models\weapons\c_models\c_sticky_jumper\c_sticky_jumper.mdl"
+            "custom projectile model" "models\props_farm\scenes\bananana_peel.mdl"
+            "explosion particle" "ExplosionCore_sapperdestroyed"
+            "custom weapon fire sound" "=80|weapons\sticky_jumper_shoot.wav"
+            "custom impact sound" "=80|misc\banana_slip.wav"
+            "custom kill icon" "scout_taunt"
+            "blast dmg to self increased" 0.01
+        }
+        "Boss' Caltrops"
+        {
+            OriginalItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+            "paintkit_proto_def_index" 411
+            "set_item_texture_wear" 0
+            "fire rate bonus" 0.33
+            "clip size bonus" 6
+            "damage penalty" 0.4
+            "bleeding duration" 4
+            "projectile spread angle penalty" 4
+            "damage blast push" 20
+            "grenade bounce speed" 1.05
+            "grenade bounce damage" 0.01
+            "projectile speed decreased" 0.6
+            "mult bleeding dmg" 4
+            "mult bleeding delay" 2
+            "fuse bonus" 1.5
+            "mult projectile scale" 2
+            "projectile trail particle" "~flaregun_trail_blue"
+            "blast radius decreased" 0.2
+            "custom projectile model" "models\workshop\weapons\c_models\c_kingmaker_sticky\w_kingmaker_stickybomb.mdl"
+            "explosion particle" "gas_can_impact_red"
+            "custom kill icon" "bleed_kill"
+            "no self effect" 1
+            "blast dmg to self increased" 0.01
+        }
+        "Caber Nuke Toss"
+        {
+            OriginalItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+            "damage bonus" 5.5
+            "set damagetype ignite" 1
+            "weapon burn dmg increased" 5
+            "grenade explode on impact" 1
+            "projectile speed decreased" 0.6
+            "fuse bonus" 6
+            "mult projectile scale" 2
+            "dmg pierces resists absorbs" 1
+            "blast radius increased" 1.8
+            "use large smoke explosion" 1
+            "ragdolls become ash" 1
+            "custom projectile model" "models/workshop/weapons/c_models/c_caber/c_caber.mdl"
+            "custom impact sound" "=110|ambient\explosions\explode_7.wav"
+            "custom kill icon" "megaton"
+            "no self effect" 1
+            "blast dmg to self increased" 0.01
+        }
+        "Sticky Rain Stickies"
+        {
+            OriginalItemName "Upgradeable tf_weapon_pipebomblauncher"
+            "damage bonus" 1.8
+            "projectile range increased" 0.5
+            "projectile speed increased" 0.05
+            "projectile spread angle penalty" 16
+            "projectile trail particle" "rockettrail_airstrike_line"
+            "projectile detonate time" 10
+            "max pipebombs increased" 100
+            "blast dmg to self increased" 0.01
+        }
+        "Sticky Rain BIG Stickies"
+        {
+            OriginalItemName "Upgradeable tf_weapon_pipebomblauncher"
+            "damage bonus" 3.5
+            "projectile range increased" 0.35
+            "projectile speed increased" 0.05
+            "projectile spread angle penalty" 6
+            "projectile trail particle" "rockettrail_airstrike_line"
+            "projectile detonate time" 14
+            "mult projectile scale" 3.25
+            "blast radius increased" 1.8
+            "use large smoke explosion" 1
+            "ragdolls become ash" 1
+            "max pipebombs increased" 24
+            "custom weapon fire sound" "=90|mvm\giant_demoman\giant_demoman_grenade_shoot.wav"
+            "custom impact sound" "=70|weapons\loose_cannon_explode.wav"
+            "custom projectile model" "models\weapons\w_models\w_stickybomb_d.mdl"
+            "custom kill icon" "sticky_resistance"
+            "blast dmg to self increased" 0.01
+        }
+        "Cross Slam Rocks"
+        {
+            OriginalItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
+            "projectile speed increased" 0.33
+            "projectile spread angle penalty" 10
+            "mult projectile count"	3
+            "grenade bounce speed" 1.2
+            "grenade bounce damage" 0.01
+            "damage bonus" 1.75
+            "fuse bonus" 6
+            "damage blast push" 22
+            "mult projectile scale" 0.5
+            "blast radius decreased" 0.5
+            "projectile trail particle" "~manmelter_projectile_trail"
+            "explosion particle" "rd_robot_explosion_smoke_linger"
+            "custom projectile model" "models/props_coalmines/boulder3_medium.mdl"
+            "custom impact sound" "=80|physics\concrete\concrete_break3.wav"
+            "custom kill icon" "skull_tf"
+            "blast dmg to self increased" 0.01
+        }
+    }
+
+	ItemReplacement
+	{
+		"TF_WEAPON_SPELLBOOK"
+		{
+			ItemName "Power Up Canteen (MvM)"
+            ItemName "Default Power Up Canteen (MvM)"
+            ItemName "Battery Canteens"
+            ItemName "Kritz Or Treat Canteen"
+		}
+		"TF_WEAPON_BAT"
+		{
+			ItemName "The Fan O'War"
+		}
+	}
+
+    PlayerAttributes
+    {
+        "damage bonus hidden" 4
+        "drop health pack on kill" 1
+        Scout
+        {
+            "max health additive penalty" 75
+            "health from credits" -50
+        }
+        Pyro
+        {
+            "max health additive penalty" 25
+        }
+        Demoman
+        {
+            "max health additive penalty" 25
+        }
+        Heavyweapons
+        {
+            "max health additive penalty" -100
+        }
+        Engineer
+        {
+            "max health additive penalty" 75
+        }
+        Sniper
+        {
+            "max health additive penalty" 75
+        }
+        Medic
+        {
+            "max health additive penalty" 25
+        }
+        Spy
+        {
+            "max health additive penalty" 75
+            "cannot disguise" 1
+        }
+    }
+
+    ItemAttributes
+    {   
+        ClassName tf_weapon_spellbook
+        "mult dmg vs tanks" 18.17 // makes fire balls do roughly 180 dmg to tanks
+        "mod projectile heat seek power" 130
+        "mod projectile heat aim error" 37.5
+        "mod projectile heat aim time" 4
+        "mod projectile heat no predict target speed" 1
+    }
+
+    Mission
+    {
+		Objective	Spy
+		Where		spawnbot_mission_spy
+		
+		BeginAtWave	1
+		RunForThisManyWaves	1
+		DesiredCount 2
+		InitialCooldown 80
+		CooldownTime 50
+		TFBot
+		{
+			Template T_TFBot_Spy
+			Skill Normal
+		}
+    }
+
+    Mission
+    {
+		Objective	Sniper
+		Where		spawnbot_mission_sniper
+		
+		BeginAtWave	3
+		RunForThisManyWaves	1
+		DesiredCount 2
+		InitialCooldown 110
+		CooldownTime 60
+		TFBot
+		{
+			Template T_TFBot_Sniper
+			Skill Normal
+		}
+    }
+
+    Mission
+    {
+		Objective	Sniper
+		Where		spawnbot_mission_sniper
+		
+		BeginAtWave	4
+		RunForThisManyWaves	1
+		DesiredCount 4
+		InitialCooldown 25
+		CooldownTime 80
+		TFBot
+		{
+			Template T_TFBot_Sniper
+			Skill Normal
+		}
+    }
+
+    Templates
+    {
+		T_TFBot_Soldier_Charged // Small variant of g charged soldiers, best used for ints or early waves.
+		{
+		    Class Soldier
+			Name "Charged Soldier"
+			ClassIcon soldier_crit
+			Skill Easy
+			
+			Attributes AlwaysCrit
+			
+			Item "The Original"
+			
+			ItemAttributes
+			{
+				ItemName "The Original"
+				"faster reload rate" 0.2
+				"fire rate bonus" 2
+				"Projectile speed increased" 0.5
+			}
+		}
+		T_TFBot_Medic_Kritzkrieg // Simple kritzkreig medic.
+		{
+			Class Medic
+			Name "Kritz Medic"
+			ClassIcon medic_kritz
+			Skill Normal
+			
+			Attributes SpawnWithFullCharge
+			
+			Item "The Kritzkrieg"
+			Item "Lo-Fi Longwave"
+			
+			ItemAttributes
+			{
+			    ItemName "The Kritzkrieg"
+				"uber duration bonus" 600
+				"bot medic uber health threshold" 600
+			}
+			
+			ItemAttributes
+			{
+		    	ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"damage penalty" 0.1
+			}
+		}
+		T_TFBot_Medic_QuickUber_Improved // Slight improvements for the bot, not much.
+		{
+			Class Medic
+			Name "Quick Uber Medic"
+			ClassIcon medic_uber
+			Skill Normal
+
+			Attributes SpawnWithFullCharge
+
+			Item "Flatliner"
+			Item "Hazardous Environment Vest"
+			Item "Upgradeable TF_WEAPON_SYRINGEGUN_MEDIC"
+
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_MEDIGUN"
+				"ubercharge rate bonus" 5
+				"uber duration bonus" -3
+			}
+
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_SYRINGEGUN_MEDIC"
+				"damage penalty" 0.1
+			}
+
+			CharacterAttributes
+			{
+				"heal rate bonus" 0.1
+			}
+		}
+        T_TFBot_Giant_Soldier_Burst_Homing
+        {
+			Class Soldier
+			Name "Giant Homing Burst Soldier"
+			ClassIcon soldier_burstfire_homing
+			Health 4200
+			Skill Expert
+
+			WeaponRestrictions PrimaryOnly
+			Attributes MiniBoss
+			Attributes HoldFireUntilFullReload
+
+			Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+			Item "Ghostly Gibus"
+			
+			ItemAttributes
+			{
+				ItemName "Ghostly Gibus"
+				"set item tint RGB" 8208497			
+			}
+
+			ItemAttributes
+			{
+				ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+				"faster reload rate" 0.6
+				"fire rate bonus" 0.1
+				"clip size upgrade atomic" 5.0
+				"projectile trail particle" eyeboss_projectile
+			}
+			AddCond
+			{
+    			Index 36 
+            }		
+			
+			HomingRockets
+			{
+			   	IgnoreDisguisedSpies 1
+				IgnoreStealthedSpies 0
+				AimTime 1.8
+				RocketSpeed 0.5
+				TurnPower 45
+				MaxAimError 75
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.4
+				"override footstep sound set" 3
+			}
+        }
+		T_TFBot_Giant_Heavyweapons_SteelFist_Pusher
+		{			
+			Class Heavyweapons
+			Name "Steel Punisher"
+			ClassIcon heavy_steelfist_pusher
+			Skill Expert
+			Health 5000
+			
+			WeaponRestrictions MeleeOnly
+			Attributes MiniBoss
+			
+			Item "Fists of Steel"
+			Item "Mad Mask"
+			
+			ItemAttributes
+			{
+				ItemName "Fists of Steel"
+				"fire rate bonus" 0.8 // recreates super weight champ's fire rate
+				"damage bonus" 1.7
+                "damage blast push" 66
+			}
+			
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.3
+				"override footstep sound set" 2
+			}
+		}
+		T_TFBot_Giant_Heavy_BrassBeast // fixed variant of g brass
+		{
+			Class Heavyweapons
+			Name "Giant Brass Beast Heavy"
+			ClassIcon heavy_brass_nys_giant
+			Skill Expert
+			Health 5000
+
+			MaxVisionRange 1200
+			
+			WeaponRestrictions PrimaryOnly
+			Attributes MiniBoss
+			
+			Item "The Brass Beast"
+			Item "The Eliminators Safeguard"
+			
+			ItemAttributes
+			{
+				ItemName "The Brass Beast"
+				"damage bonus"	1.8
+				"spunup_damage_resistance" 1.0
+			}
+			
+			ItemAttributes
+			{
+			    ItemName "The Eliminators Safeguard"
+				"set item tint RGB" 15185211
+			}
+			
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.3
+				"override footstep sound set" 2
+			}
+		}
+        T_TFBot_SentryBuster_Bumpercar
+        {
+            Class Demoman
+            Name "Sentry Buster in a Car"
+            Health 1000
+            Skill Hard
+            ClassIcon sentry_buster_bumper_car
+            UseHumanAnimations 1
+
+            Attributes MiniBoss
+            Attributes AutoJump
+
+            AutoJumpMin 4
+            AutoJumpMax 6
+
+            AddCond { Index 82 Delay 3 }
+
+            WeaponRestrictions MeleeOnly
+
+            FireWeapon
+            {
+                Delay 0.25
+                Cooldown 2
+                IfSeeTarget 1
+                Duration 1
+                Type "Secondary"
+            }
+
+            FireWeapon
+            {
+                Delay 0.25
+                Cooldown 4
+                IfSeeTarget 1
+                Duration 1
+                Type "Jump"
+            }
+
+            FireInput
+            {
+                Target "!self"
+                Action "$RemoveCond"
+                Param "82"
+                Delay 1.2
+                Repeats 1
+                IfSeeTarget 1
+            }
+
+            FireInput // in case the buster doesn't find a victim in 20 seconds
+            {
+                Target "!self"
+                Action "$RemoveCond"
+                Param "82"
+                Delay 20
+                Repeats 1
+                IfSeeTarget 0
+            }
+
+            Item "The Scotsman's Skullcutter"
+
+            ItemAttributes
+            {
+                ItemName "The Scotsman's Skullcutter"
+                "custom item model" "models/empty.mdl"
+                "custom kill icon" "megaton"
+            }
+
+            Action SuicideBomber
+            UseBusterModel 1
+
+            CharacterAttributes
+            {
+                "move speed bonus" 2
+                "increased jump height" 1.2
+                "gesture speed increase" 0.825
+                "voice pitch scale" 2
+                "always allow taunt" 1
+                "fire input on taunt" "!self^$RemoveCond^82"
+            }
+        }
+        // 3 phase fight(?)
+        // go through hoops to get the mega weapon to damage him proper.
+
+        // attacks :
+        // cannon ball barrage (default)
+        // sticky rain (shoots a bunch of stickies into the air which explode shortly after, indicated by him doing the bottle sequence as the tank cannon on his back does the work with a small alarm before it starts firing.)
+        // cross slam (leaps up into the air, staying for a brief moment before slamming down, shooting out rocks in a cross pattern while also doing some aoe damage. This attack is first present in phase 2 and is directly combo'd with sticky rain on phase 3)
+        // non-rider spawn (spawns support, getting stronger for each phase)
+        // buster call (spawns in bumper busters, exclusive to phase 2 as phase 3 will have them occasionally spawn in on their own terms)
+        // banana barrage (shoots out a bunch of banana peels onto the floor, which take a bit to expire. Making contact with them will make you extra slippery while also applying a ton of knockback. This attack is replaced with Caltrops on phase 3 instead. Rocket Jumper sfx will play when he switches to this weapon.)
+        // caltrops (similar to banana barrage, but more damage focused with bleed instead of slippery and actually dealing damage. Cleaver sfx will play when he switches to this weapon.)
+        // caber toss (tosses a nuclear caber next to himself while doing the sequence, this is a high damaging move that'll likely also afflict afterburn. Exclusive to phase 3)
+        T_TFBot_Boss_Race_Hater 
+        {			
+
+            // Base attributes
+            Class Demoman
+			Name "Race Hater"
+			ClassIcon demo_undying
+			Skill Expert
+			Health 100000
+
+			Attributes HoldFireUntilFullReload
+			Attributes MiniBoss
+            Attributes UseBossHealthBar
+            Attributes DisableDodge
+            Action Mobber
+            AlwaysGlow 1
+            UseHumanAnimations 1
+
+            SpawnTemplate boss_attacks_and_stuff
+
+            Item "The Smoking Skid Lid"
+            Item "Mad Mask"
+            Item "Mad Lad"
+            Item "Boss Goggles"
+            //Item "Boss Cannon"
+            Item "The Mantreads"
+            Item "Boss' Loose Cannon"
+
+            FireInput
+            {
+                Target "!self"
+                Action "$SetLocalOrigin"
+                Param "23 -248 582"
+                Delay 0
+                Repeats 1
+            }            
+            
+            FireInput
+            {
+                Target "!self"
+                Action "$GiveItem"
+                Param "Boss Cannon"
+                Delay 0.25
+                Repeats 1
+            }
+
+            InterruptAction // occasionally move to the middle of the map
+            {
+                Target "-37 275 355"
+                Delay 12
+                Repeats 0
+                Cooldown 15
+                Duration 3
+            }
+
+			Taunt
+			{
+				Delay 0.2
+				Repeats 1
+				Name "Taunt: Unleashed Rage"
+			}
+
+			CharacterAttributes
+			{
+				"move speed bonus"	1.1
+				"damage force reduction" 0.01
+                "dmg taken increased" 0.075 // reduce chip dmg
+				"airblast vulnerability multiplier" 0.01
+                "airblast vertical vulnerability multiplier" 0.01
+				"override footstep sound set" 4
+                "always allow taunt" 1
+                "dmg taken mult from special damage type 1" 4 // a bit less but still should be ok
+                "cancel falling damage" 1
+			}
+
+            // Phase related stuff
+
+            FireInput
+            {
+                Target "ducks_respawn_nodelay_nosound"
+                Action "Trigger"
+                Delay 6
+                Repeats 1
+            }            
+            
+            FireInput
+            {
+                Target "phase1_attacks"
+                Action "Trigger"
+                Delay 6
+                Repeats 1
+            }
+            
+            FireInput
+            {
+                Target "phase1_timer"
+                Action "enable"
+                Delay 6
+                Repeats 1
+            }
+            
+            FireInput
+            {
+                Target "phase2_trigger"
+                Action "trigger"
+                Delay 0
+                Repeats 1
+                IfHealthBelow 70001
+            }
+            
+            FireInput
+            {
+                Target "phase3_trigger"
+                Action "trigger"
+                Delay 0
+                Repeats 1
+                IfHealthBelow 40001
+            }
+        }
+
+        T_TFBot_Boss_Race_Hater_PunchingBag
+        {
+            Class Demoman
+			Name "Race Hater"
+			ClassIcon demo_undying
+			Skill Expert
+			Health 150000
+
+			Attributes HoldFireUntilFullReload
+			Attributes MiniBoss
+            Attributes UseBossHealthBar
+            Attributes DisableDodge
+            Action Mobber
+            UseHumanAnimations 1
+
+            SpawnTemplate "punching_bag_hour"
+
+            Item "The Smoking Skid Lid"
+            Item "Mad Mask"
+            Item "Mad Lad"
+            Item "Boss Goggles"
+            Item "The Mantreads"
+            Item "Boss' Loose Cannon"
+
+            FireInput
+            {
+                Target "!self"
+                Action "$SetLocalOrigin"
+                Param "0 2272 366"
+                Delay 0
+                Repeats 1
+            }
+            
+            FireInput
+            {
+                Target "!self"
+                Action "$GiveItem"
+                Param "Boss Cannon"
+                Delay 0.25
+                Repeats 1
+            }  
+            
+            FireInput
+            {
+                Target "stun_him_pal"
+                Action "disable"
+                Delay 0
+                Repeats 1
+                IfHealthBelow 75001
+            }  
+            FireInput
+            {
+                Target "stun_him_harder"
+                Action "enable"
+                Delay 0.1
+                Repeats 1
+                IfHealthBelow 75001
+            }  
+            FireInput
+            {
+                Target "bossfight_endcutscene"
+                Action "trigger"
+                Delay 0.1
+                Repeats 1
+                IfHealthBelow 75001
+            }  
+            FireInput
+            {
+                Target "!self"
+                Action "$SetLocalOrigin"
+                Param "3 1794 365"
+                Delay 0
+                Repeats 1
+                IfHealthBelow 75001
+            }
+            FireInput
+            {
+                Target "!self"
+                Action "$SetLocalAngles"
+                Param "0 -90 0"
+                Delay 0
+                Repeats 1
+                IfHealthBelow 75001
+            }
+            FireInput
+            {
+                Target "!self"
+                Action "$SetLocalVelocity"
+                Param "0 800 1600"
+                Delay 3
+                Repeats 1
+                IfHealthBelow 75001
+            }
+            FireInput
+            {
+                Target "!self"
+                Action "$SetLocalVelocity"
+                Param "0 1200 1400"
+                Delay 3.6
+                Repeats 1
+                IfHealthBelow 75001
+            }
+
+            AddCond { Index 52 Duration 3 }
+            
+            FireInput
+            {
+                Target "stun_him_pal"
+                Action "enable"
+                Delay 3
+                Repeats 1
+            }
+
+			Taunt
+			{
+				Delay 0.2
+				Repeats 1
+				Name "Taunt: Unleashed Rage"
+			}
+
+			CharacterAttributes
+			{
+				"move speed bonus"	1.4
+				"damage force reduction" 0.01
+                "dmg taken increased" 4
+				"airblast vulnerability multiplier" 0.01
+                "airblast vertical vulnerability multiplier" 0.01
+				"override footstep sound set" 4
+                "always allow taunt" 1
+                "cancel falling damage" 1
+                "no_attack" 1
+                "Ignore player clip" 1
+			}            
+            InterruptAction // run around
+            {
+                Target "0 2272 376"
+                Delay 0.1
+                Repeats 1
+                Duration 4.6
+            }
+            InterruptAction // run around
+            {
+                Target "-92 -1863 420"
+                Delay 5
+                Repeats 0
+                Cooldown 12
+                Duration 12
+                AddToQueue 1
+            }
+            InterruptAction // run around
+            {
+                Target "-4 2228 355"
+                Delay 5.1
+                Repeats 0
+                Cooldown 12
+                Duration 12
+                AddToQueue 1
+            }
+            InterruptAction // run around
+            {
+                Target "-779 -173 356"
+                Delay 5.2
+                Repeats 0
+                Cooldown 6
+                Duration 6
+                AddToQueue 1
+            }
+            InterruptAction // run around
+            {
+                Target "661 -538 352"
+                Delay 5.3
+                Repeats 0
+                Cooldown 6
+                Duration 6
+                AddToQueue 1
+            }
+        }
+    }
+
+    // PlayerAttributes
+    // {
+    //     "custom kill icon" "taunt_scout"
+    // }
+
+    SpawnTemplate main_logic
+    SpawnTemplate bumper_car_ramps
+    SpawnTemplate bumper_car_big_boost
+    SpawnTemplate new_decor
+    SpawnTemplate spell_pickups
+
+    PointTemplates
+    {
+        main_logic // to not repeat stuff
+        {
+            NoFixUp 1
+            point_populator_interface
+            {
+                "targetname" "new_populator"
+            }
+            logic_auto // use this for anything that i need to set at the start
+            {
+                "targetname" "big_thing"
+                "onmapspawn" "intel,SetReturnTime,15,0,-1"
+                "onmapspawn" "bombpath_choose_1_case,kill,,0,-1"
+                "onmapspawn" "wave_start_relay,trigger,,0.2,-1"
+                "onmapspawn" "trigger_hurt,toggle,,0,-1"
+                "onmapspawn" "trigger_hurt_hatch_fire,toggle,,0.1,-1"
+            }
+            logic_relay // bans top path pretty much
+            {
+                "targetname" "wave_finished_relay_new"
+                "ontrigger" "bombpath_arrows_clear_relay,trigger,,0,-1"
+                "ontrigger" "intel,forceresetsilent,,0,-1"
+                "ontrigger" "new_bomb_pick,PickRandomShuffle,,0,-1"
+                "ontrigger" "bumpercar_mode,Enable,,0,-1"
+                "ontrigger" "bumpercar_mode_timer,Enable,,0,-1"
+                "ontrigger" "func_upgradestation,enable,,0,-1"
+                "ontrigger" "duck_killer,enable,,0,-1"
+                "ontrigger" "duck_collect*,kill,,0,-1"
+            }
+            logic_timer
+            {
+                "targetname" "duck_killer"
+                "RefireTime" "1"
+                "StartDisabled" "1"
+                "OnTimer" "duck_collect*,Kill,,0,-1"
+            }
+            logic_relay
+            {
+                "targetname" "wave_finished_relay_new_nobumpercar"
+                "ontrigger" "bombpath_arrows_clear_relay,trigger,,0,-1"
+                "ontrigger" "intel,forceresetsilent,,0,-1"
+                "ontrigger" "new_bomb_pick,PickRandomShuffle,,0,-1"
+                "ontrigger" "func_upgradestation,disable,,0,-1"
+            }
+            logic_case
+            {
+                "targetname" "new_bomb_pick"
+                "oncase01" "bombpath_left_relay,trigger,,0.5,-1"
+                "oncase02" "bombpath_left_relay,trigger,,0.5,-1"
+            }
+
+            // bumper cars
+
+            logic_timer
+            {
+                "targetname" "bumpercar_mode_timer"
+                "RefireTime" "1"
+                "StartDisabled" "1"
+                "OnTimer" "bumpercar_mode,enable,,0,-1"
+                "OnTimer" "bumpercar_mode,disable,,0.5,-1"
+            }
+            filter_tf_condition
+            {
+                "targetname" "filter_bumpercar"
+                "condition" "82"
+                "negated" "0"
+            }
+            filter_multi
+            {
+                "targetname" "filter_drivinglisecne"
+                "FilterType" "1"
+                "Filter01" "filter_bumpercar"
+                "Filter02" "filter_blueteam"
+                "negated" "1"
+            }
+            trigger_add_tf_player_condition
+            {
+                "targetname" "bumpercar_mode"
+                "condition" "82"
+                "filtername" "filter_drivinglisecne"
+                "mins" "-9999 -9999 -9999"
+                "maxs" "9999 9999 9999"
+                "duration" "-1"
+                "spawnflags" "1"
+                "startdisabled" "1"
+            }
+            trigger_remove_tf_player_condition
+            {
+                "targetname" "bumpercar_unmode"
+                "condition" "82"
+                "filtername" "filter_redteam"
+                "mins" "-9999 -9999 -9999"
+                "maxs" "9999 9999 9999"
+                "spawnflags" "1"
+                "startdisabled" "1"
+            }
+
+            // teleports
+
+            info_particle_system
+            {
+                "targetname" "portal_to_hatch_effect"
+                "effect_name" "eyeboss_tp_vortex"
+				"origin" "-90 -1235 165"
+				"start_active" "1"
+            } 
+			trigger_teleport
+			{
+				"targetname" "portal_to_hatch"
+				"target" "hatch_spot"
+				"spawnflags" "1"
+                "filtername" "filter_redteam"
+				"mins" "-84 -84 -84"
+				"maxs" "84 84 84"
+				"origin" "-90 -1235 165"
+			}
+			info_target 
+			{
+    			"targetname" "hatch_spot"
+				"origin" "699 -2595 499"
+				"angles" "0 90 0"
+			}
+
+			trigger_teleport
+			{
+				"targetname" "dontdothat"
+				"target" "hatch_spot"
+				"spawnflags" "1"
+                "filtername" "filter_redteam"
+				"mins" "-84 -24 -64"
+				"maxs" "84 24 64"
+				"origin" "-1219 937 576"
+			}
+        }
+        w1_bumper_car_intro
+        {
+            NoFixUp 1 // Announcer.SD_Event_CurseIncoming
+            logic_auto
+            {
+                "targetname" "bumper_car_thingie"
+                "onmapspawn" "bumpercar_sfx1,playsound,,0,-1"
+                "onmapspawn" "bumpercar_shake,startshake,,1.37,-1"
+                "onmapspawn" "bumpercar_fade,fade,,1.5,-1"
+                "onmapspawn" "bumpercar_evilsound,playsound,,1.5,-1"
+                "onmapspawn" "bumpercar_evilsound2,playsound,,2.2,-1"
+                "onmapspawn" "bumpercar_fade_inverse,fade,,5.4,-1"
+                "onmapspawn" "bumpercar_mode,enable,,5,-1"
+                "onmapspawn" "bumpercar_mode_timer,Enable,,5,-1"
+                "onmapspawn" "bumpercar_sfx2,playsound,,5.8,-1"
+                "onmapspawn" "bumpercar_impact,playsound,,5,-1"
+                "onmapspawn" "weird_music,playsound,,5.5,-1"
+                "onmapspawn" "obj_sentrygun,RemoveHealth,9999,5,-1"
+                "onmapspawn" "obj_dispenser,RemoveHealth,9999,5,-1"
+                "onmapspawn" "obj_teleporter,RemoveHealth,9999,5,-1"
+            }
+            env_shake
+            {
+                "targetname" "bumpercar_shake"
+                "amplitude" "10"
+                "duration" "12"
+                "frequency" "40"
+                "spawnflags" "5"
+            }
+            env_fade
+            {
+                "targetname" "bumpercar_fade"
+                "duration" "3"
+                "holdtime" "1"
+                "rendercolor" "207 255 204"
+            }
+            env_fade
+            {
+                "targetname" "bumpercar_fade_inverse"
+                "duration" "2.25"
+                "rendercolor" "207 255 204"
+                "spawnflags" "1"
+            }
+			ambient_generic
+			{
+				"targetname" "bumpercar_sfx1"
+				"spawnflags" "17"
+				"message" "Announcer.SD_Event_CurseIncoming"
+				"health" "10"
+			}
+			ambient_generic
+			{
+				"targetname" "bumpercar_sfx2"
+				"spawnflags" "17"
+				"message" "vo/halloween_merasmus/sf14_merasmus_minigame_all_start_12.mp3"
+				"health" "10"
+			}
+			ambient_generic
+			{
+				"targetname" "bumpercar_evilsound"
+				"spawnflags" "17"
+                "pitch" "80"
+				"message" "ambient_mp3\hell\hell_rumbles_04.mp3"
+				"health" "10"
+			}
+			ambient_generic
+			{
+				"targetname" "bumpercar_evilsound2"
+				"spawnflags" "17"
+                "pitch" "80"
+				"message" "ambient_mp3\hell\hell_rumbles_03.mp3"
+				"health" "10"
+			}
+			ambient_generic
+			{
+				"targetname" "bumpercar_impact"
+				"spawnflags" "17"
+                "pitch" "95"
+				"message" "misc\halloween\merasmus_spell.wav"
+				"health" "10"
+			}
+			ambient_generic
+			{
+				"targetname" "weird_music"
+				"spawnflags" "17"
+                "pitch" "100"
+				"message" "#music\carousel_of_curses.wav"
+				"health" "8"
+			}
+        }
+        w3_tank_music
+        {
+			ambient_generic
+			{
+				"targetname" "tank_music"
+				"spawnflags" "17"
+                "pitch" "100"
+				"message" "#ui\holiday\gamestartup_halloween1.mp3"
+				"health" "10"
+			}
+        }
+        w3_tank_hint
+        {
+            NoFixUp 1
+            logic_relay
+            {
+                "targetname" "tank_tutorial"
+                "ontrigger" "tank_hint1,show,,0,-1"
+                "ontrigger" "tank_music,playsound,,0,-1"
+                "ontrigger" "tank_hint2,show,,7,-1"
+                "ontrigger" "tank_hint1,show,,0,-1"
+                "ontrigger" "ducks_respawn_w3_nodelay_nosound,trigger,,1.5,-1"
+            }
+			training_annotation
+			{
+			  "targetname" "tank_hint1"
+			  "display_text" "Collect the ducks in order to get a power boost from Merasmus!"
+			  "lifetime" "7"
+			  "origin" "0 2381 580"
+			}
+			training_annotation
+			{
+			  "targetname" "tank_hint2"
+			  "display_text" "You will need 15 in total currently. Gold ducks count as 5 ducks!"
+			  "lifetime" "7"
+			  "origin" "0 2381 580"
+			}
+        }
+        bumper_car_big_boost
+        {
+            NoFixUp 1
+
+            logic_relay
+            {
+                "targetname" "kicksomeass"
+                "OnTrigger" "kicking_ass_time,enable,,0,-1"
+                "OnTrigger" "kicking_ass_timer,enable,,0,-1"
+                "OnTrigger" "bumpercar_mode_timer,disable,,0,-1"
+                "OnTrigger" "bumpercar_mode,disable,,0,-1"
+                "OnTrigger" "bumpercar_mode,disable,,0.25,-1"
+                "OnTrigger" "bumpercar_mode,disable,,0.5,-1"
+                "OnTrigger" "bumpercar_mode,disable,,0.75,-1"
+                "OnTrigger" "bumpercar_mode,disable,,1,-1"
+                "OnTrigger" "bumpercar_mode,disable,,1.25,-1"
+                "OnTrigger" "kicking_ass_timer,disable,,7,-1"
+                "OnTrigger" "kicking_ass_time,disable,,7,-1"
+                "OnTrigger" "kicking_ass_time,disable,,7.5,-1"
+                "OnTrigger" "kicking_ass_time,disable,,8,-1"
+                "OnTrigger" "bumpercar_mode,enable,,8,-1"
+                "OnTrigger" "bumpercar_mode_timer,enable,,8,-1"
+                "OnTrigger" "bumpercar_mode,disable,,8.1,-1"
+                "OnTrigger" "bumpercar_mode,enable,,8.2,-1"
+                "OnTrigger" "kicking_ass_time_is_over,enable,,8,-1"
+                "OnTrigger" "kicking_ass_time_is_over,disable,,8.1,-1"
+            }
+
+			training_annotation
+			{
+			  "targetname" "upgrade_notice"
+			  "display_text" "Upgrade stations are open for business!"
+			  "lifetime" "7"
+			  "origin" "-114 -2660 821"
+			}
+
+			training_annotation
+			{
+			  "targetname" "w5_count"
+			  "display_text" "You will need 25 ducks to trigger Merasmus' Boost this wave!"
+			  "lifetime" "7"
+			  "origin" "-114 -2660 821"
+			}
+
+            logic_timer
+            {
+                "targetname" "kicking_ass_timer"
+                "RefireTime" "1"
+                "StartDisabled" "1"
+                "OnTimer" "kicking_ass_time,enable,,0,-1"
+                "OnTimer" "kicking_ass_time,disable,,0.5,-1"
+            }
+
+            filter_tf_condition
+            {
+                "targetname" "filter_uber"
+                "condition" "42"
+                "negated" "0"
+            }
+            filter_tf_class
+            {
+                "targetname" "filter_heavy"
+                "tfclass" "6"
+                "negated" "0"
+            }
+            filter_tf_class
+            {
+                "targetname" "filter_spy"
+                "tfclass" "8"
+                "negated" "0"
+            }
+            filter_tf_class
+            {
+                "targetname" "filter_engi"
+                "tfclass" "9"
+                "negated" "0"
+            }
+            filter_multi
+            {
+                "targetname" "filter_gunninglisence"
+                "FilterType" "1"
+                "Filter01" "filter_uber"
+                "Filter02" "filter_blueteam"
+                "negated" "1"
+            }
+            filter_multi
+            {
+                "targetname" "filter_nofatpeople"
+                "FilterType" "1"
+                "Filter01" "filter_heavy"
+                "Filter02" "filter_blueteam"
+                "Filter03" "filter_spy"
+                "Filter04" "filter_engi"
+                "negated" "1"
+            }
+            filter_multi
+            {
+                "targetname" "filter_yesfatpeople"
+                "FilterType" "0"
+                "Filter01" "filter_heavy"
+                "Filter02" "filter_redteam"
+                "negated" "0"
+            }
+
+            trigger_add_tf_player_condition
+            {
+                "targetname" "kicking_ass_time"
+                "condition" "42"
+                "filtername" "filter_drivinglisecne"
+                "mins" "-9999 -9999 -9999"
+                "maxs" "9999 9999 9999"
+                "duration" "1"
+                "spawnflags" "1"
+                "startdisabled" "1"
+            }
+
+            trigger_multiple
+            {
+                "targetname" "kicking_ass_time"
+                "filtername" "filter_gunninglisence"
+                "mins" "-9999 -9999 -9999"
+                "maxs" "9999 9999 9999"
+                "spawnflags" "1"
+                "startdisabled" "1"
+                "OnTrigger" "!activator,$removecond,82,0,-1"
+                "OnTrigger" "!activator,$DisplayTextCenter,KICK SOME ASS!,0,-1"
+                "OnTrigger" "!activator,$RemovePlayerAttribute,damage bonus hidden,0,-1"
+                "OnTrigger" "!activator,$AddPlayerAttribute,faster reload rate|-1,0.1,-1"
+                "OnTrigger" "!activator,$AddPlayerAttribute,maxammo secondary increased|5,0.1,-1"
+                "OnTrigger" "!activator,$AddPlayerAttribute,maxammo primary increased|5,0.1,-1"
+                "OnTrigger" "!activator,$AddPlayerAttribute,special damage type|1,0.1,-1"
+                "OnTrigger" "!activator,$AddPlayerAttribute,always crit|1,0.1,-1"
+            }
+
+            trigger_multiple
+            {
+                "targetname" "kicking_ass_time"
+                "filtername" "filter_nofatpeople"
+                "mins" "-9999 -9999 -9999"
+                "maxs" "9999 9999 9999"
+                "spawnflags" "1"
+                "startdisabled" "1"
+                "OnTrigger" "!activator,$AddPlayerAttribute,fire rate bonus|0.6,0.1,-1"
+            }
+
+            trigger_multiple
+            {
+                "targetname" "kicking_ass_time"
+                "filtername" "filter_yesfatpeople"
+                "mins" "-9999 -9999 -9999"
+                "maxs" "9999 9999 9999"
+                "spawnflags" "1"
+                "startdisabled" "1"
+                "OnTrigger" "!activator,$AddPlayerAttribute,damage penalty|0.2,0.1,-1"
+            }
+
+            trigger_multiple
+            {
+                "targetname" "kicking_ass_time_is_over"
+                "filtername" "filter_redteam"
+                "mins" "-9999 -9999 -9999"
+                "maxs" "9999 9999 9999"
+                "spawnflags" "1"
+                "startdisabled" "1"
+                "OnTrigger" "!activator,$RemovePlayerAttribute,fire rate bonus,0,-1"
+                "OnTrigger" "!activator,$RemovePlayerAttribute,fire rate penalty,0,-1"
+                "OnTrigger" "!activator,$RemovePlayerAttribute,faster reload rate,0,-1"
+                "OnTrigger" "!activator,$RemovePlayerAttribute,always crit,0,-1"
+                "OnTrigger" "!activator,$RemovePlayerAttribute,maxammo secondary increased,0,-1"
+                "OnTrigger" "!activator,$RemovePlayerAttribute,maxammo primary increased,0,-1"
+                "OnTrigger" "!activator,$RemovePlayerAttribute,special damage type,0,-1"
+                "OnTrigger" "!activator,$RemovePlayerAttribute,damage penalty,0,-1"
+                "OnTrigger" "!activator,$AddPlayerAttribute,damage bonus hidden|4,0.1,-1"
+                "OnTrigger" "!activator,$PlaySoundToSelf,misc\halloween\spell_lightning_ball_impact.wav,0,-1"
+            }
+
+            math_counter
+            {
+                "targetname" "general_counter"
+                "startvalue" "0"
+                "min" "0"
+                "max" "25"
+                "OnHitMax" "kicksomeass,Trigger,,5.7,-1"
+                "OnHitMax" "tf_gamerules,PlayVo,vo\halloween_merasmus\hall2015_contractwin_02.mp3,0,-1"
+                "OnHitMax" "duck_collect*,kill,,0,-1"
+                "OnHitMax" "tf_gamerules,PlayVo,vo\halloween_merasmus\sf14_merasmus_begins_05sec.mp3,1.4,-1"
+                "OnHitMax" "tf_gamerules,PlayVo,vo\halloween_merasmus\sf14_merasmus_begins_04sec.mp3,2.5,-1"
+                "OnHitMax" "tf_gamerules,PlayVo,vo\halloween_merasmus\sf14_merasmus_begins_03sec.mp3,3.4,-1"
+                "OnHitMax" "tf_gamerules,PlayVo,vo\halloween_merasmus\sf14_merasmus_begins_02sec.mp3,4.5,-1"
+                "OnHitMax" "tf_gamerules,PlayVo,vo\halloween_merasmus\sf14_merasmus_begins_01sec.mp3,5.5,-1"
+                "OnHitMax" "ducks_respawn,Trigger,,5.7,-1"
+                "OnHitMax" "tf_gamerules,PlayVo,vo\halloween_merasmus\sf14_merasmus_general_purpose_11.mp3,7,-1"
+                "OnHitMax" "tf_gamerules,PlayVo,items\powerup_pickup_strength.wav,5.7,-1"
+                "OnHitMax" "general_counter,setvalue,0,15.7,-1"                
+            }
+
+            logic_relay
+            {
+                "targetname" "setcounter_requirement_to_15"
+                "OnTrigger" "general_counter,AddOutput,max 15,0,1"
+                "OnTrigger" "general_counter,setvalue,0,0,1"
+            }
+            logic_relay
+            {
+                "targetname" "setcounter_requirement_to_25"
+                "OnTrigger" "general_counter,AddOutput,max 25,0,1"
+                "OnTrigger" "general_counter,setvalue,0,0,1"
+            }
+
+            logic_case
+            {
+                "targetname" "front_ducks_spawner"
+                "OnCase01" "fd_underbridge,forcespawn,,0,-1"
+                "OnCase02" "fd_cross,forcespawn,,0,-1"
+                "OnCase03" "fd_sides,forcespawn,,0,-1"
+                "OnCase04" "fd_neartank,forcespawn,,0,-1"
+            }
+
+            logic_case
+            {
+                "targetname" "mid_ducks_spawner"
+                "OnCase01" "md_pit_entrance_left,forcespawn,,0,-1"
+                "OnCase02" "md_pit_entrance_right,forcespawn,,0,-1"
+                "OnCase03" "md_left,forcespawn,,0,-1"
+                "OnCase04" "md_right,forcespawn,,0,-1"
+                "OnCase05" "md_topleft,forcespawn,,0,-1"
+                "OnCase06" "md_topright,forcespawn,,0,-1"
+                "OnCase07" "md_left_halftop,forcespawn,,0,-1"
+                "OnCase08" "md_right_halftop,forcespawn,,0,-1"
+            }
+
+            logic_case
+            {
+                "targetname" "hatch_ducks_spawner"
+                "OnCase01" "hd_left_bridge,forcespawn,,0,-1"
+                "OnCase02" "hd_right_bridge,forcespawn,,0,-1"
+                "OnCase03" "hd_pit_left,forcespawn,,0,-1"
+                "OnCase04" "hd_pit_right,forcespawn,,0,-1"
+                "OnCase05" "hd_hatch,forcespawn,,0,-1"
+            }
+
+            logic_case
+            {
+                "targetname" "duckpicker_extra"
+                "OnCase01" "front_ducks_spawner,PickRandomShuffle,,0,-1"
+                "OnCase02" "mid_ducks_spawner,PickRandomShuffle,,0,-1"
+                "OnCase04" "hatch_ducks_spawner,PickRandomShuffle,,0,-1"
+            }
+
+            logic_case
+            {
+                "targetname" "bonus_duck_picker"
+                "OnCase01" "bd_houseleft,forcespawn,,0,-1"
+                "OnCase02" "bd_houseright,forcespawn,,0,-1"
+                "OnCase03" "bd_merasmus,forcespawn,,0,-1"
+                "OnCase04" "bd_right_ramp,forcespawn,,0,-1"
+                "OnCase05" "bd_funnyspot,forcespawn,,0,-1"
+                "OnCase06" "bd_pitcorner,forcespawn,,0,-1"
+                "OnCase07" "bd_peopledontlookhereithink,forcespawn,,0,-1"
+                "OnCase08" "bd_frontbridge,forcespawn,,0,-1"
+            }
+        }
+        w3_duck_counter
+        {
+            logic_relay
+            {
+                "targetname" "ducks_respawn"
+                "OnTrigger" "duck_respawn_sound,PlaySound,,10.2,-1"
+                "OnTrigger" "mid_ducks_spawner,PickRandomShuffle,,10,-1"
+                "OnTrigger" "hatch_ducks_spawner,PickRandomShuffle,,10,-1"
+                "OnTrigger" "duckpicker_extra_nofront,PickRandomShuffle,,10,-1"
+                "OnTrigger" "bonus_duck_picker,PickRandomShuffle,,10,-1"
+                "OnTrigger" "bonus_duck_picker,PickRandomShuffle,,10,-1"
+                "OnTrigger" "duck_respawn_sound,StopSound,,10.2,-1"
+            }
+
+            logic_relay
+            {
+                "targetname" "ducks_respawn_w3_nodelay_nosound"
+                "OnTrigger" "mid_ducks_spawner,PickRandomShuffle,,0,-1"
+                "OnTrigger" "hatch_ducks_spawner,PickRandomShuffle,,0,-1"
+                "OnTrigger" "duckpicker_extra_nofront,PickRandomShuffle,,0,-1"
+                "OnTrigger" "bonus_duck_picker,PickRandomShuffle,,0,-1"
+                "OnTrigger" "bonus_duck_picker,PickRandomShuffle,,0,-1"
+            }
+
+            logic_case
+            {
+                "targetname" "duckpicker_extra_nofront"
+                "OnCase02" "mid_ducks_spawner,PickRandomShuffle,,0,-1"
+                "OnCase04" "hatch_ducks_spawner,PickRandomShuffle,,0,-1"
+            }
+
+			ambient_generic
+			{
+				"targetname" "duck_respawn_sound"
+				"spawnflags" "17"
+				"message" "sf14.Merasmus.DuckHunt.DucksHaveMoved"
+				"health" "10"
+			}
+        }
+        w4_duck_counter
+        {
+
+            logic_relay
+            {
+                "targetname" "ducks_respawn"
+                "OnTrigger" "duck_respawn_sound,PlaySound,,10.2,-1"
+                "OnTrigger" "front_ducks_spawner,PickRandomShuffle,,10,-1"
+                "OnTrigger" "mid_ducks_spawner,PickRandomShuffle,,10,-1"
+                "OnTrigger" "hatch_ducks_spawner,PickRandomShuffle,,10,-1"
+                "OnTrigger" "bonus_duck_picker,PickRandomShuffle,,10,-1"
+                "OnTrigger" "bonus_duck_picker,PickRandomShuffle,,10,-1"
+                "OnTrigger" "duck_respawn_sound,StopSound,,10.2,-1"
+            }
+
+            logic_relay
+            {
+                "targetname" "ducks_respawn_w4_nodelay_nosound"
+                "OnTrigger" "front_ducks_spawner,PickRandomShuffle,,0,-1"
+                "OnTrigger" "mid_ducks_spawner,PickRandomShuffle,,0,-1"
+                "OnTrigger" "hatch_ducks_spawner,PickRandomShuffle,,0,-1"
+                "OnTrigger" "bonus_duck_picker,PickRandomShuffle,,0,-1"
+                "OnTrigger" "bonus_duck_picker,PickRandomShuffle,,0,-1"
+            }
+
+			ambient_generic
+			{
+				"targetname" "duck_respawn_sound"
+				"spawnflags" "17"
+				"message" "sf14.Merasmus.DuckHunt.DucksHaveMoved"
+				"health" "10"
+			}
+        }
+        w5_duck_counter
+        {
+            logic_relay
+            {
+                "targetname" "ducks_respawn"
+                "OnTrigger" "duck_respawn_sound,PlaySound,,10.2,-1"
+                "OnTrigger" "front_ducks_spawner,PickRandomShuffle,,10,-1"
+                "OnTrigger" "mid_ducks_spawner,PickRandomShuffle,,10,-1"
+                "OnTrigger" "hatch_ducks_spawner,PickRandomShuffle,,10,-1"
+                "OnTrigger" "duckpicker_extra,PickRandomShuffle,,10,-1"
+                "OnTrigger" "duckpicker_extra,PickRandomShuffle,,10,-1"
+                "OnTrigger" "bonus_duck_picker,PickRandomShuffle,,10,-1"
+                "OnTrigger" "bonus_duck_picker,PickRandomShuffle,,10,-1"
+                "OnTrigger" "bonus_duck_picker,PickRandomShuffle,,10,-1"
+                "OnTrigger" "duck_respawn_sound,StopSound,,10.2,-1"
+            }
+
+            logic_relay
+            {
+                "targetname" "ducks_respawn_nodelay"
+                "OnTrigger" "duck_respawn_sound,PlaySound,,0.2,-1"
+                "OnTrigger" "front_ducks_spawner,PickRandomShuffle,,0,-1"
+                "OnTrigger" "mid_ducks_spawner,PickRandomShuffle,,0,-1"
+                "OnTrigger" "hatch_ducks_spawner,PickRandomShuffle,,0,-1"
+                "OnTrigger" "duckpicker_extra,PickRandomShuffle,,0,-1"
+                "OnTrigger" "duckpicker_extra,PickRandomShuffle,,0,-1"
+                "OnTrigger" "bonus_duck_picker,PickRandomShuffle,,0,-1"
+                "OnTrigger" "bonus_duck_picker,PickRandomShuffle,,0,-1"
+                "OnTrigger" "bonus_duck_picker,PickRandomShuffle,,0,-1"
+                "OnTrigger" "duck_respawn_sound,StopSound,,0.2,-1"
+            }
+
+            logic_relay
+            {
+                "targetname" "ducks_respawn_nodelay_nosound"
+                "OnTrigger" "front_ducks_spawner,PickRandomShuffle,,0,-1"
+                "OnTrigger" "mid_ducks_spawner,PickRandomShuffle,,0,-1"
+                "OnTrigger" "hatch_ducks_spawner,PickRandomShuffle,,0,-1"
+                "OnTrigger" "duckpicker_extra,PickRandomShuffle,,0,-1"
+                "OnTrigger" "duckpicker_extra,PickRandomShuffle,,0,-1"
+                "OnTrigger" "bonus_duck_picker,PickRandomShuffle,,0,-1"
+                "OnTrigger" "bonus_duck_picker,PickRandomShuffle,,0,-1"
+                "OnTrigger" "bonus_duck_picker,PickRandomShuffle,,0,-1"
+            }
+
+			ambient_generic
+			{
+				"targetname" "duck_respawn_sound"
+				"spawnflags" "17"
+				"message" "sf14.Merasmus.DuckHunt.DucksHaveMoved"
+				"health" "10"
+			}
+        }
+        w5_start_cutscene
+        {
+            NoFixup 1
+
+            // kill teleporter
+
+			OnSpawnOutput
+            {
+                Target "portal_to_hatch*"
+                Action "kill"
+            }
+			OnSpawnOutput
+            {
+                Target "hatch_spot"
+                Action "kill"
+            }
+
+            // boss intro cutscene
+            
+			OnSpawnOutput
+            {
+                Target "bumpercar_mode_timer"
+                Action "disable"
+                Delay 3
+            }
+			OnSpawnOutput
+            {
+                Target "bumpercar_mode"
+                Action "disable"
+                Delay 3
+            }
+			OnSpawnOutput
+            {
+                Target "bumpercar_mode"
+                Action "disable"
+                Delay 3.5
+            }
+			OnSpawnOutput
+            {
+                Target "bumpercar_mode"
+                Action "disable"
+                Delay 3.75
+            }
+			OnSpawnOutput
+            {
+                Target "bumpercar_mode"
+                Action "disable"
+                Delay 4
+            }
+			OnSpawnOutput
+            {
+                Target "bumpercar_unmode"
+                Action "enable"
+                Delay 3.9
+            }
+			OnSpawnOutput
+            {
+                Target "bossfight_cutscene"
+                Action "Trigger"
+                Delay 4
+            }
+			OnSpawnOutput
+            {
+                Target "bumpercar_unmode"
+                Action "disable"
+                Delay 4
+            }
+			logic_relay
+			{
+			    "targetname" "bossfight_cutscene"
+                "OnTrigger" "boss_music_intro,PlaySound,,0,-1"
+                "OnTrigger" "boss_particle,start,,0,-1"
+                "OnTrigger" "boss_kaboom,PlaySound,,0,-1"
+                "OnTrigger" "boss_cam,$EnableAll,,0,-1"
+                "OnTrigger" "boss_cam,$DisableAll,,5.3,-1"
+                "OnTrigger" "bumpercar_mode,enable,,5.3,-1"
+                "OnTrigger" "bumpercar_mode_timer,enable,,5.3,-1"
+                "OnTrigger" "boss_name,Display,,1.,-1"
+                "OnTrigger" "boss_tagline,Display,,1.6,-1"
+                "OnTrigger" "boss_music_loop1,playsound,,12.8,-1"
+                "OnTrigger" "boss_loop_handler,enable,,12.8,-1"
+                "OnTrigger" "boss_music_loop1,stopsound,,96.003,-1"
+                "OnTrigger" "boss_music_loop2,playsound,,96.003,-1"
+			}
+			game_text
+			{
+				"targetname" "boss_name"
+				"message" "RACE HATER"
+				"spawnflags" "1"
+				"channel" "2"
+				"holdtime" "4"
+				"x" "-1"
+				"y" "0.425"
+                "color" "255 255 255"
+                "effect" "0"
+                "fadein" "0.5"
+                "fadeout" "1"
+			}
+			game_text
+			{
+				"targetname" "boss_tagline"
+				"message" "HIS HATRED FOR RACING IS UNMATCHED!"
+				"spawnflags" "1"
+				"channel" "3"
+				"holdtime" "3.4"
+				"x" "-1"
+				"y" "0.475"
+                "color" "255 255 255"
+                "effect" "0"
+                "fadein" "0.5"
+                "fadeout" "1"
+			}
+			info_particle_system
+			{
+				"targetname" "boss_particle"
+				"origin" "-50 -370 582"
+				"effect_name" "fluidSmokeExpl_ring_mvm"
+			}
+			point_viewcontrol
+			{
+				"targetname" "boss_cam"
+				"spawnflags" "44"
+				"wait" "100"
+				"origin" "69 -107 604"
+				"angles" "-18 -115 0"
+			}
+			ambient_generic
+			{
+				"targetname" "boss_kaboom"
+				"spawnflags" "17"
+				"message" "misc/doomsday_missile_explosion.wav"
+				"health" "10"
+			}
+			ambient_generic
+			{
+				"targetname" "boss_kaboom"
+				"spawnflags" "17"
+				"message" "misc/doomsday_missile_explosion.wav"
+				"health" "6"
+			}
+			ambient_generic
+			{
+				"targetname" "boss_music_intro"
+				"spawnflags" "17"
+				"message" "#music\laser_beam_instrumental_intro.mp3"
+				"health" "10"
+			}
+            logic_timer
+            {
+                "targetname" "boss_loop_handler"
+                "startdisabled" "1"
+                "RefireTime" "166.406"
+                "OnTimer" "boss_music_loop1,PlaySound,,0,-1"
+                "OnTimer" "boss_music_loop2,StopSound,,0,-1"
+                "OnTimer" "boss_music_loop2,PlaySound,,83.203,-1"
+                "OnTimer" "boss_music_loop1,StopSound,,83.203,-1"
+            }
+			ambient_generic
+			{
+				"targetname" "boss_music_loop1"
+				"spawnflags" "17"
+				"message" "#music\laser_beam_instrumental_loop.mp3"
+				"health" "10"
+			}
+			ambient_generic
+			{
+				"targetname" "boss_music_loop2"
+				"spawnflags" "17"
+				"message" "#music\laser_beam_instrumental_loop.mp3"
+				"health" "10"
+			}
+
+			ambient_generic
+			{
+				"targetname" "boss_music_phase3_intro"
+				"spawnflags" "17"
+				"message" "#music\laser_beam_vocals_intro.mp3"
+				"health" "10"
+			}
+
+            logic_timer
+            {
+                "targetname" "boss_loop_handler_phase3"
+                "startdisabled" "1"
+                "RefireTime" "166.408"
+                "OnTimer" "boss_music_phase3_loop1,PlaySound,,0,-1"
+                "OnTimer" "boss_music_phase3_loop2,StopSound,,0,-1"
+                "OnTimer" "boss_music_phase3_loop2,PlaySound,,83.204,-1"
+                "OnTimer" "boss_music_phase3_loop1,StopSound,,83.204,-1"
+            }
+
+			ambient_generic
+			{
+				"targetname" "boss_music_phase3_loop1"
+				"spawnflags" "17"
+				"message" "#music\laser_beam_vocals_loop.mp3"
+				"health" "10"
+			}
+			ambient_generic
+			{
+				"targetname" "boss_music_phase3_loop2"
+				"spawnflags" "17"
+				"message" "#music\laser_beam_vocals_loop.mp3"
+				"health" "10"
+			}
+        }
+        w5_end_cutscene
+        {
+            NoFixUp 1
+            OnSpawnOutput
+            {
+                Target "stayhereforamoment"
+                Action "Disable"
+                Delay 0.1
+            }
+
+            env_fade
+            {
+                "targetname" "punchbag_fade"
+                "duration" "2"
+                "rendercolor" "207 255 204"
+                "spawnflags" "1"
+            }
+            env_fade
+            {
+                "targetname" "ouch_fade"
+                "duration" "1"
+                "rendercolor" "255 255 255"
+                "spawnflags" "1"
+            }
+            logic_relay
+            {
+                "targetname" "bossfight_punchbag_start"
+                "OnTrigger" "ouch_fade,Fade,0,0,-1"
+                "OnTrigger" "duck_killer,Enable,,0,-1"
+                "OnTrigger" "general_counter,Kill,,0,-1"
+                "OnTrigger" "ducks_respawn,cancelpending,,0,-1"
+                "OnTrigger" "ducks_respawn,kill,,0.1,-1"
+                "OnTrigger" "boss_talkshit_get_shit,PlaySound,,0.1,-1"
+                "OnTrigger" "boss_talkshit_get_shit,stopsound,,3.1,-1"
+                "OnTrigger" "punchbag_fade,fade,,3,-1"
+                "OnTrigger" "spell_impact,playsound,,3,-1"
+                "OnTrigger" "tf_gamerules,PlayVo,vo\halloween_merasmus\sf12_found03.mp3,2.15,-1"
+                "OnTrigger" "tf_gamerules,PlayVo,vo\mvm\mght\demoman_mvm_m_painsharp02.mp3,3.25,-1"
+                "OnTrigger" "tf_gamerules,PlayVo,vo\halloween_merasmus\sf12_appears09.mp3,5.5,-1"
+                "OnTrigger" "tf_gamerules,PlayVo,vo\mvm\mght\demoman_mvm_m_jeers06.mp3,4.3,-1"
+                "OnTrigger" "new_populator,$KillWavespawn,support1,0,-1"
+                "OnTrigger" "new_populator,$KillWavespawn,support1_1,0,-1"
+                "OnTrigger" "new_populator,$KillWavespawn,support2,0,-1"
+                "OnTrigger" "new_populator,$KillWavespawn,support3,0,-1"
+                "OnTrigger" "new_populator,$KillWavespawn,support4,0,-1"
+                "OnTrigger" "new_populator,$KillWavespawn,support4_1,0,-1"
+                "OnTrigger" "new_populator,$KillWavespawn,bomb_support,0,-1"
+                "OnTrigger" "new_populator,$PauseWavespawn,support1,0,-1"
+                "OnTrigger" "new_populator,$PauseWavespawn,support1_1,0,-1"
+                "OnTrigger" "new_populator,$PauseWavespawn,support2,0,-1"
+                "OnTrigger" "new_populator,$PauseWavespawn,support3,0,-1"
+                "OnTrigger" "new_populator,$PauseWavespawn,support4,0,-1"
+                "OnTrigger" "new_populator,$PauseWavespawn,support4_1,0,-1"
+                "OnTrigger" "new_populator,$PauseWavespawn,bomb_support,0,-1"
+                "OnTrigger" "boss_music_phase3_loop1,kill,,0,-1"
+                "OnTrigger" "boss_music_phase3_loop2,kill,,0,-1"
+                "OnTrigger" "kicksomeass,cancelpending,,0,-1"
+                "OnTrigger" "kicking_ass_time,kill,,0,-1"
+                "OnTrigger" "kicksomeass,kill,,0,-1"
+                "OnTrigger" "kicking_ass_time_is_over,Enable,,0,-1"
+                "OnTrigger" "kicking_ass_time_is_over,Disable,,0.2,-1"
+                "OnTrigger" "bumpercar_mode,Enable,,0,-1"
+                "OnTrigger" "bumpercar_mode,Disable,,1,-1"
+                "OnTrigger" "bumpercar_mode,Enable,,2,-1"
+                "OnTrigger" "bumpercar_mode,Disable,,3,-1"
+                "OnTrigger" "getover_here,enable,,0,-1"
+                "OnTrigger" "getover_here,disable,,0.1,-1"
+                "OnTrigger" "getover_here,enable,,0.2,-1"
+                "OnTrigger" "getover_here,disable,,0.3,-1"
+                "OnTrigger" "getover_here,enable,,0.4,-1"
+                "OnTrigger" "getover_here,disable,,0.5,-1"
+                "OnTrigger" "stayhereforamoment,enable,,0,-1"
+                "OnTrigger" "wacky_music,PlaySound,,4.5,-1"
+                "OnTrigger" "stayhereforamoment,disable,,4.5,-1"
+            }
+            logic_relay
+            {
+                "targetname" "bossfight_endcutscene"
+                "OnTrigger" "ouch_fade,Fade,1,0,-1"
+                "OnTrigger" "wacky_music,FadeOut,2,0,-1"
+                "OnTrigger" "lookatmeimbritish,$AddPlayerAttribute,move speed penalty|0.001,0,-1"
+                "OnTrigger" "bumpercar_mode,kill,,0,-1"
+                "OnTrigger" "bumpercar_unmode,enable,,0,-1"
+                "OnTrigger" "bumpercar_unmode,disable,,0.25,-1"
+                "OnTrigger" "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_painsevere01.mp3,0.15,-1"
+                "OnTrigger" "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_negativevocalization04.mp3,1.2,-1"
+                "OnTrigger" "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_paincrticialdeath04.mp3,3.1,-1"
+                "OnTrigger" "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_paincrticialdeath02.mp3,4.2,-1"
+                "OnTrigger" "boss_cam_end,$EnableAll,,0.1,-1"
+                "OnTrigger" "boss_cam_end,$DisableAll,,7,-1"
+                "OnTrigger" "tf_gamerules,PlayVO,mvm\giant_common\giant_common_explodes_01.wav,3,-1"
+                "OnTrigger" "blowup,start,,3,-1"
+                "OnTrigger" "tf_gamerules,PlayVO,mvm\mvm_tank_explode.wav,5.3,-1"
+                "OnTrigger" "blowup1,start,,5.3,-1"
+                "OnTrigger" "blowup2,start,,5.35,-1"
+                "OnTrigger" "new_populator,$KillWavespawn,boss_punchbag,6,-1"
+                "ontrigger" "new_populator,$ResumeWavespawn,*,6,-1"
+            }
+			point_viewcontrol
+			{
+				"targetname" "boss_cam_end"
+				"spawnflags" "44"
+				"wait" "100"
+				"origin" "266 1728 733"
+				"angles" "40 130 0"
+                "target" "lookatmeimbritish"
+			}
+
+			ambient_generic
+			{
+				"targetname" "boss_talkshit_get_shit"
+				"spawnflags" "17"
+				"message" "vo\mvm\mght\taunts\demoman_mvm_m_taunts14.mp3"
+				"health" "10"
+			}
+			ambient_generic
+			{
+				"targetname" "spell_impact"
+				"spawnflags" "17"
+                "pitch" "110"
+				"message" "misc\halloween\merasmus_spell.wav"
+				"health" "10"
+			}
+			ambient_generic
+			{
+				"targetname" "wacky_music"
+				"spawnflags" "17"
+                "pitch" "100"
+				"message" "#music/bump_in_the_night.wav"
+				"health" "8"
+			}
+
+			info_particle_system
+			{
+				"targetname" "blowup"
+				"origin" "3 1794 365"
+				"effect_name" "asplode_hoodoo"
+			}
+
+			info_particle_system
+			{
+				"targetname" "blowup1"
+				"origin" "5 2998 957"
+				"effect_name" "fluidSmokeExpl_ring_mvm"
+			}
+
+			info_particle_system
+			{
+				"targetname" "blowup1"
+				"origin" "-75 2998 957"
+				"effect_name" "fluidSmokeExpl_ring_mvm"
+			}
+
+			info_particle_system
+			{
+				"targetname" "blowup1"
+				"origin" "80 2998 957"
+				"effect_name" "fluidSmokeExpl_ring_mvm"
+			}
+
+			info_particle_system
+			{
+				"targetname" "blowup2"
+				"origin" "-166 3008 1061"
+				"effect_name" "asplode_hoodoo"
+			}
+
+			info_particle_system
+			{
+				"targetname" "blowup2"
+				"origin" "166 3008 1061"
+				"effect_name" "asplode_hoodoo"
+            }
+            func_forcefield
+            {
+                "targetname" "stayhereforamoment"
+                "teamnum" "3"
+                "origin" "2 1227 356"
+                "mins" "-256 -12 0"
+                "maxs" "256 12 512"
+                "renderfx" "0"
+                "rendermode" "10"
+                "disablereceiveshadows" "0"
+            }
+            func_forcefield
+            {
+                "targetname" "stayhereforamoment"
+                "teamnum" "3"
+                "origin" "2 1664 356"
+                "mins" "-256 -12 0"
+                "maxs" "256 12 512"
+                "renderfx" "0"
+                "rendermode" "10"
+                "disablereceiveshadows" "0"
+            }
+			trigger_teleport
+			{
+				"targetname" "getover_here"
+				"target" "bigguy_town"
+				"spawnflags" "1"
+                "filtername" "filter_redteam"
+				"mins" "-9999 -9999 -9999"
+				"maxs" "9999 9999 9999"
+                "startdisabled" "1"
+				"origin" "0 0 0"
+			}
+			info_target 
+			{
+    			"targetname" "bigguy_town"
+				"origin" "-1 1456 366"
+				"angles" "0 90 0"
+			}
+        }
+        boss_attacks_and_stuff
+        {
+            NoFixUp 1
+
+            // documentation for fututre
+            // phase 1 : cannon balls > banana barrage > sticky rain > cannon balls > sticky rain then repeats
+            // phase 2 : cannon balls > cross slam > cannon balls > cannon balls > sticky rain > banana barrage > cross slam > sticky rain then repeats
+            // phase 3 : starts with cross slam (p3 variant) then > cannon balls > caltrops > cross slam (p3) > caltrops > caber toss > cannon balls > caber toss > cross slam (p3) then repeats
+
+            // Phase Handlers
+
+            logic_relay
+            {
+                "targetname" "phase_switch_general"
+                // disable timers
+                "OnTrigger" "phase1_timer,disable,,0,-1"
+                "OnTrigger" "phase2_timer,disable,,0,-1"
+                // stop any future stuff coming through
+                "OnTrigger" "phase1_attacks,CancelPending,,0,-1"
+                "OnTrigger" "phase2_attacks,CancelPending,,0,-1"
+                // stop any attacks that could possibly be happening
+                "OnTrigger" "sticky_rain_attack,CancelPending,,0,-1"
+                "OnTrigger" "sticky_rain_projectiles,$StopFiring,,0,-1"
+                "OnTrigger" "cross_slam_attack,CancelPending,,0,-1"
+                // clear ducks if they're somehow present or if they're about to spawn
+                "OnTrigger" "ducks_tutorial,CancelPending,,0,-1"
+                "OnTrigger" "ducks_respawn,CancelPending,,0,-1"
+                "OnTrigger" "duck_collect*,kill,,0,-1"
+                "OnTrigger" "duck_collect*,kill,,1,-1"
+                // give him back his default weapon
+                "OnTrigger" "race_hater_boss,$GiveItem,Boss' Loose Cannon,0,-1"
+                "OnTrigger" "race_hater_boss,$GiveItem,Boss' Loose Cannon,1,-1" // good measure
+            }
+
+            logic_relay // unused
+            {
+                "targetname" "phase1_trigger"
+                "ontrigger" "duck_phase_hint,show,,3,-1"
+                "ontrigger" "race_hater_boss,$AddCond,52 6,0,-1"
+                "ontrigger" "race_hater_boss,$AddCond,71 6,0,-1"
+                "ontrigger" "phase_switch_general,Trigger,,0,-1"
+                "ontrigger" "phase1_timer,Enable,,6,-1"
+                "ontrigger" "phase1_attacks,Trigger,,6,-1"
+                "ontrigger" "ducks_respawn_nodelay,trigger,,6,-1"
+                "ontrigger" "new_populator,$ResumeWavespawn,support2,6,-1"
+            }            
+            
+            logic_relay
+            {
+                "targetname" "phase2_trigger"
+                "OnTrigger" "tf_gamerules,PlayVO,misc\halloween\merasmus_stun.wav,0,-1"
+                "OnTrigger" "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_painsevere03.mp3,0.7,-1"
+                "OnTrigger" "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_negativevocalization01.mp3,2.7,-1"
+                "ontrigger" "race_hater_boss,$AddCond,52 3,0,-1"
+                "ontrigger" "race_hater_boss,$AddCond,71 3,0,-1"
+                "ontrigger" "phase_switch_general,Trigger,,0,-1"
+                "OnTrigger" "phase1_attacks,kill,,0.1,-1"
+                "OnTrigger" "phase1_timer,kill,,0.5,-1"
+                "ontrigger" "phase2_timer,Enable,,3,-1"
+                "ontrigger" "phase2_attacks,Trigger,,3,-1"
+                "ontrigger" "ducks_respawn_nodelay,trigger,,3,-1"
+                "ontrigger" "new_populator,$ResumeWavespawn,support3,3,-1"
+                "OnTrigger" "kicking_ass_time_is_over,Enable,,3,-1"
+                "OnTrigger" "kicking_ass_time_is_over,Disable,,3.2,-1"
+                "OnTrigger" "bumpercar_mode,Enable,,3,-1"
+                "OnTrigger" "bumpercar_mode_timer,Enable,,3,-1"
+            }            
+            
+            logic_relay
+            {
+                "targetname" "phase3_trigger"
+                "OnTrigger" "tf_gamerules,PlayVO,misc\halloween\merasmus_stun.wav,0,-1"
+                "OnTrigger" "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_painsevere03.mp3,0.7,-1"
+                "OnTrigger" "tf_gamerules,PlayVO,vo\mvm\mght\taunts\demoman_mvm_m_taunts11.mp3,3.7,-1"
+                "ontrigger" "boss_music_loop1,kill,,0,-1"
+                "ontrigger" "boss_music_loop2,kill,,0,-1"
+                "ontrigger" "boss_music_phase3_intro,playsound,,0,-1"
+                "ontrigger" "boss_music_phase3_intro,playsound,,0.1,-1"
+                "ontrigger" "boss_loop_handler_phase3,enable,,12.807,-1"
+                "ontrigger" "boss_music_phase3_intro,stopsound,,12.807,-1"
+                "ontrigger" "boss_music_phase3_loop1,playsound,,12.807,-1"
+                "ontrigger" "boss_music_phase3_loop2,playsound,,96.011,-1"
+                "ontrigger" "boss_music_phase3_loop1,stopsound,,96.011,-1"
+                "ontrigger" "race_hater_boss,$AddCond,52 6,0,-1"
+                "ontrigger" "race_hater_boss,$AddCond,71 6,0,-1"
+                "ontrigger" "phase_switch_general,Trigger,,0,-1"
+                "OnTrigger" "cross_slam_attack,kill,,0.1,-1"
+                "OnTrigger" "phase2_attacks,kill,,0.1,-1"
+                "OnTrigger" "phase2_timer,kill,,0.5,-1"
+                "ontrigger" "cross_slam_p3_attack,Trigger,,6,-1"
+                "ontrigger" "phase3_timer,Enable,,16,-1"
+                "ontrigger" "phase3_attacks,Trigger,,16,-1"
+                "ontrigger" "ducks_respawn_nodelay,trigger,,6,-1"
+                "ontrigger" "new_populator,$ResumeWavespawn,support4,6,-1"
+            }
+
+            logic_timer
+            {
+                "targetname" "phase1_timer"
+                "RefireTime" "30"
+                "StartDisabled" "1"
+                "OnTimer" "phase1_attacks,Trigger,,0,-1"
+            }
+
+            logic_relay
+            {
+                "targetname" "phase1_attacks"
+                "OnTrigger" "race_hater_boss,$GiveItem,Boss' Banana Barrage,10,-1"
+                "OnTrigger" "sticky_rain_attack,Trigger,,15,-1"
+                "OnTrigger" "sticky_rain_attack,Trigger,,30,-1"
+            }
+
+            logic_timer
+            {
+                "targetname" "phase2_timer"
+                "RefireTime" "50"
+                "StartDisabled" "1"
+                "OnTimer" "cross_slam_attack,Trigger,,10,-1"
+                "OnTimer" "sticky_rain_attack,Trigger,,30,-1"
+                "OnTimer" "race_hater_boss,$GiveItem,Boss' Banana Barrage,45,-1"
+                "OnTimer" "cross_slam_attack,Trigger,,50,-1"
+            }
+
+            logic_relay
+            {
+                "targetname" "phase2_attacks"
+                "OnTrigger" "cross_slam_attack,Trigger,,10,-1"
+                "OnTrigger" "sticky_rain_attack,Trigger,,30,-1"
+                "OnTrigger" "race_hater_boss,$GiveItem,Boss' Banana Barrage,45,-1"
+                "OnTrigger" "cross_slam_attack,Trigger,,50,-1"
+            }
+
+            logic_timer
+            {
+                "targetname" "phase3_timer"
+                "RefireTime" "50"
+                "StartDisabled" "1"
+                "OnTimer" "race_hater_boss,$GiveItem,Boss' Caltrops,10,-1"
+                "OnTimer" "cross_slam_p3_attack,Trigger,,15,-1"
+                "OnTimer" "race_hater_boss,$GiveItem,Boss' Caltrops,25,-1"
+                "OnTimer" "caber_toss_attack,Trigger,,30,-1"
+                "OnTimer" "caber_toss_attack,Trigger,,40,-1"
+                "OnTimer" "cross_slam_p3_attack,Trigger,,50,-1"
+            }
+
+            logic_relay
+            {
+                "targetname" "phase3_attacks"
+                "OnTrigger" "race_hater_boss,$GiveItem,Boss' Caltrops,10,-1"
+                "OnTrigger" "cross_slam_p3_attack,Trigger,,15,-1"
+                "OnTrigger" "race_hater_boss,$GiveItem,Boss' Caltrops,25,-1"
+                "OnTrigger" "caber_toss_attack,Trigger,,30,-1"
+                "OnTrigger" "caber_toss_attack,Trigger,,40,-1"
+                "OnTrigger" "cross_slam_p3_attack,Trigger,,50,-1"
+            }
+
+            // Sticky Rain
+
+            logic_relay
+            {
+                "targetname" "sticky_rain_attack"
+                "OnTrigger"  "race_hater_boss,$PlaySequence,taunt03,0,-1"
+                "OnTrigger"  "race_hater_boss,$GiveItem,Boss Bottle,0,-1"
+                "OnTrigger"  "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_autocappedcontrolpoint02.mp3,0.22,-1"
+                "OnTrigger"  "tf_gamerules,PlayVO,ambient\alarms\doomsday_lift_alarm.wav,0.5,-1"
+                "OnTrigger"  "sticky_rain_projectiles,$StartFiring,,0.8,-1"
+                "OnTrigger"  "sticky_rain_big_projectiles,FireOnce,,3,-1"
+                "OnTrigger"  "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_laughevil04.mp3,3.64,-1"
+                "OnTrigger"  "sticky_rain_projectiles,$StopFiring,,3.64,-1"
+                "OnTrigger"  "race_hater_boss,$PlaySequence,run_secondary,4.15,-1"
+                "OnTrigger"  "race_hater_boss,$GiveItem,Boss' Loose Cannon,4.15,-1"
+            }            
+            logic_relay // technical reasons
+            {
+                "targetname" "sticky_rain_attack_p3copy"
+                "OnTrigger"  "race_hater_boss,$PlaySequence,taunt03,0,-1"
+                "OnTrigger"  "race_hater_boss,$GiveItem,Boss Bottle,0,-1"
+                "OnTrigger"  "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_autocappedcontrolpoint02.mp3,0.22,-1"
+                "OnTrigger"  "tf_gamerules,PlayVO,ambient\alarms\doomsday_lift_alarm.wav,0.5,-1"
+                "OnTrigger"  "sticky_rain_projectiles,$StartFiring,,0.8,-1"
+                "OnTrigger"  "sticky_rain_big_projectiles,FireOnce,,3,-1"
+                "OnTrigger"  "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_laughevil04.mp3,3.64,-1"
+                "OnTrigger"  "sticky_rain_projectiles,$StopFiring,,3.64,-1"
+                "OnTrigger"  "race_hater_boss,$PlaySequence,run_secondary,4.15,-1"
+                "OnTrigger"  "race_hater_boss,$GiveItem,Boss' Loose Cannon,4.15,-1"
+            }
+            tf_point_weapon_mimic
+            {
+                "targetname" "sticky_rain_projectiles"
+                "origin" "-15 0 25"
+                "angles" "-77 0 0"
+                "teamnum" "3"
+                "$weaponname" "Sticky Rain Stickies"
+                "$firetime" "0.16"
+            }
+            tf_point_weapon_mimic
+            {
+                "targetname" "sticky_rain_projectiles"
+                "origin" "-15 -7 25"
+                "angles" "-77 90 0"
+                "teamnum" "3"
+                "$weaponname" "Sticky Rain Stickies"
+                "$firetime" "0.16"
+                "$weaponnosound" "1"
+            }
+            tf_point_weapon_mimic
+            {
+                "targetname" "sticky_rain_projectiles"
+                "origin" "-10 0 25"
+                "angles" "-77 180 0"
+                "teamnum" "3"
+                "$weaponname" "Sticky Rain Stickies"
+                "$firetime" "0.16"
+                "$weaponnosound" "1"
+            }
+            tf_point_weapon_mimic
+            {
+                "targetname" "sticky_rain_projectiles"
+                "origin" "-15 7 25"
+                "angles" "-77 270 0"
+                "teamnum" "3"
+                "$weaponname" "Sticky Rain Stickies"
+                "$firetime" "0.16"
+                "$weaponnosound" "1"
+            }
+            tf_point_weapon_mimic
+            {
+                "targetname" "sticky_rain_big_projectiles"
+                "origin" "-15 0 30"
+                "angles" "-85 0 0"
+                "teamnum" "3"
+                "$weaponname" "Sticky Rain BIG Stickies"
+                "$firetime" "0.3"
+            }
+            tf_point_weapon_mimic
+            {
+                "targetname" "sticky_rain_big_projectiles"
+                "origin" "-15 0 30"
+                "angles" "-85 90 0"
+                "teamnum" "3"
+                "$weaponname" "Sticky Rain BIG Stickies"
+                "$firetime" "0.3"
+                "$weaponnosound" "1"
+            }
+            tf_point_weapon_mimic
+            {
+                "targetname" "sticky_rain_big_projectiles"
+                "origin" "-15 0 30"
+                "angles" "-85 180 0"
+                "teamnum" "3"
+                "$weaponname" "Sticky Rain BIG Stickies"
+                "$firetime" "0.3"
+                "$weaponnosound" "1"
+            }
+            tf_point_weapon_mimic
+            {
+                "targetname" "sticky_rain_big_projectiles"
+                "origin" "-15 0 30"
+                "angles" "-85 270 0"
+                "teamnum" "3"
+                "$weaponname" "Sticky Rain BIG Stickies"
+                "$firetime" "0.3"
+                "$weaponnosound" "1"
+            }
+
+            // Cross Slam
+
+            logic_relay
+            {
+                "targetname" "cross_slam_attack"
+                "OnTrigger"  "race_hater_boss,$PlaySequence,taunt01,0,-1"
+                "OnTrigger"  "race_hater_boss,$GiveItem,Boss Nothing,0,-1"
+                "OnTrigger"  "race_hater_boss,$PlaySequence,taunt_flip_success_receiver,1.78,-1"
+                "OnTrigger"  "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_laughshort01.mp3,0.1,-1"
+                "OnTrigger"  "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_battlecry04.mp3,1.9,-1"
+                "OnTrigger"  "boss_stomp_particle,start,,2.4,-1"
+                "OnTrigger"  "cross_slam_projectile,FireOnce,,2.4,-1"
+                "OnTrigger"  "boss_stomp_particle,stop,,3.4,-1"
+                "OnTrigger"  "tf_gamerules,PlayVO,misc\halloween\strongman_fast_impact_01.wav,2.4,-1"
+                "OnTrigger"  "race_hater_boss,$SetLocalVelocity,0 0 900,2.4,-1"
+                "OnTrigger"  "race_hater_boss,$SetLocalVelocity,0 0 -800,3.7,-1"
+                "OnTrigger"  "race_hater_boss,$PlaySequence,run_secondary,4-1"
+                "OnTrigger"  "race_hater_boss,$GiveItem,Boss' Loose Cannon,4,-1"
+            }
+
+            tf_point_weapon_mimic
+            {
+                "targetname" "cross_slam_projectile"
+                "origin" "-15 7 25"
+                "angles" "-33 0 0"
+                "teamnum" "3"
+                "$weaponname" "Cross Slam Rocks"
+                "$firetime" "0.16"
+                "$weaponnosound" "1"
+            }
+
+            tf_point_weapon_mimic
+            {
+                "targetname" "cross_slam_projectile"
+                "origin" "-15 7 25"
+                "angles" "-33 90 0"
+                "teamnum" "3"
+                "$weaponname" "Cross Slam Rocks"
+                "$firetime" "0.16"
+                "$weaponnosound" "1"
+            }
+
+            tf_point_weapon_mimic
+            {
+                "targetname" "cross_slam_projectile"
+                "origin" "-15 7 25"
+                "angles" "-33 180 0"
+                "teamnum" "3"
+                "$weaponname" "Cross Slam Rocks"
+                "$firetime" "0.16"
+                "$weaponnosound" "1"
+            }
+
+            tf_point_weapon_mimic
+            {
+                "targetname" "cross_slam_projectile"
+                "origin" "-15 7 25"
+                "angles" "-33 270 0"
+                "teamnum" "3"
+                "$weaponname" "Cross Slam Rocks"
+                "$firetime" "0.16"
+                "$weaponnosound" "1"
+            }
+
+			info_particle_system
+			{
+				"targetname" "boss_stomp_particle"
+				"origin" "0 0 0"
+				"effect_name" "hammer_impact_button"
+			}
+
+            // Cross Slam (Phase 3 Variant)
+
+            logic_relay
+            {
+                "targetname" "cross_slam_p3_attack"
+                "OnTrigger"  "race_hater_boss,$PlaySequence,taunt01,0,-1"
+                "OnTrigger"  "race_hater_boss,$GiveItem,Boss Nothing,0,-1"
+                "OnTrigger"  "race_hater_boss,$PlaySequence,taunt_flip_success_receiver,1.78,-1"
+                "OnTrigger"  "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_laughshort01.mp3,0.1,-1"
+                "OnTrigger"  "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_battlecry04.mp3,1.9,-1"
+                "OnTrigger"  "boss_stomp_particle,start,,2.4,-1"
+                "OnTrigger"  "cross_slam_projectile,FireOnce,,2.4,-1"
+                "OnTrigger"  "boss_stomp_particle,stop,,3.4,-1"
+                "OnTrigger"  "tf_gamerules,PlayVO,misc\halloween\strongman_fast_impact_01.wav,2.4,-1"
+                "OnTrigger"  "race_hater_boss,$SetLocalVelocity,0 0 900,2.4,-1"
+                "OnTrigger"  "race_hater_boss,$PlaySequence,taunt03,3.4,-1"
+                "OnTrigger"  "race_hater_boss,$GiveItem,Boss Bottle,3.4,-1"
+                "OnTrigger"  "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_autocappedcontrolpoint02.mp3,3.62,-1"
+                "OnTrigger"  "tf_gamerules,PlayVO,ambient\alarms\doomsday_lift_alarm.wav,3.9,-1"
+                "OnTrigger"  "sticky_rain_projectiles,$StartFiring,,4.2,-1"
+                "OnTrigger"  "sticky_rain_big_projectiles,FireOnce,,6.2,-1"
+                "OnTrigger"  "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_laughevil04.mp3,6.84,-1"
+                "OnTrigger"  "sticky_rain_projectiles,$StopFiring,,6.84,-1"
+                "OnTrigger"  "race_hater_boss,$PlaySequence,run_secondary,7.35-1"
+                "OnTrigger"  "race_hater_boss,$GiveItem,Boss' Loose Cannon,7.35,-1"
+            }
+
+            // Caber Toss
+
+            logic_relay
+            {
+                "targetname" "caber_toss_attack"
+                "OnTrigger"  "race_hater_boss,$PlaySequence,taunt04,0,-1"
+                "OnTrigger"  "race_hater_boss,$GiveItem,Boss Caber,0,-1"
+                "OnTrigger"  "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_laughshort05.mp3,0.22,-1"
+                "OnTrigger"  "caber_toss_projectile,fireonce,,3.64,-1"
+                "OnTrigger"  "tf_gamerules,PlayVO,items\cart_explode_trigger.wav,3.64,-1"
+                "OnTrigger"  "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_incoming01.mp3,3.55,-1"
+                "OnTrigger"  "race_hater_boss,$PlaySequence,run_secondary,4.15,-1"
+                "OnTrigger"  "race_hater_boss,$GiveItem,Boss' Loose Cannon,4.15,-1"
+            }
+            tf_point_weapon_mimic
+            {
+                "targetname" "caber_toss_projectile"
+                "origin" "30 0 40"
+                "angles" "-45 0 0"
+                "teamnum" "3"
+                "$weaponname" "Caber Nuke Toss"
+                "$weaponnosound" "1"
+            }
+            
+            OnSpawnOutput
+            {
+                Target "sticky_rain_projectiles"
+                Action "$SetOwner"
+                Param  "!activator"
+                Delay  0
+            }
+            
+            OnSpawnOutput
+            {
+                Target "sticky_rain_big_projectiles"
+                Action "$SetOwner"
+                Param  "!activator"
+                Delay  0
+            }
+            
+            OnSpawnOutput
+            {
+                Target "cross_slam_rocks"
+                Action "$SetOwner"
+                Param  "!activator"
+                Delay  0
+            }
+            
+            OnSpawnOutput
+            {
+                Target "caber_toss_projectile"
+                Action "$SetOwner"
+                Param  "!activator"
+                Delay  0
+            }
+
+			OnSpawnOutput
+			{
+				Target "!activator"
+				Action "AddOutput"
+				Param "targetname race_hater_boss"
+				Delay 0.1
+			}
+			OnParentKilledOutput
+			{
+				Target "!activator"
+				Action "AddOutput"
+				Param "targetname player"
+				Delay 0
+			}
+        }
+        punching_bag_hour
+        {
+			OnSpawnOutput
+			{
+				Target "!activator"
+				Action "AddOutput"
+				Param "targetname lookatmeimbritish"
+				Delay 0
+			}
+
+            trigger_stun
+            {
+                "targetname" "stun_him_harder"
+                "stun_type" "1"
+                "maxs" "2 2 2"
+                "mins" "-2 -2 -2"
+                "stun_effects" "1"
+                "stun_duration" "9999"
+                "move_speed_reduction" "0"
+                "startdisabled" "1"
+                "spawnflags" "1"
+                "filtername" "filter_blueteam"
+            }
+
+            trigger_stun
+            {
+                "targetname" "stun_him_pal"
+                "stun_type" "2"
+                "maxs" "2 2 2"
+                "mins" "-2 -2 -2"
+                "stun_effects" "1"
+                "stun_duration" "9999"
+                "move_speed_reduction" "0"
+                "startdisabled" "1"
+                "spawnflags" "1"
+                "filtername" "filter_blueteam"
+            }
+
+            trigger_hurt
+            {
+                "targetname" "killme_now"
+                "maxs" "2 2 2"
+                "mins" "-2 -2 -2"
+                "damage" "99999"
+                "filtername" "filter_blueteam"
+            }
+        }
+        yourenotthebossnowareyou
+        {
+			OnSpawnOutput
+			{
+				Target "!activator"
+				Action "AddOutput"
+				Param "targetname randompleb"
+				Delay 0
+			}
+        }
+        bumper_car_ramps
+        {
+            NoFixUp 1
+            prop_dynamic
+            {
+                "targetname" "ramp"
+                "origin" "-381 -1589 432"
+                "angles" "0 180 42"
+                "model" "models\props_doomsday\dd_woodfence_64.mdl"
+                "solid" "6"
+                "fademindist" "1900"
+                "fademaxdist" "2050"
+                "DisableBoneFollowers" "1"
+                "disableshadows" "1"
+            }
+            prop_dynamic
+            {
+                "targetname" "ramp"
+                "origin" "329 -1589 432"
+                "angles" "0 180 42"
+                "model" "models\props_doomsday\dd_woodfence_64.mdl"
+                "solid" "6"
+                "fademindist" "1900"
+                "fademaxdist" "2050"
+                "DisableBoneFollowers" "1"
+                "disableshadows" "1"
+            }
+            prop_dynamic
+            {
+                "targetname" "ramp"
+                "origin" "-100 -867 377"
+                "angles" "0 0 45"
+                "model" "models\props_doomsday\dd_woodfence_64.mdl"
+                "solid" "6"
+                "fademindist" "1900"
+                "fademaxdist" "2050"
+                "DisableBoneFollowers" "1"
+                "disableshadows" "1"
+            }
+            prop_dynamic
+            {
+                "targetname" "ramp"
+                "origin" "-517 2047 465"
+                "angles" "0 0 45"
+                "model" "models\props_doomsday\dd_woodfence_64.mdl"
+                "solid" "6"
+                "fademindist" "1900"
+                "fademaxdist" "2050"
+                "DisableBoneFollowers" "1"
+                "disableshadows" "1"
+            }
+            prop_dynamic
+            {
+                "targetname" "ramp"
+                "origin" "-517 1952 560"
+                "angles" "0 0 45"
+                "model" "models\props_doomsday\dd_woodfence_64.mdl"
+                "solid" "6"
+                "fademindist" "1900"
+                "fademaxdist" "2050"
+                "DisableBoneFollowers" "1"
+                "disableshadows" "1"
+            }
+        }
+        spell_pickups
+        {
+            NoFixUp 1
+            tf_spell_pickup
+            {
+                "targetname" "spellbook_map"
+                "origin" "-1077 -507 724"
+                "tier" "0"
+                "TeamNum" "2"
+            }
+            tf_spell_pickup
+            {
+                "targetname" "spellbook_map"
+                "origin" "993 -776 539"
+                "tier" "0"
+                "TeamNum" "2"
+            }
+            tf_spell_pickup
+            {
+                "targetname" "spellbook_map"
+                "origin" "42 1438 643"
+                "tier" "0"
+                "TeamNum" "2"
+            }
+            tf_spell_pickup
+            {
+                "targetname" "spellbook_map"
+                "origin" "-96 -1429 416"
+                "tier" "0"
+                "TeamNum" "2"
+            }
+            tf_spell_pickup
+            {
+                "targetname" "spellbook_map"
+                "origin" "-31 -264 352"
+                "tier" "0"
+                "TeamNum" "2"
+            }
+            tf_spell_pickup
+            {
+                "targetname" "spellbook_map"
+                "origin" "-696 773 576"
+                "tier" "0"
+                "TeamNum" "2"
+            }
+            tf_spell_pickup
+            {
+                "targetname" "spellbook_map"
+                "origin" "1152 -716 131"
+                "tier" "0"
+                "TeamNum" "2"
+            }
+            tf_spell_pickup
+            {
+                "targetname" "spellbook_map"
+                "origin" "-1349 -667 128"
+                "tier" "0"
+                "TeamNum" "2"
+            }
+            tf_spell_pickup
+            {
+                "targetname" "spellbook_map"
+                "origin" "1160 1025 352"
+                "tier" "0"
+                "TeamNum" "2"
+            }
+            tf_spell_pickup
+            {
+                "targetname" "spellbook_map"
+                "origin" "-98 -2112 423"
+                "tier" "0"
+                "TeamNum" "2"
+            }
+            tf_spell_pickup
+            {
+                "targetname" "spellbook_map"
+                "origin" "330 580 544"
+                "tier" "0"
+                "TeamNum" "2"
+            }
+        }
+        new_decor
+        {
+            NoFixUp 1
+
+            // anti-stuck props
+
+            prop_dynamic
+            {
+                "targetname" "antistuck"
+                "origin" "-625 950 666"
+                "angles" "0 -63 0"
+                "model" "models\props_doomsday\dd_woodfence_short_64.mdl"
+                "solid" "6"
+                "fademindist" "1900"
+                "fademaxdist" "2000"
+                "DisableBoneFollowers" "1"
+                "disableshadows" "1"
+            }
+
+            prop_dynamic
+            {
+                "targetname" "antistuck"
+                "origin" "-1120 879 612"
+                "angles" "0 4 0"
+                "model" "models\props_doomsday\dd_woodfence_256.mdl"
+                "solid" "6"
+                "fademindist" "1900"
+                "fademaxdist" "2000"
+                "DisableBoneFollowers" "1"
+                "disableshadows" "1"
+            }
+
+            prop_dynamic
+            {
+                "targetname" "antistuck"
+                "origin" "-232 1190 490"
+                "angles" "0 40 0"
+                "model" "models\props_doomsday\dd_woodfence_64.mdl"
+                "solid" "6"
+                "fademindist" "1500"
+                "fademaxdist" "1600"
+                "DisableBoneFollowers" "1"
+                "disableshadows" "1"
+            }
+
+            prop_dynamic
+            {
+                "targetname" "antistuck"
+                "origin" "183 1223 685"
+                "angles" "0 90 0"
+                "model" "models\props_forest\wood_stairs48.mdl"
+                "solid" "6"
+                "fademindist" "1000"
+                "fademaxdist" "1100"
+                "DisableBoneFollowers" "1"
+                "disableshadows" "1"
+            }
+            prop_dynamic
+            {
+                "targetname" "antistuck"
+                "origin" "76 1223 685"
+                "angles" "0 90 0"
+                "model" "models\props_forest\wood_stairs48.mdl"
+                "solid" "6"
+                "fademindist" "1000"
+                "fademaxdist" "1100"
+                "DisableBoneFollowers" "1"
+                "disableshadows" "1"
+            }
+            prop_dynamic
+            {
+                "targetname" "antistuck"
+                "origin" "-31 1223 685"
+                "angles" "0 90 0"
+                "model" "models\props_forest\wood_stairs48.mdl"
+                "solid" "6"
+                "fademindist" "1000"
+                "fademaxdist" "1100"
+                "DisableBoneFollowers" "1"
+                "disableshadows" "1"
+            }
+            prop_dynamic
+            {
+                "targetname" "antistuck"
+                "origin" "-138 1223 685"
+                "angles" "0 90 0"
+                "model" "models\props_forest\wood_stairs48.mdl"
+                "solid" "6"
+                "fademindist" "1000"
+                "fademaxdist" "1100"
+                "DisableBoneFollowers" "1"
+                "disableshadows" "1"
+            }
+
+            // Map Props
+
+            prop_dynamic
+            {
+                "angles" "0 0 0"
+                "disablereceiveshadows" "1"
+                "disableshadows" "1"
+                "model" "models\props_halloween\fortune_teller_narrow_full.mdl" 
+                "DisableBoneFollowers" "1"
+                "targetname" "merasmus_carnival_body"
+                "origin" "230 -2472 514"
+            }
+            prop_dynamic
+            {
+                "angles" "0 90 0"
+                "disablereceiveshadows" "1"
+                "disableshadows" "1"
+                "model" "models\bots\merasmus\merasmas_misfortune_teller.mdl" 
+                "DisableBoneFollowers" "1"
+                "targetname" "merasmus_carnival_head"
+                //"defaultanim" "idle"
+                "origin" "-105 -2982 514"
+            }
+			prop_dynamic
+			{
+				"model" "models/props_viaduct_event/house_hat01.mdl"
+				"origin" "1163 -141 859"
+				"angles" "-5 -154 -9"
+				"solid"	"6"
+				"disableshadows" "1"
+                "DisableBoneFollowers" "1"
+			}
+			prop_dynamic
+			{
+				"model" "models/props_viaduct_event/house_hat01.mdl"
+				"origin" "911 2639 880"
+				"angles" "0 -120 0"
+				"solid"	"6"
+				"disableshadows" "1"
+                "DisableBoneFollowers" "1"
+			}
+			prop_dynamic
+			{
+				"model" "models/props_viaduct_event/house_hat01.mdl"
+				"origin" "-1031 2610 1109"
+				"angles" "0 -50 0"
+				"solid"	"6"
+				"disableshadows" "1"
+                "DisableBoneFollowers" "1"
+			}
+			prop_dynamic
+			{
+				"model" "models\props_halloween\carnival_barricade02.mdl"
+				"origin" "-260 -2750 744"
+				"angles" "0 0 0"
+				"solid"	"6"
+				"disableshadows" "1"
+                "DisableBoneFollowers" "1"
+			}
+			prop_dynamic
+			{
+				"model" "models\props_halloween\carnival_barricade01.mdl"
+				"origin" "-200 -2750 744"
+				"angles" "0 0 0"
+				"solid"	"6"
+				"disableshadows" "1"
+                "DisableBoneFollowers" "1"
+			}
+			prop_dynamic
+			{
+				"model" "models\props_halloween\carnival_poster_004.mdl"
+				"origin" "191 -258 450"
+				"angles" "0 90 0"
+				"solid"	"0"
+				"disableshadows" "1"
+                "DisableBoneFollowers" "1"
+			}
+			prop_dynamic
+			{
+				"model" "models\props_halloween\carnival_poster_002.mdl"
+				"origin" "1088 175 633"
+				"angles" "0 180 0"
+				"solid"	"0"
+				"disableshadows" "1"
+                "DisableBoneFollowers" "1"
+			}
+			prop_dynamic
+			{
+				"model" "models\props_halloween\carnival_poster_001.mdl"
+				"origin" "-509 1439 728"
+				"angles" "0 180 0"
+				"solid"	"0"
+				"disableshadows" "1"
+                "DisableBoneFollowers" "1"
+			}
+			prop_dynamic
+			{
+				"model" "models/props_viaduct_event/house_hat01.mdl"
+				"origin" "-1791 -561 1079"
+				"angles" "0 0 0"
+				"solid"	"6"
+				"disableshadows" "1"
+                "DisableBoneFollowers" "1"
+			}
+			prop_dynamic
+			{
+				"model" "models/props_viaduct_event/house_hat01.mdl"
+				"origin" "-1775 -1300 891"
+				"angles" "0 26 0"
+				"solid"	"6"
+				"disableshadows" "1"
+                "DisableBoneFollowers" "1"
+			}
+			prop_dynamic
+			{
+				"model" "models\props_halloween\halloween_rock002.mdl"
+				"origin" "1224 1515 656"
+				"angles" "0 83 0"
+				"solid"	"6"
+				"disableshadows" "1"
+                "DisableBoneFollowers" "1"
+			}
+            entity_soldier_statue
+            {
+                "origin" "-1631 -1943 578"
+                "angles" "0 40 0"
+            }
+
+            // Sky Box Props
+
+			prop_dynamic
+			{
+				"model" "models/props_viaduct_event/house_hat02.mdl"
+				"origin" "386 7484 202"
+				"angles" "0 110 0"
+				"solid"	"0"
+				"disableshadows" "1"
+                "DisableBoneFollowers" "1"
+                "modelscale" "0.1"
+			}
+			prop_dynamic
+			{
+				"model" "models\props_halloween\skybox_ferris_wheel_x3.mdl"
+				"origin" "-389 7718 253"
+				"angles" "0 25 0"
+				"solid"	"0"
+				"disableshadows" "1"
+                "modelscale" "0.65"
+                "DisableBoneFollowers" "1"
+			}
+        }
+        // unused
+        tank_spell_generator
+        {
+            OnSpawnOutput
+            {
+                Target  "!activator"
+                Action  "color"
+                Param "170 60 180"
+            }
+            logic_timer
+            {
+                "targetname" "spellbook_spawner"
+                "RefireTime" "8"
+                "StartDisabled" "0"
+                "OnTimer" "tank_spell,ForceSpawnAtEntityOrigin,tank_spell_spot_oh_yes_how_generous,0,-1"
+            }
+			info_target 
+			{
+    			"targetname" "tank_spell_spot_oh_yes_how_generous"
+				"origin" "-15 0 0"
+			}	
+        }
+        tank_spell
+        {
+            OnSpawnOutput
+            {
+                Target spellbook_tank
+                Action Kill
+                Delay 7.9
+            }
+            tf_spell_pickup
+            {
+                "targetname" "spellbook_tank"
+                "tier" "1"
+                "TeamNum" "2"
+            }
+        }
+    }
+    
+	ExtendedUpgrades  
+	{
+        body_max_health
+        {
+			Attribute "max health additive bonus"
+			Cap 200
+			Increment 50
+			Cost 200
+			PlayerUpgrade 1
+        }
+		body_resistance_fire
+		{
+			Attribute "dmg taken from fire reduced"
+			Cap	0.25
+			Increment -0.25
+			Cost 150
+			PlayerUpgrade 1
+		}
+		body_resistance_bullet
+		{
+			Attribute "dmg taken from bullets reduced"
+			Cap	0.25
+			Increment -0.25
+			Cost 300
+			PlayerUpgrade 1
+		}
+		body_resistance_blast
+		{
+			Attribute "dmg taken from blast reduced"
+			Cap	0.25
+			Increment -0.25
+			Cost 300
+			PlayerUpgrade 1
+		}
+		body_resistance_crit
+		{
+			Attribute "dmg taken from crit reduced"
+			Cap	0.1
+			Increment -0.9
+			Cost 400
+			PlayerUpgrade 1
+		}
+        body_force_reduciton
+        {
+            Attribute "damage force reduction"
+            Cap 0.25
+            Increment -0.25
+            Cost 150
+            PlayerUpgrade 1
+        }
+        body_health_regen
+        {
+            Attribute "health regen"
+            Cap 20
+            Increment 5
+            Cost 150
+            PlayerUpgrade 1
+        }
+        body_air_control
+        {
+            Attribute "increased air control"
+            Cap 50
+            Increment 10
+            Cost 100
+            PlayerUpgrade 1
+        }
+        body_damage_upgrade
+        {
+            Attribute "damage bonus"
+            Cap 5.0
+            Increment 0.5
+            Cost 250
+            PlayerUpgrade 1
+        }
+        // body_health_on_kill
+        // {
+        //     Attribute "heal on kill"
+        //     Cap 50
+        //     Increment 10
+        //     Cost 100
+        //     PlayerUpgrade 1
+		// 	RequiredUpgrade
+		// 	{
+		// 		Upgrade body_passive_damage
+		// 		Level 1
+		// 	}
+        // }
+        // body_healthpack_on_kill // just make this base
+        // {
+        //     Attribute "drop health pack on kill"
+        //     Cap 1
+        //     Increment 1
+        //     Cost 200
+        //     PlayerUpgrade 1
+        // }
+        // body_pass_through
+        // {
+        //     Name "+2 Seconds of Intagibility on kill"
+        //     Description "Allows you to move through robots for 2 seconds."
+        //     Attribute "fire rate penalty HIDDEN"
+        //     Cap 0.8
+        //     Incremenet -0.1
+        //     Cost 400
+        //     PlayerUpgrade 1
+        //     SecondaryAttributes
+        //     {
+        //         "add attributes on kill" "not solid to players|1|2"
+        //     }
+        // }
+        body_passive_damage
+        {
+            Name "Enable passive damage."
+            Description "Allows damage to happen from merely making contact with robots."
+            Attribute "stomp player time"
+            Cap 0.2
+            Incremenet 0.2
+            Cost 150
+            PlayerUpgrade 1
+            SecondaryAttributes
+            {
+                "stomp player force" 300
+                "stomp player damage" 50
+            }
+        }
+        body_passive_damage_increase
+        {
+            Name "+50 passive damage"
+            Attribute "crit mod disabled hidden"
+            Cap 2
+            Incremenet 0.25
+            Cost 200
+            PlayerUpgrade 1
+			RequiredUpgrade
+			{
+				Upgrade body_passive_damage
+				Level 1
+			}
+            ShowRequirements 0
+            SecondaryAttributes
+            {
+                "stomp player damage" 50
+                "stomp player force" 15
+            }
+        }
+        body_stomp_enable
+        {
+            Name "Enable basic AOE capabilities."
+            Description "Only happens when landing from a height or at a certain speed."
+            Attribute "kb fall min velocity"
+            Cap 220
+            Increment 220
+            Cost 150
+            PlayerUpgrade 1
+			SecondaryAttributes
+			{
+				"kb fall radius" 200
+                "kb fall force" 65
+                "kb fall damage" 100
+                "kb fall stun time" -1
+			}
+        }
+        // body_stomp_stun
+        // {
+        //     Name "+2 seconds of AOE stun time"
+        //     Attribute "kb fall stun time"
+        //     Cap 4
+        //     Increment 3
+        //     Cost 400
+        //     PlayerUpgrade 1
+		// 	RequiredUpgrade
+		// 	{
+		// 		Upgrade body_stomp_enable
+		// 		Level 1
+		// 	}
+        // }
+        body_stomp_damage
+        {
+            Name "+50 more AOE damage"
+            Attribute "kb fall damage"
+            Cap 250
+            Increment 50
+            Cost 150
+            PlayerUpgrade 1
+			RequiredUpgrade
+			{
+				Upgrade body_stomp_enable
+				Level 1
+			}
+            ShowRequirements 0
+        }
+        body_stomp_radius
+        {
+            Name "+50% AOE Radius"
+            Attribute "kb fall radius"
+            Cap 300
+            Increment 50
+            Cost 200
+            PlayerUpgrade 1
+			RequiredUpgrade
+			{
+				Upgrade body_stomp_enable
+				Level 1
+			}
+            ShowRequirements 0
+        }
+        // body_stomp_knockback
+        // {
+        //     Name "+100% AOE knockback"
+        //     Attribute "kb fall force"
+        //     Cap 500
+        //     Increment 100
+        //     Cost 150
+        //     PlayerUpgrade 1
+		// 	RequiredUpgrade
+		// 	{
+		// 		Upgrade body_stomp_enable
+		// 		Level 1
+		// 	}
+		// 	SecondaryAttributes
+		// 	{
+		// 		"kb fall radius" 200
+        //         "kb fall force" 100
+        //         "kb fall damage" 200
+        //         "kb fall stun time" -1
+		// 	}
+        //     ShowRequirements 0
+        // }
+        // spellbook_damage
+        // {
+        //     Name "100% Damage bonus"
+        //     Attribute "dmg penalty vs players"
+        //     Cap 6
+        //     Increment 1
+        //     Cost 300
+        //     AllowedWeapons
+        //     {
+        //         Slot "Action"
+        //     }
+        //     //UIGroup 2
+        //     SecondaryAttributes
+        //     {
+        //         "mult dmg vs tanks" 2
+        //     }
+        // }
+    }
+
+    // Wave 1/5 ($1500)
+    
+    // 18 Mittens Heavies
+    // 10 Heavyweight Champs
+    
+    // 1 Giant Demoman & 2 Steel Gauntlets
+
+    // Support : Spies
+
+    Wave
+    {
+        SpawnTemplate w1_bumper_car_intro
+
+        StartWaveOutput
+        {
+            Target wave_start_relay
+            Action Trigger
+        }
+        InitWaveOutput
+        {
+            Target wave_finished_relay_new_nobumpercar
+            Action trigger
+            Delay 0.1
+        }
+        DoneOutput
+        {
+            Target upgrade_notice
+            Action Show
+            Delay 1.5
+        }
+
+        WaveSpawn
+        {
+            Name "wave01"
+            TotalCount 18
+            MaxActive 5
+            SpawnCount 1
+
+            Where spawnbot
+
+            WaitBetweenSpawns 1.5
+            WaitBeforeStarting 10
+            TotalCurrency 300
+            TFBot
+            {
+                Class Heavyweapons
+                Health 60
+                Name "Fuzzball Champ"
+                Skill Normal
+                ClassIcon heavy_mittens
+                WeaponRestrictions MeleeOnly
+                Attributes AlwaysCrit
+                  
+                Item "The Holiday Punch"
+                Item "Trapper's Flap"
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "wave01"
+            TotalCount 10
+            MaxActive 4
+            SpawnCount 2
+
+            Where spawnbot
+
+            WaitBetweenSpawns 3
+            WaitBeforeStarting 12
+            TotalCurrency 350
+            TFBot
+            {
+                Template T_TFBot_Heavyweapons_Heavyweight_Champ
+                Action Mobber
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "support"
+            TotalCount 16
+            MaxActive 3
+            SpawnCount 1
+
+            Support 1
+
+            Where spawnbot_short
+            WaitForAllSpawned "wave01"
+            WaitBetweenSpawns 5
+            TFBot
+            {
+                Class Soldier
+                ClassIcon soldier_pickaxe_escape
+                Name "Escape Plan Soldier"
+                WeaponRestrictions MeleeOnly
+                Item "The Escape Plan"
+                Item "The Data Mining Light"
+
+                UseHumanAnimations 1
+                
+                Taunt
+                {
+                    Delay 0
+                    Cooldown 1
+                    IfLeftSpawn 1
+                }
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "wave02"
+            TotalCount 3
+            MaxActive 3
+            SpawnCount 3
+
+            Where spawnbot
+
+            WaitForAllSpawned "wave01"
+            WaitBeforeStarting 10
+            TotalCurrency 850
+            Squad
+            {
+                TFBot
+                {
+                    Template T_TFBot_Giant_Demo_RapidFire
+                    ClassIcon demo_spammer_package
+                }
+                TFBot
+                {
+                    Template T_TFBot_Heavyweapons_Fist
+                }
+                TFBot
+                {
+                    Template T_TFBot_Heavyweapons_Fist
+                }
+            }
+        }
+    }
+
+    // Wave 2/5 ($2150)
+    
+    // 2 Steel Punishers
+    // 12 Bumper Car Demomen
+
+    // 6 Steel Gauntlets
+    // 6 Steel Gauntlets & 2 Syringe Gun Medics each & Placebo Medic
+    // 1 Giant Pyro
+
+    // 2 Giant Pyros
+
+    // Support : Axtinguisher Pyros, Bumper Car Demomen
+
+    Wave
+    {
+
+        StartWaveOutput
+        {
+            Target wave_start_relay
+            Action Trigger
+        }
+        InitWaveOutput
+        {
+            Target wave_finished_relay_new
+            Action trigger
+            Delay 0.1
+        }
+
+        WaveSpawn
+        {
+            Name "wave01"
+            TotalCount 2
+            MaxActive 2
+            SpawnCount 1
+
+            Where spawnbot_short
+            
+            WaitBetweenSpawns 11
+            TotalCurrency 375
+            TFBot
+            {
+                Template T_TFBot_Giant_Heavyweapons_SteelFist_Pusher
+
+                Attributes AlwaysFireWeapon
+
+                ItemAttributes
+                {
+                    ItemName "Fists of Steel"
+                    "fire rate penalty" 1.8
+                    "damage bonus" 2.2
+                    "damage blast push" 66
+                }
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "wave01_demos"
+            TotalCount 12
+            MaxActive 6
+            SpawnCount 2
+
+            Where spawnbot_short
+
+            WaitBeforeStarting 7
+            WaitBetweenSpawns 4
+            TotalCurrency 150
+            TFBot
+            {
+                Class Demoman
+                Name "Bumperman"
+                Health 100
+                ClassIcon demo_bumper_car
+                UseHumanAnimations 1
+
+                Addcond { Index 82 Delay 1 }
+
+                WeaponRestrictions MeleeOnly
+
+				FireWeapon
+                {
+                    Delay 1
+                    Cooldown 4
+					IfSeeTarget 1
+                    Duration 1
+					Type "Secondary"
+				}
+
+                VoiceCommand    //Periodacally uses voice commands
+                {
+                    Delay 3
+                    Cooldown 7.5
+                    Type "Nice shot"
+                }
+
+                VoiceCommand    //Periodacally uses voice commands
+                {
+                    Delay 0
+                    Cooldown 5
+					IfSeeTarget 1
+                    Type "Battle Cry"
+                }
+
+                FireInput
+                {
+                    Target "!self"
+                    Action "$RemoveCond"
+                    Param "82"
+                    Repeats 1
+                    Delay 12
+                    IfSeeTarget 0
+                }
+
+                Item "Upgradeable TF_WEAPON_FISTS"
+                Item "The Cyborg Stunt Helmet"
+
+                Action Mobber
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "wave02"
+            TotalCount 6
+            MaxActive 3
+            SpawnCount 1
+
+            Where spawnbot
+            Where spawnbot_left
+            Where spawnbot_right
+
+            WaitForAllSpawned "wave01_demos"
+            WaitBeforeStarting 8
+            WaitBetweenSpawns 5
+            TotalCurrency 275
+            TFBot
+            {
+                Template T_TFBot_Heavyweapons_Fist
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "wave02_steelies"
+            TotalCount 24
+            MaxActive 8
+            SpawnCount 4
+
+            Where spawnbot
+
+            WaitForAllDead "wave01"
+            WaitBeforeStarting 5
+            WaitBetweenSpawns 4
+            TotalCurrency 350
+            Squad
+            {
+                TFBot
+                {
+                    Template T_TFBot_Heavyweapons_Fist
+                }
+                TFBot
+                {
+                    Name "Syringe Scout"
+                    ClassIcon medic_syringe
+                    Skill Normal
+                    Class Scout
+
+                    MaxVisionRange 1000
+
+                    Item "Vitals Vest"
+                    Item "Upgradeable TF_WEAPON_SYRINGEGUN_MEDIC"
+                }
+                TFBot
+                {
+                    Name "Syringe Scout"
+                    ClassIcon medic_syringe
+                    Skill Normal
+                    Class Scout
+
+                    MaxVisionRange 1000
+
+                    Item "Vitals Vest"
+                    Item "Upgradeable TF_WEAPON_SYRINGEGUN_MEDIC"
+                }
+	    		TFBot
+				{
+				    Template T_TFBot_Medic_QuickFix
+					Name "Placebo Medic"
+					
+					Item "Otolaryngologist's Mirror"
+				}
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "wave02"
+            TotalCount 1
+            MaxActive 1
+            SpawnCount 1
+
+            Where spawnbot
+
+            WaitForAllDead "wave02_steelies"
+            TotalCurrency 350
+            TFBot
+            {
+                Template T_TFBot_Giant_Pyro
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "wave03"
+            TotalCount 2
+            MaxActive 2
+            SpawnCount 1
+
+            Where spawnbot
+
+            WaitForAllSpawned "wave02"
+            WaitBeforeStarting 10
+            WaitBetweenSpawns 15
+            TotalCurrency 350
+            TFBot
+            {
+                Template T_TFBot_Giant_Pyro
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "support"
+            TotalCount 24
+            MaxActive 4
+            SpawnCount 2
+
+            Where spawnbot_left
+            Where spawnbot_right
+
+            Support 1
+
+            WaitForAllSpawned "wave02"
+            WaitBeforeStarting 5
+            WaitBetweenSpawns 5
+            TotalCurrency 150
+            TFBot
+            {
+                Class Pyro
+                Skill Normal
+                ClassIcon pyro_jug_axtinguisher
+                Name "Axtinguisher Pyro"
+
+                WeaponRestrictions MeleeOnly
+                Item "The Axtinguisher"
+                Item "The Merc's Mohawk"
+
+                Action Mobber
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "support"
+            TotalCount 24
+            MaxActive 5
+            SpawnCount 1
+
+            Where spawnbot_short
+
+            Support 1
+
+            WaitForAllSpawned "wave02"
+            WaitBeforeStarting 7
+            WaitBetweenSpawns 3
+            TotalCurrency 150
+            TFBot
+            {
+                Class Demoman
+                Name "Bumperman"
+                Health 100
+                ClassIcon demo_bumper_car
+                UseHumanAnimations 1
+
+                Addcond { Index 82 Delay 1 }
+
+                WeaponRestrictions MeleeOnly
+
+				FireWeapon
+                {
+                    Delay 1
+                    Cooldown 4
+					IfSeeTarget 1
+                    Duration 1
+					Type "Secondary"
+				}
+
+                VoiceCommand    //Periodacally uses voice commands
+                {
+                    Delay 3
+                    Cooldown 7.5
+                    Type "Nice shot"
+                }
+
+                VoiceCommand    //Periodacally uses voice commands
+                {
+                    Delay 0
+                    Cooldown 5
+					IfSeeTarget 1
+                    Type "Battle Cry"
+                }
+
+                FireInput
+                {
+                    Target "!self"
+                    Action "$RemoveCond"
+                    Param "82"
+                    Repeats 1
+                    Delay 12
+                    IfSeeTarget 0
+                }
+
+                Item "Upgradeable TF_WEAPON_FISTS"
+                Item "The Cyborg Stunt Helmet"
+
+                Action Mobber
+            }
+        }
+    }
+
+    // Wave 3/5 ($1850)
+    
+    // 3 Giant Charged Soldiers
+    // 24 Heavyweight Champs (Critboosted)
+
+    // 6 Soldiers & 1 Quick Uber Medic Each
+    // 4 Giant Demoknights
+    // 10 Dread Knights
+
+    // 1 Tank (6k HP)
+    // 4 Rapid Fire Bowmen & 2 Bowmen Each
+
+    // Support : Snipers, Sandman Scouts
+
+    Wave
+    {
+        SpawnTemplate w3_tank_hint
+        SpawnTemplate w3_tank_music
+        SpawnTemplate w3_duck_counter
+
+        StartWaveOutput
+        {
+            Target wave_start_relay
+            Action Trigger
+        }
+        InitWaveOutput
+        {
+            Target wave_finished_relay_new
+            Action trigger
+            Delay 0.1
+        }
+
+        WaveSpawn
+        {
+            Name "wave01"
+            TotalCount 3
+            MaxActive 2
+            SpawnCount 1
+
+            StartWaveOutput
+            {
+                Target setcounter_requirement_to_15
+                Action Trigger
+            }
+
+            Where spawnbot
+
+            WaitBetweenSpawns 11
+            TotalCurrency 250
+            TFBot
+            {
+                Template T_TFBot_Giant_Soldier_Crit
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "wave01"
+            TotalCount 24
+            MaxActive 12
+            SpawnCount 3
+
+            Where spawnbot            
+            
+            StartWaveOutput
+            {
+                Target duck_killer
+                Action disable
+            }
+
+            WaitBeforeStarting 10
+            WaitBetweenSpawns 5
+            TotalCurrency 150
+            TFBot
+            {
+                Template T_TFBot_Heavyweapons_Heavyweight_Champ
+                Attributes AlwaysCrit
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "wave02_soldiers"
+            TotalCount 12
+            MaxActive 6
+            SpawnCount 2
+
+            Where spawnbot_left
+            Where spawnbot_right
+
+            WaitForAllDead "wave01"
+            WaitBeforeStarting 6
+            WaitBetweenSpawns 6
+            TotalCurrency 150
+            Squad
+            {
+                TFBot
+                {
+                    Class Soldier
+                    Skill Normal
+
+                    Action Mobber
+
+                    Attributes DisableDodge
+                    Attributes HoldFireUntilFullReload
+
+                    MaxVisionRange 1000
+
+                    VoiceCommand    //Periodacally uses voice commands
+                    {
+                        Delay 4
+                        Cooldown 12
+                        Repeats 2
+                        IfSeeTarget 1
+                        Type "Activate Charge"
+                    }
+                }
+                TFBot
+                {
+                    Template T_TFBot_Medic_QuickUber_Improved
+                }
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "wave02"
+            TotalCount 4
+            MaxActive 4
+            SpawnCount 1
+
+            Where spawnbot
+
+            WaitForAllSpawned "wave01"
+            WaitBeforeStarting 12
+            WaitBetweenSpawns 10
+            TotalCurrency 300
+            TFBot
+            {
+                Template T_TFBot_Giant_DemoMan_PrinceTavish
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "wave02"
+            TotalCount 10
+            MaxActive 5
+            SpawnCount 1
+
+            Where spawnbot
+
+            WaitForAllSpawned "wave01"
+            WaitBeforeStarting 4
+            WaitBetweenSpawns 5.5
+            TotalCurrency 200
+            TFBot
+            {			
+                Class Demoman
+                Health 650
+                Scale 1.3
+                Name "Dread Knight"
+                ClassIcon demo_loch_nys
+                Skill Hard
+
+                Attributes HoldFireUntilFullReload
+
+                Item "The Dark Falkirk Helm"
+                Item "The Dark Age Defender"
+                Item "The Loch-n-Load"
+                Item "The Chargin' Targe"
+                Item "The Scotsman's Skullcutter"
+
+                WeaponSwitch
+                {
+                    Delay 0.25
+                    Cooldown 2
+                    IfSeeTarget 1
+                    Type "Primary"
+                    MaxTargetRange 1200
+                    MinTargetRange 400
+                }
+
+                WeaponSwitch
+                {
+                    Delay 0
+                    Cooldown 2.5
+                    IfSeeTarget 1
+                    Type "Melee"
+                    MaxTargetRange 375
+                    MinTargetRange 0
+                }
+
+                VoiceCommand
+                {
+                    Delay 4
+                    Cooldown 5
+                    IfSeeTarget 1
+                    MaxTargetRange 900
+                    MinTargetRange 400
+                    Type "Negative"
+                }
+
+                VoiceCommand
+                {
+                    Delay 0.5
+                    Cooldown 3
+                    IfSeeTarget 1
+                    MaxTargetRange 250
+                    MinTargetRange 0
+                    Type "Battle Cry"
+                }
+
+                ItemAttributes
+                {
+                    ItemName "The Loch-n-Load"
+                    "faster reload rate" 0.7
+                    "fire rate bonus" 0.5
+                    "clip size penalty" 0.5
+                    "Projectile speed increased" 1
+                    "dmg bonus vs buildings" 1
+                    "sticky air burst mode" 0
+                    "damage bonus" 1.2
+                    Paintkit_proto_def_index 411
+                    Set_item_texture_wear 0
+                }
+
+                ItemAttributes
+                {
+                    ItemName "The Chargin' Targe"
+                    "dmg taken from fire reduced" 1
+                }
+
+                ItemAttributes
+                {
+                    ItemName "The Scotsman's Skullcutter"
+                    "critboost on kill" 3
+                    "fire rate bonus" 0.9
+                    Paintkit_proto_def_index 411
+                    Set_item_texture_wear 0
+                }
+            }
+        }
+
+		WaveSpawn
+		{
+		    Name "wave03_tank"
+			TotalCount 1
+			MaxActive  1
+			SpawnCount 1
+
+            FirstSpawnOutput
+            {
+                Target tank_tutorial
+                Action Trigger
+            }
+
+            DoneOutput
+            {
+                Target "tank_music"
+                Action fadeout
+                Param "3"
+            }
+			
+            WaitBeforeStarting 10
+			WaitForAllSpawned "wave02"
+			TotalCurrency 350
+			Tank
+			{
+				Name   "tank"
+				Health 12000
+				Speed  60
+				StartingPathTrackNode "path1"
+
+				OnBombDroppedOutput
+				{
+					Target boss_deploy_relay
+					Action Trigger
+				}
+			}
+		}
+
+        WaveSpawn
+        {
+            Name "wave03"
+            TotalCount 12
+            MaxActive 9
+            SpawnCount 3
+
+            Where spawnbot
+
+            WaitForAllSpawned "wave02"
+            WaitBeforeStarting 15
+            WaitBetweenSpawns 6
+            TotalCurrency 350
+            Squad
+            {
+                TFBot
+                {
+                    Template T_TFBot_Sniper_Huntsman_Spammer
+                    Name "Rapid Fire Bowman"
+                    Health 900
+                    ClassIcon sniper_bow_multi
+
+                    Action Mobber
+                }
+                TFBot
+                {
+                    Template T_TFBot_Sniper_Huntsman
+
+                    Action Mobber
+                }
+                TFBot
+                {
+                    Template T_TFBot_Sniper_Huntsman
+
+                    Action Mobber
+                }
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "support"
+            TotalCount 25
+            MaxActive 12
+            SpawnCount 1
+
+            Where spawnbot_invasion
+
+            Support 1
+
+            WaitForAllDead "wave03_tank"
+            WaitBetweenSpawns 2
+            TotalCurrency 100
+            TFBot
+            {
+                Template T_TFBot_Scout_Sandman
+            }
+        }
+    }
+
+    // Wave 4/5 ($1500)
+    
+    // 1 Giant Brass Beast Heavy & 1 Giant Regen Medic
+
+    // 1 Tank (7.5k HP)
+    // 2 Giant Brass Beast Heavies & 2 Kritz Medics each
+    // 36 Charged Soldiers
+
+    // 8 Bumper Busters
+    // 8 Giant Phlog Pyros
+    // 32 Burst Fire Demomen
+    // 1 Tank (8k HP)
+
+    // Support : Scouts (Normal AI), Snipers
+
+    Wave
+    {
+        SpawnTemplate w4_duck_counter
+
+        StartWaveOutput
+        {
+            Target wave_start_relay
+            Action Trigger
+        }
+        InitWaveOutput
+        {
+            Target wave_finished_relay_new
+            Action Trigger
+            Delay 0.1
+        }
+
+        WaveSpawn
+        {
+            Name "wave01"
+            TotalCount 2
+            MaxActive 2
+            SpawnCount 2
+
+            StartWaveOutput
+            {
+                Target setcounter_requirement_to_15
+                Action Trigger
+            }
+
+            Where spawnbot
+
+            TotalCurrency 250
+            Squad
+            {
+                TFBot
+                {
+                    Template T_TFBot_Giant_Heavy_BrassBeast
+                    Skill Normal
+                }
+                TFBot
+                {
+                    Template T_TFBot_Giant_Medic_Regen
+                    Name "Giant Regen Medic"
+                }
+            }
+        }
+
+        WaveSpawn
+        {
+            TotalCount 1
+            MaxActive 1
+            SpawnCount 1
+
+            Support 1
+
+            Where spawnbot_tunnel_main
+            WaitBeforeStarting 10
+            WaitForAllSpawned "wave03_tank"
+            TFBot
+            {
+                Template T_TFBot_Giant_Soldier_Burst_Homing
+                Name "animal"
+
+                Attributes AlwaysCrit
+                Action Mobber
+
+                Item "Pop-eyes"
+                Item "Bone-Cut Belt"
+                Item "Taunt: Yeti Smash"
+
+                UseHumanAnimations 1
+
+				RemoveAttribute
+				{
+					Item player
+					Name taunt_attr_player_invis_percent
+					Delay -1
+					Cooldown -1
+					Repeats 0
+				}
+				FireInput
+				{
+					Target tf_taunt_prop*
+					Action kill
+					Cooldown -1
+					Delay -1
+				}
+
+                MaxVisionRange 250
+                UseCustomModel "models\bots\soldier_boss\bot_soldier_boss.mdl"
+
+                CharacterAttributes
+                {
+                    "move speed bonus" 2
+                    "increased jump height" 4
+                    "increased air control" 40
+                    "gesture speed increase" 1.4
+                    "always allow taunt" 1
+                    "fire input on kill" "!activator^$TauntFromItem^Taunt: Yeti Smash"
+                }
+            }
+        }
+
+		WaveSpawn
+		{
+		    Name "wave02_tank"
+			TotalCount 1
+			MaxActive  1
+			SpawnCount 1
+            
+            StartWaveOutput
+            {
+                Target duck_killer
+                Action disable
+            }
+
+            FirstSpawnOutput
+            {
+                Target "ducks_respawn_w4_nodelay_nosound"
+                Action Trigger
+                Delay 2
+            }
+			
+            WaitBeforeStarting 15
+			WaitForAllSpawned "wave01"
+			TotalCurrency 250
+			Tank
+			{
+				Name   "tank"
+				Health 30000
+				Speed  60
+				StartingPathTrackNode "path1"
+
+				OnBombDroppedOutput
+				{
+					Target boss_deploy_relay
+					Action Trigger
+				}
+			}
+		}
+
+        WaveSpawn
+        {
+            Name "wave02"
+            TotalCount 6
+            MaxActive 6
+            SpawnCount 3
+
+            Where spawnbot
+
+            WaitForAllDead "wave01"
+            WaitBeforeStarting 12
+            WaitBetweenSpawns 12
+            TotalCurrency 200
+            Squad
+            {
+                TFBot
+                {
+                    Template T_TFBot_Giant_Heavy_BrassBeast
+                    Action Mobber
+                    Skill Normal
+                }
+                TFBot
+                {
+                    Template T_TFBot_Medic_Kritzkrieg
+                }
+                TFBot
+                {
+                    Template T_TFBot_Medic_Kritzkrieg
+                }
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "wave02"
+            TotalCount 36
+            MaxActive 8
+            SpawnCount 4
+
+            Where spawnbot
+
+            WaitForAllSpawned "wave02_tank"
+            WaitBeforeStarting 8
+            WaitBetweenSpawns 4
+            TotalCurrency 300
+            RandomChoice
+            {
+                Shuffle 1
+                TFBot
+                {
+                    Template T_TFBot_Soldier_Charged
+                }
+                TFBot
+                {
+                    Template T_TFBot_Soldier_Charged
+                    Action Mobber
+                }
+            }
+        }
+
+		WaveSpawn
+		{
+		    Name "wave03_tank"
+			TotalCount 1
+			MaxActive  1
+			SpawnCount 1
+
+            DoneOutput
+            {
+                Target "ducks_respawn"
+                Action kill
+                Delay 2
+            }
+			
+            WaitBeforeStarting 18
+            WaitForAllDead "wave02_tank"
+			TotalCurrency 50
+			Tank
+			{
+				Name   "tank"
+				Health 44000
+				Speed  60
+                Skin 1
+				StartingPathTrackNode "path2"
+
+				OnBombDroppedOutput
+				{
+					Target boss_deploy_relay
+					Action Trigger
+				}
+			}
+		}
+
+        WaveSpawn
+        {
+            Name "wave03_bump_busters"
+            TotalCount 8
+            MaxActive 8
+            SpawnCount 1
+
+            Where spawnbot
+
+            WaitForAllSpawned "wave02"
+            WaitBeforeStarting 15
+            WaitBetweenSpawns 2.5
+            TotalCurrency 100
+            TFBot
+            {
+                Template T_TFBot_SentryBuster_Bumpercar
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "wave03"
+            TotalCount 32
+            MaxActive 12
+            SpawnCount 4
+
+            Where spawnbot
+
+            WaitForAllDead "wave03_bump_busters"
+            WaitBetweenSpawns 4
+            TotalCurrency 100
+            TFBot
+            {
+                Template T_TFBot_Demo_Burst
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "wave03"
+            TotalCount 8
+            MaxActive 3
+            SpawnCount 1
+
+            Where spawnbot
+
+            WaitForAllDead "wave02"
+            WaitBetweenSpawns 9
+            TotalCurrency 250
+            TFBot
+            {
+                Template T_TFBot_Giant_Pyro
+                ClassIcon pyro_phlog_v2
+                Name "Giant Phlogistinator Pyro"
+
+                Item "The Phlogistinator"
+                Item "Pyro Helm"
+                Item "Veteran's Visor"
+                Item "Deserter's Duster"
+
+                Attributes SpawnWithFullCharge
+				
+				FireWeapon
+                {
+                    Delay 0.5
+                    Cooldown 2
+                    Repeats 0
+					IfSeeTarget 1
+                    Duration 1
+					Type "Secondary"
+				}
+				
+				ItemAttributes
+				{
+				    ItemName "The Phlogistinator"
+					"airblast disabled" 0
+				}
+            }
+        }
+    }
+
+    // Wave 5/5
+    
+    // Race Hater
+
+    Wave
+    {
+        SpawnTemplate w5_start_cutscene
+        SpawnTemplate w5_end_cutscene
+        SpawnTemplate w5_duck_counter
+        PlayerAttributes
+        {
+            Scout
+            {
+                "move speed bonus" 2
+                "ammo regen" 0.5
+            }
+            Soldier
+            {
+                "move speed bonus" 2
+                "ammo regen" 0.5
+            }
+            Pyro
+            {
+                "move speed bonus" 2
+                "ammo regen" 0.5
+            }
+            Demoman
+            {
+                "move speed bonus" 2
+                "ammo regen" 0.5
+            }
+            Heavyweapons
+            {
+                "move speed bonus" 2
+                "ammo regen" 0.5
+            }
+            Engineer
+            {
+                "move speed bonus" 2
+                "ammo regen" 0.5
+                "metal regen" 200
+            }
+            Medic
+            {
+                "move speed bonus" 2
+                "ammo regen" 0.5
+            }
+            Sniper
+            {
+                "move speed bonus" 2
+                "ammo regen" 0.5
+            }
+            Spy
+            {
+                "move speed bonus" 2
+                "ammo regen" 0.5
+            }
+        }
+
+        StartWaveOutput
+        {
+            Target wave_start_relay
+            Action Trigger
+        }
+        InitWaveOutput
+        {
+            Target wave_finished_relay_new
+            Action RunScriptCode
+            Param "
+                EntFire(`wave_finished_relay_new`, `trigger`, `0`, 0.1)
+                EntFire(`w5_count`, `show`, `0`, 3)
+            "
+        }
+
+		WaveSpawn
+		{
+		    Name "boss"
+			TotalCount 1
+			MaxActive  1
+			SpawnCount 1
+
+            Where spawnbot_short
+
+            StartWaveOutput
+            {
+                Target setcounter_requirement_to_25
+                Action Trigger
+            }
+            
+            WaitBeforeStarting 3.9
+			TotalCurrency 250
+			TFBot
+			{
+                Template T_TFBot_Boss_Race_Hater
+                DeathSound "misc/null.wav"
+			}
+		}
+
+		WaveSpawn
+		{
+		    Name "boss_punchbag"
+			TotalCount 1
+			MaxActive  1
+			SpawnCount 1
+
+            FirstSpawnOutput
+            {
+                Target "bossfight_punchbag_start"
+                Action Trigger
+            }
+
+            HideIcon 1
+            WaitForAllDead "boss"
+            Where spawnbot_short            
+			TotalCurrency 250
+			TFBot
+			{
+                Template T_TFBot_Boss_Race_Hater_PunchingBag
+			}
+		}
+
+        WaveSpawn
+        {
+            Name "support2"
+            TotalCount 25
+            MaxActive 2
+            SpawnCount 1
+
+            Where spawnbot
+
+            Support 1
+
+            WaitForAllSpawned "support1"
+            WaitBeforeStarting 20
+            //StartDisabled 1
+            WaitBetweenSpawns 15
+            TotalCurrency 100
+            TFBot
+            {
+                Template T_TFBot_Giant_Pyro
+
+                Item "The Lunatic's Leathers"
+                Item "The Smoking Skid Lid"
+
+                SpawnTemplate yourenotthebossnowareyou
+                DeathSound "=50|mvm\sentrybuster\mvm_sentrybuster_explode.wav"
+
+                Attributes DisableDodge
+                Attributes AlwaysCrit
+                Action Mobber
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "support3"
+            TotalCount 25
+            MaxActive 1
+            SpawnCount 1
+
+            Where spawnbot
+
+            Support 1
+
+            WaitBeforeStarting 15
+            StartDisabled 1
+            WaitBetweenSpawnsAfterDeath 25
+            TotalCurrency 125
+            TFBot
+            {
+                Template T_TFBot_Giant_Heavyweapons
+                Skill Hard
+
+                Item "Road Rage"
+                Item "Heavy Metal"
+
+                SpawnTemplate yourenotthebossnowareyou
+                DeathSound "=50|mvm\sentrybuster\mvm_sentrybuster_explode.wav"
+
+                Attributes DisableDodge
+                Action Mobber
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "support4"
+            TotalCount 6
+            MaxActive 6
+            SpawnCount 1
+
+            Where spawnbot
+
+            Support Limited
+
+            WaitBeforeStarting 10
+            WaitBetweenSpawns 2
+            StartDisabled 1
+            TotalCurrency 50
+            TFBot
+            {
+                Template T_TFBot_SentryBuster_Bumpercar
+                DeathSound "=50|mvm\sentrybuster\mvm_sentrybuster_explode.wav"
+
+                SpawnTemplate yourenotthebossnowareyou
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "support4_1"
+            TotalCount 20
+            MaxActive 2
+            SpawnCount 1
+
+            Where spawnbot
+
+            Support 1
+
+            WaitForAllSpawned "support4"
+            WaitBeforeStarting 12
+            WaitBetweenSpawns 4
+            StartDisabled 1
+            TotalCurrency 200
+            TFBot
+            {
+                Template T_TFBot_SentryBuster_Bumpercar
+                DeathSound "=50|mvm\sentrybuster\mvm_sentrybuster_explode.wav"
+
+                SpawnTemplate yourenotthebossnowareyou
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "support1"
+            TotalCount 22
+            MaxActive 21
+            SpawnCount 1
+
+            Where spawnbot_invasion
+
+            Support Limited
+            
+            StartWaveOutput
+            {
+                Target duck_killer
+                Action disable
+            }
+
+            WaitBeforeStarting 20
+            WaitBetweenSpawns 0.1
+            TotalCurrency 66
+            RandomChoice
+            {
+                Shuffle 1
+                TFBot
+                {
+                    Class Soldier
+                    Skill Normal
+                    ClassIcon paintrain_lite
+
+                    SpawnTemplate yourenotthebossnowareyou
+
+                    WeaponRestrictions MeleeOnly
+                    Attributes DisableDodge
+
+                    Item "The Pain Train"
+                    Item "Bobby Bonnet"
+
+                    Action Mobber
+                }
+                TFBot
+                {
+                    Class Demoman
+                    Skill Normal
+                    ClassIcon paintrain_lite
+
+                    SpawnTemplate yourenotthebossnowareyou
+
+                    WeaponRestrictions MeleeOnly
+                    Attributes DisableDodge
+
+                    Item "The Pain Train"
+                    Item "Bobby Bonnet"
+
+                    Action Mobber
+                }
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "support1_1"
+            TotalCount 60
+            MaxActive 8
+            SpawnCount 2
+
+            Where spawnbot
+
+            Support 1
+
+            WaitForAllSpawned "support1"
+            WaitBeforeStarting 5
+            WaitBetweenSpawns 2.75
+            TotalCurrency 434
+            RandomChoice
+            {
+                TFBot
+                {
+                    Class Soldier
+                    Skill Normal
+                    ClassIcon paintrain_lite
+
+                    SpawnTemplate yourenotthebossnowareyou
+
+                    WeaponRestrictions MeleeOnly
+                    Attributes DisableDodge
+
+                    Item "The Pain Train"
+                    Item "Bobby Bonnet"
+
+                    Action Mobber
+                }
+                TFBot
+                {
+                    Class Demoman
+                    Skill Normal
+                    ClassIcon paintrain_lite
+
+                    SpawnTemplate yourenotthebossnowareyou
+
+                    WeaponRestrictions MeleeOnly
+                    Attributes DisableDodge
+
+                    Item "The Pain Train"
+                    Item "Bobby Bonnet"
+
+                    Action Mobber
+                }
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "support3"
+            TotalCount 24
+            MaxActive 4
+            SpawnCount 2
+
+            Where spawnbot
+
+            Support 1
+
+            WaitBeforeStarting 5
+            StartDisabled 1
+            WaitBetweenSpawns 11
+            TotalCurrency 125
+            TFBot
+            {
+                Template T_TFBot_Heavyweapons_Fist
+                Attributes AlwaysCrit
+
+                Action Mobber
+                Attributes DisableDodge
+                SpawnTemplate yourenotthebossnowareyou
+            }
+        }
+
+        WaveSpawn // if you take too long
+        {
+            Name "bomb_support"
+            TotalCount 50
+            MaxActive 10
+            SpawnCount 5
+
+            Where spawnbot
+
+            Support 1
+
+            WaitForAllSpawned "boss"
+            WaitBeforeStarting 480
+            WaitBetweenSpawns 10
+            TotalCurrency 100
+            Squad
+            {
+                TFBot
+                {
+                    Template T_TFBot_Giant_Pyro
+
+                    Item "The Lunatic's Leathers"
+                    Item "The Smoking Skid Lid"
+
+                    SpawnTemplate yourenotthebossnowareyou
+
+                    Attributes AlwaysCrit
+                    DeathSound "=50|mvm\sentrybuster\mvm_sentrybuster_explode.wav"
+                }
+                TFBot
+                {
+                    Class Soldier
+                    ClassIcon soldier_spammer
+                    Skill Normal
+
+                    Attributes HoldFireUntilFullReload
+
+                    Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+
+                    SpawnTemplate yourenotthebossnowareyou
+
+                    ItemAttributes
+                    {
+                        ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+                        "fire rate bonus" 0.7
+                        "faster reload rate" 0
+                        "Projectile speed decreased" 0.65
+                    }
+                }
+                TFBot
+                {
+                    Class Soldier
+                    ClassIcon soldier_spammer
+                    Skill Normal
+
+                    Attributes HoldFireUntilFullReload
+
+                    Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+
+                    SpawnTemplate yourenotthebossnowareyou
+
+                    ItemAttributes
+                    {
+                        ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+                        "fire rate bonus" 0.7
+                        "faster reload rate" 0
+                        "Projectile speed decreased" 0.65
+                    }
+                }
+                TFBot
+                {
+                    Class Soldier
+                    ClassIcon soldier_spammer
+                    Skill Normal
+
+                    Attributes HoldFireUntilFullReload
+
+                    Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+
+                    SpawnTemplate yourenotthebossnowareyou
+
+                    ItemAttributes
+                    {
+                        ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+                        "fire rate bonus" 0.7
+                        "faster reload rate" 0
+                        "Projectile speed decreased" 0.65
+                    }
+                }
+                TFBot
+                {
+                    Class Soldier
+                    ClassIcon soldier_spammer
+                    Skill Normal
+
+                    Attributes HoldFireUntilFullReload
+
+                    Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+
+                    SpawnTemplate yourenotthebossnowareyou
+
+                    ItemAttributes
+                    {
+                        ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+                        "fire rate bonus" 0.7
+                        "faster reload rate" 0
+                        "Projectile speed decreased" 0.65
+                    }
+                }
+            }
+        }
+    }
+}
