@@ -7931,13 +7931,13 @@ YOUR_WaveSchedule_IS_TAKING_TOO_LONG
 			env_screenoverlay
 			{
 				"targetname" "w17_overlay"
-				"overlayname1" "missionfolderthatappearswhenyouhavetakentoolonginaghosthouse/w17_its.vtf"
+				"overlayname1" "missionfolderthatappearswhenyouhavetakentoolonginaghosthouse/w17_its"
 				"overlaytime1" "1.2"
-				"overlayname2" "missionfolderthatappearswhenyouhavetakentoolonginaghosthouse/w17_its_t.vtf"
+				"overlayname2" "missionfolderthatappearswhenyouhavetakentoolonginaghosthouse/w17_its_t"
 				"overlaytime2" "0.8"
-				"overlayname3" "missionfolderthatappearswhenyouhavetakentoolonginaghosthouse/w17_its_tv.vtf"
+				"overlayname3" "missionfolderthatappearswhenyouhavetakentoolonginaghosthouse/w17_its_tv"
 				"overlaytime3" "0.8"
-				"overlayname4" "missionfolderthatappearswhenyouhavetakentoolonginaghosthouse/w17_its_tv_time.vtf"
+				"overlayname4" "missionfolderthatappearswhenyouhavetakentoolonginaghosthouse/w17_its_tv_time"
 				"overlaytime4" "2"
 			}
 			point_worldtext
