@@ -667,7 +667,7 @@ WaveSchedule
         {
             Name "Bundy"
             Class Sniper
-            ClassIcon sniper_kukri_lite
+            ClassIcon sniper_kukri_giant
             Scale 1.75
             Health 5000
         
@@ -701,7 +701,7 @@ WaveSchedule
         {
             Name "Pundy"
             Class Sniper
-            ClassIcon sniper_kukri_lite
+            ClassIcon sniper_kukri_giant
             Scale 1.75
             Health 5000
         
@@ -735,7 +735,7 @@ WaveSchedule
         {
             Name "Mundy"
             Class Sniper
-            ClassIcon sniper_kukri_lite
+            ClassIcon sniper_kukri_giant
             Scale 1.75
             Health 5000
         
@@ -769,7 +769,7 @@ WaveSchedule
         {
             Name "Phil"
             Class Sniper
-            ClassIcon sniper_kukri_lite
+            ClassIcon sniper_kukri_giant
             Scale 1.75
             Health 5000
         
@@ -5745,7 +5745,7 @@ WaveSchedule
             TotalCount 1
             MaxActive 1
             SpawnCount 1
-            WaitBeforeStarting 100
+            WaitBeforeStarting 70
             WaitBetweenSpawns 0
             FirstSpawnWarningSound mvm/giant_heavy/giant_heavy_entrance.wav
             TotalCurrency 100
@@ -6514,7 +6514,7 @@ WaveSchedule
 			SpawnCount	3
 			Where	spawnbot
 			FirstSpawnWarningSound "100oj_yuuki_select4.mp3"
-			FirstSpawnMessage "{7D4071}æ‚ªé­”{reset} : æš´ã‚Œã¦ã„ã„ã®ã‹ï¼Ÿ"  
+			FirstSpawnMessage "{7D4071}悪魔{reset} : 暴れていいのか？"  
 			Squad
 			{
 				TFBot
@@ -6543,13 +6543,13 @@ WaveSchedule
 		{
 			WaitForAllDead "A"
 			WaitBeforeStarting	2
-			FirstSpawnMessage "{white}å¤©ä½¿{reset} : ã„ã„ãœï¼"  
+			FirstSpawnMessage "{white}天使{reset} : いいぜ！"  
 		}
 		WaveSpawn
 		{
 			WaitForAllDead "A"
 			WaitBeforeStarting	3.6
-			FirstSpawnMessage "{7D4071}æ‚ªé­”{reset} : ã„ã„ã®ã‹ã‚ˆ"  
+			FirstSpawnMessage "{7D4071}悪魔{reset} : いいのかよ"  
 		}
 
 
