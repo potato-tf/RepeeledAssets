@@ -13,5 +13,4 @@
 	"mvm_ghost_town" "*"
 	"mvm_mannhattan" "*"
 	"mvm_mannworks" "*"
-	"mvm_rottenburg" "*"
 }
