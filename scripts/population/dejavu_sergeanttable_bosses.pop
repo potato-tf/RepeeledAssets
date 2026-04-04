@@ -7693,6 +7693,14 @@ WaveSchedule
                 "OnTrigger" "FallenShocksGroundSlamAttack,CancelPending,,0,-1"
                 "OnTrigger" "FallenShocksLightningRainAttack,CancelPending,,0,-1"
                 "OnTrigger" "FallenShocksStompComboAttack,CancelPending,,0,-1"
+
+                "OnTrigger" "FallenShocksMegaLaser,Disable,,11,-1"
+				"OnTrigger" "FallenShocksMegaLaserDamageDetector,$StopFiring,,11,-1"
+				"OnTrigger" "FallenShocksMegaLaserDamageTrigger*,Disable,11,-1"
+                "OnTrigger" "FallenShocksMegaLaserCharge,TurnOff,,11,-1"
+				"OnTrigger" "FallenShocksMegaLaserChargeParticle,Stop,,11,-1"
+                "OnTrigger" "FallenShocksMegaLaserLoop,StopSound,,11,-1"
+
                 "OnTrigger" "FallenShocksLightningGigaTesla,TurnOff,,0,-1"
                 "OnTrigger" "FallenShocksLightningGigaOrb,Stop,,0,-1"
                 "OnTrigger" "LightningRainLauncher1,$StopFiring,,0,-1"
@@ -8264,6 +8272,13 @@ WaveSchedule
                 "OnTrigger" "FallenShocksMultiBeamParticle,Stop,,0,-1"
                 "OnTrigger" "FallenShocksMultiBeamTesla,TurnOff,,0,-1"
                 "OnTrigger" "MultiBeamDamage,$StopFiring,,0,-1"
+
+                "OnTrigger" "FallenShocksMegaLaser,Disable,,11,-1"
+				"OnTrigger" "FallenShocksMegaLaserDamageDetector,$StopFiring,,11,-1"
+				"OnTrigger" "FallenShocksMegaLaserDamageTrigger*,Disable,11,-1"
+                "OnTrigger" "FallenShocksMegaLaserCharge,TurnOff,,11,-1"
+				"OnTrigger" "FallenShocksMegaLaserChargeParticle,Stop,,11,-1"
+                "OnTrigger" "FallenShocksMegaLaserLoop,StopSound,,11,-1"
 
                 "OnTrigger" "TheShocksBehindTheSlaughter,SetAnimation,tauntcan_it,0,-1"
                 "OnTrigger" "tf_gamerules,PlayVO,vo/mvm/mght/soldier_mvm_m_painsevere02.mp3,0,-1"
@@ -9007,7 +9022,7 @@ WaveSchedule
 
             EventChangeAttributes
             {
-                TemuBarrage  
+                TemuBarrage [$SIGSEGV]
                 {
                     Item "TF_WEAPON_ROCKETLAUNCHER"
                     WeaponRestrictions PrimaryOnly
@@ -9032,7 +9047,7 @@ WaveSchedule
                         Cooldown -1
                     }
                 }
-                TemuHoming  
+                TemuHoming [$SIGSEGV]
                 {
                     Item "The Liberty Launcher"
                     WeaponRestrictions PrimaryOnly
@@ -9074,7 +9089,7 @@ WaveSchedule
                         Cooldown -1
                     }
                 }
-                TemuNuke  
+                TemuNuke [$SIGSEGV]
                 {
                     Item "The Black Box"
                     WeaponRestrictions PrimaryOnly
@@ -9097,7 +9112,7 @@ WaveSchedule
                         Cooldown -1
                     }
                 }
-                TemuShotty  
+                TemuShotty [$SIGSEGV]
                 {
                     Item "TF_WEAPON_SHOTGUN_SOLDIER"
                     WeaponRestrictions SecondaryOnly
@@ -9121,7 +9136,7 @@ WaveSchedule
                         Cooldown -1
                     }
                 }
-                TemuGroundPound  
+                TemuGroundPound [$SIGSEGV]
                 {
                     FireInput
                     {
@@ -9142,7 +9157,7 @@ WaveSchedule
                         Cooldown -1
                     }
                 }
-                TemuGroundPoundIdle  
+                TemuGroundPoundIdle [$SIGSEGV]
                 {
                     FireInput
                     {
@@ -9153,7 +9168,7 @@ WaveSchedule
                         Cooldown -1
                     }
                 }
-                TemuPassive1  
+                TemuPassive1 [$SIGSEGV]
                 {
                     Attributes IgnoreEnemies
 
@@ -9165,7 +9180,7 @@ WaveSchedule
                         "no_jump" 1
                     }
                 }
-                TemuPassive2  
+                TemuPassive2 [$SIGSEGV]
                 {
                     Attributes IgnoreEnemies
 
@@ -9265,7 +9280,7 @@ WaveSchedule
 
 			EventChangeAttributes
 			{
-				FallenShocks_Default  
+				FallenShocks_Default [$SIGSEGV]
 				{
 					UseCustomModel "models/bots/soldier/major_shocks/bot_major_shocks_02_attacks.mdl"
 
@@ -9326,7 +9341,7 @@ WaveSchedule
                         Cooldown -1
                     }
 				}
-                FallenShocks_PanicDefault  
+                FallenShocks_PanicDefault [$SIGSEGV]
 				{
 					UseCustomModel "models/bots/soldier/major_shocks/bot_major_shocks_02_attacks.mdl"
 
@@ -9391,7 +9406,7 @@ WaveSchedule
 				//// Phase 1 Attacks ////
 
                 // The Megalaser of Big Doom and Death and Despair and Shit
-                FallenShocks_MegaLaserLongJump  
+                FallenShocks_MegaLaserLongJump [$SIGSEGV]
                 {
                     Item "The Cow Mangler 5000"
 					Item "TF_WEAPON_SHOTGUN_SOLDIER"
@@ -9442,7 +9457,7 @@ WaveSchedule
 						Cooldown -1
 					}
                 }
-                FallenShocks_MegaLaserInit  
+                FallenShocks_MegaLaserInit [$SIGSEGV]
                 {
 					UseCustomModel "models/empty.mdl"
 					Item "The Cow Mangler 5000"
@@ -9493,7 +9508,7 @@ WaveSchedule
 						Cooldown -1
 					}
                 }
-				FallenShocks_MegaLaserLock  
+				FallenShocks_MegaLaserLock [$SIGSEGV]
 				{
 					UseCustomModel "models/empty.mdl"
 					Item "The Cow Mangler 5000"
@@ -9598,7 +9613,7 @@ WaveSchedule
 				}
 
 				// Ground Slam
-				FallenShocks_GroundSlam  
+				FallenShocks_GroundSlam [$SIGSEGV]
 				{
 					UseCustomModel "models/empty.mdl"
 					Item "The Cow Mangler 5000"
@@ -9650,7 +9665,7 @@ WaveSchedule
 				}
 
 				// Lightning Rain
-				FallenShocks_LightningRain  
+				FallenShocks_LightningRain [$SIGSEGV]
 				{
 					Item "The Cow Mangler 5000"
 					Item "TF_WEAPON_SHOTGUN_SOLDIER"
@@ -9704,7 +9719,7 @@ WaveSchedule
 				}
 
                 // Stomp Combo
-                FallenShocks_StompCombo  
+                FallenShocks_StompCombo [$SIGSEGV]
                 {
                     UseCustomModel "models/empty.mdl"
 					Item "The Cow Mangler 5000"
@@ -9748,7 +9763,7 @@ WaveSchedule
 
                 //// Phase 2 Transition ////
 
-                FallenShocks_Phase2Transition  
+                FallenShocks_Phase2Transition [$SIGSEGV]
                 {
                     UseCustomModel "models/empty.mdl"
 					Item "The Cow Mangler 5000"
@@ -9808,7 +9823,7 @@ WaveSchedule
 				//// Phase 2 Attacks ////
 
                 // Vortex
-                FallenShocks_Vortex  
+                FallenShocks_Vortex [$SIGSEGV]
                 {
                     UseCustomModel "models/empty.mdl"
 					Item "The Cow Mangler 5000"
@@ -9851,7 +9866,7 @@ WaveSchedule
                 }
 
                 // Evolved Ground Slam
-                FallenShocks_GroundSlamEvolved  
+                FallenShocks_GroundSlamEvolved [$SIGSEGV]
 				{
 					UseCustomModel "models/empty.mdl"
 					Item "The Cow Mangler 5000"
@@ -9903,7 +9918,7 @@ WaveSchedule
 				}
 
                 // Multi-Beam
-                FallenShocks_MultiBeam  
+                FallenShocks_MultiBeam [$SIGSEGV]
                 {
                     UseCustomModel "models/empty.mdl"
 					Item "The Cow Mangler 5000"
@@ -9958,7 +9973,7 @@ WaveSchedule
 
                 //// Phase 3 Transition ////
 
-                FallenShocks_Phase3Transition  
+                FallenShocks_Phase3Transition [$SIGSEGV]
                 {
                     UseCustomModel "models/empty.mdl"
 					Item "The Cow Mangler 5000"
@@ -10018,7 +10033,7 @@ WaveSchedule
                 //// Phase 3 Attacks ////
 
                 // Stomp Combo Evolved
-                FallenShocks_StompComboEvolved  
+                FallenShocks_StompComboEvolved [$SIGSEGV]
                 {
                     UseCustomModel "models/empty.mdl"
 					Item "The Cow Mangler 5000"
@@ -10072,7 +10087,7 @@ WaveSchedule
                 }
 
                 // Teleport Mania
-                FallenShocks_TeleportMania  
+                FallenShocks_TeleportMania [$SIGSEGV]
                 {
                     UseCustomModel "models/empty.mdl"
 					Item "The Cow Mangler 5000"
@@ -10116,7 +10131,7 @@ WaveSchedule
                 }
 
                 // Vortex Evolved
-                FallenShocks_VortexEvolved  
+                FallenShocks_VortexEvolved [$SIGSEGV]
                 {
                     UseCustomModel "models/empty.mdl"
 					Item "The Cow Mangler 5000"
@@ -10281,7 +10296,7 @@ WaveSchedule
             }
             EventChangeAttributes
             {
-                phase2  
+                phase2 [$SIGSEGV]
                 {
                     FireInput
                         {
@@ -10527,7 +10542,7 @@ WaveSchedule
             }
             EventChangeAttributes
             {
-                combattankteleport  
+                combattankteleport [$SIGSEGV]
                 {
                     ActionOverride Mobber
                     FireInput
@@ -10552,7 +10567,7 @@ WaveSchedule
                         Delay 0
                     }
                 }
-                teleporttocombattank  
+                teleporttocombattank [$SIGSEGV]
                 {
                     UseCustomModel "models/bots/heavy_boss/bot_heavy_boss_gibby.mdl"
                     ActionOverride Idle
@@ -10607,7 +10622,7 @@ WaveSchedule
                         Delay  0
                     }
                 }
-                minigunattack1  
+                minigunattack1 [$SIGSEGV]
                 {
                     WeaponRestrictions PrimaryOnly
 
@@ -10626,7 +10641,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                minigunattack2  
+                minigunattack2 [$SIGSEGV]
                 {
                     WeaponRestrictions PrimaryOnly
                     Item "deflector"
@@ -10643,7 +10658,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                ogdaveattack  
+                ogdaveattack [$SIGSEGV]
                 {
                     WeaponRestrictions MeleeOnly
                     Item "Fists of Steel"
@@ -10680,7 +10695,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                kgbphase  
+                kgbphase [$SIGSEGV]
                 {
                     WeaponRestrictions MeleeOnly
                     Item "The Killing Gloves of Boxing"
@@ -10712,7 +10727,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                noobattack  
+                noobattack [$SIGSEGV]
                 {
                     AddAttribute
                     {
@@ -10765,7 +10780,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                noobattackphase2  
+                noobattackphase2 [$SIGSEGV]
                 {
                     UseCustomModel "models/bots/heavy_boss/bot_heavy_boss_gibby.mdl"
                     AddAttribute
@@ -10819,7 +10834,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                fastphase  
+                fastphase [$SIGSEGV]
                 {
                     WeaponRestrictions MeleeOnly
                     Item "Gloves of Running Urgently MvM"
@@ -10914,7 +10929,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                burstshotgunphase  
+                burstshotgunphase [$SIGSEGV]
                 {
                     WeaponRestrictions SecondaryOnly
                     Item "TF_WEAPON_SHOTGUN_HWG"
@@ -10941,7 +10956,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                cooldownphase  
+                cooldownphase [$SIGSEGV]
                 {
                     Item  "tf_weapon_fists"
                     WeaponRestrictions PrimaryOnly
@@ -10977,7 +10992,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                iwillbombyoulilbro  
+                iwillbombyoulilbro [$SIGSEGV]
                 {
                     UseCustomModel "models/bots/heavy_boss/bot_heavy_boss_gibby.mdl"
                     AddAttribute
@@ -11032,7 +11047,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                beepbeepmotherfucker  
+                beepbeepmotherfucker [$SIGSEGV]
                 {
                     WeaponRestrictions SecondaryOnly
                     Item "TF_WEAPON_SHOTGUN_HWG"
@@ -11135,7 +11150,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                specialattackjump  
+                specialattackjump [$SIGSEGV]
                 {
                     AddAttribute
                     {
@@ -11203,7 +11218,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                specialattackjumpphase2  
+                specialattackjumpphase2 [$SIGSEGV]
                 {
                     UseCustomModel "models/bots/heavy_boss/bot_heavy_boss_gibby.mdl"
                     AddAttribute
@@ -11296,7 +11311,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                everythingatfuckingonce  
+                everythingatfuckingonce [$SIGSEGV]
                 {
                     UseCustomModel "models/bots/heavy_boss/bot_heavy_boss_gibby.mdl"
                     WeaponRestrictions MeleeOnly
@@ -11546,7 +11561,7 @@ WaveSchedule
 			}
 			EventChangeAttributes
 			{
-				ubergeneratortutorial_final  
+				ubergeneratortutorial_final [$SIGSEGV]
 				{
 					FireInput
 					{
@@ -11633,7 +11648,7 @@ WaveSchedule
 						Duration 99
 					}
 				}
-				ubergeneratortutorial_serious  
+				ubergeneratortutorial_serious [$SIGSEGV]
 				{
 					FireInput
 					{
@@ -11720,7 +11735,7 @@ WaveSchedule
 						Duration 99
 					}
 				}
-				ubergeneratortutorial  
+				ubergeneratortutorial [$SIGSEGV]
 				{
 					FireInput
 					{
@@ -11799,7 +11814,7 @@ WaveSchedule
 						Duration 99
 					}
 				}
-				specialattackjump  
+				specialattackjump [$SIGSEGV]
                 {
 					WeaponRestrictions PrimaryOnly
 					Item "the direct hit"
@@ -11909,7 +11924,7 @@ WaveSchedule
                         Cooldown 12.1
                     }
                 }
-				jumpingintothewater  
+				jumpingintothewater [$SIGSEGV]
 				{
 					WeaponRestrictions MeleeOnly
 					Item "The Neon Annihilator"
@@ -11940,7 +11955,7 @@ WaveSchedule
 						OnDoneChangeAttributes jumpingintothewaternow
                     }
 				}
-				jumpingintothewaternow  
+				jumpingintothewaternow [$SIGSEGV]
 				{
 					Item "The Neon Annihilator"
 					WeaponRestrictions MeleeOnly
@@ -12109,7 +12124,7 @@ WaveSchedule
 						Repeats 1
 					}
 				}
-				cantbelieveihavetodothis  
+				cantbelieveihavetodothis [$SIGSEGV]
 				{
 					WeaponRestrictions MeleeOnly
 					Item "The Neon Annihilator"
@@ -12137,7 +12152,7 @@ WaveSchedule
                         Cooldown 10.1
                     }
 				}
-				loosecannonscatter  
+				loosecannonscatter [$SIGSEGV]
 				{
 					Item "The Loose Cannon"
 					WeaponRestrictions PrimaryOnly
@@ -12188,7 +12203,7 @@ WaveSchedule
 					}
 					
 				}
-				sucknblow  
+				sucknblow [$SIGSEGV]
 				{
 					Item	"tf_weapon_shovel"
 					WeaponRestrictions	MeleeOnly
@@ -12241,7 +12256,7 @@ WaveSchedule
                         Cooldown 5.1
                     }
 				}
-				prehastycommons  
+				prehastycommons [$SIGSEGV]
 				{
 					Item	"tf_weapon_shovel"
 					WeaponRestrictions	MeleeOnly
@@ -12263,7 +12278,7 @@ WaveSchedule
 						OnDoneChangeAttributes hastysummons
                     }
 				}
-				hastysummons  
+				hastysummons [$SIGSEGV]
 				{
 					Item	"TF_WEAPON_ROCKETLAUNCHER"
 					Item 	"The Concheror"
@@ -12362,7 +12377,7 @@ WaveSchedule
 						"increase buff duration" 9
 					}
 				}
-				IncreasingRocketBarrage  
+				IncreasingRocketBarrage [$SIGSEGV]
 				{
 					WeaponRestrictions	PrimaryOnly
 					FireInput
@@ -12407,7 +12422,7 @@ WaveSchedule
                         Cooldown 9.1
                     }
 				}
-				normalcritrapid  
+				normalcritrapid [$SIGSEGV]
 				{
 					Item	"The Liberty Launcher"
 					WeaponRestrictions	PrimaryOnly
@@ -12452,7 +12467,7 @@ WaveSchedule
                         Cooldown 7.1
                     }
 				}
-				healingshotgunrapid  
+				healingshotgunrapid [$SIGSEGV]
 				{
 					Item	"tf_weapon_shotgun_soldier"
 					WeaponRestrictions	SecondaryOnly
@@ -12496,7 +12511,7 @@ WaveSchedule
                         Cooldown 8.1
                     }
 				}
-				nuker  
+				nuker [$SIGSEGV]
 				{
 					Item "The Black Box"
 					WeaponRestrictions PrimaryOnly
@@ -12552,7 +12567,7 @@ WaveSchedule
                         Cooldown 8.1
                     }
 				}
-				spiralrocketattackofdoom  
+				spiralrocketattackofdoom [$SIGSEGV]
 				{
 					WeaponRestrictions	PrimaryOnly
 					FireInput
@@ -12603,7 +12618,7 @@ WaveSchedule
                         Cooldown 9.1
                     }
 				}
-				nukermultiple  
+				nukermultiple [$SIGSEGV]
 				{
 					AimOffset "0 0 700"
 					Item "The Black Box"
@@ -12680,7 +12695,7 @@ WaveSchedule
                         Cooldown 8.1
                     }
 				}
-				specialattackjump2  
+				specialattackjump2 [$SIGSEGV]
                 {
 					WeaponRestrictions PrimaryOnly
 					Item "the direct hit"
@@ -12775,7 +12790,7 @@ WaveSchedule
                         Cooldown 12.1
                     }
                 }
-				totheskiesandairstrike  
+				totheskiesandairstrike [$SIGSEGV]
 				{
 					Item "The Original"
 					WeaponRestrictions PrimaryOnly
@@ -12938,7 +12953,7 @@ WaveSchedule
             
             EventChangeAttributes
             {
-                intermission  
+                intermission [$SIGSEGV]
                 {
                     AddCond
                     {Index 51 Duration 5}
@@ -12975,7 +12990,7 @@ WaveSchedule
                             Repeats 420
                         }
                 }
-                attack1  
+                attack1 [$SIGSEGV]
                 {
                     WeaponRestrictions MeleeOnly
                     Attributes UseBossHealthBar
@@ -13014,7 +13029,7 @@ WaveSchedule
                             Repeats 420
                         }
                 }
-                attack1b  
+                attack1b [$SIGSEGV]
                 {
                     WeaponRestrictions MeleeOnly
                     Attributes UseBossHealthBar
@@ -13064,7 +13079,7 @@ WaveSchedule
                             Repeats 420
                         }
                 }
-                attack2  
+                attack2 [$SIGSEGV]
                 {
                     Item "the dragon's fury"
                     WeaponRestrictions PrimaryOnly
@@ -13121,7 +13136,7 @@ WaveSchedule
                             Repeats 420
                         }
                 }
-                attack2b  
+                attack2b [$SIGSEGV]
                 {
                     Item "the dragon's fury"
                     WeaponRestrictions PrimaryOnly
@@ -13132,7 +13147,7 @@ WaveSchedule
                         Repeats 0
                         Type "Cheers"
                     }
-                        AddAttribute   
+                        AddAttribute [$SIGSEGV] 
                     {
                         Item "the dragon's fury" // Item name to which add the attribute, or Player for player attribute, or Active for active weapon
                         Name "no_attack" // Attribute name
@@ -13143,7 +13158,7 @@ WaveSchedule
                         //IfHealthBelow 100 //When set, the task activates only when the bot health is below specified value
                         //IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
                     }
-                    RemoveAttribute   
+                    RemoveAttribute [$SIGSEGV] 
                     {
                         Item "the dragon's fury" // Item name from which remove the attribute, or Player for player attribute, or Active for active weapon
                         Name "no_attack" // Attribute name
@@ -13207,7 +13222,7 @@ WaveSchedule
                             Repeats 420
                         }
                 }
-                attack3b  
+                attack3b [$SIGSEGV]
                 {
                     Item "warbird_shotgun_redbear"
                     WeaponRestrictions SecondaryOnly
@@ -13267,7 +13282,7 @@ WaveSchedule
                             Repeats 420
                         }
                 }
-                attack3  
+                attack3 [$SIGSEGV]
                 {
                     Item "TF_WEAPON_SHOTGUN_PYRO"
                     WeaponRestrictions SecondaryOnly
@@ -13323,7 +13338,7 @@ WaveSchedule
                             Repeats 420
                         }
                 }
-                attack4  
+                attack4 [$SIGSEGV]
                 {
                     WeaponRestrictions PrimaryOnly
                     Item	"Diamond Botkiller Flame Thrower Mk.I"
@@ -13385,7 +13400,7 @@ WaveSchedule
                             Repeats 420
                         }
                 }
-                attack5  
+                attack5 [$SIGSEGV]
                 {
                     WeaponRestrictions SecondaryOnly
                     Item "Festive Flare Gun"
@@ -13427,7 +13442,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                specialattack  
+                specialattack [$SIGSEGV]
                 {
                     RingOfFire 50
                     Item tf_weapon_fireaxe
@@ -13441,7 +13456,7 @@ WaveSchedule
                         "always allow taunt" 1
                         "no_jump" 1
                     }
-                    AddAttribute   
+                    AddAttribute [$SIGSEGV] 
                     {
                         Item "tf_weapon_fireaxe" // Item name to which add the attribute, or Player for player attribute, or Active for active weapon
                         Name "no_attack" // Attribute name
@@ -13452,7 +13467,7 @@ WaveSchedule
                         //IfHealthBelow 100 //When set, the task activates only when the bot health is below specified value
                         //IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
                     }
-                    RemoveAttribute   
+                    RemoveAttribute [$SIGSEGV] 
                     {
                         Item "tf_weapon_fireaxe" // Item name from which remove the attribute, or Player for player attribute, or Active for active weapon
                         Name "no_attack" // Attribute name
@@ -13469,7 +13484,7 @@ WaveSchedule
                         Repeats 1
                         Type "Cheers"
                     }
-                            FireWeapon    //Periodically fires weapon
+                            FireWeapon [$SIGSEGV]  //Periodically fires weapon
                     {
                         Delay 1 //Time before the first fire input starts (Default: 10)
                         Cooldown 5 //Time between each fire input (Default: 10)
@@ -13520,7 +13535,7 @@ WaveSchedule
                         Repeats 420
                     }
                 }
-                divingpyro  
+                divingpyro [$SIGSEGV]
                 {
                     CharacterAttributes
                     {
@@ -13530,7 +13545,7 @@ WaveSchedule
                         "always allow taunt" 1
                         "no_jump" 1
                     }
-                    AddAttribute   
+                    AddAttribute [$SIGSEGV] 
                     {
                         Item "player" // Item name to which add the attribute, or Player for player attribute, or Active for active weapon
                         Name "no_attack" // Attribute name
@@ -13541,7 +13556,7 @@ WaveSchedule
                         //IfHealthBelow 100 //When set, the task activates only when the bot health is below specified value
                         //IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
                     }
-                    RemoveAttribute   
+                    RemoveAttribute [$SIGSEGV] 
                     {
                         Item "player" // Item name from which remove the attribute, or Player for player attribute, or Active for active weapon
                         Name "no_attack" // Attribute name
@@ -13584,7 +13599,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                rainblowerexplosion  
+                rainblowerexplosion [$SIGSEGV]
                 {
                     Item	"The Rainblower"
                     WeaponRestrictions PrimaryOnly
@@ -13703,7 +13718,7 @@ WaveSchedule
             }
             EventChangeAttributes
             {
-                intro  
+                intro [$SIGSEGV]
                 {
                     CharacterAttributes
                     {
@@ -13724,7 +13739,7 @@ WaveSchedule
                     }
                     
                 }
-                abattablow  
+                abattablow [$SIGSEGV]
                 {
                     Attributes SuppressFire
                     WeaponRestrictions MeleeOnly
@@ -13762,10 +13777,10 @@ WaveSchedule
                     }
                     
                 }
-                multipills  
+                multipills [$SIGSEGV]
                 {
                     WeaponRestrictions PrimaryOnly
-                    Item "MultiPillLauncher"  
+                    Item "MultiPillLauncher" [$SIGSEGV]
                     Attributes SuppressFire
                     FireWeapon    //makes them not do dumb aiming :>
                     {
@@ -13783,10 +13798,10 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                2multipills  
+                2multipills [$SIGSEGV]
                 {
                     WeaponRestrictions PrimaryOnly
-                    Item "MultiPillLauncher2"  
+                    Item "MultiPillLauncher2" [$SIGSEGV]
                     FireInput  
                     {
                         Target "justtodisable"
@@ -13795,7 +13810,7 @@ WaveSchedule
                         Repeats 99
                     }
                 }
-                SpinThatShit  
+                SpinThatShit [$SIGSEGV]
                 {
                     WeaponRestrictions MeleeOnly
                     Item	"the ullapool caber"
@@ -13821,12 +13836,12 @@ WaveSchedule
                         Repeats 99
                     }
                 }
-                bombingthatshitifyknowwhatimean  
+                bombingthatshitifyknowwhatimean [$SIGSEGV]
                 {
                     WeaponRestrictions PrimaryOnly
                     AimOffset "0 0 999"  
                     Attributes SuppressFire
-                    Item "pillrain"    
+                    Item "pillrain" [$SIGSEGV]  
                     CharacterAttributes
                     {
                         "no_jump" 1
@@ -13875,7 +13890,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                charge1  
+                charge1 [$SIGSEGV]
                 {
                     WeaponRestrictions MeleeOnly
                     CharacterAttributes
@@ -13903,12 +13918,12 @@ WaveSchedule
                         Repeats 99
                     }
                 }
-                homerpills  
+                homerpills [$SIGSEGV]
                 {
                     WeaponRestrictions PrimaryOnly
                     AimOffset "0 0 999"  
                     Attributes SuppressFire
-                    Item "pillardjohn"  
+                    Item "pillardjohn" [$SIGSEGV]
                     CharacterAttributes
                     {
                         "no_jump" 1
@@ -14013,7 +14028,7 @@ WaveSchedule
 
             EventChangeAttributes
             {
-                Swordsman_Intro  
+                Swordsman_Intro [$SIGSEGV]
                 {
                     Addcond
                     {
@@ -14056,7 +14071,7 @@ WaveSchedule
                     }
                 }
 
-                Swordsman_Default  
+                Swordsman_Default [$SIGSEGV]
                 {
                     UseCustomModel "models/bots/demo_boss/bot_demo_boss_gibby.mdl"
                     Item "Ali Baba's Wee Booties"
@@ -14108,7 +14123,7 @@ WaveSchedule
                     }
                 }
 
-                Swordsman_Phase2Interlude  
+                Swordsman_Phase2Interlude [$SIGSEGV]
                 {
                     Item "Ali Baba's Wee Booties"
                     Item "The Chargin' Targe"
@@ -14190,7 +14205,7 @@ WaveSchedule
                 }
 
                 // Phase 1 Attacks
-                Swordsman_Samurai  
+                Swordsman_Samurai [$SIGSEGV]
                 {
                     Item "Ali Baba's Wee Booties"
                     Item "The Splendid Screen"
@@ -14247,7 +14262,7 @@ WaveSchedule
                     }
                 }
 
-                Swordsman_Skullcutter  
+                Swordsman_Skullcutter [$SIGSEGV]
                 {
                     Item "Ali Baba's Wee Booties"
                     Item "The Chargin' Targe"
@@ -14305,7 +14320,7 @@ WaveSchedule
                     }
                 }
 
-                Swordsman_GroundSwords  
+                Swordsman_GroundSwords [$SIGSEGV]
                 {
                     Item "Ali Baba's Wee Booties"
                     Item "The Chargin' Targe"
@@ -14351,7 +14366,7 @@ WaveSchedule
                     }
                 }
 
-                Swordsman_SpinningSword  
+                Swordsman_SpinningSword [$SIGSEGV]
                 {
                     UseCustomModel "models/empty.mdl"
                     Item "Ali Baba's Wee Booties"
@@ -14430,7 +14445,7 @@ WaveSchedule
                 }
 
                 // Phase 2 Attacks
-                Swordsman_SpinningBeamsInit  
+                Swordsman_SpinningBeamsInit [$SIGSEGV]
                 {
                     Item "Ali Baba's Wee Booties"
                     Item "The Chargin' Targe"
@@ -14477,7 +14492,7 @@ WaveSchedule
                         Cooldown -1
                     }
                 }
-                Swordsman_SpinningBeamsAttack  
+                Swordsman_SpinningBeamsAttack [$SIGSEGV]
                 {
                     Item "Ali Baba's Wee Booties"
                     Item "The Chargin' Targe"
@@ -14527,7 +14542,7 @@ WaveSchedule
                     }
                 }
 
-				Swordsman_GroundSwordsEvolved  
+				Swordsman_GroundSwordsEvolved [$SIGSEGV]
 				{
 					Item "Ali Baba's Wee Booties"
                     Item "The Chargin' Targe"
@@ -14584,7 +14599,7 @@ WaveSchedule
                     }
 				}
 
-                Swordsman_SwordBeams  
+                Swordsman_SwordBeams [$SIGSEGV]
                 {
                     Item "Ali Baba's Wee Booties"
                     Item "The Chargin' Targe"
@@ -14635,7 +14650,7 @@ WaveSchedule
                     }
                 }
 
-                Swordsman_TeleportHell  
+                Swordsman_TeleportHell [$SIGSEGV]
                 {
                     Item "Ali Baba's Wee Booties"
                     Item "The Chargin' Targe"
@@ -14803,7 +14818,7 @@ WaveSchedule
 
 		 	EventChangeAttributes
 			{
-				Barry_DefaultTrolldier  
+				Barry_DefaultTrolldier [$SIGSEGV]
 				{
                     Item "TF_WEAPON_ROCKETLAUNCHER"
 					Item "The Mantreads"
@@ -14888,7 +14903,7 @@ WaveSchedule
 					}
 				}
 
-				Barry_LaunchUpAndCrater  
+				Barry_LaunchUpAndCrater [$SIGSEGV]
                 {
                     Item "The Market Gardener"
                     WeaponRestrictions MeleeOnly
@@ -14914,7 +14929,7 @@ WaveSchedule
                         "fire input on hit" "!activator^$ChangeAttributes^Barry_CraterHisAss"
                     }
                 }
-                Barry_CraterHisAss  
+                Barry_CraterHisAss [$SIGSEGV]
                 {
                     Item "The Market Gardener"
                     WeaponRestrictions MeleeOnly
@@ -14969,7 +14984,7 @@ WaveSchedule
 					}
                 }
 
-				Barry_Combo_Init  
+				Barry_Combo_Init [$SIGSEGV]
 				{
 					Item "The Market Gardener"
 					WeaponRestrictions MeleeOnly
@@ -15003,7 +15018,7 @@ WaveSchedule
 						Cooldown 0.5
 					}
 				}
-				Barry_Combo_GigaShockwave  
+				Barry_Combo_GigaShockwave [$SIGSEGV]
 				{
 					Item "The Market Gardener"
 					WeaponRestrictions MeleeOnly
@@ -15083,7 +15098,7 @@ WaveSchedule
 						Cooldown -1
 					}
 				}
-				Barry_Combo_BigSpoons  
+				Barry_Combo_BigSpoons [$SIGSEGV]
 				{
 					Item "The Market Gardener"
 					WeaponRestrictions MeleeOnly
@@ -15157,9 +15172,9 @@ WaveSchedule
 					}
 				}
 
-				Barry_Combo_SpoonRain  
+				Barry_Combo_SpoonRain [$SIGSEGV]
 				{
-					Item "SpoonGun"  
+					Item "SpoonGun" [$SIGSEGV]
 					Item "The Market Gardener"
 					WeaponRestrictions PrimaryOnly
 					Attributes HoldFireUntilFullReload
@@ -15200,7 +15215,7 @@ WaveSchedule
 					}
 				}
 
-				Crashout  
+				Crashout [$SIGSEGV]
 				{
 					Item "TF_WEAPON_ROCKETLAUNCHER"
 					Item "The Mantreads"
@@ -15261,7 +15276,7 @@ WaveSchedule
 					}
 				}
 
-				Barry_DefaultRageTrolldier  
+				Barry_DefaultRageTrolldier [$SIGSEGV]
 				{
 					Item "TF_WEAPON_ROCKETLAUNCHER"
 					Item "The Mantreads"
@@ -15346,7 +15361,7 @@ WaveSchedule
 						Cooldown -1
 					}
 				}
-				Barry_RageRocketLauncher  
+				Barry_RageRocketLauncher [$SIGSEGV]
 				{
 					Item "TF_WEAPON_ROCKETLAUNCHER"
 					Item "The Mantreads"
@@ -15498,7 +15513,7 @@ WaveSchedule
 
 		 	EventChangeAttributes
 			{
-				Larry_DefaultTrolldier  
+				Larry_DefaultTrolldier [$SIGSEGV]
 				{
 					Item "The Mantreads"
 					Item "The Market Gardener"
@@ -15581,7 +15596,7 @@ WaveSchedule
 					}
 				}
 
-				Larry_BigShoeLmao  
+				Larry_BigShoeLmao [$SIGSEGV]
 				{
 					Item "The Escape Plan"
 					Attributes SuppressFire
@@ -15696,7 +15711,7 @@ WaveSchedule
 					}
 				}
 
-				Larry_Combo_Init  
+				Larry_Combo_Init [$SIGSEGV]
 				{
 					Item "The Market Gardener"
 					WeaponRestrictions MeleeOnly
@@ -15731,7 +15746,7 @@ WaveSchedule
 					}
 				}
 
-				Larry_Combo_GigaShockwave  
+				Larry_Combo_GigaShockwave [$SIGSEGV]
 				{
 					Item "The Market Gardener"
 					WeaponRestrictions MeleeOnly
@@ -15812,7 +15827,7 @@ WaveSchedule
 					}
 				}
 
-				Crashout  
+				Crashout [$SIGSEGV]
 				{
 					Item "TF_WEAPON_ROCKETLAUNCHER"
 					Item "The Mantreads"
@@ -15872,7 +15887,7 @@ WaveSchedule
 					}
 				}
 
-				Larry_DefaultRageTrolldier  
+				Larry_DefaultRageTrolldier [$SIGSEGV]
 				{
 					Item "TF_WEAPON_ROCKETLAUNCHER"
 					Item "The Mantreads"
@@ -15957,7 +15972,7 @@ WaveSchedule
 						Cooldown -1
 					}
 				}
-				Larry_RageGhostRider  
+				Larry_RageGhostRider [$SIGSEGV]
 				{
 					Item "TF_WEAPON_ROCKETLAUNCHER"
 					Item "The Mantreads"
@@ -16154,7 +16169,7 @@ WaveSchedule
 
 			EventChangeAttributes
 			{
-				Harry_DefaultTrolldier  
+				Harry_DefaultTrolldier [$SIGSEGV]
 				{
 					Item "TF_WEAPON_ROCKETLAUNCHER"
 					Item "The Mantreads"
@@ -16239,7 +16254,7 @@ WaveSchedule
 					}
 				}
 
-				Harry_RSpecBarrage  
+				Harry_RSpecBarrage [$SIGSEGV]
 				{
 					Item "Rocket Jumper"
 					WeaponRestrictions PrimaryOnly
@@ -16296,7 +16311,7 @@ WaveSchedule
 					}
 				}
 
-				Harry_Combo_Init  
+				Harry_Combo_Init [$SIGSEGV]
 				{
 					Item "The Market Gardener"
 					WeaponRestrictions MeleeOnly
@@ -16331,7 +16346,7 @@ WaveSchedule
 					}
 				}
 
-				Harry_Combo_BigSpoons  
+				Harry_Combo_BigSpoons [$SIGSEGV]
 				{
 					Item "The Market Gardener"
 					WeaponRestrictions MeleeOnly
@@ -16393,7 +16408,7 @@ WaveSchedule
 					}
 				}
 
-				Crashout  
+				Crashout [$SIGSEGV]
 				{
 					Item "TF_WEAPON_ROCKETLAUNCHER"
 					Item "The Mantreads"
@@ -16452,7 +16467,7 @@ WaveSchedule
 					}
 				}
 
-				Harry_DefaultRageTrolldier  
+				Harry_DefaultRageTrolldier [$SIGSEGV]
 				{
 					Item "TF_WEAPON_ROCKETLAUNCHER"
 					Item "The Mantreads"
@@ -16537,7 +16552,7 @@ WaveSchedule
 						Cooldown -1
 					}
 				}
-				Harry_RageBoomerangSpoons  
+				Harry_RageBoomerangSpoons [$SIGSEGV]
 				{
 					Item "SpoonGun"
 					Item "The Mantreads"
@@ -16766,7 +16781,7 @@ WaveSchedule
 			}
 			EventChangeAttributes
 			{
-				FistHaste  
+				FistHaste [$SIGSEGV]
 				{
 					Item	"The Killing Gloves of Boxing"
 					WeaponRestrictions	MeleeOnly
@@ -16788,7 +16803,7 @@ WaveSchedule
                         "displace touched enemies" 1
 					}
 				}
-				ShotgunHaste  
+				ShotgunHaste [$SIGSEGV]
 				{
 					Item	"The Family Business"
 					WeaponRestrictions	SecondaryOnly
@@ -16810,7 +16825,7 @@ WaveSchedule
 						Cooldown 9999
 					}
 				}
-				MinigunHaste  
+				MinigunHaste [$SIGSEGV]
 				{
 					WeaponRestrictions	PrimaryOnly
 					Addcond
@@ -17139,7 +17154,7 @@ WaveSchedule
             }
             EventChangeAttributes
             {
-                GoBackToHerePlsTy  
+                GoBackToHerePlsTy [$SIGSEGV]
                 {
                     WeaponRestrictions MeleeOnly
                     ItemAttributes
@@ -17157,7 +17172,7 @@ WaveSchedule
                         "override footstep sound set" 2
                     }
                 }
-                Gunner  
+                Gunner [$SIGSEGV]
                 {
                     WeaponRestrictions SecondaryOnly
                     FireInput  
