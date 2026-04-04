@@ -37,7 +37,27 @@ hWorld.ValidateScriptScope()
 local hWorld_scope = hWorld.GetScriptScope()
 
 ::RangeScript <- {
-	function OnGameEvent_stats_resetround(_) { delete ::RangeScript }
+	function CleanupRangeScript(hBot = null)
+	{
+		for(local hScript; hScript = FindByName(hScript, "rangescript_think");)
+		{
+			local hScript_scope = hScript.GetScriptScope()
+			if(!hBot || hScript_scope.hBot == hBot)
+			{
+				SetPropString(hScript_scope.hBot, "m_PlayerClass.m_iszClassIcon", hScript_scope.sIconLast)
+				DispatchParticleEffectOn(hScript_scope.hBot, null)
+				hScript.Destroy()
+			}
+		}
+	}
+	function OnGameEvent_recalculate_holidays(_)
+	{
+		if(GetRoundState() == GR_STATE_PREROUND)
+		{
+			CleanupRangeScript()
+			delete ::RangeScript
+		}
+	}
 
 	PlayerArray = []
 	function OnGameEvent_player_activate(params)
@@ -72,21 +92,15 @@ local hWorld_scope = hWorld.GetScriptScope()
 		if(iIndex != null)
 			PlayerArray.remove(iIndex)
 	}
+
 	function OnGameEvent_player_hurt(params)
 	{
 		if(params.health > 0)
 			return
 
 		local hVictim = GetPlayerFromUserID(params.userid)
-		for(local hScript; hScript = FindByName(hScript, "rangescript_think");)
-		{
-			local hScript_scope = hScript.GetScriptScope()
-			if(hScript_scope.hBot == hVictim)
-			{
-				SetPropString(hVictim, "m_PlayerClass.m_iszClassIcon", hScript_scope.sIconLast)
-				break
-			}
-		}
+		if(hVictim)
+			CleanupRangeScript(hVictim)
 	}
 
 	function MarkForPurge(hEnt) SetPropBool(hEnt, "m_bForcePurgeFixedupStrings", true)
@@ -193,7 +207,7 @@ local hWorld_scope = hWorld.GetScriptScope()
 		hParticle.KeyValueFromInt("spawnflags", 64)
 		hParticle.DispatchSpawn()
 		hParticle.AcceptInput("StartTouch", null, hEntity, hEntity)
-		hParticle.Kill()
+		hParticle.Destroy()
 	}
 
 	// excludes mad milk because thats just how the game was coded
@@ -215,7 +229,7 @@ local hWorld_scope = hWorld.GetScriptScope()
 
 	function ApplyRangeScriptToBot(hBot)
 	{
-		local hThinkEnt = CreateByClassnameSafe("logic_relay")
+		local hThinkEnt = CreateByClassnameSafe("info_target")
 		SetPropString(hThinkEnt, "m_iName", "rangescript_think")
 		hThinkEnt.ValidateScriptScope()
 		local hThinkEnt_scope = hThinkEnt.GetScriptScope()
@@ -235,8 +249,7 @@ local hWorld_scope = hWorld.GetScriptScope()
 
 			if(!hBot.IsAlive())
 			{
-				RangeScript.DispatchParticleEffectOn(hBot, null)
-				self.Kill()
+				self.Destroy()
 				return
 			}
 
