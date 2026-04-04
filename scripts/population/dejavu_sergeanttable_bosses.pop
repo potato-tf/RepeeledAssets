@@ -14009,6 +14009,7 @@ WaveSchedule
                 ItemName "The Half-Zatoichi"
                 "damage bonus" 2
                 "critboost on kill" 10
+                "honorbound" 0
                 "restore health on kill" 0
             }
 
@@ -14117,6 +14118,7 @@ WaveSchedule
                         ItemName "The Half-Zatoichi"
                         "critboost on kill" 10
                         "damage bonus" 2
+                        "honorbound" 0
                         "restore health on kill" 0
                     }
 
@@ -14247,6 +14249,7 @@ WaveSchedule
                         ItemName "The Half-Zatoichi"
                         "critboost on kill" 10
                         "damage bonus" 2
+                        "honorbound" 0
                         "restore health on kill" 0
                     }
 
@@ -14398,6 +14401,7 @@ WaveSchedule
                     {
                         ItemName "The Half-Zatoichi"
                         "custom item model" "models/empty.mdl"
+                        "honorbound" 0
                     }
                     ItemAttributes
                     {
@@ -14695,6 +14699,7 @@ WaveSchedule
                         ItemName "The Half-Zatoichi"
                         "critboost on kill" 10
                         "damage bonus" 2
+                        "honorbound" 0
                         "restore health on kill" 0
                     }
 
