@@ -12,9 +12,9 @@ WaveSchedule
 	AddSentryBusterWhenKillCountExceeds 11
 	AddSentryBusterWhenDamageDealtExceeds 1000
 	Advanced 1
-	
+
 	// Mission
-	
+
 	Mission // Sentry Busters
 	{
 		Objective DestroySentries
@@ -41,7 +41,7 @@ WaveSchedule
 			}
         }
 	}
-	
+
 	Mission // Sentry Busters
 	{
 		Objective DestroySentries
@@ -68,8 +68,8 @@ WaveSchedule
 			}
         }
 	}
-	
-	Templates 
+
+	Templates
 	{
 		T_TFBot_Soldier_Self
 		{
@@ -125,7 +125,7 @@ WaveSchedule
 			{
 				ItemName "tf_weapon_pistol"
 				"clip size bonus" 2
-				"fire rate bonus" 0.25 
+				"fire rate bonus" 0.25
 				"damage penalty" 0.2
 			}
 		}
@@ -395,7 +395,7 @@ WaveSchedule
 			}
 		}
 	}
-	
+
 	Wave // Wave 1 - $784 ($2900 if A+)
 	{
 		StartWaveOutput
@@ -403,17 +403,27 @@ WaveSchedule
             Target wave_start_relay
             Action Trigger
         }
-	
+
         DoneOutput
         {
             Target wave_finished_relay
-            Action Trigger
+            Action RunScriptCode
+			Param
+			"
+				self.AcceptInput(`Trigger`, ``, null, null)
+				SendGlobalGameEvent(`teamplay_broadcast_audio`,
+				{
+					sound = `overwatch_main_menu1.wav`
+					additional_flags = 0x4 // SND_STOP
+					team = 255
+				})
+			"
         }
-		
+
 		WaveSpawn
 		{
 			Name "1a tracer"
-			
+
 			Where spawnbot
 			TotalCount 20
 			TotalCurrency 50
@@ -422,17 +432,17 @@ WaveSchedule
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 1
 			FirstSpawnWarningSound  "overwatch_main_menu1.wav"
-			
+
 			TFBot
 			{
 				Template T_TFBot_Tracer
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "1a"
-			
+
 			Where spawnbot
 			TotalCount 4
 			TotalCurrency 34
@@ -440,18 +450,18 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 3
 			WaitBetweenSpawns 3
-			
+
 			TFBot
 			{
 				Template T_TFBot_Winston
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "1b"
 			WaitForAllDead "1a"
-			
+
 			Where spawnbot
 			TotalCount 16
 			TotalCurrency 50
@@ -465,7 +475,7 @@ WaveSchedule
 				{
 					Template T_TFBot_Genji_DragonBlade
 				}
-				
+
 				TFBot
 				{
 					Template T_TFBot_Mercy_DMGBoost
@@ -473,12 +483,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "1c"
 			WaitForAllDead "1b"
-			
+
 			Where spawnbot_tunnel
 			TotalCount 10
 			TotalCurrency 50
@@ -486,18 +496,18 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 1
-			
+
 			TFBot
 			{
 				Template T_TFBot_Reaper
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "1c"
 			WaitForAllDead "1b"
-			
+
 			Where spawnbot
 			TotalCount 3
 			TotalCurrency 50
@@ -505,18 +515,18 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 3
-			
+
 			TFBot
 			{
 				Template T_TFBot_Dva
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "1d"
 			WaitForAllDead "1c"
-			
+
 			Where spawnbot_tunnel
 			TotalCount 12
 			TotalCurrency 50
@@ -524,18 +534,18 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 1
-			
+
 			TFBot
 			{
 				Template T_TFBot_Junkrat
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "1d"
 			WaitForAllDead "1c"
-			
+
 			Where spawnbot
 			TotalCount 3
 			TotalCurrency 50
@@ -543,18 +553,18 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 3
-			
+
 			TFBot
-			{	
+			{
 				Template T_TFBot_Zarya
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "1b tracer"
 			WaitForAllDead "1a tracer"
-			
+
 			Where spawnbot
 			Where spawnbot_tunnel
 			Support 1
@@ -562,37 +572,37 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 5
 			WaitBetweenSpawns 5
-			
+
 			TFBot
 			{
 				Template T_TFBot_Tracer
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "1e"
 			WaitForAllDead "1d"
-			
+
 			Where spawnbot
 			TotalCount 1
-			TotalCurrency 450 
+			TotalCurrency 450
 			MaxActive 1
 			SpawnCount 1
 			WaitBeforeStarting 3
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Template T_TFBot_Winston_Primal_Rage
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "1e"
 			WaitForAllDead "1d"
-			
+
 			Where spawnbot
 			Where spawnbot_tunnel
 			Support 1
@@ -600,14 +610,14 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 2
 			WaitBetweenSpawns 3
-			
+
 			TFBot
 			{
 				Template T_TFBot_Winton
 			}
 		}
 	}
-	
+
 	Wave // Wave 2 - $800 ($3800 if A+)
 	{
 		StartWaveOutput
@@ -615,17 +625,27 @@ WaveSchedule
             Target wave_start_relay
             Action Trigger
         }
-	
+
         DoneOutput
         {
             Target wave_finished_relay
-            Action Trigger
+			Action RunScriptCode
+			Param
+			"
+				self.AcceptInput(`Trigger`, ``, null, null)
+				SendGlobalGameEvent(`teamplay_broadcast_audio`,
+				{
+					sound = `fighting_knight.wav`
+					additional_flags = 0x4 // SND_STOP
+					team = 255
+        		})
+			"
         }
-		
+
 		WaveSpawn
 		{
 			Name "2a"
-			
+
 			Where spawnbot
 			TotalCount 5
 			TotalCurrency 10
@@ -648,14 +668,14 @@ WaveSchedule
 				{
 					ItemName "Wipe Out Wraps"
 					"set item tint rgb" 5801378
-				}	
+				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "2a"
-			
+
 			Where spawnbot
 			TotalCount 5
 			TotalCurrency 10
@@ -663,7 +683,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 2
-			
+
 			TFBot
 			{
 				Class Soldier
@@ -675,11 +695,11 @@ WaveSchedule
 				Item "Towering Pillar of Beanies"
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "2a"
-			
+
 			Where spawnbot
 			TotalCount 5
 			TotalCurrency 10
@@ -687,7 +707,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 2
 			WaitBetweenSpawns 2
-				
+
 			TFBot
 			{
 				Class Pyro
@@ -704,11 +724,11 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "2a"
-			
+
 			Where spawnbot
 			TotalCount 5
 			TotalCurrency 10
@@ -716,7 +736,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 3
 			WaitBetweenSpawns 2
-			
+
 			TFBot
 			{
 				Class Demoman
@@ -728,11 +748,11 @@ WaveSchedule
 				Item "Professional's Pom Pom"
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "2a"
-			
+
 			Where spawnbot
 			TotalCount 5
 			TotalCurrency 10
@@ -740,7 +760,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 4
 			WaitBetweenSpawns 2
-				
+
 			TFBot
 			{
 				Class Heavy
@@ -752,11 +772,11 @@ WaveSchedule
 				Item "Trapper's Flap"
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "2a"
-			
+
 			Where spawnbot
 			TotalCount 5
 			TotalCurrency 10
@@ -764,7 +784,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 5
 			WaitBetweenSpawns 2
-				
+
 			TFBot
 			{
 				Class Medic
@@ -776,11 +796,11 @@ WaveSchedule
 				Item "Smissmas Saxton"
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "2a"
-			
+
 			Where spawnbot
 			TotalCount 5
 			TotalCurrency 10
@@ -788,7 +808,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 6
 			WaitBetweenSpawns 2
-				
+
 			TFBot
 			{
 				Class Sniper
@@ -800,11 +820,11 @@ WaveSchedule
 				Item "Cozy Cover-Up"
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "2a"
-			
+
 			Where spawnbot
 			TotalCount 5
 			TotalCurrency 10
@@ -812,7 +832,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 7
 			WaitBetweenSpawns 2
-				
+
 			TFBot
 			{
 				Class sniper
@@ -824,11 +844,11 @@ WaveSchedule
 				ClassIcon badeline
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "2a"
-			
+
 			Where spawnbot
 			TotalCount 5
 			TotalCurrency 20
@@ -852,7 +872,7 @@ WaveSchedule
 						"set item tint rgb" 5801378
 					}
 				}
-				
+
 				TFBot
 				{
 					Template T_TFBot_Giant_Soldier
@@ -862,7 +882,7 @@ WaveSchedule
 					ClassIcon badeline
 					Item "Towering Pillar of Beanies"
 				}
-				
+
 				TFBot
 				{
 					Template T_TFBot_Giant_Pyro
@@ -877,7 +897,7 @@ WaveSchedule
 						"airblast disabled" 1
 					}
 				}
-				
+
 				TFBot
 				{
 					Template T_TFBot_Giant_Demoman
@@ -887,7 +907,7 @@ WaveSchedule
 					ClassIcon badeline
 					Item "Professional's Pom Pom"
 				}
-				
+
 				TFBot
 				{
 					Template T_TFBot_Giant_Heavyweapons
@@ -899,11 +919,11 @@ WaveSchedule
 				}
 			}
 		}
-			
+
 		WaveSpawn
 		{
 			Name "2a"
-			
+
 			Where spawnbot_tunnel
 			Support limited
 			TotalCount 6
@@ -912,7 +932,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 4
 			WaitBetweenSpawns 1
-			
+
 			TFBot
 			{
 				Class Heavy
@@ -934,12 +954,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "2b"
 			WaitForAllDead "2a"
-			
+
 			Where spawnbot_tunnel
 			TotalCount 16
 			TotalCurrency 100
@@ -948,7 +968,7 @@ WaveSchedule
 			WaitBeforeStarting 4
 			WaitBetweenSpawns 2
 			FirstSpawnWarningSound "world_one_one.wav"
-			
+
 			Squad
 			{
 				TFBot
@@ -968,7 +988,7 @@ WaveSchedule
 						"set item tint RGB" 13595446
 					}
 				}
-				
+
 				TFBot
 				{
 					Class Pyro
@@ -988,20 +1008,20 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "2b"
 			WaitForAllDead "2a"
-			
+
 			Where spawnbot
 			TotalCount 21
 			TotalCurrency 50
 			MaxActive 7
-			SpawnCount 7 
+			SpawnCount 7
 			WaitBeforeStarting 4
 			WaitBetweenSpawns 2
-			
+
 			TFBot
 			{
 				Class Soldier
@@ -1037,12 +1057,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "2b"
 			WaitForAllDead "2a"
-			
+
 			Where spawnbot
 			TotalCount 6
 			TotalCurrency 25
@@ -1050,7 +1070,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 4
 			WaitBetweenSpawns 6
-			
+
 			TFBot
 			{
 				Class Heavy
@@ -1062,7 +1082,7 @@ WaveSchedule
 				Item "Spine-Chilling Skull"
 				Scale 1.25
 				Health 666
-				Attributes AlwaysCrit 
+				Attributes AlwaysCrit
 				ItemAttributes
 				{
 					ItemName "Spine-Chilling Skull"
@@ -1070,12 +1090,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "2b"
 			WaitForAllDead "2a"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 25
@@ -1083,7 +1103,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 8
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Template T_TFBot_Giant_Soldier_Crit
@@ -1097,12 +1117,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "2c"
 			WaitForAllDead "2b"
-			
+
 			Where spawnbot
 			TotalCount 12
 			TotalCurrency 50
@@ -1126,12 +1146,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "2c demoknight"
 			WaitForAllDead "2b"
-			
+
 			Where spawnbot_tunnel
 			TotalCount 30
 			TotalCurrency 50
@@ -1140,7 +1160,7 @@ WaveSchedule
 			WaitBeforeStarting 3
 			WaitBetweenSpawns 5
 			Support limited
-			
+
 			RandomChoice
 			{
 				TFBot
@@ -1155,7 +1175,7 @@ WaveSchedule
 						"set item tint rgb" 13595446
 					}
 				}
-				
+
 				TFBot
 				{
 					Template T_TFBot_Demoman_Knight
@@ -1168,7 +1188,7 @@ WaveSchedule
 						"set item tint rgb" 12073019
 					}
 				}
-				
+
 				TFBot
 				{
 					Template T_TFBot_Demoman_Knight
@@ -1176,7 +1196,7 @@ WaveSchedule
 					Name "KNIGHT OF THE WIND"
 					Item "The Dark Falkirk Helm"
 				}
-				
+
 				TFBot
 				{
 					Template T_TFBot_Demoman_Knight
@@ -1191,19 +1211,19 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "2d demoknight"
 			WaitForAllDead "2c demoknight"
-			
+
 			Where spawnbot_tunnel
 			MaxActive 12
 			SpawnCount 6
 			WaitBeforeStarting 3
 			WaitBetweenSpawns 4
 			Support 1
-			
+
 			RandomChoice
 			{
 				TFBot
@@ -1218,7 +1238,7 @@ WaveSchedule
 						"set item tint rgb" 13595446
 					}
 				}
-				
+
 				TFBot
 				{
 					Template T_TFBot_Demoman_Knight
@@ -1231,7 +1251,7 @@ WaveSchedule
 						"set item tint rgb" 12073019
 					}
 				}
-				
+
 				TFBot
 				{
 					Template T_TFBot_Demoman_Knight
@@ -1239,7 +1259,7 @@ WaveSchedule
 					Name "KNIGHT OF THE WIND"
 					Item "The Dark Falkirk Helm"
 				}
-				
+
 				TFBot
 				{
 					Template T_TFBot_Demoman_Knight
@@ -1254,12 +1274,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "2d"
 			WaitForAllDead "2c"
-			
+
 			Where spawnbot
 			TotalCount 16
 			TotalCurrency 100
@@ -1267,7 +1287,7 @@ WaveSchedule
 			SpawnCount 2
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 2
-			
+
 			TFBot
 			{
 				Class Soldier
@@ -1284,12 +1304,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "2d"
 			WaitForAllDead "2c"
-			
+
 			Where spawnbot_tunnel
 			TotalCount 1
 			TotalCurrency 300
@@ -1297,7 +1317,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 6
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -1331,18 +1351,18 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "null 1"
-			
+
 			TotalCount 1
 			MaxActive 1
 			SpawnCount 1
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 0
 			Support 1
-			
+
 			TFBot
 			{
 				Class Scout
@@ -1350,18 +1370,18 @@ WaveSchedule
 				Skill Easy
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "null 2"
-			
+
 			TotalCount 1
 			MaxActive 1
 			SpawnCount 1
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 0
 			Support 1
-			
+
 			TFBot
 			{
 				Class Scout
@@ -1370,7 +1390,7 @@ WaveSchedule
 			}
 		}
 	}
-	
+
 	Wave // Wave 3 - $800 ($4700 if A+)
 	{
 		StartWaveOutput
@@ -1378,27 +1398,37 @@ WaveSchedule
             Target wave_start_relay
             Action Trigger
         }
-	
+
         DoneOutput
         {
             Target wave_finished_relay
-            Action Trigger
+			Action RunScriptCode
+			Param
+			"
+				self.AcceptInput(`Trigger`, ``, null, null)
+				SendGlobalGameEvent(`teamplay_broadcast_audio`,
+				{
+					sound = `love-colored_master_spark.wav`
+					additional_flags = 0x4 // SND_STOP
+					team = 255
+        		})
+			"
         }
-		
+
 		WaveSpawn
 		{
 			Name "3a"
-			
+
 			Where spawnbot
 			Where spawnbot_tunnel
 			TotalCount 30
-			TotalCurrency 300 
+			TotalCurrency 300
 			MaxActive 12
 			SpawnCount 1
 			WaitBeforeStarting 1
-			WaitBetweenSpawns 0 
+			WaitBetweenSpawns 0
 			FirstSpawnWarningSound "love-colored_master_spark.wav"
-			
+
 			RandomChoice
 			{
 				TFBot
@@ -1413,18 +1443,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 10027263
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 10027263
                     }
 				}
-				
+
                 TFBot
 				{
 			        ClassIcon soldier_marsia
@@ -1437,18 +1467,18 @@ WaveSchedule
 					Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 3394815
 					}
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 3394815
                     }
 				}
-				
+
                 TFBot
 				{
 			        ClassIcon soldier_marsia
@@ -1461,18 +1491,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 16750899
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				                "set item tint RGB" 16750899
                     }
 				}
-				
+
                 TFBot
 				{
 			        ClassIcon soldier_marsia
@@ -1485,18 +1515,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 16711935
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 16711935
                     }
 				}
-				
+
                 TFBot
 				{
 			        ClassIcon soldier_marsia
@@ -1509,18 +1539,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 16777011
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 16777011
                     }
 				}
-				
+
                 TFBot
 				{
 			        ClassIcon soldier_marsia
@@ -1533,18 +1563,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 16777215
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 16777215
                     }
 				}
-                
+
 				TFBot
 				{
 			        ClassIcon soldier_marsia
@@ -1557,18 +1587,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 6723840
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 6723840
                     }
 				}
-				
+
                 TFBot
 				{
 			        ClassIcon soldier_marsia
@@ -1581,18 +1611,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 8421504
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 8421504
                     }
 				}
-                
+
 				TFBot
 				{
 			        ClassIcon soldier_marsia
@@ -1605,12 +1635,12 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 3394815
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 3394815
@@ -1618,11 +1648,11 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "3a"
-			
+
 			Where spawnbot
 			TotalCount 2
 			TotalCurrency 50
@@ -1630,18 +1660,18 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 5
 			WaitBetweenSpawns 5
-			
+
 			TFBot
 			{
 				Template T_TFBot_Touhou_Hijack
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "3b"
 			WaitForAllDead "3a"
-			
+
 			Where spawnbot
 			TotalCount 2
 			TotalCurrency 50
@@ -1649,7 +1679,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 8
-			
+
 			TFBot
 			{
 				Template T_TFBot_Giant_Soldier_Spammer_Reload
@@ -1663,12 +1693,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "3b"
 			WaitForAllDead "3a"
-			
+
 			Where spawnbot_tunnel
 			TotalCount 20
 			TotalCurrency 50
@@ -1676,7 +1706,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 1
-			
+
 			TFBot
 			{
 				Class Soldier
@@ -1692,12 +1722,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "3b"
 			WaitForAllDead "3a"
-			
+
 			Where spawnbot_tunnel
 			TotalCount 20
 			TotalCurrency 50
@@ -1705,7 +1735,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 1
-			
+
 			TFBot
 			{
 				Class Demoman
@@ -1721,12 +1751,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "3c"
 			WaitForAllDead "3b"
-			
+
 			Where spawnbot
 			TotalCount 2
 			TotalCurrency 50
@@ -1734,7 +1764,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 8
-			
+
 			TFBot
 			{
 				Class Demoman
@@ -1762,12 +1792,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "3c"
 			WaitForAllDead "3b"
-			
+
 			Where spawnbot_tunnel
 			TotalCount 20
 			TotalCurrency 50
@@ -1775,7 +1805,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 1
-			
+
 			TFBot
 			{
 				Class Soldier
@@ -1793,12 +1823,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "3c"
 			WaitForAllDead "3b"
-			
+
 			Where spawnbot_tunnel
 			TotalCount 20
 			TotalCurrency 50
@@ -1806,7 +1836,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 1
-			
+
 			TFBot
 			{
 				Class Demoman
@@ -1828,12 +1858,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "3d"
 			WaitForAllDead "3c"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 50
@@ -1841,7 +1871,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 10
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Heavy
@@ -1871,12 +1901,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "3d"
 			WaitForAllDead "3c"
-			
+
 			Where spawnbot_tunnel
 			Support 1
 			TotalCurrency 0
@@ -1884,7 +1914,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 1
-			
+
 			RandomChoice
 			{
 				TFBot
@@ -1899,18 +1929,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 10027263
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 10027263
                     }
 				}
-				
+
                 TFBot
 				{
 			        ClassIcon soldier_marsia
@@ -1923,18 +1953,18 @@ WaveSchedule
 					Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 3394815
 					}
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 3394815
                     }
 				}
-				
+
                 TFBot
 				{
 			        ClassIcon soldier_marsia
@@ -1947,18 +1977,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 16750899
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				                "set item tint RGB" 16750899
                     }
 				}
-				
+
                 TFBot
 				{
 			        ClassIcon soldier_marsia
@@ -1971,18 +2001,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 16711935
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 16711935
                     }
 				}
-				
+
                 TFBot
 				{
 			        ClassIcon soldier_marsia
@@ -1995,18 +2025,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 16777011
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 16777011
                     }
 				}
-				
+
                 TFBot
 				{
 			        ClassIcon soldier_marsia
@@ -2019,18 +2049,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 16777215
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 16777215
                     }
 				}
-                
+
 				TFBot
 				{
 			        ClassIcon soldier_marsia
@@ -2043,18 +2073,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 6723840
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 6723840
                     }
 				}
-				
+
                 TFBot
 				{
 			        ClassIcon soldier_marsia
@@ -2067,18 +2097,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 8421504
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 8421504
                     }
 				}
-                
+
 				TFBot
 				{
 			        ClassIcon soldier_marsia
@@ -2091,12 +2121,12 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 3394815
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 3394815
@@ -2104,12 +2134,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "3d"
 			WaitForAllDead "3c"
-			
+
 			Where spawnbot_tunnel
 			Support 1
 			TotalCurrency 0
@@ -2118,7 +2148,7 @@ WaveSchedule
 			WaitBeforeStarting 8
 			WaitBetweenSpawns 35
 			Support 1
-			
+
 			TFBot
 			{
 				Class Spy
@@ -2128,7 +2158,7 @@ WaveSchedule
 			}
 		}
 	}
-	
+
 	Wave // Wave 4 - $1100 ($5900 if A+)
 	{
 		StartWaveOutput
@@ -2136,17 +2166,27 @@ WaveSchedule
             Target wave_start_relay
             Action Trigger
         }
-	
+
         DoneOutput
         {
             Target wave_finished_relay
-            Action Trigger
+			Action RunScriptCode
+			Param
+			"
+				self.AcceptInput(`Trigger`, ``, null, null)
+				SendGlobalGameEvent(`teamplay_broadcast_audio`,
+				{
+					sound = `cynthia_battle.wav`
+					additional_flags = 0x4 // SND_STOP
+					team = 255
+        		})
+			"
         }
 
 		WaveSpawn
 		{
 			Name "Charizard"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -2155,10 +2195,10 @@ WaveSchedule
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 0
 			FirstSpawnWarningSound "cynthia_battle.wav"
-			
+
 			TFBot
 			{
-				Class Pyro 
+				Class Pyro
 				ClassIcon pyro_charizard
 				Name "Used Flamethrower"
 				Health 9500
@@ -2185,12 +2225,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "Lopunny"
 			WaitForAllDead "Charizard"
-			
+
 			Where spawnbot_tunnel
 			TotalCount 1
 			TotalCurrency 0
@@ -2198,7 +2238,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 3
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -2235,12 +2275,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "Gengar"
 			WaitForAllDead "Lopunny"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -2248,7 +2288,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 3
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Heavy
@@ -2285,12 +2325,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "Garchomp"
 			WaitForAllDead "Gengar"
-			
+
 			Where spawnbot_tunnel
 			TotalCount 1
 			TotalCurrency 0
@@ -2298,7 +2338,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 3
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Demoman
@@ -2342,12 +2382,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "Gardevoir"
 			WaitForAllDead "Garchomp"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -2355,7 +2395,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 3
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Soldier
@@ -2400,12 +2440,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "Hex Maniac"
 			WaitForAllDead "Gardevoir"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 1100
@@ -2413,7 +2453,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 3
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -2449,7 +2489,7 @@ WaveSchedule
 			}
 		}
 	}
-	
+
 	Wave // Wave 5 - $900 ($6900 if A+)
 	{
 		StartWaveOutput
@@ -2457,17 +2497,27 @@ WaveSchedule
             Target wave_start_relay
             Action Trigger
         }
-	
+
         DoneOutput
         {
             Target wave_finished_relay
-            Action Trigger
+			Action RunScriptCode
+			Param
+			"
+				self.AcceptInput(`Trigger`, ``, null, null)
+				SendGlobalGameEvent(`teamplay_broadcast_audio`,
+				{
+					sound = `rosalina_song.wav`
+					additional_flags = 0x4 // SND_STOP
+					team = 255
+        		})
+			"
         }
-		
+
 		WaveSpawn
 		{
 			Name "5 intro1"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -2475,7 +2525,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -2487,12 +2537,12 @@ WaveSchedule
 				WeaponRestrictions MeleeOnly
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "5 intro2"
 			WaitForAllDead "5 intro1"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -2500,7 +2550,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -2512,12 +2562,12 @@ WaveSchedule
 				WeaponRestrictions MeleeOnly
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "5 intro3"
 			WaitForAllDead "5 intro2"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -2525,7 +2575,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -2537,12 +2587,12 @@ WaveSchedule
 				WeaponRestrictions MeleeOnly
 			}
 		}
-		
+
 		WaveSpawn
 		{
 		    Name "5a"
 			WaitForAllDead "5 intro3"
-			
+
 			Where spawnbot
 			TotalCount 15
 			TotalCurrency 100
@@ -2551,7 +2601,7 @@ WaveSchedule
 			WaitBeforeStarting 3
 			WaitBetweenSpawns 1
 			Support limited
-			
+
 			TFBot
 			{
 				Class Sniper
@@ -2562,12 +2612,12 @@ WaveSchedule
 				ClassIcon scout_luma
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "5a intro4"
 			WaitForAllDead "5a"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -2575,7 +2625,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -2587,12 +2637,12 @@ WaveSchedule
 				WeaponRestrictions MeleeOnly
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "5a intro5"
 			WaitForAllDead "5a intro4"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -2600,7 +2650,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -2612,12 +2662,12 @@ WaveSchedule
 				WeaponRestrictions MeleeOnly
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "5a intro6"
 			WaitForAllDead "5a intro5"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -2625,7 +2675,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -2637,12 +2687,12 @@ WaveSchedule
 				WeaponRestrictions MeleeOnly
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "5a intro7"
 			WaitForAllDead "5a intro6"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -2650,7 +2700,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -2662,18 +2712,18 @@ WaveSchedule
 				WeaponRestrictions MeleeOnly
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "5b"
 			WaitForAllDead "5a intro7"
-			
+
 			TotalCount 10
 			WaitBeforeStarting 2
 			WaitBetweenSpawns 1
 			TotalCurrency 100
 			FirstSpawnWarningSound	"mvm\mvm_tank_start.wav"
-			
+
 			Tank
 			{
 				Health 2500
@@ -2681,7 +2731,7 @@ WaveSchedule
 				Speed 125
 				Skin 1
 				StartingPathTrackNode "tankpath_same"
-				
+
 				OnKilledOutput
 				{
 					Target boss_dead_relay
@@ -2694,12 +2744,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "5c"
-			WaitForAllDead "5b" 
-			
+			WaitForAllDead "5b"
+
 			Where spawnbot
 			TotalCount 20
 			TotalCurrency 20
@@ -2709,7 +2759,7 @@ WaveSchedule
 			WaitBetweenSpawns 4
 			FirstSpawnWarningSound "beautiful_one_day.wav"
 			Support limited
-			
+
 			RandomChoice
 			{
 				TFBot
@@ -2718,21 +2768,21 @@ WaveSchedule
 					ClassIcon scout_luma
 					Scale 0.6
 				}
-				
+
 				TFBot
 				{
 					Template T_TFBot_Tracer
 					ClassIcon scout_luma
 					Scale 0.8
 				}
-				
+
 				TFBot
 				{
 					Template T_TFBot_Tracer
 					ClassIcon scout_luma
 					Scale 1.6
 				}
-				
+
 				TFBot
 				{
 					Template T_TFBot_Tracer
@@ -2741,12 +2791,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "5c"
-			WaitForAllDead "5b" 
-			
+			WaitForAllDead "5b"
+
 			Where spawnbot_tunnel
 			TotalCount 20
 			TotalCurrency 20
@@ -2755,7 +2805,7 @@ WaveSchedule
 			WaitBeforeStarting 2
 			WaitBetweenSpawns 4
 			Support limited
-			
+
 			RandomChoice
 			{
 				TFBot
@@ -2793,7 +2843,7 @@ WaveSchedule
 						"cancel falling damage" 1
 					}
 				}
-				
+
 				TFBot
 				{
 					Class Soldier
@@ -2829,7 +2879,7 @@ WaveSchedule
 						"cancel falling damage" 1
 					}
 				}
-				
+
 				TFBot
 				{
 					Class Soldier
@@ -2865,7 +2915,7 @@ WaveSchedule
 						"cancel falling damage" 1
 					}
 				}
-				
+
 				TFBot
 				{
 					Class Soldier
@@ -2903,12 +2953,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "5d"
-			WaitForAllDead "5c" 
-			
+			WaitForAllDead "5c"
+
 			Where spawnbot_tunnel
 			TotalCount 20
 			TotalCurrency 20
@@ -2917,7 +2967,7 @@ WaveSchedule
 			WaitBeforeStarting 2
 			WaitBetweenSpawns 4
 			Support limited
-			
+
 			RandomChoice
 			{
 				TFBot
@@ -2933,7 +2983,7 @@ WaveSchedule
 						"set item tint rgb" 13595446
 					}
 				}
-				
+
 				TFBot
 				{
 					Template T_TFBot_Demoman_Knight
@@ -2947,7 +2997,7 @@ WaveSchedule
 						"set item tint rgb" 12073019
 					}
 				}
-				
+
 				TFBot
 				{
 					Template T_TFBot_Demoman_Knight
@@ -2956,7 +3006,7 @@ WaveSchedule
 					Name "KNIGHT OF THE WIND"
 					Item "The Dark Falkirk Helm"
 				}
-				
+
 				TFBot
 				{
 					Template T_TFBot_Demoman_Knight
@@ -2972,12 +3022,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "5d"
-			WaitForAllDead "5c" 
-			
+			WaitForAllDead "5c"
+
 			Where spawnbot
 			TotalCount 20
 			TotalCurrency 20
@@ -2986,10 +3036,10 @@ WaveSchedule
 			WaitBeforeStarting 2
 			WaitBetweenSpawns 2
 			Support limited
-			
+
 			RandomChoice
 			{
-			
+
 				TFBot
 				{
 			        ClassIcon scout_luma
@@ -3003,18 +3053,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 10027263
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 10027263
                     }
 				}
-				
+
                 TFBot
 				{
 			        ClassIcon scout_luma
@@ -3028,18 +3078,18 @@ WaveSchedule
 					Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 3394815
 					}
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 3394815
                     }
 				}
-				
+
                 TFBot
 				{
 			        ClassIcon scout_luma
@@ -3053,18 +3103,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 16750899
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				                "set item tint RGB" 16750899
                     }
 				}
-				
+
                 TFBot
 				{
 			        ClassIcon scout_luma
@@ -3078,18 +3128,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 16711935
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 16711935
                     }
 				}
-				
+
                 TFBot
 				{
 			        ClassIcon scout_luma
@@ -3103,18 +3153,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 16777011
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 16777011
                     }
 				}
-				
+
                 TFBot
 				{
 			        ClassIcon scout_luma
@@ -3128,18 +3178,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 16777215
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 16777215
                     }
 				}
-                
+
 				TFBot
 				{
 			        ClassIcon scout_luma
@@ -3153,18 +3203,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 6723840
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 6723840
                     }
 				}
-				
+
                 TFBot
 				{
 			        ClassIcon scout_luma
@@ -3178,18 +3228,18 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 8421504
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 8421504
                     }
 				}
-                
+
 				TFBot
 				{
 			        ClassIcon scout_luma
@@ -3202,12 +3252,12 @@ WaveSchedule
                     Item "The Crone's Dome"
 					Item "The Righteous Bison"
 					WeaponRestrictions SecondaryOnly
-                    ItemAttributes 
+                    ItemAttributes
                     {
 						ItemName	"The Crone's Dome"
 				        "set item tint RGB" 3394815
                     }
-					ItemAttributes 
+					ItemAttributes
                     {
 						ItemName	"the righteous bison"
 				        "set item tint RGB" 3394815
@@ -3215,12 +3265,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "5e"
-			WaitForAllDead "5d" 
-			
+			WaitForAllDead "5d"
+
 			Where spawnbot_tunnel
 			TotalCount 10
 			TotalCurrency 10
@@ -3229,7 +3279,7 @@ WaveSchedule
 			WaitBeforeStarting 2
 			WaitBetweenSpawns 4
 			Support limited
-			
+
 			RandomChoice
 			{
 				TFBot
@@ -3262,7 +3312,7 @@ WaveSchedule
 						"heal on hit for rapidfire" 300
 					}
 				}
-				
+
 				TFBot
 				{
 					Class Soldier
@@ -3294,7 +3344,7 @@ WaveSchedule
 						"heal on hit for rapidfire" 300
 					}
 				}
-				
+
 				TFBot
 				{
 					Class Soldier
@@ -3326,7 +3376,7 @@ WaveSchedule
 						"heal on hit for rapidfire" 300
 					}
 				}
-				
+
 				TFBot
 				{
 					Class Soldier
@@ -3360,12 +3410,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "5e"
-			WaitForAllDead "5d" 
-			
+			WaitForAllDead "5d"
+
 			Where spawnbot
 			TotalCount 10
 			TotalCurrency 10
@@ -3374,12 +3424,12 @@ WaveSchedule
 			WaitBeforeStarting 2
 			WaitBetweenSpawns 4
 			Support limited
-			
+
 			RandomChoice
 			{
 				TFBot
 				{
-					Class Pyro 
+					Class Pyro
 					ClassIcon scout_luma
 					Name "Used Flamethrower"
 					Health 175
@@ -3394,10 +3444,10 @@ WaveSchedule
 						"flame_drag" 4.75
 					}
 				}
-				
+
 				TFBot
 				{
-					Class Pyro 
+					Class Pyro
 					ClassIcon scout_luma
 					Name "Used Flamethrower"
 					Health 175
@@ -3412,10 +3462,10 @@ WaveSchedule
 						"flame_drag" 4.75
 					}
 				}
-				
+
 				TFBot
 				{
-					Class Pyro 
+					Class Pyro
 					ClassIcon scout_luma
 					Name "Used Flamethrower"
 					Health 175
@@ -3430,10 +3480,10 @@ WaveSchedule
 						"flame_drag" 4.75
 					}
 				}
-				
+
 				TFBot
 				{
-					Class Pyro 
+					Class Pyro
 					ClassIcon scout_luma
 					Name "Used Flamethrower"
 					Health 175
@@ -3450,13 +3500,13 @@ WaveSchedule
 				}
 			}
 		}
-			
-		
+
+
 		WaveSpawn
 		{
 			Name "5e boss1"
 			WaitForAllDead "5e"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 20
@@ -3476,12 +3526,12 @@ WaveSchedule
 				ClassIcon scout_luma
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "5e boss2"
 			WaitForAllDead "5e boss1"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 20
@@ -3490,7 +3540,7 @@ WaveSchedule
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 0
 			Support limited
-				
+
 			TFBot
 			{
 				Template T_TFBot_Giant_Soldier
@@ -3501,12 +3551,12 @@ WaveSchedule
 				ClassIcon scout_luma
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "5e boss3"
 			WaitForAllDead "5e boss2"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 20
@@ -3515,7 +3565,7 @@ WaveSchedule
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 0
 			Support limited
-				
+
 			TFBot
 			{
 				Template T_TFBot_Giant_Pyro
@@ -3531,12 +3581,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "5e boss4"
 			WaitForAllDead "5e boss3"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 20
@@ -3545,7 +3595,7 @@ WaveSchedule
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 0
 			Support limited
-				
+
 			TFBot
 			{
 				Template T_TFBot_Giant_Demoman
@@ -3556,12 +3606,12 @@ WaveSchedule
 				ClassIcon scout_luma
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "5e boss5"
 			WaitForAllDead "5e boss4"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 20
@@ -3570,7 +3620,7 @@ WaveSchedule
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 0
 			Support limited
-				
+
 			TFBot
 			{
 				Template T_TFBot_Giant_Heavyweapons
@@ -3581,12 +3631,12 @@ WaveSchedule
 				ClassIcon scout_luma
 			}
 		}
-		
-		WaveSpawn 
+
+		WaveSpawn
 		{
 			Name "5f outro1"
 			WaitForAllDead "5e boss5"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -3594,7 +3644,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -3606,12 +3656,12 @@ WaveSchedule
 				WeaponRestrictions MeleeOnly
 			}
 		}
-		
-		WaveSpawn 
+
+		WaveSpawn
 		{
 			Name "5f outro2"
 			WaitForAllDead "5f outro1"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -3619,7 +3669,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -3631,12 +3681,12 @@ WaveSchedule
 				WeaponRestrictions MeleeOnly
 			}
 		}
-		
-		WaveSpawn 
+
+		WaveSpawn
 		{
 			Name "5f outro3"
 			WaitForAllDead "5f outro2"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -3644,7 +3694,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -3656,12 +3706,12 @@ WaveSchedule
 				WeaponRestrictions MeleeOnly
 			}
 		}
-		
-		WaveSpawn 
+
+		WaveSpawn
 		{
 			Name "5f outro4"
 			WaitForAllDead "5f outro3"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -3669,7 +3719,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -3681,12 +3731,12 @@ WaveSchedule
 				WeaponRestrictions MeleeOnly
 			}
 		}
-		
-		WaveSpawn 
+
+		WaveSpawn
 		{
 			Name "5f outro5"
 			WaitForAllDead "5f outro4"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -3694,7 +3744,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -3706,12 +3756,12 @@ WaveSchedule
 				WeaponRestrictions MeleeOnly
 			}
 		}
-		
-		WaveSpawn 
+
+		WaveSpawn
 		{
 			Name "5f outro6"
 			WaitForAllDead "5f outro5"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -3719,7 +3769,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -3731,12 +3781,12 @@ WaveSchedule
 				WeaponRestrictions MeleeOnly
 			}
 		}
-		
-		WaveSpawn 
+
+		WaveSpawn
 		{
 			Name "5f outro7"
 			WaitForAllDead "5f outro6"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -3744,7 +3794,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -3756,12 +3806,12 @@ WaveSchedule
 				WeaponRestrictions MeleeOnly
 			}
 		}
-		
-		WaveSpawn 
+
+		WaveSpawn
 		{
 			Name "5f outro8"
 			WaitForAllDead "5f outro7"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -3769,7 +3819,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -3781,12 +3831,12 @@ WaveSchedule
 				WeaponRestrictions MeleeOnly
 			}
 		}
-		
-		WaveSpawn 
+
+		WaveSpawn
 		{
 			Name "5f outro9"
 			WaitForAllDead "5f outro8"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -3794,7 +3844,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 1
 			WaitBetweenSpawns 0
-			
+
 			TFBot
 			{
 				Class Scout
@@ -3806,12 +3856,12 @@ WaveSchedule
 				WeaponRestrictions MeleeOnly
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "Rosalina OP"
 			WaitForAllDead "5f outro9"
-			
+
 			Where spawnbot
 			TotalCount 10
 			TotalCurrency 500
@@ -3820,7 +3870,7 @@ WaveSchedule
 			WaitBeforeStarting 6
 			WaitBetweenSpawns 4
 			FirstSpawnWarningSound "rosalina_song.wav"
-			
+
 			TFBot
 			{
 				Class Scout
@@ -3855,12 +3905,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "Luma OP"
 			WaitForAllDead "5f outro9"
-			
+
 			Where spawnbot_tunnel
 			Support 1
 			TotalCurrency 0
@@ -3868,7 +3918,7 @@ WaveSchedule
 			SpawnCount 2
 			WaitBeforeStarting 9
 			WaitBetweenSpawns 1
-			
+
 			TFBot
 			{
 				Class Scout
@@ -3895,33 +3945,43 @@ WaveSchedule
 			}
 		}
 	}
-	
-	Wave //Wave 06  
+
+	Wave //Wave 06
 	{
 		StartWaveOutput
         {
             Target wave_start_relay
             Action Trigger
         }
-	
+
         DoneOutput
         {
             Target wave_finished_relay
-            Action Trigger
+			Action RunScriptCode
+			Param
+			"
+				self.AcceptInput(`Trigger`, ``, null, null)
+				SendGlobalGameEvent(`teamplay_broadcast_audio`,
+				{
+					sound = `big_arms_boss_v2.wav`
+					additional_flags = 0x4 // SND_STOP
+					team = 255
+        		})
+			"
         }
-		
+
 		WaveSpawn
 		{
 			Name "Dummy"
-			
+
 			WaitBeforeStarting 5
 			StartWaveWarningSound "big_arms_boss_v2.wav"
 		}
-		
+
 		WaveSpawn
 		{
 			Name "Boss"
-			
+
 			Where spawnbot
 			TotalCount 1
 			TotalCurrency 0
@@ -3929,18 +3989,18 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 10
 			WaitBetweenSpawns 0
-			
-			
+
+
 			TFBot
 			{
 				Template T_TFBot_Soldier_Self
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "Rosalina 1"
-			
+
 			Where spawnbot_tunnel
 			Support limited
 			TotalCurrency 300
@@ -3949,7 +4009,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 22
 			WaitBetweenSpawns 6
-			
+
 			TFBot
 			{
 				Class Scout
@@ -3981,12 +4041,12 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "Rosalina 2"
 			WaitForAllDead "Rosalina 1"
-			
+
 			Where spawnbot_tunnel
 			Support 1
 			TotalCurrency 0
@@ -3994,7 +4054,7 @@ WaveSchedule
 			SpawnCount 1
 			WaitBeforeStarting 22
 			WaitBetweenSpawns 6
-			
+
 			TFBot
 			{
 				Class Scout
@@ -4026,11 +4086,11 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 		WaveSpawn
 		{
 			Name "Hex Maniac 1"
-			
+
 			Where spawnbot_tunnel
 			Support limited
 			TotalCount 30
@@ -4039,7 +4099,7 @@ WaveSchedule
 			SpawnCount 2
 			WaitBeforeStarting 22
 			WaitBetweenSpawns 3
-			
+
 			TFBot
 			{
 				Class Scout
@@ -4065,7 +4125,7 @@ WaveSchedule
 		{
 			Name "Hex Maniac 2"
 			WaitForAllDead "Hex Maniac 1"
-			
+
 			Where spawnbot_tunnel
 			Support 1
 			TotalCurrency 0
@@ -4073,7 +4133,7 @@ WaveSchedule
 			SpawnCount 2
 			WaitBeforeStarting 22
 			WaitBetweenSpawns 3
-			
+
 			TFBot
 			{
 				Class Scout
