@@ -1,4 +1,4 @@
-//Giant Bird 
+//Giant Bird
 
 //Credit:
 // Nopey for the Scout Bot, Sniper AI and Demoknight script
@@ -16,7 +16,7 @@
 #base robot_standard.pop
 #base robot_giant.pop
 #base robot_moonlight_nai.pop
-#base birdy_blimp.pop 
+#base birdy_blimp.pop
 
 WaveSchedule
 {
@@ -192,7 +192,7 @@ WaveSchedule
 				"holdtime" "3"
 			 }
         }
-         boss_logicC 
+         boss_logicC
         {
 			OnSpawnOutput
 			{
@@ -312,7 +312,7 @@ WaveSchedule
 				"holdtime" "3"
 			}
         }
-        birdgetrektanimation 
+        birdgetrektanimation
 		{
             KeepAlive 1
             OnSpawnOutput
@@ -404,7 +404,7 @@ WaveSchedule
 				"OnAnimationDone" "!self,SetPlayBackRate,0,,-1"
 				"OnAnimationDone" "eagleisdown,Trigger,,0,-1"
 				"OnAnimationDone" "!self,kill,,0,-1"
-                
+
 			}
             KeepAlive 1
 			logic_relay
@@ -452,7 +452,7 @@ WaveSchedule
             ambient_generic
             {
                 "targetname" "musicplayer"
-                
+
                 "health"    "35"
                 "message"   "#angrybirdw3.mp3"
                 "spawnflags" "17"
@@ -484,7 +484,7 @@ WaveSchedule
             ambient_generic
             {
                 "targetname" "musicplayer"
-                
+
                 "health"    "35"
                 "message"   "#cadaverw4.mp3"
                 "spawnflags" "17"
@@ -555,7 +555,7 @@ WaveSchedule
     Mission
 	{
 		Where spawnbot_mission_sniper
-		Objective Sniper  
+		Objective Sniper
 		BeginAtWave 2
 		RunForThisManyWaves 1
 		InitialCooldown 30
@@ -630,7 +630,7 @@ WaveSchedule
 	{
 		Where spawnbot_mission_spy
 		Objective Spy
-		BeginAtWave 2 
+		BeginAtWave 2
 		RunForThisManyWaves 2
 		InitialCooldown 30
 		CooldownTime 40
@@ -677,7 +677,7 @@ WaveSchedule
     }
     Templates //Bird//
     {                                                                                                //Birds//
-        bird_scout 
+        bird_scout
 		{
 			Class Scout
 			Name "Bird Scout"
@@ -825,7 +825,7 @@ WaveSchedule
                 {
                     ItemName "The Hot Hand"
                     "is_passive_weapon" 1
-                } 
+                }
 		}
         bird_demoman_parrot
 		{
@@ -908,7 +908,7 @@ WaveSchedule
                     "damage force reduction" 2
                 }
         }
-        bird_heavy_tweet 
+        bird_heavy_tweet
 		{
             Class Heavyweapons
             Name "Robin Heavy"
@@ -946,9 +946,9 @@ WaveSchedule
             Item "Avian Amante"
 		}
                                                                                                     //Giant Birds//
-        bird_scout_G 
+        bird_scout_G
 		{
-			
+
            Template T_TFBot_Giant_Scout_Fast
 			Name "Bird Scout"
             Skill Normal
@@ -959,7 +959,7 @@ WaveSchedule
             {
                 ItemName "Batter's Beak"
                 "head scale" 1.25
-                
+
             }
 		}
          bird_soldier_eagle_G
@@ -985,7 +985,7 @@ WaveSchedule
                 ItemName "The Freedom Staff"
                 "override projectile type"	2
                 "is_passive_weapon" 1
-            } 
+            }
             ItemAttributes
             {
                 ItemName "The Compatriot"
@@ -1058,7 +1058,7 @@ WaveSchedule
             Skill Expert
             Item "Medimedes"
             Item "Wings of Purity"
-        }  
+        }
          bird_sniper_owl_g
 		{
 			Class Sniper
@@ -1076,7 +1076,7 @@ WaveSchedule
                 "damage force reduction" 0.6
 				"airblast vulnerability multiplier" 0.6
             }
-        }  
+        }
          bird_spy_crow_g
 		{
 			Class Spy
@@ -1094,8 +1094,8 @@ WaveSchedule
 				"airblast vulnerability multiplier" 0.6
             }
         }
-    } 
-    //$1100 CREDITS (1/5) 
+    }
+    //$1100 CREDITS (1/5)
 	Wave
 	{
         CustomWaveNumber 1
@@ -1117,7 +1117,7 @@ WaveSchedule
             ClientPrint(null,3,`\x078ff347 Chuck: Welcome to Maplehill, a place with lots of exotic and rare birds`)
             ClientPrint(null,3,`\x078ff347 Chuck: Today we're gonna hunt some birds and hopefully get money while at it`)
             ClientPrint(null,3,`\x078ff347 Chuck: I'll give you some money to start`)
-            EntFire(`tf_objective_resource`, `$SetClientProp$m_iszMvMPopfileName`, `Maplehill Forest, 10:00 AM`)    
+            EntFire(`tf_objective_resource`, `$SetClientProp$m_iszMvMPopfileName`, `Maplehill Forest, 10:00 AM`)
             SpawnEntityFromTable(`prop_dynamic`,
 			{
 				targetname = `smallbird1`
@@ -1128,7 +1128,7 @@ WaveSchedule
 				disableshadows = true
 				modelscale = 2
 				skin = 0
-			}) 
+			})
             SpawnEntityFromTable(`prop_dynamic`,
 			{
 				targetname = `smallbird2`
@@ -1139,7 +1139,7 @@ WaveSchedule
 				disableshadows = true
 				modelscale = 2
 				skin = 0
-			})     
+			})
             SpawnEntityFromTable(`prop_dynamic`,
 			{
 				targetname = `smallbird3`
@@ -1172,7 +1172,7 @@ WaveSchedule
 				disableshadows = true
 				modelscale = 2
 				skin = 0
-			})                                                                                                                                                        
+			})
             ::BirdspotSkyBox <- { //Copied from Calendartillery (Credit to Seelpit)
                 Cleanup = function() {
              SetSkyboxTexture(`sky_trainyard_01`)
@@ -1350,8 +1350,8 @@ WaveSchedule
             }
 		}
     }
-    //$1000 CREDITS (2/5) 
-     Wave 
+    //$1000 CREDITS (2/5)
+     Wave
 	{
         CustomWaveNumber 2
         CustomMaxWaveNumber 21
@@ -1365,15 +1365,15 @@ WaveSchedule
             Target gamerules
             Action RunScriptCode
             Param "
-            IncludeScript(`nopey_lib/constants_nopey_fork`) 
+            IncludeScript(`nopey_lib/constants_nopey_fork`)
             IncludeScript(`pro_sniper`) // Sniper Bot Script
             IncludeScript(`birded`)
             IncludeScript(`pro_demoknight`)
-            __CollectGameEventCallbacks(prosniper) 
+            __CollectGameEventCallbacks(prosniper)
               EntFire(`tf_objective_resource`, `$SetClientProp$m_iszMvMPopfileName`, `Maplehill Forest, 12:00 PM`)
             ClientPrint(null,3,`\x078ff347 Chuck: Good job on the hunting fellas`)
             ClientPrint(null,3,`\x078ff347 Chuck: We got some money to help us on the hunt for more birds`)
-            ClientPrint(null,3,`\x078ff347 Chuck: Not long ago, I spotted a flock of birds coming our way. Be Prepared`) 
+            ClientPrint(null,3,`\x078ff347 Chuck: Not long ago, I spotted a flock of birds coming our way. Be Prepared`)
             ClientPrint(null,3,`\x07FF5B00 Enemy Marksman has arrived. Don't be hunted!`)
             SpawnEntityFromTable(`prop_dynamic`,
 			{
@@ -1385,7 +1385,7 @@ WaveSchedule
 				disableshadows = true
 				modelscale = 2
 				skin = 0
-			}) 
+			})
             SpawnEntityFromTable(`prop_dynamic`,
 			{
 				targetname = `smallbird2`
@@ -1396,7 +1396,7 @@ WaveSchedule
 				disableshadows = true
 				modelscale = 2
 				skin = 0
-			})     
+			})
             SpawnEntityFromTable(`prop_dynamic`,
 			{
 				targetname = `smallbird3`
@@ -1418,7 +1418,7 @@ WaveSchedule
 				disableshadows = true
 				modelscale = 2
 				skin = 0
-			})    
+			})
             ::BirdspotSkyBox <- { //(Credit to Seelpit)
                 Cleanup = function() {
              SetSkyboxTexture(`sky_morningsnow_01`)
@@ -1454,9 +1454,9 @@ WaveSchedule
                 WeaponRestrictions PrimaryOnly
                 ClassIcon scout_birb
                 Skill Easy
-               
+
 			}
-		}   
+		}
         WaveSpawn
 		{
 			Where spawnbot_flank
@@ -1484,7 +1484,7 @@ WaveSchedule
                 {
                     ItemName "The Hot Hand"
                     "is_passive_weapon" 1
-                } 
+                }
             }
 		}
       WaveSpawn
@@ -1573,7 +1573,7 @@ WaveSchedule
                 "damage causes airblast" 1
                 "blast dmg to self increased" 0
                 "fires milk bolt" 1
-                
+
 			}
             }
 		}
@@ -1604,7 +1604,7 @@ WaveSchedule
                 "mult projectile scale" 3
                  "damage bonus" 0.80
                 "custom item model" "models/weapons/c_models/c_tw_eagle/c_tw_eagle.mdl"
-                "damage causes airblast" 1 
+                "damage causes airblast" 1
             }
             ItemAttributes
             {
@@ -1613,8 +1613,8 @@ WaveSchedule
                 "custom texture lo" "x7a5a8dd0"
                 "override projectile type"	2
                 "is_passive_weapon" 1
-            } 
-                
+            }
+
             }
 		}
       WaveSpawn
@@ -1637,8 +1637,8 @@ WaveSchedule
 				Template bird_demoman_parrot
                 ClassIcon demo_bird
             }
-                
-                
+
+
 		}
          WaveSpawn
 		{
@@ -1855,9 +1855,9 @@ WaveSchedule
                     }
                 }
             }
-		}   
-    }   
-    //$1400 CREDITS (3/5) 
+		}
+    }
+    //$1400 CREDITS (3/5)
     Wave
 	{
         CustomWaveNumber 3
@@ -1871,7 +1871,7 @@ WaveSchedule
         {
             Target gamerules
             Action RunScriptCode
-            Param "  
+            Param "
             IncludeScript(`nopey_lib/constants_nopey_fork`)
             Convars.SetValue(`tf_avoidteammates_pushaway`, 0)
             IncludeScript(`pro_demoknight`)
@@ -1881,7 +1881,7 @@ WaveSchedule
               EntFire(`tf_objective_resource`, `$SetClientProp$m_iszMvMPopfileName`, `Maplehill Forest, 02:10 PM`)
             ClientPrint(null,3,`\x078ff347 Chuck: Nice one fellas`)
             ClientPrint(null,3,`\x078ff347 Chuck: We even got to hunt some rare and exotic birds`)
-            ClientPrint(null,3,`\x078ff347 Chuck: But for some reason, these birds are getting more and more erratic`)   
+            ClientPrint(null,3,`\x078ff347 Chuck: But for some reason, these birds are getting more and more erratic`)
             SpawnEntityFromTable(`prop_dynamic`,
 			{
 				targetname = `smallbird1`
@@ -1892,7 +1892,7 @@ WaveSchedule
 				disableshadows = true
 				modelscale = 2
 				skin = 0
-			}) 
+			})
             SpawnEntityFromTable(`prop_dynamic`,
 			{
 				targetname = `smallbird2`
@@ -1903,7 +1903,7 @@ WaveSchedule
 				disableshadows = true
 				modelscale = 2
 				skin = 0
-			})     
+			})
             SpawnEntityFromTable(`prop_dynamic`,
 			{
 				targetname = `smallbird3`
@@ -1949,7 +1949,7 @@ WaveSchedule
             StartWaveMessage "Now Playing: Angry Birds Theme"
             WaitForAllSpawned "music"
             WaitBeforeStarting 1.5
-        
+
         }
          WaveSpawn
 		{
@@ -2085,17 +2085,17 @@ WaveSchedule
                 Health 12000
                 Speed 75
                 SpawnTemplate BirdBlimp
-                DisableSmokestack 1    
+                DisableSmokestack 1
                 Classicon blimp2_lite
-                Skin 1    
-                MaxTurnRate 35 
+                Skin 1
+                MaxTurnRate 35
                 Model "models/bots/boss_bot/boss_blimp.mdl"
-                Gravity 0    
-                DisableTracks 1    
-                ReplaceModelCollisions 1    
-                DisableChildModels 1    
-                EngineLoopSound "npc\combine_gunship\dropship_engine_distant_loop1.wav"    
-                PingSound "ambient_mp3\lair\animal_call_bird_weird4.mp3"    
+                Gravity 0
+                DisableTracks 1
+                ReplaceModelCollisions 1
+                DisableChildModels 1
+                EngineLoopSound "npc\combine_gunship\dropship_engine_distant_loop1.wav"
+                PingSound "ambient_mp3\lair\animal_call_bird_weird4.mp3"
                 Name "tankboss"
                 StartingPathTrackNode "blimp_path_2"
 
@@ -2140,7 +2140,7 @@ WaveSchedule
                     "custom projectile model" "models/workshop/player/items/engineer/sbox2014_einstein/sbox2014_einstein.mdl"
                     "Projectile speed increased" 0.25
                     "custom item model" "models/workshop/weapons/c_models/c_invasion_wrangler/c_invasion_wrangler.mdl"
-                    "damage causes airblast" 1 
+                    "damage causes airblast" 1
                     "override projectile type" 2
                     "mult projectile scale" 3
                     "blast dmg to self increased" 0
@@ -2152,7 +2152,7 @@ WaveSchedule
                     }
                 }
             }
-		}    
+		}
          WaveSpawn
 		{
             Where spawnbot_flank
@@ -2190,7 +2190,7 @@ WaveSchedule
 					"charge time increased" 5
 				}
 			}
-		} 
+		}
          WaveSpawn
 		{
 			Where spawnbot
@@ -2219,7 +2219,7 @@ WaveSchedule
                     "melee airblast" 1
                 }
 			}
-		} 
+		}
          WaveSpawn
 		{
 			Where spawnbot
@@ -2246,7 +2246,7 @@ WaveSchedule
                     "effect bar recharge rate increased" 0.02
                 }
 			}
-		}    
+		}
         WaveSpawn
 		{
 			Where spawnbot
@@ -2293,7 +2293,7 @@ WaveSchedule
                 ItemName "Gloves of Running Urgently MvM"
                  "move speed bonus" 2.5
                }
-            } 
+            }
         }
         WaveSpawn
 		{
@@ -2335,7 +2335,7 @@ WaveSchedule
 				    "cancel falling damage" 1
                     "stomp player damage" 10
                }
-            } 
+            }
         }
         WaveSpawn
 	{
@@ -2361,7 +2361,7 @@ WaveSchedule
 			}
         }
     }
-    //$1967 CREDITS (4/5) 
+    //$1967 CREDITS (4/5)
      Wave
 	{
         CustomWaveNumber 4
@@ -2381,7 +2381,7 @@ WaveSchedule
              IncludeScript(`pro_demoknight`)
             ClientPrint(null,3,`\x078ff347 Chuck: Its afternoon already? `)
             ClientPrint(null,3,`\x078ff347 Chuck: Time sure does fly when you're out on the wild huh `)
-            ClientPrint(null,3,`\x078ff347 Chuck: I can see the motherload of birds coming our way. Time to make some big money!`)    
+            ClientPrint(null,3,`\x078ff347 Chuck: I can see the motherload of birds coming our way. Time to make some big money!`)
               EntFire(`tf_objective_resource`, `$SetClientProp$m_iszMvMPopfileName`, `Maplehill Forest, 04:20 PM`)
             SpawnEntityFromTable(`prop_dynamic`,
 			{
@@ -2393,7 +2393,7 @@ WaveSchedule
 				disableshadows = true
 				modelscale = 2
 				skin = 0
-			}) 
+			})
             SpawnEntityFromTable(`prop_dynamic`,
 			{
 				targetname = `smallbird2`
@@ -2404,7 +2404,7 @@ WaveSchedule
 				disableshadows = true
 				modelscale = 2
 				skin = 0
-			})     
+			})
             ::BirdspotSkyBox <- { //(Credit to Seelpit)
                 Cleanup = function() {
              SetSkyboxTexture(`sky_goldrush_01`)
@@ -2414,7 +2414,7 @@ WaveSchedule
             OnGameEvent_mvm_wave_complete = function(_) { Cleanup() }
             }
             __CollectGameEventCallbacks(BirdspotSkyBox)
-                SetSkyboxTexture(`sky_harvest_01`) 
+                SetSkyboxTexture(`sky_harvest_01`)
             "
         }
 		DoneOutput
@@ -2424,7 +2424,7 @@ WaveSchedule
 		}
          WaveSpawn
 		{
-            
+
             Name message1
             StartWaveMessage "{Blue}You see the birds trying to communicate"
             WaitBeforeStarting 7
@@ -2453,7 +2453,7 @@ WaveSchedule
             StartWaveMessage "Now Playing: Team Fortress 2 OST Dapper Cadaver"
             WaitForAllSpawned "music"
             WaitBeforeStarting 10
-        
+
         }
          WaveSpawn
 		{
@@ -2492,7 +2492,7 @@ WaveSchedule
                         ItemName "Mutated Milk"
                         "effect bar recharge rate increased" 0.01
                         "applies snare effect" 0.50
-                    } 
+                    }
                     CharacterAttributes
                     {
                         "move speed bonus" 0.85
@@ -2521,7 +2521,7 @@ WaveSchedule
                     }
                 }
 			}
-		} 
+		}
        WaveSpawn
 		{
 			Where spawnbot
@@ -2563,7 +2563,7 @@ WaveSchedule
                         ItemName "The Freedom Staff"
                         "override projectile type"	2
                         "is_passive_weapon" 1
-                    } 
+                    }
                 }
                 TFBot
                 {
@@ -2581,7 +2581,7 @@ WaveSchedule
                     "custom projectile model" "models/workshop/player/items/engineer/sbox2014_einstein/sbox2014_einstein.mdl"
                     "Projectile speed increased" 0.40
                     "custom item model" "models/workshop/weapons/c_models/c_invasion_wrangler/c_invasion_wrangler.mdl"
-                    "damage causes airblast" 1 
+                    "damage causes airblast" 1
                     "override projectile type" 2
                     "mult projectile scale" 3
                     "faster reload rate" -0.8
@@ -2672,7 +2672,7 @@ WaveSchedule
                         "blast dmg to self increased" 0
                         "fires milk bolt" 1
                         "mult projectile scale" 1.5
-                        
+
                     }
                 }
                 TFBot
@@ -2700,7 +2700,7 @@ WaveSchedule
                 }
             }
         }
-          
+
         WaveSpawn
 		{
 			Where spawnbot
@@ -2719,22 +2719,22 @@ WaveSchedule
             {
                 TFBot
                 {
-                    Template bird_soldier_eagle_hidden 
+                    Template bird_soldier_eagle_hidden
                     ClassIcon soldier_bird
                 }
                 TFBot
                 {
-                    Template bird_pyro_chicken_hidden 
+                    Template bird_pyro_chicken_hidden
                     ClassIcon pyro_bird2
                 }
                 TFBot
                 {
-                    Template bird_pyro_chicken_korean 
+                    Template bird_pyro_chicken_korean
                      ClassIcon pyro_bird2
                 }
                 TFBot
                 {
-                    Template bird_pyro_chicken_korean 
+                    Template bird_pyro_chicken_korean
                      ClassIcon pyro_bird2
                 }
                 TFBot
@@ -2744,17 +2744,17 @@ WaveSchedule
                 }
                 TFBot
                 {
-                    Template bird_soldier_eagle_hidden 
+                    Template bird_soldier_eagle_hidden
                      ClassIcon soldier_bird
                 }
                 TFBot
                 {
-                    Template bird_soldier_eagle_hidden 
+                    Template bird_soldier_eagle_hidden
                      ClassIcon soldier_bird
                 }
                 TFBot
                 {
-                    Template bird_scout_hidden 
+                    Template bird_scout_hidden
                     ClassIcon scout_birb
                 }
                 TFBot
@@ -2778,13 +2778,13 @@ WaveSchedule
                     ClassIcon demo_bird
                 }
             }
-            
+
         }
-    }   
-    //$6 7 CREDITS (5/5) 
+    }
+    //$6 7 CREDITS (5/5)
     Wave
 	{
-        CustomWaveNumber 67 //this was made in October this is a bad joke 
+        CustomWaveNumber 67 //this was made in October this is a bad joke
         CustomMaxWaveNumber 67
 		StartWaveOutput
 		{
@@ -2805,7 +2805,7 @@ WaveSchedule
             ClientPrint(null,3,`\x078ff347 Chuck: Phew that was a good hunt, We made profit and we got some cool displays for our house`)
             ClientPrint(null,3,`\x07FF0000 *Whispers in the distance*`)
             ClientPrint(null,3,`\x078ff347 Chuck: Did you hear that?`)
-            ClientPrint(null,3,`\x078ff347 Chuck: I hear a faint sound saying weapon...reskins?`)  
+            ClientPrint(null,3,`\x078ff347 Chuck: I hear a faint sound saying weapon...reskins?`)
             EntFire(`tf_objective_resource`, `$SetClientProp$m_iszMvMPopfileName`, `Maplehill Forest, 06:09 PM`)
             SpawnEntityFromTable(`prop_dynamic`,
 			{
@@ -2817,7 +2817,7 @@ WaveSchedule
 				disableshadows = true
 				modelscale = 2
 				skin = 0
-			}) 
+			})
             ::BirdspotSkyBox <- { //(Credit to Seelpit)
                 Cleanup = function() {
              SetSkyboxTexture(`sky_harvest_01`)
@@ -2827,17 +2827,17 @@ WaveSchedule
             OnGameEvent_mvm_wave_complete = function(_) { Cleanup() }
             }
             __CollectGameEventCallbacks(BirdspotSkyBox)
-                SetSkyboxTexture(`sky_badlands_01`) 
+                SetSkyboxTexture(`sky_badlands_01`)
             "
         }
 		DoneOutput
 		{
 			Target wave_finished_relay
-			Action Trigger 
+			Action Trigger
 		}
          WaveSpawn
 		{
-            
+
             Name message1
             StartWaveMessage "{Blue}You have destroyed our ecosystem with your reckless hunting"
             WaitBeforeStarting 7
@@ -2862,7 +2862,7 @@ WaveSchedule
             StartWaveMessage  "{Red}Now it's time for you to face the consequences"
             WaitForAllSpawned "message3"
             WaitBeforeStarting 7
-        
+
         }
         SpawnTemplate birdmusicboss
          WaveSpawn
@@ -2881,7 +2881,7 @@ WaveSchedule
             StartWaveMessage "Now Playing: theme of really cool bird By Bobacupcake"
             WaitForAllSpawned "Great Blue TF2"
             WaitBeforeStarting 7
-        
+
         }
         WaveSpawn
         {
@@ -2923,7 +2923,7 @@ WaveSchedule
             {
             SpawnTemplate boss_logicD
             SpawnTemplate birdgetrektanimation
-            Name "Great Blue Eagle" // Uses weapon reskins 
+            Name "Great Blue Eagle" // Uses weapon reskins
 			Class	Soldier
 			ClassIcon soldier_hawkboss
 			Skill	Normal
@@ -2932,7 +2932,7 @@ WaveSchedule
 			Attributes	MiniBoss
 			Attributes	UseBossHealthBar
             Attributes  DisableDodge
-			
+
                 ChangeAttributes
                 {
                     Delay 0
@@ -3002,7 +3002,7 @@ WaveSchedule
                             "hand scale" 2
                             "self dmg push force decreased" 0
 						}
-					
+
                     }
                    Weaponskins1
                     {
@@ -3021,7 +3021,7 @@ WaveSchedule
                             "attach particle effect" 13
 					        "Set DamageType Ignite" 1
 
-                        
+
                         }
                         CharacterAttributes
 						{
@@ -3044,7 +3044,7 @@ WaveSchedule
 							Cooldown 0
 							Repeats 1
                         }
-                    }  
+                    }
                    Weaponskins2
                     {
                         Item "The Original"
@@ -3062,7 +3062,7 @@ WaveSchedule
                             "projectile spread angle penalty" 2
                             "Projectile speed increased" 0.3
                             "blast dmg to self increased" 0
-			
+
                         }
                         CharacterAttributes
 						{
@@ -3232,8 +3232,8 @@ WaveSchedule
 							Repeats 1
                         }
                     }
-                }   
-            }       
+                }
+            }
         }
 
          WaveSpawn
@@ -3265,9 +3265,9 @@ WaveSchedule
 			TFBot
 			{
                 Template bird_demo_parrotknight
-            } 
+            }
         }
-        
+
          WaveSpawn
 	     {
 			Where spawnbot
@@ -3451,7 +3451,7 @@ WaveSchedule
                         "applies snare effect" 0.20
                     }
                 }
-            } 
+            }
         }
         WaveSpawn
 		    {
@@ -3483,7 +3483,7 @@ WaveSchedule
                     "custom texture hi" "xedd1be66"
                     "custom texture lo" "x758a5e7"
                 }
-            } 
+            }
 		}
        WaveSpawn
 		{
@@ -3493,14 +3493,13 @@ WaveSchedule
     }
 }
 
-		
-		
-	
-		
-		
-	
 
-	
 
-      
-    
+
+
+
+
+
+
+
+
