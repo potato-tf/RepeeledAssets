@@ -872,8 +872,8 @@ WaveSchedule
                 Param  "
                     self.AddCondEx(64,4.0,self)
                     self.SetGravity(0.3)
-                    EntFireByHandle(bot, `DisableDamageForces`, null, 0.0, null, null)
-                    EntFireByHandle(bot, `EnableDamageForces`, null, 5, null, null)
+                    EntFireByHandle(self, `DisableDamageForces`, null, 0.0, null, null)
+                    EntFireByHandle(self, `EnableDamageForces`, null, 5, null, null)
                 "
                 Delay  0.1
             }
@@ -883,7 +883,7 @@ WaveSchedule
                 Action "RunScriptCode"
                 Param  "
                     self.SetAbsOrigin(self.GetOrigin()+Vector(0,0,650))
-                    self.AddCondEx(Constants.ETFCond.TF_COND_TELEPORTED, 0.5, bot)
+                    self.AddCondEx(Constants.ETFCond.TF_COND_TELEPORTED, 0.5, self)
                 "
                 Delay  4
             }
