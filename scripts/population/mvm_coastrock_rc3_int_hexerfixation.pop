@@ -419,6 +419,12 @@ WaveSchedule
 				})
 			"
         }
+		
+		WaveSpawn
+		{
+			WaitBeforeStarting 0
+			FirstSpawnMessage "{5ed5f6}Now Playing - Overwatch (Main Menu)"  
+		}
 
 		WaveSpawn
 		{
@@ -641,6 +647,12 @@ WaveSchedule
         		})
 			"
         }
+		
+		WaveSpawn
+		{
+			WaitBeforeStarting 0
+			FirstSpawnMessage "{5ed5f6}Now Playing - Celeste - Scattered And Lost"  
+		}
 
 		WaveSpawn
 		{
@@ -954,6 +966,13 @@ WaveSchedule
 				}
 			}
 		}
+		
+		WaveSpawn
+		{
+			WaitForAllDead "2a"
+			WaitBeforeStarting 2
+			FirstSpawnMessage "{5ed5f6}Now Playing - Super Mario Bros - World 1-1"  
+		}
 
 		WaveSpawn
 		{
@@ -1116,6 +1135,13 @@ WaveSchedule
 					"set item tint RGB" 1315860
 				}
 			}
+		}
+		
+		WaveSpawn
+		{
+			WaitForAllDead "2b"
+			WaitBeforeStarting 2
+			FirstSpawnMessage "{5ed5f6}Now Playing - Sonic And The Black Knight - Fight The Knight"  
 		}
 
 		WaveSpawn
@@ -1414,6 +1440,12 @@ WaveSchedule
         		})
 			"
         }
+		
+		WaveSpawn
+		{
+			WaitBeforeStarting 0
+			FirstSpawnMessage "{5ed5f6}Now Playing - Touhou: Imperishable Night - Love-colored Master Spark"  
+		}
 
 		WaveSpawn
 		{
@@ -2182,6 +2214,12 @@ WaveSchedule
         		})
 			"
         }
+		
+		WaveSpawn
+		{
+			WaitBeforeStarting 0
+			FirstSpawnMessage "{5ed5f6}Now Playing - Pokémon Diamond - Champion Cynthia Battle Music"  
+		}
 
 		WaveSpawn
 		{
@@ -2743,6 +2781,13 @@ WaveSchedule
 					Action Trigger
 				}
 			}
+		}
+		
+		WaveSpawn
+		{
+			WaitForAllDead "5b"
+			WaitBeforeStarting 2
+			FirstSpawnMessage "{5ed5f6}Now Playing - Rhythm Heaven Fever - Beautiful One Day"  
 		}
 
 		WaveSpawn
@@ -3627,7 +3672,7 @@ WaveSchedule
 				Health 2000
 				Scale 1.0
 				Skill Expert
-				Name "Mann Vs Machine"
+				Name "Memes Vs Machine"
 				ClassIcon scout_luma
 			}
 		}
@@ -3859,6 +3904,13 @@ WaveSchedule
 
 		WaveSpawn
 		{
+			WaitForAllDead "5f outro9"
+			WaitBeforeStarting 2
+			FirstSpawnMessage "{5ed5f6}Now Playing - Dexter Manning - The Rosalina Song"  
+		}
+		
+		WaveSpawn
+		{
 			Name "Rosalina OP"
 			WaitForAllDead "5f outro9"
 
@@ -3969,13 +4021,35 @@ WaveSchedule
         		})
 			"
         }
+		
+		WaveSpawn
+		{
+			Name "Dummy"
+			WaitBeforeStarting 0
+			FirstSpawnMessage "{5ed5f6}Now Playing - Sonic Generations - Boss: Big Arm"  
+		}
 
 		WaveSpawn
 		{
 			Name "Dummy"
 
-			WaitBeforeStarting 5
+			WaitBeforeStarting 0
 			StartWaveWarningSound "big_arms_boss_v2.wav"
+		}
+		
+		WaveSpawn
+		{
+			Name "Boss Text1"
+			WaitBeforeStarting 10
+			FirstSpawnMessage "{Blue}Hexerfixation: How dare you come here and trash my favorite things, all for what? Medals?"
+		}
+		
+		WaveSpawn
+		{
+			Name "Boss Text2"
+			WaitForAllSpawned "Boss Text1"
+			WaitBeforeStarting 5
+			FirstSpawnMessage "{Blue}Hexerfixation: Well too bad! WELCOME TO YOUR DOOM!!!"
 		}
 
 		WaveSpawn
@@ -3995,6 +4069,14 @@ WaveSchedule
 			{
 				Template T_TFBot_Soldier_Self
 			}
+		}
+		
+		WaveSpawn
+		{
+			Name "Boss Defeat"
+			WaitForAllDead "Boss"
+			WaitBeforeStarting 0
+			FirstSpawnMessage "{Blue}Hexerfixation: GGGRRRAAAHHHHH!, H-HOW DID YOU BEAT ME??? M-MMY THINGS!, MMY MEDALS!!, MMY BODY!!! UUGGHHAAA! TAKE YOUR FOOLS MEDAL, I'LL RETURN SOMEDAY TO TAKE THEM BACK!"
 		}
 
 		WaveSpawn
