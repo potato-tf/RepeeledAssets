@@ -5508,6 +5508,8 @@ WaveSchedule
                 Target BigNet
                 Action RunScriptCode
                 Param "
+                        EntFire(`pop_interface`, `$KillWaveSpawn`, `Wave12_Support-BatsaberScouts`)
+                        EntFire(`pop_interface`, `$FinishWaveSpawn`, `Wave12_Support-BatsaberScouts`)
                         EntFire(`engishake`, `StartShake`)
                         EntFire(`killmothership`, `Trigger`)
                         EntFire(`nomoremusiccauseimlazy`, `Trigger`)
@@ -7838,6 +7840,7 @@ WaveSchedule
 						EntFire(`pop_interface`, `$KillWaveSpawn`, `Wave18_Support-ArmoredBatScouts`)
 						EntFire(`pop_interface`, `$FinishWaveSpawn`, `Wave18_Support-Soldiers`)
 						EntFire(`pop_interface`, `$FinishWaveSpawn`, `Wave18_Support-ArmoredBatScouts`)
+                        MusicSystemMent.SetMusicTrack(``, 2.0, 2.0);
 					  "
 			}
         }

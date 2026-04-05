@@ -14151,6 +14151,15 @@ WaveSchedule
 
                     FireInput
                     {
+                        Target SkullcutterSlamAttack
+                        Action CancelPending
+                        Delay 0
+                        Repeats 1
+                        Cooldown -1
+                    }
+
+                    FireInput
+                    {
                         Target !self
                         Action $TauntFromItem
                         Param "Taunt: Unleashed Rage"
@@ -14765,7 +14774,7 @@ WaveSchedule
 			}
             WeaponResist
             {
-                "TF_WEAPON_KNIFE"    0.025    // makes it so that you can't just instakill him with a backstab but still do SOMETHING as spy
+                "TF_WEAPON_KNIFE"    0.0075    // makes it so that you can't just instakill him with a backstab but still do SOMETHING as spy
             }
 
 			ItemAttributes
@@ -15460,7 +15469,7 @@ WaveSchedule
 			}
             WeaponResist
             {
-                "TF_WEAPON_KNIFE"    0.025    // makes it so that you can't just instakill him with a backstab but still do SOMETHING as spy
+                "TF_WEAPON_KNIFE"    0.0075    // makes it so that you can't just instakill him with a backstab but still do SOMETHING as spy
             }
 
 			ItemAttributes
@@ -16116,7 +16125,7 @@ WaveSchedule
 			}
             WeaponResist
             {
-                "TF_WEAPON_KNIFE"    0.025    // makes it so that you can't just instakill him with a backstab but still do SOMETHING as spy
+                "TF_WEAPON_KNIFE"    0.0075    // makes it so that you can't just instakill him with a backstab but still do SOMETHING as spy
             }
 
 			ItemAttributes
