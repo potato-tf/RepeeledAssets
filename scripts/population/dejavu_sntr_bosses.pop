@@ -740,7 +740,7 @@ WaveSchedule
 			UseCustomModel "models/empty.mdl" // no
 			UseMeleeThreatPrioritization 1 [$SIGSEGV]
 			RocketCustomModel "models/empty.mdl" [$SIGSEGV]
-			DeathSound crush\HEDDTH.wav
+			DeathSound crush/heddth.wav
 			ExtAttr IgnoreBuildings
 			
 			ShootTemplate [$SIGSEGV]

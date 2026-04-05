@@ -8,6 +8,10 @@ WaveSchedule
 	PrecacheGeneric "materials/hud/leaderboard_class_boolet.vtf"
 	PrecacheGeneric "materials/hud/leaderboard_class_fire.vmt"
 	PrecacheGeneric "materials/hud/leaderboard_class_fire.vtf"
+	PrecacheGeneric "materials/hud/leaderboard_class_dead_glow_lite.vtf"
+	PrecacheGeneric "materials/hud/leaderboard_class_dead_glow_lite.vmt"
+	PrecacheGeneric "materials/hud/leaderboard_class_dead_glow2_lite.vtf"
+	PrecacheGeneric "materials/hud/leaderboard_class_dead_glow2_lite.vmt"
 
     CustomWeapon
 	{
