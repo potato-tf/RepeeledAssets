@@ -1023,6 +1023,40 @@ WaveSchedule
                 "OnTrigger" "musicw3,StopSound,,0,-1"
             }
 		}
+		Music_W4
+		{
+			ambient_generic
+            {
+                "targetname" "musicw4"
+				"message" "#soda_tf2contentcreator_gaslightingself.mp3"
+				"health" "10"
+				"pitch" "100"
+				"spawnflags" "17"
+            }
+			ambient_generic
+            {
+                "targetname" "musicw4"
+				"message" "#soda_tf2contentcreator_gaslightingself.mp3"
+				"health" "10"
+				"pitch" "100"
+				"spawnflags" "17"
+            }
+			logic_relay
+            {
+                "targetname" "relayplaymusicw4"
+                "spawnflags" "2"
+
+                "OnTrigger" "musicw4,PlaySound,,0,-1"
+                "OnTrigger" "musicw4,StopSound,,85,-1"
+            }
+			logic_relay
+            {
+                "targetname" "relaystopmusicw4"
+                "spawnflags" "2"
+
+                "OnTrigger" "musicw4,StopSound,,0,-1"
+            }
+		}
 		Music_W5
 		{
 			ambient_generic
@@ -1481,6 +1515,7 @@ WaveSchedule
 	SpawnTemplate Music_W1  
 	SpawnTemplate Music_W2  
 	SpawnTemplate Music_W3  
+	SpawnTemplate Music_W4  
 	SpawnTemplate Music_W5  
 	SpawnTemplate Music_W6  
 	SpawnTemplate ViewerSwarmAmbience  
@@ -1554,19 +1589,20 @@ WaveSchedule
 			MaxVisionRange 1200
 			Tag bot_bombbot
 		}
-		Inky_QuickUber_Medic
+		Inky_Kritz_Medic
 		{
-			Name "Quick-Uber Medic"
+			Name "Kritzkrieg Medic"
 			Class Medic
 			Skill Normal
-			ClassIcon medic_uber
-			Item "Halogen Head Lamp"
+			ClassIcon medic_krits
+			Item "The Kritzkrieg"
+			Item "Platinum Pickelhaube"
 			Attributes SpawnWithFullCharge
 			ItemAttributes
 			{
-				ItemName "TF_WEAPON_MEDIGUN"
-				"uber duration bonus" -3
-				"ubercharge rate bonus" 5
+				ItemName "The Kritzkrieg"
+				"uber duration bonus"	200
+				"ubercharge rate bonus"	200
 			}
 			ItemAttributes
 			{
@@ -1575,7 +1611,8 @@ WaveSchedule
 			}
 			CharacterAttributes
 			{
-				"heal rate bonus" 0.1
+				"heal rate bonus" 5
+				"bot medic uber health threshold" 444
 			}
 		}
 		Inky_Syringe_Medic
@@ -1604,7 +1641,7 @@ WaveSchedule
 			Action FetchFlag  
 			ItemAttributes
 			{
-				ItemName "TF_WEAPON_SHOTGUN_ENGINEER"
+				ItemName "TF_WEAPON_SHOTGUN_PRIMARY"
 				"bullets per shot bonus" 10
 				"damage penalty" 0.5
 				"faster reload rate" 0.1
@@ -1970,6 +2007,23 @@ WaveSchedule
 				"override footstep sound set" 3
 			}
 		}
+		MissInfo_Wrap_Assassin_Scout
+		{
+			Name "Wrap Assassin Scout"
+			Class Scout
+			Skill Hard
+			ClassIcon scout_wrap_lite
+			Item "The Sandman"
+			WeaponRestrictions MeleeOnly
+			Tag bot_bombbot
+			ItemAttributes
+			{
+				ItemName "The Sandman"
+				"effect bar recharge rate increased" 0.25
+				"bleeding duration" 3
+				"damage penalty" 0.35
+			}
+		}
 		MissInfo_Wrap_Assassin_Scout_Gatebot
 		{
 			Class Scout
@@ -2015,6 +2069,47 @@ WaveSchedule
 						ItemName "MvM GateBot Light Scout"
 						"item style override" 1
 					}
+				}
+			}
+		}
+		MissInfo_Wrap_Assassin_Scout_Gatebot_Hatless
+		{
+			Class Scout
+			Name "Wrap Assassin Scout"
+			ClassIcon scout_wrap_lite
+
+			EventChangeAttributes
+			{
+				Default
+				{
+					Tag bot_gatebot
+					Tag nav_prefer_gate1_flank
+					BehaviorModifiers push
+					Attributes IgnoreFlag
+
+					Item "The Sandman"
+					ItemAttributes
+					{
+						ItemName "The Sandman"
+						"effect bar recharge rate increased" 0.25
+						"bleeding duration" 3
+						"damage penalty" 0.35
+					}
+					Skill Hard
+					WeaponRestrictions MeleeOnly
+				}
+				RevertGateBotsBehavior
+				{
+					Item "The Sandman"
+					ItemAttributes
+					{
+						ItemName "The Sandman"
+						"effect bar recharge rate increased" 0.25
+						"bleeding duration" 3
+						"damage penalty" 0.35
+					}
+					Skill Hard
+					WeaponRestrictions MeleeOnly
 				}
 			}
 		}
@@ -2066,6 +2161,21 @@ WaveSchedule
 				"damage bonus" 0.5
 				"mult airblast refire time" 0.5
 				"airblast_destroy_projectile"	1
+			}
+		}
+		MissInfo_Bonk_Demo
+		{
+			Name "Bonk Demo"
+			Class Demoman
+			Skill Normal
+			ClassIcon scout_bonk
+			Item "Bonk Helm"
+			Attributes	HoldFireUntilFullReload
+			Tag bot_bombbot
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_GRENADELAUNCHER"
+				"custom projectile model" "models/weapons/c_models/c_energy_drink/c_energy_drink.mdl"  
 			}
 		}
 		MissInfo_Bottle_Demo
@@ -2502,6 +2612,12 @@ WaveSchedule
 			ItemAttributes
 			{
 				ItemName "TF_WEAPON_GRENADELAUNCHER"
+				"provide on active" 1
+				"dmg taken from bullets reduced" 0.25
+				"dmg taken from blast reduced" 0.25
+				"dmg taken from fire reduced" 0.25
+				"dmg from melee increased" 0.25
+				"dmg taken from crit reduced" 0.1
 				"grenade explode on impact" 1  
 				"custom projectile model" "models/props_lab/monitor02.mdl"  
 				"damage bonus" 2
@@ -2594,6 +2710,7 @@ WaveSchedule
 			Class Scout
 			Skill Expert
 			Health 2100
+			Scale 1.5
 			ClassIcon scout_hyper
 			Item "Baseball Bill's Sports Shine"
 			//Item "Friendly Item"
@@ -2603,6 +2720,7 @@ WaveSchedule
 			UseCustomModel "models/player/scout.mdl"  
 			Skin 5  
 			Attributes MiniBoss
+			Attributes DisableDodge
 			WeaponRestrictions MeleeOnly
 			Tag	bot_giant
 			Action Mobber  
@@ -2616,13 +2734,13 @@ WaveSchedule
 			ItemAttributes
 			{
 				ItemName "Unarmed Combat"
-				"damage bonus" 2
+				"damage bonus" 3
 			}
 			CharacterAttributes
 			{
 				"airblast vulnerability multiplier" 0.7
 				"damage force reduction" 0.7
-				"head scale" 2
+				"head scale" 5
 				"move speed penalty" 0.75
 			}
 		}
@@ -2681,12 +2799,52 @@ WaveSchedule
 				"ammo regen" 2
 			}
 		}
+		Impotent_Rage_Decoy
+		{
+			Name "TF2 Content Creator"
+			Class Heavyweapons
+			Skill Expert
+			Scale 1
+			Attributes AlwaysCrit
+			Attributes MiniBoss
+			Item "Taunt: Unleashed Rage"
+			UseCustomModel "models/player/heavy.mdl"  
+			WeaponRestrictions MeleeOnly
+			Tag	bot_giant
+			Tag	bot_bombbot
+			AlwaysGlow 1  
+			AddCond  
+			{
+				Index 52
+				Delay 0
+				Duration 88888888
+			}
+			Taunt  
+			{
+				Delay 60
+				Cooldown 1
+				Repeats 1
+				Name "Taunt: Unleashed Rage"
+			}
+			CharacterAttributes
+			{
+				"airblast vulnerability multiplier" 0.3
+				"damage force reduction" 0.3
+				"move speed penalty" 0.8
+				"increased jump height" 2
+				"damage bonus" 2
+				"fire rate bonus" 0.6
+				"dmg bonus vs buildings" 3
+				"bombinomicon effect on death" 1
+				"always allow taunt" 1  
+			}
+		}
 		Schizo_Boss
 		{
 			Name "Nightfall Nexus Player"
 			Class Sniper
 			Skill Expert
-			Health 45000
+			Health 50000
 			Scale 1
 			ClassIcon random_lite
 			Item "Scruffed 'n Stitched"
@@ -2694,6 +2852,7 @@ WaveSchedule
 			Attributes MiniBoss
 			Attributes UseBossHealthBar
 			Attributes AlwaysFireWeapon
+			Attributes DisableDodge
 			MaxVisionRange 1200
 			UseCustomModel "models/player/sniper.mdl"  
 			WeaponRestrictions MeleeOnly
@@ -2711,7 +2870,7 @@ WaveSchedule
 				Index 52
 				Delay 0
 				Duration 8
-				IfHealthBelow 30001
+				IfHealthBelow 35001
 			}
 			WeaponSwitch  
 			{
@@ -2719,14 +2878,14 @@ WaveSchedule
 				Cooldown 3
 				Repeats 1
 				Type "Secondary"
-				IfHealthBelow 30001
+				IfHealthBelow 35001
 			}
 			AddCond  
 			{
 				Index 52
 				Delay 0
 				Duration 8
-				IfHealthBelow 15001
+				IfHealthBelow 20001
 			}
 			WeaponSwitch  
 			{
@@ -2734,7 +2893,7 @@ WaveSchedule
 				Cooldown 3
 				Repeats 1
 				Type "Primary"
-				IfHealthBelow 15001
+				IfHealthBelow 20001
 			}
 			ItemAttributes
 			{
@@ -2768,6 +2927,7 @@ WaveSchedule
 				"minicrit vs burning player" 1
 				"minicrits become crits" 1
 				"dmg taken from crit reduced" 0.5
+				"damage bonus" 2
 			}
 		}
 	}
@@ -2942,7 +3102,6 @@ WaveSchedule
 				CharacterAttributes
 				{
 					"damage penalty" 0.33
-					"cannot pick up intelligence"	1
 				}
 			}
 		}
@@ -3054,7 +3213,6 @@ WaveSchedule
 				CharacterAttributes
 				{
 					"damage penalty" 0.1
-					"cannot pick up intelligence"	1
 				}
 			}
 		}
@@ -3076,7 +3234,6 @@ WaveSchedule
 				CharacterAttributes
 				{
 					"damage penalty" 0.1
-					"cannot pick up intelligence"	1
 				}
 			}
 		}
@@ -3107,7 +3264,6 @@ WaveSchedule
 				CharacterAttributes
 				{
 					"damage penalty" 0.1
-					"cannot pick up intelligence"	1
 				}
 			}
 		}
@@ -3137,7 +3293,6 @@ WaveSchedule
 				CharacterAttributes
 				{
 					"damage penalty" 0.1
-					"cannot pick up intelligence"	1
 				}
 			}
 		}
@@ -3163,7 +3318,6 @@ WaveSchedule
 				CharacterAttributes
 				{
 					"damage penalty" 0.1
-					"cannot pick up intelligence"	1
 				}
 			}
 		}
@@ -3185,7 +3339,6 @@ WaveSchedule
 				CharacterAttributes
 				{
 					"damage penalty" 0.1
-					"cannot pick up intelligence"	1
 				}
 			}
 		}
@@ -3209,7 +3362,6 @@ WaveSchedule
 				CharacterAttributes
 				{
 					"damage penalty" 0.1
-					"cannot pick up intelligence"	1
 				}
 			}
 		}
@@ -4209,12 +4361,18 @@ WaveSchedule
 	{
 		CustomWaveNumber 2  
 		CustomMaxWaveNumber 3  
+		RedTeamWipeCausesWaveLoss 1  
 		WaitWhenDone	65
 		Checkpoint	Yes
 		StartWaveOutput
 		{
 			Target	wave_start_relay
 			Action	Trigger
+		}
+		InitWaveOutput  
+		{
+			Target relaystopmusicw4
+			Action Trigger
 		}
 		DoneOutput
 		{
@@ -4225,16 +4383,260 @@ WaveSchedule
 		{
 			Line "{grey}Broadcaster{reset} : Now it is empty. Is this an intentional empty wave, a wave where the bot icons are hidden?"
 			Line "{grey}Broadcaster{reset} : Wait maybe this could be one of those cutscene waves that provides explanation."
-			Line "{grey}Broadcaster{reset} : This might be just me, but whatever does get presented probably shouldn't be taken seriously."
+			Line "{grey}Broadcaster{reset} : This might just be me, but if any of you plan to bodyblock you probably would need to buy uber canteens."
 		}
 		WaveSpawn
 		{
-			FirstSpawnWarningSound "soda_tf2contentcreator_gaslightingself.mp3"
+			Name	survive_and_stall_timed
+			TotalCurrency	300
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			Where	spawnbot_main0
+			Support	1
+			Squad
+			{
+				Squad
+				{
+					TFBot
+					{
+						Template	Impotent_Rage_Decoy
+					}
+				}
+			}
 		}
 		WaveSpawn
 		{
-			FirstSpawnWarningSound "soda_tf2contentcreator_gaslightingself.mp3"
+			Name	RedSupport4
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	0.1
+			Where	spawnbot_red1
+			Support	Limited
+			RandomChoice
+			{
+				RandomChoice
+				{
+					TFBot
+					{
+						Name "TF2 Workshop Creator"
+						Class Engineer
+						Skill Expert
+						Health 3300
+						Scale 1
+						ClassIcon engineer_giant
+						Attributes MiniBoss
+						WeaponRestrictions PrimaryOnly
+						MaxVisionRange 1200
+						Tag	bot_giant
+						Action Mobber  
+						UseCustomModel "models/player/engineer.mdl"  
+						AddCond  
+						{
+							Name "TF_COND_REPROGRAMMED"
+							Delay 0
+							Duration 88888888
+						}
+						ItemAttributes
+						{
+							ItemName "TF_WEAPON_SHOTGUN_PRIMARY"
+							"bullets per shot bonus" 10
+							"damage penalty" 0.5
+							"faster reload rate" 0.1
+							"fire rate bonus" 2.5
+							"attack projectiles" 1
+						}
+						CharacterAttributes
+						{
+							"airblast vulnerability multiplier" 0.3
+							"damage force reduction" 0.3
+							"dmg taken from bullets reduced" 0.25
+							"dmg taken from blast reduced" 0.25
+							"dmg taken from fire reduced" 0.25
+							"dmg from melee increased" 0.25
+							"dmg taken from crit reduced" 0.1
+							"health from healers reduced"	0.5
+							"health from packs decreased"	0.1
+							"cannot be teleported" 1
+							"cannot pick up intelligence"	1
+							"ammo regen" 2
+						}
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	support4
+			TotalCurrency	300
+			TotalCount	100
+			MaxActive	20
+			SpawnCount	8
+			WaitBeforeStarting	5
+			WaitBetweenSpawns	5
+			Where	spawnbot_main0
+			Support	1
+			RandomChoice
+			{
+				RandomChoice
+				{
+					TFBot
+					{
+						Class Scout
+						Skill Hard
+						WeaponRestrictions MeleeOnly
+						Attributes AlwaysCrit
+						Name "Workshop Downvoter"
+						UseCustomModel "models/player/scout.mdl"  
+					}
+					TFBot
+					{
+						Class Scout
+						Skill Hard
+						WeaponRestrictions MeleeOnly
+						Attributes AlwaysCrit
+						Name "Workshop Downvoter"
+						UseCustomModel "models/player/scout.mdl"  
+					}
+					TFBot
+					{
+						Template	Inky_Scout
+						Name "Workshop Downvoter"
+						UseCustomModel "models/player/scout.mdl"  
+					}
+					TFBot
+					{
+						Class Pyro
+						Skill Easy
+						Attributes	AlwaysFireWeapon
+						Name "Workshop Flamer"
+						UseCustomModel "models/player/pyro.mdl"  
+					}
+					TFBot
+					{
+						Class Pyro
+						Skill Easy
+						Name "Workshop Flamer"
+						UseCustomModel "models/player/pyro.mdl"  
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	support4
+			TotalCurrency	100
+			TotalCount	20
+			MaxActive	5
+			SpawnCount	2
+			WaitBeforeStarting	8
+			WaitBetweenSpawns	8
+			Where	spawnbot_main0
+			Support	1
+			Squad
+			{
+				Squad
+				{
+					TFBot
+					{
+						Template	Inky_Soldier
+						Name "Obeying Livestock"
+						Item "The Beggar's Bazooka"
+						UseCustomModel "models/player/soldier.mdl"  
+						ItemAttributes
+						{
+							ItemName "The Beggar's Bazooka"
+							"auto fires full clip" 0
+							"can overload" 0
+						}
+					}
+					TFBot
+					{
+						Template	Inky_Kritz_Medic
+						Name "Blind Follower"
+						UseCustomModel "models/player/medic.mdl"  
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	support4
+			TotalCurrency	100
+			TotalCount	20
+			MaxActive	5
+			SpawnCount	2
+			WaitBeforeStarting	8
+			WaitBetweenSpawns	8
+			Where	spawnbot_main0
+			Support	1
+			Squad
+			{
+				Squad
+				{
+					TFBot
+					{
+						Template	Inky_Heavy
+						Name "Obeying Livestock"
+						Item "The Brass Beast"
+						UseCustomModel "models/player/heavy.mdl"  
+					}
+					TFBot
+					{
+						Template	Inky_Kritz_Medic
+						Name "Blind Follower"
+						UseCustomModel "models/player/medic.mdl"  
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	support4
+			TotalCurrency	100
+			TotalCount	20
+			MaxActive	5
+			SpawnCount	2
+			WaitBeforeStarting	8
+			WaitBetweenSpawns	8
+			Where	spawnbot_main0
+			Support	1
+			Squad
+			{
+				Squad
+				{
+					TFBot
+					{
+						Template	T_TFBot_Demoman
+						Skill Normal
+						Name "Obeying Livestock"
+						Item "The Scottish Resistance"
+						WeaponRestrictions SecondaryOnly
+						UseCustomModel "models/player/demo.mdl"  
+						CharacterAttributes
+						{
+							"stickybomb charge rate" 0.1
+							"Projectile speed decreased" 0.1
+						}
+					}
+					TFBot
+					{
+						Template	Inky_Kritz_Medic
+						Name "Blind Follower"
+						UseCustomModel "models/player/medic.mdl"  
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
 			FirstSpawnMessage "{red}TF2 Workshop Creator{reset} : That's impossible, that's not how TF2 works."  
+			FirstSpawnOutput  
+			{
+				Target relayplaymusicw4
+				Action Trigger
+			} 
 		}
 		WaveSpawn
 		{
@@ -4339,7 +4741,7 @@ WaveSchedule
 		WaveSpawn
 		{
 			WaitBeforeStarting	49
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : We're going to have to solve this, the old fasioned way!"  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : We're going to have to solve this, the old-fashioned way!"  
 		}
 		WaveSpawn
 		{
@@ -4373,13 +4775,11 @@ WaveSchedule
 		}
 		WaveSpawn
 		{
-			Name	end
 			WaitBeforeStarting	61
 			FirstSpawnWarningSound "vo\engineer_paincrticialdeath02.mp3"
 		}
 		WaveSpawn
 		{
-			Name	end
 			WaitBeforeStarting	61
 			FirstSpawnWarningSound "vo\engineer_paincrticialdeath02.mp3"
 		}
@@ -4392,28 +4792,11 @@ WaveSchedule
 		{
 			WaitBeforeStarting	62
 			FirstSpawnWarningSound "ambient\machines\wall_crash1.wav"
-		}
-		WaveSpawn
-		{
-			Name	providethemoney
-			WaitForAllDead	end
-			TotalCurrency	900
-			TotalCount	1
-			MaxActive	1
-			SpawnCount	1
-			WaitBeforeStarting	0.8
-			Where	spawnbot_main0
-			Support	1
-			Squad
+			FirstSpawnOutput  
 			{
-				Squad
-				{
-					TFBot
-					{
-						class pyro
-					}
-				}
-			}
+				Target relaystopmusicw4
+				Action Trigger
+			} 
 		}
 	}
 	Wave
@@ -4485,8 +4868,8 @@ WaveSchedule
 		WaveSpawn
 		{
 			Name	RedSupport5
-			TotalCount	3
-			MaxActive	3
+			TotalCount	1
+			MaxActive	1
 			SpawnCount	1
 			WaitBeforeStarting	10
 			WaitBetweenSpawns	10
@@ -4683,9 +5066,33 @@ WaveSchedule
 			Where	spawnbot_main1
 			WaitBeforeStarting	10
 			WaitBetweenSpawns	1.5
-			TFBot
+			RandomChoice
 			{
-				Template	MissInfo_Wrap_Assassin_Scout_Gatebot
+				TFBot
+				{
+					Template	MissInfo_Wrap_Assassin_Scout
+				}
+				TFBot
+				{
+					Template	MissInfo_Wrap_Assassin_Scout
+				}
+				TFBot
+				{
+					Template	MissInfo_Wrap_Assassin_Scout
+					Item "MvM GateBot Light Scout"
+				}
+				TFBot
+				{
+					Template	MissInfo_Wrap_Assassin_Scout_Gatebot
+				}
+				TFBot
+				{
+					Template	MissInfo_Wrap_Assassin_Scout_Gatebot
+				}
+				TFBot
+				{
+					Template	MissInfo_Wrap_Assassin_Scout_Gatebot_Hatless
+				}
 			}
 		}
 		WaveSpawn
@@ -4758,17 +5165,34 @@ WaveSchedule
 		{
 			Name	5c
 			WaitForAllSpawned	5b2
-			TotalCurrency	50
-			TotalCount	16
+			TotalCurrency	25
+			TotalCount	8
 			MaxActive	8
 			SpawnCount	4
 			Where	spawnbot_flank0
 			Where	spawnbot_main1
 			WaitBeforeStarting	10
-			WaitBetweenSpawns	15
+			WaitBetweenSpawns	30
 			TFBot
 			{
 				Template	Inky_Bonk_Scattergun_Scout
+			}
+		}
+		WaveSpawn
+		{
+			Name	5c
+			WaitForAllSpawned	5b2
+			TotalCurrency	25
+			TotalCount	8
+			MaxActive	8
+			SpawnCount	4
+			Where	spawnbot_flank0
+			Where	spawnbot_main1
+			WaitBeforeStarting	25
+			WaitBetweenSpawns	30
+			TFBot
+			{
+				Template	MissInfo_Bonk_Demo
 			}
 		}
 		WaveSpawn
@@ -4837,6 +5261,7 @@ WaveSchedule
 			TFBot
 			{
 				Template	Zcorp_Gargimp_Legal
+				Attributes DisableDodge
 				Action Mobber  
 				FireInput  
 				{
@@ -4944,9 +5369,28 @@ WaveSchedule
 			Where	spawnbot_upper1
 			WaitBeforeStarting	15
 			WaitBetweenSpawns	2.5
-			TFBot
+			RandomChoice
 			{
-				Template	Inky_Cola_Scout
+				TFBot
+				{
+					Template	Inky_Cola_Scout
+				}
+				TFBot
+				{
+					Template	Inky_Cola_Scout
+				}
+				TFBot
+				{
+					Template	Inky_Cola_Scout
+				}
+				TFBot
+				{
+					Template	Inky_Cola_Scout
+				}
+				TFBot
+				{
+					Template	MissInfo_Homing_Bonk_Soldier
+				}
 			}
 		}
 		WaveSpawn
@@ -4964,6 +5408,7 @@ WaveSchedule
 			TFBot
 			{
 				Template	MissInfo_Giant_Burning_Scout
+				Attributes DisableDodge
 				Action Mobber  
 			}
 		}
@@ -4972,12 +5417,11 @@ WaveSchedule
 			Name	support5
 			WaitForAllSpawned	5d
 			TotalCurrency	50
-			TotalCount	10
+			TotalCount	25
 			MaxActive	10
 			SpawnCount	1
 			Where	spawnbot_main0
 			Where	spawnbot_main1
-			WaitBeforeStarting	10
 			WaitBetweenSpawns	1
 			Support	1
 			TFBot
@@ -5081,44 +5525,6 @@ WaveSchedule
 		{
 			WaitBeforeStarting	28
 			FirstSpawnMessage "{grey}Broadcaster{reset} : Well... Looks like you players need to clear out all these workers before we can continue."  
-		}
-		WaveSpawn
-		{
-			Name	RedSupport6
-			TotalCount	5
-			MaxActive	3
-			SpawnCount	1
-			WaitBeforeStarting	11
-			WaitBetweenSpawns	8
-			Where	spawnbot_red1
-			Support	Limited
-			TFBot
-			{
-				Template	Inky_Natascha_Heavy
-				Skill Expert
-				ClassIcon	red2_lite
-				Action Mobber  
-				AddCond  
-				{
-					Name "TF_COND_REPROGRAMMED"
-					Delay 0
-					Duration 88888888
-				}
-				AddCond  
-				{
-					Index 52
-					Delay 0
-					Duration 5
-				}
-				CharacterAttributes
-				{
-					"health from healers reduced"	0.5
-					"health from packs decreased"	0.1
-					"cannot be teleported" 1
-					"cannot pick up intelligence"	1
-					"ammo regen" 2
-				}
-			}
 		}
 		WaveSpawn
 		{
@@ -5327,7 +5733,7 @@ WaveSchedule
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	12
-			FirstSpawnMessage "{blue}Miss Information{reset} : PiÃŸwasser, ''Cheap German lager for export only!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Pißwasser, ''Cheap German lager for export only!''"  
 		}
 		WaveSpawn
 		{
@@ -5686,6 +6092,7 @@ WaveSchedule
 			{
 				Template	T_TFBot_Giant_Scout_Bonk_Improved
 				Name "Giant Bonk Scout"
+				Attributes DisableDodge
 				Action Mobber  
 			}
 		}
@@ -5727,12 +6134,6 @@ WaveSchedule
 			TFBot
 			{
 				Template	Zcorp_Jermey
-				AddCond  
-				{
-					Index 14
-					Delay 0
-					Duration 42
-				}
 			}
 		}
 		WaveSpawn
@@ -5806,10 +6207,10 @@ WaveSchedule
 			TotalCurrency	1000
 			TotalCount	250
 			MaxActive	48
-			SpawnCount	1
+			SpawnCount	3
 			Where	spawnbot_main0
-			WaitBeforeStarting	2
-			WaitBetweenSpawns	2
+			WaitBeforeStarting	3
+			WaitBetweenSpawns	3
 			Support	1
 			TFBot
 			{
@@ -5978,14 +6379,14 @@ WaveSchedule
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	65
-			FirstSpawnMessage "*SPEC* {grey}Another Nightfall Nexus Player{reset} : What you said about doppelgÃ¤ngers is true."  
+			FirstSpawnMessage "*SPEC* {grey}Another Nightfall Nexus Player{reset} : What you said about doppelgängers is true."  
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	68
-			FirstSpawnMessage "*SPEC* {grey}Another Nightfall Nexus Player{reset} : I have doppelgÃ¤nger..."  
+			FirstSpawnMessage "*SPEC* {grey}Another Nightfall Nexus Player{reset} : I have doppelgänger..."  
 			Support Limited
 		}
 		WaveSpawn
