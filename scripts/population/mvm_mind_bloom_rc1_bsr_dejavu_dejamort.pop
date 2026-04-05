@@ -3840,6 +3840,7 @@ WaveSchedule
                 Class Pyro
                 ClassIcon pyro_dragon_fury_swordstone
                 Skill Easy
+                Action Mobber
 
                 Item "The Dragon's Fury"
             }
