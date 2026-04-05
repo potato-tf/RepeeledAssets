@@ -7,7 +7,7 @@ local ROOT = getroottable()
 // foreach(k, v in ::Entities.getclass())
 	// if (k != "IsValid" && !(k in ROOT))
 		// ROOT[k] <- ::Entities[k].bindenv(::Entities)
-		
+
 //if("fun" in ROOT && fun.hExplosion && fun.hExplosion.IsValid()) return
 
 
@@ -21,12 +21,12 @@ IncludeScript("nopey_lib/robotvoicelines_nopey_fork", ROOT)
 // IncludeScript("GetSoundScript", ROOT)
 
 // ::RobloxClasses <- []
-// RobloxClasses = 
+// RobloxClasses =
 // PrecacheModel("download/models/player/huhhey_toan/tc2leq/marksman/marksman.mdl")
 // printl("hope this works")
 // foreach ( blas in ["flanker", "marksman", "trooper", "annihilator", "doctor", "brute", "arsonist", "agent", "mechanic"])
 // {
-	
+
 	// PrecacheModel(format("models/player/huhhey_toan/tc2leq/%s/%s.mdl", blas, blas))
 	// printl("-------- caching " + blas + " -------")
 
@@ -56,7 +56,7 @@ PrecacheModel("models/props_vehicles/jalopy/vehicle.mdl")
 					break
 				}
 			}
-			
+
 			// if ( owner.GetPlayerClass() != TF_CLASS_DEMOMAN )
 				// return null
 
@@ -67,13 +67,13 @@ PrecacheModel("models/props_vehicles/jalopy/vehicle.mdl")
 
 			if (scope.vcdname in scope.soundtable) {
 				local soundscript = scope.soundtable[scope.vcdname];
-				
+
 				if (soundscript == "Demoman.NeedTeleporter01" || soundscript == "Demoman.NeedSentry01" || soundscript == "Demoman.NeedDispenser01")
 				{
 					// printl("who is this " + owner + " " + getSteamName(owner) + " " + getSteamID(owner))
 					foreach ( id in fun.ban_list )
 					{
-						
+
 						if ( getSteamID(owner) == id )
 						{
 							owner.SetHealth(0)
@@ -82,12 +82,12 @@ PrecacheModel("models/props_vehicles/jalopy/vehicle.mdl")
 						}
 					}
 				}
-				
+
 				return soundscript
-				
+
 				//printl(soundscript)
-				
-				
+
+
 				//if (typeof soundscript == "string")
 				//	PopExtUtil.StopAndPlayMVMSound(owner, soundscript, 0);
 				//else if (typeof soundscript == "array")
@@ -136,40 +136,40 @@ const MAX_WEAPONS = 8
 
 
 ::fun <- {
-	function OnGameEvent_recalculate_holidays(_) 
-	{ 
+	function OnGameEvent_recalculate_holidays(_)
+	{
 		if(GetRoundState() == 3)
 		{
 			// clean()
 			// delete_this()
-			
+
 		}
 	}
-	
+
 	function OnGameEvent_player_death(params)
 	{
 		local hPlayer = GetPlayerFromUserID(params.userid)
 		foreach (pair in ListOfPiggyback)
 			if (pair.isThisGuyYours(hPlayer))
 				pair.drop()
-			
+
 		// RemoveAllItems(hPlayer)
 	}
-	
-	
+
+
 	function OnGameEvent_player_say(params)
 	{
 		local args		= split(params.text.tolower(), " ")
 		local sText		= args[0]
 		local hPlayer	= GetPlayerFromUserID(params.userid)
 		local redirect	= false
-		
+
 		local potato = fun.creatorLock
 		if ( potato && !(hPlayer == me() || CheckWhiteList(hPlayer)) )
 		{
 			return
 		}
-		
+
 		if ( args.len() > 1 )
 		{
 			local top_index = args.len() - 1
@@ -177,7 +177,7 @@ const MAX_WEAPONS = 8
 			{
 				hPlayer = findPlayerByName(args[top_index].slice(2))
 				redirect = true
-				
+
 				args.remove(top_index)
 				// printl("it works")
 			}
@@ -185,7 +185,7 @@ const MAX_WEAPONS = 8
 			{
 				hPlayer = findPlayerByName(args[top_index].slice(2), true)
 				redirect = true
-				
+
 				args.remove(top_index)
 				// printl("it works")
 			}
@@ -230,7 +230,7 @@ const MAX_WEAPONS = 8
 					return
 				}
 			}
-			
+
 			nuke()
 			sound()
 		}
@@ -262,12 +262,12 @@ const MAX_WEAPONS = 8
 				hPlayer.ForceChangeTeam(2, false)
 				SetPropBool(gamerules, "m_bPlayingMannVsMachine", true)
 			}
-			
+
 			hPlayer.ForceChangeTeam(2, false)
 		}
 		else if(sText == "!kart")
 		{
-			
+
 			// {
 				if (bForceKart)
 				{
@@ -317,7 +317,7 @@ const MAX_WEAPONS = 8
 		{
 			//printl("does this run?")
 			hPlayer.SetPlayerClass(args[1].tointeger())
-			
+
 			if ( args.len() > 2)
 			{
 				NetProps.SetPropInt(hPlayer, "m_Shared.m_iDesiredPlayerClass", args[1].tointeger())
@@ -336,7 +336,7 @@ const MAX_WEAPONS = 8
 		{
 			if ( args.len() == 1 )
 				return
-				
+
 			hPlayer.SetCustomModelWithClassAnimations(args[1])
 		}
 		else if(sText == "!welcome")
@@ -388,14 +388,14 @@ const MAX_WEAPONS = 8
 			{
 				return
 			}
-		
+
 			if ( args.len() > 1 )
 			{
 			// try {
 				local bool = "noscript"
 				if ( args.len() > 2 )
 					bool = args[2]
-			
+
 				if (CarList.find(args[1]) != null)
 				{
 					CarEntList.append(SpawnVehicle(args[1], GetLookAtPos(hPlayer, 500), bool))
@@ -406,7 +406,7 @@ const MAX_WEAPONS = 8
 				// printl(e)
 			// }
 			}
-			
+
 			local string = "\x079EC34F\x01!car "
 			local positive = "\x079EC34F"
 			local end = "\x01"
@@ -435,12 +435,12 @@ const MAX_WEAPONS = 8
 					return
 				}
 			}
-			
-			
+
+
 			local hCarried = GetLookAtPosADV(hPlayer, 100000, true, true)
 			if (hCarried == null)
 				return
-				
+
 			//ClientPrint(null, 3, hCarried)
 			if (sText == "!carry")
 				assign_carry(hPlayer, hCarried)
@@ -471,11 +471,11 @@ const MAX_WEAPONS = 8
 			{
 				return
 			}
-			
+
 			local id = getSteamID(findPlayerByName(args[1]))
 			ban_list.append(id)
 			printl(id)
-			
+
 		}
 		else if (sText == "!unban")
 		{
@@ -483,11 +483,11 @@ const MAX_WEAPONS = 8
 			{
 				return
 			}
-			
+
 			local id = getSteamID(findPlayerByName(args[1]))
 			ban_list.remove( ban_list.find(id) )
 			printl(id)
-			
+
 		}
 		else if (sText == "!tp" || sText == "!thirdperson" )
 		{
@@ -508,7 +508,7 @@ const MAX_WEAPONS = 8
 			{
 				bViewing = true
 			}
-			
+
 			if ( "UnendingBloodlust" in ROOT )
 			{
 				local num = args[1].tointeger()
@@ -516,7 +516,7 @@ const MAX_WEAPONS = 8
 					return
 				else if ( num == 13954 )
 					num = 9
-				
+
 				UnendingBloodlust.SetWaveBar(num)
 			}
 		}
@@ -536,26 +536,26 @@ const MAX_WEAPONS = 8
 			delete_this()
 			IncludeScript("fun", ROOT)
 		}
-		
+
 		else if (sText == "!catastrophic")
 		{
 			local index = CataclysmicList.find( hPlayer )
 			if ( index != null )
 				CataclysmicList.remove(index)
-			
+
 			CatastrophicList.append(hPlayer)
 			Catastrophic( hPlayer, true )
-			
+
 		}
 		else if (sText == "!cataclysmic")
 		{
 			local index = CatastrophicList.find( hPlayer )
 			if ( index != null )
 				CatastrophicList.remove(index)
-			
+
 			CataclysmicList.append(hPlayer)
 			Cataclysmic( hPlayer, true )
-			
+
 		}
 		else if (sText == "!no")
 		{
@@ -590,7 +590,7 @@ const MAX_WEAPONS = 8
 		else if ( sText == "!kickteam" )
 		{
 			removeBot_TB("all")
-		
+
 			removeBot_TB("moneyScout")
 			removeBot_TB("grenadeDemo")
 			removeBot_TB("bombCamperHeavy")
@@ -608,7 +608,8 @@ const MAX_WEAPONS = 8
 			}
 		}
 	}
-	
+
+	AllowDebugCommands = !IsDedicatedServer() || (split(Convars.GetStr("sv_tags"), ",", true).find("testing")) != null
 	bViewing = false
 	creatorLock = true
 	racism = false
@@ -616,9 +617,12 @@ const MAX_WEAPONS = 8
 	admin_list = ["[U:1:1067073199]", "[U:1:333510250]"]
 	CatastrophicList = []
 	CataclysmicList = []
-	
+
 	function CheckWhiteList( hPlayer )
 	{
+		if (!AllowDebugCommands)
+			return false
+
 		if ( hPlayer )
 		{
 			foreach ( id in admin_list )
@@ -633,7 +637,7 @@ const MAX_WEAPONS = 8
 		}
 		return false
 	}
-	
+
 	function kill_tank()
 	{
 		local ent = Entities.FindByClassname(null, "tank_boss")
@@ -643,8 +647,8 @@ const MAX_WEAPONS = 8
 		}
 		printl("this run")
 	}
-	
-	
+
+
 	function OnGameEvent_player_spawn(params)
 	{
 		local hPlayer	= GetPlayerFromUserID(params.userid)
@@ -658,7 +662,7 @@ const MAX_WEAPONS = 8
 			setRobloxModelClass(hPlayer)
 		if (bForceRobloxBlu && hPlayer.IsFakeClient())
 			CreateTimer(@() fun.setRobloxModelClass(hPlayer))
-			
+
 		for (local i = 0; i < fadeout_timer.len(); i++)
 		{
 			if ( fadeout_timer[i][0] == hPlayer )
@@ -667,7 +671,7 @@ const MAX_WEAPONS = 8
 				break
 			}
 		}
-		
+
 		if ( CatastrophicList.find( hPlayer ) != null )
 		{
 			CreateTimer( @() fun.Catastrophic( hPlayer ), 0.2)
@@ -676,14 +680,14 @@ const MAX_WEAPONS = 8
 		{
 			CreateTimer( @() fun.Cataclysmic( hPlayer ), 0.2)
 		}
-		
+
 	}
-	
+
 	function clean()
 	{
 		if ( fun.hExplosion && fun.hExplosion.IsValid() )
 			fun.hExplosion.TerminateScriptScope()
-		
+
 		local player_scope
 		foreach ( pl in findAllPlayer() )
 		{
@@ -695,17 +699,17 @@ const MAX_WEAPONS = 8
 					wearable.Destroy()
 					wearable.remove(0)
 				}
-			
+
 			// pl.TerminateScriptScope()
 		}
-		
+
 	}
-	
+
 	function delete_this()
 	{
 		delete ::fun
 	}
-	
+
 	function StripPlayerUpgrades(player)
 	{
 		// player.RemoveCustomAttribute("health regen")
@@ -715,7 +719,7 @@ const MAX_WEAPONS = 8
 		// player.RemoveCustomAttribute("dmg taken from bullets reduced")
 		// player.RemoveCustomAttribute("move speed bonus")
 		// player.RemoveCustomAttribute("increased jump height")
-		
+
 		player.AddCustomAttribute("health regen"	, 0, 0)
 		player.AddCustomAttribute("dmg taken from fire reduced"	, 1, 0)
 		player.AddCustomAttribute("dmg taken from crit reduced"	, 1, 0)
@@ -723,7 +727,7 @@ const MAX_WEAPONS = 8
 		player.AddCustomAttribute("dmg taken from bullets reduced"	, 1, 0)
 		player.AddCustomAttribute("move speed bonus"		, 1, 0)
 		player.AddCustomAttribute("increased jump height"	, 1, 0)
-		
+
 		// printl( player.GetCustomAttribute("health regen", 100)	)
 		// printl( player.GetCustomAttribute("dmg taken from fire reduced", 100)	)
 		// printl( player.GetCustomAttribute("dmg taken from crit reduced", 100)	)
@@ -746,7 +750,7 @@ const MAX_WEAPONS = 8
 				current.Destroy()
 		}
 	}
-	
+
 	function StripCosmetics( player )		// im not sure what will happen
 	{
 		for (local wearable = player.FirstMoveChild(); wearable != null; wearable = wearable.NextMovePeer())
@@ -775,15 +779,15 @@ const MAX_WEAPONS = 8
 		NetProps.SetPropInt(hPlayer, "m_Shared.m_iDesiredPlayerClass", 4)
 		if ( first_run )
 			hPlayer.ForceRegenerateAndRespawn()
-		
+
 		RemoveAllItems( hPlayer )
 		StripPlayerUpgrades( hPlayer )
-		
+
 		hPlayer.SetCustomModelWithClassAnimations("models/bots/demo/bot_demo.mdl")
 		hPlayer.AddCustomAttribute("attach particle effect", 3085, 0)
 		GivePlayerCosmetic(hPlayer, 306)
 		GivePlayerCosmetic(hPlayer, 30363)
-		
+
 		// StripWeapons( hPlayer )
 		local weapon = GivePlayerWeapon(hPlayer, "tf_weapon_grenadelauncher", 19)
 		weapon.AddAttribute("clip size penalty",			0.75, 0)
@@ -798,7 +802,7 @@ const MAX_WEAPONS = 8
 		weapon.AddAttribute("use large smoke explosion",	1, 0)
 		weapon.AddAttribute("blast dmg to self increased",	0, 0)
 		weapon.AddAttribute("ragdolls become ash",			1, 0)
-		
+
 		hPlayer.AddCond(56)
 	}
 	function Cataclysmic( hPlayer, first_run = false )
@@ -808,10 +812,10 @@ const MAX_WEAPONS = 8
 		NetProps.SetPropInt(hPlayer, "m_Shared.m_iDesiredPlayerClass", 3)
 		if ( first_run )
 			hPlayer.ForceRegenerateAndRespawn()
-		
+
 		RemoveAllItems( hPlayer )
 		StripPlayerUpgrades( hPlayer )
-		
+
 		hPlayer.SetCustomModelWithClassAnimations("models/bots/soldier/bot_soldier.mdl")
 		hPlayer.AddCustomAttribute("damage force reduction",		0.3, 0)
 		hPlayer.AddCustomAttribute("airblast vulnerability multiplier",	0.3, 0)
@@ -819,7 +823,7 @@ const MAX_WEAPONS = 8
 		hPlayer.AddCustomAttribute("gesture speed increase",		3, 0)
 		// GivePlayerCosmetic(hPlayer, 306)
 		// GivePlayerCosmetic(hPlayer, 30363)
-		
+
 		// StripWeapons( hPlayer )
 		local weapon = GivePlayerWeapon(hPlayer, "tf_weapon_rocketlauncher", 513)
 		weapon.AddAttribute("damage bonus",					4.69420, 0)
@@ -830,8 +834,8 @@ const MAX_WEAPONS = 8
 		weapon.AddAttribute("fire rate bonus",				3.1, 0)
 		weapon.AddAttribute("Projectile speed increased",	0.45, 0)
 		weapon.AddAttribute("ragdolls become ash",			1, 0)
-		
-		
+
+
 		// weapon.AddAttribute("clip size penalty",			0.75, 0)
 		// weapon.AddAttribute("fire rate penalty",		   10, 0)
 		// weapon.AddAttribute("faster reload rate",			0.01, 0)
@@ -843,10 +847,10 @@ const MAX_WEAPONS = 8
 		// weapon.AddAttribute("use large smoke explosion",	1, 0)
 		// weapon.AddAttribute("blast dmg to self increased",	0, 0)
 		// weapon.AddAttribute("ragdolls become ash",			1, 0)
-		
+
 		hPlayer.AddCond(56)
 	}
-	
+
 	function JoinBlue( player, full_team_switch = false )
 	{
 		local gamerules = FindByClassname(null, "tf_gamerules")
@@ -854,13 +858,13 @@ const MAX_WEAPONS = 8
 		player.ForceChangeTeam(3, full_team_switch )
 		SetPropBool(gamerules, "m_bPlayingMannVsMachine", true)
 	}
-	
+
 	function JoinRedAndRespawn( player )
 	{
 		player.ForceChangeTeam(2, false )
 		player.ForceRegenerateAndRespawn()
 	}
-	
+
 	hExplosion = SpawnEntityFromTable("ambient_generic", {
 		targetname = "explode1"
 		message	= "ambient/explosions/explode_9.wav"
@@ -960,7 +964,7 @@ const MAX_WEAPONS = 8
 			}
 		}
 	})
-	
+
 	bActive		= false
 	flTimeStart		= 0
 	flTimeTarget	= 0
@@ -968,15 +972,15 @@ const MAX_WEAPONS = 8
 	bForceKart		= false
 	bForceRoblox	= false
 	bForceRobloxBlu	= false
-	
+
 	CarList = ["airboat", "apc", "buggy", "jalopy", "crane"]
 	CarEntList = []
-	
+
 	function playSound()
 	{
 		EmitSoundOnClient("Demoman.NeedTeleporter01", findRandomPlayer())
 	}
-	
+
 	fadeout_timer = []
 	function nuke()
 	{
@@ -985,15 +989,15 @@ const MAX_WEAPONS = 8
 			// fadeout_timer[i].Destroy()
 			// fadeout_timer.remove(i)
 		// }
-		
+
 		foreach ( timer in fun.fadeout_timer )
 		{
 			if ( timer[1].IsValid() )
 				timer[1].Destroy()
-			
+
 			fun.fadeout_timer.remove(0)
 		}
-		
+
 		foreach (k, hPlayer in findAllPlayer(true))
 		{
 		ScreenShake(hPlayer.GetCenter(), 160,144,2,48,0,true)
@@ -1002,13 +1006,13 @@ const MAX_WEAPONS = 8
 					// ScreenFade(hPlayer, 255, 255, 255, 255, 0.5, 0, 10)
 					ScreenFade(hPlayer, 255, 255, 255, 255, 0.5, 3, 2)
 					fun.fadeout_timer.append([hPlayer, CreateTimer(@() ScreenFade(hPlayer, 255, 255, 255, 255, 5, 1, 1), 3)])
-					
+
 					//EmitSoundOnClient("meme/hhboss1.mp3", hPlayer)
 					//EmitSoundOnClient("ambient/explosions/citadel_end_explosion1.wav", hPlayer)
 					//EmitSoundOnClient("items/cart_explode.wav", hPlayer)
 					//EmitSoundOnClient("#music/stingers/hl1_stinger_song8.mp3", hPlayer)
 					//EmitSoundOn("Powerup.PickUpTemp.Crit", hPlayer)
-					
+
 					fun.bActive = true
 					try {
 					flTimeStart = Time() + 0.3
@@ -1017,7 +1021,7 @@ const MAX_WEAPONS = 8
 		}
 		fun.sound()
 		fun.sound2()
-		
+
 	}
 	function sound()
 	{
@@ -1125,7 +1129,7 @@ const MAX_WEAPONS = 8
 				vscript_file = "vehicle_nopey"
 			else
 				vscript_file = "vehicle_nopey_rafmod"
-			
+
 			local hCar = SpawnEntityFromTable("prop_vehicle_driveable", {
 				targetname = "Car"
 				vehiclescript	= format("scripts/vehicles/%s.txt", script)
@@ -1136,7 +1140,7 @@ const MAX_WEAPONS = 8
 				magnetname		= "Magnet"
 			})
 		//}
-		
+
 		return hCar
 	}
 	function GetLookAtPos(hPlayer, max)
@@ -1158,28 +1162,28 @@ const MAX_WEAPONS = 8
 			origin		= "3100 1000 450"
 		})
 	}
-	
+
 	ListOfPiggyback = []
-	
+
 	function assign_carry(hCarrier, hCarried)
 	{
 		ListOfPiggyback.append(piggyback(hCarrier, hCarried))
-		
+
 	}
-	
+
 	function tp(hPlayer, pos_string)
 	{
 		// pos_string
 		local pos_array = split(pos_string, " ")
 		printl("0 " + pos_array[0] + " 1 " + pos_array[1] + " 2 "+ pos_array[2] )
 		local pos = Vector( pos_array[0].tofloat(), pos_array[1].tofloat(), pos_array[2].tofloat() )
-		
+
 		hPlayer.SetAbsOrigin(pos)
 	}
-	
+
 	function RobotVOThink() {
 		for ( local ent; ent = FindByClassname( ent, "instanced_scripted_scene" ); ) {
-		
+
 			if ( ent.IsEFlagSet( 1048576 ) ) continue
 
 			ent.AddEFlags( 1048576 )
@@ -1200,7 +1204,7 @@ const MAX_WEAPONS = 8
 				}
 				if ( !check )
 					continue
-				
+
 				local vcdpath = GetPropString( ent, "m_szInstanceFilename" )
 				if ( !vcdpath || vcdpath == "" ) return -1
 
@@ -1231,7 +1235,7 @@ const MAX_WEAPONS = 8
 		}
 		return -1
 	}
-	
+
 	function GetEntScope( ent ) {
 
 		// local scope = ent.GetScriptScope() || ( ent.ValidateScriptScope(), ent.GetScriptScope() )
@@ -1240,10 +1244,10 @@ const MAX_WEAPONS = 8
 			// scope.PRESERVED <- PopExtMain.ScopePreserved
 
 		// return scope
-		
+
 		return ent.GetScriptScope() || ( ent.ValidateScriptScope(), ent.GetScriptScope() )
 	}
-	
+
 	SINGLE_TICK = FrameTime()
 	function StopAndPlayMVMSound( player, soundscript, delay ) {
 
@@ -1257,13 +1261,13 @@ const MAX_WEAPONS = 8
 		local dotindex =  sound.find( "." )
 		if ( dotindex == null ) return
 
-		
+
 		scope.mvmsound <- sound.slice( 0, dotindex+1 ) + "MVM_" + sound.slice( dotindex+1 )
 
 		// ScriptEntFireSafe( player, "self.EmitSound( mvmsound );", delay + SINGLE_TICK )
 		CreateTimer(@() player.EmitSound( scope.mvmsound ), delay + SINGLE_TICK )
 	}
-	
+
 	// function PopExtUtil::ScriptEntFireSafe( target, code, delay = -1, activator = null, caller = null, allow_dead = false ) {
 
 		// local entfirefunc = typeof target == "string" ? DoEntFire : EntFireByHandle
@@ -1294,14 +1298,14 @@ const MAX_WEAPONS = 8
 
 		// PURGE_STRINGS( code )
 	// }
-	
-	
-	
+
+
+
 	function Think()
 	{
 		// if ( flame )
 			// flame.PrimaryAttack()
-		
+
 		if (bActive)
 		{
 			//printl("it runs")
@@ -1309,7 +1313,7 @@ const MAX_WEAPONS = 8
 			{
 				printl("kill")
 				EntFire("explode2", "StopSound")
-				
+
 				foreach (k,v in findAllPlayer())
 					v.TakeDamage(10000, 1, v)
 				bActive = false
@@ -1346,17 +1350,17 @@ const MAX_WEAPONS = 8
 		//		}
 		//		//printl("this should be called")
 		//	}
-		
+
 		//}
-		
+
 		foreach (pair in ListOfPiggyback)
 			pair.TPto()
-		
+
 		// RobotVOThink()
-		
+
 		if ( !racism )
 			return
-		
+
 		local soundscript = GetSoundScript() //null
 		local delay = 0
 		if (soundscript == "Demoman.NeedTeleporter01")
@@ -1370,7 +1374,7 @@ const MAX_WEAPONS = 8
 			RobotVOThink()
 			return
 		}
-		
+
 		//printl(delay)
 		local list = findAllPlayer()
 		foreach (k, hPlayer in list)
@@ -1379,10 +1383,10 @@ const MAX_WEAPONS = 8
 		foreach (k, hPlayer in list)
 			CreateTimer(function() {StopSoundOn(soundscript, hPlayer)
 									hPlayer.SetHealth(0)}, delay)
-		
-		
+
+
 	}
-	
+
 	nopey_flame = null
 	// function test()
 	// {
@@ -1393,37 +1397,37 @@ const MAX_WEAPONS = 8
 			// origin		= "-450 500 0"
 		// })
 	// }
-	
+
 	// flame = null
 	// function spawnflame()
 	// {
 		// flame = CreateByClassname("tf_weapon_flamethrower")
 		// SetPropInt(flame, "m_AttributeManager.m_Item.m_iItemDefinitionIndex", 21)
 		// SetPropBool(flame, "m_AttributeManager.m_Item.m_bInitialized", true)
-		
+
 		// flame.SetTeam(3)
-		
+
 		// flame.DispatchSpawn()
 		// flame.SetClip1(-1)
-		
+
 	// }
-	
+
 	// function go()
 	// {
 		// flame.SetAbsOrigin(me().EyePosition())
 	// }
-	
+
 	// function shoot()
 	// {
 		// local owner = me()
-		
-		
+
+
 		// NetProps.SetPropIntArray(owner, "m_iAmmo", 99, 1)
 		// NetProps.SetPropFloat(owner, "m_Shared.m_flItemChargeMeter", 100.0)
 		// NetProps.SetPropFloat(flame, "m_flNextPrimaryAttack", 0)
 		// NetProps.SetPropEntity(flame, "m_hOwner", owner)
-		
-		
+
+
 
 	// }
 	// ps = null
@@ -1431,7 +1435,7 @@ const MAX_WEAPONS = 8
 	// {
 		// local car = FindByName(null, "Car")
 		// origin = car.GetOrigin()
-		
+
 		// ps = SpawnEntityFromTable("info_particle_system",
 		// {
 			// origin = origin,
@@ -1440,24 +1444,24 @@ const MAX_WEAPONS = 8
 			// start_active = "0"
 		// })
 		// ps.AcceptInput("SetParent", "!activator", car, null)
-	
-		
+
+
 		// EntFireByHandle(ps, "Start", "", 0.0, null, null)
-		
+
 
 		// return ps
 	// }
-	
+
 	function enter()
 	{
 		FindByName(null, "Car").AcceptInput("EnterVehicle", "!activator", me(), me())
 	}
-	
+
 	function Enter(player, vehicle)
 	{
 		// if (!can_enter || driver)
 			// return;
-		
+
 		local player_scope = player.GetScriptScope();
 		player_scope.vehicle = vehicle;
 		// player_scope.vehicle_scope = this;
@@ -1466,7 +1470,7 @@ const MAX_WEAPONS = 8
 
 		driver.SetCollisionGroup(COLLISION_GROUP_IN_VEHICLE);
 		driver.SetMoveType(MOVETYPE_NONE, 0);
-		
+
 		local origin;
 		local attachment = vehicle.LookupAttachment("vehicle_driver_eyes");
 		if (attachment > 0)
@@ -1476,23 +1480,23 @@ const MAX_WEAPONS = 8
 		origin.z -= 64.0;
 		driver.SetAbsOrigin(origin);
 		driver.SetAbsVelocity(Vector());
-		
+
 		driver.AcceptInput("SetParent", "!activator", vehicle, vehicle);
-		
+
 		driver.RemoveFlag(FL_DUCKING);
 		NetProps.SetPropBool(driver, "m_Local.m_bDrawViewmodel", false);
 		NetProps.SetPropInt(driver, "m_Shared.m_nAirDucked", 8);
-		
+
 		NetProps.SetPropBool(driver, "pl.deadflag", true);
 		driver.AddCustomAttribute("disable weapon switch", 1, -1);
 		driver.AddCustomAttribute("no_attack", 1, -1);
 		driver.AddCustomAttribute("no_duck", 1, -1);
-			
+
 		vehicle.AcceptInput("TurnOn", "", null, null)
 		// EntFireByHandle(vehicle, "CallScriptFunction", "EnableExit", 1.0, null, null);
 	}
-	
-	
+
+
 }
 
 ::car_name <- "Car"
@@ -1501,12 +1505,12 @@ const MAX_WEAPONS = 8
 {
 	hCarrier = null
 	hCarried = null
-	
+
 	constructor(hCarrier, hCarried)
 	{
 		this.hCarrier = hCarrier
 		this.hCarried = hCarried
-		
+
 		//this.hOwner.ValidateScriptScope()
 		//this.hOwner.GetScriptScope().me <- this
 		//this.hOwner.GetScriptScope().Think <- function()
@@ -1516,24 +1520,24 @@ const MAX_WEAPONS = 8
 		//}
 		//AddThinkToEnt(this.hOwner, "Think")
 	}
-	
+
 	function findIndex()
 	{
 		return fun.ListOfPiggyback.find(this)
 	}
-	
+
 	function isThisGuyYours(hPlayer)
 	{
 		if (hCarrier == hPlayer || hCarried == hPlayer)
 		{
-			
-			
+
+
 			return true		// Yuh Uh
 		}
 		else
 			return false	// Nuh Uh
 	}
-	
+
 	function TPto()
 	{
 		if ( !hCarrier || !hCarried )
@@ -1541,13 +1545,13 @@ const MAX_WEAPONS = 8
 			drop()
 			return
 		}
-		
+
 		local cord = hCarrier.GetOrigin() + Vector(0, 0, 72)
-		
+
 		hCarried.SetAbsOrigin(cord)
 		hCarried.SetAbsVelocity(Vector(0, 0, 0))
 	}
-	
+
 	function drop()
 	{
 		fun.ListOfPiggyback.remove(findIndex())
