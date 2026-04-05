@@ -403,6 +403,22 @@ WaveSchedule
             Target wave_start_relay
             Action Trigger
         }
+		
+		InitWaveOutput
+        {
+            Target wave_finished_relay
+            Action RunScriptCode
+			Param
+			"
+				self.AcceptInput(`Trigger`, ``, null, null)
+				SendGlobalGameEvent(`teamplay_broadcast_audio`,
+				{
+					sound = `overwatch_main_menu1.wav`
+					additional_flags = 0x4 // SND_STOP
+					team = 255
+				})
+			"
+        }
 
         DoneOutput
         {
@@ -630,6 +646,22 @@ WaveSchedule
         {
             Target wave_start_relay
             Action Trigger
+        }
+		
+		InitWaveOutput
+        {
+            Target wave_finished_relay
+			Action RunScriptCode
+			Param
+			"
+				self.AcceptInput(`Trigger`, ``, null, null)
+				SendGlobalGameEvent(`teamplay_broadcast_audio`,
+				{
+					sound = `fighting_knight.wav`
+					additional_flags = 0x4 // SND_STOP
+					team = 255
+        		})
+			"
         }
 
         DoneOutput
@@ -1424,6 +1456,22 @@ WaveSchedule
             Target wave_start_relay
             Action Trigger
         }
+		
+		InitWaveOutput
+        {
+            Target wave_finished_relay
+			Action RunScriptCode
+			Param
+			"
+				self.AcceptInput(`Trigger`, ``, null, null)
+				SendGlobalGameEvent(`teamplay_broadcast_audio`,
+				{
+					sound = `love-colored_master_spark.wav`
+					additional_flags = 0x4 // SND_STOP
+					team = 255
+        		})
+			"
+        }
 
         DoneOutput
         {
@@ -2198,6 +2246,22 @@ WaveSchedule
             Target wave_start_relay
             Action Trigger
         }
+		
+		InitWaveOutput
+        {
+            Target wave_finished_relay
+			Action RunScriptCode
+			Param
+			"
+				self.AcceptInput(`Trigger`, ``, null, null)
+				SendGlobalGameEvent(`teamplay_broadcast_audio`,
+				{
+					sound = `cynthia_battle.wav`
+					additional_flags = 0x4 // SND_STOP
+					team = 255
+        		})
+			"
+        }
 
         DoneOutput
         {
@@ -2534,6 +2598,22 @@ WaveSchedule
         {
             Target wave_start_relay
             Action Trigger
+        }
+		
+		InitWaveOutput
+        {
+            Target wave_finished_relay
+			Action RunScriptCode
+			Param
+			"
+				self.AcceptInput(`Trigger`, ``, null, null)
+				SendGlobalGameEvent(`teamplay_broadcast_audio`,
+				{
+					sound = `rosalina_song.wav`
+					additional_flags = 0x4 // SND_STOP
+					team = 255
+        		})
+			"
         }
 
         DoneOutput
@@ -4004,6 +4084,22 @@ WaveSchedule
         {
             Target wave_start_relay
             Action Trigger
+        }
+		
+		InitWaveOutput
+        {
+            Target wave_finished_relay
+			Action RunScriptCode
+			Param
+			"
+				self.AcceptInput(`Trigger`, ``, null, null)
+				SendGlobalGameEvent(`teamplay_broadcast_audio`,
+				{
+					sound = `big_arms_boss_v2.wav`
+					additional_flags = 0x4 // SND_STOP
+					team = 255
+        		})
+			"
         }
 
         DoneOutput

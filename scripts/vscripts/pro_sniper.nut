@@ -824,7 +824,7 @@ __CollectGameEventCallbacks(prosniper)
 		local dir = VectorAngles(des - cur_eye_pos)
 		gaze_dir = dir
 		
-		prosniper.hMarker.SetAbsOrigin(des)
+		// prosniper.hMarker.SetAbsOrigin(des)
 		bot.GetLocomotionInterface().FaceTowards( des )
 		if (instance.aim_time + 0.2 < time)
 		{
