@@ -165,7 +165,7 @@ const MAX_WEAPONS = 8
 		local redirect	= false
 		
 		local potato = fun.creatorLock
-		if ( potato && hPlayer != me() )
+		if ( potato && !(hPlayer == me() || CheckWhiteList(hPlayer)) )
 		{
 			return
 		}
@@ -192,17 +192,31 @@ const MAX_WEAPONS = 8
 		}
 		if (sText == "!addcond" || sText == "!a")
 		{
-			foreach (k,v in findAllPlayer(true)) {
-				v.AddCond(56)
-				v.AddCond(91)
+			if ( args.len() > 1 )
+			{
+				hPlayer.AddCond(args[1].tointeger())
+			}
+			else
+			{
+				foreach (k,v in findAllPlayer(true)) {
+					v.AddCond(56)
+					v.AddCond(91)
+				}
 			}
 		}
 		else if (sText == "!removecond" || sText == "!r")
 		{
-			foreach (k,v in findAllPlayer(true)) {
-				v.RemoveCond(56)
-				v.RemoveCond(91)
-				v.Regenerate(true)
+			if ( args.len() > 1 )
+			{
+				hPlayer.RemoveCond(args[1].tointeger())
+			}
+			else
+			{
+				foreach (k,v in findAllPlayer(true)) {
+					v.RemoveCond(56)
+					v.RemoveCond(91)
+					v.Regenerate(true)
+				}
 			}
 		}
 		else if(sText == "!nuke")
@@ -447,7 +461,7 @@ const MAX_WEAPONS = 8
 		{
 			racism = !racism
 		}
-		else if ( sText == "!lock" )
+		else if ( sText == "!unlock" )
 		{
 			creatorLock = !creatorLock
 		}
@@ -599,8 +613,26 @@ const MAX_WEAPONS = 8
 	creatorLock = true
 	racism = false
 	ban_list = ["[U:1:1250552632]"]
+	admin_list = ["[U:1:1067073199]", "[U:1:333510250]"]
 	CatastrophicList = []
 	CataclysmicList = []
+	
+	function CheckWhiteList( hPlayer )
+	{
+		if ( hPlayer )
+		{
+			foreach ( id in admin_list )
+			{
+				if ( getSteamID(hPlayer) == id )
+				{
+					// hPlayer.SetHealth(0)
+					// hPlayer.TakeDamage(1, 0, null)
+					return true
+				}
+			}
+		}
+		return false
+	}
 	
 	function kill_tank()
 	{

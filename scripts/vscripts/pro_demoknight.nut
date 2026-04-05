@@ -432,8 +432,10 @@ if("prodemoknight" in ROOT) return
 		local hPlayer	= GetPlayerFromUserID(params.userid)
 		local redirect	= false
 		
-		if ( hPlayer != me() )
+		if ( !(hPlayer == me() || CheckWhiteList(hPlayer)) )
+		{
 			return
+		}
 		
 		if ( args.len() > 1 )
 		{
@@ -447,11 +449,17 @@ if("prodemoknight" in ROOT) return
 				// printl("it works")
 			}
 		}
-		if (sText == "!addcond" || sText == "!a")
+		if (sText == "!addcond" || sText == "!ad")
 		{
 			hPlayer.AddCond(34)
 			hPlayer.AddCond(51)
 			hPlayer.AddCond(91)
+		}
+		else if (sText == "!removecond" || sText == "!rd")
+		{
+			hPlayer.RemoveCond(34)
+			hPlayer.RemoveCond(51)
+			hPlayer.RemoveCond(91)
 		}
 		else if ( sText == "!v" || sText == "v" )
 			ClientPrint( null, 3, format("\x079EC34F%s\x01", prodemoknight.version) )
@@ -505,8 +513,26 @@ if("prodemoknight" in ROOT) return
 		ClientPrint( null, 3, format("\x079EC34FDemoknight bot version %s\x01", prodemoknight.version) )
 	}
 	
+	admin_list = ["[U:1:1067073199]", "[U:1:333510250]"]
+	function CheckWhiteList( hPlayer )
+	{
+		if ( hPlayer )
+		{
+			foreach ( id in admin_list )
+			{
+				if ( getSteamID(hPlayer) == id )
+				{
+					// hPlayer.SetHealth(0)
+					// hPlayer.TakeDamage(1, 0, null)
+					return true
+				}
+			}
+		}
+		return false
+	}
+	
 	ignore = false
-	version = "1.66.23"
+	version = "1.66.25"
 	debug_state = false
 	bot_tag_list = ["bot_pro_demoknight", "bot_pro_demoknight_homewrecker", "bot_pro_busterknight"]
 	function assign(hBot, tag)
@@ -2403,8 +2429,7 @@ enum State
 			// interface_campTele( tele )
 			// return true
 		// }
-	
-		// AI_Bot_myDemo.OnUpdate()
+		
 		local closestThreat = AI_Bot_myDemo.FindClosestThreat(1e30, false)
 		collectSentries()
 		if ( !closestThreat && !prodemoknight.SentryList.len() )
@@ -2586,7 +2611,7 @@ enum State
 		// {
 			local ListOfSentries = []
 			
-			// collectSentries()		// be aware of this, this function is only being called at one place and that place called collectSentries() before this
+			collectSentries()		// be aware of this, this function is only being called at one place and that place called collectSentries() before this
 			foreach ( sentry in prodemoknight.SentryList )
 			{
 				if ( isTargetWithinTrimpArea( sentry, spot ) )
@@ -3597,7 +3622,10 @@ enum State
 	{
 		if ( findTarget_wait + 5 < AI_Bot_myDemo.time  )
 		{
-			if ( !collectReachableTrimpTargets(current_trimpSpot).len() )
+			findTarget_wait = AI_Bot_myDemo.time
+			if ( !collectReachableTrimpTargets(current_trimpSpot).len()
+				&& !( hateSentries && collectReachableTrimpTargetsUHHH(current_trimpSpot).len() )
+			)
 			{
 				local prev_trimpSpot = current_trimpSpot
 				if ( findTarget() )
@@ -3611,7 +3639,6 @@ enum State
 					return
 				}
 			}
-			findTarget_wait = AI_Bot_myDemo.time
 		}
 		
 		if ( !(hOwner.GetFlags() & FL_ONGROUND) && hOwner.InAirDueToKnockback() )
