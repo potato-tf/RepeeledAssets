@@ -14766,6 +14766,7 @@ WaveSchedule
 			{
 				"no_attack" 1
 				"no_jump" 1
+                "cannot be sapped" 1
 				"move speed bonus" 0.01
 				"damage force reduction" 0.1
 				"blast dmg to self increased" 0.2
@@ -15461,6 +15462,7 @@ WaveSchedule
 			{
 				"no_jump" 1
 				"no_attack" 1
+                "cannot be sapped" 1
 				"move speed bonus" 0
 				"damage force reduction" 0.1
 				"blast dmg to self increased" 0.2
@@ -16118,6 +16120,7 @@ WaveSchedule
 			{
 				"no_jump" 1
 				"no_attack" 1
+                "cannot be sapped" 1
 				"move speed bonus" 0.01
 				"damage force reduction" 0.1
 				"blast dmg to self increased" 0.2

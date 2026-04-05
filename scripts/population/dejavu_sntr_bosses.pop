@@ -1,8 +1,5 @@
 WaveSchedule
 {
-    PrecacheSound "bonegang_intro.mp3"
-	PrecacheSound "bonegang_loop.mp3"
-	PrecacheSound "bonegang_end.mp3"
     PrecacheSound "pda_w7_sntr.mp3"
     PrecacheModel "models/workshop/player/items/pyro/taunt_the_hot_wheeler/taunt_the_hot_wheeler.mdl"
     PrecacheModel "models/bots/skeleton_sniper_boss/skeleton_sniper_boss.mdl"
@@ -34,7 +31,7 @@ WaveSchedule
 
     PrecacheModel "models/bots/skeleton_sniper_boss/skeleton_sniper_boss.mdl"
 
-    OverrideSounds  
+    OverrideSounds [$SIGSEGV]
 	{
 		"Heavy.M_MVM_MoveUp01"	 shadows/tank_growl_01.mp3 // tank VO
 		"Heavy.M_MVM_MoveUp02"	 shadows/tank_growl_02.mp3
@@ -426,12 +423,12 @@ WaveSchedule
 			Item "The Crone's Dome"
 			Item "TF_WEAPON_SPELLBOOK"
 			StripItem "Zombie Sniper"
-			StripItemSlot 0  
-			StripItemSlot 1  
+			StripItemSlot 0 [$SIGSEGV]
+			StripItemSlot 1 [$SIGSEGV]
 			Action Mobber
 			ExtAttr IgnoreBuildings
 			UseMeleeThreatPrioritization 1
-			ItemModel  
+			ItemModel [$SIGSEGV]
 			{
 				ItemName "TF_WEAPON_CLUB"
 				Model "models/empty.mdl" // no club
@@ -439,13 +436,13 @@ WaveSchedule
 			Attributes MiniBoss
 			Attributes UseBossHealthBar
 			Scale 2.1
-			UseCustomModel "models/bots/skeleton_sniper_boss/skeleton_sniper_boss.mdl"  
+			UseCustomModel "models/bots/skeleton_sniper_boss/skeleton_sniper_boss.mdl" [$SIGSEGV]
 			ItemAttributes
 			{
 				ItemName "TF_WEAPON_CLUB"
 				"fire rate bonus" 1.5
 			}
-			Spell   //Gives specified spell to bots.
+			Spell [$SIGSEGV] //Gives specified spell to bots.
 			{
 				Delay 3 //Time before the first spell charges are given (Default: 10)
 				Cooldown 3 //Time between each spell changes (Default: 10)
@@ -505,7 +502,7 @@ WaveSchedule
 			{
 				Default
 				{
-					WeaponSwitch   // swap to melee quick
+					WeaponSwitch [$SIGSEGV] // swap to melee quick
 					{
 						Delay 1
 						Cooldown 0
@@ -560,7 +557,7 @@ WaveSchedule
 						"dmg taken from crit reduced" 0.5
 					}
 				}
-				Aggressive
+				Aggressive [$SIGSEGV]
 				{
 					ItemAttributes
 					{
@@ -736,17 +733,17 @@ WaveSchedule
 			Attributes MiniBoss
 			Attributes UseBossHealthBar
 			StripItem "Zombie Demo"
-			Action Mobber  
+			Action Mobber [$SIGSEGV]
 			Health 25000
 			Item "The Loose Cannon"
 			Scale 1.2
 			UseCustomModel "models/empty.mdl" // no
-			UseMeleeThreatPrioritization 1  
-			RocketCustomModel "models/empty.mdl"  
+			UseMeleeThreatPrioritization 1 [$SIGSEGV]
+			RocketCustomModel "models/empty.mdl" [$SIGSEGV]
 			DeathSound crush\HEDDTH.wav
 			ExtAttr IgnoreBuildings
 			
-			ShootTemplate  
+			ShootTemplate [$SIGSEGV]
 			{
 				Name Tornado
 				ItemName "The Loose Cannon"
