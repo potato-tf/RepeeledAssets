@@ -2,6 +2,13 @@ WaveSchedule
 {
     PrecacheModel "models/props_mvm/indicator/indicator_circle_long.mdl"
 
+	PrecacheGeneric "materials/hud/leaderboard_class_boom.vmt"
+	PrecacheGeneric "materials/hud/leaderboard_class_boom.vtf"
+	PrecacheGeneric "materials/hud/leaderboard_class_boolet.vmt"
+	PrecacheGeneric "materials/hud/leaderboard_class_boolet.vtf"
+	PrecacheGeneric "materials/hud/leaderboard_class_fire.vmt"
+	PrecacheGeneric "materials/hud/leaderboard_class_fire.vtf"
+
     CustomWeapon
 	{
         //// MAIN BOSSES ////
@@ -82,7 +89,7 @@ WaveSchedule
 		}
 	}
 
-	PointTemplates  
+	PointTemplates [$SIGSEGV]
 	{
         //// MAIN BOSSES ////
 
@@ -1860,14 +1867,14 @@ WaveSchedule
 
 				//INITIAL PHASE
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  0
 					Cooldown  99999
 					Name  "SpawnPhase"
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  5
 					Cooldown  99999
@@ -1876,7 +1883,7 @@ WaveSchedule
 				}
 
 				//BOOM
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  6.69
 					Cooldown  64    
@@ -1884,7 +1891,7 @@ WaveSchedule
 					IfHealthAbove 22500
 				}
 				
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  12.69
 					Cooldown  64 
@@ -1892,7 +1899,7 @@ WaveSchedule
 					IfHealthAbove 22500
 				}
 				
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  18.69
 					Cooldown  64 
@@ -1900,7 +1907,7 @@ WaveSchedule
 					IfHealthAbove 22500
 				}
  
-			 	ChangeAttributes   
+			 	ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  24.69
 					Cooldown  64 
@@ -1910,7 +1917,7 @@ WaveSchedule
 
 				//boolet
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  27.19
 					Cooldown  64 
@@ -1918,7 +1925,7 @@ WaveSchedule
 					IfHealthAbove 22500
 				}
 				
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  30.19
 					Cooldown  64 
@@ -1926,7 +1933,7 @@ WaveSchedule
 					IfHealthAbove 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  32.19
 					Cooldown  64 
@@ -1934,7 +1941,7 @@ WaveSchedule
 					IfHealthAbove 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  34.19
 					Cooldown  64 
@@ -1942,7 +1949,7 @@ WaveSchedule
 					IfHealthAbove 22500
 				}
 				
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  39.19
 					Cooldown  64 
@@ -1950,7 +1957,7 @@ WaveSchedule
 					IfHealthAbove 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  44.19
 					Cooldown  64 
@@ -1960,7 +1967,7 @@ WaveSchedule
 
 				//fire
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  46.69
 					Cooldown  64 
@@ -1968,7 +1975,7 @@ WaveSchedule
 					IfHealthAbove 22500
 				}
 				
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  54.19
 					Cooldown  64 
@@ -1976,7 +1983,7 @@ WaveSchedule
 					IfHealthAbove 22500
 				}
 			
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  61.19
 					Cooldown  64 
@@ -1984,7 +1991,7 @@ WaveSchedule
 					IfHealthAbove 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  68.19
 					Cooldown  64 
@@ -1994,7 +2001,7 @@ WaveSchedule
 
 				//PHASE 2 (22500HP)
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  0
 					Cooldown  9999
@@ -2002,7 +2009,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  4
 					Cooldown  93.5
@@ -2010,7 +2017,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 				
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  10
 					Cooldown  93.5
@@ -2018,7 +2025,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 				
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  16
 					Cooldown  93.5
@@ -2026,7 +2033,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  22
 					Cooldown  93.5
@@ -2034,7 +2041,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  24.5
 					Cooldown  93.5
@@ -2042,7 +2049,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 				
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  27
 					Cooldown  93.5
@@ -2050,7 +2057,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  28
 					Cooldown  93.5
@@ -2058,7 +2065,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  30.5
 					Cooldown  93.5
@@ -2066,7 +2073,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  31.5
 					Cooldown  93.5
@@ -2074,7 +2081,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  34.5
 					Cooldown  93.5
@@ -2082,7 +2089,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  36.5
 					Cooldown  93.5
@@ -2090,7 +2097,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  37.5
 					Cooldown  93.5
@@ -2098,7 +2105,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  39.5
 					Cooldown  93.5
@@ -2106,7 +2113,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  40.5
 					Cooldown  93.5
@@ -2114,7 +2121,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 				
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  42.5
 					Cooldown  93.5
@@ -2122,7 +2129,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  48
 					Cooldown  93.5
@@ -2130,7 +2137,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  50.5
 					Cooldown  93.5
@@ -2156,7 +2163,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  53
 					Cooldown  93.5
@@ -2164,7 +2171,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  58
 					Cooldown  93.5
@@ -2172,7 +2179,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  64
 					Cooldown  93.5
@@ -2180,7 +2187,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  71
 					Cooldown  93.5
@@ -2188,7 +2195,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 				
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  78
 					Cooldown  93.5
@@ -2196,7 +2203,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 			
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  81
 					Cooldown  93.5
@@ -2204,7 +2211,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  83
 					Cooldown  93.5
@@ -2212,7 +2219,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 			
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  86
 					Cooldown  93.5
@@ -2220,7 +2227,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  88
 					Cooldown  93.5
@@ -2228,7 +2235,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 			
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  91
 					Cooldown  93.5
@@ -2236,7 +2243,7 @@ WaveSchedule
 					IfHealthBelow 22500
 				}
 
-				ChangeAttributes   
+				ChangeAttributes [$SIGSEGV] 
 				{
 					Delay  95
 					Cooldown  93.5
@@ -2246,7 +2253,7 @@ WaveSchedule
 				
 				EventChangeAttributes
 				{
-					SpawnPhase
+					SpawnPhase [$SIGSEGV]
 					{
 						Item "tf_weapon_flamethrower"
 						WeaponRestrictions PrimaryOnly
@@ -2277,7 +2284,7 @@ WaveSchedule
 						}
 					}
 
-					TypeTransition_Fire 
+					TypeTransition_Fire [$SIGSEGV] 
 					{
 						WeaponRestrictions MeleeOnly
 						Attributes SuppressFire
@@ -2311,7 +2318,7 @@ WaveSchedule
 						}
 					}
 
-					TypeTransition_Bullet
+					TypeTransition_Bullet [$SIGSEGV]
 					{
 						WeaponRestrictions MeleeOnly
 						Attributes SuppressFire
@@ -2345,7 +2352,7 @@ WaveSchedule
 						}
 					}
 
-					TypeTransition_Blast
+					TypeTransition_Blast [$SIGSEGV]
 					{
 						WeaponRestrictions MeleeOnly
 						Attributes SuppressFire
@@ -2377,7 +2384,7 @@ WaveSchedule
 						}
 					}
 
-					HomingRockets
+					HomingRockets [$SIGSEGV]
 					{
 						Item "tf_weapon_rocketlauncher"
 						Item "TF_WEAPON_FIREAXE"
@@ -2419,7 +2426,7 @@ WaveSchedule
 						}
 					}
 					
-					PillRain
+					PillRain [$SIGSEGV]
 					{
 						Item "tf_weapon_grenadelauncher"
 						WeaponRestrictions PrimaryOnly
@@ -2455,7 +2462,7 @@ WaveSchedule
 						}
 					}
 					
-					RocketRow
+					RocketRow [$SIGSEGV]
 					{
 						Item "tf_weapon_rocketlauncher"
 						WeaponRestrictions PrimaryOnly
@@ -2496,7 +2503,7 @@ WaveSchedule
 						}
 					}
 
-					Minigun
+					Minigun [$SIGSEGV]
 					{
 						Item "tf_weapon_minigun"
 						WeaponRestrictions PrimaryOnly
@@ -2527,7 +2534,7 @@ WaveSchedule
 						}
 					}
 					
-					Pistol
+					Pistol [$SIGSEGV]
 					{
 						StripItem "tf_weapon_minigun"
 						Item "tf_weapon_pistol"
@@ -2560,7 +2567,7 @@ WaveSchedule
 						}
 					}
 					
-					Bow
+					Bow [$SIGSEGV]
 					{
 						Item "The Huntsman"
 
@@ -2595,7 +2602,7 @@ WaveSchedule
 						}
 					}
 
-					DragonFury
+					DragonFury [$SIGSEGV]
 					{
 						Item "The Rainblower"
 						WeaponRestrictions PrimaryOnly
@@ -2628,7 +2635,7 @@ WaveSchedule
 						}
 					}
 					
-					Fireball
+					Fireball [$SIGSEGV]
 					{
 						Item "TF_WEAPON_SPELLBOOK"
 						StripItem "TF_WEAPON_GRAPPLINGHOOK"
@@ -2661,7 +2668,7 @@ WaveSchedule
 						}
 					}
 
-					Flare
+					Flare [$SIGSEGV]
 					{
 						Item "TF_WEAPON_SHOTGUN_PYRO"
 						WeaponRestrictions SecondaryOnly
@@ -2699,7 +2706,7 @@ WaveSchedule
 						}
 					}
 
-					PhaseTransition
+					PhaseTransition [$SIGSEGV]
 					{
 						Item "tf_weapon_flamethrower"
 						WeaponRestrictions PrimaryOnly
@@ -2728,7 +2735,7 @@ WaveSchedule
 						}
 					}
 
-					HomingRockets2
+					HomingRockets2 [$SIGSEGV]
 					{
 						Item "tf_weapon_rocketlauncher"
 						WeaponRestrictions PrimaryOnly
@@ -2768,7 +2775,7 @@ WaveSchedule
 						}
 					}
 					
-					PillBomb
+					PillBomb [$SIGSEGV]
 					{
 						Item "The Loose Cannon"
 						WeaponRestrictions PrimaryOnly
@@ -2814,7 +2821,7 @@ WaveSchedule
 						}
 					}
 					
-					RocketRow2
+					RocketRow2 [$SIGSEGV]
 					{
 						Item "tf_weapon_rocketlauncher"
 						WeaponRestrictions PrimaryOnly
@@ -2855,7 +2862,7 @@ WaveSchedule
 						}
 					}
 
-					Minigun_Stronger
+					Minigun_Stronger [$SIGSEGV]
 					{
 						StripItem "The Righteous Bison"
 						Item "The Brass Beast"
@@ -2888,7 +2895,7 @@ WaveSchedule
 						}
 					}
 					
-					FaN
+					FaN [$SIGSEGV]
 					{
 						StripItem "The Brass Beast"
 						Item "The Force-a-Nature"
@@ -2923,7 +2930,7 @@ WaveSchedule
 						}
 					}
 
-					BisonBigLaser
+					BisonBigLaser [$SIGSEGV]
 					{
 						Item "The Righteous Bison"
 						StripItem "The Brass Beast"
@@ -2957,7 +2964,7 @@ WaveSchedule
 						}
 					}
 
-					BisonHomingBurst
+					BisonHomingBurst [$SIGSEGV]
 					{
 						Item "The Righteous Bison"
 						StripItem "The Brass Beast"
@@ -2995,7 +3002,7 @@ WaveSchedule
 						}
 					}
 					
-					Bow2
+					Bow2 [$SIGSEGV]
 					{
 						Item "The Huntsman"
 						WeaponRestrictions PrimaryOnly
@@ -3031,7 +3038,7 @@ WaveSchedule
 						}
 					}
 
-					PreVolcano
+					PreVolcano [$SIGSEGV]
 					{
 						Item "tf_weapon_rocketlauncher"
 						Attributes HoldFireUntilFullReload
@@ -3084,7 +3091,7 @@ WaveSchedule
 							"is invisible" 1
 						}
 					}
-					Volcano
+					Volcano [$SIGSEGV]
 					{
 						Item "tf_weapon_rocketlauncher"
 						Attributes HoldFireUntilFullReload
@@ -3128,7 +3135,7 @@ WaveSchedule
 							"increased jump height" 0.01
 						}
 					}
-					DragonFury2
+					DragonFury2 [$SIGSEGV]
 					{
 						Item "The Rainblower"
 						WeaponRestrictions PrimaryOnly
@@ -3163,7 +3170,7 @@ WaveSchedule
 						}
 					}
 					
-					Meteor
+					Meteor [$SIGSEGV]
 					{
 						Item "TF_WEAPON_SPELLBOOK"
 						Item "The Dragon's Fury"
@@ -3200,7 +3207,7 @@ WaveSchedule
 						}
 					}
 
-					Fireball2
+					Fireball2 [$SIGSEGV]
 					{
 						Item "TF_WEAPON_SPELLBOOK"
 						Item "tf_weapon_flamethrower"
@@ -3247,7 +3254,7 @@ WaveSchedule
 						}
 					}
 
-					FlareString2
+					FlareString2 [$SIGSEGV]
 					{
 						Item "The Flare Gun"
 						WeaponRestrictions SecondaryOnly
@@ -3282,7 +3289,7 @@ WaveSchedule
 						}
 					}
 
-					FlareBurst2
+					FlareBurst2 [$SIGSEGV]
 					{
 						Item "The Flare Gun"
 						WeaponRestrictions SecondaryOnly
@@ -3333,7 +3340,7 @@ WaveSchedule
 
 			UseHumanAnimations 1
 		
-			RocketCustomModel "models/props_mvm/mvm_human_skull.mdl"  
+			RocketCustomModel "models/props_mvm/mvm_human_skull.mdl" [$SIGSEGV]
 			ExtAttr IgnoreBuildings
 			UseMeleeThreatPrioritization 1
 
@@ -3391,7 +3398,7 @@ WaveSchedule
 				IfHealthBelow 22500
 			}
 
-			ChangeAttributes   
+			ChangeAttributes [$SIGSEGV] 
 			{
 				Delay  0
 				Cooldown  99999
@@ -3419,7 +3426,7 @@ WaveSchedule
 				IfHealthBelow 15000
 			}
 			
-			ChangeAttributes   
+			ChangeAttributes [$SIGSEGV] 
 			{
 				Delay  4
 				Cooldown  10
@@ -3427,7 +3434,7 @@ WaveSchedule
 				IfHealthAbove 22500
 			}
 			
-			ChangeAttributes   
+			ChangeAttributes [$SIGSEGV] 
 			{
 				Delay  10
 				Cooldown  10
@@ -3435,7 +3442,7 @@ WaveSchedule
 				IfHealthAbove 22500
 			}
 
-			ChangeAttributes   
+			ChangeAttributes [$SIGSEGV] 
 			{
 				Delay  0
 				Cooldown  8
@@ -3444,7 +3451,7 @@ WaveSchedule
 				IfHealthAbove 15000
 			}
 			
-			ChangeAttributes   
+			ChangeAttributes [$SIGSEGV] 
 			{
 				Delay  4
 				Cooldown  8
@@ -3483,7 +3490,7 @@ WaveSchedule
 				IfHealthBelow 15000
 			}
 
-			ChangeAttributes   
+			ChangeAttributes [$SIGSEGV] 
 			{
 				Delay  0
 				Cooldown  99999
@@ -3538,7 +3545,7 @@ WaveSchedule
 				IfHealthBelow 15000
 			}
 
-			ChangeAttributes   
+			ChangeAttributes [$SIGSEGV] 
 			{
 				Delay  8
 				Cooldown  99999
@@ -3546,7 +3553,7 @@ WaveSchedule
 				IfHealthBelow 15000
 			}
 
-			ChangeAttributes   
+			ChangeAttributes [$SIGSEGV] 
 			{
 				Delay  9
 				Cooldown  16
@@ -3554,7 +3561,7 @@ WaveSchedule
 				IfHealthBelow 15000
 			}
 
-			ChangeAttributes   
+			ChangeAttributes [$SIGSEGV] 
 			{
 				Delay  18
 				Cooldown  16
@@ -3562,7 +3569,7 @@ WaveSchedule
 				IfHealthBelow 15000
 			}
 
-			ChangeAttributes   
+			ChangeAttributes [$SIGSEGV] 
 			{
 				Delay  23
 				Cooldown  16
@@ -3572,7 +3579,7 @@ WaveSchedule
 			
 			EventChangeAttributes
 			{
-				Immune
+				Immune [$SIGSEGV]
 				{
 					Item "The War on Smissmas Battle Hood"
 					Item "The King of Scotland Cape"
@@ -3613,7 +3620,7 @@ WaveSchedule
 					}
 				}
 
-				KatanaPhase1
+				KatanaPhase1 [$SIGSEGV]
 				{
 					Item "The War on Smissmas Battle Hood"
 					Item "The King of Scotland Cape"
@@ -3652,7 +3659,7 @@ WaveSchedule
 					}
 				}
 				
-				RocketPhase2
+				RocketPhase2 [$SIGSEGV]
 				{
 					Item "The War on Smissmas Battle Hood"
 					Item "The King of Scotland Cape"
@@ -3690,7 +3697,7 @@ WaveSchedule
 					}
 				}
 
-				KatanaPhase2
+				KatanaPhase2 [$SIGSEGV]
 				{
 					Item "The War on Smissmas Battle Hood"
 					Item "The King of Scotland Cape"
@@ -3734,7 +3741,7 @@ WaveSchedule
 					}
 				}
 				
-				RocketPhase1
+				RocketPhase1 [$SIGSEGV]
 				{
 					Item "The War on Smissmas Battle Hood"
 					Item "The King of Scotland Cape"
@@ -3778,7 +3785,7 @@ WaveSchedule
 					}
 				}
 
-				Phase3Start1
+				Phase3Start1 [$SIGSEGV]
 				{
 					Skill Expert
 					
@@ -3787,7 +3794,7 @@ WaveSchedule
 
 					Attributes SuppressFire
 						
-					RocketCustomParticle eyeboss_projectile  
+					RocketCustomParticle eyeboss_projectile [$SIGSEGV]
 
 										
 					Item "The War on Smissmas Battle Hood"
@@ -3811,7 +3818,7 @@ WaveSchedule
 					}
 				}
 
-				Phase3Start2
+				Phase3Start2 [$SIGSEGV]
 				{
 					Skill Expert
 					
@@ -3820,7 +3827,7 @@ WaveSchedule
 
 					Attributes SuppressFire
 						
-					RocketCustomParticle eyeboss_projectile  
+					RocketCustomParticle eyeboss_projectile [$SIGSEGV]
 
 					ItemAttributes
 					{
@@ -3828,7 +3835,7 @@ WaveSchedule
 						"attach particle effect" 121
 					}
 
-					AddCond  
+					AddCond [$SIGSEGV]
 					{
 						Index 36
 						Delay 0.1
@@ -3856,14 +3863,14 @@ WaveSchedule
 					}
 				}
 
-				RocketPhase3-1
+				RocketPhase3-1 [$SIGSEGV]
 				{
 					Skill Expert
 					
 					Attributes MiniBoss
 					Attributes HoldFireUntilFullReload
 						
-					RocketCustomParticle eyeboss_projectile  
+					RocketCustomParticle eyeboss_projectile [$SIGSEGV]
 
 										
 					Item "The War on Smissmas Battle Hood"
@@ -3900,7 +3907,7 @@ WaveSchedule
 						"projectile acceleration time" 0
 					}
 
-				//	HomingRockets   
+				//	HomingRockets [$SIGSEGV] 
 				//	{
 				//		IgnoreDisguisedSpies 1 // Default: 1
 				//		IgnoreStealthedSpies 1 // Default: 1
@@ -3910,7 +3917,7 @@ WaveSchedule
 				//		AimTime 2 //How long should the rocket be aiming (Default: 9999)
 				//	}
 					
-					AddCond  
+					AddCond [$SIGSEGV]
 					{
 						Index 36
 						Delay 0.1
@@ -3929,14 +3936,14 @@ WaveSchedule
 					}
 				}
 
-				RocketPhase3-2
+				RocketPhase3-2 [$SIGSEGV]
 				{
 					Skill Expert
 					
 					Attributes MiniBoss
 					Attributes HoldFireUntilFullReload
 						
-					RocketCustomParticle eyeboss_projectile  
+					RocketCustomParticle eyeboss_projectile [$SIGSEGV]
 
 										
 					Item "The War on Smissmas Battle Hood"
@@ -3973,7 +3980,7 @@ WaveSchedule
 						"projectile acceleration time" 10
 					}
 
-					HomingRockets   
+					HomingRockets [$SIGSEGV] 
 					{
 						IgnoreDisguisedSpies 1 // Default: 1
 						IgnoreStealthedSpies 1 // Default: 1
@@ -3987,7 +3994,7 @@ WaveSchedule
 						AccelerationStartTime 2 //Time before rockets start accelerating (Default: 0)
 					}
 					
-					AddCond  
+					AddCond [$SIGSEGV]
 					{
 						Index 36
 						Delay 0.1
@@ -4081,7 +4088,7 @@ WaveSchedule
 				Name  "Chargeup" 
 			}
 
-			FireWeapon    //Periodically fires weapon
+			FireWeapon [$SIGSEGV]  //Periodically fires weapon
             {
                 Delay 17
                 Cooldown 18
@@ -4108,7 +4115,7 @@ WaveSchedule
 
 			EventChangeAttributes
 			{
-				Immune
+				Immune [$SIGSEGV]
 				{
 					Item "The Killing Gloves of Boxing"
 					BodyPartScaleSpeed 10
@@ -4121,7 +4128,7 @@ WaveSchedule
 						"hand scale" 2
 					}
 				}
-				Regular
+				Regular [$SIGSEGV]
 				{
 					Item "The Killing Gloves of Boxing"
 					ItemAttributes
@@ -4149,7 +4156,7 @@ WaveSchedule
 					}
 				}	
 
-				Reposition
+				Reposition [$SIGSEGV]
 				{
 					Attributes SuppressFire
 					ItemAttributes
@@ -4173,7 +4180,7 @@ WaveSchedule
 					}
 				}
 
-				Chargeup
+				Chargeup [$SIGSEGV]
 				{
 					Attributes SuppressFire
 					BodyPartScaleSpeed 5
@@ -4304,7 +4311,7 @@ WaveSchedule
 			
 			EventChangeAttributes
 			{
-				Immune
+				Immune [$SIGSEGV]
 				{
 					Item "TF_WEAPON_GRENADELAUNCHER"
 					Attributes SuppressFire
@@ -4314,7 +4321,7 @@ WaveSchedule
 						"dmg taken increased" 0
 					}
 				}
-				Regular
+				Regular [$SIGSEGV]
 				{
 					ItemAttributes
 					{
@@ -4339,7 +4346,7 @@ WaveSchedule
 					}
 				}
 
-				Skyhigh1
+				Skyhigh1 [$SIGSEGV]
 				{
 					Attributes SuppressFire
 
@@ -4365,7 +4372,7 @@ WaveSchedule
 					}
 				}
 
-				Rest
+				Rest [$SIGSEGV]
 				{
 					Attributes SuppressFire
 
@@ -4461,7 +4468,7 @@ WaveSchedule
 
 			EventChangeAttributes
 			{
-				Immune
+				Immune [$SIGSEGV]
 				{
 					Item "The Scotsman's Skullcutter"
 					Item "The Horsemann's Hand-Me-Down"
@@ -4486,7 +4493,7 @@ WaveSchedule
 					}
 				}
 
-				Regular
+				Regular [$SIGSEGV]
 				{
 					Item "The Scotsman's Skullcutter"
 					Item "The Horsemann's Hand-Me-Down"
@@ -4509,7 +4516,7 @@ WaveSchedule
 						"custom kill icon" "headtaker"
 					}
 					
-					ItemModel  
+					ItemModel [$SIGSEGV]
 					{
 						ItemName "The Scotsman's Skullcutter"
 						Model "models/weapons/c_models/c_headtaker/c_headtaker.mdl"
@@ -4531,7 +4538,7 @@ WaveSchedule
 					}
 				}
 
-				SpecialAttackPrep
+				SpecialAttackPrep [$SIGSEGV]
 				{
 					Item "The Scotsman's Skullcutter"
 					Item "The Horsemann's Hand-Me-Down"
@@ -4539,7 +4546,7 @@ WaveSchedule
 					Item "Ali Baba's Wee Booties"
 					WeaponRestrictions MeleeOnly
 
-					ItemModel  
+					ItemModel [$SIGSEGV]
 					{
 						ItemName "The Scotsman's Skullcutter"
 						Model "models/weapons/c_models/c_headtaker/c_headtaker.mdl"
@@ -4565,7 +4572,7 @@ WaveSchedule
 					}
 				}
 
-				Slash
+				Slash [$SIGSEGV]
 				{
 					Item "The Horseless Headless Horseman's Headtaker"
 					Item "The Horsemann's Hand-Me-Down"
@@ -4593,7 +4600,7 @@ WaveSchedule
 					}
 				}
 
-				Scare
+				Scare [$SIGSEGV]
 				{
 					Item "The Horsemann's Hand-Me-Down"
 					Item "Zombie Demo"
@@ -4602,7 +4609,7 @@ WaveSchedule
 
 					Item "The Scotsman's Skullcutter"
 
-					ItemModel  
+					ItemModel [$SIGSEGV]
 					{
 						ItemName "The Scotsman's Skullcutter"
 						Model "models/weapons/c_models/c_headtaker/c_headtaker.mdl"
@@ -4750,7 +4757,7 @@ WaveSchedule
 
 			EventChangeAttributes
 			{
-				Immune
+				Immune [$SIGSEGV]
 				{
 					Attributes SuppressFire
 					Skill Expert
@@ -4771,7 +4778,7 @@ WaveSchedule
 					}
 				}
 
-				Regular
+				Regular [$SIGSEGV]
 				{
 					Item "TF_WEAPON_FLAMETHROWER"
 					Skill Expert
@@ -4796,7 +4803,7 @@ WaveSchedule
 					}	
 				}
 
-				BlackHolePrep
+				BlackHolePrep [$SIGSEGV]
 				{
 					Item "The Rainblower"
 					Skill Expert
@@ -4821,7 +4828,7 @@ WaveSchedule
 					}	
 				}	
 
-				BlackHoleSucc
+				BlackHoleSucc [$SIGSEGV]
 				{
 					//Item "TF_WEAPON_FLAMETHROWER"
 					Item "tf_weapon_grenadelauncher"
@@ -4859,7 +4866,7 @@ WaveSchedule
 					}	
 				}
 
-				FireballWalk
+				FireballWalk [$SIGSEGV]
 				{
 					Item "TF_WEAPON_FLAMETHROWER"
 					Skill Expert

@@ -39,18 +39,18 @@ WaveSchedule
     //// DISABLED SOUNDS ////
 
     DisableSound "Announcer.MVM_Wave_End"
-    DisableSound "Announcer.MVM_Final_Wave_End"
+    DisableSound "Announcer.MVM_Final_Wave_End"	
 	DisableSound "Announcer.MVM_Bonus"
     DisableSound "Announcer.MVM_Get_To_Upgrade"
 
     DisableSound "music.mvm_start_wave"
-    DisableSound "music.mvm_start_last_wave"
-	DisableSound "music.mvm_start_mid_wave"
+    DisableSound "music.mvm_start_last_wave"					   
+	DisableSound "music.mvm_start_mid_wave"						   
 	DisableSound "music.mvm_start_tank_wave"
     DisableSound "music.mvm_end_wave"
-    DisableSound "music.mvm_end_last_wave"
-	DisableSound "music.mvm_end_mid_wave"
-	DisableSound "music.mvm_end_tank_wave"
+    DisableSound "music.mvm_end_last_wave"						   
+	DisableSound "music.mvm_end_mid_wave"						   
+	DisableSound "music.mvm_end_tank_wave"						   
 
     //// PRECACHES ////
 
@@ -94,7 +94,7 @@ WaveSchedule
 
     //// POINT TEMPLATES ////
 
-    PointTemplates
+    PointTemplates 
     {
         //// CORE BOSS RUSH LOGIC ////
         BossRushMapLogic
@@ -171,7 +171,7 @@ WaveSchedule
             {
                 "targetname" "filter_is_red_player"
                 "Negated"	"0"
-                "FilterType" "0"
+                "FilterType" "0"			
                 "Filter01"   "filter_redteam"
                 "Filter02"   "filter_is_player"
             }
@@ -203,7 +203,7 @@ WaveSchedule
             {
                 "targetname" "filter_redteam_nouber"
                 "Negated"	"0"
-                "FilterType" "0" //and
+                "FilterType" "0" //and				
                 "Filter01"   "filter_redteam"
                 "Filter02"   "filter_is_not_ubered"
                 "Filter03"   "filter_is_not_ubered2"
@@ -401,7 +401,7 @@ WaveSchedule
 		InitialCooldown 30
 		CooldownTime 30
 		DesiredCount 1
-
+		
 		TFBot
 		{
 			Template T_TFBot_SentryBuster
@@ -416,7 +416,7 @@ WaveSchedule
 		InitialCooldown 30
 		CooldownTime 30
 		DesiredCount 1
-
+		
 		TFBot
 		{
 			Template T_TFBot_SentryBuster
@@ -496,7 +496,7 @@ WaveSchedule
 						}
 
                         case 1:
-						{
+						{   
 							AlternateWaves.AddWaveIcons([
 								[`demoman_sandman_chief`, 1, MVM_CLASS_FLAG_MINIBOSS],
 								[`soldier`, 1, MVM_CLASS_FLAG_NORMAL | MVM_CLASS_FLAG_SUPPORT],
@@ -506,7 +506,7 @@ WaveSchedule
 						}
 
 						case 2:
-						{
+						{   
 							AlternateWaves.AddWaveIcons([
 								[`heavy_robot_nys`, 1, MVM_CLASS_FLAG_MINIBOSS],
 								[`demo_robot_nys`, 1, MVM_CLASS_FLAG_MINIBOSS],
@@ -541,7 +541,7 @@ WaveSchedule
 						}
 
                         case 1:
-						{
+						{   
 							AlternateWaves.AddWaveIcons([
 								[`demoman_sandman_chief`, 1, MVM_CLASS_FLAG_MINIBOSS],
 								[`soldier`, 1, MVM_CLASS_FLAG_NORMAL | MVM_CLASS_FLAG_SUPPORT],
@@ -549,9 +549,9 @@ WaveSchedule
 							])
 							break;
 						}
-
+                        
 						case 2:
-						{
+						{   
 							AlternateWaves.AddWaveIcons([
 								[`heavy_robot_nys`, 1, MVM_CLASS_FLAG_MINIBOSS],
 								[`demo_robot_nys`, 1, MVM_CLASS_FLAG_MINIBOSS],
@@ -894,7 +894,7 @@ WaveSchedule
             {
                 Template T_TFBot_Demo_PatrolChief
                 Action Mobber
-
+                
                 FireInput
                 {
                     Target !self
@@ -1001,7 +1001,7 @@ WaveSchedule
                     EntFire(`boss_rush_spawn_teleport_relay`, `Trigger`, null, 5)
                   "
         }
-
+		
         CustomMaxWaveNumber 0
         RedTeamWipeCausesWaveLoss 1
 
@@ -1118,7 +1118,7 @@ WaveSchedule
                         EntFire(`pop_interface`, `$PauseWaveSpawn`, `Wave2_Support-Pyros`)
                         EntFire(`pop_interface`, `$PauseWaveSpawn`, `Wave2_Support-GRUHeavies`)
                         EntFire(`pop_interface`, `$KillWaveSpawn`, `Wave2_Support-GRUHeavies`)
-
+                        
                         EntFire(`bossrushspecialspawnlocation`, `ForceSpawnAtEntityOrigin`, `spawnbot_target_bonkplant2`, 2.5)
                         EntFire(`bossrushspecialspawnlocation`, `ForceSpawnAtEntityOrigin`, `spawnbot_target_bonkplant3`, 2.5)
 						EntFire(`tf_gamerules`, `PlayVO`, `boss_incoming.wav`, 2.5)
@@ -2026,7 +2026,7 @@ WaveSchedule
                             ])
                             break;
                         }
-
+                        
                         case 1:
                         {
                             AlternateWaves.AddWaveIcons([
@@ -2070,7 +2070,7 @@ WaveSchedule
                     AlternateWaves.bTrackIcons = true;
                   "
         }
-
+    
         CustomMaxWaveNumber 0
         RedTeamWipeCausesWaveLoss 1
 
@@ -2510,7 +2510,7 @@ WaveSchedule
                 NoWaitForFormation 1 [$SIGSEGV]
                 NoFormation 1 [$SIGSEGV]
                 TFBot
-                {
+                { 
                     Template T_TFBot_Contact_W4Pair_Heavy_Gunner
                     FireInput
                     {
@@ -2523,7 +2523,7 @@ WaveSchedule
                     }
                 }
                 TFBot
-                {
+                { 
                     Template T_TFBot_Contact_W4Pair_Heavy_EMPer
                     FireInput
                     {
@@ -2588,7 +2588,7 @@ WaveSchedule
 
             FirstSpawnWarningSound mvm\giant_heavy\giant_heavy_entrance.wav
 
-            TFBot
+            TFBot 
             {
                 Template T_TFBot_Contact_W6Pair_Soldier
                 FireInput
@@ -2622,7 +2622,7 @@ WaveSchedule
             WaitBetweenSpawns 0
             TotalCurrency 50
 
-            TFBot
+            TFBot 
             {
                 Template T_TFBot_Contact_W6Pair_Demo
                 FireInput
@@ -2652,10 +2652,10 @@ WaveSchedule
 
             TFBot
             {
-                Template T_TFBot_Scout_Melee
-                Name "Batsaber Scout"
-                Attributes AlwaysCrit
-                ClassIcon scout_batsaber_nys
+                Template T_TFBot_Scout_Melee 
+                Name "Batsaber Scout" 
+                Attributes AlwaysCrit 
+                ClassIcon scout_batsaber_nys 
                 Item "Batsaber"
                 Action Mobber
             }
@@ -2743,7 +2743,7 @@ WaveSchedule
 							])
 							break;
 						}
-
+						
 						case 1:
 						{
 							AlternateWaves.AddWaveIcons([
@@ -2772,7 +2772,7 @@ WaveSchedule
 							])
 							break;
 						}
-
+						
 						case 4:
 						{
 							AlternateWaves.AddWaveIcons([
@@ -2807,7 +2807,7 @@ WaveSchedule
 							])
 							break;
 						}
-
+						
 						case 1:
 						{
 							AlternateWaves.AddWaveIcons([
@@ -2836,7 +2836,7 @@ WaveSchedule
 							])
 							break;
 						}
-
+						
 						case 4:
 						{
 							AlternateWaves.AddWaveIcons([
@@ -3144,9 +3144,9 @@ WaveSchedule
             WaitBeforeStarting 20
             WaitBetweenSpawns 3
             TotalCurrency 100
-
+        
             TFBot
-            {
+            { 
                 Class Scout
                 Skill Easy
 				Action Mobber
@@ -3164,9 +3164,9 @@ WaveSchedule
             WaitBeforeStarting 20
             WaitBetweenSpawns 2
             TotalCurrency 100
-
+        
             TFBot
-            {
+            { 
                 Name "Lightweight Champ"
                 Template T_TFBot_Heavyweapons_Heavyweight_Champ_Fast
                 Skill Hard
@@ -3256,7 +3256,7 @@ WaveSchedule
             {
                 Template T_TFBot_Pyro_Flaregun
                 Action Mobber
-            }
+            } 
         }
 
         //// Direct Disaster ////
@@ -3606,7 +3606,7 @@ WaveSchedule
 
                 Item "The U-clank-a"
 
-                ItemAttributes
+                ItemAttributes 
                 {
                     ItemName "Deflector"
                     "attack projectiles" 1
@@ -4034,7 +4034,7 @@ WaveSchedule
 								[`heavy`, 1, MVM_CLASS_FLAG_NORMAL | MVM_CLASS_FLAG_SUPPORT]
 							])
 							break;
-						}
+						}                     
 						case 1:
 						{
 							AlternateWaves.AddWaveIcons([
@@ -4080,7 +4080,7 @@ WaveSchedule
                                 [`heavy`, 1, MVM_CLASS_FLAG_NORMAL | MVM_CLASS_FLAG_SUPPORT]
                             ])
                             break;
-                        }
+                        }                     
                         case 1:
                         {
                             AlternateWaves.AddWaveIcons([
@@ -4119,7 +4119,7 @@ WaveSchedule
                     AlternateWaves.bTrackIcons = true;
                   "
         }
-
+    
         CustomMaxWaveNumber 0
         RedTeamWipeCausesWaveLoss 1
 
@@ -4562,7 +4562,7 @@ WaveSchedule
                                 [`demo`, 1, MVM_CLASS_FLAG_NORMAL | MVM_CLASS_FLAG_SUPPORT]
                             ])
                             break;
-                        }
+                        }                     
                         case 1:
                         {
                             AlternateWaves.AddWaveIcons([
@@ -4599,7 +4599,7 @@ WaveSchedule
                                 [`demo`, 1, MVM_CLASS_FLAG_NORMAL | MVM_CLASS_FLAG_SUPPORT]
                             ])
                             break;
-                        }
+                        }                     
                         case 1:
                         {
                             AlternateWaves.AddWaveIcons([
@@ -4717,24 +4717,24 @@ WaveSchedule
                 Health 1100
                 Attributes MiniBoss
                 Action Mobber
-                ExtAttr IgnoreBuildings
+                ExtAttr IgnoreBuildings  
                 WeaponRestrictions MeleeOnly
                 Item "The Pardner's Pompadour"
                 Item "Merc's Pride Scarf"
                 Name "Hell Rider"
                 Scale 1.1
-                NoIdleSound 1
-                UseHumanAnimations 1
-                AimTrackingInterval 1.5
-                FastUpdate 1
-                UseCustomModel "models/bots/skeleton_sniper/skeleton_sniper.mdl"
+                NoIdleSound 1 			 
+                UseHumanAnimations 1 	 
+                AimTrackingInterval 1.5   
+                FastUpdate 1 			 
+                UseCustomModel "models/bots/skeleton_sniper/skeleton_sniper.mdl"  
                 SpawnTemplate "SmallRider"
                 DeathSound "=150|mvm\giant_soldier\giant_soldier_explode.wav" [$SIGSEGV]
                 FireInput [$SIGSEGV]
                 {
                     Target "!self"
                     Action "$TauntFromItem"
-                    Param "Taunt: The Hot Wheeler|taunt move speed|225|taunt turn speed|50,0,-1"
+                    Param "Taunt: The Hot Wheeler|taunt move speed|225|taunt turn speed|50,0,-1" 
                     Delay 1
                     Repeats 1
                 }
@@ -4745,7 +4745,7 @@ WaveSchedule
                 }
                 CharacterAttributes
                 {
-                    "always allow taunt" 1
+                    "always allow taunt" 1  
                     "rage giving scale"	0
                     "voice pitch scale" 0
                     "damage causes airblast" 1
@@ -4993,7 +4993,7 @@ WaveSchedule
             WaitBeforeStarting 5
             WaitBetweenSpawns 5
             TotalCurrency 50
-
+        
             Squad
             {
                 NoWaitForFormation 1 [$SIGSEGV]
@@ -5316,8 +5316,8 @@ WaveSchedule
 
         ItemAttributes   //Adds attributes to specified item given to players
         {
-            Classname "tf_weapon_minigun" // you can specify classname instead of itemname
-            "mult dmg vs tanks"	1.5
+            Classname "tf_weapon_minigun" // you can specify classname instead of itemname  
+            "mult dmg vs tanks"	1.5 
             "damage force reduction" 0.80
         }
 
@@ -5375,7 +5375,7 @@ WaveSchedule
 
             FirstSpawnWarningSound "ambient\spacebase\spacebase_rumble_06.wav"
 
-            TFBot
+            TFBot 
             {
                 Template T_TFBot_Contact_Ironstar_Phase1
             }
@@ -5431,10 +5431,10 @@ WaveSchedule
                 DisableSmokestack 1
 
                 StartSound "npc\strider\striderx_alert4.wav"
-                EngineLoopSound "npc\combine_gunship\dropship_engine_distant_loop1.wav"
+                EngineLoopSound "npc\combine_gunship\dropship_engine_distant_loop1.wav"  
                 //PingSound "npc\combine_gunship\ping_search.wav"
-				PingSound "misc/null.wav"
-                DeploySound "misc/null.wav"
+				PingSound "misc/null.wav" 
+                DeploySound "misc/null.wav" 
 
 				OnKilledOutput
 				{
@@ -5458,10 +5458,10 @@ WaveSchedule
 
             TFBot
             {
-                Template T_TFBot_Scout_Melee
-                Name "Batsaber Scout"
-                Attributes AlwaysCrit
-                ClassIcon scout_batsaber_nys
+                Template T_TFBot_Scout_Melee 
+                Name "Batsaber Scout" 
+                Attributes AlwaysCrit 
+                ClassIcon scout_batsaber_nys 
                 Item "Batsaber"
                 Action Mobber
             }
@@ -5483,7 +5483,7 @@ WaveSchedule
                 Delay 0.1
             }
         }
-
+        
         WaveSpawn // Ironstar Phase 2
         {
             Name "Wave12_Boss-IronstarPhase2"
@@ -5635,7 +5635,7 @@ WaveSchedule
 			WaitBeforeStarting 20
 			WaitBetweenSpawns 4
 			TotalCurrency 50
-
+			
 			TFBot
 			{
 				Class Scout
@@ -5654,7 +5654,7 @@ WaveSchedule
 			WaitBeforeStarting 20
 			WaitBetweenSpawns 6
 			TotalCurrency 50
-
+			
 			TFBot
 			{
 				Name "Direct Hit Soldier"
@@ -5838,7 +5838,7 @@ WaveSchedule
                     EntFire(`boss_rush_spawn_teleport_relay`, `Trigger`, null, 5)
                   "
         }
-
+        
 		CustomWaveNumber 12
 		CustomMaxWaveNumber 0
         RedTeamWipeCausesWaveLoss 1
@@ -6358,7 +6358,7 @@ WaveSchedule
                     AlternateWaves.bTrackIcons = true;
                   "
         }
-
+        
 		CustomWaveNumber 13
 		CustomMaxWaveNumber 0
         RedTeamWipeCausesWaveLoss 1
@@ -7127,7 +7127,7 @@ WaveSchedule
 
                 Item "The U-clank-a"
 
-                ItemAttributes
+                ItemAttributes 
                 {
                     ItemName "Deflector"
                     "attack projectiles" 1
@@ -7334,7 +7334,7 @@ WaveSchedule
             ItemName "The Quickiebomb Launcher"
             "stickies detonate stickies" 0
         }
-
+        
 		CustomWaveNumber 14
 		CustomMaxWaveNumber 0
         RedTeamWipeCausesWaveLoss 1
@@ -7543,7 +7543,7 @@ WaveSchedule
                     EntFire(`boss_rush_spawn_teleport_relay`, `Trigger`, null, 5)
                   "
         }
-
+        
 		CustomWaveNumber 15
 		CustomMaxWaveNumber 0
         RedTeamWipeCausesWaveLoss 1
@@ -7782,7 +7782,7 @@ WaveSchedule
                     EntFire(`boss_rush_spawn_teleport_relay`, `Trigger`, null, 5)
                   "
         }
-
+        
 		CustomWaveNumber 16
 		CustomMaxWaveNumber 0
         RedTeamWipeCausesWaveLoss 1
@@ -7851,7 +7851,7 @@ WaveSchedule
             WaitBetweenSpawns 0
             StartDisabled 1
             TotalCurrency 0
-
+        
             Tank
             {
                 Name "combattank|rocketpod_homing|railgun"
@@ -7861,8 +7861,8 @@ WaveSchedule
                 Health 30000
                 Speed 75
                 Skin 0
-
-                OnKilledOutput
+        
+                OnKilledOutput 
                 {
                     Target "aftercombattank"
                     Action Trigger
@@ -8051,7 +8051,7 @@ WaveSchedule
 					EntFire(`wave_finished_relay`, `Trigger`)
 				  "
 		}
-
+        
 		CustomWaveNumber 0
 		CustomMaxWaveNumber 0
         RedTeamWipeCausesWaveLoss 1

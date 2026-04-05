@@ -1,8 +1,8 @@
 WaveSchedule
 {
-    PrecacheModel	"models/bots/sniper_boss/bot_sniper_boss.mdl"	 
+    PrecacheModel	"models/bots/sniper_boss/bot_sniper_boss.mdl"	[$SIGSEGV]
 
-    PointTemplates	 
+    PointTemplates	[$SIGSEGV]
 	{
         //// DEADLOCK ////
 		bossdeathsmoke
@@ -75,8 +75,8 @@ WaveSchedule
         // Deadlock
         T_TFChief_Deadlock
 		{
-			UseCustomModel "models/bots/sniper_boss/bot_sniper_boss.mdl"     //Use custom model
-			Action	Sniper  
+			UseCustomModel "models/bots/sniper_boss/bot_sniper_boss.mdl" [$SIGSEGV]   //Use custom model
+			Action	Sniper [$SIGSEGV]
 			ClassIcon	sniper_machina_nys
 			Health	20000
 			Name	"Deadlock"
@@ -89,9 +89,9 @@ WaveSchedule
 			//Attributes	"IgnoreFlag"
 			Attributes	"UseBossHealthBar"
 			Attributes	"MiniBoss"
-			SpawnTemplate	"bossdeathsmoke"  
-			AlwaysGlow	1  
-			AddCond "TF_COND_PREVENT_DEATH"  
+			SpawnTemplate	"bossdeathsmoke" [$SIGSEGV]
+			AlwaysGlow	1 [$SIGSEGV]
+			AddCond "TF_COND_PREVENT_DEATH" [$SIGSEGV]
 			ExtAttr IgnoreBuildings
 			UseMeleeThreatPrioritization 1
 			ItemAttributes
@@ -121,7 +121,7 @@ WaveSchedule
 				"override footstep sound set"	2
 				"displace touched enemies" 1
 			}
-			WeaponSwitch      //Periodically switches weapon
+			WeaponSwitch [$SIGSEGV]    //Periodically switches weapon
             {
                  Delay 1 //Time before the first weapon switch starts (Default: 10)
                  Cooldown 1 //Time between each weapon switch (Default: 10)
@@ -136,7 +136,7 @@ WaveSchedule
 				IfHealthBelow 10000 //When set, the task activates only when the bot health is below specified value
 				//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
 			{
     			Target "!self"
     			Action "$BotCommand"
@@ -146,7 +146,7 @@ WaveSchedule
     			Repeats 1 //How many times should the input be fired
     			IfHealthBelow 10000
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
 			{
     			Target "!self"
     			Action "RunScriptCode"
@@ -156,7 +156,7 @@ WaveSchedule
     			Repeats 1
     			IfHealthBelow 10000
 			}
-			FireInput  
+			FireInput [$SIGSEGV]
 		    {
 				Target !self
 		    	Action $SetLocalOrigin
@@ -165,7 +165,7 @@ WaveSchedule
 				Repeats 1
 				IfHealthBelow	10000
 			}
-			FireInput  
+			FireInput [$SIGSEGV]
 		    {
 				Target !self
 		    	Action $SetLocalOrigin
@@ -174,14 +174,14 @@ WaveSchedule
 				Repeats 1
 				IfHealthBelow	10000
 			}
-            Message  	
+            Message [$SIGSEGV]	
 			{
 				Name	"{blue}Deadlock {FFFFFF}has used their {9BBF4D}RECALL{FFFFFF} Power Up Canteen!"
 				Delay	0.875
 				Repeats	1
 				IfHealthBelow	10000
 			}
-            FireInput  
+            FireInput [$SIGSEGV]
             {
                 Target "player"
                 Action "$PlaySoundToSelf"
@@ -190,7 +190,7 @@ WaveSchedule
              	Repeats 1
 				IfHealthBelow	10000
             }
-			FireInput   //Enable buddha mode.
+			FireInput [$SIGSEGV] //Enable buddha mode.
 			{
  				Target !self
   				Action RunScriptCode
@@ -198,7 +198,7 @@ WaveSchedule
   				Repeats 1
   				Delay 0.1
 			}
-			FireInput   //Disable buddhamode.
+			FireInput [$SIGSEGV] //Disable buddhamode.
 			{
   				Target !self
   				Action RunScriptCode
@@ -207,7 +207,7 @@ WaveSchedule
   				Delay 4.5
   				IfHealthBelow 2
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
             {
                 Target !self //Entity name to use
                 Action "RunScriptCode" //Input to fire
@@ -217,7 +217,7 @@ WaveSchedule
                 Repeats 100000 //How many times should the input be fired
                 IfHealthBelow 2 //When set, the task activates only when the bot health is below specified value
             }
-			Taunt      //Taunt periodically
+			Taunt [$SIGSEGV]    //Taunt periodically
 			{
     			Delay 0.1 //Time before the first taunt starts (Default: 10)
     			Repeats 1 //How many times the bot should taunt in total (Default: 0 - Infinite)
@@ -225,7 +225,7 @@ WaveSchedule
     			Name "Taunt: Unleashed Rage" //If set, uses this item taunt instead of default
     			IfHealthBelow 10000 //When set, the task activates only when the bot health is below specified value
 			}
-			AddCond     //Adds conditions to bots
+			AddCond [$SIGSEGV]   //Adds conditions to bots
 			{
     			Name "TF_COND_REPROGRAMMED" // Condition to apply. List of available conditions https://wiki.teamfortress.com/wiki/Cheats#addcond
     			Index 52 //Condition index can be used instead
@@ -233,7 +233,7 @@ WaveSchedule
     			Duration 1 // Duration of the condition effect (Default: -1 - infinite duration)
     			IfHealthBelow 10000 //When set, the task activates only when the bot health is below specified value
 			}
-			Taunt      //Taunt periodically
+			Taunt [$SIGSEGV]    //Taunt periodically
 			{
     			Delay 0.1 //Time before the first taunt starts (Default: 10)
     			Repeats 1 //How many times the bot should taunt in total (Default: 0 - Infinite)
@@ -246,7 +246,7 @@ WaveSchedule
         // Field Marshal Mechanus
         T_TFChief_Field_Marshal_Mechanus
 		{
-			FireInput  
+			FireInput [$SIGSEGV]
 			{
   				Target "!self"
   				Action RunScriptCode
@@ -258,7 +258,7 @@ WaveSchedule
                 Cooldown 3 //Time between each weapon switch (Default: 10)
                 Repeats 1 //How many times should bot switch weapons in total (Default: 0 - Infinite)
 			}
-			WeaponSwitch      //Periodically switches weapon
+			WeaponSwitch [$SIGSEGV]    //Periodically switches weapon
             {
             	Delay 1 //Time before the first weapon switch starts (Default: 10)
             	Cooldown 3 //Time between each weapon switch (Default: 10)
@@ -270,10 +270,10 @@ WaveSchedule
 				//Melee
 				//PDA
 				//Building
-				IfHealthBelow 25000 //When set, the task activates only when the bot health is below specified value
+				IfHealthBelow 15000 //When set, the task activates only when the bot health is below specified value
 				//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 			}
-			Taunt      //Taunt periodically
+			Taunt [$SIGSEGV]    //Taunt periodically
 			{
     			Delay 1 //Time before the first taunt starts (Default: 10)
     			Repeats 1 //How many times the bot should taunt in total (Default: 0 - Infinite)
@@ -281,7 +281,7 @@ WaveSchedule
     			Name "Taunt: The Fubar Fanfare" //If set, uses this item taunt instead of default
     			IfHealthAbove 44999 //When set, the task activates only when the bot health is below specified value
 			}
-			Taunt      //Taunt periodically
+			Taunt [$SIGSEGV]    //Taunt periodically
 			{
     			Delay 7 //Time before the first taunt starts (Default: 10)
     			Repeats 1 //How many times the bot should taunt in total (Default: 0 - Infinite)
@@ -289,7 +289,7 @@ WaveSchedule
     			Name "Laugh Taunt" //If set, uses this item taunt instead of default
     			IfHealthAbove 44999 //When set, the task activates only when the bot health is below specified value
 			}
-			Taunt      //Taunt periodically
+			Taunt [$SIGSEGV]    //Taunt periodically
 			{
     			Delay 0 //Time before the first taunt starts (Default: 10)
     			Repeats 1 //How many times the bot should taunt in total (Default: 0 - Infinite)
@@ -297,7 +297,7 @@ WaveSchedule
     			Name "Taunt: Unleashed Rage" //If set, uses this item taunt instead of default
     			IfHealthBelow 15000 //When set, the task activates only when the bot health is below specified value
 			}
-			AddCond     //Adds conditions to bots
+			AddCond [$SIGSEGV]   //Adds conditions to bots
 			{
     			//Name "TF_COND_REPROGRAMMED" // Condition to apply. List of available conditions https://wiki.teamfortress.com/wiki/Cheats#addcond
     			Index 52 //Condition index can be used instead
@@ -305,7 +305,7 @@ WaveSchedule
     			Duration 2 // Duration of the condition effect (Default: -1 - infinite duration)
     			IfHealthBelow 15000 //When set, the task activates only when the bot health is below specified value
 			}
-			Taunt      //Taunt periodically
+			Taunt [$SIGSEGV]    //Taunt periodically
 			{
     			Delay 0 //Time before the first taunt starts (Default: 10)
     			Repeats 1 //How many times the bot should taunt in total (Default: 0 - Infinite)
@@ -324,10 +324,10 @@ WaveSchedule
 			Item	"Fancy Dress Uniform"
 			Item	"The Patriot's Pouches"
 			Item	"Armored Authority"
-			SpawnTemplate	"bossdeathsmoke"  
-			AlwaysGlow	1  
-			AddCond "TF_COND_PREVENT_DEATH"    
-			UseHumanAnimations 1     // Use normal class animations instead of a bot / custom model ones
+			SpawnTemplate	"bossdeathsmoke" [$SIGSEGV]
+			AlwaysGlow	1 [$SIGSEGV]
+			AddCond "TF_COND_PREVENT_DEATH" [$SIGSEGV]  
+			UseHumanAnimations 1 [$SIGSEGV]   // Use normal class animations instead of a bot / custom model ones
 			ExtAttr IgnoreBuildings
 			UseMeleeThreatPrioritization 1
 			ItemAttributes
@@ -372,7 +372,7 @@ WaveSchedule
 				"use robot voice" 1
 				"displace touched enemies" 1
 			}
-			FireInput  
+			FireInput [$SIGSEGV]
 			{
 				Target !self
 				Action $SetLocalOrigin
@@ -381,7 +381,7 @@ WaveSchedule
 				Repeats 1
 				IfHealthBelow	15000
 			}
-			FireInput  
+			FireInput [$SIGSEGV]
 		    {
 				Target !self
 		    	Action $SetLocalOrigin
@@ -390,14 +390,14 @@ WaveSchedule
 				Repeats 1
 				IfHealthBelow	15000
 			}
-            Message  	
+            Message [$SIGSEGV]	
 			{
 				Name	"{blue}Field Marshal Mechanus {FFFFFF}has used their {9BBF4D}RECALL{FFFFFF} Power Up Canteen!"
 				Delay	1.75
 				Repeats	1
-				IfHealthBelow	25000
+				IfHealthBelow	15000
 			}
-            FireInput  
+            FireInput [$SIGSEGV]
             {
                 Target "player"
                 Action "$PlaySoundToSelf"
@@ -406,7 +406,7 @@ WaveSchedule
              	Repeats 1
 				IfHealthBelow	15000
             }
-			FireInput   //Enable buddha mode.
+			FireInput [$SIGSEGV] //Enable buddha mode.
 			{
  				Target !self
   				Action RunScriptCode
@@ -414,7 +414,7 @@ WaveSchedule
   				Repeats 1
   				Delay 0.1
 			}
-			FireInput   //Disable buddhamode.
+			FireInput [$SIGSEGV] //Disable buddhamode.
 			{
   				Target !self
   				Action RunScriptCode
@@ -423,7 +423,7 @@ WaveSchedule
   				Delay 4.5
   				IfHealthBelow 2
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
             {
                 Target !self //Entity name to use
                 Action "RunScriptCode" //Input to fire
@@ -441,48 +441,48 @@ WaveSchedule
 			Class			Soldier
 			Name			"Mining Supervisor"
 			ClassIcon		soldier_boss_visor
-			SpawnTemplate	"Distortion_Effect"  
-			SpawnTemplate	"bossdeathsmoke"  
+			SpawnTemplate	"Distortion_Effect" [$SIGSEGV]
+			SpawnTemplate	"bossdeathsmoke" [$SIGSEGV]
 			Health			67500
 			Attributes	"MiniBoss"
 			ExtAttr IgnoreBuildings
 			UseMeleeThreatPrioritization 1
-			ChangeAttributes      
+			ChangeAttributes [$SIGSEGV]    
 			{
 				Delay	0
 				Repeats	1
 				IfHealthBelow	55500
 				Name	"Soldier_Boss_Phase_2"
 			}
-			ChangeAttributes      
+			ChangeAttributes [$SIGSEGV]    
 			{
 				Delay	0
 				Repeats	1
 				IfHealthBelow	43000
 				Name	"Soldier_Boss_Phase_3"
 			}
-			ChangeAttributes      
+			ChangeAttributes [$SIGSEGV]    
 			{
 				Delay	0
 				Repeats	1
 				IfHealthBelow	33500
 				Name	"Soldier_Boss_Phase_4"
 			}
-			ChangeAttributes      
+			ChangeAttributes [$SIGSEGV]    
 			{
 				Delay	0
 				Repeats	1
 				IfHealthBelow	23000
 				Name	"Soldier_Boss_Phase_5"
 			}
-			ChangeAttributes      
+			ChangeAttributes [$SIGSEGV]    
 			{
 				Delay	0
 				Repeats	1
 				IfHealthBelow	11500
 				Name	"Soldier_Boss_Phase_6"
 			}
-			ChangeAttributes      
+			ChangeAttributes [$SIGSEGV]    
 			{
 				Delay	0
 				Repeats	1
@@ -500,7 +500,7 @@ WaveSchedule
 					Attributes	MiniBoss
 					Attributes	UseBossHealthBar
 					Skill	Expert
-					CustomEyeGlowColor	"255 0 0"  
+					CustomEyeGlowColor	"255 0 0" [$SIGSEGV]
 					//Attributes AlwaysCrit
 					WeaponRestrictions MeleeOnly
 					//Attributes HoldFireUntilFullReload
@@ -524,7 +524,7 @@ WaveSchedule
 						"displace touched enemies" 1
 					}
 				}
-				Soldier_Boss_Phase_2	// Burst Fire Shotgun Soldier
+				Soldier_Boss_Phase_2 [$SIGSEGV]	// Burst Fire Shotgun Soldier
 				{
 					Item	"Scotch Bonnet"
 					//Item	"Veterans Attire"
@@ -554,7 +554,7 @@ WaveSchedule
 						"cancel falling damage"	1
 					}
 				}
-				Soldier_Boss_Phase_3	// Nuke Rocket Launcher
+				Soldier_Boss_Phase_3 [$SIGSEGV]	// Nuke Rocket Launcher
 				{
 					Item	"Scotch Bonnet"
 					//Item	"Veterans Attire"
@@ -588,7 +588,7 @@ WaveSchedule
 						"cancel falling damage"	1
 					}
 				}
-				Soldier_Boss_Phase_4	//Rapid Fire Homing Soldier
+				Soldier_Boss_Phase_4 [$SIGSEGV]	//Rapid Fire Homing Soldier
 				{
 					Item	"Scotch Bonnet"
 					//Item	"Veterans Attire"
@@ -599,9 +599,9 @@ WaveSchedule
 					Attributes HoldFireUntilFullReload
 					//Attributes AlwaysFireWeapon	//may change this one and the attribute above later again
 					Tag	boss_death
-					AddCond "TF_COND_SODAPOPPER_HYPE"    
-					RocketCustomParticle eyeboss_projectile    
-					HomingRockets     
+					AddCond "TF_COND_SODAPOPPER_HYPE" [$SIGSEGV]  
+					RocketCustomParticle eyeboss_projectile [$SIGSEGV]  
+					HomingRockets [$SIGSEGV]   
             		{
 		   				IgnoreDisguisedSpies 1 // Default: 1
                 		IgnoreStealthedSpies 1 // Default: 1
@@ -635,7 +635,7 @@ WaveSchedule
 						"cancel falling damage"	1
 					}
 				}
-				Soldier_Boss_Phase_5	//Laser Wall (Oil Overflow Wave 6 Obstacle) Soldier (fixed)
+				Soldier_Boss_Phase_5 [$SIGSEGV]	//Laser Wall (Oil Overflow Wave 6 Obstacle) Soldier (fixed)
 				{
 					Item	"Scotch Bonnet"
 					//Item	"Veterans Attire"
@@ -670,7 +670,7 @@ WaveSchedule
 						"cancel falling damage"	1
 					}
 				}
-				Soldier_Boss_Phase_6	// Barrage Spammer Soldier
+				Soldier_Boss_Phase_6 [$SIGSEGV]	// Barrage Spammer Soldier
 				{
 					Item	"Scotch Bonnet"
 					//Item	"Veterans Attire"
@@ -680,7 +680,7 @@ WaveSchedule
 					WeaponRestrictions PrimaryOnly
 					Attributes HoldFireUntilFullReload
 					Tag	boss_death
-					AddCond "TF_COND_PREVENT_DEATH"    
+					AddCond "TF_COND_PREVENT_DEATH" [$SIGSEGV]  
 					ItemAttributes
 					{
 						ItemName	"Upgradeable TF_WEAPON_ROCKETLAUNCHER"
@@ -701,7 +701,7 @@ WaveSchedule
 						"Projectile speed decreased"	0.4
 					}
 				}
-				Soldier_Boss_Phase_7	// For the Taunt Death
+				Soldier_Boss_Phase_7 [$SIGSEGV]	// For the Taunt Death
 				{
 					Item	"Scotch Bonnet"
 					//Item	"Veterans Attire"
@@ -711,8 +711,8 @@ WaveSchedule
 					WeaponRestrictions PrimaryOnly
 					Attributes HoldFireUntilFullReload
 					Tag	boss_death
-					UseHumanAnimations 1    
-					AddCond "TF_COND_PREVENT_DEATH"    
+					UseHumanAnimations 1 [$SIGSEGV]  
+					AddCond "TF_COND_PREVENT_DEATH" [$SIGSEGV]  
 					ItemAttributes
 					{
 						ItemName	"Upgradeable TF_WEAPON_ROCKETLAUNCHER"
@@ -734,7 +734,7 @@ WaveSchedule
 					}
 				}
 			}
-			FireInput  
+			FireInput [$SIGSEGV]
 			{
     			Target !self
     			Action $removecond
@@ -747,7 +747,7 @@ WaveSchedule
     			//TargetMinRange x
     			//TargetMaxRange x
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
 			{
 				Target "tf_gamerules" //Entity name to use
 				Action "playvo" //Input to fire
@@ -758,7 +758,7 @@ WaveSchedule
 				IfHealthBelow 56000 //When set, the task activates only when the bot health is below specified value
 				//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
 			{
 				Target "tf_gamerules" //Entity name to use
 				Action "playvo" //Input to fire
@@ -769,7 +769,7 @@ WaveSchedule
 				IfHealthBelow 56000 //When set, the task activates only when the bot health is below specified value
 				//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
 			{
 				Target "tf_gamerules" //Entity name to use
 				Action "playvo" //Input to fire
@@ -780,7 +780,7 @@ WaveSchedule
 				IfHealthBelow 56000 //When set, the task activates only when the bot health is below specified value
 				//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
 			{
 				Target "tf_gamerules" //Entity name to use
 				Action "playvo" //Input to fire
@@ -791,7 +791,7 @@ WaveSchedule
 				IfHealthBelow 43500 //When set, the task activates only when the bot health is below specified value
 				//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
 			{
 				Target "tf_gamerules" //Entity name to use
 				Action "playvo" //Input to fire
@@ -802,7 +802,7 @@ WaveSchedule
 				IfHealthBelow 43500	//When set, the task activates only when the bot health is below specified value
 				//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
 			{
 				Target "tf_gamerules" //Entity name to use
 				Action "playvo" //Input to fire
@@ -813,7 +813,7 @@ WaveSchedule
 				IfHealthBelow 43500 //When set, the task activates only when the bot health is below specified value
 				//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
 			{
 				Target "tf_gamerules" //Entity name to use
 				Action "playvo" //Input to fire
@@ -824,7 +824,7 @@ WaveSchedule
 				IfHealthBelow 34000 //When set, the task activates only when the bot health is below specified value
 				//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
 			{
 				Target "tf_gamerules" //Entity name to use
 				Action "playvo" //Input to fire
@@ -835,7 +835,7 @@ WaveSchedule
 				IfHealthBelow 34000	//When set, the task activates only when the bot health is below specified value
 				//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
 			{
 				Target "tf_gamerules" //Entity name to use
 				Action "playvo" //Input to fire
@@ -846,7 +846,7 @@ WaveSchedule
 				IfHealthBelow 34000 //When set, the task activates only when the bot health is below specified value
 				//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
 			{
 				Target "tf_gamerules" //Entity name to use
 				Action "playvo" //Input to fire
@@ -857,7 +857,7 @@ WaveSchedule
 				IfHealthBelow 23500 //When set, the task activates only when the bot health is below specified value
 				//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
 			{
 				Target "tf_gamerules" //Entity name to use
 				Action "playvo" //Input to fire
@@ -868,7 +868,7 @@ WaveSchedule
 				IfHealthBelow 23500	//When set, the task activates only when the bot health is below specified value
 				//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
 			{
 				Target "tf_gamerules" //Entity name to use
 				Action "playvo" //Input to fire
@@ -879,7 +879,7 @@ WaveSchedule
 				IfHealthBelow 23500 //When set, the task activates only when the bot health is below specified value
 				//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
 			{
 				Target "tf_gamerules" //Entity name to use
 				Action "playvo" //Input to fire
@@ -890,7 +890,7 @@ WaveSchedule
 				IfHealthBelow 12000	//When set, the task activates only when the bot health is below specified value
 				//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
 			{
 				Target "tf_gamerules" //Entity name to use
 				Action "playvo" //Input to fire
@@ -901,7 +901,7 @@ WaveSchedule
 				IfHealthBelow 12000 //When set, the task activates only when the bot health is below specified value
 				//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
 			{
 				Target "tf_gamerules" //Entity name to use
 				Action "playvo" //Input to fire
@@ -912,7 +912,7 @@ WaveSchedule
 				IfHealthBelow 12000 //When set, the task activates only when the bot health is below specified value
 				//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 			}
-			FireInput     
+			FireInput [$SIGSEGV]   
             {
                 Target !self //Entity name to use
                 Action "RunScriptCode" //Input to fire
@@ -922,7 +922,7 @@ WaveSchedule
                 Repeats 100000 //How many times should the input be fired
                 IfHealthBelow 2 //When set, the task activates only when the bot health is below specified value
             }
-			FireInput   //Enable buddha mode.
+			FireInput [$SIGSEGV] //Enable buddha mode.
 			{
  				Target !self
   				Action RunScriptCode
@@ -930,7 +930,7 @@ WaveSchedule
   				Repeats 1
   				Delay 0.1
 			}
-			FireInput   //Disable buddhamode.
+			FireInput [$SIGSEGV] //Disable buddhamode.
 			{
   				Target !self
   				Action RunScriptCode
@@ -939,7 +939,7 @@ WaveSchedule
   				Delay 4.5
   				IfHealthBelow 2
 			}
-			FireInput  
+			FireInput [$SIGSEGV]
 			{
 				Target player
 				Action $SetProp$m_iszClassIcon
@@ -949,7 +949,7 @@ WaveSchedule
 				Repeats 1
 				IfHealthBelow 55500
 			}
-			FireInput  
+			FireInput [$SIGSEGV]
 			{
 				Target player
 				Action $SetProp$m_iszClassIcon
@@ -959,7 +959,7 @@ WaveSchedule
 				Repeats 1
 				IfHealthBelow 43000
 			}
-			FireInput  
+			FireInput [$SIGSEGV]
 			{
 				Target player
 				Action $SetProp$m_iszClassIcon
@@ -969,7 +969,7 @@ WaveSchedule
 				Repeats 1
 				IfHealthBelow 33500
 			}
-			FireInput  
+			FireInput [$SIGSEGV]
 			{
 				Target player
 				Action $SetProp$m_iszClassIcon
@@ -979,7 +979,7 @@ WaveSchedule
 				Repeats 1
 				IfHealthBelow 23000
 			}
-			FireInput  
+			FireInput [$SIGSEGV]
 			{
 				Target player
 				Action $SetProp$m_iszClassIcon
@@ -989,7 +989,7 @@ WaveSchedule
 				Repeats 1
 				IfHealthBelow 11500
 			}
-			FireInput  
+			FireInput [$SIGSEGV]
 			{
   				Target "bignet"
   				Action "RunScriptCode"
@@ -999,7 +999,7 @@ WaveSchedule
 				Cooldown 1
   				IfHealthBelow 2
 			}
-			Taunt      //Taunt periodically
+			Taunt [$SIGSEGV]    //Taunt periodically
 			{
 				Delay 0 //Time before the first taunt starts (Default: 10)
 				Cooldown 1 //Time between each taunt (Default: 10)
