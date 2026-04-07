@@ -2398,6 +2398,10 @@ population
 				Attributes	IgnoreFlag
 				Attributes	"MiniBoss"
 				Attributes	"AlwaysCrit"
+				CharacterAttributes
+                {
+                    "health drain" -99999
+                }
 			}
 		}
 		WaveSpawn
@@ -3492,6 +3496,10 @@ population
         	    Attributes  MiniBoss
         	    Attributes  AlwaysCrit
                 Class Soldier
+				CharacterAttributes
+                {
+                    "health drain" -99999
+                }
         	}
 		}
 	}
