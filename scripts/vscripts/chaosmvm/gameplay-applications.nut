@@ -1,7 +1,7 @@
 if(!("SetLibraryVersion" in getroottable()) || ("FatCatLibForce" in ROOT && FatCatLibForce == true))
 	IncludeScript("fatcat_library")
 
-SetScriptVersion("GameplayApplications", "4.0.1")
+SetScriptVersion("GameplayApplications", "4.1.0")
 
 local Thinker = CreateThinker("Thinker_GlobalGameText", "GameplayThink", THINKER_PERSIST)
 
@@ -294,6 +294,8 @@ function GameplayThink()
 
 function ROOT::ModifyCallbackDamage(params, victim, attacker, weapon, inflictor)
 {
+	if(params.damage_custom > (1<<7))
+		return
 	switch (params.damage_custom)
 	{
 	case TF_DMG_CUSTOM_BACKSTAB: {
@@ -310,6 +312,8 @@ function ROOT::ModifyCallbackDamage(params, victim, attacker, weapon, inflictor)
 			SoundRadius = (EBSettings.base_range + (iExplosiveShot * EBSettings.additive_range)) * 1
 			use_func_on_ignore = true
 			func = function(player) {
+				if(!player || !player.IsValid() || !player.IsPlayer())
+					return
 				player.StunPlayer(MATH.Clamp(iExplosiveShot - 1, 0, 2), 0.6, TF_STUN_MOVEMENT, attacker )
 			}
 		})
@@ -353,7 +357,8 @@ function ROOT::ModifyCallbackDamage(params, victim, attacker, weapon, inflictor)
 	case TF_DMG_CUSTOM_SPELL_MIRV:
 	case TF_DMG_CUSTOM_SPELL_METEOR:
 	case TF_DMG_CUSTOM_SPELL_BLASTJUMP: 
-		victim.AddCondEx(TF_COND_MARKEDFORDEATH, 10, attacker)
+		if(victim.IsPlayer())
+			victim.AddCondEx(TF_COND_MARKEDFORDEATH, 10, attacker)
 	break;
 	}
 }
@@ -413,6 +418,9 @@ function ROOT::ProcessChaosWeaponHit(params, victim, attacker, weapon, inflictor
 		if(!victim.IsPlayer())
 			break
 
+		if(inflictor && inflictor.GetOwner() && inflictor.GetOwner() == victim)
+			return
+
 		if( !victim.IsValidReprogramTarget() || victim.GetPlayerClass() == TF_CLASS_MEDIC || victim.GetTeam() == TF_TEAM_RED)
 		{
 			attacker.GetWeaponInSlotNew(SLOT_SECONDARY).IncreaseUberChargePercent(BlutsaugerSettings.refund)
@@ -469,7 +477,7 @@ ClearDamageCallbacks()
 
 
 RegisterDamageCallback("player", "GameplayPlayer" function(params) {
-	if(params.damage_custom == TF_DMG_CUSTOM_TRIGGER_HURT || params.damage_custom == TF_DMG_CUSTOM_IGNORE_EVENTS)
+	if((params.damage_custom & TF_DMG_CUSTOM_IGNORE_EVENTS) || params.damage_custom == TF_DMG_CUSTOM_TRIGGER_HURT)
 		return
 
 	local victim 	= params.victim
@@ -545,7 +553,7 @@ RegisterDamageCallback("player", "GameplayPlayer" function(params) {
 })
 
 RegisterDamageCallback(["obj_sentrygun", "obj_teleporter", "obj_dispenser", "tank_boss"], "GameplayOthers", function(params) {
-	if(params.damage_custom == TF_DMG_CUSTOM_TRIGGER_HURT || params.damage_custom == TF_DMG_CUSTOM_IGNORE_EVENTS)
+	if((params.damage_custom & TF_DMG_CUSTOM_IGNORE_EVENTS) || params.damage_custom == TF_DMG_CUSTOM_TRIGGER_HURT)
 		return
 
 	local victim 	= params.victim
@@ -575,10 +583,10 @@ RegisterDamageCallback(["obj_sentrygun", "obj_teleporter", "obj_dispenser", "tan
 })
 
 RegisterDamageCallback("tf_zombie", "GameplaySkeletons", function(params) {
-	if(params.damage_custom == TF_DMG_CUSTOM_IGNORE_EVENTS)
+	if(params.damage_custom & TF_DMG_CUSTOM_IGNORE_EVENTS)
 		return
 	params.damage = 0
-	params.victim.TakeDamageCustom(params.inflictor, params.attacker, null, Vector(), Vector(), 5.0, DMG_GENERIC, TF_DMG_CUSTOM_IGNORE_EVENTS)
+	params.victim.TakeDamageCustom(params.inflictor, params.attacker, null, Vector(), Vector(), 5.0, DMG_GENERIC, TF_DMG_CUSTOM_NO_CALLBACKS)
 })
 
 

@@ -170,10 +170,10 @@ function ROOT::SetLibrarySettings(settings_table = {})
 function ROOT::ToggleForceFlag( bool )
 	::FatCatLibForce <- bool
 
-if (!SetLibraryVersion("1.16.1", 0))
+if (!SetLibraryVersion("1.16.3", 0))
 	return
 
-SetLibraryTimeStamp("4-1-2026_23:59 -uwu")
+SetLibraryTimeStamp("4-7-2026_00:56")
 
 SetLibrarySettings({
 	// KillWatchViewmodels = false
@@ -479,9 +479,17 @@ BONUS_EFFECT_REMAP[kBonusEffect_Stomp] 					= BONUS_EFFECT_STOMP
 ::SF_TRIGGER_ONLY_NPCS_IN_VEHICLES 			<- (1<<11)
 ::SF_TRIGGER_DISALLOW_BOTS 					<- (1<<12)
 
+
 ////////// Custom DamageCustoms
-::TF_DMG_CUSTOM_IGNORE_EVENTS 	<- -1
-::TF_DMG_CUSTOM_BYPASS		 	<- -1
+::TF_DMG_CUSTOM_IGNORE_EVENTS 			<- (1<<7)
+::TF_DMG_CUSTOM_NO_CALLBACKS 			<- (1<<8)
+::TF_DMG_CUSTOM_NO_CALLBACKS_IGNORE 	<- (TF_DMG_CUSTOM_IGNORE_EVENTS|TF_DMG_CUSTOM_NO_CALLBACKS)
+
+function ROOT::IsCustomFlags(dmg_custom)
+	return dmg_custom >= (1<<7)
+
+function ROOT::HasFCUSTOMDmgCustom(dmg_custom)
+	return dmg_custom >= (1<<7)
 
 ////////// RUNES
 ::RUNE_NONE 				<- -1
@@ -604,10 +612,13 @@ ROOT.GetCvarString <- ROOT.GetCvarStr
 
 ///////////////////////////////////////
 function CTFPlayer::PrintToHud(message)
-	ClientPrint(this, 4, message != null ? message.tostring() : NULL_S)
+	ClientPrint(this, HUD_PRINTCENTER, message != null ? message.tostring() : NULL_S)
 
 function CTFPlayer::PrintToChat(message)
-	ClientPrint(this, 3, message != null ? message.tostring() : NULL_S)
+	ClientPrint(this, HUD_PRINTTALK, message != null ? message.tostring() : NULL_S)
+
+function CTFPlayer::PrintToConsole(message)
+	ClientPrint(this, HUD_PRINTCONSOLE, message != null ? message.tostring() : NULL_S)
 
 function CTFPlayer::IsOnGround()
 	return GetPropEntity(this, "m_hGroundEntity") != null
@@ -2065,8 +2076,8 @@ function CTFPlayer::AddPreservedThink(delay, func, offset = 0.0, name = null)
  * 
  * @param {float}	 	delay 	The Time Inbetween each think (set to below 0 for every tick thinking).
  * @param {function} 	func 	The Think Function.
- * @param {float} 		offset 	Time offset of the next Think.
- * @param {name} 		func 	The Think function name in the ThinkTable (used for removing a think).
+ * @param {float} 		[offset] 	Time offset of the next Think. (Default: 0.0)
+ * @param {string|null} [name] 	The Think function name in the ThinkTable (used for removing a think). (Default: null)
  */
 function CTFPlayer::AddThink(delay, func, offset = 0.0, name = null)
 {
@@ -3089,88 +3100,71 @@ function ROOT::GetWeaponInSlot(player = null, slot = 0)
 	return player.GetWeaponInSlot(slot)
 }
 
-///////// Printing functions
-function ROOT::PrintToHudAll(message)
-	ClientPrint(null, 4, message == null ? NULL_S : message.tostring())
+function ROOT::CleanUpAndFormatString(msg, ...)
+{
+	if(msg == null)
+		msg = "NULL"
+	else 
+		msg = msg.tostring()
 
-function ROOT::PrintToChatAll(message)
-	ClientPrint(null, 3, message == null ? NULL_S : message.tostring())
+	local args = vargv
+
+	local leng = args.len()
+
+	for (local i = 0; i < leng; i++) 
+	{
+		if(args[i] == null)
+			args[i] = "NULL"
+	}
+
+	if (leng > 0)
+		msg = format.acall([this, msg].extend(args))
+
+	return msg
+}
+
+///////// Printing functions
+////// HUD PRINTS //////
+function ROOT::PrintToHudAll(msg)
+	ClientPrint(null, HUD_PRINTCENTER, msg == null ? NULL_S : msg.tostring())
+	
+function ROOT::PrintToHudAllF(msg, ...)
+	ClientPrint(null, HUD_PRINTCENTER, CleanUpAndFormatString(msg, vargv))
+
+function ROOT::PrintToHudAllFilter(msg, filter = [])
+{
+	ReCalculatePlayers()
+	local plrs = Players.filter(@(i, p) !IsInArray(p, filter))
+	foreach (player in plrs)
+		player.PrintToHud(msg)
+}
+///// CHAT PRINTS /////
+function ROOT::PrintToChatAll(msg)
+	ClientPrint(null, HUD_PRINTTALK, msg == null ? NULL_S : msg.tostring())
 
 function ROOT::PrintToChatAllF(msg, ...)
-{
-	if(msg == null)
-		msg = "NULL"
-	else 
-		msg = msg.tostring()
-
-	local args = vargv
-
-	local leng = args.len()
-
-	for (local i = 0; i < leng; i++) 
-	{
-		if(args[i] == null)
-			args[i] = "NULL"
-	}
-
-	if (leng > 0)
-		msg = format.acall([this, msg].extend(args))
-
-	ClientPrint(null, 3, msg)
-}
-function ROOT::PrintToHudAllF(msg, ...)
-{
-	if(msg == null)
-		msg = "NULL"
-	else 
-		msg = msg.tostring()
-
-	local args = vargv
-
-	local leng = args.len()
-
-	for (local i = 0; i < leng; i++) 
-	{
-		if(args[i] == null)
-			args[i] = "NULL"
-	}
-
-	if (leng > 0)
-		msg = format.acall([this, msg].extend(args))
-
-	ClientPrint(null, 2, msg)
-}
+	ClientPrint(null, HUD_PRINTTALK, CleanUpAndFormatString(msg, vargv))
 
 function ROOT::TranslateToChatAll( ... )
 {
 	foreach (player in m_aHumans)
-	{
 		player.TranslateToChat.acall([player].extend(vargv))
-	}
 }
 
-function ROOT::PrintToChatAllFilter(message, filter = [])
+function ROOT::PrintToChatAllFilter(msg, filter = [])
 {
 	ReCalculatePlayers()
-	foreach (player in Players)
-	{
-		if(IsInArray(player, filter))
-			continue
-		player.PrintToChat(message)
-	}
+	local plrs = Players.filter(@(i, p) !IsInArray(p, filter))
+	foreach (player in plrs)
+		player.PrintToChat(msg)
 }
 
-function ROOT::PrintToHudAllFilter(message, filter = [])
-{
-	ReCalculatePlayers()
-	foreach (player in Players)
-	{
-		if(IsInArray(player, filter))
-			continue
-		player.PrintToHud(message)
-	}
-}
+///// CONSOLE PRINTS /////
+// TODO: Add to Snippets
+function ROOT::PrintToConsoleAll(msg)
+	ClientPrint(null, HUD_PRINTCONSOLE, msg == null ? NULL_S : msg.tostring())
 
+///// OTHER PRINTS /////
 function ROOT::PrintToAdmins(level, message)
 {
 	foreach (player in m_aHumans)
@@ -3193,9 +3187,6 @@ function ROOT::PrintClass(clas, filter = [])
 
 function ROOT::PrintCollection(collection, filter = [], indentation = 0, no_indent_header = false)
 {
-	// if (type(collection) == "instance")
-		// collection = collection.getclass()
-
 	local type = typeof collection
 	if(type != "table" && type != "array" && type != "class")
 	{
@@ -3217,9 +3208,6 @@ function ROOT::PrintCollection(collection, filter = [], indentation = 0, no_inde
 		// Skip internal Squirrel variables and filtered keys
 		if(key == "__vname" || key == "__vrefs") continue
 		if(IsInArray(key, filter)) continue
-		
-		// if (type(value) == "instance")
-			// value = value.getclass()
 
 		local valType = typeof value
 		if(IsInArray(valType, filter)) continue
@@ -3235,59 +3223,35 @@ function ROOT::PrintCollection(collection, filter = [], indentation = 0, no_inde
 			PrintCollection(value, filter, indentation + 1, true)
 		}
 		else if(valType == "function" || valType == "native function")
-		{
 			printl(itemIndents + "function (" + keyDisplay + "): " + value)
-		}
 		else
-		{
 			printl(itemIndents + keyDisplay + " : " + value)
-		}
 	}
 	printl(indents + ((type == "table" || type == "class") ? "}" : "]"))
 }
 
-// function ROOT::PrintClass(clas, filter = "")
-// {
-// 	PrintCollection(clas)
-// 	return
-// 	if( typeof clas != "class")
-// 	{
-// 		printl("Trying to PrintClass() an " + typeof clas)
-// 		return
-// 	}
-
-// 	foreach (item, value in clas)
-// 	{
-// 		if(typeof value != filter)
-// 		{
-// 			printl(typeof value + "\t" + item + "\t:\t" + value)
-// 		}
-// 	}
-// }
-
 //// Entity Debug
-function ROOT::ShowBBOX(entity = null, rgba = Vector(255, 0, 0), alpha = 5, duration = 1)
+function ROOT::ShowBBOX(entity = null, rgba = Vector(255, 0, 0), alpha = 5, duration = 5)
 {
 	Assert(entity, "ROOT::ShowBBOX Missing Entity")
 	DebugDrawBox(entity.GetOrigin(), entity.GetBoundingMins(), entity.GetBoundingMaxs(), rgba.x, rgba.y, rgba.z, alpha,  duration)
 }
 
-function ROOT::ShowOBB(entity = null, rgba = Vector(255, 0, 0), alpha = 5, duration = 1)
+function ROOT::ShowOBB(entity = null, rgba = Vector(255, 0, 0), alpha = 5, duration = 5)
 {
 	Assert(entity, "ROOT::ShowOBB Missing Entity")
 	DebugDrawBoxAngles(entity.GetOrigin(), entity.GetBoundingMins(), entity.GetBoundingMaxs(), entity.GetAbsAngles(), Vector(rgba.x, rgba.y, rgba.z), alpha, duration)
 }
 
-function ROOT::ShowAABB(entity = null, rgba = Vector(255, 0, 0), alpha = 5, duration = 1)
+function ROOT::ShowAABB(entity = null, rgba = Vector(255, 0, 0), alpha = 5, duration = 5)
 {
 	Assert(entity, "ROOT::ShowAABB Missing Entity")
 	DebugDrawBox(entity.GetOrigin(),entity.GetBoundingMins(), entity.GetBoundingMaxs(), rgba.x, rgba.y, rgba.z, alpha, duration)
 }
 
-function ROOT::DebugDrawTrigger(trigger = null, color = Vector(255, 128, 0), alpha = 1, duration = 5)
+function ROOT::DebugDrawTrigger(trigger = null, color = Vector(255, 128, 0), alpha = 5, duration = 5)
 {
 	Assert(trigger, "ROOT::DebugDrawTrigger Missing Trigger")
-	if( !trigger ) return
 
 	if (trigger.GetSolid() == 2)
 		DebugDrawBox(trigger.GetOrigin(), GetPropVector(trigger, "m_Collision.m_vecMins"), GetPropVector(trigger, "m_Collision.m_vecMaxs"), color.x, color.y, color.z, alpha, duration)
@@ -3311,14 +3275,19 @@ function ROOT::EnableStringPurge(entity)
 function ROOT::CreateByClassname(classname)
 	return EnableStringPurge(Entities.CreateByClassname(classname))
 
+/// DISPATCH SPAWN NOT NEEDED
+
 function ROOT::FindByClassname(previous, classname)
 	return EnableStringPurge(Entities.FindByClassname(previous, classname))
 
-function ROOT::FindByClassnameWithin(previous, classname, center, radius)
-	return EnableStringPurge(Entities.FindByClassnameWithin(previous, classname, center, radius))
-
 function ROOT::FindByClassnameNearest(classname, center,radius)
 	return EnableStringPurge(Entities.FindByClassnameNearest(classname, center, radius))
+
+function ROOT::FindByClassnameWithin(previous, classname, center, radius)
+	return EnableStringPurge(Entities.FindByClassnameWithin(previous, classname, center, radius))
+// TODO: Add to Snippets
+function ROOT::FindByModel(previous, modelname)
+	return EnableStringPurge(Entities.FindByModel(previous, modelname))
 
 function ROOT::FindByName(previous, name)
 	return EnableStringPurge(Entities.FindByName(previous, name))
@@ -3328,6 +3297,20 @@ function ROOT::FindByNameNearest(targetname, center, radius)
 
 function ROOT::FindByNameWithin(previous, targetname, center, radius)
 	return EnableStringPurge(Entities.FindByNameWithin(previous, targetname, center, radius))
+// TODO: Add to Snippets
+function ROOT::FindByTarget(previous, target)
+	return EnableStringPurge(Entities.FindByTarget(previous, target))
+// TODO: Add to Snippets
+function ROOT::FindInSphere(previous, center, radius)
+	return EnableStringPurge(Entities.FindInSphere(previous, center, radius))
+// TODO: Add to Snippets
+function ROOT::First()
+	return EnableStringPurge(Entities.First())
+// TODO: Add to Snippets
+function ROOT::Next(previous)
+	return EnableStringPurge(Entities.Next(previous))
+
+
 
 if (!("SpawnEntityFromTableOriginal" in ROOT))
    ::SpawnEntityFromTableOriginal <- ::SpawnEntityFromTable
@@ -3860,11 +3843,7 @@ function ROOT::SetCvar(convar, value, admin_notify = false, notify_all = false)
 }
 
 function ROOT::IsPotato()
-{
-	if(!IsConvarAllowed("sv_tags"))
-		return false
-	return split(GetCvarStr("sv_tags"), ",").find("potato") != null
-}
+	return "__potato" in ROOT
 
 function ROOT::EntFireNew(target, action, input = "", delay = -1, activator = null, caller = null)
 {
@@ -4054,6 +4033,11 @@ function Vector::Random(min, max)
 	this.z = min + (::RandomInt(0, 0x7FFF).tofloat() / 0x7FFF) * (max - min);
 }
 
+function Vector::DistanceTo(point2)
+{
+	return (this-point2).Length()
+}
+
 function Vector2D::Normalize()
 {
 	local new = this + ::Vector2D()
@@ -4067,6 +4051,7 @@ function ROOT::DummyN( ... )
 	return 1
 function ROOT::DummyV( ... )
 	return Vector()
+
 
 function ROOT::min(a, b)
 {
@@ -4114,53 +4099,59 @@ function ROOT::ConvertRadiusToSndLvl(radius)
 	return (40 + (20 * log10(radius / 36.0))).tointeger()
 }
 
+// function ROOT::GetVisibleEntities(ent, point, )
+
 if(!("CORROSION_ICON" in ROOT))
 	::CORROSION_ICON <- CreateKillIcon("infection_acid_puddle")
 ////
 /**
  * Creates a base explosion to use
  * 
- * @param {entity} 		owner 			The player to report the damage to.
- * @param {entity|null}	weapon 			The weapon to give credit to.
- * @param {entity[]}	ignores 		The Entitys to ignore for the explosion (usually the victim).
- * @param {string} 		sound 			The sound to play on explosion.
- * @param {float} 		radius 			The radius of the explosion.
- * @param {vector} 		origin 			The origin of the explosion.
- * @param {float} 		damage 			The damage dealt at the center.
- * @param {float} 		MinDamage 		The damage dealt at the edge.
- * @param {float} 		DamageDeadzone	The radius from the center where zero falloff occurs.
- * @param {string}		particle 		The explosion particle.
- * @param {vector}		particle_ang	The angle of the explosion particle.
- * @param {vector}		particle_offset	How much to offset the explosion particle spawn.
- * @param {long}		DmgType 		The damage types to use (add DMG_RADIUS_MAX to ignore damage falloff).
- * @param {float}		SoundRadius		The radius the sound travels.
- * @param {float}		SoundDelay		Cooldown between explosion sounds.
- * @param {function}	ExplodeFunc		Callback function for players hit.
- * @param {bool}		FuncBeforeDmg	If true, call ExplodeFunc before dealing damage.
- * @param {bool}		FuncOnIgnore	If true, call ExplodeFunc on ignored targets.
+ * @param {entity} 		owner 				The player to report the damage to.
+ * @param {entity|null}	[weapon] 			The weapon to give credit to. (Default: null)
+ * @param {entity[]}	[ignores] 			The Entitys to ignore for the explosion (usually the victim). (Default: [])
+ * @param {string} 		[sound] 			The sound to play on explosion. (Default: "")
+ * @param {float} 		[radius] 			The radius of the explosion. (Default: 147.0)
+ * @param {vector} 		[origin] 			The origin of the explosion. (Default: Vector())
+ * @param {float} 		[damage] 			The damage dealt at the center. (Default: 90.0)
+ * @param {float} 		[MinDamage] 		The damage dealt at the edge. (Default: damage/2.0)
+ * @param {float} 		[DamageDeadzone]	The radius from the center where zero falloff occurs. (Default: 0.0)
+ * @param {string}		[particle] 			The explosion particle. (Default: "")
+ * @param {vector}		[particle_ang]		The angle of the explosion particle. (Default: QAngle(-90, 0, 0))
+ * @param {vector}		[particle_offset]	How much to offset the explosion particle spawn. (Default: Vector())
+ * @param {long}		[DmgType] 			The damage types to use (add DMG_RADIUS_MAX to ignore damage falloff). (Default: DMG_GENERIC|DMG_BLAST)
+ * @param {float}		[SoundRadius]		The radius the sound travels. (Default: radius)
+ * @param {float}		[SoundDelay]		Cooldown between explosion sounds. (Default: 0.5)
+ * @param {function}	[ExplodeFunc]		Callback function for players hit. (Default: null)
+ * @param {bool}		[FuncBeforeDmg]		If true, call ExplodeFunc before dealing damage. (Default: false)
+ * @param {bool}		[FuncOnIgnore]		If true, call ExplodeFunc on ignored targets. (Default: false)
+ * @param {bool}		[OnlyPlayers]		If true, only collect players to attack. (Default: false)
+ * @param {bool}		[FuncIgnoreObjects]	If true, ignore non-players when calling ExplodeFunc. (Default: false)
  */
 function ROOT::CreateBaseExplosion(table)
 {
-	local owner 			= "owner" 			in table ? table.owner 				: null
-	local weapon 			= "weapon" 			in table ? table.weapon 			: null
-	local sound 			= "sound" 			in table ? table.sound 				: ""
-	local origin 			= "origin" 			in table ? table.origin 			: owner && owner.IsPlayer() ? owner.GetCenter() : Vector()
-	local radius 			= "radius" 			in table ? table.radius 			: 147.0
-	local damage 			= "damage" 			in table ? table.damage.tofloat() 	: 90.0
-	local MinDamage 		= "MinDamage" 		in table ? table.MinDamage	 		: damage.tofloat()/2.0
-	local DamageDeadzone 	= "DamageDeadzone" in table ? table.DamageDeadzone		: 0.0
-	local trace 			= "trace" 			in table ? table.trace	 			: true
-	local particle 			= "particle" 		in table ? table.particle 			: ""
-	local particle_ang 		= "particle_ang"	in table ? table.particle_ang 		: QAngle(-90, 0, 0)
-	local particle_offset 	= "particle_offset"	in table ? table.particle_offset 	: Vector()
-	local DmgType 			= "DmgType" 		in table ? table.DmgType 			: DMG_GENERIC|DMG_BLAST
-	local FuncBeforeDmg		= "FuncBeforeDmg"	in table ? table.FuncBeforeDmg 		: false
-	local ExplodeFunc		= "ExplodeFunc"		in table ? table.ExplodeFunc		: function(player) { /* do what you want on explosion */ }
-	local ignores			= "ignores"			in table ? table.ignores			: []
-	local FuncOnIgnore		= "FuncOnIgnore"	in table ? table.FuncOnIgnore 		: false
+	local owner 			= "owner" 				in table ? table.owner 				: null
+	local weapon 			= "weapon" 				in table ? table.weapon 			: null
+	local sound 			= "sound" 				in table ? table.sound 				: ""
+	local origin 			= "origin" 				in table ? table.origin 			: owner && owner.IsPlayer() ? owner.GetCenter() : Vector()
+	local radius 			= "radius" 				in table ? table.radius 			: 147.0
+	local damage 			= "damage" 				in table ? table.damage.tofloat() 	: 90.0
+	local MinDamage 		= "MinDamage" 			in table ? table.MinDamage	 		: damage.tofloat()/2.0
+	local DamageDeadzone 	= "DamageDeadzone" 		in table ? table.DamageDeadzone		: 0.0
+	local trace 			= "trace" 				in table ? table.trace	 			: true
+	local particle 			= "particle" 			in table ? table.particle 			: ""
+	local particle_ang 		= "particle_ang"		in table ? table.particle_ang 		: QAngle(-90, 0, 0)
+	local particle_offset 	= "particle_offset"		in table ? table.particle_offset 	: Vector()
+	local DmgType 			= "DmgType" 			in table ? table.DmgType 			: DMG_GENERIC|DMG_BLAST
+	local FuncBeforeDmg		= "FuncBeforeDmg"		in table ? table.FuncBeforeDmg 		: false
+	local ExplodeFunc		= "ExplodeFunc"			in table ? table.ExplodeFunc		: function(player) { /* do what you want on explosion */ }
+	local ignores			= "ignores"				in table ? table.ignores			: []
+	local OnlyPlayers		= "OnlyPlayers"			in table ? table.OnlyPlayers		: false
+	local FuncOnIgnore		= "FuncOnIgnore"		in table ? table.FuncOnIgnore 		: false
+	local FuncIgnoreObjects	= "FuncIgnoreObjects"	in table ? table.FuncIgnoreObjects 	: false
 
-	local SoundRadius 		= "SoundRadius" 	in table ? table.SoundRadius 		: radius
-	local SoundDelay 		= "SoundDelay" 		in table ? table.SoundDelay 		: 0.5
+	local SoundRadius 		= "SoundRadius" 		in table ? table.SoundRadius 		: radius
+	local SoundDelay 		= "SoundDelay" 			in table ? table.SoundDelay 		: 0.5
 
 	Assert(owner && owner.IsPlayer(), "CreateBaseExplosion currently need a owner")
 
@@ -4174,25 +4165,31 @@ function ROOT::CreateBaseExplosion(table)
 	// always update the list (could be expensive but this func is not run often)
 	ReCalculatePlayers()
 
-	local targets = Players.filter(@(i, p) p.GetTeam() != owner.GetTeam() ).extend(GetAllEntitiesByClassname("tank_boss"))
+	local targets = Players.filter(@(i, p) p.GetTeam() != owner.GetTeam() )
+
+	if(!OnlyPlayers)
+	{
+		targets.extend(GetAllEntitiesByClassnameWithin("tank_boss", origin, radius).filter(@(i, ent) ent.GetTeam() != owner.GetTeam() ))
+		targets.extend(GetAllEntitiesByClassnameWithin("obj*", origin, radius).filter(@(i, ent) ent.GetClassname() != "obj_attachment_sapper").filter(@(i, ent) ent.GetTeam() != owner.GetTeam()))
+	}
 
 	DebugDrawClear()
-	foreach (player in targets)
+	foreach (entity in targets)
 	{
-		local isIgnored = ignores.find(player) != null
-		local delta = player.GetCenter() - origin
+		local isIgnored = ignores.find(entity) != null
+		local delta = entity.GetCenter() - origin
 		local distance = delta.Length()
 
 		if(distance > radius)
 			continue
 
-		if(trace && !CanPointSeePoint(origin, player.GetCenter()))
+		if(trace && !CanPointSeePoint(origin, entity.GetCenter()))
 			continue
 
 		if(isIgnored)
 		{
-			if(FuncOnIgnore)
-				ExplodeFunc(player)
+			if(FuncOnIgnore && (!FuncIgnoreObjects || entity.IsPlayer()))
+				ExplodeFunc(entity)
 			continue
 		}
 
@@ -4205,10 +4202,13 @@ function ROOT::CreateBaseExplosion(table)
 				currentDamage = MATH.RemapVal(distance, DamageDeadzone, radius, damage, MinDamage)
 			// printl("DEBUG: Dist: " + distance + " | Rad: " + radius + " | Deadzone: " + DamageDeadzone + " | Dmg: " + damage + " | MinDmg: " + MinDamage + " | Final: " + currentDamage)
 		}
-		// DebugDrawText(player.GetCenter(),currentDamage.tostring(), false, 60)
-		if(FuncBeforeDmg) ExplodeFunc(player)
-		player.TakeDamageCustom(owner, owner, weapon, Vector(), Vector(), currentDamage, DmgType, TF_DMG_CUSTOM_TRIGGER_HURT)
-		if(!FuncBeforeDmg) ExplodeFunc(player)
+		// DebugDrawText(entity.GetCenter(),currentDamage.tostring(), false, 60)
+
+		if(FuncBeforeDmg && (!FuncIgnoreObjects || entity.IsPlayer())) 
+			ExplodeFunc(entity)
+		entity.TakeDamageCustom(owner, owner, weapon, Vector(), Vector(), currentDamage, DmgType, TF_DMG_CUSTOM_TRIGGER_HURT)
+		if(!FuncBeforeDmg && (!FuncIgnoreObjects || entity.IsPlayer())) 
+			ExplodeFunc(entity)
 	}
 
 	DebugDrawCircle(origin, Vector(255, 0, 0), 50, radius, false, 15)
@@ -4241,10 +4241,10 @@ function ROOT::CreateBaseExplosion(table)
  * @param {float} 		radius		How big the explosion can hit.
  * @param {float} 		maxDmg		The Maximum damage to deal.
  * @param {float} 		minDmg		The Minimum damage to deal.
- * @param {entity[]}	ignore		What entitys to ignore in the explosion.
- * @param {int}			dmg_Type	DMG_ type to mark the damage as.
- * @param {string}		sound		Sound to play on explosion.
- * @param {string}		particle	Particle to spawn on explosion.
+ * @param {entity[]}	[ignore]	What entitys to ignore in the explosion. (Default: [])
+ * @param {int}			[dmg_Type]	DMG_ type to mark the damage as. (Default: DMG_BLAST)
+ * @param {string}		[sound]		Sound to play on explosion. (Default: "weapons/explode1.wav")
+ * @param {string}		[particle]	Particle to spawn on explosion. (Default: "ExplosionCore_Wall")
  */
 function ROOT::CreateAoE(owner, center, radius, maxDmg, minDmg, ignore = [], dmg_Type = DMG_BLAST, sound = "weapons/explode1.wav", particle = "ExplosionCore_Wall")
 {
@@ -4311,6 +4311,7 @@ function ROOT::CreateKnifeAoETable(table)
 		FuncBeforeDmg = true,
 		FuncOnIgnore = true,
 		ExplodeFunc = table.func
+		FuncIgnoreObjects = true
 	})
 }
 
@@ -4528,6 +4529,7 @@ function ROOT::RemoveDamageCallback(entity_name, callback_name)
 
 		if(RegisteredDmgCallbacks[entity_name].len() == 0)
 			delete RegisteredDmgCallbacks[entity_name]
+		return
 	}
 
 	if(typeof entity_name != "array")
@@ -4535,6 +4537,8 @@ function ROOT::RemoveDamageCallback(entity_name, callback_name)
 
 	foreach (entity in entity_name)
 	{
+		if(typeof entity != "string")
+			continue
 		if(IsNotInTable(entity, RegisteredDmgCallbacks))
 			continue
 
@@ -4545,21 +4549,6 @@ function ROOT::RemoveDamageCallback(entity_name, callback_name)
 			delete RegisteredDmgCallbacks[entity]
 	}
 }
-// TODO: REPLACE WITH THE EVENT HANDLING THIS DATA
-function ROOT::CallbackDataReturn(data, params)
-{
-	if(data == null || typeof data != "table" || params == null || typeof params != "table")
-	{
-		throw "Damage Callback data or CONST_DATA is either NULL or not a Table!\nDid you forget to return params and CONST_DATA?"
-		return null
-	}
-	foreach ( key, value in data )
-	{
-		params[key] <- value
-	}
-	return params
-}
-
 // TODO: Add to Snippets
 function ROOT::ParamsToDamageCallbackData(params)
 	return {
@@ -4603,7 +4592,6 @@ if(!("m_aHumans" in ROOT))
 
 if(!("m_aRobots" in ROOT))
 	::m_aRobots <- []
-
 
 if(!("PlayerArray" in ROOT))
 	::PlayerArray <- []
@@ -4718,18 +4706,8 @@ CreateThinker("OnEntityPostSpawn" , function() {
 	// entity.SetAbsAngles(owner.EyeAngles())
 	entity.SetForwardVector(Vector(1, 0 ,0))
 })
+*/
 
-function ROOT::ProjectileThink()
-{
-	DebugDrawText(self.GetOrigin(), "(["+self.entindex()+"]"+self.GetClassname()+")", false, 0.015)
-	return -1
-} */
-
-/* RegisterDamageCallback("player", "FUCK THIS SHIT", function(params, CONST_DATA) {
-	params.damage = 10
-
-	return CallbackDataReturn(params, CONST_DATA)
-}) */
 
 // Makes Custom Events to listen to
 ::ChaosCustomEvents <- {
@@ -4764,9 +4742,7 @@ function ROOT::ProjectileThink()
 		eventdata.weaponIDX <- params.weapon_def_index
 		eventdata.inflictor <- EntIndexToHScript(params.inflictor_entindex)
 		if(attacker && attacker.IsPlayer() && attacker.HasWeapon(eventdata.weaponIDX))
-		{
 			eventdata.weapon <- attacker.GetWeapon(eventdata.weaponIDX)
-		}
 		else eventdata.weapon <- null
 
 		if(eventdata.rocket_jump != 0) 	eventdata.rocket_jump <- true
@@ -4808,6 +4784,11 @@ function ROOT::ProjectileThink()
 	}
 	function OnScriptHook_OnTakeDamage(params)
 	{
+		if(params.damage_custom & TF_DMG_CUSTOM_IGNORE_EVENTS)
+		{
+			params.early_out = true
+			return
+		}
 		local eventdata = clone params
 
 		local victim = params.const_entity
@@ -4859,7 +4840,7 @@ function ROOT::ProjectileThink()
 		delete eventdata.damaged_other_players
 
 
-		if(victim.GetClassname() in RegisteredDmgCallbacks)
+		if(victim.GetClassname() in RegisteredDmgCallbacks && !(params.damage_custom & TF_DMG_CUSTOM_NO_CALLBACKS))
 		{
 			foreach (callback_name, callback in RegisteredDmgCallbacks[victim.GetClassname()])
 			{
@@ -4957,12 +4938,10 @@ function ROOT::ProjectileThink()
 		if(!eventdata.player.IsBot())
 		{
 			eventdata.player.SetUpThinkTable()
-			if("PreservedThinks" in GetScope(eventdata.player))
+			if("PreservedThinks" in GetScope(eventdata.player) && GetScope(eventdata.player).PreservedThinks.len() != 0)
 			{
 				foreach (name, data in GetScope(eventdata.player).PreservedThinks)
-				{
 					eventdata.player.AddPreservedThink(data.delay, data.func, data.offset, name)
-				}
 			}
 		}
 		// overridden
@@ -5175,8 +5154,7 @@ function ROOT::ProjectileThink()
 
 		if ( player in HumanArray )
 			delete HumanArray[ player ]
-
-		// this is normally not needed, but certain missions (red ridge) will kick bots instead of moving them to spectator
+			
 		if ( player in BotArray )
 			delete BotArray[ player ]
 
@@ -5233,7 +5211,6 @@ function ROOT::ProjectileThink()
 
 		ValidatePlayers()
 	}
-
 
 	function OnGameEvent_mvm_wave_failed(_)
 	function OnGameEvent_mvm_wave_complete(_)
@@ -5481,7 +5458,7 @@ seterrorhandler(function(e)
 			continue
 		STACK.append(format("%s line [%d]\n", s.src, s.line))
 	}
-	local Chat = @(m) (printl(m))
+	local Chat = @(m) ("PrintToConsoleAll" in ROOT ? PrintToConsoleAll(m) : ClientPrint(null, HUD_PRINTCONSOLE, m))
 	if(!("ConsoleErrors" in FatCatLibSettings) || !("PublicErrors" in FatCatLibSettings))
 		SetLibrarySettings({}) // Init settings to default
 	
@@ -5490,7 +5467,7 @@ seterrorhandler(function(e)
 
 	if(public == true)
 	{
-		PrintToChatAll(format("\x07FF0000A VSCRIPT ERROR HAS OCCURRED [%s].", e)+" Please report to @The Fatcat in #bug-reports" + " with a screenshot")
+		PrintToChatAll("\x07FF0000A VSCRIPT ERROR HAS OCCURRED ["+e+"]. Please report to @The Fatcat in #bug-reports with a screenshot")
 
 		foreach (stackinfo in STACK)
 		{
@@ -5530,4 +5507,4 @@ seterrorhandler(function(e)
 
 	return
 })
-printl("Included Library Successfully")
+PrintToConsoleAll("Included Library Successfully")
