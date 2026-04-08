@@ -1599,7 +1599,7 @@ WaveSchedule
 				"OnTrigger" "tf_gamerules,PlayVO,vo\soldier_paincrticialdeath03.mp3,0,-1"
 				"OnTrigger" "end_times_hurter,Enable,,0,-1"
 				"OnTrigger" "@p@hydrogen_target,$ChangeAttributes,Passive,0,-1"
-				"OnTrigger" "@p@hydrogen_target,$ChangeAttributes,Hostile,12,-1"
+				"OnTrigger" "@p@hydrogen_target,$ChangeAttributes,Hostile_Primary,12,-1"
 			}
 		}
 
@@ -5401,6 +5401,14 @@ WaveSchedule
 
 			SpawnTemplate "Hydrogen_Pointtemplate"
 
+			Item "ETF2L Highlander Open Playoff Medal Season 22"
+
+			ItemModel
+			{
+				ItemName "ETF2L Highlander Open Playoff Medal Season 22"
+				Model "models/weapons/c_models/c_shogun_warpack/c_shogun_warpack.mdl"
+			}
+
 			FireInput
 			{
 				Target hydrogen_hint
@@ -5431,20 +5439,6 @@ WaveSchedule
 				Name  "Hostile_Primary"
 			}
 
-			ChangeAttributes
-			{
-				Delay  12
-				Cooldown  9999
-				Name  "Hostile_Secondary"
-			}
-
-			ChangeAttributes
-			{
-				Delay  16
-				Cooldown  9999
-				Name  "Hostile_Primary"
-			}
-
             CharacterAttributes
             {
                 "dmg taken increased" 0
@@ -5463,13 +5457,6 @@ WaveSchedule
 				{
 					WeaponRestrictions PrimaryOnly
 					Item "The Beggar's Bazooka"
-					Item "The Concheror"
-					ItemAttributes
-					{
-						ItemName "The Concheror"
-						"single wep holster time increased" 0.35
-						"single wep deploy time increased" 0.35
-					}
 					ItemAttributes
 					{
 						ItemName "The Beggar's Bazooka"
@@ -5484,44 +5471,6 @@ WaveSchedule
 						"can overload" 0
 						"mod projectile heat seek power" 360
 						"mod projectile heat aim error" 90
-					}
-
-					CharacterAttributes
-					{
-						"increase buff duration" 10
-					}
-				}
-
-				Hostile_Secondary
-				{
-					WeaponRestrictions SecondaryOnly
-					Item "The Beggar's Bazooka"
-					Item "The Concheror"
-					ItemAttributes
-					{
-						ItemName "The Concheror"
-						"single wep holster time increased" 0.35
-						"single wep deploy time increased" 0.35
-					}
-					ItemAttributes
-					{
-						ItemName "The Beggar's Bazooka"
-						"fire rate bonus" 0.1
-						"faster reload rate" 0.02
-						"damage bonus" 300
-						"Projectile speed increased" 1
-						"reload time increased hidden" 1
-						"clip size upgrade atomic" 20
-						"auto fires full clip" 1
-						"auto fires when full" 1
-						"can overload" 0
-						"mod projectile heat seek power" 360
-						"mod projectile heat aim error" 90
-					}
-
-					CharacterAttributes
-					{
-						"increase buff duration" 10
 					}
 				}
             }
@@ -9255,8 +9204,8 @@ WaveSchedule
 		{
 			Name  wave6a
 			Where spawnbot_giant
-			TotalCount 24
-			MaxActive  24
+			TotalCount 16
+			MaxActive  16
 			SpawnCount 1
 			TotalCurrency 50
 
@@ -9281,8 +9230,8 @@ WaveSchedule
 		{
 			Name  wave6a
 			Where spawnbot_right
-			TotalCount 4
-			MaxActive  4
+			TotalCount 3
+			MaxActive  3
 			SpawnCount 1
 			TotalCurrency 100
 
@@ -9304,8 +9253,8 @@ WaveSchedule
 		{
 			Name  wave6a
 			Where spawnbot_left
-			TotalCount 4
-			MaxActive  4
+			TotalCount 3
+			MaxActive  3
 			SpawnCount 1
 			TotalCurrency 100
 
@@ -9339,13 +9288,13 @@ WaveSchedule
 			Name  wave6b
 			WaitForAllDead wave6a
 			Where spawnbot_left
-			TotalCount 32
+			TotalCount 24
 			MaxActive  20
 			SpawnCount 8
 			TotalCurrency 100
 
 			WaitBeforeStarting 10
-			WaitBetweenSpawns  10
+			WaitBetweenSpawns  8
 
 			TFBot
 			{
@@ -9371,13 +9320,13 @@ WaveSchedule
 			Name  wave6b
 			WaitForAllDead wave6a
 			Where spawnbot_right
-			TotalCount 32
+			TotalCount 24
 			MaxActive  20
 			SpawnCount 8
 			TotalCurrency 100
 
 			WaitBeforeStarting 10
-			WaitBetweenSpawns  10
+			WaitBetweenSpawns  8
 
 			TFBot
 			{
@@ -9408,7 +9357,7 @@ WaveSchedule
 			SpawnCount 2
 			TotalCurrency 100
 
-			WaitBeforeStarting 20
+			WaitBeforeStarting 16
 			WaitBetweenSpawns  10
 
 			TFBot
@@ -9432,7 +9381,7 @@ WaveSchedule
 			SpawnCount 2
 			TotalCurrency 100
 
-			WaitBeforeStarting 28
+			WaitBeforeStarting 24
 			WaitBetweenSpawns  10
 
 			TFBot
@@ -9457,7 +9406,7 @@ WaveSchedule
 			SpawnCount 4
 			TotalCurrency 100
 
-			WaitBeforeStarting 36
+			WaitBeforeStarting 32
 			WaitBetweenSpawns  10
 
 			TFBot
@@ -9487,8 +9436,8 @@ WaveSchedule
 			Name  wave6c
 			WaitForAllDead wave6b
 			Where spawnbot_giant
-			TotalCount 30
-			MaxActive  30
+			TotalCount 20
+			MaxActive  20
 			SpawnCount 1
 			TotalCurrency 50
 
@@ -9519,7 +9468,7 @@ WaveSchedule
 			SpawnCount 5
 			TotalCurrency 50
 
-			WaitBeforeStarting 49
+			WaitBeforeStarting 39
 			WaitBetweenSpawns  1
 
 			TFBot
@@ -9545,7 +9494,7 @@ WaveSchedule
 			SpawnCount 5
 			TotalCurrency 50
 
-			WaitBeforeStarting 47
+			WaitBeforeStarting 37
 			WaitBetweenSpawns  1
 
 			TFBot
@@ -9632,8 +9581,8 @@ WaveSchedule
 			Name  wave6c
 			WaitForAllDead wave6b
 			Where spawnbot_giant
-			TotalCount 8
-			MaxActive  8
+			TotalCount 5
+			MaxActive  5
 			SpawnCount 1
 			TotalCurrency 40
 
@@ -9719,13 +9668,13 @@ WaveSchedule
 			Name  wave6d-1
 			WaitForAllDead wave6c
 			Where spawnbot_giant_fast
-			TotalCount 8
-			MaxActive  8
+			TotalCount 6
+			MaxActive  6
 			SpawnCount 1
 			TotalCurrency 50
 
 			WaitBeforeStarting 2
-			WaitBetweenSpawns  5
+			WaitBetweenSpawns  4.5
 
 			TFBot
 			{
@@ -9750,13 +9699,13 @@ WaveSchedule
 			Name  wave6d
 			WaitForAllSpawned wave6d-1
 			Where spawnbot_giant_fast
-			TotalCount 8
-			MaxActive  8
+			TotalCount 4
+			MaxActive  4
 			SpawnCount 2
 			TotalCurrency 100
 
 			WaitBeforeStarting 6
-			WaitBetweenSpawns  6
+			WaitBetweenSpawns  5
 
 			TFBot
 			{
@@ -9781,13 +9730,13 @@ WaveSchedule
 			Name  wave6d
 			WaitForAllDead wave6c
 			Where spawnbot_giant_fast
-			TotalCount 8
+			TotalCount 6
 			MaxActive  6
 			SpawnCount 1
 			TotalCurrency 100
 
 			WaitBeforeStarting 6
-			WaitBetweenSpawns  7
+			WaitBetweenSpawns  6.5
 
 			TFBot
 			{
@@ -9806,13 +9755,13 @@ WaveSchedule
 			Name  wave6d
 			WaitForAllDead wave6c
 			Where spawnbot_giant_fast
-			TotalCount 6
+			TotalCount 4
 			MaxActive  4
 			SpawnCount 1
 			TotalCurrency 100
 
 			WaitBeforeStarting 13
-			WaitBetweenSpawns  8
+			WaitBetweenSpawns  6.5
 
 			TFBot
 			{
