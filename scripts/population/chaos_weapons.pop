@@ -3912,20 +3912,40 @@ WaveSchedule
 		"damage bonus bullet vs sentry target"					20
 		"add onhit addammo"										50
 	}
+//	ItemAttributes
+//	{
+//		ItemName	"The Short Circuit"
+//		"special taunt"											1
+//		"fire rate penalty"										3.5
+//		"dmg penalty vs players"								100
+//		"slow enemy on hit major"								5
+//		"mod ammo per shot"										30
+//		"restore health on kill"								30
+//		"crit vs wet players"									1
+//		"damage bonus"											15
+//		"blast dmg to self increased"							0.1
+//		"stun on damage"										4
+//		"metal_pickup_decreased"								0.75
+//		"killstreak tier"										1
+//	}
 	ItemAttributes
 	{
 		ItemName	"The Short Circuit"
 		"special taunt"											1
-		"fire rate penalty"										3.5
-		"dmg penalty vs players"								100
+		"fire rate penalty"										2
 		"slow enemy on hit major"								5
-		"mod ammo per shot"										30
+		"mod ammo per shot"										500
 		"restore health on kill"								30
 		"crit vs wet players"									1
-		"damage bonus"											15
-		"blast dmg to self increased"							0.1
-		"stun on damage"										4
+		"damage bonus"											10
+		"blast dmg to self increased"							0
+		"self dmg push force decreased"							0
+		"stun on damage"										5
 		"metal_pickup_decreased"								0.75
+		"mult projectile count"									3
+		"spread angle pattern"									"0 -15 0|0 0 0|0 15 0"
+		"override projectile type extra"						"mechanicalarmorb"
+		"alt fire attack"										1
 		"killstreak tier"										1
 	}
 	ItemAttributes
