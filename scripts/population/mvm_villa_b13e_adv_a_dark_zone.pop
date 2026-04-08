@@ -6714,6 +6714,15 @@ YOUR_WaveSchedule_IS_TAKING_TOO_LONG
 			}
 			logic_relay
 			{
+				"targetname" "w13_relay_0"
+				"OnTrigger" "w13_sentry,RemoveHealth,400,0,-1"
+				"OnTrigger" "your_taking_13_long,Trigger,,0,-1"
+				"OnTrigger" "intel,SetTeam,2,0,-1"
+				"OnTrigger" "w13_shield_prop,SetAnimation,Disable,0,-1"
+				"OnTrigger" "w13_shield_push,Disable,,0,-1"
+			}
+			logic_relay
+			{
 				"targetname" "w13_relay_1"
 				"OnSpawn" "spawnbot_w13,Enable,,0,-1"
 				"OnSpawn" "inside_fog,SetEndDist,1200,0,-1"
@@ -15786,13 +15795,8 @@ YOUR_WaveSchedule_IS_TAKING_TOO_LONG
 			Where spawnbot_invasion
 			DoneOutput
 			{
-				Target gamerules
-				Action RunScriptCode
-				Param "EntFire(`w13_sentry`,`RemoveHealth`,`400`)
-				EntFire(`your_taking_13_long`,`Trigger`)
-				EntFire(`intel`,`SetTeam`,`2`)
-				EntFire(`w13_shield_prop`,`SetAnimation`,`Disable`)
-				EntFire(`w13_shield_push`,`Disable`)"
+				Target w13_relay_0
+				Action Trigger
 			}
 			TFBot
 			{
@@ -16069,7 +16073,7 @@ YOUR_WaveSchedule_IS_TAKING_TOO_LONG
 				}
 				ItemAttributes
 				{
-					ItemName "TF_WEAPON_ROCKETLAUNCHER"
+					ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
 					"faster reload rate" -0.8
 					"fire rate bonus" 0.5
 					"paintkit_proto_def_index" 259
