@@ -1408,6 +1408,7 @@ WaveSchedule
 		"increase buff duration HIDDEN"							2.5
 		"mult dmg vs same class"								3
 		"rage receive scale"									0.01
+		"slow enemy on hit major"								1
 		"effect add attributes"									"damage bonus|1.25|move speed bonus|1.15|dmg taken from fire reduced|0|ignored by enemy sentries|1"
 	}
 	ItemAttributes
@@ -3932,12 +3933,12 @@ WaveSchedule
 	{
 		ItemName	"The Short Circuit"
 		"special taunt"											1
-		"fire rate penalty"										2
+		"damage bonus"											7.5 //7.5 on Potato for some fucking reason
+		"fire rate penalty"										1.65 //1.65 on Potato for some fucking reason
 		"slow enemy on hit major"								5
-		"mod ammo per shot"										500
+		"mod ammo per shot"										400
 		"restore health on kill"								30
 		"crit vs wet players"									1
-		"damage bonus"											10
 		"blast dmg to self increased"							0
 		"self dmg push force decreased"							0
 		"stun on damage"										5
@@ -3946,6 +3947,7 @@ WaveSchedule
 		"spread angle pattern"									"0 -15 0|0 0 0|0 15 0"
 		"override projectile type extra"						"mechanicalarmorb"
 		"alt fire attack"										1
+		"alt fire attributes"									"projectile speed increased|47.5|projectile acceleration|-9000|projectile acceleration time|0.25|fire rate bonus hidden|1.15"
 		"killstreak tier"										1
 	}
 	ItemAttributes
@@ -4104,8 +4106,9 @@ WaveSchedule
 		"ubercharge ammo"										100
         "damage penalty"										0.001
 		"add cond on hit"										43
-		"add cond on hit duration"								30
-		"add attributes on hit"									"not solid to players|1|30|damage bonus|10|30|always crit|1|30|cannot pick up intelligence|1|40|dmg taken increased|0.1|30|mult dmg vs giants|0.5|30|mult dmg vs tanks|0.5|30"
+		"add cond on hit duration"								45
+		"fire input on hit"										"!self^$BotCommand^switch_action Mobber -duration 45"
+		"add attributes on hit"									"damage bonus|10|45|add cond when active|11|45|not solid to players|1|45|cannot pick up intelligence|1|45|dmg taken increased|0.1|45"
 		"always crit"											1
 		"projectile no deflect"									1
 		"Blast radius decreased"								0.1
@@ -4483,15 +4486,16 @@ WaveSchedule
 		"special taunt"											1
 		"single wep deploy time increased"						2
 		"override projectile type extra"						"spelllightningorb"
-		"projectile gravity"									800
 		"projectile speed increased"							32
+		"projectile acceleration" 								-1024
+		"projectile acceleration time"							1
 		"maxammo secondary reduced"								0.05
 		"reload time increased"									4
 		"fire rate penalty"										16
 		"no primary ammo from dispensers while active"			1
 		"sapper kills collect crits"							0
 		"crit mod disabled"										0
-		"damage penalty"										0.01
+		"damage penalty"										0
 		"clip size penalty"										0.16
 		"auto fires full clip penalty"							1
 		"alt fire attributes"									"addcond immunity|4"
