@@ -1295,6 +1295,7 @@ WaveSchedule
 		"spread penalty"										2.5
 		"projectile penetration"								1
 		"set_item_texture_wear"									0.2
+		"alt fire attributes"									"gesture speed increase|300|fire input on taunt|!activator^$PlaySequence^SelectionMenu_Anim01"
 	}
 	ItemAttributes // Pistol + Skins
 	{
@@ -1409,7 +1410,6 @@ WaveSchedule
 		"mult dmg vs same class"								3
 		"rage receive scale"									0.01
 		"slow enemy on hit major"								1
-		"effect add attributes"									"damage bonus|1.25|move speed bonus|1.15|dmg taken from fire reduced|0|ignored by enemy sentries|1"
 	}
 	ItemAttributes
 	{
@@ -1642,6 +1642,7 @@ WaveSchedule
 		ItemName "TF_WEAPON_BUILDER"
 		"provide on active"										1
 		"taunt_attr_player_invis_percent"						1
+		"alt fire attributes"									"gesture speed increase|300|fire input on taunt|!activator^$PlaySequence^competitive_winnerstate_idle"
 	}
 	ItemAttributes // Syringe Gun
 	{
@@ -1808,12 +1809,14 @@ WaveSchedule
 		"robo sapper"											3
 		"effect bar recharge rate increased"					0.25
 		"set item tint RGB"										65280
+		"alt fire attributes"									"gesture speed increase|300|fire input on taunt|!activator^$PlaySequence^competitive_winnerstate_idle"
 	}
 	ItemAttributes // Sapper
 	{
 		SimilarToItem "TF_WEAPON_BUILDER_SPY"
 		"robo sapper"											3
 		"effect bar recharge rate increased"					0.25
+		"alt fire attributes"									"gesture speed increase|300|fire input on taunt|!activator^$PlaySequence^competitive_winnerstate_idle"
 	}
 	ItemAttributes // Red-Tape Recorder
 	{
@@ -1822,6 +1825,7 @@ WaveSchedule
 		"switch from wep deploy time decreased"					0.25
 		"effect bar recharge rate increased"					0.25
 		"sapper damage bonus"									5000
+		"alt fire attributes"									"gesture speed increase|300|fire input on taunt|!activator^$PlaySequence^competitive_winnerstate_idle"
 	}
 	ItemAttributes // Disguise Kit
 	{
@@ -2038,6 +2042,7 @@ WaveSchedule
 		"critboost on kill"										5
 		"engy building health bonus"							32
 		"engy sentry damage bonus"								80
+		"alt fire attributes"									"gesture speed increase|300|fire input on taunt|!activator^$PlaySequence^competitive_winnerstate_idle"
 		//
 		"attach particle effect"								4
 		"attach particle effect static"							17
@@ -2710,7 +2715,7 @@ WaveSchedule
 	ItemAttributes
 	{
 		ItemName	"The Gunboats"
-		"mult step height"										5
+		"halloween increased jump height"						0.75
 		"allow bunny hop"										1
 		"move speed bonus"										1.25
 		"mult dmgtaken from melee"								0.5
@@ -3933,8 +3938,8 @@ WaveSchedule
 	{
 		ItemName	"The Short Circuit"
 		"special taunt"											1
-		"damage bonus"											7.5 //7.5 on Potato for some fucking reason
-		"fire rate penalty"										1.65 //1.65 on Potato for some fucking reason
+		"damage bonus"											7.5			//7.5 on Potato for some fucking reason
+		"fire rate penalty"										1.65			//1.65 on Potato for some fucking reason
 		"slow enemy on hit major"								5
 		"mod ammo per shot"										400
 		"restore health on kill"								30
@@ -3947,7 +3952,7 @@ WaveSchedule
 		"spread angle pattern"									"0 -15 0|0 0 0|0 15 0"
 		"override projectile type extra"						"mechanicalarmorb"
 		"alt fire attack"										1
-		"alt fire attributes"									"projectile speed increased|47.5|projectile acceleration|-9000|projectile acceleration time|0.25|fire rate bonus hidden|1.15"
+		"alt fire attributes"									"projectile speed increased|47.5|projectile acceleration|-9000|projectile acceleration time|0.25|fire rate bonus hidden|1.25"
 		"killstreak tier"										1
 	}
 	ItemAttributes
@@ -4103,29 +4108,29 @@ WaveSchedule
 		ItemName	"The Blutsauger"
 		"special taunt"											1
 		"custom impact sound"									"weapons/cow_mangler_explosion_charge_02.wav"
-		"ubercharge ammo"										100
         "damage penalty"										0.001
 		"add cond on hit"										43
-		"add cond on hit duration"								45
-		"fire input on hit"										"!self^$BotCommand^switch_action Mobber -duration 45"
-		"add attributes on hit"									"damage bonus|10|45|add cond when active|11|45|not solid to players|1|45|cannot pick up intelligence|1|45|dmg taken increased|0.1|45"
+		"add cond on hit duration"								60
+		//"fire input on hit"										"!self^$BotCommand^switch_action Mobber -duration 60"
+		"add attributes on hit"									"damage bonus|10|60|add cond when active|11|60|not solid to players|1|60|cannot pick up intelligence|1|60|dmg taken increased|0.1|60"
+		"self dmg push force decreased"							0
+		"blast dmg to self increased"							0
 		"always crit"											1
 		"projectile no deflect"									1
 		"Blast radius decreased"								0.1
 		"max aoe targets"										1
 		"override projectile type"								2
-		"fire rate penalty"										10
+		"fire rate penalty"										20
 		"clip size penalty"										0.025
 		"maxammo primary reduced"								0
 		"projectile speed decreased"							0.15
-		"mod projectile heat seek power"						1440
-		"mod projectile heat aim start time"					0.8
+		"mod projectile heat seek power"						150
+		"mod projectile heat aim start time"					0.5
 		"mod projectile heat no predict target speed"			1
 		"projectile acceleration"								300
 		"projectile acceleration time"							1.5
   		"projectile trail particle"								"~rockettrail_pink_charged" //"utaunt_glitter_teamcolor_red"
 		"mini rockets"											1
-		"SPELL: Halloween pumpkin explosions"					1
         "projectile sound"										"mvm/giant_soldier/giant_soldier_rocket_shoot.wav"
 		"explosion particle"									"blut_reprogram_explosion"
 		"self add attributes on hit"							"ubercharge rate penalty|0|10"
