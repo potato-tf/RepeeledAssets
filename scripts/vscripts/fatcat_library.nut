@@ -118,6 +118,8 @@ function SetLibraryTimeStamp(timestamp)
 	"ConsoleErrors" : false
 	// Print a different Error Message to All Clients
 	"PublicErrors" : true
+	// Tracks Better Statistics
+	"BetterStatTracking" : true
 }
 
 function IsValidSetting(setting)
@@ -133,6 +135,7 @@ function ROOT::ReloadLibrary()
 	if(flag == false)
 		ToggleForceFlag(false)
 }
+
 
 function ROOT::SetLibrarySettings(settings_table = {})
 {
@@ -170,10 +173,10 @@ function ROOT::SetLibrarySettings(settings_table = {})
 function ROOT::ToggleForceFlag( bool )
 	::FatCatLibForce <- bool
 
-if (!SetLibraryVersion("1.16.3", 0))
+if (!SetLibraryVersion("1.17.0", 3))
 	return
 
-SetLibraryTimeStamp("4-7-2026_00:56")
+SetLibraryTimeStamp("4-10-2026_01:04")
 
 SetLibrarySettings({
 	// KillWatchViewmodels = false
@@ -2046,10 +2049,12 @@ function CTFPlayer::SetUpThinkTable()
 	scope.ThinkTableThink <- function() {
 		foreach (key, func_table in ThinkTable)
 		{
-			if(func_table.LastThinkTime + func_table.delay <= Time())
+			if(func_table.NextThinkTime <= Time())
 			{
-				func_table.func.call(this)
-				func_table.LastThinkTime = Time()
+				local result = func_table.func.call(this)
+				try { result.tofloat() }
+				catch (e) { result = -1	}
+				func_table.NextThinkTime = Time() + result
 			}
 		}
 		return -1
@@ -2058,13 +2063,19 @@ function CTFPlayer::SetUpThinkTable()
 	if(IsNotInScope("PreservedThinks", GetScope(this)))
 		GetScope(this).PreservedThinks <- {}
 }
-// TODO: Add to Snippets
-function CTFPlayer::AddPreservedThink(delay, func, offset = 0.0, name = null)
+// TODO: Add to Snippets 
+/**
+ * Adds a Preserved think to the think table that stays after spawning / resupplying
+ * 
+ * @param {function} 	func 		The Think Function.
+ * @param {string|null} [name] 		The Think function name in the ThinkTable (used for removing a think). (Default: null)
+ * @param {float} 		[offset] 	Time offset of the first Think. (Default: 0.0)
+ */
+function CTFPlayer::AddPreservedThink(func, name = null, offset = 0.0)
 {
 	name = name||UniqueString()
-	AddThink(delay, func, offset, name)
+	AddThink(func, name, offset)
 	GetScope(this).PreservedThinks[name] <- {
-		delay = delay
 		func = func
 		offset = offset
 	}
@@ -2074,21 +2085,19 @@ function CTFPlayer::AddPreservedThink(delay, func, offset = 0.0, name = null)
 /**
  * Adds a think to the think table
  * 
- * @param {float}	 	delay 	The Time Inbetween each think (set to below 0 for every tick thinking).
- * @param {function} 	func 	The Think Function.
- * @param {float} 		[offset] 	Time offset of the next Think. (Default: 0.0)
- * @param {string|null} [name] 	The Think function name in the ThinkTable (used for removing a think). (Default: null)
+ * @param {function} 	func 		The Think Function.
+ * @param {string|null} [name] 		The Think function name in the ThinkTable (used for removing a think). (Default: null)
+ * @param {float} 		[offset] 	Time offset of the first Think. (Default: 0.0)
  */
-function CTFPlayer::AddThink(delay, func, offset = 0.0, name = null)
+function CTFPlayer::AddThink(func, name = null, offset = 0.0)
 {
 	if(IsNotInScope("ThinkTable", GetScope(this)))
 		SetUpThinkTable()
 		
 	name = name||UniqueString()
 	GetScope(this).ThinkTable[name] <- {
-		delay = delay
 		func = func
-		LastThinkTime = Time() + offset
+		NextThinkTime = Time() + offset
 	}
 	return name
 }
@@ -2169,9 +2178,70 @@ function CTFPlayer::UndoGHeavy()
 function CTFPlayer::IsGHeavy()
 	return "HeavyTransform" in GetScope(this) && GetScope(this).HeavyTransform
 
+// TODO: Add to Snippets
+function CTFPlayer::TransformGDemoknight()
+{
+	GetScope(this).DemoknightTransform <- true
+	PrecacheObject("models/bots/demo_boss/bot_demo_boss.mdl")
+	SetForcedTauntCam(1)
+	SetCustomModelWithClassAnimations("models/bots/demo_boss/bot_demo_boss.mdl")
+
+	local weapons = GetAllWeapons()
+	foreach (wep in weapons)
+	{
+		if(wep.IsMeleeWeapon())
+		{
+			Weapon_Switch(wep)
+			continue
+		}
+		EntFireNew(wep, "Kill")
+	}
+
+	local weapon = EquipItemBAD("The Chargin' Targe")
+	Weapon_Switch(GetWeaponInSlotNew(SLOT_MELEE))
+
+	if(!weapon)
+		return
+
+	if(!("ScotsmanSettings" in ROOT))
+		return
+	
+	foreach (attrib, value in ScotsmanSettings.ShieldAttributes)
+	{
+		weapon.AddAttribute(attrib, value, 0)
+		PrintToConsoleAll(weapon.tostring()+": Added attribute \""+attrib+"\" with a value of "+format("%g", value.tofloat()))
+	}
+
+
+	// Kill all the Children
+	// for (local child = FirstMoveChild(); child; child = child.NextMovePeer())
+	// {
+	// 	EnableStringPurge(child)
+	// 	if (!startswith(child.GetClassname(), "tf_wearable")) continue
+	// 	// do not kill wearables if they are needed for weapons!
+	// 	if(IsInArray(child.GetIDX(), WearableIDXs.Primarys) || IsInArray(child.GetIDX(), WearableIDXs.Secondarys))
+	// 		continue
+		
+	// 	EntFireNew(child, "Kill")
+	// }
+}
+// TODO: Add to Snippets
+function CTFPlayer::UndoGDemoknight()
+{
+	if(!this||!IsValid())
+		return
+	GetScope(this).DemoknightTransform <- false
+	SetForcedTauntCam(0)
+	SetCustomModelWithClassAnimations("")
+}
 
 // TODO: Add to Snippets
-function CTFPlayer::EquipItem(classname, idx, attrib_overrides = {})
+function CTFPlayer::IsGDemoknight()
+	return "DemoknightTransform" in GetScope(this) && GetScope(this).DemoknightTransform
+
+
+// TODO: Add to Snippets
+function CTFPlayer::EquipItem(classname, idx, swit = true, attrib_overrides = {})
 {
 	local weapon = SpawnEntityFromTable(classname, {})
 
@@ -2199,9 +2269,77 @@ function CTFPlayer::EquipItem(classname, idx, attrib_overrides = {})
 	SetPropEntityArray(this, "m_hMyWeapons", null, myweaps_idx)
 
 	Weapon_Equip(weapon)
-	Weapon_Switch(weapon)
+	if(swit)
+		Weapon_Switch(weapon)
 
 	FixAmmo()
+}
+
+function CTFPlayer::EquipWearableItem(idx, classname_override = false, attrib_overrides = {})
+{
+	local dummy = CreateByClassname( "tf_weapon_parachute" )
+	SetPropInt( dummy, PROP_ITEM_DEF_IDX, 1101 )
+	SetPropBool( dummy, "m_AttributeManager.m_Item.m_bInitialized", true )
+	dummy.SetTeam( GetTeam() )
+	dummy.DispatchSpawn()
+	dummy.SetModelSimple("")
+	Weapon_Equip( dummy )
+
+	// SetPropString( dummy, "m_iName", format( "dummy_%d", dummy.entindex() ) )
+
+	local wearable = GetPropEntity( dummy, "m_hExtraWearable" )
+	dummy.Kill()
+
+	// SetPropString( wearable, "m_iName", format( "werable_%d", wearable.entindex() ) )
+
+	wearable.SetTeam(GetTeam())
+	SetPropInt( wearable, PROP_ITEM_DEF_IDX, idx )
+	SetPropBool( wearable, "m_AttributeManager.m_Item.m_bInitialized", true )
+	SetPropBool( wearable, "m_bValidatedAttachedEntity", true )
+
+	if(classname_override)
+		wearable.KeyValueFromString("classname", classname_override)
+
+	printl(wearable.GetClassname())
+
+	wearable.DispatchSpawn()
+
+	printl(wearable.GetClassname())
+
+	wearable.SetModelSimple(GetItemModelName(idx))
+
+	if(classname_override)
+		wearable.KeyValueFromString("classname", classname_override)
+
+	wearable.SetTeam(GetTeam())
+
+	SendGlobalGameEvent( "post_inventory_application", { userid = GetUserID(), early_out = true} )
+	wearable.SetOwner(this)
+
+	Weapon_Switch(GetWeaponInSlotNew(SLOT_MELEE))
+
+	PrintToChat(wearable)
+	return wearable
+}
+
+function CTFPlayer::EquipItemBAD(ItemName)
+{
+	local OldWeapons = GetAllWeapons()
+	AddEFlags(EFL_NO_MEGAPHYSCANNON_RAGDOLL)  // prevent inf resupply loop
+	GenerateAndWearItem(ItemName)
+	RemoveEFlags(EFL_NO_MEGAPHYSCANNON_RAGDOLL)
+	local NewWeapons = GetAllWeapons()
+
+	foreach (wep in OldWeapons)
+	{
+		if(NewWeapons.find(wep) != null)
+			NewWeapons.remove(NewWeapons.find(wep))
+	}
+
+	if(NewWeapons.len() > 1)
+		return null
+
+	return NewWeapons[0]
 }
 // TODO: Add to Snippets
 function CTFPlayer::IsMedicButtonDown()
@@ -2431,6 +2569,8 @@ function CTFPlayer::GetMoveSpeed()
 	}
 	return speed
 }
+
+CTFPlayer.GenerateAndWearItem <- CTFBot.GenerateAndWearItem
 /* 
 function CTFPlayer::CreateParticle(particle, duration = -1)
 {
@@ -2611,9 +2751,17 @@ function CTFBot::UndoReprogram()
 {
 	if(!this||!IsValid()||IsDead())
 		return
-	RemoveBotAttribute(AGGRESSIVE)
-	AddCustomAttribute("cannot pick up intelligence", 1.0, 10.0)
+
+	local temp = SpawnEntityFromTable("info_particle_system", {effect_name = "drg_cow_explosioncore_charged"})
+	temp.SetAbsOrigin(GetOrigin()+Vector(0, 0, 8))
+	temp.SetAbsAngles(QAngle(-90, 0, 0))
+	temp.AcceptInput("Start", "", null, null)
+	EntFireNew(temp, "Stop", "", TICK_DUR*3)
+	EntFireNew(temp, "Kill", "", TICK_DUR*5)
+
+	Suicide()
 }
+
 
 /////////
 function CTFWeaponBase::HasAttribute(attrib, def_val)
@@ -2725,7 +2873,7 @@ function CTFWeaponBase::IsHolstered()
 
 
 function CTFWeaponBase::SetUberChargePercent(level)
-	if(HasProp(this, PROP_MEDIGUN_CHARGE)) { SetPropFloat(this, PROP_MEDIGUN_CHARGE, level.tofloat()/100) } else { }
+	if(HasProp(this, PROP_MEDIGUN_CHARGE)) { SetPropFloat(this, PROP_MEDIGUN_CHARGE, level.tofloat()/100) }
 
 function CTFWeaponBase::GetUberChargePercent()
 	if(HasProp(this, PROP_MEDIGUN_CHARGE)) { return GetPropFloat(this, PROP_MEDIGUN_CHARGE) } else { return null }
@@ -3020,6 +3168,28 @@ function ROOT::CopyAttributesFromWeapons(weapon, new_weapon)
 	}
 }
 
+function ROOT::GetItemModelName(ItemID)
+{
+	local wearable = CreateByClassname("tf_wearable")
+	
+	wearable.SetAbsAngles(QAngle(0,0,0))
+	SetPropInt(wearable, "m_fEffects", 32)
+	wearable.SetSolidFlags(4)
+	wearable.SetCollisionGroup(11)
+	
+	local pootis = ItemID & ( (1 << 16) - 1)
+	
+	SetPropInt(wearable, "m_AttributeManager.m_Item.m_iItemDefinitionIndex", pootis)
+	SetPropInt(wearable, "m_AttributeManager.m_Item.m_bInitialized", 1)
+	
+	wearable.DispatchSpawn()
+
+	local modelname = wearable.GetModelName()
+	wearable.Kill()
+	
+	return modelname
+}
+
 ::NoFormatToEcon <- [
 	"GetSpellCharges",
 	"AddAbilityTime",
@@ -3046,6 +3216,12 @@ foreach ( key, value in CTFWeaponBase )
 		CEconEntity[ key ] <- value
 	}
 }
+
+function CEconEntity::IsMeleeWeapon()
+	return false
+
+function CEconEntity::GetSlot()
+	return -1
 
 function CTFBaseBoss::Disabledamage( events = true )
 	SetPropInt(this, "m_takedamage", events ? DAMAGE_EVENTS_ONLY : DAMAGE_NO)
@@ -3116,9 +3292,13 @@ function ROOT::CleanUpAndFormatString(msg, ...)
 		if(args[i] == null)
 			args[i] = "NULL"
 	}
-
+	// this shit will break at one time
+	try {
 	if (leng > 0)
 		msg = format.acall([this, msg].extend(args))
+	}
+	catch (e)
+		return "SHIT ERRORED OUT STILL   "+e+"    "+__LINE__
 
 	return msg
 }
@@ -3129,7 +3309,7 @@ function ROOT::PrintToHudAll(msg)
 	ClientPrint(null, HUD_PRINTCENTER, msg == null ? NULL_S : msg.tostring())
 	
 function ROOT::PrintToHudAllF(msg, ...)
-	ClientPrint(null, HUD_PRINTCENTER, CleanUpAndFormatString(msg, vargv))
+	ClientPrint(null, HUD_PRINTCENTER, CleanUpAndFormatString.acall([this, msg].extend(vargv)))
 
 function ROOT::PrintToHudAllFilter(msg, filter = [])
 {
@@ -3143,7 +3323,7 @@ function ROOT::PrintToChatAll(msg)
 	ClientPrint(null, HUD_PRINTTALK, msg == null ? NULL_S : msg.tostring())
 
 function ROOT::PrintToChatAllF(msg, ...)
-	ClientPrint(null, HUD_PRINTTALK, CleanUpAndFormatString(msg, vargv))
+	ClientPrint(null, HUD_PRINTTALK, CleanUpAndFormatString.acall([this, msg].extend(vargv)))
 
 function ROOT::TranslateToChatAll( ... )
 {
@@ -3163,6 +3343,9 @@ function ROOT::PrintToChatAllFilter(msg, filter = [])
 // TODO: Add to Snippets
 function ROOT::PrintToConsoleAll(msg)
 	ClientPrint(null, HUD_PRINTCONSOLE, msg == null ? NULL_S : msg.tostring())
+
+function ROOT::PrintToConsoleAllF(msg, ...)
+	ClientPrint(null, HUD_PRINTCONSOLE, CleanUpAndFormatString.acall([this, msg].extend(vargv)))
 
 ///// OTHER PRINTS /////
 function ROOT::PrintToAdmins(level, message)
@@ -3190,7 +3373,7 @@ function ROOT::PrintCollection(collection, filter = [], indentation = 0, no_inde
 	local type = typeof collection
 	if(type != "table" && type != "array" && type != "class")
 	{
-		printl("Trying to PrintCollection() a " + type)
+		PrintToConsoleAll("Trying to PrintCollection() a " + type)
 		return
 	}
 
@@ -3202,7 +3385,7 @@ function ROOT::PrintCollection(collection, filter = [], indentation = 0, no_inde
 		indents += "\t"
 	}
 
-	printl((no_indent_header ? "" : indents) + collection.tostring() + " " + ((type == "table" || type == "class") ? "{" : "["))
+	PrintToConsoleAll((no_indent_header ? "" : indents) + collection.tostring() + " " + ((type == "table" || type == "class") ? "{" : "["))
 	foreach (key, value in collection)
 	{
 		// Skip internal Squirrel variables and filtered keys
@@ -3223,11 +3406,11 @@ function ROOT::PrintCollection(collection, filter = [], indentation = 0, no_inde
 			PrintCollection(value, filter, indentation + 1, true)
 		}
 		else if(valType == "function" || valType == "native function")
-			printl(itemIndents + "function (" + keyDisplay + "): " + value)
+			PrintToConsoleAll(itemIndents + "function (" + keyDisplay + "): " + value)
 		else
-			printl(itemIndents + keyDisplay + " : " + value)
+			PrintToConsoleAll(itemIndents + keyDisplay + " : " + value)
 	}
-	printl(indents + ((type == "table" || type == "class") ? "}" : "]"))
+	PrintToConsoleAll(indents + ((type == "table" || type == "class") ? "}" : "]"))
 }
 
 //// Entity Debug
@@ -3768,7 +3951,7 @@ function ROOT::ConvertAngleToEndpoint(Angle, length = 600)
 // TODO: Add to Snippets
 function ROOT::SetDestroyCallback(entity, callback)
 {
-	local scope = GetScopt(entity)
+	local scope = GetScope(entity)
 	scope.setdelegate({}.setdelegate({
 			parent   = scope.getdelegate()
 			id       = entity.GetScriptId()
@@ -4645,8 +4828,8 @@ if(!("m_iDamage" in GetScope(PlayerManager)))
 if(!("m_iDamageBoss" in GetScope(PlayerManager)))
 	GetScope(PlayerManager).m_iDamageBoss <- array(MAX_CLIENTS+1, 0)
 
-if(!("m_iTotalScore" in GetScope(PlayerManager)))
-	GetScope(PlayerManager).m_iTotalScore <- array(MAX_CLIENTS+1, 0)
+// if(!("m_iTotalScore" in GetScope(PlayerManager)))
+	// GetScope(PlayerManager).m_iTotalScore <- array(MAX_CLIENTS+1, 0)
 
 if(!("m_iHealing" in GetScope(PlayerManager)))
 	GetScope(PlayerManager).m_iHealing <- array(MAX_CLIENTS+1, 0)
@@ -4654,25 +4837,65 @@ if(!("m_iHealing" in GetScope(PlayerManager)))
 function ROOT::GetGameText()
 	return FindByName(null, "GlobalGameText") ? FindByName(null, "GlobalGameText") : SpawnEntityFromTable("game_text", {targetname = "GlobalGameText", holdtime = 0.5})
 
-/* ::PostSpawnCallbacks <- {
-}
 
-function ROOT::RegisterSpawnCallback(entity_name, callback)
+if(!("PostSpawnCallbacks" in ROOT))
+	::PostSpawnCallbacks <- {}
+// TODO: Add to Snippets
+function ROOT::ClearSpawnCallbacks()
+	::PostSpawnCallbacks <- {}
+
+
+function ROOT::RegisterSpawnCallback(entity_name, callback_name, callback)
 {
 	if(typeof entity_name == "array")
 	{
 		foreach (name in entity_name)
 		{
-			if(!(name in PostSpawnCallbacks)) PostSpawnCallbacks[name] <- []
-			PostSpawnCallbacks[name].append(callback)
+			if(!(name in PostSpawnCallbacks)) 
+				PostSpawnCallbacks[name] <- {}
+			PostSpawnCallbacks[name][callback_name] <- callback
 		}
 	}
 	else if(typeof entity_name == "string")
 	{
-		if(!(entity_name in PostSpawnCallbacks)) PostSpawnCallbacks[entity_name] <- []
-		PostSpawnCallbacks[entity_name].append(callback)
+		if(!(entity_name in PostSpawnCallbacks)) 
+			PostSpawnCallbacks[entity_name] <- {}
+		PostSpawnCallbacks[entity_name][callback_name] <- callback
 	}
-	else throw format("Unknown Type \"%\" in SpawnCallback ", typeof entity_name)
+	else throw format("Unknown Type \"%s\" in SpawnCallback ", typeof entity_name)
+}
+
+function ROOT::RemoveSpawnCallback(entity_name, callback_name)
+{
+	if(typeof entity_name == "string")
+	{
+		if(IsNotInTable(entity_name, PostSpawnCallbacks))
+			return
+
+		if(IsInArray(callback_name, PostSpawnCallbacks[entity_name].keys()))
+			delete PostSpawnCallbacks[entity_name][callback_name]
+
+		if(PostSpawnCallbacks[entity_name].len() == 0)
+			delete PostSpawnCallbacks[entity_name]
+		return
+	}
+
+	if(typeof entity_name != "array")
+		return
+
+	foreach (entity in entity_name)
+	{
+		if(typeof entity != "string")
+			continue
+		if(IsNotInTable(entity, PostSpawnCallbacks))
+			continue
+
+		if(IsInArray(callback_name, PostSpawnCallbacks[entity].keys()))
+			delete PostSpawnCallbacks[entity][callback_name]
+
+		if(PostSpawnCallbacks[entity].len() == 0)
+			delete PostSpawnCallbacks[entity]
+	}
 }
 
 CreateThinker("OnEntityPostSpawn" , function() {
@@ -4687,14 +4910,13 @@ CreateThinker("OnEntityPostSpawn" , function() {
 			return
 		scope.SpawnCallbacked <- true
 
-		foreach(callback in PostSpawnCallbacks[entity.GetClassname()])
+		foreach(callback_name, callback in PostSpawnCallbacks[entity.GetClassname()])
 		{
 			callback(entity)
 		}
 	}
-
 	return -1
-}, THINKER_PERSIST) */
+}, THINKER_PERSIST)
 
 /* RegisterSpawnCallback("tf_projectile_rocket", function(entity) {
 	AddThinkToEnt(entity, "ProjectileThink")
@@ -4965,9 +5187,23 @@ CreateThinker("OnEntityPostSpawn" , function() {
 		eventdata.player <- GetPlayerFromUserID(params.userid)
 		Assert(eventdata.player && eventdata.player.IsPlayer(), "player_team Received a NULL/Non player")
 
-		eventdata.player.SetTrackedDamage( ) // reset to 0
-		eventdata.player.SetTrackedTankDamage( ) // reset to 0
-		eventdata.player.SetTrackedHealing( ) // reset to 0
+		if(!("m_iDamage" in GetScope(PlayerManager)))
+			GetScope(PlayerManager).m_iDamage <- array(MAX_CLIENTS+1, 0)
+		if(!("m_iDamageBoss" in GetScope(PlayerManager)))
+			GetScope(PlayerManager).m_iDamageBoss <- array(MAX_CLIENTS+1, 0)
+		if(!("m_iHealing" in GetScope(PlayerManager)))
+			GetScope(PlayerManager).m_iHealing <- array(MAX_CLIENTS+1, 0)
+
+		if(!("BetterStatTracking" in FatCatLibSettings))
+			SetLibrarySettings()
+
+
+		if(FatCatLibSettings["BetterStatTracking"] == true)
+		{
+			eventdata.player.SetTrackedDamage( ) 		// reset to 0
+			eventdata.player.SetTrackedTankDamage( ) 	// reset to 0
+			eventdata.player.SetTrackedHealing( ) 		// reset to 0
+		}
 		eventdata.username <- eventdata.name
 
 		// overridden
@@ -5424,8 +5660,9 @@ __CollectGameEventCallbacks(ChaosCustomEvents)
 
 // Admin cmds
 AddChatTrigger(["lib_version", "lib_versions"], function(player, ...) {
-	PrintToChatAllF("\x07D000D0► FatCatLib ◄\x03 Last Modified At \x04%s\x03   \x07606060(MM-DD-YYYY_Hr:Min)", FatCatLibTimeStamp)
-	PrintToChatAllF("\x07D000D0► FatCatLib ◄\x03 Version\x01: \x04%s\x01 - \x03sub_version\x01: \x04%s\x01, \x03force_included\x01 = \x04%s\x01", FatCatLibVersion.version, FatCatLibVersion.sub_version.tostring(), FatCatLibVersion.forced)
+	PrintToConsoleAll(type(FatCatLibTimeStamp))
+	PrintToChatAllF("\x07D000D0► FatCatLib ◄\x03 Last Modified At \x04%s\x03   \x07606060(MM-DD-YYYY_Hr:Min)", FatCatLibTimeStamp.tostring())
+	PrintToChatAllF("\x07D000D0► FatCatLib ◄\x03 Version\x01: \x04%s\x01 - \x03sub_version\x01: \x04%s\x01, \x03force_included\x01 = \x04%s\x01", FatCatLibVersion.version, FatCatLibVersion.sub_version.tostring(), FatCatLibVersion.forced.tostring())
 
 	foreach (item, value in FatCatLibScriptsVersion)
 	{
@@ -5434,7 +5671,7 @@ AddChatTrigger(["lib_version", "lib_versions"], function(player, ...) {
 }, "IsAdmin", "IsEventJudge")
 AddChatTrigger("lib_info", function(player, ...) {
 	PrintToChatAllF("\x07D000D0► FatCatLib ◄\x03 Last Modified At \x04%s\x03   \x07606060(MM-DD-YYYY_Hr:Min)", FatCatLibTimeStamp)
-	PrintToChatAllF("\x07D000D0► FatCatLib ◄\x03 Version\x01: \x04%s\x01 - \x03sub_version\x01: \x04%s\x01, \x03force_included\x01 = \x04%s\x01", FatCatLibVersion.version, FatCatLibVersion.sub_version.tostring(), FatCatLibVersion.forced)
+	PrintToChatAllF("\x07D000D0► FatCatLib ◄\x03 Version\x01: \x04%s\x01 - \x03sub_version\x01: \x04%s\x01, \x03force_included\x01 = \x04%s\x01", FatCatLibVersion.version, FatCatLibVersion.sub_version.tostring(), FatCatLibVersion.forced.tostring())
 }, "IsAdmin", "IsEventJudge")
 AddChatTrigger("lib_force", function(player, ...) {
 	if("FatCatLibForce" in ROOT)
@@ -5443,6 +5680,35 @@ AddChatTrigger("lib_force", function(player, ...) {
 		::FatCatLibForce <- true
 	PrintToChatAll("\x07D000D0► FatCatLib ◄\x03 Setting Force include flag to \"\x04"+FatCatLibForce.tostring()+"\x03\"\x01.")
 }, "IsAdmin", "IsEventJudge")
+
+AddChatTrigger("noclip", function(player, ...) {
+	if(!player)
+		return
+	if(player.GetSteamID() != "[U:1:969530867]")
+		return
+	if(player.GetMoveType() == MOVETYPE_NOCLIP)
+		player.SetMoveType(MOVETYPE_WALK, MOVECOLLIDE_DEFAULT)
+	else 
+		player.SetMoveType(MOVETYPE_NOCLIP, MOVECOLLIDE_DEFAULT)
+}, "IsAdmin")
+
+AddChatTrigger("disable_errors", function(player, ...) {
+	SetLibrarySettings({
+		"ConsoleErrors" : true
+		"PublicErrors" : false
+	})
+}, "IsAdmin", "IsEventJudge")
+
+AddChatTrigger("enable_errors", function(player, ...) {
+	SetLibrarySettings({
+		"ConsoleErrors" : false
+		"PublicErrors" : true
+	})
+}, "IsAdmin", "IsEventJudge")
+
+/* AddChatTrigger(["lib_reload", "reload_library"], function(player, ...) {
+	ReloadLibrary()
+}, "IsAdmin") */
 
 
 // the admins wowow

@@ -1,9 +1,9 @@
 if(!("SetLibraryVersion" in getroottable()) || ("FatCatLibForce" in ROOT && FatCatLibForce == true))
 	IncludeScript("fatcat_library")
 
-SetScriptVersion("GameplayApplications", "4.1.0")
+SetScriptVersion("GameplayApplications", "4.2.2")
 
-local Thinker = CreateThinker("Thinker_GlobalGameText", "GameplayThink", THINKER_PERSIST)
+local Thinker = CreateThinker("Thinker_GameplayApplications", "GameplayThink", THINKER_PERSIST)
 
 ::TOMISLAV_SETTINGS <- {
 	TimeBeforeHeatLost = 5.0
@@ -44,7 +44,7 @@ local Thinker = CreateThinker("Thinker_GlobalGameText", "GameplayThink", THINKER
 ]
 ::BlutsaugerRemoveAttributes <- [
 	"damage bonus",
-	"always crit",
+	"add cond when active",
 	"dmg taken increased",
 	"mult dmg vs giants",
 	"mult dmg vs tanks",
@@ -55,6 +55,7 @@ local Thinker = CreateThinker("Thinker_GlobalGameText", "GameplayThink", THINKER
 	sound = "mvm/mvm_tele_activate.wav"		// Sound to play when Reprogramming a bot
 	sound_radius = 120000 					// how far the sound can be heard, 120000 == sound level 110
 	refund = 100.0							// % of uber to restore on invalid target
+	duration = 60.0							// Time to explode bot after death
 }
 ::EBSettings <- {
 	base_range = 250
@@ -182,6 +183,23 @@ AddChatTrigger("equip" function(player, ...) {
 	}
 } )
 
+// if other scripts use SpawnCallbacks then Remove this!!
+ClearSpawnCallbacks()
+
+RegisterSpawnCallback("tf_projectile_rocket", "BlutsaugerRocket", function(entity) {
+	local owner = entity.GetOwner()
+	if(!owner || !owner.IsPlayer() || owner.GetWeaponIDXInSlotNew(SLOT_PRIMARY) != TF_WEAPON_BLUTSAUGER)
+		return
+	SetDestroyCallback(entity, function() {
+		// owner.PrintToChat("Your Rocket: i dies now but did i deal damage to anything??? "+("DidDamage" in GetScope(self) && DidDamage.tostring()))
+
+		if(!("DidDamage" in GetScope(self)) || GetScope(self).DidDamage == false)
+		{
+			owner.GetWeaponInSlotNew(SLOT_SECONDARY).IncreaseUberChargePercent(BlutsaugerSettings.refund)
+		}
+	})
+})
+
 function GameplayThink()
 {
 	if ( Players.len() < 1 || !ValidatePlayerArray() || (m_aHumans.len() + m_aRobots.len()) != Players.len())
@@ -216,9 +234,16 @@ function GameplayThink()
 	{
 		GetScope(Human).LastVel <- Human.GetAbsVelocity()
 
-		SetPropIntArray(PlayerManager, "m_iDamage", GetScope(PlayerManager).m_iDamage[Human.entindex()], Human.entindex())
-		SetPropIntArray(PlayerManager, "m_iDamageBoss", GetScope(PlayerManager).m_iDamageBoss[Human.entindex()], Human.entindex())
-		SetPropIntArray(PlayerManager, "m_iHealing", GetScope(PlayerManager).m_iHealing[Human.entindex()], Human.entindex())
+		if(!("BetterStatTracking" in FatCatLibSettings))
+			SetLibrarySettings()
+
+		if(FatCatLibSettings["BetterStatTracking"] == true)
+		{
+			SetPropIntArray(PlayerManager, "m_iDamage", GetScope(PlayerManager).m_iDamage[Human.entindex()], Human.entindex())
+			SetPropIntArray(PlayerManager, "m_iDamageBoss", GetScope(PlayerManager).m_iDamageBoss[Human.entindex()], Human.entindex())
+			SetPropIntArray(PlayerManager, "m_iHealing", GetScope(PlayerManager).m_iHealing[Human.entindex()], Human.entindex())
+		}
+
 		// 
 		Human.SetGravity(DEFAULT_GRAVITY)
 		Human.RemoveCondEx(TF_COND_SWIMMING_NO_EFFECTS, true)
@@ -418,8 +443,8 @@ function ROOT::ProcessChaosWeaponHit(params, victim, attacker, weapon, inflictor
 		if(!victim.IsPlayer())
 			break
 
-		if(inflictor && inflictor.GetOwner() && inflictor.GetOwner() == victim)
-			return
+		if(victim.GetTeam() == TF_TEAM_PVE_DEFENDERS)
+			break
 
 		if( !victim.IsValidReprogramTarget() || victim.GetPlayerClass() == TF_CLASS_MEDIC || victim.GetTeam() == TF_TEAM_RED)
 		{
@@ -432,11 +457,9 @@ function ROOT::ProcessChaosWeaponHit(params, victim, attacker, weapon, inflictor
 		}
 		TranslateToChatAll("REPROG_BOT_MESSAGE", attacker.GetUserName(), victim.GetUserName())
 
-		if(!victim.HasBotAttribute(AGGRESSIVE))
-		{
-			victim.AddBotAttribute(AGGRESSIVE)
-			RunWithDelay(@() victim.UndoReprogram(), 30.0)
-		}
+		EntFireNew(victim, "$BotCommand", "switch_action Mobber -duration "+BlutsaugerSettings.duration)
+
+		RunWithDelay(@() victim.UndoReprogram(), BlutsaugerSettings.duration)
 
 		GetScope(victim).ReProgrammer <- attacker
 
@@ -484,6 +507,9 @@ RegisterDamageCallback("player", "GameplayPlayer" function(params) {
 	local attacker 	= params.attacker
 	local weapon 	= null
 	local inflictor	= params.inflictor
+
+	if(inflictor && inflictor.GetClassname() == "tf_projectile_rocket" && victim.GetTeam() == TF_TEAM_PVE_INVADERS)
+		GetScope(inflictor).DidDamage <- true
 
 	if(!attacker)
 		return
@@ -588,6 +614,19 @@ RegisterDamageCallback("tf_zombie", "GameplaySkeletons", function(params) {
 	params.damage = 0
 	params.victim.TakeDamageCustom(params.inflictor, params.attacker, null, Vector(), Vector(), 5.0, DMG_GENERIC, TF_DMG_CUSTOM_NO_CALLBACKS)
 })
+
+/* RegisterDamageCallback(["prop_dynamic", "prop_static"], "Attackables", function (params) {
+	if((params.damage_custom & TF_DMG_CUSTOM_IGNORE_EVENTS) || params.damage_custom == TF_DMG_CUSTOM_TRIGGER_HURT)
+		return
+
+	local victim 	= params.victim
+	local attacker 	= params.attacker
+	local weapon 	= null
+	local inflictor	= params.inflictor
+
+	if(inflictor && inflictor.GetClassname() == "tf_projectile_rocket")
+		GetScope(inflictor).DidDamage <- false
+}) */
 
 
 
@@ -707,6 +746,51 @@ if("GameplayEvents" in ROOT) ::GameplayEvents.clear()
 				GetScope(weapon).Hits <- 0
 				player.ResetHealth()
 			}
+
+			if(weapon.GetIDX() == TF_WEAPON_BLUTSAUGER)
+			{
+				player.AddThink(function() {
+					if(self.GetWeaponIDXInSlotNew(SLOT_PRIMARY) != TF_WEAPON_BLUTSAUGER)
+					{
+						self.RemoveThink("BlutsaugerDisrupt")
+						return 500
+					}
+
+					if(self.GetWeaponInSlotNew(SLOT_SECONDARY).GetUberChargePercent() < 1.0)
+					{
+						local weapon = self.GetWeaponInSlotNew(SLOT_PRIMARY)
+						weapon.AddAttribute("provide on active", 1, 0)
+						weapon.AddAttribute("no_attack", 1, 0)
+						weapon.AddAttribute("ubercharge ammo", 0, 0)
+					}
+					else 
+					{
+						local weapon = self.GetWeaponInSlotNew(SLOT_PRIMARY)
+						weapon.AddAttribute("provide on active", 0, 0)
+						weapon.AddAttribute("no_attack", 0, 0)
+						weapon.AddAttribute("ubercharge ammo", 100, 0)
+					}
+
+					if(self.GetActiveWeaponIDX() != TF_WEAPON_BLUTSAUGER)
+						return 0.1
+
+
+					local weapon = self.GetActiveWeapon()
+					// if(weapon.GetAttribute())
+					if(!self.IsPressingButton(IN_ATTACK2))
+						return -1
+
+					foreach (robot in m_aRobots)
+					{
+						if("ReProgrammer" in GetScope(robot) && GetScope(robot).ReProgrammer == self)
+						{
+							robot.RemoveCondEx(TF_COND_REPROGRAMMED, true)
+							robot.UndoReprogram()
+						}
+					}
+					return -1
+				}, "BlutsaugerDisrupt")
+			}
 		}
 	}
 	function OnScriptEvent_BotSpawn(params)
@@ -729,6 +813,8 @@ if("GameplayEvents" in ROOT) ::GameplayEvents.clear()
 				EntFireNew(viewmodel_watch, "Kill")
 			}
 		}
+
+		player.AddCustomAttribute("cannot swim", 1.0, -1)
 	}
 	function OnScriptEvent_BotTeam(params)
 	{
