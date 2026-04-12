@@ -6910,7 +6910,7 @@ WaveSchedule
 
             Tank
             {
-                Health 26500
+                Health 25000
                 Speed 75
                 Name "tankboss"
                 StartingPathTrackNode boss_path_a1
@@ -6936,7 +6936,7 @@ WaveSchedule
 				Target wave_start_relay
 				Action RunScriptCode
 				Param "
-				ClientPrint(null,3,`\x0799CCFFA Tank has arrived with \x07ffffff26,500 \x0799CCFFHP!`)
+				ClientPrint(null,3,`\x0799CCFFA Tank has arrived with \x07ffffff20,000 \x0799CCFFHP!`)
 				"
 			}
 		}
@@ -7316,7 +7316,7 @@ WaveSchedule
 			
 			Tank
             {
-                Health 32000
+                Health 25000
                 Name "tankboss"
                 Speed 75
                 StartingPathTrackNode "boss_path_1_left"
@@ -7348,7 +7348,7 @@ WaveSchedule
 			
 			Tank
             {
-                Health 28000
+                Health 25000
                 Name "tankboss"
                 Speed 75
                 StartingPathTrackNode "boss_path_1"
@@ -7391,11 +7391,11 @@ WaveSchedule
 			Name 1a
 			WaitForAllSpawned "tmc chaos"
 			Where spawnbot
-			TotalCount 6
-			MaxActive 6
+			TotalCount 4
+			MaxActive 4
 			SpawnCount 2
 			WaitBeforeStarting 13
-			WaitBetweenSpawns 30
+			WaitBetweenSpawns 50
 			TotalCurrency 100
 			
 			Squad
@@ -7403,7 +7403,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Giant_Soldier_Laser_Wall
-					Attributes AlwaysCrit
 				}
 				TFBot
 				{
