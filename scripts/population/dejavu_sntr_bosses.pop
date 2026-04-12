@@ -4,9 +4,9 @@ WaveSchedule
     PrecacheModel "models/workshop/player/items/pyro/taunt_the_hot_wheeler/taunt_the_hot_wheeler.mdl"
     PrecacheModel "models/bots/skeleton_sniper_boss/skeleton_sniper_boss.mdl"
 
-    PrecacheSound "crush/hedat3.wav"
-	PrecacheSound "crush/heddth.wav"
-	PrecacheSound "crush/hedact.wav"
+    PrecacheSound "crush/HEDAT3.wav"
+	PrecacheSound "crush/HEDDTH.wav"
+	PrecacheSound "crush/HEDACT.wav"
 
     PrecacheSound "shadows/tank_death_01.mp3"
 	PrecacheSound "shadows/tank_death_02.mp3"
@@ -740,7 +740,7 @@ WaveSchedule
 			UseCustomModel "models/empty.mdl" // no
 			UseMeleeThreatPrioritization 1 [$SIGSEGV]
 			RocketCustomModel "models/empty.mdl" [$SIGSEGV]
-			DeathSound crush/heddth.wav
+			DeathSound crush\HEDDTH.wav
 			ExtAttr IgnoreBuildings
 			
 			ShootTemplate [$SIGSEGV]

@@ -252,7 +252,7 @@ WaveSchedule
         "SwordmanSwordBeam"
         {
             OriginalItemName "The Pomson 6000"
-            "damage bonus" 30
+            "damage bonus" 50
             "always crit" 1
             "spread angle pattern" "0 0 0|0 5 0|0 10 0|0 15 0 |0 20 0|0 25 0|0 -5 0|0 -10 0|0 -15 0|0 -20 0|0 -25 0"
             "mult projectile count" 11
@@ -1192,7 +1192,7 @@ WaveSchedule
             {
                 target "roundbeamtest"
                 action "RunScriptCode"
-                param "RingRegister(self,100,CzUtil.GetTracking(`ringOwnerShocks`))"
+                param "RingRegister(self,300,CzUtil.GetTracking(`ringOwnerShocks`))"
                 delay 0.0
             }
             OnSpawnOutput
@@ -4166,7 +4166,7 @@ WaveSchedule
 				"mins" "-300 -300 -300"
 				"maxs" "300 300 300"
 				"damagetype" "64"
-				"damage" "600"
+				"damage" "1000"
                 "filtername" "filter_redteam_nouber"
 				"StartDisabled" "1"
 				"spawnflags" "64"
@@ -5919,7 +5919,7 @@ WaveSchedule
             tf_point_weapon_mimic
             {
                 "targetname"       "SwordBeamMimic"
-                "origin"           "50 0 100"
+                "origin"           "50 0 80"
                 "angles"           "0 0 0"
                 "teamnum"          "3"
                 "$weaponname"    "SwordmanSwordBeam"
@@ -14205,7 +14205,10 @@ WaveSchedule
                     {
                         Target BigNet
                         Action RunScriptCode
-                        Param "MusicSystemMent.SetMusicTrack(`#mentrillum/mvm/music/bossrush/lone_swordsman_phase2.wav`);"
+                        Param "
+                                MusicSystemMent.SetMusicTrack(`#mentrillum/mvm/music/bossrush/lone_swordsman_phase2.wav`);
+                                EntFire(`player`, `$DisplayTextChat`, `{yellow}///NOW PLAYING: SHADOW STRIKE FROM KIRBY TRIPLE DELUXE///`)
+                              "
                         Delay 3.5
                         Repeats 1
                         Cooldown -1
@@ -16601,6 +16604,7 @@ WaveSchedule
 					{
 						ItemName "SpoonGun"
 
+                        "add attributes when active" ""
 						"projectile lifetime"	3.5
 						"projectile acceleration time"	2
 						"projectile acceleration"		-1000
