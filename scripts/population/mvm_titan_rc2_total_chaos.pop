@@ -166,6 +166,18 @@ population
 		        Param   mission_titan_intro
 		    }
 		}
+		WaveSpawn
+		{
+			FirstSpawnOutput
+			{
+				Target  bignet
+				Action  RunScriptCode
+				Param   "
+				if (`__potato` in getroottable())
+				::__potato.GasNerf.Disable()
+				"
+			}
+		}
         WaveSpawn
 		{
 			Name	w1_warmup
@@ -999,6 +1011,15 @@ population
 		}
 		WaveSpawn
 		{
+		    WaitBeforeStarting  2
+		    FirstSpawnOutput
+		    {
+		        Target  bombpath_clearall_relay
+		        Action  trigger
+		    }
+		}
+		WaveSpawn
+		{
 		    WaitBeforeStarting  25
 		    FirstSpawnOutput
 		    {
@@ -1117,6 +1138,644 @@ population
                 }
 			}
 		}
+		WaveSpawn													// Teleport Soldier to hatch to manipulate behavior
+        {
+            WaitForAllSpawned	EscortSupports1
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS)
+                    continue
+                    robot.SetAbsOrigin(Vector(1300, 0, 280))
+                }
+                "
+				Delay 0.5
+            }
+        }
+		WaveSpawn													// Teleport Heavy to hatch to manipulate behavior
+        {
+            WaitForAllSpawned	EscortSupports2
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_HEAVYWEAPONS)
+                    continue
+                    robot.SetAbsOrigin(Vector(1300, 0, 280))
+                }
+                "
+				Delay 0.5
+            }
+        }
+		WaveSpawn													// Teleport Soldier to teleporter and announce entry
+        {
+            WaitForAllSpawned	Escort2
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS)
+                    continue
+                    robot.SetAbsOrigin(Vector(-6288, -591, -25))
+					robot.AddCondEx(TF_COND_TELEPORTED, 10, null)
+                }
+                "
+            }
+			DoneOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                ClientPrint(null, 3 , `\x078adb91A \x0700ff44Support Soldier \x078adb91has joined the fight!`)
+                "
+            }
+        }
+		WaveSpawn													// Teleport Heavy to teleporter and announce entry
+        {
+            WaitForAllSpawned	Escort3
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_HEAVYWEAPONS)
+                    continue
+                    robot.SetAbsOrigin(Vector(-6288, -591, -35))
+					robot.AddCondEx(TF_COND_TELEPORTED, 10, null)
+                }
+                "
+            }
+			DoneOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                ClientPrint(null, 3 , `\x078adb91A \x0700ff44Support Heavy \x078adb91has joined the fight!`)
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to move toward tank
+        {
+            WaitForAllSpawned	Escort2
+			WaitBeforeStarting	1
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent tank_path_red6 -duration 4`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to stay near tank 2
+        {
+            WaitForAllSpawned	Escort2
+			WaitBeforeStarting	5
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -duration 124 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort2
+			WaitBeforeStarting	30
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red3 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort2
+			WaitBeforeStarting	35
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red3 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort2
+			WaitBeforeStarting	40
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red3 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort2
+			WaitBeforeStarting	45
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red3 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort2
+			WaitBeforeStarting	55
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red6 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort2
+			WaitBeforeStarting	60
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red6 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort2
+			WaitBeforeStarting	65
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red6 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort2
+			WaitBeforeStarting	70
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red6 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort2
+			WaitBeforeStarting	75
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red6 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort2
+			WaitBeforeStarting	80
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red6 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to retreat
+        {
+            WaitForAllSpawned	Escort2
+			WaitBeforeStarting	130
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent tank_path_red6 -duration 28 -distance 100`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to stay near tank 3
+        {
+            WaitForAllSpawned	Escort3
+			WaitBeforeStarting	10
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank3 -duration 200 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort3
+			WaitBeforeStarting	40
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red3 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort3
+			WaitBeforeStarting	45
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red3 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort3
+			WaitBeforeStarting	50
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red3 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort3
+			WaitBeforeStarting	55
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red3 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort3
+			WaitBeforeStarting	70
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red6 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort3
+			WaitBeforeStarting	75
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red6 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort3
+			WaitBeforeStarting	80
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red6 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort3
+			WaitBeforeStarting	85
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red6 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort3
+			WaitBeforeStarting	90
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red6 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+		WaveSpawn													// Instruct Soldier to look behind briefly
+        {
+            WaitForAllSpawned	Escort3
+			WaitBeforeStarting	95
+            FirstSpawnOutput
+            {
+                Target bignet
+                Action RunScriptCode
+                Param "
+                foreach( robot in m_aRobots)
+                {
+                    if(robot.GetTeam() != TF_TEAM_PVE_DEFENDERS || robot.GetPlayerClass() != TF_CLASS_SOLDIER)
+                    continue
+                    robot.AcceptInput(`$BotCommand`, `interrupt_action -posent EscortTank2 -lookposent tank_path_red6 -duration 1 -distance 350`, null, null)
+                }
+                "
+            }
+        }
+        WaveSpawn
+		{
+			WaitForAllDead Escort1Done
+			Name	EscortSupports1
+            WaitBeforeStarting	0
+		    TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			Where	spawnbot_specialflank_spiral
+            Support Limited
+			RandomChoice
+			{
+				Squad
+				{
+					TFBot
+					{
+						Name	"Support Soldier"
+						Template    T_TFBot_Soldier_Extended_Buff_Banner
+						Skill Expert
+						ClassIcon soldier_buff
+						Item	"warbird_rocketlauncher_warhawk"
+						//Attributes IgnoreFlag
+						BehaviorModifiers Mobber
+						Tag NoChatter
+						ItemAttributes
+						{
+							ItemName	"warbird_rocketlauncher_warhawk"
+							"projectile no deflect" 						1
+							"damage bonus"									15
+							"clip size bonus" 								4
+							"fire rate bonus" 								0.6
+							"faster reload rate" 							0.6
+							"blast radius increased" 						1.25
+							"Projectile speed decreased" 					0.85
+							"mod projectile heat seek power" 				90
+							"mod projectile heat no predict target speed"	1
+							"mod projectile heat aim start time"			0.1
+							"mod projectile heat aim error" 				120
+							"projectile trail particle"						"~rockettrail_custom"
+							"explosion particle"							"drg_cow_explosioncore_charged"
+							"projectile detonate time"						2.5
+							"ubercharge rate bonus for healer"				0
+							"set_item_texture_wear"					0.2
+						}
+						ItemAttributes
+						{
+							ItemName	"The Buff Banner"
+							"mod soldier buff range" 						2
+							"effect cond override" 							1055261
+						}
+						CharacterAttributes
+						{
+							"not solid to players" 							1
+							"damage force reduction" 						0
+							"move speed bonus" 								0.85
+							"increase buff duration"						100
+							"add cond when active" 							11059
+							"ignored by bots" 								1
+							"ignored by enemy sentries" 					1
+							"dmg taken increased" 							0
+						}
+					}
+				}
+			}
+		}
+        WaveSpawn
+		{
+			WaitForAllDead Escort2Done
+			Name	EscortSupports2
+            WaitBeforeStarting	0
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			Where	spawnbot_specialflank_spiral
+            Support Limited
+			RandomChoice
+			{
+				Squad
+				{
+					TFBot
+					{
+						Class Heavy
+						Name "Support Heavy"
+						Scale 1.15
+						Skill Expert
+						WeaponRestrictions PrimaryOnly
+						//Attributes IgnoreFlag
+						BehaviorModifiers Mobber
+						Tag NoChatter
+						Attributes AlwaysCrit
+						Item	"gentlemanne_minigun_topshelf"
+						Item    "Upgradeable TF_WEAPON_FISTS"
+						Item	"Security Shades"
+						Item	"The Purity Fist"
+						ItemAttributes
+						{
+							ItemName	"gentlemanne_minigun_topshelf"
+							"damage bonus"							15
+							"fire rate bonus"						0.5
+							"aoe heal chance"						600
+							"attach particle effect static"			3076
+							"ubercharge rate bonus for healer"		1
+							"set_item_texture_wear"					0.2
+						}
+						CharacterAttributes
+						{
+							"not solid to players"					1
+							"move speed bonus"						0.75
+							"damage force reduction"				0
+							"add cond when active"					11059
+							"ignored by bots"						1
+							"ignored by enemy sentries"				1
+							"dmg taken increased"					0
+						}
+					}
+				}
+			}
+		}
 		WaveSpawn
 		{
 		    WaitForAllSpawned  Escort1
@@ -1204,12 +1863,6 @@ population
 			WaitBeforeStarting 5
 			Where   spawnbot
 			Support Limited
-//            DoneOutput
-//            {
-//		        Target  music_escort2
-//		        Action  FadeOut
-//                Param 1
-//		    }
 			RandomChoice
 			{
 			    Squad
@@ -1238,12 +1891,6 @@ population
 			WaitBeforeStarting 5
 			Where   spawnbot
 			Support Limited
-//            DoneOutput
-//            {
-//		        Target  music_escort3
-//		        Action  FadeOut
-//                Param 1
-//		    }
 			RandomChoice
 			{
 			    Squad
@@ -1443,7 +2090,7 @@ population
 			MaxActive	2
 			SpawnCount	1
 			WaitBeforeStarting	5
-			WaitBetweenSpawns	15
+			WaitBetweenSpawns	20
 			Where	spawnbot_specialflank_cliff
 			Support	1
 			TFBot
