@@ -6411,6 +6411,7 @@ WaveSchedule
 						"damage force reduction" 0.01
 						"airblast vulnerability multiplier" 0.01
 						"airblast vertical vulnerability multiplier" 0.01
+						"mult stun resistance" 0
                     }
                 }
 
@@ -6425,6 +6426,7 @@ WaveSchedule
 						"damage force reduction" 0.01
 						"airblast vulnerability multiplier" 0.01
 						"airblast vertical vulnerability multiplier" 0.01
+						"mult stun resistance" 0
                     }
                 }
             }
@@ -6952,7 +6954,7 @@ WaveSchedule
 			Class Soldier
 			Name "Omega Soldier"
 			ClassIcon soldier_burstfire_hyper
-			Health 15000
+			Health 20000
 			Attributes MiniBoss
 			Attributes AlwaysCrit
 
@@ -9228,9 +9230,7 @@ WaveSchedule
 			TFBot
 			{
 				Class Pyro
-				Skill Expert
-				Name "Crit Pyro"
-				Attributes AlwaysCrit
+				Skill Easy
 				Action Mobber
 				ItemAttributes
 				{
@@ -9260,9 +9260,7 @@ WaveSchedule
 			TFBot
 			{
 				Class Pyro
-				Skill Expert
-				Name "Crit Pyro"
-				Attributes AlwaysCrit
+				Skill Easy
 				Action Mobber
 				ItemAttributes
 				{
@@ -9308,39 +9306,15 @@ WaveSchedule
 			TotalCount 2
 			MaxActive  2
 			SpawnCount 2
-			TotalCurrency 100
+			TotalCurrency 200
 
-			WaitBeforeStarting 24
+			WaitBeforeStarting 30
 			WaitBetweenSpawns  10
 
 			TFBot
 			{
 				Template T_TFBot_Giant_Soldier_SlowBarrage
-				Action Mobber
 				Attributes AlwaysCrit
-				CharacterAttributes
-				{
-					"force distribute currency on death" 1
-				}
-			}
-		}
-
-		WaveSpawn
-		{
-			Name  wave6b
-			WaitForAllDead wave6a
-			Where spawnbot_fast
-			TotalCount 4
-			MaxActive  4
-			SpawnCount 4
-			TotalCurrency 100
-
-			WaitBeforeStarting 32
-			WaitBetweenSpawns  10
-
-			TFBot
-			{
-				Template T_TFBot_Giant_Soldier_Spammer
 				Action Mobber
 				CharacterAttributes
 				{
@@ -9368,7 +9342,7 @@ WaveSchedule
 			TotalCount 20
 			MaxActive  20
 			SpawnCount 1
-			TotalCurrency 50
+			TotalCurrency 59
 
 			WaitBeforeStarting 14
 			WaitBetweenSpawns  1
@@ -9395,7 +9369,7 @@ WaveSchedule
 			TotalCount 5
 			MaxActive  5
 			SpawnCount 5
-			TotalCurrency 50
+			TotalCurrency 70
 
 			WaitBeforeStarting 39
 			WaitBetweenSpawns  1
@@ -9421,9 +9395,9 @@ WaveSchedule
 			TotalCount 5
 			MaxActive  5
 			SpawnCount 5
-			TotalCurrency 50
+			TotalCurrency 57
 
-			WaitBeforeStarting 37
+			WaitBeforeStarting 36
 			WaitBetweenSpawns  1
 
 			TFBot
@@ -9459,11 +9433,6 @@ WaveSchedule
 				ClassIcon demo_spammer_package
 				Action Mobber
 				Tag freeze
-				ItemAttributes
-				{
-					ItemName "TF_WEAPON_GRENADELAUNCHER"
-					"fire rate bonus" 0.5
-				}
 
 				CharacterAttributes
 				{
@@ -9492,12 +9461,6 @@ WaveSchedule
 				Action Mobber
 				Tag freeze
 
-				ItemAttributes
-				{
-					ItemName "TF_WEAPON_GRENADELAUNCHER"
-					"fire rate bonus" 0.5
-				}
-
 				CharacterAttributes
 				{
 					"force distribute currency on death" 1
@@ -9524,12 +9487,6 @@ WaveSchedule
 				ClassIcon demo_spammer_package
 				Action Mobber
 				Tag freeze
-
-				ItemAttributes
-				{
-					ItemName "TF_WEAPON_GRENADELAUNCHER"
-					"fire rate bonus" 0.5
-				}
 
 				CharacterAttributes
 				{
@@ -9597,8 +9554,8 @@ WaveSchedule
 			Name  wave6d-1
 			WaitForAllDead wave6c
 			Where spawnbot_giant_fast
-			TotalCount 6
-			MaxActive  6
+			TotalCount 4
+			MaxActive  4
 			SpawnCount 1
 			TotalCurrency 50
 
@@ -9608,7 +9565,6 @@ WaveSchedule
 			TFBot
 			{
 				Template T_TFBot_Giant_Pyro
-				Attributes AlwaysCrit
 				Action Mobber
 				ItemAttributes
 				{
@@ -9628,8 +9584,8 @@ WaveSchedule
 			Name  wave6d
 			WaitForAllSpawned wave6d-1
 			Where spawnbot_giant_fast
-			TotalCount 4
-			MaxActive  4
+			TotalCount 2
+			MaxActive  2
 			SpawnCount 2
 			TotalCurrency 100
 
@@ -9639,7 +9595,6 @@ WaveSchedule
 			TFBot
 			{
 				Template T_TFBot_Giant_Pyro
-				Attributes AlwaysCrit
 				Action Mobber
 				ItemAttributes
 				{
@@ -9659,8 +9614,8 @@ WaveSchedule
 			Name  wave6d
 			WaitForAllDead wave6c
 			Where spawnbot_giant_fast
-			TotalCount 6
-			MaxActive  6
+			TotalCount 4
+			MaxActive  4
 			SpawnCount 1
 			TotalCurrency 100
 
@@ -9684,13 +9639,13 @@ WaveSchedule
 			Name  wave6d
 			WaitForAllDead wave6c
 			Where spawnbot_giant_fast
-			TotalCount 4
-			MaxActive  4
+			TotalCount 2
+			MaxActive  2
 			SpawnCount 1
 			TotalCurrency 100
 
-			WaitBeforeStarting 13
-			WaitBetweenSpawns  6.5
+			WaitBeforeStarting 15
+			WaitBetweenSpawns  6
 
 			TFBot
 			{
@@ -9725,7 +9680,7 @@ WaveSchedule
 			TotalCount 1
 			MaxActive  1
 			SpawnCount 1
-			TotalCurrency 200
+			TotalCurrency 300
 
 			WaitBeforeStarting 12
 			WaitBetweenSpawns  10
@@ -9764,7 +9719,7 @@ WaveSchedule
 			TotalCount 1
 			MaxActive  1
 			SpawnCount 1
-			TotalCurrency 200
+			TotalCurrency 300
 
 			WaitBeforeStarting 12
 			WaitBetweenSpawns  10
@@ -9787,56 +9742,6 @@ WaveSchedule
 					Repeats 1
 					Param "vo\mvm\mght\soldier_mvm_m_paincrticialdeath03.mp3"
 				}
-
-				CharacterAttributes
-				{
-					"force distribute currency on death" 1
-				}
-			}
-		}
-
-		WaveSpawn
-		{
-			Name  wave6e
-			WaitForAllDead wave6d
-			Where spawnbot_left
-			TotalCount 1
-			MaxActive  1
-			SpawnCount 1
-			TotalCurrency 100
-
-			WaitBeforeStarting 15
-			WaitBetweenSpawns  10
-
-			TFBot
-			{
-				Template T_TFBot_Giant_Heavyweapons
-				Action Mobber
-
-				CharacterAttributes
-				{
-					"force distribute currency on death" 1
-				}
-			}
-		}
-
-		WaveSpawn
-		{
-			Name  wave6e
-			WaitForAllDead wave6d
-			Where spawnbot_right
-			TotalCount 1
-			MaxActive  1
-			SpawnCount 1
-			TotalCurrency 100
-
-			WaitBeforeStarting 17
-			WaitBetweenSpawns  10
-
-			TFBot
-			{
-				Template T_TFBot_Giant_Heavyweapons
-				Action Mobber
 
 				CharacterAttributes
 				{
