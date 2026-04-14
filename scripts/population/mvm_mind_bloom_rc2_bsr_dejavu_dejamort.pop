@@ -7765,6 +7765,7 @@ WaveSchedule
                 Skill	Expert
                 WeaponRestrictions	MeleeOnly
                 Attributes	"AlwaysCrit"
+                Action Mobber
                 CharacterAttributes
                 {
                     "move speed bonus"	1.15
