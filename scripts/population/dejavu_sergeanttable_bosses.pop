@@ -13994,7 +13994,6 @@ WaveSchedule
                 "airblast vulnerability multiplier" 0.5
                 "override footstep sound set" 4
                 "cancel falling damage" 1
-                "displace touched enemies" 1
             }
 
             ItemAttributes
@@ -14100,7 +14099,6 @@ WaveSchedule
                         "airblast vulnerability multiplier" 0.5
                         "override footstep sound set" 4
                         "cancel falling damage" 1
-                        "displace touched enemies" 1
 						"mult charging move speed" 1
                     }
 
@@ -14303,7 +14301,6 @@ WaveSchedule
                         "override footstep sound set" 4
                         "cancel falling damage" 1
                         "always allow taunt" 1
-                        "displace touched enemies" 1
                     }
 
                     ItemAttributes
@@ -14359,7 +14356,6 @@ WaveSchedule
                         "override footstep sound set" 4
                         "cancel falling damage" 1
                         "always allow taunt" 1
-                        "displace touched enemies" 1
                     }
 
                     ItemAttributes
@@ -14446,7 +14442,6 @@ WaveSchedule
                         "override footstep sound set" 4
                         "cancel falling damage" 1
                         "always allow taunt" 1
-                        "displace touched enemies" 1
                     }
                     FireInput
                     {
@@ -14484,7 +14479,6 @@ WaveSchedule
                         "override footstep sound set" 4
                         "cancel falling damage" 1
                         "always allow taunt" 1
-                        "displace touched enemies" 1
                     }
 
                     ItemAttributes
@@ -14534,7 +14528,6 @@ WaveSchedule
                         "override footstep sound set" 4
                         "cancel falling damage" 1
                         "always allow taunt" 1
-                        "displace touched enemies" 1
                     }
 
                     ItemAttributes
@@ -14583,7 +14576,6 @@ WaveSchedule
                         "override footstep sound set" 4
                         "cancel falling damage" 1
                         "always allow taunt" 1
-                        "displace touched enemies" 1
                     }
 
                     ItemAttributes
@@ -14638,7 +14630,6 @@ WaveSchedule
                         "airblast vulnerability multiplier" 0.5
                         "override footstep sound set" 4
                         "cancel falling damage" 1
-                        "displace touched enemies" 1
                     }
 
                     ItemAttributes
@@ -14693,7 +14684,6 @@ WaveSchedule
                         "airblast vulnerability multiplier" 0.5
                         "override footstep sound set" 4
                         "cancel falling damage" 1
-                        "displace touched enemies" 1
 						"mult charging move speed" 2.5
                     }
 
@@ -14858,7 +14848,6 @@ WaveSchedule
 						"blast dmg to self increased" 0.2
 						"increased jump height" 0.9
 						"cancel falling damage" 1
-						"displace touched enemies" 0
 						"hand scale" 1
 					}
 
@@ -15057,7 +15046,6 @@ WaveSchedule
 						"blast dmg to self increased" 0.2
 						"increased jump height" 0.9
 						"cancel falling damage" 1
-						"displace touched enemies" 1
 					}
 
 					Sequence
@@ -15255,7 +15243,6 @@ WaveSchedule
 						"blast dmg to self increased" 0.2
 						"increased jump height" 0.9
 						"cancel falling damage" 1
-						"displace touched enemies" 1
 						"voice pitch scale" 0
                         "healing received bonus" 35
 					}
@@ -15316,7 +15303,6 @@ WaveSchedule
 						"blast dmg to self increased" 0.2
 						"increased jump height" 0.9
 						"cancel falling damage" 1
-						"displace touched enemies" 0
 						"voice pitch scale" 1
 						"hand scale" 1
 					}
@@ -15403,7 +15389,6 @@ WaveSchedule
 						"blast dmg to self increased" 0.2
 						"increased jump height" 0.9
 						"cancel falling damage" 1
-						"displace touched enemies" 0
 						"voice pitch scale" 1
 						"hand scale" 1
 					}
@@ -15553,7 +15538,6 @@ WaveSchedule
 						"blast dmg to self increased" 0.2
 						"increased jump height" 0.9
 						"cancel falling damage" 1
-						"displace touched enemies" 0
 					}
 
 					ItemAttributes
@@ -15637,7 +15621,6 @@ WaveSchedule
 						"blast dmg to self increased" 0.2
 						"increased jump height" 0.9
 						"cancel falling damage" 1
-						"displace touched enemies" 1
 					}
 
 					Sequence
@@ -15786,7 +15769,6 @@ WaveSchedule
 						"blast dmg to self increased" 0.2
 						"increased jump height" 0.9
 						"cancel falling damage" 1
-						"displace touched enemies" 1
 					}
 
 					Sequence
@@ -15868,7 +15850,6 @@ WaveSchedule
 						"blast dmg to self increased" 0.2
 						"increased jump height" 0.9
 						"cancel falling damage" 1
-						"displace touched enemies" 1
 						"voice pitch scale" 0
                         "healing received bonus" 35
 					}
@@ -15928,7 +15909,6 @@ WaveSchedule
 						"blast dmg to self increased" 0.2
 						"increased jump height" 0.9
 						"cancel falling damage" 1
-						"displace touched enemies" 0
 						"hand scale" 1
 						"voice pitch scale" 1
 					}
@@ -16014,7 +15994,6 @@ WaveSchedule
 						"blast dmg to self increased" 0.2
 						"increased jump height" 0.9
 						"cancel falling damage" 1
-						"displace touched enemies" 0
 						"hand scale" 1
 						"voice pitch scale" 1
 					}
@@ -16212,7 +16191,6 @@ WaveSchedule
 						"blast dmg to self increased" 0.2
 						"increased jump height" 0.9
 						"cancel falling damage" 1
-						"displace touched enemies" 0
 					}
 
 					ItemAttributes
@@ -16296,7 +16274,6 @@ WaveSchedule
 						"blast dmg to self increased" 0.2
 						"increased jump height" 0.9
 						"cancel falling damage" 1
-						"displace touched enemies" 0
 					}
 					
 					ItemAttributes
@@ -16450,7 +16427,6 @@ WaveSchedule
 						"blast dmg to self increased" 0.2
 						"increased jump height" 0.9
 						"cancel falling damage" 1
-						"displace touched enemies" 1
 						"voice pitch scale" 0
                         "healing received bonus" 35
 					}
@@ -16509,7 +16485,6 @@ WaveSchedule
 						"blast dmg to self increased" 0.2
 						"increased jump height" 0.9
 						"cancel falling damage" 1
-						"displace touched enemies" 0
 						"hand scale" 1
 						"voice pitch scale" 1
 					}
@@ -16596,7 +16571,6 @@ WaveSchedule
 						"blast dmg to self increased" 0.2
 						"increased jump height" 0.9
 						"cancel falling damage" 1
-						"displace touched enemies" 0
 						"hand scale" 3
 						"voice pitch scale" 1
 					}
