@@ -7091,6 +7091,8 @@ YOUR_WaveSchedule_IS_TAKING_TOO_LONG
 			logic_relay
 			{
 				"targetname" "your_taking_14_long"
+				"OnTrigger" "w14_forcefield,Disable,,0,-1"
+				"OnTrigger" "w14_forcefield_prop,Disable,,0,-1"
 				"OnTrigger" "spawnbot_altmode,Enable,,30,-1"
 				"OnTrigger" "pumpkin_interrupt_stop_relay_delayed,Trigger,,30,-1"
 			}
@@ -7304,6 +7306,7 @@ YOUR_WaveSchedule_IS_TAKING_TOO_LONG
 				"OnTrigger" "force_respawn_relay,Disable,,0,-1"
 				"OnTrigger" "force_respawn_relay,CancelPending,,0,-1"
 				"OnTrigger" "alt_player_respawn_relay,Enable,,0,-1"
+				"OnTrigger" "@f@filter_despawn@player,$Suicide,,2.2,-1"
 				"OnTrigger" "@f@filter_player@player,$AddCond,85,2.2,-1"
 				"OnTrigger" "@f@filter_player@player,$AwardAndGiveExtraItem,Your Raking,2.2,-1"
 				"OnTrigger" "player,$RemovePlayerAttribute,major move speed bonus,2.2,-1"
@@ -16135,6 +16138,7 @@ YOUR_WaveSchedule_IS_TAKING_TOO_LONG
 				MaxVisionRange 1200
 				Action Mobber
 				Attributes DisableDodge
+				Tag Despawn
 				Item "Lo-Fi Longwave"
 				Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
 				FireInput
@@ -16172,6 +16176,7 @@ YOUR_WaveSchedule_IS_TAKING_TOO_LONG
 				ClassIcon blu2_lite
 				MaxVisionRange 1200
 				Action Mobber
+				Tag Despawn
 				Attributes DisableDodge
 				Item "Lo-Fi Longwave"
 				Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
