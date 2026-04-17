@@ -934,7 +934,7 @@ WaveSchedule
 			ambient_generic
             {
                 "targetname" "musicw1"
-				"message" "#soda_w1.mp3"
+				"message" "soda_w1.mp3"
 				"health" "10"
 				"pitch" "100"
 				"spawnflags" "17"
@@ -968,7 +968,7 @@ WaveSchedule
 			ambient_generic
             {
                 "targetname" "musicw2"
-				"message" "#soda_w2.mp3"
+				"message" "soda_w2.mp3"
 				"health" "10"
 				"pitch" "100"
 				"spawnflags" "17"
@@ -1002,7 +1002,7 @@ WaveSchedule
 			ambient_generic
             {
                 "targetname" "musicw3"
-				"message" "#soda_nyancat.mp3"
+				"message" "soda_nyancat.mp3"
 				"health" "10"
 				"pitch" "100"
 				"spawnflags" "17"
@@ -1036,7 +1036,7 @@ WaveSchedule
 			ambient_generic
             {
                 "targetname" "musicw4"
-				"message" "#soda_tf2contentcreator_gaslightingself.mp3"
+				"message" "soda_tf2contentcreator_gaslightingself.mp3"
 				"health" "10"
 				"pitch" "100"
 				"spawnflags" "17"
@@ -1070,7 +1070,7 @@ WaveSchedule
 			ambient_generic
             {
                 "targetname" "musicw5a"
-				"message" "#soda_w5subwave1.mp3"
+				"message" "soda_w5subwave1.mp3"
 				"health" "10"
 				"pitch" "100"
 				"spawnflags" "17"
@@ -1086,7 +1086,7 @@ WaveSchedule
 			ambient_generic
             {
                 "targetname" "musicw5b_intro"
-				"message" "#soda_w5subwave2intro.mp3"
+				"message" "soda_w5subwave2intro.mp3"
 				"health" "10"
 				"pitch" "100"
 				"spawnflags" "17"
@@ -1102,7 +1102,7 @@ WaveSchedule
 			ambient_generic
             {
                 "targetname" "musicw5b"
-				"message" "#soda_w5subwave2.mp3"
+				"message" "soda_w5subwave2.mp3"
 				"health" "10"
 				"pitch" "100"
 				"spawnflags" "17"
@@ -1118,7 +1118,7 @@ WaveSchedule
 			ambient_generic
             {
                 "targetname" "musicw5c_intro"
-				"message" "#soda_w5subwave3intro.mp3"
+				"message" "soda_w5subwave3intro.mp3"
 				"health" "10"
 				"pitch" "100"
 				"spawnflags" "17"
@@ -1134,7 +1134,7 @@ WaveSchedule
 			ambient_generic
             {
                 "targetname" "musicw5c"
-				"message" "#soda_w5subwave3.mp3"
+				"message" "soda_w5subwave3.mp3"
 				"health" "10"
 				"pitch" "100"
 				"spawnflags" "17"
@@ -1150,7 +1150,7 @@ WaveSchedule
 			ambient_generic
             {
                 "targetname" "musicw5d_intro"
-				"message" "#soda_w5subwave4intro.mp3"
+				"message" "soda_w5subwave4intro.mp3"
 				"health" "10"
 				"pitch" "100"
 				"spawnflags" "17"
@@ -1166,7 +1166,7 @@ WaveSchedule
 			ambient_generic
             {
                 "targetname" "musicw5d"
-				"message" "#soda_w5subwave4.mp3"
+				"message" "soda_w5subwave4.mp3"
 				"health" "10"
 				"pitch" "100"
 				"spawnflags" "17"
@@ -1275,7 +1275,7 @@ WaveSchedule
 			ambient_generic
             {
                 "targetname" "musicw6"
-				"message" "#soda_missinformation.mp3"
+				"message" "soda_missinformation.mp3"
 				"health" "10"
 				"pitch" "100"
 				"spawnflags" "17"
@@ -1299,7 +1299,7 @@ WaveSchedule
 			ambient_generic
             {
                 "targetname" "musicw6boss"
-				"message" "#soda_leastschizonfnplayers.mp3"
+				"message" "soda_leastschizonfnplayers.mp3"
 				"health" "10"
 				"pitch" "100"
 				"spawnflags" "17"
@@ -1457,7 +1457,7 @@ WaveSchedule
 			ambient_generic
 			{
 				"targetname" "ambient_viewers"
-				"message" "#soda_viewers_swarm.mp3"
+				"message" "soda_viewers_swarm.mp3"
 				"health" "10"
 				"pitch" "100"
 				"volume" "100"
@@ -1468,7 +1468,7 @@ WaveSchedule
 			ambient_generic
 			{
 				"targetname" "ambient_viewers"
-				"message" "#soda_viewers_swarm.mp3"
+				"message" "soda_viewers_swarm.mp3"
 				"health" "10"
 				"pitch" "100"
 				"volume" "100"
@@ -1479,7 +1479,7 @@ WaveSchedule
 			ambient_generic
 			{
 				"targetname" "ambient_viewers"
-				"message" "#soda_viewers_swarm.mp3"
+				"message" "soda_viewers_swarm.mp3"
 				"health" "10"
 				"pitch" "100"
 				"volume" "100"
@@ -1504,6 +1504,131 @@ WaveSchedule
 				"OnTrigger" "relay_ambient_viewers_loop,Trigger,,15,-1"
 			}
 		}
+		MissInfo_Annotations
+		{
+			training_annotation
+			{
+				"targetname"   "annotation1"
+				"display_text" "Notice: An Uber Tank will spawn at gate B"
+				"lifetime"     "8"
+				"origin" "1559 285 138"
+			}
+			training_annotation
+			{
+				"targetname"   "annotation2"
+				"display_text" "Notice: There is a limited amount of RED support, try to not let them all die"
+				"lifetime"     "8"
+				"origin" "326 3948 132"
+			}
+			training_annotation
+			{
+				"targetname"   "annotation3"
+				"display_text" "Notice: There are custom weapons and upgrades in other missions"
+				"lifetime"     "8"
+				"origin" "-131 -943 200"
+			}
+			training_annotation
+			{
+				"targetname"   "annotation4"
+				"display_text" "Notice: The legal department will spawn here"
+				"lifetime"     "8"
+				"origin" "3000 3200 300"
+			}
+			training_annotation
+			{
+				"targetname"   "annotation5"
+				"display_text" "Notice: While in front of a TV, hold ''alt'' when you ready up"
+				"lifetime"     "8"
+				"origin" "2829 260 64"
+			}
+			training_annotation
+			{
+				"targetname"   "annotation6"
+				"display_text" "Notice: Some Battalion Soldiers are fake, use crits to defeat them"
+				"lifetime"     "8"
+				"origin" "1300 2040 500"
+			}
+			training_annotation
+			{
+				"targetname"   "annotation7"
+				"display_text" "Notice: Romevision is a parasite"
+				"lifetime"     "8"
+				"origin" "770 3440 555"
+			}
+			training_annotation
+			{
+				"targetname"   "annotation8"
+				"display_text" "Notice: A bomb will be teleported close to the hatch"
+				"lifetime"     "8"
+				"origin" "0 0 0"
+			}
+			training_annotation
+			{
+				"targetname"   "annotation9"
+				"display_text" "Notice: Disabling annotations is not a valid way to receive Social Security"
+				"lifetime"     "8"
+				"origin" "3000 2000 500"
+			}
+			training_annotation
+			{
+				"targetname"   "annotation10"
+				"display_text" "Notice: Caustic bots apply deadly status effects, use water to wash them off"
+				"lifetime"     "8"
+				"origin" "-600 2040 500"
+			}
+			training_annotation
+			{
+				"targetname"   "annotation11"
+				"display_text" "Notice: Miniguns deal only 25 percent damage against most Tanks/Blimps"
+				"lifetime"     "8"
+				"origin" "400 4400 500"
+			}
+			training_annotation
+			{
+				"targetname"   "annotation12"
+				"display_text" "Notice: Reminding you all your mandatory meeting with The Curator on April 24th, at 4:44 AM"
+				"lifetime"     "8"
+				"origin" "2600 -36 300"
+			}
+			training_annotation
+			{
+				"targetname"   "annotation13"
+				"display_text" "Notice: Take cover, Acid Rain is approaching"
+				"lifetime"     "8"
+				"origin" "1111 -1080 128"
+			}
+			training_annotation
+			{
+				"targetname"   "annotation14"
+				"display_text" "Notice: Use canteens if you believe your teammates are incognizant"
+				"lifetime"     "8"
+				"origin" "-400 0 132"
+			}
+			training_annotation
+			{
+				"targetname"   "annotation15"
+				"display_text" "Notice: Front upgrade station has been removed upon Valve's request"
+				"lifetime"     "8"
+				"origin" "0 3670 120"
+			}
+			training_annotation
+			{
+				"targetname"   "annotation16"
+				"display_text" "Notice: You have exhausted all the joke annotations, in 2026 meme terms, ''YOUR TAKING TOO LONG''"
+				"lifetime"     "8"
+				"origin" "-600 2040 500"
+			}
+			prop_dynamic
+			{
+				"targetname"   "fake_bomb"
+				"model" "models/props_td/atom_bomb.mdl"
+				"solid" "0"
+				"disableshadows" "1"
+				"Origin" "440 -36 64"
+				"Angles" "0 0 0"
+				"StartDisabled" "1"
+			}
+		}
 	}
 	SpawnTemplate Prop_Test  
 	SpawnTemplate Props_Hatch  
@@ -1519,6 +1644,7 @@ WaveSchedule
 	SpawnTemplate Music_W5  
 	SpawnTemplate Music_W6  
 	SpawnTemplate ViewerSwarmAmbience  
+	SpawnTemplate MissInfo_Annotations  
 	Templates
 	{
 		Inky_Scout
@@ -2830,7 +2956,7 @@ WaveSchedule
 			{
 				"airblast vulnerability multiplier" 0.3
 				"damage force reduction" 0.3
-				"move speed penalty" 0.8
+				"move speed penalty" 0.9
 				"increased jump height" 2
 				"damage bonus" 2
 				"fire rate bonus" 0.6
@@ -2976,11 +3102,17 @@ WaveSchedule
 		}
 		WaveSpawn
 		{
+			FirstSpawnMessage "{yellow}Now playing: Eversion OST - World 6 Confusion"  
 			FirstSpawnOutput  
 			{
 				Target relayplaymusicw1
 				Action Trigger
 			} 
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	1
+			FirstSpawnMessage "{yellow}https://www.youtube.com/watch?v=qgyoNoZ_Abo"  
 		}
 		WaveSpawn
 		{
@@ -4101,11 +4233,17 @@ WaveSchedule
 		}
 		WaveSpawn
 		{
+			FirstSpawnMessage "{yellow}Now playing: Free Association - d3molish"  
 			FirstSpawnOutput  
 			{
 				Target relayplaymusicw2
 				Action Trigger
 			} 
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	1
+			FirstSpawnMessage "{yellow}https://www.youtube.com/watch?v=kufyVEphH7g"  
 		}
 	}
 	Wave
@@ -4346,6 +4484,12 @@ WaveSchedule
 			WaitForAllDead 3a
 			WaitBeforeStarting	15
 			FirstSpawnMessage "{grey}Broadcaster{reset} : Also if you don't know what this is, I fear that many internet communities may use this as an excuse to exile you."  
+		}
+		WaveSpawn
+		{
+			WaitForAllDead 3a
+			WaitBeforeStarting	20
+			FirstSpawnMessage "{yellow}But here is the source anyway: https://www.youtube.com/watch?v=2yJgwwDcgV8"  
 		}
 		WaveSpawn
 		{
@@ -4631,6 +4775,10 @@ WaveSchedule
 		}
 		WaveSpawn
 		{
+			FirstSpawnMessage "{yellow}Now playing: https://www.youtube.com/watch?v=W5QsFYLmWuE&t=137s"  
+		}
+		WaveSpawn
+		{
 			FirstSpawnMessage "{red}TF2 Workshop Creator{reset} : That's impossible, that's not how TF2 works."  
 			FirstSpawnOutput  
 			{
@@ -4827,11 +4975,187 @@ WaveSchedule
 		}
 		WaveSpawn
 		{
+			FirstSpawnMessage "{yellow}Now playing: PvZ2c OST - Zcorp"  
 			FirstSpawnOutput  
 			{
 				Target relayplaymusicw5a
 				Action Trigger
 			} 
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	1
+			FirstSpawnMessage "{yellow}https://www.youtube.com/watch?v=hL5-xKwNyq0"  
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	5
+			FirstSpawnMessage "(Source TV) Basil : 2c? No way, 2 shitties reference"  
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	12
+			FirstSpawnMessage "(Source TV) Basil : Fourth best tour for Australium weapons"  
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	15
+			Support	Limited
+			FirstSpawnOutput  
+			{
+				Target annotation1
+				Action Show
+			}
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	30
+			Support	Limited
+			FirstSpawnOutput  
+			{
+				Target annotation2
+				Action Show
+			}
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	45
+			Support	Limited
+			FirstSpawnOutput  
+			{
+				Target annotation3
+				Action Show
+			}
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	60
+			Support	Limited
+			FirstSpawnOutput  
+			{
+				Target annotation4
+				Action Show
+			}
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	75
+			Support	Limited
+			FirstSpawnOutput  
+			{
+				Target annotation5
+				Action Show
+			}
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	90
+			Support	Limited
+			FirstSpawnOutput  
+			{
+				Target annotation6
+				Action Show
+			}
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	105
+			Support	Limited
+			FirstSpawnOutput  
+			{
+				Target annotation7
+				Action Show
+			}
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	120
+			Support	Limited
+			FirstSpawnOutput  
+			{
+				Target annotation8
+				Action Show
+			}
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	135
+			Support	Limited
+			FirstSpawnOutput  
+			{
+				Target annotation9
+				Action Show
+			}
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	150
+			Support	Limited
+			FirstSpawnOutput  
+			{
+				Target annotation10
+				Action Show
+			}
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	165
+			Support	Limited
+			FirstSpawnOutput  
+			{
+				Target annotation11
+				Action Show
+			}
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	180
+			Support	Limited
+			FirstSpawnOutput  
+			{
+				Target annotation12
+				Action Show
+			}
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	195
+			Support	Limited
+			FirstSpawnOutput  
+			{
+				Target annotation13
+				Action Show
+			}
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	210
+			Support	Limited
+			FirstSpawnOutput  
+			{
+				Target annotation14
+				Action Show
+			}
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	225
+			Support	Limited
+			FirstSpawnOutput  
+			{
+				Target annotation15
+				Action Show
+			}
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	240
+			Support	Limited
+			FirstSpawnOutput  
+			{
+				Target annotation16
+				Action Show
+			}
 		}
 		WaveSpawn
 		{
@@ -5258,6 +5582,7 @@ WaveSchedule
 			Where	spawnbot_main1
 			WaitBeforeStarting	35
 			WaitBetweenSpawns	3
+			FirstSpawnWarningSound "mvm/mvm_bomb_warning.wav"
 			TFBot
 			{
 				Template	Zcorp_Gargimp_Legal
@@ -5272,6 +5597,23 @@ WaveSchedule
 					Repeats 1
 				}
 			}
+			FirstSpawnOutput  
+			{
+				Target fake_bomb
+				Action Enable
+			} 
+		}
+		WaveSpawn
+		{
+			WaitForAllSpawned	5b2
+			WaitBeforeStarting	35
+			FirstSpawnWarningSound "vo/mvm_bomb_alerts03.mp3"
+		}
+		WaveSpawn
+		{
+			WaitForAllSpawned	5b2
+			WaitBeforeStarting	40
+			FirstSpawnWarningSound "mvm/mvm_bomb_warning.wav"
 		}
 		WaveSpawn
 		{
@@ -5443,6 +5785,11 @@ WaveSchedule
 		{
 			WaitForAllDead 5d
 			FirstSpawnWarningSound "soda_w5end.mp3"
+			FirstSpawnOutput  
+			{
+				Target fake_bomb
+				Action Disable
+			}
 		}
 		WaveSpawn
 		{
@@ -5495,6 +5842,16 @@ WaveSchedule
 				Target relayplaymusicw6
 				Action Trigger
 			}
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	8
+			FirstSpawnMessage "{yellow}Now playing: PvZ2 Reflourished OST - Miss Information's Theme"  
+		}
+		WaveSpawn
+		{
+			WaitBeforeStarting	9
+			FirstSpawnMessage "{yellow}https://www.youtube.com/watch?v=Q2o4tygvLb8"  
 		}
 		WaveSpawn
 		{
