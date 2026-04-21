@@ -4975,7 +4975,7 @@ WaveSchedule
 			tf_generic_bomb
 			{
 				"targetname" "explosion_giga"
-				"origin" "0 0 0"
+				"origin" "0 0 200"
 				"damage" "9999999"
 				"radius" "9999"
 				"health" "100000"
