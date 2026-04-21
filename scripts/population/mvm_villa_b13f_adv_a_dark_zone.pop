@@ -11987,6 +11987,7 @@ YOUR_WaveSchedule_IS_TAKING_TOO_LONG
 				YourInLake
 				{
 					WeaponRestrictions SecondaryOnly
+					Attributes AlwaysFireWeapon
 					Item "powerhouse_stickybomblauncher_pinkelephant"
 					ItemAttributes
 					{
@@ -17867,7 +17868,7 @@ YOUR_WaveSchedule_IS_TAKING_TOO_LONG
 				{
 					Target "!self"
 					Action "$AddCond"
-					Param "30"
+					Param "48"
 					Delay 21.7
 					Repeats 1
 				}
