@@ -2777,9 +2777,9 @@ WaveSchedule
 	{
 		ItemName	"The Half-Zatoichi"
 		"special taunt"											1
-		"damage bonus"											81
+		"damage bonus"											111
 		"max health additive bonus"								10000
-		"restore health on kill"								50
+		"restore health on kill"								150
 		"melee range multiplier"								2.5
 		"move speed bonus"										1.5
 		"halloween increased jump height"						1.5
@@ -3105,7 +3105,7 @@ WaveSchedule
 		"melee range multiplier"								1.5
 		"damage bonus"											0.001
 		"move speed bonus"										1.2
-		"increased jump height"									2
+		"increased jump height"									2.25
 		"max health additive bonus"								7325
 		"damage force reduction"								0.5
 		"health regen"											150
@@ -3117,11 +3117,11 @@ WaveSchedule
 		//"bleeding duration"										0.5
 		//"add cond on hit"										80
 		//"add attributes on hit"									"damage bonus hidden|3|10"
-		"add attributes on hit"									"damage bonus hidden|3|5"
+		"add attributes on hit"									"cancel falling damage|1|30|airblast vulnerability multiplier hidden|2|3|damage bonus hidden|2|5"
 		"add cond on hit"										84
 		"add cond on hit duration"								5
-		"apply z velocity on damage"							480
-		"single wep deploy time increased"						3
+		"apply z velocity on damage"							450
+		"single wep deploy time increased"						2
 		"fire rate penalty"										2
 		
 	}
@@ -3500,16 +3500,24 @@ WaveSchedule
 		ItemName	"The Scotsman's Skullcutter"
 		"special taunt"											1
 		"provide on active"										0
-		"damage bonus"											65
+		"damage bonus"											50
 		"move speed bonus"										1.4
-		"critboost on kill"										5
-		"fire rate penalty"										2
-		"mult dmg vs same class"								10
+		"mod see enemy health" 									1
+		"fire input on hit"										"!self^$RemoveCond^5"
+		"subtract victim medigun charge on hit"					100
+		"damage all connected"									1
+		"add attributes on hit"									"ubercharge rate penalty|0|15|mult medigun range|-5|15|addcond immunity|5|15|heal rate penalty|0|15"
+		"mult dmg vs same class"								3
+		"mult crit dmg"											3
+		"stun on hit"											1
+		"stun on hit type"										"movement"
+		"stun on hit slow"										1
 		"restore health on kill"								30
 		"damage force reduction"								0.6
-		"minicritboost on kill"									10
+		"minicritboost on kill"									5
 		"max health additive bonus"								7250
 		"health regen"											45
+		"melee range multiplier"								3
 		"set_item_texture_wear"									0.2
 	}
 	ItemAttributes
@@ -3520,7 +3528,7 @@ WaveSchedule
 		"blast dmg to self increased"							999999
 		"max health additive bonus"								4825
 		"move speed bonus"										1.25
-		"mult crit when health is below percent"				0.02
+		"mult crit when health is below percent"				0.10
 		"ragdolls become ash"									1
 		"damage bonus"											2
 		"fire rate penalty"										10
@@ -3938,8 +3946,8 @@ WaveSchedule
 	{
 		ItemName	"The Short Circuit"
 		"special taunt"											1
-		"damage bonus"											7.5			//7.5 on Potato for some fucking reason
-		"fire rate penalty"										1.65			//1.65 on Potato for some fucking reason
+		"damage bonus"											75			//7.5 on Potato for some fucking reason
+		"fire rate penalty"										8.5			//1.65 on Potato for some fucking reason
 		"slow enemy on hit major"								5
 		"mod ammo per shot"										400
 		"restore health on kill"								30
