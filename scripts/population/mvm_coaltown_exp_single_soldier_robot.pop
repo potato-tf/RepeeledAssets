@@ -3721,6 +3721,9 @@ WaveSchedule
 				"tags" "freeze"
 			}
 
+			"airblast vulnerability multiplier" 0.01
+				"airblast vertical vulnerability multiplier" 0.01
+
 			trigger_multiple
             {
                 "targetname"    "freeze_immune"
@@ -3732,6 +3735,9 @@ WaveSchedule
 				"StartDisabled" "1"
 
 				"OnStartTouch" "!activator,$AddPlayerAttribute,dmg taken increased|0,0,-1"
+				"OnStartTouch" "!activator,$AddPlayerAttribute,damage force reduction|0.01,0,-1"
+				"OnStartTouch" "!activator,$AddPlayerAttribute,airblast vulnerability multiplier|0.01,0,-1"
+				"OnStartTouch" "!activator,$AddPlayerAttribute,airblast vertical vulnerability multiplier|0.01,0,-1"
             }
 
 			trigger_multiple
@@ -3745,6 +3751,9 @@ WaveSchedule
 				"StartDisabled" "1"
 
 				"OnStartTouch" "!activator,$RemovePlayerAttribute,dmg taken increased,0,-1"
+				"OnStartTouch" "!activator,$RemovePlayerAttribute,damage force reduction,0,-1"
+				"OnStartTouch" "!activator,$RemovePlayerAttribute,airblast vulnerability multiplier,0,-1"
+				"OnStartTouch" "!activator,$RemovePlayerAttribute,airblast vertical vulnerability multiplier,0,-1"
             }
 
 			func_forcefield
@@ -7159,6 +7168,8 @@ WaveSchedule
 			{
 				"cannot be backstabbed" 1
 				"damage force reduction" 0.01
+				"airblast vulnerability multiplier" 0.01
+				"airblast vertical vulnerability multiplier" 0.01
 			}
 		}
     }
