@@ -1,7 +1,7 @@
 if(!("SetLibraryVersion" in getroottable()) || ("FatCatLibForce" in ROOT && FatCatLibForce == true))
 	IncludeScript("fatcat_library")
 
-SetScriptVersion("GameplayApplications", "4.2.2")
+SetScriptVersion("GameplayApplications", "4.4.0")
 
 local Thinker = CreateThinker("Thinker_GameplayApplications", "GameplayThink", THINKER_PERSIST)
 
@@ -236,6 +236,8 @@ function GameplayThink()
 
 		if(!("BetterStatTracking" in FatCatLibSettings))
 			SetLibrarySettings()
+		if(!("NoclipAntiCheat" in FatCatLibSettings))
+			SetLibrarySettings()
 
 		if(FatCatLibSettings["BetterStatTracking"] == true)
 		{
@@ -243,6 +245,19 @@ function GameplayThink()
 			SetPropIntArray(PlayerManager, "m_iDamageBoss", GetScope(PlayerManager).m_iDamageBoss[Human.entindex()], Human.entindex())
 			SetPropIntArray(PlayerManager, "m_iHealing", GetScope(PlayerManager).m_iHealing[Human.entindex()], Human.entindex())
 		}
+
+		if(FatCatLibSettings["NoclipAntiCheat"] == true)
+		{
+			if(!Human.IsAdmin() && Human.GetMoveType() == MOVETYPE_NOCLIP)
+			{
+				Human.SetMoveType(MOVETYPE_WALK, MOVECOLLIDE_DEFAULT)
+				Human.SetAbsOrigin(Human.GetOrigin() + (Human.GetAbsVelocity() * (-1.0/60.0)))
+				Human.DisplayHudText("NO MORE NOCLIP!", "255 0 255", [-1, 0.275], 5, 1)
+				Human.DisplayHudText("If you are actually stuck, then you should", "255 255 255", [-1, 0.35], 5, 2)
+				Human.DisplayHudText("KILLBIND NOW!", "255 255 255", [-1, 0.385], 5, 3)
+			}
+		}
+		
 
 		// 
 		Human.SetGravity(DEFAULT_GRAVITY)
@@ -327,15 +342,14 @@ function ROOT::ModifyCallbackDamage(params, victim, attacker, weapon, inflictor)
 		local iExplosiveShot = weapon.GetAttribute("explosive sniper shot", 0)
 		if ( iExplosiveShot == 0 )
 			break;
-		CreateKnifeAoETable({
+		CreateKnifeAoE({
 			owner = attacker
 			weapon = weapon
 			radius = (EBSettings.base_range + (iExplosiveShot * EBSettings.additive_range))
 			damage = (iExplosiveShot * EBSettings.base_damage / 1.25)
 			center = victim.GetOrigin() + Vector(0, 0, 16)
 			ignore = [victim]
-			SoundRadius = (EBSettings.base_range + (iExplosiveShot * EBSettings.additive_range)) * 1
-			use_func_on_ignore = true
+			SoundRadius = (EBSettings.base_range + (iExplosiveShot * EBSettings.additive_range)) * 3
 			func = function(player) {
 				if(!player || !player.IsValid() || !player.IsPlayer())
 					return
@@ -492,13 +506,6 @@ function ROOT::ProcessChaosWeaponHit(params, victim, attacker, weapon, inflictor
 // if other scripts use DamageCallbacks then Remove this!!
 ClearDamageCallbacks()
 
-// RegisterDamageCallback("player", "GameplayPlayer" function(params) {
-// 	params.damage <- 100
-// 	ModifyCallbackDamage(params, params.victim, params.attacker, params.weapon, params.inflictor)
-// 	ProcessChaosWeaponHit(params, params.victim, params.attacker, params.weapon, params.inflictor)
-// })
-
-
 RegisterDamageCallback("player", "GameplayPlayer" function(params) {
 	if((params.damage_custom & TF_DMG_CUSTOM_IGNORE_EVENTS) || params.damage_custom == TF_DMG_CUSTOM_TRIGGER_HURT)
 		return
@@ -509,7 +516,10 @@ RegisterDamageCallback("player", "GameplayPlayer" function(params) {
 	local inflictor	= params.inflictor
 
 	if(inflictor && inflictor.GetClassname() == "tf_projectile_rocket" && victim.GetTeam() == TF_TEAM_PVE_INVADERS)
-		GetScope(inflictor).DidDamage <- true
+	{
+		if(!victim.IsInvincible())
+			GetScope(inflictor).DidDamage <- true
+	}
 
 	if(!attacker)
 		return
@@ -532,7 +542,7 @@ RegisterDamageCallback("player", "GameplayPlayer" function(params) {
 			{
 				if(wep.GetAttribute("provide on active", 0) && attacker.GetActiveWeapon() != wep)
 					continue
-				if(wep.GetAttribute("boots falling stomp", 0))
+				if(wep.GetAttribute("boots falling stomp", 0) || wep.GetAttribute("thermal_thruster", 0))
 				{
 					params.weapon = wep
 					break;
@@ -661,6 +671,8 @@ if("GameplayEvents" in ROOT) ::GameplayEvents.clear()
 		if(attacker.IsBot())
 		{
 			if(!attacker.IsReprogrammed() || !MATH.OneInChance(10))
+				return
+			if(attacker.HasBotTag("NoChatter"))
 				return
 			attacker.SayChatterMessage(victim)
 			return
@@ -896,7 +908,11 @@ __CollectGameEventCallbacks(GameplayEvents)
 			"chance" : 5
 			"message" : "MEET YOUR MATCH WAS A MISTAKE."
 		}
-		"Rare10": {
+		"Rare10" : {
+			"chance" : 5
+			"message" : "GOOG IS GOD"
+		}
+		"Rare11": {
 			"chance" : 1
 			"message" : "THE FATCAT IS A TOTALLY AMAZING PROGRAMMER THAT DOES NOT BREAK SHIT ALL THE TIME..."
 		}
@@ -1029,6 +1045,10 @@ __CollectGameEventCallbacks(GameplayEvents)
 		"Common505" 	: { 
 			"format" : "victim|⤒"
 			"message" : "I THOUGHT YOU WOULD PUT UP MORE OF A FIGHT, %s."
+		}
+		"Common506" 	: { 
+			"format" : "victim|⤒"
+			"message" : "%s SHOULD HAVE PLAYED OIL SPILL INSTEAD"
 		}
 		"Common1000"	: {
 			"team"	  : 2

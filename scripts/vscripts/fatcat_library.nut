@@ -21,6 +21,16 @@ else
 		return MOD_TF2
 }
 
+/* if(!("__IncludeScript" in ROOT))
+{
+	ROOT.__IncludeScript <- IncludeScript
+
+	function ROOT::IncludeScript(file, scope = null)
+	{
+		SetScriptVersion(file, "__unknown__")
+		__IncludeScript(file, scope)
+	}
+} */
 
 /**
  * Sets the library version
@@ -120,6 +130,8 @@ function SetLibraryTimeStamp(timestamp)
 	"PublicErrors" : true
 	// Tracks Better Statistics
 	"BetterStatTracking" : true
+	// Prevent Non Admins from using Noclip
+	"NoclipAntiCheat" : true
 }
 
 function IsValidSetting(setting)
@@ -173,16 +185,12 @@ function ROOT::SetLibrarySettings(settings_table = {})
 function ROOT::ToggleForceFlag( bool )
 	::FatCatLibForce <- bool
 
-if (!SetLibraryVersion("1.17.0", 3))
+if (!SetLibraryVersion("1.17.3", 0))
 	return
 
-SetLibraryTimeStamp("4-10-2026_01:04")
+SetLibraryTimeStamp("4-20-2026_20:33")
 
-SetLibrarySettings({
-	// KillWatchViewmodels = false
-	// ConsoleErrors = false
-	// PublicErrors = true
-})
+SetLibrarySettings({})
 
 if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done once
 {
@@ -568,6 +576,11 @@ function ROOT::GetRuneCondition(rune)
 ::PROP_SPELL_INDEX 		<- "m_iSelectedSpellIndex"
 ::PROP_PLAYER_STEAMID	<- "m_szNetworkIDString"
 
+::ADMINFLAGS <- {}
+ADMINFLAGS["None"] 		<- 0x0000
+ADMINFLAGS["Generic"] 	<- 0x0001
+ADMINFLAGS["Noclip"] 	<- 0x0002
+
 
 ::Invincible_Conds <- [
 	TF_COND_PHASE,
@@ -599,6 +612,18 @@ function ROOT::GetRuneCondition(rune)
 	1,	1, 	// monoculus, skeleton
 	1, 		// idk
 ]
+
+if(!("MissionMakers" in ROOT))
+	::MissionMakers <- []
+
+function ROOT::AddMissionMaker(id)
+	MissionMakers.append(id)
+
+function ROOT::RemoveMissionMaker(id)
+{
+	if(MissionMakers.find(id))
+		MissionMakers.remove(MissionMakers.find(id))
+}
 
 function ROOT::IsConvarAllowed(cvar)
 	return Convars.IsConVarOnAllowList(cvar)
@@ -720,7 +745,9 @@ function CTFPlayer::SetColor(color = DEFAULT_COLOR)
 function CTFPlayer::SetScale(scale = DEFAULT_SIZE)
 	SetModelScale(scale, 0)
 
-// TODO: Add to Snippets
+function CTFPlayer::GetHeads()
+	return GetPropInt(this, "m_Shared.m_iDecapitations")
+
 function CTFPlayer::IsDead()
 	return !IsAlive()
 
@@ -739,13 +766,10 @@ function CTFPlayer::GetGroundEntity()
 function CTFPlayer::GetFallingVelocity()
 	return GetAbsVelocity().z
 
-// TODO: Add to Snippets
 function CTFPlayer::IsDucking()
 	return GetFlags() & FL_DUCKING
-// TODO: Add to Snippets
 CTFPlayer.IsCrouching <- CTFPlayer.IsDucking
 
-// TODO: Add to Snippets
 function CTFPlayer::IsReprogrammed()
 	return false
 
@@ -796,13 +820,13 @@ function CTFPlayer::AddTrackedHealing( healing = 0 )
 	}
 	SetTrackedHealing( GetTrackedHealing( ) + healing )
 }
-// TODO: Add to Snippets
+
 function CTFPlayer::GetTrackedTankDamage()
 	return GetScope(PlayerManager).m_iDamageBoss[entindex()]
-// TODO: Add to Snippets
+
 function CTFPlayer::SetTrackedTankDamage( healing = 0 )
 	GetScope(PlayerManager).m_iDamageBoss[entindex()] = healing
-// TODO: Add to Snippets
+
 function CTFPlayer::AddTrackedTankDamage( damage = 0 )
 {
 	if ( type( GetTrackedTankDamage( ) ) != "integer" )
@@ -1156,13 +1180,29 @@ function CTFPlayer::IsEventJudge()
 		//"[U:1:294258124]"	// Gregarious
 		//"[U:1:889968517]"	// Ralsei
 
+function CTFPlayer::IsMissionMaker()
+	return IsInArray(GetPropString(this, PROP_PLAYER_STEAMID), MissionMakers)
+
 function CTFPlayer::IsAdmin()
 {
-	return IsEventJudge() || IsInArray(GetPropString(this, PROP_PLAYER_STEAMID), [
+	return IsMissionMaker() || IsEventJudge() || IsInArray(GetPropString(this, PROP_PLAYER_STEAMID), [
 		"[U:1:969530867]"	// Fatcat
 		"[U:1:101345257]"	// ShadowBolt
 		"[U:1:1768280682]"	// MiirioKing
 	])
+}
+
+function CTFPlayer::GetAdminFlags()
+{
+	if(!IsAdmin())
+		return ADMINFLAGS["None"]
+	local id = GetPropString(this, PROP_PLAYER_STEAMID)
+	if(id == "[U:1:969530867]" || id == "[U:1:101345257]")
+	{
+		return ADMINFLAGS["Generic"]|ADMINFLAGS["Noclip"]
+	}
+
+	return ADMINFLAGS["None"]
 }
 
 function CTFPlayer::HasWeapon(index = -1)
@@ -1452,7 +1492,7 @@ function CTFPlayer::ForceChangeClass(index, respawn = false)
 	else
 		Regenerate(true)
 }
-// TODO: Add to Snippets
+
 function CTFPlayer::GetPlayerClassName()
 {
 	switch (GetPlayerClass())
@@ -1469,8 +1509,6 @@ function CTFPlayer::GetPlayerClassName()
 	default:						return "Unknown!"
 	}
 }
-
-// function CTFPlayer::ForceChangeClass
 
 function CTFPlayer::ToggleGlow(bool)
 	SetPropBool(this, "m_bGlowEnabled", bool)
@@ -1567,7 +1605,7 @@ function CTFPlayer::TeamFortress_SetSpeed()
 function ROOT::GetGameText()
 	return FindByName(null, "GlobalGameText") ? FindByName(null, "GlobalGameText") : SpawnEntityFromTable("game_text", {targetname = "GlobalGameText", holdtime = 0.5})
 
-function CTFPlayer::DisplayHudText(msg = "", clr = false, pos = false, holdtime = false)
+function CTFPlayer::DisplayHudText(msg = "", clr = false, pos = false, holdtime = false, channel = false)
 {
 	local text = GetGameText()
 	local GT_Scope = GetScope(text)
@@ -1584,6 +1622,7 @@ function CTFPlayer::DisplayHudText(msg = "", clr = false, pos = false, holdtime 
 		text.KeyValueFromFloat("y", pos[1])
 	}
 	if(holdtime) text.KeyValueFromFloat("holdtime", holdtime)
+	if(channel)	 text.KeyValueFromInt("channel", channel)
 	
 	GT_Scope.Last_Message <- msg
 
@@ -1728,83 +1767,16 @@ function CTFPlayer::CalculateEHP()
 		PrintToChat("\x07FFFF00* \x01You are currently \x07FFFF00unkillable \x01due to a combined \x0700bbffRanged + Melee Resistance\x01 of \x04100%")
 	}
 }
-// TODO: Add to Snippets
+
 function CTFPlayer::SwitchWeaponSlot( slot )
 	Weapon_Switch(GetWeaponInSlot(slot))
-// TODO: Add to Snippets
-function CTFPlayer::SwitchWeapon(wep)
-	Weapon_Switch(wep)
-// TODO: Add to Snippets
+
 function CTFPlayer::IsMinicritDebuffed()
 	return !InCond(TF_COND_DEFENSEBUFF) && InMultiCond([TF_COND_URINE, TF_COND_MARKEDFORDEATH, TF_COND_MARKEDFORDEATH_SILENT])
 
 function CTFPlayer::IsMinicritBuffed()
 	return InMultiCond([TF_COND_OFFENSEBUFF, TF_COND_ENERGY_BUFF, TF_COND_NOHEALINGDAMAGEBUFF, TF_COND_MINICRITBOOSTED_ON_KILL])
 
-/* function CTFPlayer::CopyWeapon( 
-	weapon, idx_over = false, override_slot = false, copy_attrib = false, duration = false, regenerate = false, reset_ammo = false, switch_slot = false, attributes = {})
-{
-	local scope = GetScope(this)
-
-	if("CopiedWeapon" in scope && scope.CopiedWeapon > Time())
-		return
-
-	local new_wep = SpawnEntityFromTable(weapon.GetClassname(), { targetname = "kill me" })
-
-	SetPropInt(new_wep, PROP_ITEM_DEF_IDX, idx_over ? idx_over : weapon.GetIDX())
-	SetPropBool(new_wep, "m_bValidatedAttachedEntity", true)
-	SetPropBool(new_wep, "m_AttributeManager.m_Item.m_bInitialized", true)
-	SetPropInt(new_wep, "m_AttributeManager.m_iReapplyProvisionParity", 1)
-	new_wep.SetTeam(GetTeam())
-
-
-	if(copy_attrib)
-		CopyAttributesFromWeapons(weapon, new_wep)
-	else 
-	{
-		foreach(attrib, value in attributes)
-			weapon.AddAttribute(attrib, value, 0)
-	}
-
-	new_wep.DispatchSpawn()
-
-	local old_wep = GetPropEntityArray(this, "m_hMyWeapons", override_slot ? new_wep.GetSlot() : SLOT_UTILITY)
-	if(old_wep)
-		old_wep.Destroy()
-
-	SetPropEntityArray(this, "m_hMyWeapons", new_wep, override_slot ? new_wep.GetSlot() : SLOT_UTILITY)
-
-	Weapon_Equip(new_wep)
-	Weapon_Switch(new_wep)
-
-	if(reset_ammo && !new_wep.IsMeleeWeapon())
-	{
-		if(new_wep.GetSlot() == 0)
-			ResetPrimaryAmmo()
-		else if(new_wep.GetSlot() == 1)
-			ResetSecondaryAmmo()
-	}
-
-	if(duration)
-	{
-		EntFireNew(new_wep, "Kill", "", duration)
-		RunWithDelay(@() printl("Killed " + new_wep.tostring()), duration - TICK_DUR)
-
-		if(switch_slot)
-			RunScriptCode(format("SwitchWeapon(%i)", switch_slot), duration + TICK_DUR)
-	}
-
-	if(regenerate)
-	{
-		if(duration)
-			RunScriptCode("Regenerate(true, false)", duration + TICK_DUR)
-		else
-			Regenerate(true, false)
-	}
-
-	scope.CopiedWeapon <- Time() + duration.tofloat()
-} */
-// TODO: Add to Snippets
 function CTFPlayer::KillUnknownWeapons()
 {
 	local my_weps = GetMyWeaponsArray()
@@ -1820,19 +1792,16 @@ function CTFPlayer::KillUnknownWeapons()
 		current.Destroy()
 	}
 }
-// TODO: Add to Snippets
+
 function CTFPlayer::HasCorrosion()
 	return "Corrosion" in GetScope(this)
 
-// TODO: Add to Snippets
 function CTFPlayer::GetCorrosion()
 	return HasCorrosion() ? GetScope(this).Corrosion : null
 
-// TODO: Add to Snippets
 function CTFPlayer::CanRemoveCorrosion()
 	return IsInvincible() || InRespawnRoom() || IsDead()
 
-// TODO: Add to Snippets
 function CTFPlayer::RemoveCorrosion()
 {
 	if(HasCorrosion())
@@ -1840,7 +1809,7 @@ function CTFPlayer::RemoveCorrosion()
 }
 if(!("__CORROSION_DEBUG" in ROOT))
 	::__CORROSION_DEBUG <- false
-// TODO: Add to Snippets
+
 function CTFPlayer::MakeCorrosion(Attacker, Weapon)
 {
 	if(IsInvincible())
@@ -1871,9 +1840,8 @@ function CTFPlayer::MakeCorrosion(Attacker, Weapon)
 		hWeapon = Weapon
 		flNextTick = Time() + 1.0
 	}
-	// return GetScope(this).Corrosion
 }
-// TODO: Add to Snippets
+
 function CTFPlayer::CorrosionTick()
 {
 	if(HasCorrosion() && CanRemoveCorrosion())
@@ -1891,7 +1859,7 @@ function CTFPlayer::CorrosionTick()
 	if(__CORROSION_DEBUG) printf("%s took Corrosion Damage! Attacker : %s, Weapon : %s, Damage : %f\n", tostring(), Corrosion.hAttacker.tostring(), Corrosion.hWeapon.tostring(), 250+GetMaxHealth()/400)
 	TakeDamageEx(CORROSION_ICON, Corrosion.hAttacker, Corrosion.hWeapon, Vector(), Vector(), 250+GetMaxHealth()/400, DMG_GENERIC|DMG_PREVENT_PHYSICS_FORCE)
 }
-// TODO: Add to Snippets
+
 function CTFPlayer::CanHaveCorrosion()
 {
 	if(CanRemoveCorrosion())
@@ -1908,7 +1876,7 @@ function IsGasNotValid(gas)
 
 if(!("GasBombs" in ROOT))
 	::GasBombs <- []
-// TODO: Add to Snippets
+
 function CTFPlayer::MakeCorrosionPuddle()
 {
 	if(InRespawnRoom())
@@ -2008,7 +1976,7 @@ function CTFPlayer::MakeCorrosionPuddle()
 	AddThinkToEnt(Gasbomb, "GasThink")
 	return Gasbomb
 }
-// TODO: Add to Snippets
+
 function CTFPlayer::RollSpell()
 {
 	local spellbook = GetSpellBook()
@@ -2019,7 +1987,7 @@ function CTFPlayer::RollSpell()
 	spellbook.SetSpellIndex(TF_SPELL_UNKNOWN)
 	RunWithDelay(@() spellbook.SetRandomSpell(), 2.1)
 }
-// TODO: Add to Snippets
+
 function CTFPlayer::GetChatColor()
 	return GetTeam() == TF_TEAM_RED ? TF_TEAM_COLOR_RED : TF_TEAM_COLOR_BLUE
 
@@ -2041,7 +2009,7 @@ function CTFPlayer::GetChatColor()
 		}
 	} 	
 */
-// TODO: Add to Snippets
+
 function CTFPlayer::SetUpThinkTable()
 {
 	local scope = GetScope(this)
@@ -2063,7 +2031,6 @@ function CTFPlayer::SetUpThinkTable()
 	if(IsNotInScope("PreservedThinks", GetScope(this)))
 		GetScope(this).PreservedThinks <- {}
 }
-// TODO: Add to Snippets 
 /**
  * Adds a Preserved think to the think table that stays after spawning / resupplying
  * 
@@ -2081,7 +2048,6 @@ function CTFPlayer::AddPreservedThink(func, name = null, offset = 0.0)
 	}
 	return name
 }
-// TODO: Add to Snippets 
 /**
  * Adds a think to the think table
  * 
@@ -2101,7 +2067,7 @@ function CTFPlayer::AddThink(func, name = null, offset = 0.0)
 	}
 	return name
 }
-// TODO: Add to Snippets
+
 function CTFPlayer::RemoveThink(name)
 {
 	if(IsNotInScope("ThinkTable", GetScope(this)))
@@ -2111,11 +2077,10 @@ function CTFPlayer::RemoveThink(name)
 	if(name in GetScope(this).ThinkTable)
 		delete GetScope(this).ThinkTable[name]
 }
-// TODO: Add to Snippets
+
 function CTFPlayer::DiedWithAbility()
 	return "DiedWithAbility" in GetScope(this) && GetScope(this).DiedWithAbility == true
 
-// TODO: Add to Snippets
 function CTFPlayer::FixAmmo()
 {
 	// if this happens then all shit goes out
@@ -2144,15 +2109,8 @@ function CTFPlayer::FixAmmo()
 	}
 }
 
-// TODO: Add to Snippets
-function CTFPlayer::TransformGHeavy()
-{
-	GetScope(this).HeavyTransform <- true
-	PrecacheObject("models/bots/heavy_boss/bot_heavy_boss.mdl")
-	SetForcedTauntCam(1)
-	SetCustomModelWithClassAnimations("models/bots/heavy_boss/bot_heavy_boss.mdl")
-
-	// Kill all the Children
+function CTFPlayer::RemoveWearables()
+{	// Kill all the Children
 	for (local child = FirstMoveChild(); child; child = child.NextMovePeer())
 	{
 		EnableStringPurge(child)
@@ -2164,7 +2122,18 @@ function CTFPlayer::TransformGHeavy()
 		EntFireNew(child, "Kill")
 	}
 }
-// TODO: Add to Snippets
+
+function CTFPlayer::TransformGHeavy()
+{
+	GetScope(this).HeavyTransform <- true
+	PrecacheObject("models/bots/heavy_boss/bot_heavy_boss.mdl")
+	SetForcedTauntCam(1)
+	SetCustomModelWithClassAnimations("models/bots/heavy_boss/bot_heavy_boss.mdl")
+
+	RemoveWearables()
+	// Kill all the Children
+}
+
 function CTFPlayer::UndoGHeavy()
 {
 	if(!this||!IsValid())
@@ -2174,7 +2143,6 @@ function CTFPlayer::UndoGHeavy()
 	SetCustomModelWithClassAnimations("")
 }
 
-// TODO: Add to Snippets
 function CTFPlayer::IsGHeavy()
 	return "HeavyTransform" in GetScope(this) && GetScope(this).HeavyTransform
 
@@ -2214,16 +2182,7 @@ function CTFPlayer::TransformGDemoknight()
 
 
 	// Kill all the Children
-	// for (local child = FirstMoveChild(); child; child = child.NextMovePeer())
-	// {
-	// 	EnableStringPurge(child)
-	// 	if (!startswith(child.GetClassname(), "tf_wearable")) continue
-	// 	// do not kill wearables if they are needed for weapons!
-	// 	if(IsInArray(child.GetIDX(), WearableIDXs.Primarys) || IsInArray(child.GetIDX(), WearableIDXs.Secondarys))
-	// 		continue
-		
-	// 	EntFireNew(child, "Kill")
-	// }
+	// RemoveWearables()
 }
 // TODO: Add to Snippets
 function CTFPlayer::UndoGDemoknight()
@@ -2239,8 +2198,6 @@ function CTFPlayer::UndoGDemoknight()
 function CTFPlayer::IsGDemoknight()
 	return "DemoknightTransform" in GetScope(this) && GetScope(this).DemoknightTransform
 
-
-// TODO: Add to Snippets
 function CTFPlayer::EquipItem(classname, idx, swit = true, attrib_overrides = {})
 {
 	local weapon = SpawnEntityFromTable(classname, {})
@@ -2322,6 +2279,7 @@ function CTFPlayer::EquipWearableItem(idx, classname_override = false, attrib_ov
 	return wearable
 }
 
+
 function CTFPlayer::EquipItemBAD(ItemName)
 {
 	local OldWeapons = GetAllWeapons()
@@ -2341,39 +2299,39 @@ function CTFPlayer::EquipItemBAD(ItemName)
 
 	return NewWeapons[0]
 }
-// TODO: Add to Snippets
+
 function CTFPlayer::IsMedicButtonDown()
 	return GetPropFloat(this, "m_flHelpmeButtonPressTime") != 0
-// TODO: Add to Snippets
+
 function CTFPlayer::GetActiveHealers()
 {
 	local healers = []
-	foreach (player in GetAllEntitiesByClassname("player")) // worse than iterating through cached player array tbh
+	local array = player.GetTeam() == TF_TEAM_PVE_DEFENDERS ? m_aHumans : m_aRobots
+	foreach (player in array)
 	{
-		if(player.GetTeam() != TF_TEAM_PVE_INVADERS || player.GetPlayerClass() != TF_CLASS_MEDIC)
+		if(player.GetPlayerClass() != TF_CLASS_MEDIC)
 			continue
-		if(player.GetHealTarget() == null || player.GetHealTarget() != this)
+		if(player.GetHealTarget() != this)
 			continue
 		healers.append(player)
 	}
 	return healers
 }
 
-// TODO: Add to Snippets
 function CTFPlayer::AddHealth(amount)
 	SetHealth(GetHealth()+amount)
-// TODO: Add to Snippets
+
 function CTFPlayer::RemoveHealth(amount)
 	SetHealth(GetHealth()-amount)
-// TODO: Add to Snippets
-function CTFPlayer::GetOverHealCapMult(start)
+
+function CTFPlayer::GetOverHealCapMult(start = 1.0)
 {
 	local cap_mult = start
 	cap_mult *= HookMultAttributes("patient overheal penalty")
 	cap_mult *= GetActiveWeapon().GetAttribute("mult_patient_overheal_penalty_active", 1.0)
 	return cap_mult
 }
-// TODO: Add to Snippets
+
 function CTFPlayer::HealPlayer(amount, overheal = false, overheal_cap = false, display = true, type = T_HEAL_NONE)
 {
 	local mult = 1.0
@@ -2420,7 +2378,7 @@ function CTFPlayer::HealPlayer(amount, overheal = false, overheal_cap = false, d
 			manual = true
 		})
 }
-// TODO: Add to Snippets
+
 function CTFPlayer::HookMultAttributes(attribute, weapons = true)
 {
 	local mult = 1.0
@@ -2436,7 +2394,7 @@ function CTFPlayer::HookMultAttributes(attribute, weapons = true)
 	}
 	return mult
 }
-// TODO: Add to Snippets
+
 function CTFPlayer::HookAdditiveAttributes(attribute, weapons = true)
 {
 	local amount = 0.0
@@ -2452,7 +2410,7 @@ function CTFPlayer::HookAdditiveAttributes(attribute, weapons = true)
 	}
 	return amount
 }
-// TODO: Add to Snippets
+
 function CTFPlayer::GetBaseMovespeed( classidx = false )
 {
 	switch (classidx||GetPlayerClass()) 
@@ -2470,7 +2428,7 @@ function CTFPlayer::GetBaseMovespeed( classidx = false )
 	}
 	return -1
 }
-// TODO: Add to Snippets
+
 function CTFPlayer::GetMoveSpeed()
 {
 	local BaseSpeed = GetBaseMovespeed()
@@ -2635,6 +2593,7 @@ function CTFPlayer::CreateWearable( idx, model )
 	"IHTranslateToChat"
 	"IsBot"
 	"CalculateEHP"
+	"GenerateAndWearItem"
 ]
 
 // somewhat stolen from ZI
@@ -2930,35 +2889,33 @@ function CTFWeaponBase::SetAbilityTime(time)
 function CTFWeaponBase::AddAbilityTime(time)
 	SetAbilityTime(Time() + time)
 
-// TODO: Add to Snippets
 function CTFWeaponBase::SetAbilityDamage(max_dmg, cur_dmg = 0.0)
 {
 	GetScope(this).DamageNeeded <- max_dmg.tofloat()
 	GetScope(this).CurrentDamage <- cur_dmg.tofloat()
 }
-// TODO: Add to Snippets
+
 function CTFWeaponBase::AddAbilityDamage(dmg)
 	if(!("CurrentDamage" in GetScope(this))) { GetScope(this).CurrentDamage <- dmg } 
 	else { GetScope(this).CurrentDamage += dmg }
-// TODO: Add to Snippets
+
 function CTFWeaponBase::ResetAbilityDamage()
 	GetScope(this).CurrentDamage <- 0.0
-// TODO: Add to Snippets
+
 function CTFWeaponBase::GetAbilityDamage()
 	return "CurrentDamage" in GetScope(this) ? GetScope(this).CurrentDamage : 0.0
-// TODO: Add to Snippets
+
 function CTFWeaponBase::SetAbilityType(type)
 	if(type != ABILITY_REMOVE)
 		GetScope(this).__ABILITY_TYPE <- type
 	else if("__ABILITY_TYPE" in GetScope(this)) delete GetScope(this).__ABILITY_TYPE
-// TODO: Add to Snippets
+
 function CTFWeaponBase::GetAbilityType()
 	return "__ABILITY_TYPE" in GetScope(this) ? GetScope(this).__ABILITY_TYPE : ABILITY_REMOVE
-// TODO: Add to Snippets
+
 function CTFWeaponBase::IsAbilityActive()
 	return "AbilityActive" in GetScope(this) ? GetScope(this).AbilityActive : false
 
-// TODO: Add to Snippets
 function CTFWeaponBase::SetRandomSpell(rares = true, lower_rares = false)
 {
 	local spell = RandomInt(TF_SPELL_FIREBALL, rares ? TF_SPELL_SKELETON : TF_SPELL_TELEPORT)
@@ -2969,11 +2926,12 @@ function CTFWeaponBase::SetRandomSpell(rares = true, lower_rares = false)
 	SetSpellIndex(spell)
 	SetSpellCharges(SpellDefaults[spell+2])
 }
-// TODO: Add to Snippets
+
 function CTFWeaponBase::ShootPosition()
 {
 	local offset = null
-	local zOffset =  GetOwner().GetFlags() & FL_DUCKING ? 8.0 : -3.0
+	local zOffset = -3.0
+	if(GetOwner()) zOffset = GetOwner().GetFlags() & FL_DUCKING ? 8.0 : -3.0
 	switch (GetIDX())
 	{
 	case 441: // The Cow Mangler
@@ -3095,35 +3053,40 @@ function CTFWeaponBase::ShootPosition()
 		break
 	case 44: // Sandman
 	case 648: // The Wrap Assassin
+		if(!GetOwner())
+			return GetOrigin() + Vector(0.0, 0.0, 50.0) + (GetAbsAngles().Forward() * 32.0)
 		return GetOwner().GetOrigin() + GetOwner().GetModelScale() *
 				(GetOwner().EyeAngles().Forward() * 32.0 + Vector(0.0, 0.0, 50.0))
 	default:
+		if(!GetOwner())
+			return GetOrigin()
 		return GetOwner().EyePosition()
 	}
 
 
-	if(GetClientConVar("cl_flipviewmodels", GetOwner().entindex()) == "1")
+	if(GetOwner() && GetClientConVar("cl_flipviewmodels", GetOwner().entindex()) == "1")
 		offset.y *= -1
 
-	local eye_angles = GetOwner().EyeAngles()
-	return GetOwner().EyePosition() +
+	local eye_angles = GetOwner() ? GetOwner().EyeAngles() : GetAbsAngles()
+	local eye_pos = GetOwner() ? GetOwner().EyePosition() : GetOrigin()
+	return eye_pos +
 			eye_angles.Up() * offset.z +
 			eye_angles.Left() * offset.y +
 			eye_angles.Forward() * offset.x
 }
-// TODO: Add to Snippets
+
 function CTFWeaponBase::IsWearable()
 	return IsInArray(GetIDX(), WearableIDXs.Primarys) || IsInArray(GetIDX(), WearableIDXs.Secondarys)
-// TODO: Add to Snippets
+
 function CTFWeaponBase::IsSniperRifle()
 	return startswith(GetClassname().slice(10), "sniperrifle")
-// TODO: Add to Snippets
+
 function CTFWeaponBase::IsBow()
 	return startswith(GetClassname().slice(10), "compound")
-// TODO: Add to Snippets
+
 function CTFWeaponBase::IsMinigun()
 	return startswith(GetClassname().slice(10), "minigun")
-// TODO: Add to Snippets
+
 function CTFWeaponBase::GetSpeedMod()
 {
 	if(!GetAttribute("mod shovel speed boost", 0))
@@ -3140,32 +3103,12 @@ function CTFWeaponBase::GetSpeedMod()
 	else
 		return 1.6
 }
-// TODO: Add to Snippets
+
 function CTFWeaponBase::GetSwordSpeedMod()
 {
 	if(!GetOwner())
 		return 1.0
-	return 1.0 + (MATH.Min( MAX_DECAPITATIONS, GetPropInt(GetOwner(), "m_Shared.m_iDecapitations") ) * 0.08);
-}
-
-
-::CopyAttributes <- {
-	"fire rate bonus" : 1
-	"fire rate penalty" : 1
-	"fire rate bonus hidden " : 1
-	"damage bonus" : 1
-	"damage bonus" : 1
-	"override projectile type" : 0
-}
-
-function ROOT::CopyAttributesFromWeapons(weapon, new_weapon)
-{
-	foreach (attribute, def in CopyAttributes)
-	{
-		new_weapon.AddAttribute(attribute, weapon.GetAttribute(attribute, def), 0)
-		if(weapon.GetAttribute(attribute, def) != def)
-			printf("Copied Attribute %s with value %f from %s to %s\n", attribute, weapon.GetAttribute(attribute, def), weapon.tostring(), new_weapon.tostring())
-	}
+	return 1.0 + (MATH.Min( MAX_DECAPITATIONS, GetOwner().GetHeads() ) * 0.08);
 }
 
 function ROOT::GetItemModelName(ItemID)
@@ -3206,6 +3149,12 @@ function ROOT::GetItemModelName(ItemID)
 	"SetChargeTime",
 	"GetChargeTime",
 	"GetDefaultChargeTime",
+	"GetSwordSpeedMod",
+	"IsSniperRifle",
+	"IsBow",
+	"IsMinigun",
+	"GetSpeedMod",
+	"ShootPosition",
 ]
 foreach ( key, value in CTFWeaponBase )
 {
@@ -3310,6 +3259,11 @@ function ROOT::PrintToHudAll(msg)
 	
 function ROOT::PrintToHudAllF(msg, ...)
 	ClientPrint(null, HUD_PRINTCENTER, CleanUpAndFormatString.acall([this, msg].extend(vargv)))
+function ROOT::TranslateToHudAll( ... )
+{
+	foreach (player in m_aHumans)
+		player.TranslateToHud.acall([player].extend(vargv))
+}
 
 function ROOT::PrintToHudAllFilter(msg, filter = [])
 {
@@ -3340,7 +3294,6 @@ function ROOT::PrintToChatAllFilter(msg, filter = [])
 }
 
 ///// CONSOLE PRINTS /////
-// TODO: Add to Snippets
 function ROOT::PrintToConsoleAll(msg)
 	ClientPrint(null, HUD_PRINTCONSOLE, msg == null ? NULL_S : msg.tostring())
 
@@ -3364,7 +3317,7 @@ function ROOT::PrintTable(table, filter = [])
 
 function ROOT::PrintArray(array, filter = [])
 	PrintCollection(array, filter)
-// TODO: Add to Snippets
+
 function ROOT::PrintClass(clas, filter = [])
 	PrintCollection(clas, filter)
 
@@ -3468,7 +3421,7 @@ function ROOT::FindByClassnameNearest(classname, center,radius)
 
 function ROOT::FindByClassnameWithin(previous, classname, center, radius)
 	return EnableStringPurge(Entities.FindByClassnameWithin(previous, classname, center, radius))
-// TODO: Add to Snippets
+
 function ROOT::FindByModel(previous, modelname)
 	return EnableStringPurge(Entities.FindByModel(previous, modelname))
 
@@ -3480,19 +3433,18 @@ function ROOT::FindByNameNearest(targetname, center, radius)
 
 function ROOT::FindByNameWithin(previous, targetname, center, radius)
 	return EnableStringPurge(Entities.FindByNameWithin(previous, targetname, center, radius))
-// TODO: Add to Snippets
+
 function ROOT::FindByTarget(previous, target)
 	return EnableStringPurge(Entities.FindByTarget(previous, target))
-// TODO: Add to Snippets
+
 function ROOT::FindInSphere(previous, center, radius)
 	return EnableStringPurge(Entities.FindInSphere(previous, center, radius))
-// TODO: Add to Snippets
-function ROOT::First()
-	return EnableStringPurge(Entities.First())
-// TODO: Add to Snippets
-function ROOT::Next(previous)
-	return EnableStringPurge(Entities.Next(previous))
 
+function ROOT::FirstEntity()
+	return EnableStringPurge(Entities.First())
+
+function ROOT::NextEntity(previous)
+	return EnableStringPurge(Entities.Next(previous))
 
 
 if (!("SpawnEntityFromTableOriginal" in ROOT))
@@ -3552,7 +3504,7 @@ function ROOT::GetPlayerReadyCount()
 
 	return ready
 }
-// TODO: Add to Snippets
+
 function ROOT::IsWaveStarted()
 {
 	if(!FindByClassname(null, "tf_gamerules"))
@@ -3561,7 +3513,7 @@ function ROOT::IsWaveStarted()
 		GetScope(Gamerules).IsWaveStarted <- false
 	return GetScope(Gamerules).IsWaveStarted
 }
-// TODO: Add to Snippets
+
 function ROOT::StringToArray(string)
 {
 	local char_array = []
@@ -3570,7 +3522,7 @@ function ROOT::StringToArray(string)
 	}
 	return char_array
 }
-// TODO: Add to Snippets
+
 function ROOT::ArrayToString(array)
 {
 	local str = ""
@@ -3578,11 +3530,12 @@ function ROOT::ArrayToString(array)
 		str += item.tostring()
 	return str
 }
-// TODO: Add to Snippets
+
+
 function ROOT::IsStringATrigger(string, triggers = ["/", "!"])
 	return IsInArray(StringToArray(string)[0], triggers)
-// TODO: Add to Snippets
-function ROOT::RemoveChatTrigger(string, triggers = ["/", "!"])
+
+function ROOT::RemoveCommandTrigger(string, triggers = ["/", "!"])
 {
 	if(!IsStringATrigger(string, triggers))
 		return string
@@ -3679,7 +3632,7 @@ function ROOT::GetEveryTankWithin(center, radius)
 ::MvMStats 			<- FindByClassname(null, "tf_mann_vs_machine_stats")
 ::PlayerManager 	<- FindByClassname(null, "tf_player_manager")
 ::ObjResource 		<- FindByClassname(null, "tf_objective_resource")
-::Worldspawn 		<- Entities.First()
+::Worldspawn 		<- FirstEntity()
 
 function ROOT::GetCurrentWaveNumber()
 	return GetPropInt(ObjResource, "m_nMannVsMachineWaveCount")
@@ -3692,14 +3645,14 @@ function ROOT::GetPopfileName()
 
 function ROOT::SetPopfileName(name)
 	SetPropString(ObjResource, "m_iszMvMPopfileName", name)
-// TODO: Add to Snippets
+
 function ROOT::dummy_ent() {
 	// logic_relay does not take up an edict
 	local relay = CreateByClassname("logic_relay")
 	relay.ValidateScriptScope()
 	return relay
 }
-// TODO: Add to Snippets
+
 function ROOT::RunWithDelay(func, delay = 0.0)
 {
 	local dummy = dummy_ent()
@@ -3744,13 +3697,13 @@ function ROOT::CreateTimer(on_timer_func, first_delay = 0.0)
 	EntFireByHandle(dummy, "CallScriptFunction", "Run", first_delay, null, null)
 	return dummy
 }
-// TODO: Add to Snippets
+
 function ROOT::KillTimer(timer)
 {
 	if (timer.IsValid())
 		timer.Kill()
 }
-// TODO: Add to Snippets
+
 function ROOT::FireTimer(timer)
 {
 	if (timer.IsValid())
@@ -3858,7 +3811,7 @@ function ROOT::IsValidEnemy(entity)
 	}
 	return false
 }
-// TODO: Add to Snippets
+
 function ROOT::CanPointSeePoint(point1, point2)
 {
 	local trace = {
@@ -3867,10 +3820,9 @@ function ROOT::CanPointSeePoint(point1, point2)
 		mask = MASK_WORLD
 	}
 	TraceLineEx(trace)
-	// DebugDrawLine_vCol(trace.start, trace.endpos, Vector(0, 0, 255), false, 5)
 	return !trace.hit
 }
-// end deprecated
+
 function ROOT::GetBuilder(entity)
 {
 	EnableStringPurge(entity)
@@ -3938,17 +3890,12 @@ function ROOT::EmitGlobalSound(info)
 		// entity = "entity" in info ? info.entity : null
 		filter_type = RECIPIENT_FILTER_GLOBAL
 	})
-// TODO: Add to Snippets
 function ROOT::GetSentryAngles(sentry)
-{
 	return QAngle((GetPropFloatArray(sentry, "m_flPoseParameter", 0) * -100 + 50) * DEG2RAD, (GetPropFloatArray(sentry, "m_flPoseParameter", 1) * -360 + 180 + sentry.GetAbsAngles().y) * DEG2RAD, 0)
-}
-// TODO: Add to Snippets
+
 function ROOT::ConvertAngleToEndpoint(Angle, length = 600)
-{
 	return Vector(cos(Angle.Pitch()) * cos(Angle.Yaw()), cos(Angle.Pitch()) * sin(Angle.Yaw()), -sin(Angle.Pitch())) * length
-}
-// TODO: Add to Snippets
+
 function ROOT::SetDestroyCallback(entity, callback)
 {
 	local scope = GetScope(entity)
@@ -3977,7 +3924,6 @@ function ROOT::SetDestroyCallback(entity, callback)
 }
 
 //// Developer?
-
 // RealTime() // returns real time (independent of game) in seconds
 // BeginBenchmark() // starts time measurement
 // EndBenchmark() // ends time measurement and returns high-precision time elapsed in milliseconds
@@ -4114,7 +4060,6 @@ function ROOT::DeprecatedWarning(info1, info2)
 function ROOT::IsEntityAProjectile(entity)
 	return startswith(entity.GetClassname(), "tf_projectile")
 
-// TODO: Add to Snippets
 function ROOT::PrecacheObject(thing)
 {
 	local ret = 0
@@ -4191,17 +4136,16 @@ function ROOT::PrecacheObject(thing)
 	{
 		return (point1 - point2).Length()
 	}
-	// TODO: Add to Snippets
 	function RandomChance()
 	{
 		return RandomFloat(0, 1)
 	}
-	// TODO: Add to Snippets
 	function OneInChance(num)
 	{
 		return RandomChance() <= (1.0/num.tofloat())
 	}
 }
+
 function Vector::Normalize()
 {
 	local new = this + ::Vector()
@@ -4281,8 +4225,6 @@ function ROOT::ConvertRadiusToSndLvl(radius)
 	DeprecatedWarning(getstackinfos(1), getstackinfos(2))
 	return (40 + (20 * log10(radius / 36.0))).tointeger()
 }
-
-// function ROOT::GetVisibleEntities(ent, point, )
 
 if(!("CORROSION_ICON" in ROOT))
 	::CORROSION_ICON <- CreateKillIcon("infection_acid_puddle")
@@ -4424,37 +4366,12 @@ function ROOT::CreateBaseExplosion(table)
  * @param {float} 		radius		How big the explosion can hit.
  * @param {float} 		maxDmg		The Maximum damage to deal.
  * @param {float} 		minDmg		The Minimum damage to deal.
- * @param {entity[]}	[ignore]	What entitys to ignore in the explosion. (Default: [])
- * @param {int}			[dmg_Type]	DMG_ type to mark the damage as. (Default: DMG_BLAST)
- * @param {string}		[sound]		Sound to play on explosion. (Default: "weapons/explode1.wav")
- * @param {string}		[particle]	Particle to spawn on explosion. (Default: "ExplosionCore_Wall")
- */
-function ROOT::CreateAoE(owner, center, radius, maxDmg, minDmg, ignore = [], dmg_Type = DMG_BLAST, sound = "weapons/explode1.wav", particle = "ExplosionCore_Wall")
-{
-	CreateBaseExplosion({
-		owner = owner,
-		origin = center,
-		radius = radius,
-		damage = maxDmg,
-		MinDamage = minDmg,
-		ignores = ignore,
-		DmgType = dmg_Type,
-		sound = sound,
-		particle = particle
-	})
-}
-/**
- * @param {entity} 		owner		The owner of the damage to report it back to.
- * @param {vector} 		center		The position to create the explosion.
- * @param {float} 		radius		How big the explosion can hit.
- * @param {float} 		maxDmg		The Maximum damage to deal.
- * @param {float} 		minDmg		The Minimum damage to deal.
  * @param {entity[]}	ignore		What entitys to ignore in the explosion.
  * @param {int}			dmg_Type	DMG_ type to mark the damage as.
  * @param {string}		sound		Sound to play on explosion.
  * @param {string}		particle	Particle to spawn on explosion.
  */
-function ROOT::CreateAoETable(table)
+function ROOT::CreateAoE(table)
 {
 	CreateBaseExplosion({
 		owner = table.owner,
@@ -4468,6 +4385,7 @@ function ROOT::CreateAoETable(table)
 		particle = table.particle
 	})
 }
+
 /**
  * @param {entity} 		owner		The owner of the damage to report it back to.
  * @param {entity} 		weapon		The weapon to credit for damage.
@@ -4478,7 +4396,7 @@ function ROOT::CreateAoETable(table)
  * @param {float} 		SoundRadius	Radius in which the sound can be heard
  * @param {function}	ExplodeFunc	Function to use on players hit
  */
-function ROOT::CreateKnifeAoETable(table)
+function ROOT::CreateKnifeAoE(table)
 {
 	CreateBaseExplosion({
 		owner = table.owner,
@@ -4497,8 +4415,15 @@ function ROOT::CreateKnifeAoETable(table)
 		FuncIgnoreObjects = true
 	})
 }
-
-function ROOT::CreateSlamAoETable(table)
+/**
+ * @param {entity} 		owner		The owner of the damage to report it back to.
+ * @param {entity} 		weapon		The weapon to credit for damage.
+ * @param {vector} 		center		The position to create the explosion.
+ * @param {float} 		radius		How big the explosion can hit.
+ * @param {float} 		damage		How much damage to deal.
+ * @param {entity[]}	ignore		What entitys to ignore in the explosion.
+ */
+function ROOT::CreateSlamAoE(table)
 {
 	CreateBaseExplosion({
 		owner = table.owner,
@@ -4629,8 +4554,6 @@ DMG_BIT_NAMES[DMG_BLAST_SURFACE] 		<- "DMG_BLAST_SURFACE"
 DMG_BIT_NAMES[DMG_DIRECT] 				<- "DMG_DIRECT"
 DMG_BIT_NAMES[DMG_BUCKSHOT] 			<- "DMG_BUCKSHOT"
 
-
-
 function ROOT::PrintDamageBits(bits)
 {
 	for (local i = 0; i < 32; i++) {
@@ -4640,11 +4563,9 @@ function ROOT::PrintDamageBits(bits)
 	}
 }
 
-// TODO: Add to Snippets
 if(!("ChatTriggers" in ROOT))
 	::ChatTriggers <- {}
 
-// TODO: Add to Snippets
 function ROOT::AddChatTrigger(trigger, callback, ...)
 {
 	local errors = []
@@ -4656,13 +4577,43 @@ function ROOT::AddChatTrigger(trigger, callback, ...)
 		{
 			if(typeof trig != "string")
 			{
-				errors.append(format("AddChatTrigger:: Item %s : Unknown Type %s when Registering Chat Trigger", trig.tostring(), typeof trig))
+				errors.append(format("AddChatTrigger: Item %s : Unknown Type %s when Registering Chat Trigger", trig.tostring(), typeof trig))
 				continue
 			}
 			ChatTriggers[trig] <- [callback].extend(vargv)
 		}
 	}
-	else throw format("AddChatTrigger:: Unknown Type %s when Registering Chat Trigger", typeof trigger)
+	else throw format("AddChatTrigger: Unknown Type %s when Registering Chat Trigger", typeof trigger)
+	if(errors.len() != 0)
+		PrintArray(errors)
+}
+function ROOT::RegisterAdminTrigger(trigger, callback)
+	AddChatTrigger(trigger, callback, "IsAdmin")
+
+function ROOT::RemoveChatTrigger(trigger)
+{
+	local errors = []
+	if(typeof trigger == "string")
+	{
+		if(trigger in ChatTriggers)
+			delete ChatTriggers[trigger]
+	}
+	else if(typeof trigger == "array")
+	{
+		foreach (trig in trigger)
+		{
+			if(typeof trig != "string")
+			{
+				errors.append(format("AddChatTrigger: Item %s : Unknown Type %s when Removing Chat Trigger", trig.tostring(), typeof trig))
+				continue
+			}
+			if(trig in ChatTriggers)
+				delete ChatTriggers[trig]
+		}
+	}
+	else throw format("AddChatTrigger: Unknown Type %s when Removing Chat Trigger", typeof trigger)
+	if(errors.len() != 0)
+		PrintArray(errors)
 }
 
 
@@ -4671,13 +4622,12 @@ if(!("RegisteredDmgCallbacks" in ROOT))
 		"player" : {}
 		"worldspawn" : {}
 	}
-// TODO: Add to Snippets
+
 function ROOT::ClearDamageCallbacks()
 	::RegisteredDmgCallbacks <- {
 		"player" : {}
 		"worldspawn" : {}
 	}
-// TODO: Add to Snippets
 function ROOT::RegisterDamageCallback(entity_name, callback_name, callback)
 {
 	if(typeof entity_name == "array")
@@ -4699,7 +4649,6 @@ function ROOT::RegisterDamageCallback(entity_name, callback_name, callback)
 	}
 }
 
-// TODO: Add to Snippets
 function ROOT::RemoveDamageCallback(entity_name, callback_name)
 {
 	if(typeof entity_name == "string")
@@ -4732,8 +4681,8 @@ function ROOT::RemoveDamageCallback(entity_name, callback_name)
 			delete RegisteredDmgCallbacks[entity]
 	}
 }
-// TODO: Add to Snippets
-function ROOT::ParamsToDamageCallbackData(params)
+// INNER FUNCTION
+function ParamsToDamageCallbackData(params)
 	return {
 		victim 				= params.const_entity
 		attacker 			= params.attacker
@@ -4749,7 +4698,7 @@ function ROOT::ParamsToDamageCallbackData(params)
 		penetration_count	= params.player_penetration_count
 		others_damaged		= params.damaged_other_players
 }
-// TODO: Add to Snippets
+
 function ROOT::GetModifiedDamage(type)
 {
 	local array = array(88, -1)
@@ -4828,9 +4777,6 @@ if(!("m_iDamage" in GetScope(PlayerManager)))
 if(!("m_iDamageBoss" in GetScope(PlayerManager)))
 	GetScope(PlayerManager).m_iDamageBoss <- array(MAX_CLIENTS+1, 0)
 
-// if(!("m_iTotalScore" in GetScope(PlayerManager)))
-	// GetScope(PlayerManager).m_iTotalScore <- array(MAX_CLIENTS+1, 0)
-
 if(!("m_iHealing" in GetScope(PlayerManager)))
 	GetScope(PlayerManager).m_iHealing <- array(MAX_CLIENTS+1, 0)
 
@@ -4840,10 +4786,9 @@ function ROOT::GetGameText()
 
 if(!("PostSpawnCallbacks" in ROOT))
 	::PostSpawnCallbacks <- {}
-// TODO: Add to Snippets
+
 function ROOT::ClearSpawnCallbacks()
 	::PostSpawnCallbacks <- {}
-
 
 function ROOT::RegisterSpawnCallback(entity_name, callback_name, callback)
 {
@@ -5112,13 +5057,13 @@ CreateThinker("OnEntityPostSpawn" , function() {
 		else 									eventdata.allseecrit <- false
 
 		/// sdk thing
-		if("weapon_entindex" in eventdata)
-		{
-			local weapon = EntIndexToHScript(eventdata.weapon_entindex)
-			eventdata.weapon <- weapon
-			if(weapon && weapon.getclass() == CTFWeaponBase)
-				weapon.SetClip1(2)
-		}
+		// if("weapon_entindex" in eventdata)
+		// {
+		// 	local weapon = EntIndexToHScript(eventdata.weapon_entindex)
+		// 	eventdata.weapon <- weapon
+		// 	if(weapon && weapon.getclass() == CTFWeaponBase)
+		// 		weapon.SetClip1(2)
+		// }
 
 		if(victim.GetHealth() < 0)
 		{// for some reason if health < 0 it defaults to 0, even if it was supposed to get negative
@@ -5237,7 +5182,8 @@ CreateThinker("OnEntityPostSpawn" , function() {
 
 		if(!IsStringATrigger(text))
 			return
-		local data = split(RemoveChatTrigger(text), " ")
+		local data = split(RemoveCommandTrigger(text), " ")
+
 		if(data.len() == 0)
 			return
 		local trigger = data[0]
@@ -5250,9 +5196,11 @@ CreateThinker("OnEntityPostSpawn" , function() {
 		{
 			if(trigger != Trigger)
 				continue
+			local temp = clone data
+			temp.remove(0)
 			if(CallbackInfo.len() == 1 || !player)
 			{
-				CallbackInfo[0].acall(data)
+				CallbackInfo[0].acall([ROOT].extend(temp))
 				continue
 			}
 
@@ -5262,14 +5210,19 @@ CreateThinker("OnEntityPostSpawn" , function() {
 
 			foreach (filter in filters)
 			{
-				if(filter == "IsAdmin" && player.IsAdmin())
+				if(type(filter) == type(1))
+				{
+					if((player.GetAdminFlags() & flfilterags) == filter)
+						PassedFilters = true
+				}
+				else if(filter == "IsAdmin" && player.IsAdmin())
 					PassedFilters = true
 				else if(filter == "IsEventJudge" && player.IsEventJudge())
 					PassedFilters = true
 			}
 
 			if(PassedFilters)
-				CallbackInfo[0].acall(data)
+				CallbackInfo[0].acall([ROOT].extend(temp))
 		}
 	}
 	function OnGameEvent_npc_hurt(params)
@@ -5422,7 +5375,6 @@ CreateThinker("OnEntityPostSpawn" , function() {
 		eventdata.object <- EntIndexToHScript(params.index)
 		FireScriptEvent(event_name, eventdata)
 	}
-	// TODO: Add to Snippets
 	function OnGameEvent_player_stunned(params)
 	{
 		local eventdata = clone params
@@ -5433,7 +5385,6 @@ CreateThinker("OnEntityPostSpawn" , function() {
 
 		FireScriptEvent("PlayerStunned", eventdata)
 	}
-	// TODO: Add to Snippets
 	function OnGameEvent_player_activate(params)
 	{
 		local player = GetPlayerFromUserID(params.userid)
@@ -5448,16 +5399,23 @@ CreateThinker("OnEntityPostSpawn" , function() {
 		ValidatePlayers()
 	}
 
-	function OnGameEvent_mvm_wave_failed(_)
 	function OnGameEvent_mvm_wave_complete(_)
-	function OnGameEvent_teamplay_round_start(_)
 	{
+		FireScriptEvent("WaveComplete", {})
 		GetScope(Gamerules).IsWaveStarted <- false
 	}
-	function OnGameEvent_mvm_begin_wave(_)
+	function OnGameEvent_mvm_wave_failed(_)
 	{
-		GetScope(Gamerules).IsWaveStarted <- true
+		FireScriptEvent("WaveFailed", {})
+		GetScope(Gamerules).IsWaveStarted <- false
 	}
+	function OnGameEvent_teamplay_round_start(_)
+		GetScope(Gamerules).IsWaveStarted <- false
+
+	function OnGameEvent_mvm_begin_wave(_)
+		GetScope(Gamerules).IsWaveStarted <- true
+
+
 	// Initalize Listensers so game wont discard the events
 	/**
 	 * Fired when a player touches a resupply cabinet or respawns.
@@ -5655,60 +5613,116 @@ CreateThinker("OnEntityPostSpawn" , function() {
 	 * 
 	 */
 	function OnScriptEvent_PlayerStunned(params)			{}
+
+
+	/**
+	 * Fired when a wave fails/completes
+	 * . . . literally 0 parameters
+	 */
+	function OnScriptEvent_WaveFailed(_)					{}
+	function OnScriptEvent_WaveComplete(_)					{}
 }
 __CollectGameEventCallbacks(ChaosCustomEvents)
 
-// Admin cmds
 AddChatTrigger(["lib_version", "lib_versions"], function(player, ...) {
 	PrintToConsoleAll(type(FatCatLibTimeStamp))
 	PrintToChatAllF("\x07D000D0► FatCatLib ◄\x03 Last Modified At \x04%s\x03   \x07606060(MM-DD-YYYY_Hr:Min)", FatCatLibTimeStamp.tostring())
 	PrintToChatAllF("\x07D000D0► FatCatLib ◄\x03 Version\x01: \x04%s\x01 - \x03sub_version\x01: \x04%s\x01, \x03force_included\x01 = \x04%s\x01", FatCatLibVersion.version, FatCatLibVersion.sub_version.tostring(), FatCatLibVersion.forced.tostring())
 
 	foreach (item, value in FatCatLibScriptsVersion)
-	{
 		PrintToChatAllF("\x07D000D0► FatCatLib ◄\x03 %s\x01: \x04%s\x01", item, value)
-	}
-}, "IsAdmin", "IsEventJudge")
+})
 AddChatTrigger("lib_info", function(player, ...) {
 	PrintToChatAllF("\x07D000D0► FatCatLib ◄\x03 Last Modified At \x04%s\x03   \x07606060(MM-DD-YYYY_Hr:Min)", FatCatLibTimeStamp)
 	PrintToChatAllF("\x07D000D0► FatCatLib ◄\x03 Version\x01: \x04%s\x01 - \x03sub_version\x01: \x04%s\x01, \x03force_included\x01 = \x04%s\x01", FatCatLibVersion.version, FatCatLibVersion.sub_version.tostring(), FatCatLibVersion.forced.tostring())
-}, "IsAdmin", "IsEventJudge")
-AddChatTrigger("lib_force", function(player, ...) {
+})
+RegisterAdminTrigger("lib_force", function(player, ...) {
 	if("FatCatLibForce" in ROOT)
 		::FatCatLibForce <- !FatCatLibForce
 	else
 		::FatCatLibForce <- true
 	PrintToChatAll("\x07D000D0► FatCatLib ◄\x03 Setting Force include flag to \"\x04"+FatCatLibForce.tostring()+"\x03\"\x01.")
-}, "IsAdmin", "IsEventJudge")
+})
 
-AddChatTrigger("noclip", function(player, ...) {
+RegisterAdminTrigger("noclip", function(player, ...) {
 	if(!player)
-		return
-	if(player.GetSteamID() != "[U:1:969530867]")
 		return
 	if(player.GetMoveType() == MOVETYPE_NOCLIP)
 		player.SetMoveType(MOVETYPE_WALK, MOVECOLLIDE_DEFAULT)
 	else 
 		player.SetMoveType(MOVETYPE_NOCLIP, MOVECOLLIDE_DEFAULT)
-}, "IsAdmin")
+})
+/* 
+AddChatTrigger("addattr", function(player, ...) {
+	if(!player)
+		return
+	if(player.GetSteamID() != "[U:1:969530867]")
+		return
 
-AddChatTrigger("disable_errors", function(player, ...) {
+	printl("start")
+
+	local attrib = ""
+
+	local ReadingAttrib = false
+	foreach (arg in vargv)
+	{
+		if(ReadingAttrib)
+		{
+			attrib += arg
+			continue
+		}
+
+		local escape = "\x27"
+
+		local test = 39
+
+		printl(test.tochar())
+
+		printf("%X\n", test.tochar())
+
+		printl(escape)
+
+		// printf("%X\n", escape.tochar())
+
+		printl(arg[arg.len()-1])
+		printl(arg[0])
+
+		printl("endof arg == '? "+(arg[arg.len()-1] == escape))
+		printl("startof arg == '? "+(arg[0] == escape))
+		
+		if(arg[arg.len()-1] == "\x27")
+			break
+			
+		if(startswith(arg, "\x39"))
+		{
+			attrib += arg
+			ReadingAttrib = true
+			continue
+		}
+	}
+	printl(attrib)
+	printl("end")
+
+}, "IsAdmin") */
+
+RegisterAdminTrigger("disable_errors", function(player, ...) {
 	SetLibrarySettings({
 		"ConsoleErrors" : true
 		"PublicErrors" : false
 	})
-}, "IsAdmin", "IsEventJudge")
+})
 
-AddChatTrigger("enable_errors", function(player, ...) {
+RegisterAdminTrigger("enable_errors", function(player, ...) {
 	SetLibrarySettings({
 		"ConsoleErrors" : false
 		"PublicErrors" : true
 	})
-}, "IsAdmin", "IsEventJudge")
+})
 
-/* AddChatTrigger(["lib_reload", "reload_library"], function(player, ...) {
+RegisterAdminTrigger(["lib_reload", "reload_library"], function(player, ...) {
 	ReloadLibrary()
-}, "IsAdmin") */
+})
+
 
 
 // the admins wowow
