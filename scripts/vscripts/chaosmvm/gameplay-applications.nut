@@ -1,7 +1,7 @@
 if(!("SetLibraryVersion" in getroottable()) || ("FatCatLibForce" in ROOT && FatCatLibForce == true))
 	IncludeScript("fatcat_library")
 
-SetScriptVersion("GameplayApplications", "4.4.0")
+SetScriptVersion("GameplayApplications", "4.4.1")
 
 local Thinker = CreateThinker("Thinker_GameplayApplications", "GameplayThink", THINKER_PERSIST)
 
@@ -561,7 +561,7 @@ RegisterDamageCallback("player", "GameplayPlayer" function(params) {
 			FallingVel = PrevFallingVel
 		if(victim.GetActiveWeaponIDX() == TF_WEAPON_WARRIOR_SPIRIT && FallingVel < -1500)
 		{
-			CreateSlamAoETable({
+			CreateSlamAoE({
 				owner = victim,
 				weapon = victim.GetWeapon(TF_WEAPON_WARRIOR_SPIRIT),
 				center = victim.GetOrigin()+Vector(0, 0, -16),
