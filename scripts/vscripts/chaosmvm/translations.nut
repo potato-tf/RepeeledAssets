@@ -1,6 +1,11 @@
 if(!("SetLibraryVersion" in getroottable()) || ("FatCatLibForce" in ROOT && FatCatLibForce == true))
 	IncludeScript("fatcat_library")
 
+// CREDITS
+// Standard Chinese		--		Pepper[^▽^] 	(pepper_1656 on Discord)
+// Swedish				--		Decimate 		(decimatetf on Discord)
+// Russian				--		Liverfull 		(liverfull on Discord)
+
 ::IH_color <- "\x08FFFF00DD"
 ::IH_text_color <- "\x08FFFFFFBB"
 ::IH_color_header <- "\x0826c2ffDD"
@@ -1281,6 +1286,642 @@ if("SetScriptVersion" in getroottable())
 		PRINNYMACHETE_DESC 			= "功能物品 - 挥舞时会向前高速推动自己. 免疫摔落伤害."
 		//------------------------------------
 	}
+	swedish = {
+		IH_TRANSLATE_ITEM		= IH_color + "[%s]" + IH_text_color + "%s"
+		IH_INCLUDES				= IH_color_header + "[►]\x0826beffBB Din utrustning inkluderar..."
+		IH_DIS_MSG_2			= IH_disable_color + "Skriv '/itemhelp 1' för att avaktivera dessa meddelanden under en våg. \nSkriv '/itemhelp 0' för att avaktivera dessa meddelanden helt."
+		IH_DIS_MSG				= IH_disable_color + "Skriv '/itemhelp 0' för att avaktivera dessa meddelanden. \nSkriv '/itemhelp 2' för att Alltid visa detta meddelande."
+		IH_BAD_ARGS				= IH_color_header + "[Föremålshjälpare]" + IH_error_color + " {Fel}\x01 Fel argument!\n/itemhelp 2 - Aktivera\n/föremålshjälp 1 - Sätt på under Våg Förberedelse endast\n/itemhelp 0 - Avaktivera"
+		IH_OOB_ARG				= IH_color_header + "[Föremålshjälpare]" + IH_error_color + " {Fel}\x01 Värde Utanför Gränsen Inställd! : %s"
+		IH_HELP_MSG				= IH_color_header + "[Föremålshjälpare]\x01 Föremålshjälpare ger en enkel beskrivning för vajre \x03Chaos\x01 Föremål!" 
+		IH_DISABLE				= IH_color_header + "[►]\x01 Föremålshjälpare avaktiverad."
+		IH_WAVE_SETUP			= IH_color_header + "[►]\x01 Föremålshjälpare aktiverad på Våg Förberedelse endast."
+		IH_ENABLE 				= IH_color_header + "[►]\x01 Föremålshjälpare aktiverad."
+		LOW_METAL 				= "Inte tillräckligt med Metall"
+		TOMISLAV_HEAT			= "Tomislav Värme: %s%%"
+		STUCK_RESPAWNED 		= "Du återskapades till för undvika att fastna."
+		ABILITY_READY			= "%s\n► Redo ◄"
+		ABILITY_CHARGING		= "%s\n%s"
+		ABILITY_CHARGING_MSG	= "Laddar: %ss"
+		ABILITY_CHARGING_D_MSG	= "Laddar: %s%%"
+		MEGACRUSH 				= "MEGA-KROSS"
+		VITALRESURGENCE 		= "LIVSGÖRANDE ÅTERUPPSTÅENDE"
+		VEHICULARMANNSLAUGHTER 	= "FORDRON MANNSSLAKT"
+		TEST 					= "Test Ability"
+		NO_MONEY				= "You can't afford this! (Cost: $%s, you have: $%s)" // Dont Translate this, my own project
+		REPROG_BOT_STRONG		= TF_TEAM_COLOR_REPROG_B+"%s\x01 motstås för mycket och kan inte omprogrammeras."
+		REPROG_BOT_NOT_SUIT		= TF_TEAM_COLOR_REPROG_B+"%s\x01 inte lämplig för strid och kan inte omprogrammeras."
+		REPROG_BOT_LEAVE		= TF_TEAM_COLOR_SPEC+"%s dog."
+		REPROG_BOT_MESSAGE 		= TF_TEAM_COLOR_RED+"%s\x01 har omprogrammerats "+TF_TEAM_COLOR_REPROG_B+"%s\x01!"
+		//---------------------------------------------------------
+		CHECKPOINT_CREATED		= "\x077c8cc2Checkpoint created:\x078165cf [/%s]"
+		CHECKPOINT_WRONG_MAP	= CHECKPOINT_ERROR+"Den punkten var inte inställd för denna karta."
+		CHECKPOINT_WRONG_MISS	= CHECKPOINT_ERROR+"Den punkten var inte inställd för detta uppdrag."
+		CHECKPOINT_EXPIRE		= CHECKPOINT_ERROR+"Den punkten har tagit slut."
+		CHECKPOINT_RESTORE		= "\x0744CC44Restored till senaste sparade punkt."
+		CHECKPOINT_RESTORE_HUD	= "Återställde till senaste sparade punkt."
+		//---------------------------------------------------------
+		SCATTERGUN_NAME 		= "HAGELBÖSSA"
+		SCATTERGUN_DESC 		= " Standard val för pålitig skada. Väldigt effekter på nära håll."
+		//
+		FORCENATURE_NAME		= "NATURKRAFT"
+		FORCENATURE_DESC		= " Förbättrad knuff vid träff. Lite mindre Skada Per Sekund än Hagelbösan."
+		//
+		SHORTSTOP_NAME 			= "SHORTSTOP"
+		SHORTSTOP_DESC 			= " Sjuk eldgivningshastighet och garanderade kritiska träffar på blöta fiender, men en långsam omladdning."
+		//
+		SODAPOPPER_NAME 		= "LÄSKPOPPAREN"
+		SODAPOPPER_DESC 		= " Håll ner eldgivning till att alla en snabb 4-skotts utbrott."
+		//
+		BABYFACEBLASTER_NAME	= "BARNANSIKTETS BLÄSTARE"
+		BABYFACEBLASTER_DESC	= " Håll ner eldgivning till att ladda ett massivt utbrott av upp till 200 skott, som dödar alla vid nära håll. Har väldigt hög rekyl dock."
+		//
+		BACKSCATTER_NAME		= "RYGGSPLITAREN"
+		BACKSCATTER_DESC		= " Fulla kritiska träffar vid ryggskott. Kräver ingen ammunition och har ett oändligt magasin."
+		///
+		PISTOL_NAME 			= "PISTOL"
+		PISTOL_DESC 			= " Avfyrar raketer istället för kulor. Väldigt effekter för rörelse."
+		//
+		BONK_NAME 				= "BONK! ATOMIC PUNCH"
+		BONK_DESC 				= " Superladdad dricka, ger osårbarhet som inte tar bort din förmåga att attackera."
+		//
+		CRITACOLA_NAME 			= "CRIT-A-COLA"
+		CRITACOLA_DESC 			= " Superladdad dricka, ger fulla kritiska träffar."
+		//
+		MADMILK_NAME 			= "MANISK MJÖLK"
+		MADMILK_DESC 			= " Fiender täckta i mjölk kan inte röra på sig."
+		//
+		WINGER_NAME 			= "YTTERN"
+		WINGER_DESC 			= " Oändligt med lufthopp medans den är aktiv. Avfyrar ett enda fokuserat skott som alltid utdelar ett kritiskt skott medans du är i luften. Detta skott puttar fiender bort."
+		//
+		PRETTYBOYS_NAME 		= "SNYGGINGENS PANGPISTOL"
+		PRETTYBOYS_DESC 		= " Avfyrar raketer som utdelar skada baserat på offrets hälsa. Skada ökas medans målet blir skadad och inte påverkad av avstånd. Alternativattack: Använd Spårande raketer med kostnaden av -20% skada."
+		//
+		CLEAVER_NAME 			= "FLYGANDE GILIJOTINEN"
+		CLEAVER_DESC 			= " Yondus Pil: Skapar en medveten pil som assisterar i strid. Alternativattack: Störningsläge, -75% skada."
+		//
+		MATATEDMILK_NAME 		= "MUTERAD MJÖLK"
+		MATATEDMILK_DESC 		= " Konstrakt avfyrande explosiva mjölkburkar, som utdelar skada mot fiender. Alternativattack: Kasta en kluster av mjölkburkar på samma gång."
+		///
+		BAT_NAME 				= "SLAGTRÄ"
+		BAT_DESC 				= " Chans att ignorera döden och teleportera till återskapning med 1 hälsa."
+		//
+		SANDMAN_NAME			= "JOHN BLUND"
+		SANDMAN_DESC 			= " Kan avfyra basebollar snabbt med hög kompetens och snabb omladdning, som utdelar ett stort utbrott skada till ett enda mål."
+		//
+		HOLYMACKEREL_NAME		= "FINA FISKEN"
+		HOLYMACKEREL_DESC		= " Kan markera flera fiender för döden."
+		//
+		CANDYCANE_NAME 			= "POLKAGRISEN"
+		CANDYCANE_DESC 			= " Utilitetsföremål - Du har ingen gravitation och kan flyga fritt."
+		//
+		BOSTONBASHSER_NAME 		= "BOSTANBANKAREN"
+		BOSTONBASHSER_DESC 		= " Hög risk / Hög belöning. Kan omedelbart döda de flesta små fiender, som ger en 10 sekunders kritisk laddning. Fiender kopplade via häslovapen ståle kan också träffas. Dock alla missar är en omedelbar död."
+		//
+		SUNONASTICK_NAME		= "SOLSTICKAN"
+		SUNONASTICK_DESC		= " Chans att bedöva fiender eller få en kort kritisk laddning. Träffar alla fiender kopplade via hälsovapen strålar. Dock alla missar kommer bedöva dig själv."
+		//
+		FANOWAR_NAME 			= "KRIGSFJÄRDERN"
+		FANOWAR_DESC 			= " Utilitetsföremål - Svinga detta närstridsvapen till att kasta dig själv frampt med hög hastighet. Get immunitet mot fallskada."
+		//
+		ATOMIZER_NAME 			= "ATOMISERAREN"
+		ATOMIZER_DESC 			= " Kan inte utdela skada med normala attacker, men ett lyckat dödshån kommer ge en kritisk laddnings om varar i 3 minuter."
+		//
+		THREERUNEBLADE_NAME 	= "TRERUNS-SVÄRD"
+		THREERUNEBLADE_DESC 	= " Medans den är aktiv, gå en MASSIV ökning till rörelsehastighet och förmågan att trippelhoppa. Get immunitet mot fallskada."
+		//
+		UNARMEDCOMBAT_NAME 		= "OBEVÄPNAD STRID"
+		UNARMEDCOMBAT_DESC 		= " Varje 10 döende träffar, få en Skelett hejduk förtrollningsladdning (Kräver Trolleribok)."
+		//
+		WRAPAASSASSIN_NAME 		= "OMSLAGSMÖRDAREN"
+		WRAPAASSASSIN_DESC 		= " Kan attackera inkommande projektiler, reflekterar de lätt. Ger också immunitet mot bedövning."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		ROCKETLAUNCHER_NAME		= "RAKETGEVÄR"
+		ROCKETLAUNCHER_DESC		= " Standardval för pålitig skada."
+		//
+		DIRECTHIT_NAME			= "DIREKTA TRÄFFEN"
+		DIRECTHIT_DESC			= " Alternativattack: Avfyra en liten fiende i luften för en enkel mini-kritisk träff efteråt. Raketer har en liten mängd sikteshjälp."
+		//
+		BLACKBOX_NAME			= "SVARTA LÅDAN"
+		BLACKBOX_DESC			= " Sakta ner fiender och utdela blöd. Detta vapen utdelar x2 skada mot Soldatbotar."
+		//
+		ROCKETJUMPER_NAME		= "RAKETHOPPAREN"
+		ROCKETJUMPER_DESC		= " Långsam eldgivning och omladdningshastighet, men hög skada och stor explosionsradie. Utmärkt val för gruppkontroll."
+		//
+		LIBERTYLAUNCHER_NAME	= "FRIHETSGEVÄRET"
+		LIBERTYLAUNCHER_DESC	= " Avfyrar en långsam-rörlig raket som utdelar massiv skada i ett stort område. Väldig långsam omladdning och låg ammunition. Detta vapen avfyras automatiskt när den är laddad."
+		//
+		COWMANGLER_NAME			= "KOMANGLAREN 5000"
+		COWMANGLER_DESC			= " Immobiliserar små fiender vid träff. Laddade skott stopper fiender längre. Håll ner Alternativattack för att superladda vapnet för ett multiskott, som stoppar de mycket längre."
+		//
+		ORIGINAL_NAME			= "ORIGINALET"
+		ORIGINAL_DESC			= " Håll ner eldgivning till att ladda ett uttrbottsskott med upp till 4 raketer. Detta vapen avfyras automatiskt när den är laddad."
+		//
+		BEGGARSBAZOOKA_NAME		= "RUINERADES RAKETGEVÄR"
+		BEGGARSBAZOOKA_DESC		= " Håll ner eldgivning för att ladda upp till 100 raketer innan man släpper du i ett massivt utbrott. Detta vapen laddas INTE över."
+		//
+		AIRSTRIKE_NAME			= "LUFTANGREPPET"
+		AIRSTRIKE_DESC			= " Ladda upp till 10 raketer innan man avfyrar alla på en gång i ett fixerat spridmönster. Dessa raketer går efter fiender automatiskt."
+		///
+		SHOTGUN_SOLD_NAME 		= "HAGELGEVÄR - SOLDAT" 
+		SHOTGUN_SOLD_DESC 		= " Very fast fire rate and crits while rocket jumping." 
+		//
+		SHOTGUN_NAME 			= "HAGELGEVÄR" 
+		SHOTGUN_DESC 			= " Standardval för pålitig skada." 
+		//
+		BUFFBANNER_NAME 		= "BUFFBANERET" 
+		BUFFBANNER_DESC 		= " Oändligt avstånd och har mycket ökad varaktighet." 
+		//
+		GUNBOATS_NAME 			= "KANONBÅTARNA" 
+		GUNBOATS_DESC 			= " Aktiverar kaninhopp genom att hålla ner 'hopp' tangenten. Ger immunitet mot fallskada." 
+		//
+		BATTALIONS_NAME 		= "BATALJONENS FÖRSTÄRKNING" 
+		BATTALIONS_DESC 		= " Oändligt avstånd och har mycket ökad varaktighet." 
+		//
+		CONCHEROR_NAME 			= "TRUMPETSNÄCKA" 
+		CONCHEROR_DESC 			= " Oändligt avstånd och har mycket ökad varaktighet." 
+		//
+		RESERVESHOOTER_NAME 	= "RESERVSKJUTAREN" 
+		RESERVESHOOTER_DESC 	= " Utdelar en stadig 10,000 skada per skott oavsett avståndet med 3s mini-kritiska träffar vid döende träff. Dock detta vapen kan inte laddas med kritiska träffar, och kan inte skada Pansarvagnar. Håll ner Alternativattack för att zooma in." 
+		//
+		BISON_NAME 				= "RÄTTSKAFFENS BISONOXE" 
+		BISON_DESC 				= " Avfyrar en konstant stråle av penetrerande skada med fulla auto-träffsäkning." 
+		//
+		MANTREADS_NAME 			= "MANSTÖVLARNA" 
+		MANTREADS_DESC 			= " Stor minskning i knuff tagen från skada. Luftrörelser har nu en massivt ökad acceleration. Stampskada förstärkt och velocitet-baserad." 
+		//
+		BASEJUMPER_NAME 		= "B.A.S.E-HOPPAREN" 
+		BASEJUMPER_DESC 		= " Kan växla fallskärmen. Ökad motstånd mot knuff och skada mot kulor, som minskar din sårbarhet i luften." 
+		//
+		PANICATTACK_NAME 		= "PANIKATTACKEN" 
+		PANICATTACK_DESC 		= " För när du behöver helande i nöden. Omedelbart återställer upp till 10,000 hälsa vid träff. Att ta skada med detta vapen aktiv har en chans att sätta på en kort själv-uber." 
+		///
+		SHOVEL_NAME 			= "SKYFFEL"
+		SHOVEL_DESC 			= " Standardval för försvar och rörelse."
+		//
+		EQUALIZER_NAME 			= "UTJÄMNAREN"
+		EQUALIZER_DESC 			= " Hånattacker utdelar massiv skada och knuffar fiender upp i luften."
+		//
+		PAINTRAIN_NAME 			= "PLÅGTÅGET"
+		PAINTRAIN_DESC 			= " Utdelar blöd och saktar ner vid träff. Ger immunitet mot fallskada."
+		//
+		HALFZATOICHI_NAME 		= "HALF-ZATOICHI"
+		HALFZATOICHI_DESC 		= " Vanlig skada med en hög hälsomobilitet, och ökad räckvidd."
+		//
+		MARKETGARDENER_NAME 	= "TRÄGÅRDSMÄSTAREN"
+		MARKETGARDENER_DESC 	= " Utdelar massivt ökad kritisk skada. Efter man får en döende träff, ge dig in i ett argt tillstånd och få extra hälsa, motstånd och ökad skada på alla attacker. Dock alla missar är en omedelbar död."
+		//
+		DISCIPLINARYACTION_NAME = "DISCIPLINSÅTGÄRDEN"
+		DISCIPLINARYACTION_DESC	= " Standardval för försvar och rörelse."
+		//
+		ESCAPEPLAN_NAME			= "FLYKTPLANEN"
+		ESCAPEPLAN_DESC			= " Standardval för försvar och rörelse."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		FLAMETHROWER_NAME 		= "ELDKASTARE"
+		FLAMETHROWER_DESC		= " Standardval för pålitig skada. Få en liten mini-kritisk laddning vid döende träff."
+		//
+		BACKBURNER_NAME 		= "RYGGBRÄNNAREN"
+		BACKBURNER_DESC			= " Grön Eld - Markerar fiender för döden och bedövar fiender i luften en kort stund. Detta vpane utdelar x2 skada mot Pyrobotar."
+		//
+		DEGREASER_NAME 			= "AVFETTAREN"
+		DEGREASER_DESC			= " Lång-avstånd eldkastare som utdelar hög direkt skada, med 0 efterbrand. Denna kastare kan inte utföra luftstötar."
+		//
+		PHLOGISTINATOR_NAME 	= "FLOGISTONERAREN"
+		PHLOGISTINATOR_DESC		= " Grön Eld - Markerar fiender för döden och bedövar fiender i luften en kort stund. Stark mot Pansarvagnar, men din rörelsehastighet är minskad."
+		//
+		RAINBLOWER_NAME 		= "RAINBLOWER"
+		RAINBLOWER_DESC			= " Lång-avstånd eldkastare som utdelar låg direkt skada, men med hög efterbrand skada. Kan också omedelbart förstöra Ingenjörbyggnader och bränna fiende Pyros. Luftstöten är svag, men väldigt snabb."
+		//
+		DRAGONSFURY_NAME 		= "DRAKENS RASERI"
+		DRAGONSFURY_DESC		= " Mycket ökad eldgivningshastighet och luftstöthastighet."
+		//
+		NOSTROMONAPALMER_NAME 	= "NOSTROMO-ELDKASTAREN"
+		NOSTROMONAPALMER_DESC	= " Saktar ner fiender vid träff. Bygger 'Mmmph' laddning likt Flogistoneraren, men ger dig Trumpetsnäckans förstärkning. Denna eldkastare kan inte utföra luftstötar."
+		///
+		SHOTGUN_PYRO_NAME 		= "HAGELGEVÄR - PYRO" 
+		SHOTGUN_PYRO_DESC 		= " Garanterade kritiska träffar mot brinnande fiender." 
+		//
+		FLAREGUN_NAME 			= "SIGNALPISTOL" 
+		FLAREGUN_DESC 			= " Avfyrar en träffskann attack som penetrerar fiender. Skada ökas exponentiellt med varje penetrerad fiende längst vägen. Har också en chans att bedöva fiender vid träff." 
+		//
+		DETONATOR_NAME 			= "DETONATORN" 
+		DETONATOR_DESC 			= " Blosset har en oändlig explosionsradie och kommer träffa allt inom siktlinje. Tvingar alla Spionbotar att avslöja sig och sluta förklä sig. Också ett bra val för rörelse." 
+		//
+		MANMELTER_NAME 			= "MÄNNISKOSMÄLTAREN" 
+		MANMELTER_DESC 			= " Snabbt-avfyrande specialiserad till att automatiskt följa fiender. Oändligt ammunition och ingen omladdning. Alternativattack: Avfyra ett utbrott av bloss på en gång." 
+		//
+		SCORCHSHOT_NAME 		= "SVEDSKOTTET" 
+		SCORCHSHOT_DESC 		= " Vid träff: Utdela en stor mängd skada, som släcker fienden och utdelar knuff. Ditt mål MUSTA vara på eld, eller denna attack kommer inte göra något. Alternativattack: Använd långsamma följande bloss." 
+		//
+		THERMALTHRUSTER_NAME 	= "HÖGTRYCKET" 
+		THERMALTHRUSTER_DESC 	= " Minskade bränsle användning utan någon fördröjning. Kan återanvändas i luften och utdelar massiv stampskada. Gå en kort kritisk laddning vid träff." 
+		//
+		GASPASSER_NAME 			= "BENSINDUNKEN" 
+		GASPASSER_DESC 			= " Gasmätaren börjar tom och återställs när man dör. Utdela 150,000 skada till att fylla mätaren. Exploderar-vid-Antändning utdelar 105,000 skada." 
+		///
+		FIREAXE_NAME 			= "BRANDYXA"
+		FIREAXE_DESC 			= " Standardval för försvar och rörelse."
+		//	
+		AXTINGUISHER_NAME 		= "BRANDSLAKTAREN"
+		AXTINGUISHER_DESC		= " Mycket ökad skada mot fiender som brinner."
+		//
+		HOMEWRECKER_NAME 		= "HEMRIVAREN"
+		HOMEWRECKER_DESC 		= " Kan omedelbart förstöra Ingenjörbyggnader överallt med oändligt närstridsavstånd."
+		//
+		POWERJACK_NAME 			= "ELDOMKRAFTEN"
+		POWERJACK_DESC 			= " Snabba attacker och rörelsehastighet. Utdelar blöd & tänder fiender vid träff och ger en mini-kritisk laddning vid döende träff."
+		//
+		BACKSCRATCHER_NAME 		= "RYGGKLIAREN"
+		BACKSCRATCHER_DESC 		= " Utdelar dödlig skada bakifrån. Efter man får en döende träff, ge dig in ett argt tillstånd och få extra rörelsehastighet, motstånd och ökad skada på alla attacker."
+		//
+		VOLCANOFRAGMENT_NAME 	= "VÄSSAD VULKANBIT"
+		VOLCANOFRAGMENT_DESC 	= " Chans till att bedöva fiender vid träff. Kan också bränna fiende Pyros"
+		//
+		POSTALPUMMELER_NAME 	= "POSTPUCKLAREN"
+		POSTALPUMMELER_DESC 	= " Vid träff: Utdela Förvirrning, orsakr fiender att gå baklänges längst bombvägen en kort stånd. Håll ner Alternativattack när man attackerar för att teleportera tillbaks till återskapningsrummet."
+		//
+		MAUL_NAME 				= "SLÄGGAN"
+		MAUL_DESC 				= " Vid träff: Kasta fiender upp i luften med minskad gravitation."
+		//
+		THIRDDEGREE_NAME 		= "TREDJA GRADEN"
+		THIRDDEGREE_DESC 		= " Bli nästan immun mot eldskada medans den är utrustad, och få ett extra tungt motstånd mot alla attacker från långt håll medans den är aktiv."
+		//
+		LOLLICHOP_NAME 			= "SLICKEPINAN"
+		LOLLICHOP_DESC 			= " Varje 10 döende träffar, få en Meteor Stormförtrollning laddning (Kräver Trolleribok)."
+		//
+		NEONANNIHILATOR_NAME 	= "NEONFÖRINTAREN"
+		NEONANNIHILATOR_DESC 	= " Din gravitation är minskad."
+		//
+		HOTHAND_NAME 			= "ÖRFILEN"
+		HOTHAND_DESC 			= " Kasta fiender upp i luften vid träff."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		GRENADELAUNCHER_NAME 	= "GRANATKASTARE"
+		GRENADELAUNCHER_DESC	= " Standardval för pålitig skada."
+		//
+		LOCHNLOAD_NAME 			= "LOCH-N-LOAD"
+		LOCHNLOAD_DESC			= " Långsamma skott men med hög snabbt skada i ett stort område. Effektivt för gruppkontroll."
+		//
+		ALIBABA_NAME			= "ALI BABAS LILLA STÖVLAR"
+		ALIBABA_DESC			= " Förbättrar rörelsehastighet, hopphöjd och sköldanfall. Ger extra skademotstånd, snabbare sköldomladdning och högra kollisionsskada."
+		//
+		BOOTLEGGER_NAME			= "SPRITSMUGGLAREN"
+		BOOTLEGGER_DESC			= " Förbättrar rörelsehastighet, hopphöjd och sköldanfall. Ger massiv motstånd mot närstridsattacker men sårbarhet mot kritiska attacker."
+		//
+		LOOSECANNON_NAME		= "LADDAD KANON"
+		LOOSECANNON_DESC		= " Ladda upp till 4 kanonbollar innan man avfyrar alla på en gång i ett verktikalt spridmönster. Kanonbollar exploderar vid kontakt med marken."
+		//
+		IRONBOMBER_NAME			= "JÄRNBOMBAREN"
+		IRONBOMBER_DESC			= " Ignorerar fienders motstånd och ger en kort kritisk laddning vid döende träff. Kräver ingen ammunition och har ett oändligt magasin. Projektiler kan studsa från väggar."
+		///
+		STICKYBOMB_NAME 		= "KLISTERBOMBKASTARE"
+		STICKYBOMB_DESC 		= " Standardval för pålitig skada. Kan lägga ut 50 bomber."
+		//
+		SCOTTISHRES_NAME 		= "SKOTSKA MOTSTÅNDET"
+		SCOTTISHRES_DESC 		= " Bomber tar 5 sekunder till att armera och fräser efter 10 sekunder, men kan utdela överväldlig skada med bra tajming och en full laddning."
+		//
+		STICKYJUMPER_NAME 		= "KLISTERBOMBSHOPPAREN"
+		STICKYJUMPER_DESC 		= " Skaparen ett avstängningsfält, som bedövar alla fiender träffar av pulsen. (Minibossar är immuna till denna bedövning)"
+		//
+		CHARGINTARGE_NAME 		= "ANFALLSSKÖLDEN"
+		CHARGINTARGE_DESC 		= " Tungt motstånd mot EXPLOSIONER, men är mer sårbar mot ELD och KULOR. Inkluderar extra motstånd mot knuff och kritiska träffar."
+		//
+		SPLENDIDSCREEN_NAME 	= "STRÅLANDE SKYDDET"
+		SPLENDIDSCREEN_DESC 	= " Tungt motstånd mot ELD, men mer sårbar mot EXPLOSIONER och KULOR. Inkluderar extra mostånd mot knuff och kritiska träffar."
+		//
+		TIDETURNER_NAME 		= "VINDVÄNDAREN"
+		TIDETURNER_DESC 		= " Tungt motstånd mot KULOR, men mer skada mot ELD och EXPLOSIONER. Inkluderar extra mostånd mot knuff och kritiska träffar."
+		//
+		QUICKIEBOMB_NAME 		= "KVICKBOMBSKJUTAREN"
+		QUICKIEBOMB_DESC 		= " Auto-avfyrar klisterbomber med en sjuk hastighet med väldigt snabb armeringstid. Få mini-kritiska träffar vid döende träff."
+		///
+		BOTTLE_NAME 			= "FLASKA"
+		BOTTLE_DESC 			= " Standardval för försvar och rörelse."
+		//
+		EYELANDER_NAME 			= "ÖGLÄNDAREN"
+		EYELANDER_DESC 			= " Hög skada med snabba attacker som ger kritiska och mini-kritiska träffar vid döende träff, men kan inte användas som en hybrid-riddare."
+		//
+		SKULLCUTTER_NAME 		= "SKOTTENS SKALLSKÄRARE"
+		SKULLCUTTER_DESC 		= " Kan skära igenom fiendens Uberladdning och störa Hälsovapen funktioner. Kan också utdela x10 skada mot fiender med samma klass som dig."
+		//
+		CABER_NAME 				= "ULLAPOOL-CABER"
+		CABER_DESC 				= " Skada ökas ju mer skadad du är. Garanterade kritiska träffar om din hälsa är under 2%. Explosionen från denna attack kommer döda dig."
+		//
+		CLAIDHEAMHMOR_NAME 		= "CLAIDHEAMH MOR"
+		CLAIDHEAMHMOR_DESC 		= " Varje 10 döende träffar, få en Monoculus förtrollningsladdning (Kräver Trolleribok)."
+		//
+		PERSIANPERSUADER_NAME 	= "ÖSTERLÄNDSKA ÖVERTALAREN"
+		PERSIANPERSUADER_DESC 	= " När den paras ihop med en sköld, så ger den oändlig sköldanfall. Sklödanfallet kan inte avbrytas med skarpa svängningar eller genom att krocka in i väggar, fiender eller andra hinder. Ger immunitet mot bedövningar."
+		//
+		NINEIRON_NAME 			= "NESSIES JÄRNNIA"
+		NINEIRON_DESC 			= " Har en massiv svingbåge, som kan träffa flera fiender på samma gång i alla riktningar. Utdelar dubbel kritisk skada."
+		//
+		SCOTTISHHANDSHAKE_NAME 	= "SSKOTSKA HANDSLAGET"
+		SCOTTISHHANDSHAKE_DESC 	= " Medans den är aktiv: Motstå 90% skada från avstånd, bli immun mot knuff och öka din maxhälsa stort. Dock du kan inte fylla på din ammunition och får mindre hälsa från kit."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		MINIGUN_NAME 			= "MINIGUN"
+		MINIGUN_DESC 			= " Standardval för pålitlig skada. Få en kort mini-kritisk laddning vid döende träff."
+		//
+		NATASCHA_NAME 			= "NATASCHA"
+		NATASCHA_DESC 			= " Saka ner fiender vid träff och lägg till Dödsmarkering."
+		//
+		BRASSBEAST_NAME 		= "MÄSSINGSMONSTRET"
+		BRASSBEAST_DESC 		= " Högre skada med varje lånsam uppsnurrning. Rörelsehastighet är borta medans den är igång. Kan avleda inkommande projektiler."
+		//
+		TOMISLAV_NAME 			= "TOMISLAV"
+		TOMISLAV_DESC 			= " Bygger 'Värme' genom att utdela skada. Alla attributer på detta vapen är ökade baserat på värmenivån. Dock, vapnet börjar kylas ner om du inte utdelar skada efter en lång stund."
+		//
+		HUOHEATER_NAME 			= "ELDDRAKSVÄRMAREN"
+		HUOHEATER_DESC 			= " Avfyrar energistrålar, som tänder fiender vid träff"
+		//
+		GENUINEHUOHEATER_NAME 	= "ÄKTA ELDDRAKSVÄRMAREN"
+		GENUINEHUOHEATER_DESC 	= " Avfyrar raketer. Garanterade kritiska träffar mot fiender som brinner."
+		///
+		SHOTGUN_HVY_NAME 		= "HAGELGEVÄR - TUNG ARTILLERIST"
+		SHOTGUN_HVY_DESC 		= " Singlärt skott med hög skada, som ger 8 sekunder av kritiska träffar vid döende träff."
+		//
+		SANDVICH_NAME 			= "SMÖRGÅSEN"
+		SANDVICH_DESC 			= " Återställ upp till 150,000 hälsa. All skada tagen medans man håller detta föremål aktivt är dödligt."
+		//
+		DALOKOHSBAR_NAME 		= "DALOKOHSKAKAN"
+		DALOKOHSBAR_DESC 		= " Återställ upp till 20,000 hälsa. Om den används under 350 hälsa så kommer du få en stor överhälsa. Ökar passivt skadan tagen men ger en chans att sig själv själv-uber när man tar skada."
+		//
+		BUFFALOSTEAK_NAME 		= "BUFFELBIFFSMÖRGÅS"
+		BUFFALOSTEAK_DESC 		= " Passivt ger immunitet mot kritiska träffar."
+		//
+		FAMILYBUSINESS_NAME 	= "FAMILIJENS ENSAK"
+		FAMILYBUSINESS_DESC 	= " Oändlig ammunition. Attackhastigheten är dubblad medans man får en helande effekt. Ger en kort kritisk laddning och mini-kritisk laddning vid döende träff."
+		//
+		FISHCAKE_NAME 			= "FISKKAKA"
+		FISHCAKE_DESC 			= " Tungt motstånd mot KULOR, men mer sårbar mot ELD och EXPLOSIONER."
+		//
+		SECONDBANANA_NAME 		= "ANDRA BANANEN"
+		SECONDBANANA_DESC 		= " Tungt motstånd mot EXPLOSIONER, men mer sårbar mot ELD och KULOR."
+		///
+		FISTS_NAME 				= "KNYTNÄVAR"
+		FISTS_DESC 				= " Standardval för försvar och rörelse. Effektiv i strid."
+		//
+		KILLINGGLOVES_NAME 		= "KALINIS GRYMMA BOXNINGSHANDSKAR"
+		KILLINGGLOVES_DESC 		= " Specialförmåga: 'Mega-Kross' -  När den är tillgänglig, tryck din åtgärdstangent medans du står på bomben för att omedelbart skciak tillbaks den till starten. Annars, få en temporör rörelsehastighet förstärkning, skydd och kritiska träffar."
+		//
+		GLOVESRUNNING_NAME 		= "GORBATJOVS RUSHANDE UPPERCUT"
+		GLOVESRUNNING_DESC 		= " Passivt ger förmågan att ta fram en fallskärm. Medans den är aktiv, få en massiv ökad hopphöjd, skademotstånd och hälsoåterställning."
+		//
+		BREADBITE_NAME 			= "BRÖDBETTET"
+		BREADBITE_DESC 			= " Kritiska träffar infekterar ditt offer med Frätning, en permanent negativ effekt som utdelar skada baserat på max hälsan och orsakar offret att explodera till ett litet frätande moln när den dör, som kan sprida effekten till andra fiender."
+		//
+		WARRIRORSSPIRIT_NAME 	= "KRIGARENS ANDA"
+		WARRIRORSSPIRIT_DESC 	= " Vänsterklicka för att hoppa högt upp i luften. Landar man på fiender så utdelas massiv stampskada. Tar bort all primär och sekundär ammunition."
+		//
+		FISTSOFSTEEL_NAME 		= "STÅLNÄVARNA"
+		FISTSOFSTEEL_DESC 		= " Bli en stor Tung Artillerist järnhandske med 250,000 hälsa. Du är immun mot knuff och kan utdela stor skada. Tar bort all primär och sekundär ammunition. Du kan bära läkas från lunchlådor."
+		//
+		EVICTIONNOTICE_NAME 	= "VRÄKNINGSBESKEDET"
+		EVICTIONNOTICE_DESC 	= " Gå en snabb helande effekt vid döende träff."
+		//
+		APOCOFISTS_NAME 		= "APOCO-NÄVAR"
+		APOCOFISTS_DESC 		= " Slag puttar bort fiender."
+		//
+		HOLIDAYPUNCH_NAME 		= "JULKLAPPEN"
+		HOLIDAYPUNCH_DESC 		= " Medans en är aktiv, alla fiender kommer ignorera dig. Ger också immunitet mot bedövningar. Detta vapen kan dock inte utdela skada."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		SHOTGUN_ENGI_NAME		= "HAGELGEVÄR - INGENGÖR"
+		SHOTGUN_ENGI_DESC 		= " Utdelar x4 skada mot ditt Vaktgevärs mål."
+		//
+		FRONTIERJUSTICE_NAME 	= "VÄSTERNRÄTTVISAN"
+		FRONTIERJUSTICE_DESC 	= " Sjuk snabb eldgivningshastighet. Magasinstorlek matchar den kritiska max hämnd mängden. Laddar om snabbare medans man får alla läkande effekter."
+		//
+		WIDOWMAKER_NAME 		= "ÄNKMAKAREN"
+		WIDOWMAKER_DESC 		= " Använd 2000 metall för att avfyra ett brett skott som puttar bort fiender."
+		//
+		POMSON_NAME 			= "POMSON 6000"
+		POMSON_DESC 			= " Utdela blöd, eld och sakta ner fiender."
+		//
+		RESCUERANGER_NAME 		= "RÄDDAREN I NÖDEN"
+		RESCUERANGER_DESC		= " Använder 20 metall per skott, men behöver aldrig laddas om och ökar max metallen med 1000."
+		///
+		WRANGLER_NAME 			= "GRÄLMAKAREN"
+		WRANGLER_DESC 			= " Medans den är aktiv: Öka Vaktgevär skada och dubbla Utmatarräckvidd."
+		//
+		SHORTCIRCUIT_NAME 		= "KORTSLUTNINGEN"
+		SHORTCIRCUIT_DESC 		= " Varje 10 döende träffar, få en Blixtboll förtrollningsladdning (Kräver Trolleribok)"
+		///
+		WRENCH_NAME 			= "SKIFTNYCKEL"
+		WRENCH_DESC 			= " Standardval för pålitig skada."
+		//
+		GUNSLINGER_NAME 		= "REVOLVERMANNEN"
+		GUNSLINGER_DESC	 		= " Kan bygga ett sekundärt Vaktgevär. Trippelslag kombo kan förgöra små fiender och utdela stor skada mot Jättar."
+		//
+		SOUTHERNHOS_NAME 		= "SÖDERNS GÄSTFRIHET"
+		SOUTHERNHOS_DESC 		= " Ersätter det normala Vaktgeväret med ett Eld Vaktgevär. Kort avstånd, men hög skada."
+		//
+		JAG_NAME 				= "JACKEN"
+		JAG_DESC 				= " Ditt Vaktgevär har oändligt med räckvidd."
+		//
+		EUREKAEFFECT_NAME 		= "AHA-UPPLEVELSEN"
+		EUREKAEFFECT_DESC 		= " Medans du bär ditt Vaktgevär, tryck 'Omladdning' tangenten till att avlägset lägga den på en vägg eller ett tak inom räckvidd ey to remotely place it on any wall or ceiling within range."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		SYRINGEGUN_NAME			= "SPRUTGEVÄR"
+		SYRINGEGUN_DESC			= " Få 0.5% Uberladdning per träff."
+		//
+		BLUTSAUGER_NAME			= "BLUTSAUGER"
+		BLUTSAUGER_DESC			= " Kräver och använder 100% Uberladdninig till att omprogrammera en robot till att gå med i ditt lag temporärt innan den själv sprängs. Alternativattack: Manuellt avbryta omprogrammeringen på alla påverkade robotar."
+		//
+		CRUSADERSCROSSBOW_NAME	= "KORSRIDDARENS ARMBOSRT"
+		CRUSADERSCROSSBOW_DESC	= " Få 0.25% Uberladdning per träff, utdela blöd och få en till 0.5% Uberladdning per tick av blödskada."
+		//
+		OVERDOSE_NAME 			= "ÖVERDOSERINGEN"
+		OVERDOSE_DESC 			= " Kräver och använder 100% Uberladdning till att skicka en bomb som stänger ner alla nära små fiender för upp till 15s."
+		///
+		MEDIGUN_NAME			= "HÄLSOVAPEN"
+		MEDIGUN_DESC			= " Överhälsa ökad till x10 av patientens max hälsa. Lägg ut en långvarande nivå 1 Projektilsköld."
+		//
+		KRITZKRIEG_NAME			= "KRITZKRIEG"
+		KRITZKRIEG_DESC			= " Kan tömma hälsa från fiender, och ger själv-läkande och bygger Uber."
+		//
+		QUICKFIX_NAME			= "SNABBFIXAREN"
+		QUICKFIX_DESC			= " Väldigt snabbt läkande med nivå 2 Projektilsköld. Kan bygga Uber från sköld kontaktskada."
+		//
+		VACCINATOR_NAME			= "VACCINATÖREN"
+		VACCINATOR_DESC			= " Aktiva läkningar ger dig och patienten 100% motstånd mot grundskadan av den valda typen. Uberladdning ger full immunitet mot den valda skadetypen i 30 sekunder."
+		///
+		BONESAW_NAME 			= "BENSÅG"
+		BONESAW_DESC			= " Standardval för försvar och rörelse. Ger 10% Uber vid träff."
+		//
+		UBERSAW_NAME 			= "UBERSÅGEN"
+		UBERSAW_DESC			= " Utdela blöd vid träff. Få 2% Uber vid träff."
+		//
+		VITASAW_NAME 			= "VITA-SÅGEN"
+		VITASAW_DESC			= " Få en Överhälsa förtrollningsladdning vid träff (Kräver Trolleribok). Få 5% Uber vid träff."
+		//
+		AMPUTATOR_NAME 			= "AMPUTERAREN"
+		AMPUTATOR_DESC			= " Vid träff: Ditt Hälsovapen blir superladdad och får temporärt ökad läkningshastighet, uberhastighet och räckvidd. Dödar man en fiende så får man en starkare version av denna effekt."
+		//
+		SOLEMNVOW_NAME 			= "HÖGTIDLIGA LÖFTET"
+		SOLEMNVOW_DESC			= " Oändligt räckvidd, träffar alla fiender kopplade via Hälsovapen strålar och utdelar x200 skada mot Sjukvårdarbotar. Få 5% Uber för varje fiende träffad."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		SNIPERRIFLE_NAME 		= "KRYPSKYTTEGEVÄR"
+		SNIPERRIFLE_DESC 		= " Fullt laddade huvudskott utdelar 450,000 skada."
+		//
+		MACHINA_NAME 			= "MACHINA"
+		MACHINA_DESC 			= " Tar lång tid att ladda, men kan riva Pansarvagnar vid full laddning. Dödar man fiender så laddas en vrede mätare som ger en 1-sekund kritisk laddning. Para ihop den kritiska laddningen med en full laddning för att omedelbart förstöra de flesta Pansarvagnar som du kommer möta."
+		//
+		HITMANSHEATMAKER_NAME 	= "TORPEDENS TRONGA"
+		HITMANSHEATMAKER_DESC 	= " Snabb eldgivning utan att sikta ut. Ingen skada på kroppskott."
+		//
+		AWPERHAND_NAME 			= "AWPEKAREN"
+		AWPERHAND_DESC 			= " Avfyrar explosiva rundor och genererar vrede vid döende träffar. Vid 100% vrede, tryck 'omladdning' till att få ökad max hälsa och hälsoåterställning. Geväret laddar bara när fiender är i ditt sikte."
+		//
+		HUNTSMAN_NAME 			= "JÄGAREN"
+		HUNTSMAN_DESC 			= " Avfyrar 5 pilar på samma gång. Utdelar massiv brandskada om en Pyro tänder din pil."
+		//
+		SYDNEYSLEEPER_NAME 		= "SYDNEY-SÖVAREN"
+		SYDNEYSLEEPER_DESC 		= " Avfyrar en speciell pil som förlamar rörelser av icke-jättar och gör så att finder inte kan få läkande från Sjukvårdarbotar."
+		//
+		BAZAARBARGAIN_NAME 		= "BASARSFYNDET"
+		BAZAARBARGAIN_DESC 		= " Dödar man fiender med samma klass på rad så ökas eldgivningshastigheten, staplas upp till 3. Dödar man en annan klass så återställs kombon."
+		//
+		FORTIFIEDCOMPOUND_NAME 	= "FÖRSTÄRKTA FÖRENINGEN"
+		FORTIFIEDCOMPOUND_DESC 	= " Minskade skadan över Jägaren, men avfyrar snabbare, penetrerar och utdelar kritiska träffar på våta fiender."
+		//
+		CLASSIC_NAME 			= "KLASSIKERN"
+		CLASSIC_DESC 			= " Avfyrar så snabbt som du kan trycka avtryckaren, eller ladda ett enda skott med sjuk explosiv huvudskottskraft som förgör alla icke-jättar robotar i området."
+		///
+		SMG_NAME 				= "KPIST"
+		SMG_DESC 				= " Kan utdela huvudskot för en stor mängd ökad skada. Alternativattack: Zooma in och gå 100% träffsäkerhet med kostnaden av halva eldgivningshastigheten."
+		//
+		RAZORBACK_NAME 			= "RAZORBACK"
+		RAZORBACK_DESC 			= " Väldigt snabbt omladdning och lägger Jarate på din attackerare."
+		//
+		JARATE_NAME 			= "JARATE"
+		JARATE_DESC 			= " Omedelbar omladdning, saktar ner fiender."
+		//
+		DARWIN_NAME 			= "DARWINS FAROSKÖLD"
+		DARWIN_DESC 			= " Nästan immun mot ELD, men tar 50% mer skada från KULOR och EXPLOSIONER."
+		//
+		COZYCAMPER_NAME 		= "KRYPSKYTTENS KRYPIN"
+		COZYCAMPER_DESC 		= " Små ökningar i din rörelsehastighet, max hälsa och hälsoåterställning. Immun mot efterbrand."
+		//
+		CLEANERSCARBINE_NAME 	= "UNDANRÖJARENS UMGÄNGE"
+		CLEANERSCARBINE_DESC 	= " Mini-kritisk laddning varar i 30 sekunder."
+		//
+		BEAUTYMARK_NAME 		= "SJÄLVMEDVETNA SKÖNHETSFLÄCKEN"
+		BEAUTYMARK_DESC 		= " Regna ner helig helveteseld med flammande pilar. Alternativattack: Kasta en kluster av flammande pilar på en gång."
+		///
+		KUKRI_NAME 				= "KUKRI"
+		KUKRI_DESC 				= " Standardval för försvar och rörelse."
+		//
+		TRIBALMANSSHIV_NAME 	= "STAMHERRENS HANDGJORDA KNIV"
+		TRIBALMANSSHIV_DESC 	= " Utilitetsföremål - Du har ingen gravitation och kan flyga fritt."
+		//
+			WACKA_NAME 			= "BUSHWACKA"
+		BUSHWACKA_DESC 			= " Oändligt närstridsräckvidd och aranterade kritiska träffar mot brinnande fiender."
+		//
+		SHAHANSHAH_NAME 		= "SHAHANSHAHEN"
+		SHAHANSHAH_DESC 		= " Vänsterklicka för att skicka dig själv flygandes uppåt, bra för att nå höga ställen. Du är också immun mot fallskada."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		REVOLVER_NAME 			= "REVOLVER"
+		REVOLVER_DESC 			= " Vid träff: Utdelar flera negativa effekter, orsakar fiender att ta ökad skada en kort stund, tömmer fiende Sjukvårdarens Uberladdning och tvingar Spionbotar att sluta förklä sig. Kan bedöva fiender som är i luften."
+		//
+		AMBASSADOR_NAME 		= "AMBASSADÖREN"
+		AMBASSADOR_DESC 		= " Utdela stor huvudskott skada. Skadan är dubblad om du inte är förklädd."
+		//
+		LETRANGER_NAME 			= "FRÄMLINGEN"
+		LETRANGER_DESC 			= " Kan förgöra alla icke-jättar i ett enda skott. Noll skada mot Jättar eller Pansarvagnar dock."
+		//
+		ENFORCER_NAME 			= "VERKSTÄLLAREN"
+		ENFORCER_DESC 			= " Ignorerar skademotstånd och lagrar en kritisk träff för varje rygghugg eller byggnad förstörd med en Sapper."
+		//
+		DIAMONDBACK_NAME 		= "DIAMONDBACK"
+		DIAMONDBACK_DESC 		= " Skapar ett svart hål som drar in fiender."
+		///
+		SAPPER_NAME 			= "SAPPER"
+		SAPPER_DESC 			= " Maximal bedövningsradie och varaktighet. Snabb omladdning."
+		//
+		REDTAPE_NAME 			= "AVVECKLAREN"
+		REDTAPE_DESC 			= " Omedelbart förstör Ingenjörens byggnader, man kan vara sappa en fiende åt gången."
+		///
+		KNIFE_NAME 				= "KNIV"
+		KNIFE_DESC 				= " Medans den är aktiv, Kniven tömmer din hälsa men ger immunitet mot ALL skada. Döende träffar återställer hälsa."
+		//
+		YOURETERNALREWARD_NAME 	= "EVIGHETSBELÖNINGEN"
+		YOURETERNALREWARD_DESC 	= " Skadan ökas ju mer skadad du är och utdelar kritiska träffar medans din hälsa är under 10%, men bara för hugg från framsidan. Motstår 90% skada."
+		//
+		KUNAI_NAME 				= "KONSPIRATÖRENS"
+		KUNAI_DESC 				= " Oändlig närstridsräckvidd. Rygghugg orsakar en explosion, som utdelar extra skada mot mål i närheten."
+		//
+		BIGEARNER_NAME 			= "STÖRA LÖNTAGAREN"
+		BIGEARNER_DESC 			= " Du har en massiv mängd hälsa och 'missade' svingar gör att du läks snabbt, dock du tar skada från dina lagkamrater."
+		//
+		WANGAPRICK_NAME 		= "WANGASTICKET"
+		WANGAPRICK_DESC 		= " Dödar man en fiende så gör den att du döljs omedelbart i några sekunder. Du kan attackera fiender medans du är dold och döende träffar i rad kommer hålla dig osynlig. Inga förklädnad."
+		//
+		SHARPDRESSER_NAME 		= "PRYDLIGA KLINGAN"
+		SHARPDRESSER_DESC 		= " Rygghugg orsakar en explosion, som gör extra skada mot fiender i närheten."
+		//
+		SPYCICLE_NAME 			= "SMYGTAPPEN"
+		SPYCICLE_DESC 			= " 'Missade' svingar gör att du hoppar upp i luften för gratis surf-hugg, men du kan inte förklä dig. Utdelar massiv skada mot Jättar på rygghugg."
+		///
+		INVISWATCH_NAME 		= "OSYNLIGHETSKLOCKAN"
+		INVISWATCH_DESC 		= " Oändlig döljning, +10% snabbare rörelsehastighet."
+		//
+		DEADRINGER_NAME 		= "DÖDSRINGAREN"
+		DEADRINGER_DESC 		= " Ger en kort rörelsehastighet när den aktiveras, som tillåter dig att rusa i vilket riktning som helst. Inkommande skada minskad med 80% medans man rusar."
+		//
+		CLOAKANDDAGGER_NAME		= "STOPPURET"
+		CLOAKANDDAGGER_DESC		= " Omedelbar döljning och avslöjning."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		FRYINGPAN_NAME 				= "STEKPANNA"
+		FRYINGPAN_DESC 				= " Utdelar x30 skada mot fiender som är samma klass som dig och få kritiska träffar vid en döende träff."
+		//
+		SAXXY_NAME 					= "SAXXYN"
+		SAXXY_DESC 					= " Utdelar x30 skada mot fiender som är samma klass som dig och få kritiska träffar vid en döende träff."
+		//
+		MEMORYMAKER_NAME 			= "MINNESSSKAPARE"
+		MEMORYMAKER_DESC			= " Utdelar x30 skada mot fiender som är samma klass som dig och få kritiska träffar vid en döende träff."
+		//
+		CONOBJECTOR_NAME			= "VAPENVÄGRAREN"
+		CONOBJECTOR_DESC			= " Varje 10 döende träffar, rulla en slumpmässig förtrollning (Kräver Trolleribok)."
+		//
+		FREEDOMSTAFF_NAME 			= "FRIHETSSTAVEN"
+		FREEDOMSTAFF_DESC 			= " Liten chans när man tar skada att man undviker attacken och blir uberladdad i 3s."
+		//
+		BATOUTTAHELL_NAME 			= "BAT OUTTA HELL"
+		BATOUTTAHELL_DESC 			= " Medans den är aktiv, du är osårbar mot all inkommande skada och genererar en massiv överhälsa, men du är helt sårbar mot knuff."
+		//
+		HAMSHANK_NAME 				= "KNIVIGA KALLSKÄNKAN"
+		HAMSHANK_DESC 				= " Specialförmåga: 'Livsgörande Återuppstående' -  När den är tillgänglig, tryck din åtgärdsplats tangent för att omedelbart få 10x överhälsa och bli immun mot knuff i 20 sekunder."
+		//
+		NECROSMASHER_NAME 			= "KUSLIGA KLUBBAN"
+		NECROSMASHER_DESC 			= " Specialförmåga: 'Fordon Mannsslakt' -  När den är tillgänlig, tryck din åtgärdsplats tangent till att gå in i Krockbils läge. Medans du är i Krockbils läge så är du sårbar, återställer hälsa och kan köra över fiender."
+		//
+		CROSSINGGAURD_NAME 			= "ÖVERGÅNGSVAKTEN"
+		CROSSINGGAURD_DESC 			= " Få massiv motstånd mot alla närstridsattacker, inkluderat rygghugg."
+		//
+		PRINNYMACHETE_NAME 			= "PRINNY-MACHETE"
+		PRINNYMACHETE_DESC 			= " Utilitetsföremål - Svinga detta närstridsvapen för att kasta dig själv framåt med hög fart. Ger immunitet mot fallskada."
+		//------------------------------------
+	}
+	// russian = {
+
+	// }
 }
 printl("Translations Loaded\n")
 
