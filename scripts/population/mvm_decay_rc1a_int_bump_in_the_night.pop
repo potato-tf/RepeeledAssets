@@ -1134,14 +1134,28 @@ WaveSchedule
                 "onmapspawn" "bumpercar_evilsound,playsound,,1.5,-1"
                 "onmapspawn" "bumpercar_evilsound2,playsound,,2.2,-1"
                 "onmapspawn" "bumpercar_fade_inverse,fade,,5.4,-1"
+                "onmapspawn" "stop_taunting,enable,,4.9,-1"
+                "onmapspawn" "stop_taunting,disable,,5,-1"
                 "onmapspawn" "bumpercar_mode,enable,,5,-1"
                 "onmapspawn" "bumpercar_mode_timer,Enable,,5,-1"
+                "onmapspawn" "stop_taunting,enable,,5.1,-1"
+                "onmapspawn" "stop_taunting,kill,,5.2,-1"
                 "onmapspawn" "bumpercar_sfx2,playsound,,5.8,-1"
                 "onmapspawn" "bumpercar_impact,playsound,,5,-1"
                 "onmapspawn" "weird_music,playsound,,5.5,-1"
                 "onmapspawn" "obj_sentrygun,RemoveHealth,9999,5,-1"
                 "onmapspawn" "obj_dispenser,RemoveHealth,9999,5,-1"
                 "onmapspawn" "obj_teleporter,RemoveHealth,9999,5,-1"
+            }
+            trigger_remove_tf_player_condition
+            {
+                "targetname" "stop_taunting"
+                "condition" "7"
+                "filtername" "filter_redteam"
+                "mins" "-9999 -9999 -9999"
+                "maxs" "9999 9999 9999"
+                "spawnflags" "1"
+                "startdisabled" "1"
             }
             env_shake
             {
@@ -1211,6 +1225,19 @@ WaveSchedule
 				"message" "#music\carousel_of_curses.wav"
 				"health" "8"
 			}
+        }
+        w2_bumper_unsoftlocker
+        {
+            trigger_remove_tf_player_condition
+            {
+                "targetname" "stop_driving_bro_tf_you_doing"
+                "condition" "82"
+                "filtername" "filter_blueteam"
+                "mins" "-9999 -9999 -9999"
+                "maxs" "9999 9999 9999"
+                "spawnflags" "1"
+                "startdisabled" "1"
+            }
         }
         w3_tank_music
         {
@@ -3377,7 +3404,7 @@ WaveSchedule
 
     Wave
     {
-
+        SpawnTemplate w2_bumper_unsoftlocker
         StartWaveOutput
         {
             Target wave_start_relay
@@ -3581,6 +3608,12 @@ WaveSchedule
             SpawnCount 1
 
             Where spawnbot
+
+            DoneOutput
+            {
+                Target stop_driving_bro_tf_you_doing
+                Action Enable
+            }
 
             WaitForAllSpawned "wave02"
             WaitBeforeStarting 10
