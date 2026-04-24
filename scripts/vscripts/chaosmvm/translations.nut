@@ -4,7 +4,7 @@ if(!("SetLibraryVersion" in getroottable()) || ("FatCatLibForce" in ROOT && FatC
 // CREDITS
 // Standard Chinese		--		Pepper[^▽^] 	(pepper_1656 on Discord)
 // Swedish				--		Decimate 		(decimatetf on Discord)
-// Russian				--		Liverfull 		(liverfull on Discord)
+// Russian				--		Liverfull 		(liverfullprod@gmail.com)
 
 ::IH_color <- "\x08FFFF00DD"
 ::IH_text_color <- "\x08FFFFFFBB"
@@ -17,7 +17,7 @@ if(!("CHECKPOINT_ERROR" in getroottable()))
 	::CHECKPOINT_ERROR <- "\x07bf4137"
 
 if("SetScriptVersion" in getroottable())
-	SetScriptVersion("Translations", "1.2.6")
+	SetScriptVersion("Translations", "1.3.1")
 
 ::TRANSLATION_TABLE <- {
 	english = {
@@ -302,10 +302,10 @@ if("SetScriptVersion" in getroottable())
 		LOCHNLOAD_DESC			= " Slow shots but with high burst damage in a large area. Effective for crowd control."
 		//
 		ALIBABA_NAME			= "ALI BABA'S WEE BOOTIES"
-		ALIBABA_DESC			= " Enhanced move speed, jump height and shield charges. Offers extra damage resistance, faster shield recharge and higher bash damage."
+		ALIBABA_DESC			= " Enhanced shield bash damage. Grants immunity to fall damage."
 		//
 		BOOTLEGGER_NAME			= "BOOTLEGGER"
-		BOOTLEGGER_DESC			= " Enhanced move speed, jump height and shield charges. Offers massive resistance to melee attacks but vulnerability to critical attacks."
+		BOOTLEGGER_DESC			= " Enhanced shield recharge rate. Grants immunity to fall damage."
 		//
 		LOOSECANNON_NAME		= "LOOSE CANNON"
 		LOOSECANNON_DESC		= " Load up to 4 cannonballs before firing all at once in a vertical spread pattern. Cannonballs explode on contact with the ground."
@@ -323,13 +323,13 @@ if("SetScriptVersion" in getroottable())
 		STICKYJUMPER_DESC 		= " Creates a shutdown field, stunning all enemies hit by the pulse. (Minibosses are immune to stun)"
 		//
 		CHARGINTARGE_NAME 		= "CHARGIN' TARGE"
-		CHARGINTARGE_DESC 		= " Heavy resistance to BLAST damage, but more vulnerable to FIRE and BULLET damage. Includes extra resistance to knockback and crits."
+		CHARGINTARGE_DESC 		= " Heavy Charge - Superior shield bash damage."
 		//
 		SPLENDIDSCREEN_NAME 	= "SPLENDID SCREEN"
-		SPLENDIDSCREEN_DESC 	= " Heavy resistance to FIRE damage, but more vulnerable to BLAST and BULLET damage. Includes extra resistance to knockback and crits."
+		SPLENDIDSCREEN_DESC 	= " Rapid Charge - Superior shield recharge rate."
 		//
 		TIDETURNER_NAME 		= "TIDE TURNER"
-		TIDETURNER_DESC 		= " Heavy resistance to BULLET damage, but more vulnerable to FIRE and BLAST damage. Includes extra resistance to knockback and crits."
+		TIDETURNER_DESC 		= " Burst Charge - Superior shield charge move speed."
 		//
 		QUICKIEBOMB_NAME 		= "QUICKIEBOMB LAUNCHER"
 		QUICKIEBOMB_DESC 		= " Auto-fires stickybombs at an insane rate with very fast arm time. Gain mini-crits on kill."
@@ -341,7 +341,7 @@ if("SetScriptVersion" in getroottable())
 		EYELANDER_DESC 			= " High damage with quick attacks gaining crits and mini-crits on kill, but cannot be used as hybrid-knight."
 		//
 		SKULLCUTTER_NAME 		= "SCOTSMAN'S SKULLCUTTER"
-		SKULLCUTTER_DESC 		= " Able to cut through enemy Ubercharge and disrupt Medi-Gun functions. Also able to deal x10 damage to enemies of the same class as you."
+		SKULLCUTTER_DESC 		= " Able to cut through enemy Ubercharge and disrupt Medi-Gun functions. Also able to deal increased damage to enemies of the same class as you."
 		//
 		CABER_NAME 				= "ULLAPOOL CABER"
 		CABER_DESC 				= " Damage increases as you become injured. Guaranteed crits if your health is below 2%. The explosion from this attack will kill you."
@@ -936,9 +936,11 @@ if("SetScriptVersion" in getroottable())
 		//
 		ALIBABA_NAME			= "阿里巴巴的尖头靴"
 		ALIBABA_DESC			= "提升移动速度, 跳跃高度与护盾冲锋距离. 提供额外的伤害抗性, 护盾充能速度以及冲撞伤害."
+		// TODO: Update! " Enhanced shield bash damage. Grants immunity to fall damage."
 		//
 		BOOTLEGGER_NAME			= "海盗头子的假腿"
 		BOOTLEGGER_DESC			= "提升移动速度, 跳跃高度与护盾冲锋距离. 大幅提升近战伤害抗性但受到额外的暴击伤害."
+		// TODO: Update! " Enhanced shield recharge rate. Grants immunity to fall damage."
 		//
 		LOOSECANNON_NAME		= "脱缰巨炮"
 		LOOSECANNON_DESC		= "以固定的散射分布发射最多 4 枚炮弹. 炮弹在接触物体表面时立刻爆炸."
@@ -957,12 +959,15 @@ if("SetScriptVersion" in getroottable())
 		//
 		CHARGINTARGE_NAME 		= "冲锋盾"
 		CHARGINTARGE_DESC 		= "大幅提升爆炸伤害抗性, 但会受到额外的火焰伤害和子弹伤害. 获得额外的击退抗性与暴击抗性."
+		// TODO: Update! " Heavy Charge - Superior shield bash damage."
 		//
 		SPLENDIDSCREEN_NAME 	= "辉煌护盾"
 		SPLENDIDSCREEN_DESC 	= "大幅提升火焰伤害抗性, 但会受到额外的爆炸伤害和子弹伤害. 获得额外的击退抗性与暴击抗性."
+		// TODO: Update! " Rapid Charge - Superior shield recharge rate."
 		//
 		TIDETURNER_NAME 		= "力挽狂澜"
 		TIDETURNER_DESC 		= "大幅提升子弹伤害抗性, 但会受到额外的爆炸伤害和火焰伤害. 获得额外的击退抗性与暴击抗性."
+		// TODO: Update! " Burst Charge - Superior shield charge move speed."
 		//
 		QUICKIEBOMB_NAME 		= "快速黏弹发射器"
 		QUICKIEBOMB_DESC 		= "大幅提升开火速度以及粘弹就绪时间. 击杀时获得一段时间的迷你暴击."
@@ -974,7 +979,8 @@ if("SetScriptVersion" in getroottable())
 		EYELANDER_DESC 			= "提升伤害与攻击速度并在击杀时获得一段时间的暴击, 无法使用榴弹."
 		//
 		SKULLCUTTER_NAME 		= "苏格兰颅骨切割者"
-		SKULLCUTTER_DESC 		= "对与你同职业的敌人造成 10 倍伤害. 击杀时获得一段时间的暴击." //TODO: UPDATE TRANSLATION
+		SKULLCUTTER_DESC 		= "对与你同职业的敌人造成 10 倍伤害. 击杀时获得一段时间的暴击."
+		// TODO: Update! " Able to cut through enemy Ubercharge and disrupt Medi-Gun functions. Also able to deal increased damage to enemies of the same class as you."
 		//
 		CABER_NAME 				= "木柄手榴弹"
 		CABER_DESC 				= "生命值越低此武器伤害越高. 生命值低于 2% 时必定暴击. 手榴弹的爆炸会杀死你."
@@ -1568,10 +1574,10 @@ if("SetScriptVersion" in getroottable())
 		LOCHNLOAD_DESC			= " Långsamma skott men med hög snabbt skada i ett stort område. Effektivt för gruppkontroll."
 		//
 		ALIBABA_NAME			= "ALI BABAS LILLA STÖVLAR"
-		ALIBABA_DESC			= " Förbättrar rörelsehastighet, hopphöjd och sköldanfall. Ger extra skademotstånd, snabbare sköldomladdning och högra kollisionsskada."
+		ALIBABA_DESC			= " Förbättad sköldkollision skada. Ger immunitet mot fallskada."
 		//
 		BOOTLEGGER_NAME			= "SPRITSMUGGLAREN"
-		BOOTLEGGER_DESC			= " Förbättrar rörelsehastighet, hopphöjd och sköldanfall. Ger massiv motstånd mot närstridsattacker men sårbarhet mot kritiska attacker."
+		BOOTLEGGER_DESC			= " Förbättrad sköldomladdnings hastighet. Ger immunitet mot fallskada."
 		//
 		LOOSECANNON_NAME		= "LADDAD KANON"
 		LOOSECANNON_DESC		= " Ladda upp till 4 kanonbollar innan man avfyrar alla på en gång i ett verktikalt spridmönster. Kanonbollar exploderar vid kontakt med marken."
@@ -1589,13 +1595,13 @@ if("SetScriptVersion" in getroottable())
 		STICKYJUMPER_DESC 		= " Skaparen ett avstängningsfält, som bedövar alla fiender träffar av pulsen. (Minibossar är immuna till denna bedövning)"
 		//
 		CHARGINTARGE_NAME 		= "ANFALLSSKÖLDEN"
-		CHARGINTARGE_DESC 		= " Tungt motstånd mot EXPLOSIONER, men är mer sårbar mot ELD och KULOR. Inkluderar extra motstånd mot knuff och kritiska träffar."
+		CHARGINTARGE_DESC 		= " Tungt Anfall - Utmärkt sköldkollision skada."
 		//
 		SPLENDIDSCREEN_NAME 	= "STRÅLANDE SKYDDET"
-		SPLENDIDSCREEN_DESC 	= " Tungt motstånd mot ELD, men mer sårbar mot EXPLOSIONER och KULOR. Inkluderar extra mostånd mot knuff och kritiska träffar."
+		SPLENDIDSCREEN_DESC 	= " Snabbt Anfall - Utmärkt sköldomladdnings hastighet."
 		//
 		TIDETURNER_NAME 		= "VINDVÄNDAREN"
-		TIDETURNER_DESC 		= " Tungt motstånd mot KULOR, men mer skada mot ELD och EXPLOSIONER. Inkluderar extra mostånd mot knuff och kritiska träffar."
+		TIDETURNER_DESC 		= " Utbrott Anfall - Utmärkt sköldanfall rörelsehastighet."
 		//
 		QUICKIEBOMB_NAME 		= "KVICKBOMBSKJUTAREN"
 		QUICKIEBOMB_DESC 		= " Auto-avfyrar klisterbomber med en sjuk hastighet med väldigt snabb armeringstid. Få mini-kritiska träffar vid döende träff."
@@ -1607,7 +1613,7 @@ if("SetScriptVersion" in getroottable())
 		EYELANDER_DESC 			= " Hög skada med snabba attacker som ger kritiska och mini-kritiska träffar vid döende träff, men kan inte användas som en hybrid-riddare."
 		//
 		SKULLCUTTER_NAME 		= "SKOTTENS SKALLSKÄRARE"
-		SKULLCUTTER_DESC 		= " Kan skära igenom fiendens Uberladdning och störa Hälsovapen funktioner. Kan också utdela x10 skada mot fiender med samma klass som dig."
+		SKULLCUTTER_DESC 		= " Kan skära igenom fiendens Uberladdning och störa Hälsovapen funktioner. Kan också utdela ökad skda mot fiender som är samma klass som dig."
 		//
 		CABER_NAME 				= "ULLAPOOL-CABER"
 		CABER_DESC 				= " Skada ökas ju mer skadad du är. Garanterade kritiska träffar om din hälsa är under 2%. Explosionen från denna attack kommer döda dig."
@@ -1621,7 +1627,7 @@ if("SetScriptVersion" in getroottable())
 		NINEIRON_NAME 			= "NESSIES JÄRNNIA"
 		NINEIRON_DESC 			= " Har en massiv svingbåge, som kan träffa flera fiender på samma gång i alla riktningar. Utdelar dubbel kritisk skada."
 		//
-		SCOTTISHHANDSHAKE_NAME 	= "SSKOTSKA HANDSLAGET"
+		SCOTTISHHANDSHAKE_NAME 	= "SKOTSKA HANDSLAGET"
 		SCOTTISHHANDSHAKE_DESC 	= " Medans den är aktiv: Motstå 90% skada från avstånd, bli immun mot knuff och öka din maxhälsa stort. Dock du kan inte fylla på din ammunition och får mindre hälsa från kit."
 		//----------------------------
 		//----------------------------
@@ -1919,9 +1925,645 @@ if("SetScriptVersion" in getroottable())
 		PRINNYMACHETE_DESC 			= " Utilitetsföremål - Svinga detta närstridsvapen för att kasta dig själv framåt med hög fart. Ger immunitet mot fallskada."
 		//------------------------------------
 	}
-	// russian = {
-
-	// }
+	russian = {
+		IH_TRANSLATE_ITEM		= IH_color + "[%s]" + IH_text_color + "%s"
+		IH_INCLUDES				= IH_color_header + "[►]\x0826beffBB Ваше снаряжение включает в себя..."
+		IH_DIS_MSG_2			= IH_disable_color + "Введите '/itemhelp 1' чтобы отключить данные сообщения во время волны. \nType '/itemhelp 0' чтобы полностью отключить данные сообщения"
+		IH_DIS_MSG				= IH_disable_color + "Введите '/itemhelp 0' чтобы отключить данные сообщения. \nType '/itemhelp 2' чтобы эти сообщения показывались вновь."
+		IH_BAD_ARGS				= IH_color_header + "[Item Helper]" + IH_error_color + " {Error}\x01 Incorrect arguments!\n/itemhelp 2 - Enable\n/itemhelp 1 - Enable during Wave Setup only\n/itemhelp 0 - Disable"
+		IH_OOB_ARG				= IH_color_header + "[Item Helper]" + IH_error_color + " {Error}\x01 Out Of Bounds Value Set! : %s"
+		IH_HELP_MSG				= IH_color_header + "[Item Helper]\x01 Помощник по предметам показывает краткое описание каждого \x03Chaos\x01 предмета!" 
+		IH_DISABLE				= IH_color_header + "[►]\x01 Помощник по предметам отключён."
+		IH_WAVE_SETUP			= IH_color_header + "[►]\x01 Помощник по предметам включён только во время подготовки."
+		IH_ENABLE 				= IH_color_header + "[►]\x01 Помощник по предметам включён."
+		LOW_METAL 				= "Недостаточно металла"
+		TOMISLAV_HEAT			= "Нагрев Томислава: %s%%"
+		STUCK_RESPAWNED 		= "Вы были возрождены, чтобы избежать застревания."
+		ABILITY_READY			= "%s\n► Готово ◄"
+		ABILITY_CHARGING		= "%s\n%s"
+		ABILITY_CHARGING_MSG	= "Заряд: %ss"
+		ABILITY_CHARGING_D_MSG	= "Заряд: %s%%"
+		MEGACRUSH 				= "МЕГА-РАЗРУШЕНИЕ"
+		VITALRESURGENCE 		= "ЖИЗНЕННОЕ ВОЗРОЖДЕНИЕ"
+		VEHICULARMANNSLAUGHTER 	= "ТРАНСПОРТНОЕ СРЕДСТВО"
+		TEST 					= "Test Ability"
+		NO_MONEY				= "You can't afford this! (Cost: $%s, you have: $%s)" // Dont Translate this, my own project
+		REPROG_BOT_STRONG		= TF_TEAM_COLOR_REPROG_B+"%s\x01 слишком устойчив и не может быть перепрограммирован."
+		REPROG_BOT_NOT_SUIT		= TF_TEAM_COLOR_REPROG_B+"%s\x01 не подходит для боя и не может быть перепрограммирован."
+		REPROG_BOT_LEAVE		= TF_TEAM_COLOR_SPEC+"%s уничтожен."
+		REPROG_BOT_MESSAGE 		= TF_TEAM_COLOR_RED+"%s\x01 перепрограммировал "+TF_TEAM_COLOR_REPROG_B+"%s\x01!"
+		//---------------------------------------------------------
+		CHECKPOINT_CREATED		= "\x077c8cc2Контрольная точка была установлена:\x078165cf [/%s]"
+		CHECKPOINT_WRONG_MAP	= CHECKPOINT_ERROR+"Эта контрольная точка не была установлена для этой карты."
+		CHECKPOINT_WRONG_MISS	= CHECKPOINT_ERROR+"Эта контрольная точка не была установлена для этой миссии."
+		CHECKPOINT_EXPIRE		= CHECKPOINT_ERROR+"Срок действия этой контрольной точки истёк."
+		CHECKPOINT_RESTORE		= "\x0744CC44Последняя сохранённая контрольная точка была восстановлена."
+		CHECKPOINT_RESTORE_HUD	= "Последняя сохранённая контрольная точка была восстановлена."
+		//---------------------------------------------------------
+		SCATTERGUN_NAME 		= "ОБРЕЗ"
+		SCATTERGUN_DESC 		= " Стандартный вариант для надёжного урона. Чрезвычайно эффективен на ближней дистанции."
+		//
+		FORCENATURE_NAME		= "НЕУМОЛИМАЯ СИЛА"
+		FORCENATURE_DESC		= " Усиленное отбрасывание при попадании. Слегка ниже урон в секунду, чем у Обреза."
+		//
+		SHORTSTOP_NAME 			= "ПРЕРЫВАТЕЛЬ"
+		SHORTSTOP_DESC 			= " Бешеная скорострельность и гарантированные криты по мокрым роботам, но медленная перезарядка."
+		//
+		SODAPOPPER_NAME 		= "ГАЗИРОВЩИК"
+		SODAPOPPER_DESC 		= " Удерживайте клавишу атаки, чтобы зарядить быструю очередь из 4 выстрелов."
+		//
+		BABYFACEBLASTER_NAME	= "ОБРЕЗ МАЛЫША"
+		BABYFACEBLASTER_DESC	= " Удерживайте клавишу атаки, чтобы зарядить мощную очередь до 200 выстрелов, уничтожая всё в упор. Имеет очень высокую отдачу."
+		//
+		BACKSCATTER_NAME		= "СПИНОБРЕЗ"
+		BACKSCATTER_DESC		= " Криты за выстрелы в спину. Не требует боеприпасов и имеет бесконечный магазин."
+		///
+		PISTOL_NAME 			= "ПИСТОЛЕТ"
+		PISTOL_DESC 			= " Стреляет ракетами вместо пуль. Чрезвычайно эффективен для мобильности."
+		//
+		BONK_NAME 				= "БОНК! АТОМНЫЙ ЗАЛП"
+		BONK_DESC 				= " Сверхзаряженный напиток, дарующий неуязвимость, которая не мешает вам атаковать."
+		//
+		CRITACOLA_NAME 			= "КРИТОКОЛА"
+		CRITACOLA_DESC 			= " Сверхзаряженный напиток, дающий криты."
+		//
+		MADMILK_NAME 			= "ЗЛОМОЛОКО"
+		MADMILK_DESC 			= " Облитые роботы не могут передвигаться."
+		//
+		WINGER_NAME 			= "Окрыленный"
+		WINGER_DESC 			= " Бесконечные прыжки, когда оружие активно. Стреляет одним сфокусированным выстрелом, который всегда наносит крит и отталкивает роботов, пока вы в воздухе."
+		//
+		PRETTYBOYS_NAME 		= "ДАМСКИЙ ПИСТОЛЕТ КРАСАВЧИКА"
+		PRETTYBOYS_DESC 		= " Выпускает ракеты, урон которых зависит от здоровья цели. Урон увеличивается, когда цель ранена, и не зависит от расстояния. Алтернативная атака: использовать самонаводящиеся ракеты (-20 % урона)."
+		//
+		CLEAVER_NAME 			= "ЛЕТАЮЩАЯ ГИЛЬОТИНА"
+		CLEAVER_DESC 			= " Стрела Йонду: призвать разумную стрелу для помощи в бою. Альтернатиная атака: режим разрушителя, -75 % урона."
+		//
+		MATATEDMILK_NAME 		= "МУТИРОВАВШЕЕ МОЛОКО"
+		MATATEDMILK_DESC 		= " Быстрометательные взрывающиеся банки с молоком, наносящие урон роботам. Альтернативная атака: бросить сразу несколько банок."
+		///
+		BAT_NAME 				= "BAT"
+		BAT_DESC 				= " Шанс игнорировать смерть и телепортироваться к месту возрождения с 1 ОЗ."
+		//
+		SANDMAN_NAME			= "ДРЁМА"
+		SANDMAN_DESC 			= " Позволяет быстро метать большие бейсбольные мячи, нанося значительный взрывной урон по одиночным целям."
+		//
+		HOLYMACKEREL_NAME		= "ПОДДАЙ ЛЕЩА"
+		HOLYMACKEREL_DESC		= " Позволяет нанести метку смерти сразу на несколько роботов."
+		//
+		CANDYCANE_NAME 			= "КАРАМЕЛЬНАЯ ТРОСТЬ"
+		CANDYCANE_DESC 			= " Предмет экипировки — гравитация отсутствует. Позволяет свободно летать."
+		//
+		BOSTONBASHSER_NAME 		= "БОСТОНСКИЙ РАЗДОЛБАЙ"
+		BOSTONBASHSER_DESC 		= " Высокий риск - высокая награда. Позволяет убивать с одного удара большинство мелких роботов, давая 10-секундное усиление критами. Роботы, связанные лучом медика, также получают урон. Однако любой промах — мгновенная смерть."
+		//
+		SUNONASTICK_NAME		= "СОЛНЦЕ НА ПАЛОЧКЕ"
+		SUNONASTICK_DESC		= " Шанс оглушить роботов или получить кратковременное усиление критами. Поражает всех роботов, связанных лучами медика. Однако любой промах оглушит вас самих."
+		//
+		FANOWAR_NAME 			= "ВЕЕР ВОЙНЫ"
+		FANOWAR_DESC 			= " Предмет экипировки — при атаке позволяет стремительно броситься вперёд. Дарует иммунитет к урону от падения."
+		//
+		ATOMIZER_NAME 			= "РАСЩЕПИТЕЛЬ"
+		ATOMIZER_DESC 			= " Не может наносить урон обычными атаками, но успешная насмешка с атакой дарует усиление критами на 3 минуты."
+		//
+		THREERUNEBLADE_NAME 	= "ТРЕХРУННЫЙ МЕЧ"
+		THREERUNEBLADE_DESC 	= " Пока оружие активно, даёт ОГРОМНЫЙ бонус к скорости передвижения и возможность тройного прыжка. Дарует иммунитет к урону от падения."
+		//
+		UNARMEDCOMBAT_NAME 		= "ГОЛАЯ РУКА"
+		UNARMEDCOMBAT_DESC 		= " Каждые 10 убийств дают заклинание призыва скелета (требуется Книга заклинаний)."
+		//
+		WRAPAASSASSIN_NAME 		= "ОБЁРТОЧНЫЙ УБИЙЦА"
+		WRAPAASSASSIN_DESC 		= " Позволяет атаковать летящие снаряды, легко отражая их. Также дарует иммунитет к оглушению."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		ROCKETLAUNCHER_NAME		= "РАКЕТОМЁТ"
+		ROCKETLAUNCHER_DESC		= " Стандартный вариант для надёжного урона."
+		//
+		DIRECTHIT_NAME			= "ПРЯМОЕ ПОПАДАНИЕ"
+		DIRECTHIT_DESC			= " Альтернативная атака: подбросьте небольшого робота в воздух для лёгкого добивания мини-критом. Ракеты обладают небольшой помощью в прицеливании."
+		//
+		BLACKBOX_NAME			= "ЧЁРНЫЙ ЯЩИК"
+		BLACKBOX_DESC			= " Замедляет роботов и наносит эффект кровотечения. Наносит удвоенный урон по роботам-солдатам."
+		//
+		ROCKETJUMPER_NAME		= "ТРЕНИРОВОЧНЫЙ РАКЕТОМЁТ"
+		ROCKETJUMPER_DESC		= " Медленная скорость стрельбы и перезарядки, но высокий урон и большой радиус взрыва. Эффективен против толпы."
+		//
+		LIBERTYLAUNCHER_NAME	= "ОСВОБОДИТЕЛЬ"
+		LIBERTYLAUNCHER_DESC	= " Выпускает медленно движущуюся ракету, наносящую огромный урон по большой площади. Очень медленная перезарядка и малый боезапас. Автоматически выпускает ракеты при полной обойме."
+		//
+		COWMANGLER_NAME			= "ЛИНЧЕВАТЕЛЬ СКОТА 5000"
+		COWMANGLER_DESC			= " Обездвиживает мелких роботов при попадании. Заряженный выстрел оглушает роботов дольше обычного. Удерживайте клавишу альтернативной атаки, чтобы перезарядить оружие для многоснарядного выстрела, что приводит к ещё более длительному оглушению."
+		//
+		ORIGINAL_NAME			= "ПРАРОДИТЕЛЬ"
+		ORIGINAL_DESC			= "Удерживайте клавишу атаки, чтобы зарядить очередь до 4 ракет. Стреляет автоматически при полной обойме."
+		//
+		BEGGARSBAZOOKA_NAME		= "БАЗУКА БРОДЯГИ"
+		BEGGARSBAZOOKA_DESC		= " Удерживайте клавишу атаки, чтобы зарядить до 100 ракет, прежде чем выпустить их мощным залпом. Это оружие НЕ подвержено осечке."
+		//
+		AIRSTRIKE_NAME			= "АВИАУДАР"
+		AIRSTRIKE_DESC			= " Зарядите до 10 ракет, прежде чем выпустить их все за раз по точной траектории. Самонаводящиеся ракеты."
+		///
+		SHOTGUN_SOLD_NAME 		= "ДРОБОВИК - СОЛДАТ" 
+		SHOTGUN_SOLD_DESC 		= " Очень высокая скорострельность и криты во время прыжка на ракете." 
+		//
+		SHOTGUN_NAME 			= "ДРОБОВИК" 
+		SHOTGUN_DESC 			= " Стандартный вариант для надёжного урона." 
+		//
+		BUFFBANNER_NAME 		= "ВДОХНОВЛЯЮЩЕЕ ЗНАМЯ" 
+		BUFFBANNER_DESC 		= " Бесконечная дальность и значительно увеличенная продолжительность действия." 
+		//
+		GUNBOATS_NAME 			= "ШТУРМБОТИНКИ" 
+		GUNBOATS_DESC 			= " Позволяют совершать bunnyhop, удерживая клавишу прыжка. Дарует иммунитет к урону от падения." 
+		//
+		BATTALIONS_NAME 		= "ПОДДЕРЖКА БАТАЛЬОНА" 
+		BATTALIONS_DESC 		= " Бесконечная дальность и значительно увеличенная продолжительность действия."
+		//
+		CONCHEROR_NAME 			= "ЗАВОЕВАТЕЛЬ" 
+		CONCHEROR_DESC 			= " Бесконечная дальность и значительно увеличенная продолжительность действия."
+		//
+		RESERVESHOOTER_NAME 	= "ОФИЦЕР ЗАПАСА" 
+		RESERVESHOOTER_DESC 	= " Наносит ровно 10 000 урона за выстрел независимо от дистанции с мини-критами на 3 секунды за убийство. Однако это оружие не может получить усиление критами и не может наносить урон Танкам. Удерживайте клавишу альтернативной атаки, чтобы прицелиться." 
+		//
+		BISON_NAME 				= "БЛАГОЧЕСТИВЫЙ БИЗОН" 
+		BISON_DESC 				= " Выпускает непрерывный луч пронзающего урона с автоприцеливанием." 
+		//
+		MANTREADS_NAME 			= "ЛЮДОДАВЫ" 
+		MANTREADS_DESC 			= " Значительное снижение отбрасывания от получаемого урона. Воздушное маневрирование теперь имеет значительно увеличенное ускорение. Урон от приземления усилен и зависит от скорости." 
+		//
+		BASEJUMPER_NAME 		= "ПАРАШЮТИСТ" 
+		BASEJUMPER_DESC 		= " Позволяет раскрыть парашют. Увеличивает сопротивление к отбрасыванию и имеет сопротивляемость пулям, снижая уязвимость в воздухе." 
+		//
+		PANICATTACK_NAME 		= "ПАНИЧЕСКАЯ АТАКА" 
+		PANICATTACK_DESC 		= " Срочное лечение. Мгновенно восстанавливает до 10 000 здоровья при попадании. Получение урона с оружием в руках имеет шанс вызвать кратковременный убер-заряд." 
+		///
+		SHOVEL_NAME 			= "ЛОПАТА"
+		SHOVEL_DESC 			= " Стандартный вариант для защиты и мобильности."
+		//
+		EQUALIZER_NAME 			= "УРАВНИТЕЛЬ"
+		EQUALIZER_DESC 			= " Насмешка с атакой наносит огромный урон и подбрасывает роботов в воздух."
+		//
+		PAINTRAIN_NAME 			= "КОСТЫЛЬ"
+		PAINTRAIN_DESC 			= " Наносит кровотечение и замедление при попадании. Дарует иммунитет к урону от падения"
+		//
+		HALFZATOICHI_NAME 		= "ПОЛУДЗАТОИТИ"
+		HALFZATOICHI_DESC 		= " Средний урон с высокой мобильностью, здоровьем и увеличенному радиусу атаки."
+		//
+		MARKETGARDENER_NAME 	= "ЗЕМЛЕКОП"
+		MARKETGARDENER_DESC 	= " Наносит значительно увеличенный критический урон. После убийства Вы впадаете в состояние ярости и получаете дополнительные ОЗ, сопротивляемость и увеличенный урон от всех атак. Однако любой промах — мгновенная смерть."
+		//
+		DISCIPLINARYACTION_NAME = "ДИСЦИПЛИНАРНОЕ ВЗЫСКАНИЕ"
+		DISCIPLINARYACTION_DESC	= " Стандартный вариант для защиты и мобильности."
+		//
+		ESCAPEPLAN_NAME			= "ПЛАН ЭВАКУАЦИИ"
+		ESCAPEPLAN_DESC			= " Стандартный вариант для защиты и мобильности."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		FLAMETHROWER_NAME 		= "ОГНЕМЁТ"
+		FLAMETHROWER_DESC		= " Стандартный вариант для надёжного урона. Даёт кратковременное усиление мини-критами за убийство."
+		//
+		BACKBURNER_NAME 		= "ДОЖИГАТЕЛЬ"
+		BACKBURNER_DESC			= " Зелёное пламя — помечает роботов меткой смерти и оглушает роботов в воздухе на короткое время. Это оружие наносит удвоенный урон по роботам-поджигателям."
+		//
+		DEGREASER_NAME 			= "ЧИСТИЛЬЩИК"
+		DEGREASER_DESC			= " Дальнобойный огнемёт, наносящий большой прямой урон, но 0 урона от догорания. Не может использовать сжатый воздух."
+		//
+		PHLOGISTINATOR_NAME 	= "ФЛОГИСТОНАТОР"
+		PHLOGISTINATOR_DESC		= " Зелёный огонь — помечает роботов меткой смерти и оглушает роботов в воздухе на короткое время. Силён против Танков, но сниженная скорость передвижения."
+		//
+		RAINBLOWER_NAME 		= "РАДУЖИГАТЕЛЬ"
+		RAINBLOWER_DESC			= " Дальнобойный огнемёт, наносящий маленький прямой урон, но большой от догорания. Также способен мгновенно уничтожать постройки роботов-инженеров и поджигать роботов-поджигателей. Небольшая сила отталкивания при помощи сжатого воздуха, но без задержки."
+		//
+		DRAGONSFURY_NAME 		= "ЯРОСТЬ ДРАКОНА"
+		DRAGONSFURY_DESC		= " Значительно увеличенная скорострельность и частота использования сжатого воздуха."
+		//
+		NOSTROMONAPALMER_NAME 	= "НОСТРОМСКИЙ ПЛАМЕМЕТ"
+		NOSTROMONAPALMER_DESC	= " Замедляет роботов при попадании. Накапливает заряд 'Mmmph', как у Флогистонатора, но даёт бафф Завоевателя. Не может использовать сжатый воздух."
+		///
+		SHOTGUN_PYRO_NAME 		= "ДРОБОВИК - ПОДЖИГАТЕЛЬ" 
+		SHOTGUN_PYRO_DESC 		= " Гарантированные криты по горящим роботам." 
+		//
+		FLAREGUN_NAME 			= "РАКЕТНИЦА" 
+		FLAREGUN_DESC 			= " Выпускает атаку с определением попадания (hitscan), которая пронзает роботов. Урон экспоненциально увеличивается с каждым пронзённых роботов на пути. Есть шанс оглушить роботов при попадании." 
+		//
+		DETONATOR_NAME 			= "ДЕТОНАТОР" 
+		DETONATOR_DESC 			= " Снаряд имеет бесконечный радиус взрыва и поражает всё, что находится в прямой видимости. Заставляет всех роботов-шпионов выйти из невидимости и снять маскировку. Отличный выбор для мобильности." 
+		//
+		MANMELTER_NAME 			= "ЛЮДОПЛАВ" 
+		MANMELTER_DESC 			= " Быстрострельные снаряды с автонаведением. Бесконечный боезапас и отсутствие перезарядки. Альтернативная атака: выпустить сразу несколько снарядов." 
+		//
+		SCORCHSHOT_NAME 		= "ОБЖИГАЮЩИЙ ВЫСТРЕЛ" 
+		SCORCHSHOT_DESC 		= " При попадании: наносит большой урон, тушит робота и отбрасывает его. Ваша цель ОБЯЗАТЕЛЬНО должна гореть, иначе этот снаряд ничего не сделает. Алтернативная атака: использовать медленный самонаводящийся снаряд." 
+		//
+		THERMALTHRUSTER_NAME 	= "ТЕРМИЧЕСКАЯ ТЯГА" 
+		THERMALTHRUSTER_DESC 	= " Уменьшенный расход топлива без задержки. Возможность повторного использования в воздухе и нанесение огромного урона от приземления на роботов. Даёт кратковременное усиление критами за убийство." 
+		//
+		GASPASSER_NAME 			= "ЗАПАСНОЙ БАК" 
+		GASPASSER_DESC 			= " Нанесите 150 000 урона, чтобы заполнить шкалу. Взрыв при поджигании газа наносит 105 000 урона." 
+		///
+		FIREAXE_NAME 			= "ПОЖАРНЫЙ ТОПОР"
+		FIREAXE_DESC 			= " Стандартный вариант для защиты и мобильности."
+		//	
+		AXTINGUISHER_NAME 		= "Огнетопор"
+		AXTINGUISHER_DESC		= " Значительно увеличенный урон по горящим роботам."
+		//
+		HOMEWRECKER_NAME 		= "КРУШИТЕЛЬ"
+		HOMEWRECKER_DESC 		= " Позволяет мгновенно уничтожать постройки роботов-инженеров с бесконечным радиусом атаки."
+		//
+		POWERJACK_NAME 			= "РАЗЪЕДИНИТЕЛЬ"
+		POWERJACK_DESC 			= " Быстрые атаки и скорость передвижения. Наносит кровотечение и поджигает роботов при попадании, даёт мини-криты за убийство."
+		//
+		BACKSCRATCHER_NAME 		= "СПИНОЧЁС"
+		BACKSCRATCHER_DESC 		= " Наносит смертельный урон, атакуя со спины. После убийства Вы впадаете в состояние ярости и получаете дополнительную скорость передвижения, сопротивляемость к урону и увеличенный урон от всех атак."
+		//
+		VOLCANOFRAGMENT_NAME 	= "ЗАОСТРЕННЫЙ ОСКОЛОК ВУЛКАНА"
+		VOLCANOFRAGMENT_DESC 	= "Шанс оглушить роботов при попадании. Поджигает роботов-поджигателей."
+		//
+		POSTALPUMMELER_NAME 	= "ПОЧТОВЫЙ ДЕБОШИР"
+		POSTALPUMMELER_DESC 	= " При попадании: вызывает замешательство, заставляя роботов на короткое время идти задом наперёд. Удерживайте клавишу альтернативной атаки, чтобы телепортироваться обратно в зону возрождения."
+		//
+		MAUL_NAME 				= "МОЛОТ"
+		MAUL_DESC 				= " При попадании: подбрасывает роботов в воздух с пониженной гравитацией."
+		//
+		THIRDDEGREE_NAME 		= "ТРЕТЬЯ СТЕПЕНЬ"
+		THIRDDEGREE_DESC 		= " Вы почти неуязвимы к огню, а также получаете дополнительную высокую сопротивляемость ко всем атакам с дальнего боя, пока оружие находится в руках."
+		//
+		LOLLICHOP_NAME 			= "КЛЕДЕНЕЦ"
+		LOLLICHOP_DESC 			= " Каждые 10 убийств дают заклинание метеоритного дождя (требуется Книга заклинаний)."
+		//
+		NEONANNIHILATOR_NAME 	= "НЕОНОВЫЙ АННИГИЛЯТОР"
+		NEONANNIHILATOR_DESC 	= " Ваша гравитация снижена."
+		//
+		HOTHAND_NAME 			= "ГОРЯЧАЯ РУКА"
+		HOTHAND_DESC 			= " Подбрасывает роботов в воздух при попадании."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		GRENADELAUNCHER_NAME 	= "ГРАНАТОМЁТ"
+		GRENADELAUNCHER_DESC	= " Стандартный вариант для надёжного урона."
+		//
+		LOCHNLOAD_NAME 			= "ПОДКИДЫШ"
+		LOCHNLOAD_DESC			= " Медленные выстрелы, но высокий взрывной урон по большой площади. Эффективен против толпы."
+		//
+		ALIBABA_NAME			= "БОТИНОЧКИ АЛИ-БАБЫ"
+		ALIBABA_DESC			= " Повышенная скорость передвижения, высота прыжка и заряд рывка. Даёт дополнительную сопротивляемость к урону, ускоренную перезарядку щита и повышенный урон от удара щитом."
+		// TODO: Update! " Enhanced shield bash damage. Grants immunity to fall damage."
+		//
+		BOOTLEGGER_NAME			= "БУТЛЕГЕР"
+		BOOTLEGGER_DESC			= " Повышенная скорость передвижения, высота прыжка и заряд рывка. Даёт огромную сопротивляемость к атакам ближнего боя, но уязвимость к критическим атакам."
+		// TODO: Update! " Enhanced shield recharge rate. Grants immunity to fall damage."
+		//
+		LOOSECANNON_NAME		= "ПУШКА БЕЗ ЛАФЕТА"
+		LOOSECANNON_DESC		= " Зарядите до 4 ядер, прежде чем выпустить их все за раз по вертикали. Ядра взрываются при контакте с землёй."
+		//
+		IRONBOMBER_NAME			= "ЖЕЛЕЗНЫЙ БОМБАРДИР"
+		IRONBOMBER_DESC			= " Игнорирует сопротивляемость роботов и даёт кратковременное усиление критами за убийство. Не требует боеприпасов и имеет бесконечный магазин. Снаряды могут отскакивать от стен."
+		///
+		STICKYBOMB_NAME 		= "ЛИПУЧКОМЁТ"
+		STICKYBOMB_DESC 		= " Стандартный вариант для надёжного урона. Позволяет разместить до 50 бомб-липучек."
+		//
+		SCOTTISHRES_NAME 		= "ШОТЛАНДСКОЕ СОПРОТИВЛЕНИЕ"
+		SCOTTISHRES_DESC 		= " Снаряд взводится 5 секунд и затухает через 10 секунд, но при хорошем расчёте времени и полной зарядке может нанести сокрушительный урон."
+		//
+		STICKYJUMPER_NAME 		= "ТРЕНИРОВОЧНЫЙ ЛИПУЧКОМЁТ"
+		STICKYJUMPER_DESC 		= "Создаёт поле отключения роботов задетых импульсом, оглушая их. (Мини-боссы невосприимчивы к оглушению)."
+		//
+		CHARGINTARGE_NAME 		= "ШТУРМОВОЙ ЩИТ"
+		CHARGINTARGE_DESC 		= " Высокая сопротивляемость к урону от взрыва, но повышенная уязвимость к огню и пулям. Также даёт дополнительную сопротивляемость к отбрасыванию и критам."
+		// TODO: Update! " Heavy Charge - Superior shield bash damage."
+		//
+		SPLENDIDSCREEN_NAME 	= "РОСКОШНОЕ ПРИКРЫТИЕ"
+		SPLENDIDSCREEN_DESC 	= "Высокая сопротивляемость к урону от огня, но повышенная уязвимость к взрывам и пулям. Также даёт дополнительную сопротивляемость к отбрасыванию и критам."
+		// TODO: Update! " Rapid Charge - Superior shield recharge rate."
+		// 
+		TIDETURNER_NAME 		= "ВЕРНЫЙ ШТУРВАЛ"
+		TIDETURNER_DESC 		= " Высокая сопротивляемость к урону от пуль, но повышенная уязвимость к огню и взрывам. Также даёт дополнительную сопротивляемость к отбрасыванию и критам."
+		// TODO: Update! " Burst Charge - Superior shield charge move speed."
+		//
+		QUICKIEBOMB_NAME 		= "БЫСТРОМЁТ"
+		QUICKIEBOMB_DESC 		= " Автоматически стреляет липучками с безумной скоростью и очень сокращённым временем подрыва. Даёт мини-криты за убийство."
+		///
+		BOTTLE_NAME 			= "БУТЫЛКА"
+		BOTTLE_DESC 			= " Стандартный вариант для защиты и мобильности."
+		//
+		EYELANDER_NAME 			= "ОДНОГЛАЗЫЙ ГОРЕЦ"
+		EYELANDER_DESC 			= " Высокий урон с ускоренными атаками, получая криты и мини-криты за убийство. Убирает боеприпасы основного и дополнительного оружия."
+		//
+		SKULLCUTTER_NAME 		= "ШОТЛАНДСКИЙ ГОЛОВОРЕЗ"
+		SKULLCUTTER_DESC 		= " Способен пробить вражеский убер-заряд и прервать лечение. Также наносит урон в десятикратном размере по роботам того же класса, что и вы."
+		// TODO: Update! " Able to cut through enemy Ubercharge and disrupt Medi-Gun functions. Also able to deal increased damage to enemies of the same class as you."
+		//
+		CABER_NAME 				= "АЛЛАПУЛЬСКОЕ БРЕВНО"
+		CABER_DESC 				= " Урон увеличивается по мере получаемого урона. Гарантированные криты, если ваше здоровье ниже 2 %. Взрыв бревна мгновенно убивает."
+		//
+		CLAIDHEAMHMOR_NAME 		= "КЛЕЙМОР"
+		CLAIDHEAMHMOR_DESC 		= " Каждые 10 убийств дают заклинание призыва ГЛАЗАСТУСА (требуется Книга заклинаний)."
+		//
+		PERSIANPERSUADER_NAME 	= "ПЕРСИДСКИЙ ЗАКЛИНАТЕЛЬ"
+		PERSIANPERSUADER_DESC 	= " В паре со щитом дарует бесконечный заряд рывка. Рывок не прерывается резкими поворотами или столкновениями со стенами, роботами и другими препятствиями. Дарует иммунитет к оглушению."
+		//
+		NINEIRON_NAME 			= "ЖЕЛЕЗНАЯ ДЕВЯТКА НЕССИ"
+		NINEIRON_DESC 			= " Имеет огромную дугу замаха, способную поражать сразу нескольких роботов во всех направлениях. Всегда наносит двойной критический урон."
+		//
+		SCOTTISHHANDSHAKE_NAME 	= "ШОТЛАНДСКОЕ РУКОБИТИЕ"
+		SCOTTISHHANDSHAKE_DESC 	= " Пока активно в руках: сопротивление 90 % урона с дальних дистанций, иммунитет к отбрасыванию и большое увеличение максимального здоровья. Однако вы не можете пополнять боезапас и получаете меньше здоровья от аптечек."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		MINIGUN_NAME 			= "ПУЛЕМЁТ"
+		MINIGUN_DESC 			= " Стандартный вариант для надёжного урона. Даёт кратковременное усиление мини-критами за убийство."
+		//
+		NATASCHA_NAME 			= "НАТАША"
+		NATASCHA_DESC 			= " Замедляет роботов при попадании и накладывает метку смерти."
+		//
+		BRASSBEAST_NAME 		= "ЛАТУННЫЙ МОНСТР"
+		BRASSBEAST_DESC 		= " Более высокий урон при очень медленной раскрутке. Скорость передвижения сильно снижена при раскручивании ствола. Способен отражать летящие снаряды.."
+		//
+		TOMISLAV_NAME 			= "ТОМИСЛАВ"
+		TOMISLAV_DESC 			= " Накапливает «Нагрев» за нанесённый урон. Все характеристики оружия увеличиваются в зависимости от уровня нагрева. Однако, если долго не наносить урон, оружие начинает остывать."
+		//
+		HUOHEATER_NAME 			= "ОГНЕННЫЙ ДРАКОН"
+		HUOHEATER_DESC 			= " Выпускает энергетические лучи, поджигающие роботов при попадании."
+		//
+		GENUINEHUOHEATER_NAME 	= "ОГНЕННЫЙ ДРАКОН ВЫСШЕЙ ПРОБЫ"
+		GENUINEHUOHEATER_DESC 	= " Выпускает ракеты. Гарантированные криты по горящим роботам."
+		///
+		SHOTGUN_HVY_NAME 		= "ДРОБОВИК - ПУЛЕМЁТЧИК"
+		SHOTGUN_HVY_DESC 		= " Одиночный выстрел с высоким уроном, дарующий 8 секунд критов за убийство."
+		//
+		SANDVICH_NAME 			= "БУТЕРБРОД"
+		SANDVICH_DESC 			= " Восстанавливает до 150 000 единиц здоровья. Любой урон, полученный с Бутербродом в руках, смертельный."
+		//
+		DALOKOHSBAR_NAME 		= "ПЛИТКА «ДАЛОКОШ»"
+		DALOKOHSBAR_DESC 		= " Восстанавливает до 20 000 единиц здоровья. При использовании с уровнем здоровья ниже 350 даёт сверхлечение. Пассивно увеличивает получаемый урон, но даёт шанс на убер-заряд при получении урона."
+		//
+		BUFFALOSTEAK_NAME 		= "БУТЕРБРОД ИЗ МЯСА БУЙВОЛА"
+		BUFFALOSTEAK_DESC 		= " Пассивно дарует иммунитет к критическим попаданиям."
+		//
+		FAMILYBUSINESS_NAME 	= "СЕМЕЙНОЕ ДЕЛО"
+		FAMILYBUSINESS_DESC 	= " Бесконечный боезапас. Скорострельность удваивается во время получения лечения. Даёт кратковременное усиление критами и мини-критами за убийство."
+		//
+		FISHCAKE_NAME 			= "РЫБНЫЙ БАТОНЧИК"
+		FISHCAKE_DESC 			= " Высокое сопротивление урону от пуль, но повышенная уязвимость к урону от огня и взрывов."
+		//
+		SECONDBANANA_NAME 		= "УТЕШИТЕЛЬНЫЙ БАНАН"
+		SECONDBANANA_DESC 		= " Высокое сопротивление к урону от взрывов, но повышенная уязвимость к урону от огня и пуль."
+		///
+		FISTS_NAME 				= "КУЛАКИ"
+		FISTS_DESC 				= " Стандартный вариант для защиты и мобильности. Эффективны в бою."
+		//
+		KILLINGGLOVES_NAME 		= "КУЛАКИ ГРОЗНОГО БОКСЁРА"
+		KILLINGGLOVES_DESC 		= " Особая способность: «Мега-разрушение» — когда доступна, нажмите клавишу действия, стоя на бомбе, чтобы мгновенно отправить её на базу. Даёт временное усиление скорости, сопротивляемости к урону и от критов."
+		//
+		GLOVESRUNNING_NAME 		= "ГОРЯЩИЕ РУКАВИЦЫ УСКОРЕНИЯ"
+		GLOVESRUNNING_DESC 		= " Пассивно дарует способность раскрывать парашют. Пока активно в руках, сильно увеличивает высоту прыжка, сопротивление урону и регенерацию здоровья."
+		//
+		BREADBITE_NAME 			= "КУСАЙ-ХЛЕБ"
+		BREADBITE_DESC 			= " Критические попадания заражают жертву коррозией - постоянным эффектом, который наносит урон, основываясь на максимальном здоровье. При смерти жертва взрывается, выпуская облако коррозии и распространяя эффект на других роботов."
+		//
+		WARRIRORSSPIRIT_NAME 	= "ВОИНСКИЙ ДУХ"
+		WARRIRORSSPIRIT_DESC 	= " Альтернативная атака подбрасывает вас в воздух. При приземлении на роботов наносит огромный урон. Убирает все боеприпасы для основного и дополнительного оружия."
+		//
+		FISTSOFSTEEL_NAME 		= "СТАЛЬНЫЕ КУЛАКИ"
+		FISTSOFSTEEL_DESC 		= " Превращает вас в гигантского робота-пулемётчика с 250 000 здоровья. Иммунитет к отталкиванию и способность наносить огромный урон. Удаляет все боеприпасы для основного и дополнительного оружия. Лечиться можно только при помощи лакомства."
+		//
+		EVICTIONNOTICE_NAME 	= "УВЕДОМЛЕНИЕ О ВЫСЕЛЕНИИ"
+		EVICTIONNOTICE_DESC 	= " Даёт быстрое исцеление за убийство."
+		//
+		APOCOFISTS_NAME 		= "КУЛАКОПОКАЛИПСИС"
+		APOCOFISTS_DESC 		= " Удары отталкивают роботов."
+		//
+		HOLIDAYPUNCH_NAME 		= "ПРАЗДНИЧНЫЙ УДАР"
+		HOLIDAYPUNCH_DESC 		= " Пока активно в руках, все роботы игнорируют вас. Также дарует иммунитет к оглушению. Однако это оружие не может наносить урон."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		SHOTGUN_ENGI_NAME		= "ДРОБОВИК - ИНЖЕНЕР"
+		SHOTGUN_ENGI_DESC 		= " Наносит 4-хкратный урон по цели вашей Турели."
+		//
+		FRONTIERJUSTICE_NAME 	= "САМОСУД"
+		FRONTIERJUSTICE_DESC 	= " Безумно высокая скорострельность. Размер магазина соответствует количеству накопленных критических ударов мести. Перезаряжается быстрее при получении любого лечения."
+		//
+		WIDOWMAKER_NAME 		= "ОВДОВИТЕЛЬ"
+		WIDOWMAKER_DESC 		= " Расходует 2000 единиц металла на горизонтальный широкий выстрел, который отталкивает роботов."
+		//
+		POMSON_NAME 			= "ПОМСОН 6000"
+		POMSON_DESC 			= " Вызывает кровотечение, поджигает и замедляет роботов."
+		//
+		RESCUERANGER_NAME 		= "СПАСАТЕЛЬ"
+		RESCUERANGER_DESC		= "Расходует 20 металла на выстрел, но не требует перезарядки и увеличивает максимальный запас металла на 1000."
+		///
+		WRANGLER_NAME 			= "ПОВОДЫРЬ"
+		WRANGLER_DESC 			= " Пока активен в руках: увеличенный урон Турели и двойная дальность Раздатчика."
+		//
+		SHORTCIRCUIT_NAME 		= "КОРОТКОЕ ЗАМЫКАНИЕ"
+		SHORTCIRCUIT_DESC 		= " Каждые 10 убийств дают заклинание шаровой молнии (требуется Книга заклинаний)."
+		///
+		WRENCH_NAME 			= "ГАЕЧНЫЙ КЛЮЧ"
+		WRENCH_DESC 			= " Стандартный вариант для надёжного урона."
+		//
+		GUNSLINGER_NAME 		= "ОРУЖЕЙНИК"
+		GUNSLINGER_DESC	 		= " Позволяет построить вторую Турель. Серия из трёх ударов может уничтожить мелких роботов и нанести большой урон гигантским роботам."
+		//
+		SOUTHERNHOS_NAME 		= "ЮЖНОЕ ГОСТЕПРИИМСТВО"
+		SOUTHERNHOS_DESC 		= " Заменяет обычную Турель на Огненную Турель. Малая дальность, но высокий урон."
+		//
+		JAG_NAME 				= "ОСТРОЗУБ"
+		JAG_DESC 				= "Ваша Турель имеет бесконечную дальность."
+		//
+		EUREKAEFFECT_NAME 		= "ОЗАРЕНИЕ"
+		EUREKAEFFECT_DESC 		= " Пока вы переносите Турель, нажмите клавишу перезарядки', чтобы установить её дистанционно на любую стену или потолок в пределах досягаемости."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		SYRINGEGUN_NAME			= "ШПРИЦЕМЁТ"
+		SYRINGEGUN_DESC			= " Даёт 0,5 % убер-заряда за попадание."
+		//
+		BLUTSAUGER_NAME			= "КРОВОПИЙЦА"
+		BLUTSAUGER_DESC			= " Требует и расходует 100 % убер-заряда, чтобы перепрограммировать робота и заставить его временно перейти на вашу сторону, после чего он самоуничтожится. Альтернативная атака: принудительно завершить перепрограммирование всех затронутых ботов."
+		//
+		CRUSADERSCROSSBOW_NAME	= "АРБАЛЕТ КРЕСТОНОСЦА"
+		CRUSADERSCROSSBOW_DESC	= " Даёт 0,25 % убер-заряда за попадание, наносит кровотечение и ещё 0,5% убер-заряда за каждую секунду урона от кровотечения."
+		//
+		OVERDOSE_NAME 			= "ПЕРЕДОЗ"
+		OVERDOSE_DESC 			= " Требует и расходует 100 % убер-заряда, который отключает всех мелких роботов поблизости на срок до 15 секунд."
+		///
+		MEDIGUN_NAME			= "ЛЕЧЕБНАЯ ПУШКА"
+		MEDIGUN_DESC			= " Максимальный избыточный запас здоровья увеличен до 10-тикратного от максимального здоровья пациента. Разворачивает долгодействующий щит от снарядов 1-го уровня."
+		//
+		KRITZKRIEG_NAME			= "КРИЦКРИГ"
+		KRITZKRIEG_DESC			= " Позволяет высасывать здоровье из роботов, обеспечивая самолечение и накопление убер-заряда."
+		//
+		QUICKFIX_NAME			= "БЫСТРОПРАВ"
+		QUICKFIX_DESC			= " Очень быстрое лечение и щит от снарядов 2-го уровня. Позволяет накапливать убер-заряд за счёт урона от соприкосновения роботов со щитом."
+		//
+		VACCINATOR_NAME			= "ВАКЦИНАТОР"
+		VACCINATOR_DESC			= " Активное лечение дарует вам и пациенту 100 % сопротивляемость базовому урону выбранного типа. Убер-заряд дарует полную невосприимчивость к выбранному типу урона на 30 секунд."
+		///
+		BONESAW_NAME 			= "ПИЛА"
+		BONESAW_DESC			= " Стандартный вариант для защиты и мобильности. Даёт 10 % убер-заряда за попадание."
+		//
+		UBERSAW_NAME 			= "УБЕР-ПИЛА"
+		UBERSAW_DESC			= " Наносит кровотечение при попадании. Даёт 2 % убер-заряда за попадание."
+		//
+		VITASAW_NAME 			= "ВИТА=ПИЛА"
+		VITASAW_DESC			= " Даёт заклинание сверхлечения при попадании (требуется Книга заклинаний). Даёт 5 % убер-заряда за попадание."
+		//
+		AMPUTATOR_NAME 			= "АМПУТАТОР"
+		AMPUTATOR_DESC			= " При попадании: ваша Лечебная пушка перезаряжается и временно получает увеличенную скорость лечения, скорость накопления убер-заряда и дальность лечения. Убийство роботов даёт усиленную версию этого эффекта."
+		//
+		SOLEMNVOW_NAME 			= "СВЯЩЕННАЯ КЛЯТВА"
+		SOLEMNVOW_DESC			= " Бесконечная дальность, поражает всех роботов, связанных лучами Лечебной пушки, и наносит 200-тикратный урон роботам-медикам. Даёт 5 % убер-заряда за каждого поражённого робота."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		SNIPERRIFLE_NAME 		= "СНАЙПЕРСКАЯ ВИНТОВКА"
+		SNIPERRIFLE_DESC 		= " Полностью заряженный выстрел в голову наносит 450 000 урона."
+		//
+		MACHINA_NAME 			= "МАХИНА"
+		MACHINA_DESC 			= " Очень медленная зарядка, но на полном заряде может уничтожать Танки. Убийства роботов заполняют шкалу ярости, которая даёт 1-секундное усиление критами. Совместите усиление критов с полным зарядом, чтобы мгновенно уничтожать большинство Танков."
+		//
+		HITMANSHEATMAKER_NAME 	= "РАЗЖИГАТЕЛЬ РАЗБОЙНИКА"
+		HITMANSHEATMAKER_DESC 	= " Быстрая стрельба без выхода из прицеливания. Отсутствие урона при попадании в тело."
+		//
+		AWPERHAND_NAME 			= "СЛОНОБОЙ"
+		AWPERHAND_DESC 			= " Выпускает взрывчатые заряды и накапливает ярость за убийства. При 100 % ярости нажмите клавишу перезарядки, чтобы получить повышенное максимальное здоровье и регенерацию здоровья. Слонобой заряжается когда роботы находятся в вашем прицеле."
+		//
+		HUNTSMAN_NAME 			= "ОХОТНИК"
+		HUNTSMAN_DESC 			= " Выпускает 5 стрел за раз. Наносит огромный урон от огня, если поджигатель подожжёт вашу стрелу."
+		//
+		SYDNEYSLEEPER_NAME 		= "СИДНЕЙСКИЙ СОНЯ"
+		SYDNEYSLEEPER_DESC 		= " Выпускает специальный дротик, который сильно замедляет гигантских роботов и не даёт им получать лечение от роботов-медиков"
+		//
+		BAZAARBARGAIN_NAME 		= "БАЗАРНАЯ БЕЗДЕЛУШКА"
+		BAZAARBARGAIN_DESC 		= " Убийства роботов одного класса подряд увеличивают скорострельность, накапливая эффект до 3 раз. Убийство другого класса сбрасывает эффект."
+		//
+		FORTIFIEDCOMPOUND_NAME 	= "УКРЕПЛЕННЫЙ СОСТАВНОЙ ЛУК"
+		FORTIFIEDCOMPOUND_DESC 	= " Урон ниже, чем у Охотника, но стреляет быстрее, пронзает и наносит криты по мокрым роботам."
+		//
+		CLASSIC_NAME 			= "КЛАССИКА"
+		CLASSIC_DESC 			= " Скорострельность пропорциональна скорости нажатия клавиши атаки. Заряжайте один выстрел с безумной взрывной силой в голову, зажав клавишу атаки, который позволит уничтожить всех роботов (кроме гигантов) в области."
+		///
+		SMG_NAME 				= "ПИСТОЛЕТ-ПУЛЕМЁТ"
+		SMG_DESC 				= " Позволяет стрелять в голову с сильно увеличенным уроном. Альтернативная атака: приближение прицеливания и 100 % точность, но -50 % скорострельности."
+		//
+		RAZORBACK_NAME 			= "БРОНЕПАНЦИРЬ"
+		RAZORBACK_DESC 			= " Очень быстрая перезарядка. Обливает цель Банкате."
+		//
+		JARATE_NAME 			= "БАНКАТЕ"
+		JARATE_DESC 			= " Мгновенная перезарядка, замедляет роботов."
+		//
+		DARWIN_NAME 			= "ДАРВИНИСТСКИЙ ЩИТ"
+		DARWIN_DESC 			= " Почти полная невосприимчивость к огню, но на 50 % больше урона от пуль и взрывов."
+		//
+		COZYCAMPER_NAME 		= "НАБОР ДЛЯ КЕМПИНГА"
+		COZYCAMPER_DESC 		= " Небольшое увеличение скорости передвижения, максимального здоровья и регенерации здоровья. Иммунитет к догоранию."
+		//
+		CLEANERSCARBINE_NAME 	= "КАРАБИН ЧИСТИЛЬЩИКА"
+		CLEANERSCARBINE_DESC 	= " Усиление мини-критами длится 30 секунд."
+		//
+		BEAUTYMARK_NAME 		= "РОДИНКА С САМОСОЗНАНИЕМ"
+		BEAUTYMARK_DESC 		= " Священный адский огонь из пылающих стрел. Альтернативная атака: бросить сразу несколько пылающих стрел."
+		///
+		KUKRI_NAME 				= "КУКРИ"
+		KUKRI_DESC 				= " Стандартный вариант для защиты и мобильности."
+		//
+		TRIBALMANSSHIV_NAME 	= "ЗАТОЧКА ДИКАРЯ"
+		TRIBALMANSSHIV_DESC 	= " Предмет экипировки — у вас отсутствует гравитация. Позволяет свободно летать."
+		//
+		BUSHWACKA_NAME 			= "КУСТОЛОМ"
+		BUSHWACKA_DESC 			= " Бесконечнй радиус ближнего боя и гарантированные криты по горящим роботам."
+		//
+		SHAHANSHAH_NAME 		= "ШАХАНШАХ"
+		SHAHANSHAH_DESC 		= " Альтернативная атака: отправить себя вверх, хорошо для достижения высоких мест. Иммунитет к урону от падения."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		REVOLVER_NAME 			= "REVOLVER"
+		REVOLVER_DESC 			= " При попадании: накладывает несколько ослабляющих эффектов, заставляет роботов получать повышенный урон на короткое время, расходует убер-заряд вражеского медика и заставляет роботов-шпионов снять маскировку. Может оглушать роботов, находящихся в воздухе."
+		//
+		AMBASSADOR_NAME 		= "АМБАССАДОР"
+		AMBASSADOR_DESC 		= " Наносит огромный урон при попадании в голову. Урон удваивается, если вы не под маскировкой."
+		//
+		LETRANGER_NAME 			= "НЕЗНАКОМЕЦ"
+		LETRANGER_DESC 			= " Позволяет убить с одного выстрела любого робота, кроме гигантских роботов. Наносит 0 урона гигантским роботам и Танкам."
+		//
+		ENFORCER_NAME 			= "ПРИНУДИТЕЛЬ"
+		ENFORCER_DESC 			= " Игнорирует сопротивляемость урону и гарантирует крит за каждый удар в спину или уничтоженную Жучком постройку робота-инженера."
+		//
+		DIAMONDBACK_NAME 		= "АЛМАЗНЫЙ ЗМЕЙ"
+		DIAMONDBACK_DESC 		= " Создаёт чёрную дыру, затягивающую роботов."
+		///
+		SAPPER_NAME 			= "ЖУЧОК"
+		SAPPER_DESC 			= " Максимальный радиус оглушения и длительность. Быстрая перезарядка."
+		//
+		REDTAPE_NAME 			= "Откатофон"
+		REDTAPE_DESC 			= " Мгновенно уничтожает постройки робота-инженера. Можно использовать только на одного робота за раз."
+		///
+		KNIFE_NAME 				= "НОЖ"
+		KNIFE_DESC 				= " Пока активен в руках, Нож высасывает ваше здоровье, но дарует иммунитет ко ВСЕМУ урону. Убийства восстанавливают здоровье."
+		//
+		YOURETERNALREWARD_NAME 	= "ВЕЧНЫЙ ПОКОЙ"
+		YOURETERNALREWARD_DESC 	= " Урон увеличивается по мере получения вами урона. Когда ваше здоровье ниже 10 %, наносит критические удары, но только при ударах спереди. 90 % сопротивление входящему урону."
+		//
+		KUNAI_NAME 				= "КУНАЙ ЗАГОВОРЩИКА"
+		KUNAI_DESC 				= " Бесконечная дальность радиуса атаки. Удары в спину заставляют роботов взрываться, нанося дополнительный урон ближайшим целям."
+		//
+		BIGEARNER_NAME 			= "ГЛАВНЫЙ ДЕЛЕЦ"
+		BIGEARNER_DESC 			= " У вас огромный запас здоровья, а промахи вызывают быстрое исцеление, однако вы получаете урон от своих же союзников."
+		//
+		WANGAPRICK_NAME 		= "ИГОЛКА ВУДУ"
+		WANGAPRICK_DESC 		= " Убийство робота заставляет вас немедленно войти в режим невидимости на несколько секунд. Вы можете атаковать роботов и продлевать невидимость уничтожением роботов. Не позволяет использовать маскировку."
+		//
+		SHARPDRESSER_NAME 		= "ОДЕТЫЙ С ИГОЛОЧКИ"
+		SHARPDRESSER_DESC 		= " Удары в спину зставляет роботов взрываться, нанося дополнительный урон ближайшим целям."
+		//
+		SPYCICLE_NAME 			= "СОСУЛЬКА"
+		SPYCICLE_DESC 			= " Промах заставляет вас подпрыгнуть в воздух. Вы не можете маскироваться. Наносит огромный урон гигантским роботам при ударе в спину."
+		///
+		INVISWATCH_NAME 		= "ЧАСЫ НЕВИДИМОСТИ"
+		INVISWATCH_DESC 		= " Бесконечная невидимость, +10 % к скорости передвижения."
+		//
+		DEADRINGER_NAME 		= "ЗВОН СМЕРТИ"
+		DEADRINGER_DESC 		= " При активации даёт коротковременную большую прибавку к скорости передвижения. Получаемый урон во время прибавки снижен на 80 %."
+		//
+		CLOAKANDDAGGER_NAME		= "ПЛАЩ И КИНЖАЛ"
+		CLOAKANDDAGGER_DESC		= " Мгновенная невидимость и выход из невидимости."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		FRYINGPAN_NAME 				= "СКОВОРОДА"
+		FRYINGPAN_DESC 				= " Наносит 30-кратный урон роботам того же класса, что и вы, и даёт криты за убийство."
+		//
+		SAXXY_NAME 					= "САКСИ"
+		SAXXY_DESC 					= " Наносит 30-кратный урон роботам того же класса, что и вы, и даёт криты за убийство."
+		//
+		MEMORYMAKER_NAME 			= "СОЗДАТЕЛЬ ВОСПОМИНАНИЙ"
+		MEMORYMAKER_DESC			= " Наносит 30-кратный урон роботам того же класса, что и вы, и даёт криты за убийство."
+		//
+		CONOBJECTOR_NAME			= "ИДЕЙНЫЙ УКЛОНИСТ"
+		CONOBJECTOR_DESC			= " Каждые 10 убийств дают случайное заклинание (требуется Книга заклинаний)"
+		//
+		FREEDOMSTAFF_NAME 			= "ПОСОХ СВОБОДЫ"
+		FREEDOMSTAFF_DESC 			= " Небольшой шанс при получении урона уклониться от атаки и стать неуязвимым на 3 секунды."
+		//
+		BATOUTTAHELL_NAME 			= "ДУБИНА ИЗ АДА"
+		BATOUTTAHELL_DESC 			= " Пока активно в руках, вы неуязвимы для всего входящего урона и получаете огромный запас сверхздоровья, но становитесь полностью уязвимы к отталкиванию."
+		//
+		HAMSHANK_NAME 				= "СВИНОЙ ОКОРОК"
+		HAMSHANK_DESC 				= " Особая способность: Жизненное возрождение — когда доступно, нажмите клавишу действия, чтобы мгновенно получить 10-кратный избыточный запас здоровья и иммунитет к отбрасыванию на 20 секунд."
+		//
+		NECROSMASHER_NAME 			= "ТРУПОКОЛОТУШКА"
+		NECROSMASHER_DESC 			= " Особая способность: Транспортное средство — когда доступно, нажмите клавишу действия, чтобы сесть в бамперную машинку. В машинке вы неуязвимы, восстанавливаете здоровье и можете давить роботов."
+		//
+		CROSSINGGAURD_NAME 			= "РЕГУЛИРОВЩИК"
+		CROSSINGGAURD_DESC 			= " Даёт огромное сопротивление всем атакам ближнего боя, включая удары в спину."
+		//
+		PRINNYMACHETE_NAME 			= "МАЧЕТЕ ПРИННИ"
+		PRINNYMACHETE_DESC 			= " Предмет экипировки — атакуйте этим оружием, чтобы стремительно броситься вперёд. Дарует иммунитет к урону от падения."
+		//------------------------------------
+	}
 }
 printl("Translations Loaded\n")
 
