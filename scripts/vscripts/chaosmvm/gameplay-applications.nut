@@ -1,7 +1,7 @@
 if(!("SetLibraryVersion" in getroottable()) || ("FatCatLibForce" in ROOT && FatCatLibForce == true))
 	IncludeScript("fatcat_library")
 
-SetScriptVersion("GameplayApplications", "4.4.1")
+SetScriptVersion("GameplayApplications", "4.4.5")
 
 local Thinker = CreateThinker("Thinker_GameplayApplications", "GameplayThink", THINKER_PERSIST)
 
@@ -190,10 +190,16 @@ RegisterSpawnCallback("tf_projectile_rocket", "BlutsaugerRocket", function(entit
 	local owner = entity.GetOwner()
 	if(!owner || !owner.IsPlayer() || owner.GetWeaponIDXInSlotNew(SLOT_PRIMARY) != TF_WEAPON_BLUTSAUGER)
 		return
+
 	SetDestroyCallback(entity, function() {
 		// owner.PrintToChat("Your Rocket: i dies now but did i deal damage to anything??? "+("DidDamage" in GetScope(self) && DidDamage.tostring()))
-
-		if(!("DidDamage" in GetScope(self)) || GetScope(self).DidDamage == false)
+		/* local target = GetClosestPlayer(self, TF_TEAM_PVE_INVADERS, true)
+	
+		if(target && self.GetOrigin().DistanceTo(target.GetOrigin()) < 50)
+		{
+			target.TakeDamageEx(self, owner, owner.GetWeaponInSlotNew(SLOT_PRIMARY), Vector(), Vector(), 0.01, DMG_GENERIC)
+		}
+		else */ if(!("DidDamage" in GetScope(self)) || GetScope(self).DidDamage == false)
 		{
 			owner.GetWeaponInSlotNew(SLOT_SECONDARY).IncreaseUberChargePercent(BlutsaugerSettings.refund)
 		}
@@ -202,19 +208,48 @@ RegisterSpawnCallback("tf_projectile_rocket", "BlutsaugerRocket", function(entit
 
 function GameplayThink()
 {
+	local ReprogrammedBots = []
+	local AliveBots = 0
 	if ( Players.len() < 1 || !ValidatePlayerArray() || (m_aHumans.len() + m_aRobots.len()) != Players.len())
 		ReCalculatePlayers()
 
 	foreach (bot in m_aRobots)
 	{
+		if(bot.IsDead())
+			continue
+
+		if(bot.IsAlive() && !bot.IsReprogrammed())
+			AliveBots += 1
+
 		GetScope(bot).LastVel <- bot.GetAbsVelocity()
 
-		if(bot.InCond(TF_COND_REPROGRAMMED) && (!bot.IsValidReprogramTarget() || bot.GetPlayerClass() == TF_CLASS_MEDIC))
+		if("EndReprogramTime" in GetScope(bot) && GetScope(bot).EndReprogramTime <= Time())
+			bot.UndoReprogram()
+
+		if(bot.IsReprogrammed())
+		{
+			/* if(bot.GetPlayerClass() == TF_CLASS_MEDIC)
+			{
+				local nearest = "ReProgrammer" in GetScope(bot) ? GetScope(bot).ReProgrammer : bot.GetClosestPlayer(null, Vector())
+				bot.SetMission(6, true)
+				bot.SetMissionTarget(nearest)
+			} */
+			if(!bot.IsValidReprogramTarget() || bot.GetPlayerClass() == TF_CLASS_MEDIC)
+			{
+				bot.RemoveCondEx(TF_COND_REPROGRAMMED, true)
+				foreach(attribute in BlutsaugerRemoveAttributes)
+					bot.RemoveCustomAttribute(attribute)
+			}
+			else 
+				ReprogrammedBots.append(bot)
+		}
+
+		/* if(bot.InCond(TF_COND_REPROGRAMMED) && (!bot.IsValidReprogramTarget()))
 		{
 			bot.RemoveCondEx(TF_COND_REPROGRAMMED, true)
 			foreach(attribute in BlutsaugerRemoveAttributes)
 				bot.RemoveCustomAttribute(attribute)
-		}
+		} */
 
 		local Corrosion = bot.GetCorrosion()
 
@@ -328,6 +363,13 @@ function GameplayThink()
 
 		RunWithDelay(@() SetPropBool(tank, "m_bGlowEnabled", true), 0.1)
 	}
+
+	if(AliveBots == 0)
+	{
+		foreach (bot in ReprogrammedBots)
+			bot.UndoReprogram()
+	}
+
 
 	return -1
 }
@@ -473,11 +515,13 @@ function ROOT::ProcessChaosWeaponHit(params, victim, attacker, weapon, inflictor
 
 		EntFireNew(victim, "$BotCommand", "switch_action Mobber -duration "+BlutsaugerSettings.duration)
 
-		RunWithDelay(@() victim.UndoReprogram(), BlutsaugerSettings.duration)
+		// RunWithDelay(@() victim.UndoReprogram(), BlutsaugerSettings.duration)
+
+		GetScope(victim).EndReprogramTime <- Time() + BlutsaugerSettings.duration
 
 		GetScope(victim).ReProgrammer <- attacker
 
-		EmitGlobalSound({
+		EmitSoundEx({
 			sound_name = BlutsaugerSettings.sound
 			entity = victim
 			sound_level = MATH.ConvertRadiusToSndLvl(BlutsaugerSettings.sound_radius)
@@ -492,11 +536,11 @@ function ROOT::ProcessChaosWeaponHit(params, victim, attacker, weapon, inflictor
 			break
 				
 		// attacker.PrintToHud("Made Corrosion on " + victim)
-		EmitGlobalSound({
+		/* EmitSoundEx({
 			sound_name = ""
 			entity = victim
 			sound_level = 80
-		})
+		}) */
 		victim.MakeCorrosion(attacker, weapon)
 	}
 	break;
@@ -670,9 +714,9 @@ if("GameplayEvents" in ROOT) ::GameplayEvents.clear()
 			return
 		if(attacker.IsBot())
 		{
-			if(!attacker.IsReprogrammed() || !MATH.OneInChance(10))
-				return
 			if(attacker.HasBotTag("NoChatter"))
+				return
+			if(!attacker.IsReprogrammed() || !MATH.OneInChance(10))
 				return
 			attacker.SayChatterMessage(victim)
 			return
@@ -738,8 +782,6 @@ if("GameplayEvents" in ROOT) ::GameplayEvents.clear()
 				continue
 			if(weapon == spellbook)
 				GetScope(weapon).m_iKills <- 0
-			// if(weapon.getclass() == CEconEntity && weapon.getclass() != CTFWeaponBase)
-				// continue
 			
 			if(weapon.GetIDX() == TF_WEAPON_TOMISLAV)
 			{
@@ -768,40 +810,44 @@ if("GameplayEvents" in ROOT) ::GameplayEvents.clear()
 						return 500
 					}
 
+					local weapon = self.GetWeaponInSlotNew(SLOT_PRIMARY)
+					weapon.SetClip1(1)
+					self.SetPrimaryAmmo(0)
+					self.SetMetal(200)
+
 					if(self.GetWeaponInSlotNew(SLOT_SECONDARY).GetUberChargePercent() < 1.0)
 					{
-						local weapon = self.GetWeaponInSlotNew(SLOT_PRIMARY)
 						weapon.AddAttribute("provide on active", 1, 0)
 						weapon.AddAttribute("no_attack", 1, 0)
 						weapon.AddAttribute("ubercharge ammo", 0, 0)
+						SetPropInt(weapon, "m_iPrimaryAmmoType", TF_AMMO_METAL)
 					}
 					else 
 					{
-						local weapon = self.GetWeaponInSlotNew(SLOT_PRIMARY)
 						weapon.AddAttribute("provide on active", 0, 0)
 						weapon.AddAttribute("no_attack", 0, 0)
 						weapon.AddAttribute("ubercharge ammo", 100, 0)
+						SetPropInt(weapon, "m_iPrimaryAmmoType", TF_AMMO_PRIMARY)
 					}
 
 					if(self.GetActiveWeaponIDX() != TF_WEAPON_BLUTSAUGER)
 						return 0.1
 
-
-					local weapon = self.GetActiveWeapon()
-					// if(weapon.GetAttribute())
 					if(!self.IsPressingButton(IN_ATTACK2))
 						return -1
+
+					self.PrintToHud("Debug: (KILLING ROBOTS!)")
 
 					foreach (robot in m_aRobots)
 					{
 						if("ReProgrammer" in GetScope(robot) && GetScope(robot).ReProgrammer == self)
 						{
-							robot.RemoveCondEx(TF_COND_REPROGRAMMED, true)
+							// robot.RemoveCondEx(TF_COND_REPROGRAMMED, true)
 							robot.UndoReprogram()
 						}
 					}
 					return -1
-				}, "BlutsaugerDisrupt")
+				}, "BlutsaugerDisrupt", 0.15)
 			}
 		}
 	}
@@ -1018,6 +1064,7 @@ __CollectGameEventCallbacks(GameplayEvents)
 		"Common98" 	: { "message" : "I THINK HIS HEART STOPPED." }
 		"Common99" 	: { "message" : "WHAT WAS YOUR PLAN?" }
 		"Common100" : { "message" : "THIS IS NOT A GAME." }
+		"Common101" : { "message" : "KEEP EM COMING!" }
 		"Common200" : {	// Chrstin asked for this
 			"message" : "HAHAHA RANDOMGUY WENT BOOM!"
 			"requirement" : "id|[U:1:96114934]"
@@ -1049,6 +1096,10 @@ __CollectGameEventCallbacks(GameplayEvents)
 		"Common506" 	: { 
 			"format" : "victim|⤒"
 			"message" : "%s SHOULD HAVE PLAYED OIL SPILL INSTEAD"
+		}
+		"Common506" 	: { // From MiirioKing
+			"format" : "victim|⤒"
+			"message" : "YOU KNOW WHAT REALLY GRINDS MY GEARS? %s"
 		}
 		"Common1000"	: {
 			"team"	  : 2
