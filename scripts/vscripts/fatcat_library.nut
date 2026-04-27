@@ -6,6 +6,7 @@
 
 ::MOD_TF2 <- "Team Fortress 2"
 ::MOD_TF2C <- "Team Fortress 2 Classified"
+::MOD_L4D2 <- "Left 4 Dead 2"
 
 if("GetModName" in ROOT)
 {
@@ -21,14 +22,14 @@ else
 		return MOD_TF2
 }
 
-/* if(!("__IncludeScript" in ROOT))
+/* if(!("__DoIncludeScript" in ROOT))
 {
-	ROOT.__IncludeScript <- IncludeScript
+	ROOT.__DoIncludeScript <- DoIncludeScript
 
-	function ROOT::IncludeScript(file, scope = null)
+	function ROOT::DoIncludeScript(file, scope = null)
 	{
 		SetScriptVersion(file, "__unknown__")
-		__IncludeScript(file, scope)
+		__DoIncludeScript(file, scope)
 	}
 } */
 
@@ -61,7 +62,8 @@ function ROOT::SetLibraryVersion(lib_version, subversion = 0, fail_msg = true, f
 		if(developer == true)
 		{
 			FatCatLibVersion.developer <- "true"
-			PrintToChatAll(FATCATLIB_PREFIX+"\x04DONT FORGET TO DISABLE DEVELOPER MODE!!!\x01")
+			local chat = @(m) ("PrintToChatAll" in ROOT ? PrintToChatAll(m) : ClientPrint(null, 3, m))
+			chat(FATCATLIB_PREFIX+"\x04DONT FORGET TO DISABLE DEVELOPER MODE!!!\x01")
 		}
 		return true
 	}
@@ -185,10 +187,10 @@ function ROOT::SetLibrarySettings(settings_table = {})
 function ROOT::ToggleForceFlag( bool )
 	::FatCatLibForce <- bool
 
-if (!SetLibraryVersion("1.17.3", 0))
+if (!SetLibraryVersion("1.17.4", 1))
 	return
 
-SetLibraryTimeStamp("4-20-2026_20:33")
+SetLibraryTimeStamp("4-25-2026_21:00")
 
 SetLibrarySettings({})
 
@@ -564,6 +566,8 @@ function ROOT::GetRuneCondition(rune)
 ::TICKRATE 				<- 66
 ::TICK_DUR 				<- 1.0/TICKRATE
 ::MAX_DECAPITATIONS 	<- 4
+::MAX_USER_MSG_DATA 	<- 255
+::MAX_CLIENT_PRINT_DATA <- MAX_USER_MSG_DATA-6
 
 ::Host <- GetListenServerHost()
 
@@ -636,6 +640,19 @@ function ROOT::GetCvarInt(cvar)
 function ROOT::GetCvarStr(cvar)
 	return Convars.GetStr(cvar)
 ROOT.GetCvarString <- ROOT.GetCvarStr
+
+try {
+	IncludeScript("trace_filter")
+}
+catch (e)
+{
+	try {
+		IncludeScript("chaosmvm/trace_filter")
+	}
+	catch(_) {
+		throw "FAILED TO INCLUDE DEPENDENCY \"trace_filter\"!"
+	}
+}
 
 
 ///////////////////////////////////////
@@ -1046,25 +1063,45 @@ function CTFPlayer::InRespawnRoom(any = false)
 
 		respawnroom.RemoveSolidFlags(FSOLID_NOT_SOLID)
 		respawnroom.SetCollisionGroup(0)
-		local trace =
-		{
-			start =       EyePosition()
-			end =         EyePosition()
-			hullmin =     GetPlayerMins()
-			hullmax =     GetPlayerMaxs()
-			mask =        CONTENTS_SOLID
+		// local trace =
+		// {
+		// 	start =       GetOrigin()
+		// 	end =         GetOrigin()
+		// 	hullmin =     GetPlayerMins()
+		// 	hullmax =     GetPlayerMaxs()
+		// 	mask =        CONTENTS_SOLID
+		// }
+		// // DebugDrawBox(GetOrigin(), GetPlayerMins(), GetPlayerMaxs(), 255, 255, 0, 0, 100)
+		// // ShowBBOX(respawnroom, Vector(255, 0, 0), 0, 100)
+		// TraceHull(trace)
+
+		local trace = {
+			start = GetOrigin(),
+			end = GetOrigin()
+			hullmin = GetPlayerMins()
+			hullmax = GetPlayerMaxs()
+			mask = CONTENTS_SOLID,
+			filter = function(entity)
+			{
+				if(entity.GetClassname() != "func_respawnroom")
+					return TRACE_CONTINUE
+				else
+					return TRACE_OK_CONTINUE
+			}
 		}
-		TraceHull(trace)
+		TraceHullGather(trace)
+
 		respawnroom.AddSolidFlags(FSOLID_NOT_SOLID)
 		respawnroom.SetCollisionGroup(TFCOLLISION_GROUP_RESPAWNROOMS)
 
-		if(trace.hit && trace.enthit == respawnroom) return true
+		if(trace.hits.len() != 0 && trace.hits[0].enthit) return true
 	}
 	return false
 }
 
 function CTFPlayer::InAnyRespawnRoom()
 {
+	return InRespawnRoom(true)
 	foreach (respawnroom in GetAllEntitiesByClassname("func_respawnroom"))
 	{
 		respawnroom.RemoveSolidFlags(FSOLID_NOT_SOLID)
@@ -1576,7 +1613,15 @@ function CTFPlayer::GetTranslatedAndFormattedString(...)
 }
 
 function CTFPlayer::TranslateToChat(...)
-	PrintToChat(GetTranslatedAndFormattedString.acall([this].extend(vargv)))
+{
+	local msg = GetTranslatedAndFormattedString.acall([this].extend(vargv))
+	if(msg.len() > MAX_CLIENT_PRINT_DATA)
+	{
+		error("Warning! a Message is too long!!!\n")
+		error(msg + "\n")
+	}
+	PrintToChat(msg)
+}
 
 function CTFPlayer::TranslateToHud(...)
 	PrintToHud(GetTranslatedAndFormattedString.acall([this].extend(vargv)))
@@ -2528,6 +2573,22 @@ function CTFPlayer::GetMoveSpeed()
 	return speed
 }
 
+function CTFPlayer::DistanceTo(thing)
+{
+	if(typeof thing == "Vector")
+		return GetOrigin().DistanceTo(thing)
+	else
+		return GetOrigin().DistanceTo(thing.GetOrigin())
+	
+}
+
+function CTFPlayer::GetClosestPlayer(team = null, offset = Vector())
+{
+	if(team == null)
+		team = GetTeam()
+	return GetClosestPlayer(this, team, offset)
+}
+
 CTFPlayer.GenerateAndWearItem <- CTFBot.GenerateAndWearItem
 /* 
 function CTFPlayer::CreateParticle(particle, duration = -1)
@@ -2685,10 +2746,10 @@ function CTFBot::SayChatterMessage(victim)
 			FormatData = split(FormatData, "|")
 		else 
 			FormatData = [FormatData]
-		// ADD CUSTOM FORMAT RULES LUL
+		// ADD CUSTOM FORMAT RULES
 		local victim_in = FormatData.find("victim")
-		printl(FormatData.find("victim"))
-		printl(FormatData.find("⤒"))
+		// printl(FormatData.find("victim"))
+		// printl(FormatData.find("⤒"))
 		if(victim_in != null)
 		{
 			local msg = victim.GetUserName()
@@ -2711,14 +2772,16 @@ function CTFBot::UndoReprogram()
 	if(!this||!IsValid()||IsDead())
 		return
 
-	local temp = SpawnEntityFromTable("info_particle_system", {effect_name = "drg_cow_explosioncore_charged"})
-	temp.SetAbsOrigin(GetOrigin()+Vector(0, 0, 8))
-	temp.SetAbsAngles(QAngle(-90, 0, 0))
-	temp.AcceptInput("Start", "", null, null)
-	EntFireNew(temp, "Stop", "", TICK_DUR*3)
-	EntFireNew(temp, "Kill", "", TICK_DUR*5)
+	CreateParticle("drg_cow_explosioncore_charged", GetOrigin()+Vector(0, 0, 8))
+
+	if("EndReprogramTime" in GetScope(this)) 
+		delete GetScope(this).EndReprogramTime
+
+	RemoveCondEx(TF_COND_REPROGRAMMED, true)
 
 	Suicide()
+	SetHealth(0)
+	TakeDamage(GetMaxHealth()*100, DMG_GENERIC, FirstEntity())
 }
 
 
@@ -3470,6 +3533,26 @@ function ROOT::GetScope(entity)
 	return entity.GetScriptScope()
 }
 
+function ROOT::GetClosestPlayer(target, team = TF_TEAM_BLUE, offset = Vector())
+{
+	local closest_dist = 100000
+	local closest = null
+	foreach (player in Players)
+	{
+		if(player == target || player.IsDead())
+			continue
+		if(player.GetTeam() != team)
+			continue
+		local dist = (target.GetOrigin() + offset).DistanceTo(player.GetOrigin()+offset)
+		if(dist < closest_dist)
+		{
+			closest_dist = dist
+			closest = player
+		}
+	}
+	return closest
+}
+
 
 ::THINKER_PERSIST <- 0
 ::THINKER_NO_PERSIST <- 1
@@ -3959,8 +4042,9 @@ function ROOT::SetCvar(convar, value, admin_notify = false, notify_all = false)
 {
 	if(!IsConvarAllowed(convar))
 	{
-		PrintToAdmins(3, "\x07FF0000fatcat_library::SetCvar: \x01Warning Cvar \x03" + convar + "\x01 is Not on the Allowlist!")
-		PrintToAdmins(2, "fatcat_library::SetCvar: Warning Cvar \"" + convar + "\" is Not on the Allowlist!")
+		PrintToChatAllF("\x07FF4040:SetCvar: \x01Warning Cvar \"\x03%s\x01\" is Not on the Allowlist!")
+		// PrintToAdmins(3, "\x07FF0000fatcat_library::SetCvar: \x01Warning Cvar \"\x03" + convar + "\x01\" is Not on the Allowlist!")
+		// PrintToAdmins(2, "fatcat_library::SetCvar: Warning Cvar \"" + convar + "\" is Not on the Allowlist!")
 		return
 	}
 
@@ -4162,7 +4246,16 @@ function Vector::Random(min, max)
 
 function Vector::DistanceTo(point2)
 {
+	try {
 	return (this-point2).Length()
+	}
+	catch (e)
+	{
+		::printl(this)
+		::printl(point2)
+		::printl(e)
+		return -1
+	}
 }
 
 function Vector2D::Normalize()
@@ -4224,6 +4317,16 @@ function ROOT::ConvertRadiusToSndLvl(radius)
 {
 	DeprecatedWarning(getstackinfos(1), getstackinfos(2))
 	return (40 + (20 * log10(radius / 36.0))).tointeger()
+}
+// TODO: Add to Snippets
+function ROOT::CreateParticle(particle, origin, angle = QAngle(-90, 0, 0))
+{
+	local temp = SpawnEntityFromTable("info_particle_system", {effect_name = particle})
+	temp.SetAbsOrigin(origin)
+	temp.SetAbsAngles(angle)
+	temp.AcceptInput("Start", "", null, null)
+	EntFireNew(temp, "Stop", "", TICK_DUR*3)
+	EntFireNew(temp, "Kill", "", TICK_DUR*5)
 }
 
 if(!("CORROSION_ICON" in ROOT))
@@ -4340,14 +4443,7 @@ function ROOT::CreateBaseExplosion(table)
 	DebugDrawCircle(origin+Vector(0,0,1), Vector(0, 0, 255), 50, DamageDeadzone, false, 15)
 
 	if(particle != "")
-	{
-		local temp = SpawnEntityFromTable("info_particle_system", { effect_name = particle })
-		temp.SetAbsOrigin(origin+particle_offset)
-		temp.SetAbsAngles(particle_ang)
-		temp.AcceptInput("Start", "", null, null)
-		EntFireNew(temp, "Stop", "", TICK_DUR*3)
-		EntFireNew(temp, "Kill", "", TICK_DUR*5)
-	}
+		CreateParticle(particle, origin+particle_offset, particle_ang)
 
 	if(sound != "" && scope.LastExplosionTime <= Time())
 	{
@@ -5625,7 +5721,6 @@ CreateThinker("OnEntityPostSpawn" , function() {
 __CollectGameEventCallbacks(ChaosCustomEvents)
 
 AddChatTrigger(["lib_version", "lib_versions"], function(player, ...) {
-	PrintToConsoleAll(type(FatCatLibTimeStamp))
 	PrintToChatAllF("\x07D000D0► FatCatLib ◄\x03 Last Modified At \x04%s\x03   \x07606060(MM-DD-YYYY_Hr:Min)", FatCatLibTimeStamp.tostring())
 	PrintToChatAllF("\x07D000D0► FatCatLib ◄\x03 Version\x01: \x04%s\x01 - \x03sub_version\x01: \x04%s\x01, \x03force_included\x01 = \x04%s\x01", FatCatLibVersion.version, FatCatLibVersion.sub_version.tostring(), FatCatLibVersion.forced.tostring())
 
@@ -5723,6 +5818,51 @@ RegisterAdminTrigger(["lib_reload", "reload_library"], function(player, ...) {
 	ReloadLibrary()
 })
 
+RegisterAdminTrigger("cvar", function(player, ...) {
+	if(vargv.len() < 2)
+		return
+	local cvar = vargv[0]
+	// query a value
+	local type = vargv[1][0].tochar()
+	if(IsInArray(type, ["s", "i", "b", "f"]))
+	{
+		local func
+		switch (type)
+		{
+		case "s":
+			func = GetCvarStr
+		break
+		case "i":
+			func = GetCvarInt
+		break
+		case "b":
+			func = GetCvarBool
+		break
+		case "f":
+			func = GetCvarFloat
+		break
+		default:
+			return player.PrintToChat(FATCATLIB_PREFIX+"  Unknown Cvar Type: "+type)
+		}
+
+		local ret = func(cvar)
+		if(ret == "hunter2")
+		{
+			ret = ""
+			for (local i = 0; i < RandomInt(12, 64); i++) {
+				ret += "*"
+			}
+		}
+
+		return player.PrintToChat(format(FATCATLIB_PREFIX+" Querying Cvar \"%s\": \"%s\"", cvar, ret.tostring()))
+	}
+
+	if(!IsConvarAllowed(cvar))
+		return player.PrintToChat(FATCATLIB_PREFIX+" Cvar \""+cvar+"\" is Unknown or not Allowed!")
+
+	SetCvar(cvar, vargv[1])
+	return player.PrintToChat(format(FATCATLIB_PREFIX+" Set Cvar \"%s\": \"%s\"", cvar, vargv[1]))
+})
 
 
 // the admins wowow
@@ -5747,7 +5887,8 @@ seterrorhandler(function(e)
 
 	if(public == true)
 	{
-		PrintToChatAll("\x07FF0000A VSCRIPT ERROR HAS OCCURRED ["+e+"]. Please report to @The Fatcat in #bug-reports with a screenshot")
+		local message = "\x07FF0000A VSCRIPT ERROR HAS OCCURRED [%s]. Please report to @The Fatcat in "+(IsPotato() ? "Titan's Submission Post" : "#bug-reports")+" with a screenshot."
+		PrintToChatAllF(message, e)
 
 		foreach (stackinfo in STACK)
 		{
