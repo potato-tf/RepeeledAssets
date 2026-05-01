@@ -3045,7 +3045,8 @@ WaveSchedule
 		"stun on hit"											0.1
 		"stun on hit type"										"bonk"
 		"fire input on hit"										"!self^$BotCommand^interrupt_action -posent ConfusionEnt -duration 8"
-		"alt fire attributes"									"bleeding duration|1|mult bleeding dmg|1250|melee range multiplier|0.01|hit self on miss|1|teleport instead of die|999"
+		"alt fire attributes"									"melee range multiplier|0.001|fire input on attack|!activator^$ForceRespawn"
+		//"alt fire attributes"									"bleeding duration|1|mult bleeding dmg|1250|melee range multiplier|0.001|hit self on miss|1|teleport instead of die|999"
 		"melee bounds multiplier"								2.5
 	}
 	ItemAttributes
@@ -4105,7 +4106,7 @@ WaveSchedule
 		"custom impact sound"									"weapons/explode3.wav"
 		"mini rockets"											1
         "add cond on hit"										87
-        "add cond on hit duration"								6
+        "add cond on hit duration"								7.5
 		"self add attributes on hit"							"ubercharge rate penalty|0|10"
 	}
 	ItemAttributes
