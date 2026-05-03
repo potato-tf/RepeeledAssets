@@ -688,7 +688,7 @@ if("SetScriptVersion" in getroottable())
 		CHECKPOINT_CREATED		= "\x077c8cc2已设置检查点:\x078165cf [/%s]"
 		CHECKPOINT_WRONG_MAP	= CHECKPOINT_ERROR+"此检查点设置为另一地图."
 		CHECKPOINT_WRONG_MISS	= CHECKPOINT_ERROR+"此检查点设置为另一任务."
-		CHECKPOINT_EXPIRE		= CHECKPOINT_ERROR+"检查点信息以过期."
+		CHECKPOINT_EXPIRE		= CHECKPOINT_ERROR+"检查点信息已过期."
 		CHECKPOINT_RESTORE		= "\x0744CC44已恢复至最近保存的检查点."
 		CHECKPOINT_RESTORE_HUD	= "已恢复至最近保存的检查点."
 		//---------------------------------------------------------
