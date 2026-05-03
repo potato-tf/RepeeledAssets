@@ -684,13 +684,13 @@ if("SetScriptVersion" in getroottable())
 		REPROG_BOT_NOT_SUIT		= TF_TEAM_COLOR_REPROG_B+"%s\x01 不适合战斗且无法被重编程."
 		REPROG_BOT_LEAVE		= TF_TEAM_COLOR_SPEC+"%s 死亡."
 		REPROG_BOT_MESSAGE 		= TF_TEAM_COLOR_RED+"%s\x01 重编程了 "+TF_TEAM_COLOR_REPROG_B+"%s\x01!"
-		//--------------------------------------------------------- // TODO: TRANSLATE
-		CHECKPOINT_CREATED		= "\x077c8cc2Checkpoint created:\x078165cf [/%s]"
-		CHECKPOINT_WRONG_MAP	= CHECKPOINT_ERROR+"That checkpoint was not set for this map."
-		CHECKPOINT_WRONG_MISS	= CHECKPOINT_ERROR+"That checkpoint was not set for this mission."
-		CHECKPOINT_EXPIRE		= CHECKPOINT_ERROR+"That checkpoint has expired."
-		CHECKPOINT_RESTORE		= "\x0744CC44Restored to last saved checkpoint."
-		CHECKPOINT_RESTORE_HUD	= "Restored to last saved checkpoint."
+		//--------------------------------------------------------- 
+		CHECKPOINT_CREATED		= "\x077c8cc2已设置检查点:\x078165cf [/%s]"
+		CHECKPOINT_WRONG_MAP	= CHECKPOINT_ERROR+"此检查点设置为另一地图."
+		CHECKPOINT_WRONG_MISS	= CHECKPOINT_ERROR+"此检查点设置为另一任务."
+		CHECKPOINT_EXPIRE		= CHECKPOINT_ERROR+"检查点信息已过期."
+		CHECKPOINT_RESTORE		= "\x0744CC44已恢复至最近保存的检查点."
+		CHECKPOINT_RESTORE_HUD	= "已恢复至最近保存的检查点."
 		//---------------------------------------------------------
 		SCATTERGUN_NAME 		= "猎枪"
 		SCATTERGUN_DESC 		= "标准的输出选择. 对近距离敌人更加有效."
@@ -939,12 +939,12 @@ if("SetScriptVersion" in getroottable())
 		LOCHNLOAD_DESC			= "降低开火速度并提升伤害与爆炸范围. 对集群的敌人更加有效."
 		//
 		ALIBABA_NAME			= "阿里巴巴的尖头靴"
-		ALIBABA_DESC			= "提升移动速度, 跳跃高度与护盾冲锋距离. 提供额外的伤害抗性, 护盾充能速度以及冲撞伤害."
-		// TODO: Update! " Enhanced shield bash damage. Grants immunity to fall damage."
+		ALIBABA_DESC			= "提升护盾冲撞伤害. 免疫摔落伤害."
+		// 
 		//
 		BOOTLEGGER_NAME			= "海盗头子的假腿"
-		BOOTLEGGER_DESC			= "提升移动速度, 跳跃高度与护盾冲锋距离. 大幅提升近战伤害抗性但受到额外的暴击伤害."
-		// TODO: Update! " Enhanced shield recharge rate. Grants immunity to fall damage."
+		BOOTLEGGER_DESC			= "提升护盾冷却速度. 免疫摔落伤害."
+		// 
 		//
 		LOOSECANNON_NAME		= "脱缰巨炮"
 		LOOSECANNON_DESC		= "以固定的散射分布发射最多 4 枚炮弹. 炮弹在接触物体表面时立刻爆炸."
@@ -962,16 +962,16 @@ if("SetScriptVersion" in getroottable())
 		STICKYJUMPER_DESC 		= "放置一个眩晕力场, 发射能够击晕敌人的冲击波. (首领单位免疫击晕)"
 		//
 		CHARGINTARGE_NAME 		= "冲锋盾"
-		CHARGINTARGE_DESC 		= "大幅提升爆炸伤害抗性, 但会受到额外的火焰伤害和子弹伤害. 获得额外的击退抗性与暴击抗性."
-		// TODO: Update! " Heavy Charge - Superior shield bash damage."
+		CHARGINTARGE_DESC 		= "重击冲锋 - 大幅提升护盾冲撞伤害."
+		// 
 		//
 		SPLENDIDSCREEN_NAME 	= "辉煌护盾"
-		SPLENDIDSCREEN_DESC 	= "大幅提升火焰伤害抗性, 但会受到额外的爆炸伤害和子弹伤害. 获得额外的击退抗性与暴击抗性."
-		// TODO: Update! " Rapid Charge - Superior shield recharge rate."
+		SPLENDIDSCREEN_DESC 	= "连续冲锋 - 大幅提升护盾冷却时间."
+		// 
 		//
 		TIDETURNER_NAME 		= "力挽狂澜"
-		TIDETURNER_DESC 		= "大幅提升子弹伤害抗性, 但会受到额外的爆炸伤害和火焰伤害. 获得额外的击退抗性与暴击抗性."
-		// TODO: Update! " Burst Charge - Superior shield charge move speed."
+		TIDETURNER_DESC 		= "爆发冲锋 - 大幅提升冲锋速度."
+		// 
 		//
 		QUICKIEBOMB_NAME 		= "快速黏弹发射器"
 		QUICKIEBOMB_DESC 		= "大幅提升开火速度以及粘弹就绪时间. 击杀时获得一段时间的迷你暴击."
@@ -983,8 +983,8 @@ if("SetScriptVersion" in getroottable())
 		EYELANDER_DESC 			= "提升伤害与攻击速度并在击杀时获得一段时间的暴击, 无法使用榴弹."
 		//
 		SKULLCUTTER_NAME 		= "苏格兰颅骨切割者"
-		SKULLCUTTER_DESC 		= "对与你同职业的敌人造成 10 倍伤害. 击杀时获得一段时间的暴击."
-		// TODO: Update! " Able to cut through enemy Ubercharge and disrupt Medi-Gun functions. Also able to deal increased damage to enemies of the same class as you."
+		SKULLCUTTER_DESC 		= "能够无视Ubercharge效果并干扰敌人的医疗枪. 对与你同职业的敌人造成额外的伤害."
+		// 
 		//
 		CABER_NAME 				= "木柄手榴弹"
 		CABER_DESC 				= "生命值越低此武器伤害越高. 生命值低于 2% 时必定暴击. 手榴弹的爆炸会杀死你."
