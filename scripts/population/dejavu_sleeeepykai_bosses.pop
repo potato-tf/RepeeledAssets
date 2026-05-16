@@ -456,7 +456,7 @@ WaveSchedule
             EventChangeAttributes
             {
                 // General EventChangeAttributes
-                MasterMechanic_RocketTankSummonBegin // Interrupt actions to the middle of the arena while having some damage resistance
+                MasterMechanic_RocketTankSummonBegin [$SIGSEGV] // Interrupt actions to the middle of the arena while having some damage resistance
                 {
                     Item "The Eureka Effect"
                     WeaponRestrictions MeleeOnly
@@ -480,7 +480,7 @@ WaveSchedule
                         OnDoneChangeAttributes "MasterMechanic_RocketTankSummonReal"
                     }
                 }
-                MasterMechanic_RocketTankSummonReal
+                MasterMechanic_RocketTankSummonReal [$SIGSEGV]
                 {
                     WeaponRestrictions MeleeOnly
 
@@ -511,7 +511,7 @@ WaveSchedule
                     }
                 }
 
-                MasterMechanic_MinigunTankSummonBegin // Interrupt actions to the middle of the arena while having some damage resistance
+                MasterMechanic_MinigunTankSummonBegin [$SIGSEGV] // Interrupt actions to the middle of the arena while having some damage resistance
                 {
                     Item "The Eureka Effect"
                     WeaponRestrictions MeleeOnly
@@ -535,7 +535,7 @@ WaveSchedule
                         OnDoneChangeAttributes "MasterMechanic_MinigunTankSummonReal"
                     }
                 }
-                MasterMechanic_MinigunTankSummonReal
+                MasterMechanic_MinigunTankSummonReal [$SIGSEGV]
                 {
                     WeaponRestrictions MeleeOnly
 
@@ -566,7 +566,7 @@ WaveSchedule
                     }
                 }
 
-                MasterMechanic_RailgunTankSummonBegin // Interrupt actions to the middle of the arena while having some damage resistance
+                MasterMechanic_RailgunTankSummonBegin [$SIGSEGV] // Interrupt actions to the middle of the arena while having some damage resistance
                 {
                     Item "The Eureka Effect"
                     WeaponRestrictions MeleeOnly
@@ -590,7 +590,7 @@ WaveSchedule
                         OnDoneChangeAttributes "MasterMechanic_RailgunTankSummonReal"
                     }
                 }
-                MasterMechanic_RailgunTankSummonReal
+                MasterMechanic_RailgunTankSummonReal [$SIGSEGV]
                 {
                     WeaponRestrictions MeleeOnly
 
@@ -621,7 +621,7 @@ WaveSchedule
                     }
                 }
 
-                MasterMechanic_TankPowered // When he calls a tank in, he gains a vac bubble and becomes highly resistant to damage
+                MasterMechanic_TankPowered [$SIGSEGV] // When he calls a tank in, he gains a vac bubble and becomes highly resistant to damage
                 {
                     Item "The Wrangler"
                     WeaponRestrictions SecondaryOnly
@@ -651,7 +651,7 @@ WaveSchedule
                         Cooldown -1
                     }
                 }
-                MasterMechanic_Stun // He becomes stunned for 5 seconds when a tank is killed; after this, the attack init is called
+                MasterMechanic_Stun [$SIGSEGV] // He becomes stunned for 5 seconds when a tank is killed; after this, the attack init is called
                 {
                     CharacterAttributes
                     {
@@ -684,7 +684,7 @@ WaveSchedule
                 }
 
                 // Phase 1 Attack Pool
-                MasterMechanic_RescueRangerShotgun
+                MasterMechanic_RescueRangerShotgun [$SIGSEGV]
                 {
                     Item "The Rescue Ranger"
                     Attributes HoldFireUntilFullReload
@@ -709,7 +709,7 @@ WaveSchedule
                         Cooldown -1
                     }
                 }
-                MasterMechanic_Capper
+                MasterMechanic_Capper [$SIGSEGV]
                 {
                     Item "The C.A.P.P.E.R"
                     WeaponRestrictions SecondaryOnly
@@ -733,7 +733,7 @@ WaveSchedule
                 }
 
                 // Phase 2 Attack Pool
-                MasterMechanic_Pomson
+                MasterMechanic_Pomson [$SIGSEGV]
                 {
                     Item "The Pomson 6000"
                     WeaponRestrictions PrimaryOnly
@@ -756,7 +756,7 @@ WaveSchedule
                         Cooldown -1
                     }
                 }
-                MasterMechanic_PomsonStage2
+                MasterMechanic_PomsonStage2 [$SIGSEGV]
                 {
                     Item "The Pomson 6000"
                     WeaponRestrictions PrimaryOnly
@@ -781,7 +781,7 @@ WaveSchedule
                         Cooldown -1
                     }
                 }
-                MasterMechanic_PomsonStage3
+                MasterMechanic_PomsonStage3 [$SIGSEGV]
                 {
                     Item "The Pomson 6000"
                     WeaponRestrictions PrimaryOnly
@@ -806,7 +806,7 @@ WaveSchedule
                         Cooldown -1
                     }
                 }
-                MasterMechanic_PomsonStage4
+                MasterMechanic_PomsonStage4 [$SIGSEGV]
                 {
                     Item "The Pomson 6000"
                     WeaponRestrictions PrimaryOnly
@@ -831,7 +831,7 @@ WaveSchedule
                         Cooldown -1
                     }
                 }
-                MasterMechanic_PomsonStage5
+                MasterMechanic_PomsonStage5 [$SIGSEGV]
                 {
                     Item "The Pomson 6000"
                     WeaponRestrictions PrimaryOnly
@@ -858,7 +858,7 @@ WaveSchedule
                     }
                 }
 
-                MasterMechanic_ShortCircuit
+                MasterMechanic_ShortCircuit [$SIGSEGV]
                 {
                     Item "TF_WEAPON_PISTOL"
                     WeaponRestrictions SecondaryOnly
@@ -886,7 +886,7 @@ WaveSchedule
                 }
 
                 // Phase 3 Attack Pool
-                MasterMechanic_NuclearShotgun
+                MasterMechanic_NuclearShotgun [$SIGSEGV]
                 {
                     Item "Panic Attack Shotgun"
                     WeaponRestrictions PrimaryOnly
@@ -982,7 +982,7 @@ WaveSchedule
 
             EventChangeAttributes
             {
-                RocketRainPrelude
+                RocketRainPrelude [$SIGSEGV]
                 {
                     WeaponRestrictions SecondaryOnly
                     FireInput // Set Banner to Empty
@@ -1185,7 +1185,7 @@ WaveSchedule
                     }
                 }
 
-                RocketRainReal
+                RocketRainReal [$SIGSEGV]
                 {
                     FireInput // Rotator Start
                     {
@@ -1615,7 +1615,7 @@ WaveSchedule
 
             EventChangeAttributes
             {
-                BarrageCooldown
+                BarrageCooldown [$SIGSEGV]
                 {
                     CharacterAttributes
                     {
@@ -1629,7 +1629,7 @@ WaveSchedule
                         Cooldown -1
                     }
                 }
-                BarrageStage1
+                BarrageStage1 [$SIGSEGV]
                 {
                     CharacterAttributes
                     {
@@ -1648,7 +1648,7 @@ WaveSchedule
                         Cooldown -1
                     }
                 }
-                BarrageStage2
+                BarrageStage2 [$SIGSEGV]
                 {
                     ItemAttributes
                     {
@@ -1663,7 +1663,7 @@ WaveSchedule
                         Cooldown -1
                     }
                 }
-                BarrageStage3
+                BarrageStage3 [$SIGSEGV]
                 {
                     ItemAttributes
                     {
@@ -1678,7 +1678,7 @@ WaveSchedule
                         Cooldown -1
                     }
                 }
-                BarrageStage4
+                BarrageStage4 [$SIGSEGV]
                 {
                     ItemAttributes
                     {
@@ -1693,7 +1693,7 @@ WaveSchedule
                         Cooldown -1
                     }
                 }
-                BarrageStage5
+                BarrageStage5 [$SIGSEGV]
                 {
                     ItemAttributes
                     {

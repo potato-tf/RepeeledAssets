@@ -236,6 +236,18 @@ WaveSchedule
                 "OnTrigger" "!activator,$Addcond,32 8,0,-1"
                 "OnTrigger" "!activator,$DisplayTextHint,You will be teleported in 5 seconds,0,-1"
             }
+
+            // Skeleheat Hotfix
+            func_nobuild
+			{
+			    "targetname" "SkeleheatNoBuild"
+                "origin" "-7866 -936 -1336"
+                "mins" "-198 -668 -128"
+                "maxs" "198 668 128"
+				"AllowTeleporters" "0"
+				"AllowSentry" "0"
+				"AllowDispenser" "0"
+			}
         }
         BossRushSpecialSpawnLocation
         {
@@ -7509,7 +7521,7 @@ WaveSchedule
             MaxActive 3
             SpawnCount 1
             WaitBeforeStarting 20
-            WaitBetweenSpawns 4
+            WaitBetweenSpawns 8
             TotalCurrency 100
 
             TFBot
@@ -7526,7 +7538,7 @@ WaveSchedule
             MaxActive 3
             SpawnCount 1
             WaitBeforeStarting 20
-            WaitBetweenSpawns 3
+            WaitBetweenSpawns 7
             TotalCurrency 100
 
             TFBot
@@ -8060,7 +8072,7 @@ WaveSchedule
             SpawnCount 1
             WaitBeforeStarting 12.5
             WaitBetweenSpawns 0
-            TotalCurrency 300
+            TotalCurrency 200
 
             TFBot
             {
@@ -8075,6 +8087,25 @@ WaveSchedule
                         EntFire(`player`, `$DisplayTextChat`, `{yellow}///REVENGE OF THE ENEMY FROM KIRBY TRIPLE DELUXE///`)
                     "
             }
+        }
+
+        WaveSpawn // Support Demomen
+        {
+            Name "Wave19_Demomen"
+            Where spawnbot_support
+            Support 1
+            TotalCount 100
+            MaxActive 5
+            SpawnCount 1
+            WaitBeforeStarting 30
+            WaitBetweenSpawns 5
+            TotalCurrency 100
+
+            TFBot
+            {
+                Class Demoman
+                Skill Expert
+            } 
         }
     }
 
@@ -8128,7 +8159,7 @@ WaveSchedule
 
         PlayerAttributes
         {
-            "move speed bonus" 2
+            "move speed bonus" 1.5
         }
 
         WaveSpawn

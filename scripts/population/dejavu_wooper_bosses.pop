@@ -99,8 +99,8 @@ WaveSchedule
 			Attributes UseBossHealthBar
 			ExtAttr IgnoreBuildings
 			UseMeleeThreatPrioritization 1
-			Item "Crackle Mangler"   
-			Item "Crackle Shotgun"   
+			Item "Crackle Mangler"  [$SIGSEGV]
+			Item "Crackle Shotgun"  [$SIGSEGV]
 			CharacterAttributes
 			{
 				"airblast vulnerability multiplier" 0.5

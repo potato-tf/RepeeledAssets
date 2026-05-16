@@ -362,7 +362,7 @@ WaveSchedule
 			EventChangeAttributes
 			{
 			    // phase 1
-				LongRange_FOS
+				LongRange_FOS [$SIGSEGV]
 				{
 					WeaponRestrictions MeleeOnly
 					Skill Expert
@@ -382,7 +382,7 @@ WaveSchedule
 						"displace touched enemies" 1
                     }
 				}
-				ShortRange_Pyro
+				ShortRange_Pyro [$SIGSEGV]
 				{
 					WeaponRestrictions PrimaryOnly
 					Skill Expert
@@ -403,7 +403,7 @@ WaveSchedule
 					}
 				}
 				// phase 2
-				LongRange_DeflectorHeavy
+				LongRange_DeflectorHeavy [$SIGSEGV]
 				{
 					WeaponRestrictions PrimaryOnly
 					Skill Expert
@@ -419,8 +419,19 @@ WaveSchedule
 						"health from healers reduced" 2
 						"cancel falling damage" 1
 					}
+
+					FireWeapon
+					{
+						Type "Primary"
+						Delay 0.05
+						Duration 10
+						Repeats 0
+						Cooldown 0.1
+						IfSeeTarget 1
+						IfLeftSpawn 1
+					}
 				}
-				ShortRange_Soldier
+				ShortRange_Soldier [$SIGSEGV]
 				{
 					WeaponRestrictions PrimaryOnly
 					Skill Expert
@@ -439,9 +450,19 @@ WaveSchedule
 						"cancel falling damage" 1
 						"damage bonus" 1.25
 					}
+
+					FireWeapon
+					{
+						Type "Primary"
+						Delay 0.05
+						Repeats 0
+						Cooldown 0.1
+						IfSeeTarget 1
+						IfLeftSpawn 1
+					}
 				}
 				// phase 3
-				ConchSoldier
+				ConchSoldier [$SIGSEGV]
 				{
 					WeaponRestrictions PrimaryOnly
 					Attributes HoldFireUntilFullReload
@@ -469,6 +490,23 @@ WaveSchedule
 						"health from healers reduced" 2
 						"increased jump height" 1.5
 						"cancel falling damage" 1
+					}
+
+					WeaponSwitch
+					{
+						Type "Primary"
+						Delay 3
+						Repeats 1
+						Cooldown 0
+					}
+					FireWeapon
+					{
+						Type "Primary"
+						Delay 3
+						Repeats 0
+						Cooldown 0.1
+						IfSeeTarget 1
+						IfLeftSpawn 1
 					}
 				}
 			}
@@ -605,7 +643,7 @@ WaveSchedule
 			}
 			EventChangeAttributes
 			{
-				Hand_Death
+				Hand_Death [$SIGSEGV]
 				{
 					FireInput
 					{
@@ -684,7 +722,7 @@ WaveSchedule
 			}
 			EventChangeAttributes
 			{
-				Hand_Death
+				Hand_Death [$SIGSEGV]
 				{
 					FireInput
 					{

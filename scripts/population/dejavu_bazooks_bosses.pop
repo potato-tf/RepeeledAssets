@@ -1382,11 +1382,11 @@ WaveSchedule
 		}
     }
 
-    SpawnTemplate   //Spawn template once the mission loads
+    SpawnTemplate [$SIGSEGV] //Spawn template once the mission loads
 	{
 		Name "CaptainPunchMDXXVIII_logic"
 	}
-    SpawnTemplate   //Spawn template once the mission loads
+    SpawnTemplate [$SIGSEGV] //Spawn template once the mission loads
 	{
 		Name "MajorCatastrophe_logic"
 	}
@@ -1401,22 +1401,22 @@ WaveSchedule
                 ClassIcon heavy_chief
                 Health 60000
                 Scale 1.9
-                AlwaysGlow 1  
-                UseMeleeThreatPrioritization 1  
-                Action Mobber  
-                SpawnTemplate "CaptainPunchMDXXVIII_BossEntities"  
-                SpawnTemplate "CaptainPunchMDXXVIII_RememberBossPosition"  
-				SpawnTemplate "CaptainPunchMDXXVIII_BossDeathEntities"   //Original death anim too much effort
-                UseCustomModel "models/props_bigrock_event/bot_heavy_punchboss_nogibs.mdl"  
+                AlwaysGlow 1 [$SIGSEGV]
+                UseMeleeThreatPrioritization 1 [$SIGSEGV]
+                Action Mobber [$SIGSEGV]
+                SpawnTemplate "CaptainPunchMDXXVIII_BossEntities" [$SIGSEGV]
+                SpawnTemplate "CaptainPunchMDXXVIII_RememberBossPosition" [$SIGSEGV]
+				SpawnTemplate "CaptainPunchMDXXVIII_BossDeathEntities" [$SIGSEGV] //Original death anim too much effort
+                UseCustomModel "models/props_bigrock_event/bot_heavy_punchboss_nogibs.mdl" [$SIGSEGV]
 
                 ExtAttr IgnoreBuildings
 
-                ItemModel   // Replaces item model
+                ItemModel [$SIGSEGV] // Replaces item model
 				{
 					ItemName "The Toss-Proof Towel"
 					Model "models/props_bigrock_event/bone_cut_belt.mdl"
 				}
-                FireWeapon    //Periodically fires weapon
+                FireWeapon [$SIGSEGV]  //Periodically fires weapon
                 {
                     Delay 0.01 //Time before the first fire input starts (Default: 10)
                     Cooldown 0.8 //Time between each fire input (Default: 10)
@@ -1426,7 +1426,7 @@ WaveSchedule
                     //IfSeeTarget 1
                     IfHealthAbove 20000
                 }
-                FireWeapon    //Periodically fires weapon
+                FireWeapon [$SIGSEGV]  //Periodically fires weapon
                 {
                     Delay 0.01 //Time before the first fire input starts (Default: 10)
                     Cooldown 0.9 //Time between each fire input (Default: 10)
@@ -1437,7 +1437,7 @@ WaveSchedule
                     IfHealthBelow 20001
                     IfHealthAbove 10000
                 }
-                FireWeapon    //Periodically fires weapon
+                FireWeapon [$SIGSEGV]  //Periodically fires weapon
                 {
                     Delay 0.01 //Time before the first fire input starts (Default: 10)
                     Cooldown 0.1 //Time between each fire input (Default: 10)
@@ -1447,7 +1447,7 @@ WaveSchedule
                     //IfSeeTarget 1
                     IfHealthBelow 10001
                 }
-                FireInput   
+                FireInput [$SIGSEGV] 
 				{
 					Target "CaptainPunchMDXXVIII_phase2_start" //Entity name to use
 					Action "Trigger" //Input to fire
@@ -1457,7 +1457,7 @@ WaveSchedule
 					Repeats 1 //How many times should the input be fired
 					IfHealthBelow 35000 //When set, the task activates only when the bot health is below specified value
 				}
-                FireInput   
+                FireInput [$SIGSEGV] 
 				{
 					Target "CaptainPunchMDXXVIII_phase3_start" //Entity name to use
 					Action "Trigger" //Input to fire
@@ -1467,7 +1467,7 @@ WaveSchedule
 					Repeats 1 //How many times should the input be fired
 					IfHealthBelow 20000 //When set, the task activates only when the bot health is below specified value
 				}
-                FireInput   
+                FireInput [$SIGSEGV] 
 				{
 					Target "CaptainPunchMDXXVIII_phase4_start" //Entity name to use
 					Action "Trigger" //Input to fire
@@ -1477,7 +1477,7 @@ WaveSchedule
 					Repeats 1 //How many times should the input be fired
 					IfHealthBelow 10000 //When set, the task activates only when the bot health is below specified value
 				}
-                WeaponResist   //Multiplies damage received from weapons listed below
+                WeaponResist [$SIGSEGV] //Multiplies damage received from weapons listed below
                 {
                     "TF_WEAPON_SCATTERGUN" 1.449
                     "tf_weapon_soda_popper" 1.412
@@ -1513,7 +1513,7 @@ WaveSchedule
                         Item "The Direct Hit"
                         Item "The Toss-Proof Towel"
                         Item "The Sandvich Safe"
-                        CustomEyeGlowColor "167 0 255"   // Custom eye glow color
+                        CustomEyeGlowColor "167 0 255" [$SIGSEGV] // Custom eye glow color
                         ItemAttributes
                         {
                             ItemName "The Direct Hit"
@@ -1563,7 +1563,7 @@ WaveSchedule
                             "displace touched enemies" 1
                         }
                     }
-                    phase2
+                    phase2 [$SIGSEGV]
                     {
                         Skill Expert
                         Tag robotboss
@@ -1575,7 +1575,7 @@ WaveSchedule
                         Item "The Quickiebomb Launcher"
                         Item "The Toss-Proof Towel"
                         Item "The Sandvich Safe"
-                        CustomEyeGlowColor "255 49 0"   // Custom eye glow color
+                        CustomEyeGlowColor "255 49 0" [$SIGSEGV] // Custom eye glow color
                         ItemAttributes
                         {
                             ItemName "The Quickiebomb Launcher"
@@ -1616,7 +1616,7 @@ WaveSchedule
                             "displace touched enemies" 1
                         }
                     }
-                    phase3
+                    phase3 [$SIGSEGV]
                     {
                         Skill Expert
                         Tag robotboss
@@ -1628,10 +1628,10 @@ WaveSchedule
                         Item "The Loch-n-Load"
                         Item "The Toss-Proof Towel"
                         Item "The Sandvich Safe"
-                        AimAt Feet  
-                        AimOffset "0 0 -75"  
-                        AimLeadProjectileSpeed 1  
-                        CustomEyeGlowColor "0 5 255"   // Custom eye glow color
+                        AimAt Feet [$SIGSEGV]
+                        AimOffset "0 0 -75" [$SIGSEGV]
+                        AimLeadProjectileSpeed 1 [$SIGSEGV]
+                        CustomEyeGlowColor "0 5 255" [$SIGSEGV] // Custom eye glow color
                         ItemAttributes
                         {
                             ItemName "The Loch-n-Load"
@@ -1682,7 +1682,7 @@ WaveSchedule
                             "displace touched enemies" 1
                         }
                     }
-                    phase4
+                    phase4 [$SIGSEGV]
                     {
                         Skill Expert
                         Tag robotboss
@@ -1694,7 +1694,7 @@ WaveSchedule
                         Item "The Direct Hit"
                         Item "The Toss-Proof Towel"
                         Item "The Sandvich Safe"
-                        CustomEyeGlowColor "0 255 8"   // Custom eye glow color
+                        CustomEyeGlowColor "0 255 8" [$SIGSEGV] // Custom eye glow color
                         ItemAttributes
                         {
                             ItemName "The Direct Hit"
@@ -1747,7 +1747,7 @@ WaveSchedule
                         }
                     }
                 }
-                ShootTemplate    //Shoot defined point template. Template is spawned at bot position in looking direction, forward velocity being applied to spawned entities
+                ShootTemplate [$SIGSEGV]  //Shoot defined point template. Template is spawned at bot position in looking direction, forward velocity being applied to spawned entities
 				{
 					Name CaptainPunchMDXXVIII_OrangeFistRing //Name of the template
 					Speed 1 //Velocity of the spawned objects (Default: 1000)
@@ -1757,7 +1757,7 @@ WaveSchedule
 					AttachToProjectile 1 //If set, the template is spawned as a child of the projectile being fired. Incompatible with overrideshoot
 					ItemName "The Quickiebomb Launcher" //Can be specified to limit to a specific weapon
 				}
-                ShootTemplate    //Shoot defined point template. Template is spawned at bot position in looking direction, forward velocity being applied to spawned entities
+                ShootTemplate [$SIGSEGV]  //Shoot defined point template. Template is spawned at bot position in looking direction, forward velocity being applied to spawned entities
 				{
 					Name CaptainPunchMDXXVIII_BlueFistTrail //Name of the template
 					Speed 1 //Velocity of the spawned objects (Default: 1000)
@@ -1767,7 +1767,7 @@ WaveSchedule
 					AttachToProjectile 1 //If set, the template is spawned as a child of the projectile being fired. Incompatible with overrideshoot
 					ItemName "The Loch-n-Load" //Can be specified to limit to a specific weapon
 				}
-                ItemModel   // Replaces item model
+                ItemModel [$SIGSEGV] // Replaces item model
                 {
                     ItemName "The Sandvich Safe"
                     Model "models/workshop/weapons/c_models/c_fists_of_steel/c_fists_of_steel.mdl"
@@ -1783,7 +1783,7 @@ WaveSchedule
 			WeaponRestrictions MeleeOnly			
 			Skill Expert
             Attributes IgnoreFlag
-            Action Mobber  
+            Action Mobber [$SIGSEGV]
 			Item "War Head"
 			Item "Fists of Steel"
             Tag bossminion
@@ -1795,8 +1795,8 @@ WaveSchedule
 			Name "Punch Jr."
 			ClassIcon heavy_steelfist
 			Health 2500
-            AlwaysGlow 1   //If set, the bot is always highlighted
-            CustomEyeGlowColor "255 255 255"   // Custom eye glow color
+            AlwaysGlow 1 [$SIGSEGV] //If set, the bot is always highlighted
+            CustomEyeGlowColor "255 255 255" [$SIGSEGV] // Custom eye glow color
 			Scale 1.5
 			WeaponRestrictions PrimaryOnly
 			Skill Expert
@@ -1805,15 +1805,15 @@ WaveSchedule
             Item "The Sandvich Safe"
             Attributes IgnoreFlag
             Attributes SuppressFire
-            Action Mobber  
-            NoBombUpgrades 1   //If set, the bomb carrier will not upgrade over time
-            ItemModel   // Replaces item model
+            Action Mobber [$SIGSEGV]
+            NoBombUpgrades 1 [$SIGSEGV] //If set, the bomb carrier will not upgrade over time
+            ItemModel [$SIGSEGV] // Replaces item model
             {
                 ItemName "The Sandvich Safe"
                 Model "models/workshop/weapons/c_models/c_fists_of_steel/c_fists_of_steel.mdl"
             }
             Item "The Direct Hit"
-            FireWeapon    //Periodically fires weapon
+            FireWeapon [$SIGSEGV]  //Periodically fires weapon
             {
                 Delay 0.01 //Time before the first fire input starts (Default: 10)
                 Cooldown 0.8 //Time between each fire input (Default: 10)
@@ -1857,8 +1857,8 @@ WaveSchedule
 				Scale 2.1
 				Tag forcefollowbombpath
 				Tag nostupidtopsidedoorway
-				FastUpdate 1  
-				WeaponResist   //Multiplies damage received from weapons listed below
+				FastUpdate 1 [$SIGSEGV]
+				WeaponResist [$SIGSEGV] //Multiplies damage received from weapons listed below
                 {
                     "TF_WEAPON_SCATTERGUN" 1.449
                     "tf_weapon_soda_popper" 1.412
@@ -1880,33 +1880,33 @@ WaveSchedule
                     "TF_WEAPON_SNIPERRIFLE" 2
                     "tf_weapon_compound_bow" 2
                 }
-				AlwaysGlow 1  
-                UseMeleeThreatPrioritization 1  
-                Action Mobber  
+				AlwaysGlow 1 [$SIGSEGV]
+                UseMeleeThreatPrioritization 1 [$SIGSEGV]
+                Action Mobber [$SIGSEGV]
 				//Attributes IgnoreEnemies
 				Attributes UseBossHealthBar
-                SpawnTemplate "MajorCatastrophe_BossEntities"  
-                SpawnTemplate "MajorCatastrophe_BossDeathEntities"  
-				UseCustomModel "models/bots/skangus_event_boss/bot_demo_boss_mega.mdl"  
+                SpawnTemplate "MajorCatastrophe_BossEntities" [$SIGSEGV]
+                SpawnTemplate "MajorCatastrophe_BossDeathEntities" [$SIGSEGV]
+				UseCustomModel "models/bots/skangus_event_boss/bot_demo_boss_mega.mdl" [$SIGSEGV]
 
                 ExtAttr IgnoreBuildings
 
-				SpawnTemplate   //Spawn custom player template
+				SpawnTemplate [$SIGSEGV] //Spawn custom player template
 				{
 					Name "MajorCatastrophe_BossLeftWing"
 					Bone "bip_upperArm_L"
 				}
-				SpawnTemplate   //Spawn custom player template
+				SpawnTemplate [$SIGSEGV] //Spawn custom player template
 				{
 					Name "MajorCatastrophe_BossRightWing"
 					Bone "bip_upperArm_R"
 				}
-				SpawnTemplate   //Spawn custom player template
+				SpawnTemplate [$SIGSEGV] //Spawn custom player template
 				{
 					Name "MajorCatastrophe_BossRageSteam"
 					Bone "exhaust_bone"
 				}
-				FireInput   
+				FireInput [$SIGSEGV] 
 				{
 					Target "MajorCatastrophe_phase2_start" //Entity name to use
 					Action "Trigger" //Input to fire
@@ -1916,7 +1916,7 @@ WaveSchedule
 					Repeats 1 //How many times should the input be fired
 					IfHealthBelow 35000 //When set, the task activates only when the bot health is below specified value
 				}
-				FireInput   
+				FireInput [$SIGSEGV] 
 				{
 					Target "MajorCatastrophe_phase3_start" //Entity name to use
 					Action "Trigger" //Input to fire
@@ -1926,7 +1926,7 @@ WaveSchedule
 					Repeats 1 //How many times should the input be fired
 					IfHealthBelow 20000 //When set, the task activates only when the bot health is below specified value
 				}
-				FireWeapon    //Periodically fires weapon
+				FireWeapon [$SIGSEGV]  //Periodically fires weapon
                 {
                     Delay 3.0 //Time before the first fire input starts (Default: 10)
                     Cooldown 0.5 //Time between each fire input (Default: 10)
@@ -1937,7 +1937,7 @@ WaveSchedule
                     IfHealthBelow 35001
                     IfHealthAbove 20000
                 }
-				FireWeapon    //Periodically fires weapon
+				FireWeapon [$SIGSEGV]  //Periodically fires weapon
                 {
                     Delay 6.0 //Time before the first fire input starts (Default: 10)
                     Cooldown 12.5 //Time between each fire input (Default: 10)
@@ -1948,7 +1948,7 @@ WaveSchedule
                     IfHealthBelow 20001
                     //IfHealthAbove 50000
                 }
-				FireWeapon    //Periodically fires weapon
+				FireWeapon [$SIGSEGV]  //Periodically fires weapon
                 {
                     Delay 15.0 //Time before the first fire input starts (Default: 10)
                     Cooldown 12.5 //Time between each fire input (Default: 10)
@@ -1959,7 +1959,7 @@ WaveSchedule
                     IfHealthBelow 20001
                     //IfHealthAbove 20000
                 }
-				ShootTemplate    //Shoot defined point template. Template is spawned at bot position in looking direction, forward velocity being applied to spawned entities
+				ShootTemplate [$SIGSEGV]  //Shoot defined point template. Template is spawned at bot position in looking direction, forward velocity being applied to spawned entities
 				{
 					Name MajorCatastrophe_FireCannonballs //Name of the template
 					Speed 1 //Velocity of the spawned objects (Default: 1000)
@@ -1969,7 +1969,7 @@ WaveSchedule
 					AttachToProjectile 1 //If set, the template is spawned as a child of the projectile being fired. Incompatible with overrideshoot
 					ItemName "The Loose Cannon" //Can be specified to limit to a specific weapon
 				}
-				ShootTemplate    //Shoot defined point template. Template is spawned at bot position in looking direction, forward velocity being applied to spawned entities
+				ShootTemplate [$SIGSEGV]  //Shoot defined point template. Template is spawned at bot position in looking direction, forward velocity being applied to spawned entities
 				{
 					Name MajorCatastrophe_NukeStickies //Name of the template
 					Speed 1 //Velocity of the spawned objects (Default: 1000)
@@ -1990,7 +1990,7 @@ WaveSchedule
 						Item "Prince Tavish's Crown"
 						Item "Upgradeable TF_WEAPON_GRENADELAUNCHER"
 						WeaponRestrictions PrimaryOnly
-						CustomEyeGlowColor "0 175 8"  
+						CustomEyeGlowColor "0 175 8" [$SIGSEGV]
 						ItemAttributes
 						{
 							ItemName "Upgradeable TF_WEAPON_GRENADELAUNCHER"
@@ -2029,7 +2029,7 @@ WaveSchedule
                             "displace touched enemies" 1
 						}
 					}
-					phase2
+					phase2 [$SIGSEGV]
                     {
 						Skill Expert
 						Attributes MiniBoss
@@ -2038,7 +2038,7 @@ WaveSchedule
 						Item "The Loose Cannon"
 						Attributes SuppressFire
 						WeaponRestrictions PrimaryOnly
-						CustomEyeGlowColor "255 125 0"  
+						CustomEyeGlowColor "255 125 0" [$SIGSEGV]
 						ItemAttributes
 						{
 							ItemName "The Loose Cannon"
@@ -2075,7 +2075,7 @@ WaveSchedule
                             "displace touched enemies" 1
 						}
 					}
-					phase3
+					phase3 [$SIGSEGV]
                     {
 						Skill Expert
 						Attributes SuppressFire
@@ -2085,7 +2085,7 @@ WaveSchedule
 						Item "The Loch-n-Load"
 						Item "Upgradeable TF_WEAPON_PIPEBOMBLAUNCHER"
 						WeaponRestrictions SecondaryOnly
-						CustomEyeGlowColor "13 229 229"  
+						CustomEyeGlowColor "13 229 229" [$SIGSEGV]
 						ItemAttributes
 						{
 							ItemName    "The Loch-n-Load"
@@ -2129,7 +2129,7 @@ WaveSchedule
                             "displace touched enemies" 1
 						}
 					}
-					phase4
+					phase4 [$SIGSEGV]
                     {
 						Skill Expert
 						Attributes SuppressFire
@@ -2141,7 +2141,7 @@ WaveSchedule
 						Item "Upgradeable TF_WEAPON_PIPEBOMBLAUNCHER"
 						//Item "The Splendid Screen"
 						WeaponRestrictions MeleeOnly
-						CustomEyeGlowColor "255 0 0"  
+						CustomEyeGlowColor "255 0 0" [$SIGSEGV]
 						ItemAttributes
 						{
 							ItemName    "The Loch-n-Load"
@@ -2211,7 +2211,7 @@ WaveSchedule
 			Skill Hard
 			Health 125
 			Tag bossminion
-			Action Mobber  
+			Action Mobber [$SIGSEGV]
 		}
     }
 }

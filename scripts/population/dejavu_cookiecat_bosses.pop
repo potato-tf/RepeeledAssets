@@ -19,7 +19,7 @@ WaveSchedule
             Attributes AlwaysFireWeapon
             Attributes DisableDodge
             WeaponRestrictions PrimaryOnly
-            AimOffset "0 0 40"  
+            AimOffset "0 0 40" [$SIGSEGV]
             ExtAttr IgnoreBuildings
             UseMeleeThreatPrioritization 1
             Tag pyro_boss
