@@ -615,7 +615,7 @@
 		[ "heavy_mittens", 0,   MVM_CLASS_FLAG_NORMAL | MVM_CLASS_FLAG_ALWAYSCRIT | MVM_CLASS_FLAG_SUPPORT ],
 		[ "demoknight_samurai", 0,   MVM_CLASS_FLAG_NORMAL | MVM_CLASS_FLAG_SUPPORT ],
 		[ "sniper_sydneysleeper", 0,   MVM_CLASS_FLAG_NORMAL | MVM_CLASS_FLAG_SUPPORT ],
-		[ "scout_fast", 0,   MVM_CLASS_FLAG_MINIBOSS | MVM_CLASS_FLAG_SUPPORT ],
+		[ "scout_giant_fast", 0,   MVM_CLASS_FLAG_MINIBOSS | MVM_CLASS_FLAG_SUPPORT ],
 		[ "demo_burst", 0,   MVM_CLASS_FLAG_NORMAL | MVM_CLASS_FLAG_SUPPORT ],
 		[ "pyro_flare", 0,   MVM_CLASS_FLAG_NORMAL | MVM_CLASS_FLAG_SUPPORT ],
 		[ "soldier_libertylauncher", 0,   MVM_CLASS_FLAG_NORMAL | MVM_CLASS_FLAG_SUPPORT ],

@@ -8,7 +8,7 @@ WaveSchedule
 	GiantsDropRareSpells 0
 	SpellDropRateGiant 0
 	SpellDropRateCommon 0
-	
+
 	ItemAttributes // Rust Scattergun
 	{
 		ItemName "Rust Botkiller Scattergun Mk.I"
@@ -1295,6 +1295,7 @@ WaveSchedule
 		"spread penalty"										2.5
 		"projectile penetration"								1
 		"set_item_texture_wear"									0.2
+		"alt fire attributes"									"gesture speed increase|300|fire input on taunt|!activator^$PlaySequence^SelectionMenu_Anim01"
 	}
 	ItemAttributes // Pistol + Skins
 	{
@@ -1408,7 +1409,7 @@ WaveSchedule
 		"increase buff duration HIDDEN"							2.5
 		"mult dmg vs same class"								3
 		"rage receive scale"									0.01
-		"effect add attributes"									"damage bonus|1.25|move speed bonus|1.15|dmg taken from fire reduced|0|ignored by enemy sentries|1"
+		"slow enemy on hit major"								1
 	}
 	ItemAttributes
 	{
@@ -1641,6 +1642,7 @@ WaveSchedule
 		ItemName "TF_WEAPON_BUILDER"
 		"provide on active"										1
 		"taunt_attr_player_invis_percent"						1
+		"alt fire attributes"									"gesture speed increase|300|fire input on taunt|!activator^$PlaySequence^competitive_winnerstate_idle"
 	}
 	ItemAttributes // Syringe Gun
 	{
@@ -1732,6 +1734,8 @@ WaveSchedule
 		"mult bleeding dmg"										10
 		"explosive sniper shot"									11
 		"set_item_texture_wear"									0.2
+        "custom_paintkit_seed_lo"								4466973305
+        "custom_paintkit_seed_hi"								4466973305
 	}
 	ItemAttributes // SMG + Skins
 	{
@@ -1807,12 +1811,14 @@ WaveSchedule
 		"robo sapper"											3
 		"effect bar recharge rate increased"					0.25
 		"set item tint RGB"										65280
+		"alt fire attributes"									"gesture speed increase|300|fire input on taunt|!activator^$PlaySequence^competitive_winnerstate_idle"
 	}
 	ItemAttributes // Sapper
 	{
 		SimilarToItem "TF_WEAPON_BUILDER_SPY"
 		"robo sapper"											3
 		"effect bar recharge rate increased"					0.25
+		"alt fire attributes"									"gesture speed increase|300|fire input on taunt|!activator^$PlaySequence^competitive_winnerstate_idle"
 	}
 	ItemAttributes // Red-Tape Recorder
 	{
@@ -1821,6 +1827,7 @@ WaveSchedule
 		"switch from wep deploy time decreased"					0.25
 		"effect bar recharge rate increased"					0.25
 		"sapper damage bonus"									5000
+		"alt fire attributes"									"gesture speed increase|300|fire input on taunt|!activator^$PlaySequence^competitive_winnerstate_idle"
 	}
 	ItemAttributes // Disguise Kit
 	{
@@ -2037,6 +2044,7 @@ WaveSchedule
 		"critboost on kill"										5
 		"engy building health bonus"							32
 		"engy sentry damage bonus"								80
+		"alt fire attributes"									"gesture speed increase|300|fire input on taunt|!activator^$PlaySequence^competitive_winnerstate_idle"
 		//
 		"attach particle effect"								4
 		"attach particle effect static"							17
@@ -2076,8 +2084,8 @@ WaveSchedule
 		"scattergun no reload single"							0
 		"Reload time decreased"									0.2
 		"increase buff duration HIDDEN"							50
+        "auto fires full clip penalty"							1
 		"set_item_texture_wear"									0.2
-		"auto fires full clip penalty"							1
 	}
 	ItemAttributes
 	{
@@ -2709,7 +2717,7 @@ WaveSchedule
 	ItemAttributes
 	{
 		ItemName	"The Gunboats"
-		"mult step height"										5
+		"halloween increased jump height"						0.75
 		"allow bunny hop"										1
 		"move speed bonus"										1.25
 		"mult dmgtaken from melee"								0.5
@@ -2771,9 +2779,9 @@ WaveSchedule
 	{
 		ItemName	"The Half-Zatoichi"
 		"special taunt"											1
-		"damage bonus"											81
+		"damage bonus"											111
 		"max health additive bonus"								10000
-		"restore health on kill"								50
+		"restore health on kill"								150
 		"melee range multiplier"								2.5
 		"move speed bonus"										1.5
 		"halloween increased jump height"						1.5
@@ -3039,7 +3047,8 @@ WaveSchedule
 		"stun on hit"											0.1
 		"stun on hit type"										"bonk"
 		"fire input on hit"										"!self^$BotCommand^interrupt_action -posent ConfusionEnt -duration 8"
-		"alt fire attributes"									"bleeding duration|1|mult bleeding dmg|1250|melee range multiplier|0.01|hit self on miss|1|teleport instead of die|999"
+		"alt fire attributes"									"melee range multiplier|0.001|fire input on attack|!activator^$ForceRespawn"
+		//"alt fire attributes"									"bleeding duration|1|mult bleeding dmg|1250|melee range multiplier|0.001|hit self on miss|1|teleport instead of die|999"
 		"melee bounds multiplier"								2.5
 	}
 	ItemAttributes
@@ -3099,7 +3108,7 @@ WaveSchedule
 		"melee range multiplier"								1.5
 		"damage bonus"											0.001
 		"move speed bonus"										1.2
-		"increased jump height"									2
+		"increased jump height"									2.25
 		"max health additive bonus"								7325
 		"damage force reduction"								0.5
 		"health regen"											150
@@ -3111,11 +3120,11 @@ WaveSchedule
 		//"bleeding duration"										0.5
 		//"add cond on hit"										80
 		//"add attributes on hit"									"damage bonus hidden|3|10"
-		"add attributes on hit"									"damage bonus hidden|3|5"
+		"add attributes on hit"									"cancel falling damage|1|30|airblast vulnerability multiplier hidden|2|3|damage bonus hidden|2|5"
 		"add cond on hit"										84
 		"add cond on hit duration"								5
-		"apply z velocity on damage"							480
-		"single wep deploy time increased"						3
+		"apply z velocity on damage"							450
+		"single wep deploy time increased"						2
 		"fire rate penalty"										2
 		
 	}
@@ -3261,76 +3270,71 @@ WaveSchedule
 	ItemAttributes
 	{
 		ItemName	"The Bootlegger"
-		"max health additive bonus"								3000
-		"dmg taken from crit increased"							50
-		"mult dmgtaken from melee"								0.1
-		"charge time increased"									1.5
-		"move speed bonus"										1.3
-		"halloween increased jump height"						1.8
-		"charge impact damage increased"						200
-		"charge recharge rate increased"						2
-		"health regen"											60
-		"health from healers increased"							5
+		"max health additive bonus"								4825
+		"charge recharge rate increased"						3
+		"move speed bonus"										1.25
+		"halloween increased jump height"						1.5
+		"charge impact damage increased"						150
+		"health regen"											250
+		"health from healers increased"							3
+		"cancel falling damage"									1
 		"move speed bonus shield required"						1
 		"kill refills meter"									0
 	}
 	ItemAttributes
 	{
 		ItemName	"Ali Baba's Wee Booties"
-		"max health additive bonus"								1000
-		"charge time increased"									3
-		"move speed bonus"										1.3
-		"halloween increased jump height"						1.8
-		"dmg taken increased"									0.75
-		"charge impact damage increased"						500
-		"charge recharge rate increased"						3
-		"health regen"											40
-		"health from healers increased"							2
+		"max health additive bonus"								4825
+		"move speed bonus"										1.25
+		"halloween increased jump height"						1.5
+		"charge impact damage increased"						450
+		"health regen"											250
+		"health from healers increased"							3
+		"cancel falling damage"									1
 		"move speed bonus shield required"						1
 		"kill refills meter"									0
 	}
 	ItemAttributes
 	{
 		SimilarToItem	"The Chargin' Targe"
-		"dmg taken from blast reduced"							0.15
+		"charge impact damage increased"						2
+		"addcond immunity"										15
+		"charge recharge rate increased"						2
+		"charge time increased"									1.5
 		"dmg taken from crit reduced"							0.5
-		"damage force reduction"								0.4
+		"damage force reduction"								0.5
 		"full charge turn control"								1
 		"mult charge turn control"								8
-		"mult charging move speed"								1.6
+		"mult charging move speed"								1.4
 		"dmg taken from fire reduced"							1
-		"dmg taken from fire increased"							2
-		"dmg taken from bullets increased"						2
+		"dmg taken from blast reduced"							1
 	}
 	ItemAttributes
 	{
 		ItemName	"The Splendid Screen"
-		"dmg taken from fire reduced"							0.15
+		"charge recharge rate increased"						4
+		"charge time increased"									1.5
 		"dmg taken from crit reduced"							0.5
-		"damage force reduction"								0.4
+		"damage force reduction"								0.5
 		"full charge turn control"								1
 		"mult charge turn control"								8
-		"mult charging move speed"								1.6
+		"mult charging move speed"								1.4
+		"dmg taken from fire reduced"							1
 		"dmg taken from blast reduced"							1
-		"dmg taken from blast increased"						2
-		"dmg taken from bullets increased"						2
-		"charge impact damage increased"						1
-		"charge recharge rate increased"						1
 	}
 	ItemAttributes
 	{
 		ItemName	"The Tide Turner"
-		"dmg taken from bullets reduced"						0.15
+		"charge recharge rate increased"						2
 		"dmg taken from crit reduced"							0.5
-		"damage force reduction"								0.4
+		"damage force reduction"								0.5
 		"full charge turn control"								1
 		"mult charge turn control"								8
-		"mult charging move speed"								1.6
+		"mult charging move speed"								2.8
 		"lose demo charge on damage when charging"				0
-		"dmg taken from fire increased"							2
-		"dmg taken from blast increased"						2
 		"dmg taken from fire reduced"							1
 		"dmg taken from blast reduced"							1
+		"kill refills meter"									0
 	}
 	ItemAttributes
 	{
@@ -3401,7 +3405,6 @@ WaveSchedule
 		"move speed bonus"										1.6
 		"melee attack rate bonus"								0.6
 		"damage force reduction"								0.6
-		"charge time increased"									4
 		"max health additive bonus"								8325
 		"minicritboost on kill"									10
 		"restore health on kill"								4
@@ -3446,6 +3449,7 @@ WaveSchedule
 		"fire rate penalty"										1.2
 		"mult crit dmg"											2
 		"restore health on kill"								30
+		"max health additive penalty"							0
 	}
 	ItemAttributes
 	{
@@ -3463,7 +3467,7 @@ WaveSchedule
 		"restore health on kill"								25
 		"health from healers increased"							25
 		"minicritboost on kill"									10
-		"melee attack rate bonus"								0.25
+		"melee attack rate bonus"								0.3
 		"self add cond on hit"									16
 		"self add cond on hit duration"							0.25
 	}
@@ -3494,17 +3498,26 @@ WaveSchedule
 		ItemName	"The Scotsman's Skullcutter"
 		"special taunt"											1
 		"provide on active"										0
-		"damage bonus"											65
+		"damage bonus"											50
 		"move speed bonus"										1.4
-		"critboost on kill"										5
-		"fire rate penalty"										2
-		"mult dmg vs same class"								10
+		"mod see enemy health" 									1
+		"fire input on hit"										"!self^$RemoveCond^5"
+		"subtract victim medigun charge on hit"					100
+		"damage all connected"									1
+		"add attributes on hit"									"ubercharge rate penalty|0|15|mult medigun range|-5|15|addcond immunity|5|15|heal rate penalty|0|15"
+		"mult dmg vs same class"								3
+		"mult crit dmg"											3
+		"stun on hit"											1
+		"stun on hit type"										"movement"
+		"stun on hit slow"										1
 		"restore health on kill"								30
 		"damage force reduction"								0.6
-		"minicritboost on kill"									10
+		"minicritboost on kill"									5
 		"max health additive bonus"								7250
 		"health regen"											45
+		"melee range multiplier"								3
 		"set_item_texture_wear"									0.2
+		"move speed penalty"									1
 	}
 	ItemAttributes
 	{
@@ -3514,7 +3527,7 @@ WaveSchedule
 		"blast dmg to self increased"							999999
 		"max health additive bonus"								4825
 		"move speed bonus"										1.25
-		"mult crit when health is below percent"				0.02
+		"mult crit when health is below percent"				0.10
 		"ragdolls become ash"									1
 		"damage bonus"											2
 		"fire rate penalty"										10
@@ -3912,20 +3925,42 @@ WaveSchedule
 		"damage bonus bullet vs sentry target"					20
 		"add onhit addammo"										50
 	}
+//	ItemAttributes
+//	{
+//		ItemName	"The Short Circuit"
+//		"special taunt"											1
+//		"fire rate penalty"										3.5
+//		"dmg penalty vs players"								100
+//		"slow enemy on hit major"								5
+//		"mod ammo per shot"										30
+//		"restore health on kill"								30
+//		"crit vs wet players"									1
+//		"damage bonus"											15
+//		"blast dmg to self increased"							0.1
+//		"stun on damage"										4
+//		"metal_pickup_decreased"								0.75
+//		"killstreak tier"										1
+//	}
 	ItemAttributes
 	{
 		ItemName	"The Short Circuit"
 		"special taunt"											1
-		"fire rate penalty"										3.5
-		"dmg penalty vs players"								100
+		"damage bonus"											7.5			//7.5 on Potato for some fucking reason
+		"fire rate penalty"										1.65			//1.65 on Potato for some fucking reason
 		"slow enemy on hit major"								5
-		"mod ammo per shot"										30
+		"mod ammo per shot"										400
 		"restore health on kill"								30
 		"crit vs wet players"									1
-		"damage bonus"											15
-		"blast dmg to self increased"							0.1
-		"stun on damage"										4
+		"blast dmg to self increased"							0
+		"self dmg push force decreased"							0
+		"stun on damage"										5
 		"metal_pickup_decreased"								0.75
+		"mult projectile count"									3
+		"spread angle pattern"									"0 -15 0|0 0 0|0 15 0"
+		"override projectile type extra"						"mechanicalarmorb"
+		"projectile no deflect"									1
+		"alt fire attack"										1
+		"alt fire attributes"									"projectile speed increased|47.5|projectile acceleration|-9000|projectile acceleration time|0.25|fire rate bonus hidden|1.25"
 		"killstreak tier"										1
 	}
 	ItemAttributes
@@ -3942,6 +3977,9 @@ WaveSchedule
 	{
 		ItemName	"The Gunslinger"
 		"special taunt"											1
+		"damage bonus"											3
+		"mult dmg vs giants"									2
+		"weapon never gib"										1
 		"health regen"											45
 		"move speed bonus"										1.5
 		"halloween increased jump height"						2
@@ -3955,7 +3993,7 @@ WaveSchedule
 		"engy building health bonus"							32
 		"engineer sentry build rate multiplier"					1
 		"sentry rapid fire"										1
-		"self add attributes on hit"							"mult crit dmg|256.41025|1"
+		"mult crit dmg"											51.282
 		"upgrade rate decrease"									4
 		"Repair rate increased"									4
 		"mod weapon blocks healing"								1
@@ -4073,7 +4111,7 @@ WaveSchedule
 		"custom impact sound"									"weapons/explode3.wav"
 		"mini rockets"											1
         "add cond on hit"										87
-        "add cond on hit duration"								6
+        "add cond on hit duration"								7.5
 		"self add attributes on hit"							"ubercharge rate penalty|0|10"
 	}
 	ItemAttributes
@@ -4081,28 +4119,29 @@ WaveSchedule
 		ItemName	"The Blutsauger"
 		"special taunt"											1
 		"custom impact sound"									"weapons/cow_mangler_explosion_charge_02.wav"
-		"ubercharge ammo"										100
         "damage penalty"										0.001
 		"add cond on hit"										43
-		"add cond on hit duration"								30
-		"add attributes on hit"									"not solid to players|1|30|damage bonus|10|30|always crit|1|30|cannot pick up intelligence|1|40|dmg taken increased|0.1|30|mult dmg vs giants|0.5|30|mult dmg vs tanks|0.5|30"
+		"add cond on hit duration"								60
+		//"fire input on hit"										"!self^$BotCommand^switch_action Mobber -duration 60"
+		"add attributes on hit"									"damage bonus|10|60|add cond when active|11|60|not solid to players|1|60|cannot pick up intelligence|1|60|dmg taken increased|0.1|60"
+		"self dmg push force decreased"							0
+		"blast dmg to self increased"							0
 		"always crit"											1
 		"projectile no deflect"									1
 		"Blast radius decreased"								0.1
 		"max aoe targets"										1
 		"override projectile type"								2
-		"fire rate penalty"										10
+		"fire rate penalty"										20
 		"clip size penalty"										0.025
 		"maxammo primary reduced"								0
 		"projectile speed decreased"							0.15
-		"mod projectile heat seek power"						1440
-		"mod projectile heat aim start time"					0.8
+		"mod projectile heat seek power"						150
+		"mod projectile heat aim start time"					0.5
 		"mod projectile heat no predict target speed"			1
 		"projectile acceleration"								300
 		"projectile acceleration time"							1.5
   		"projectile trail particle"								"~rockettrail_pink_charged" //"utaunt_glitter_teamcolor_red"
 		"mini rockets"											1
-		"SPELL: Halloween pumpkin explosions"					1
         "projectile sound"										"mvm/giant_soldier/giant_soldier_rocket_shoot.wav"
 		"explosion particle"									"blut_reprogram_explosion"
 		"self add attributes on hit"							"ubercharge rate penalty|0|10"
@@ -4463,15 +4502,16 @@ WaveSchedule
 		"special taunt"											1
 		"single wep deploy time increased"						2
 		"override projectile type extra"						"spelllightningorb"
-		"projectile gravity"									800
 		"projectile speed increased"							32
+		"projectile acceleration" 								-1024
+		"projectile acceleration time"							1
 		"maxammo secondary reduced"								0.05
 		"reload time increased"									4
 		"fire rate penalty"										16
 		"no primary ammo from dispensers while active"			1
 		"sapper kills collect crits"							0
 		"crit mod disabled"										0
-		"damage penalty"										0.01
+		"damage penalty"										0
 		"clip size penalty"										0.16
 		"auto fires full clip penalty"							1
 		"alt fire attributes"									"addcond immunity|4"

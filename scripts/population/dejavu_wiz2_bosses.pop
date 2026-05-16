@@ -120,7 +120,7 @@ WaveSchedule
 
             EventChangeAttributes //Do not attempt to put any of custom keys here. ExtAttr is the only exception
             {
-                Intro
+                Intro [$SIGSEGV]
                 {
                     ItemAttributes
                     {
@@ -156,7 +156,7 @@ WaveSchedule
                         Repeats 1 //How many times should bot display the message (Default: 0 - Infinite)
                     }
                 }
-                A
+                A [$SIGSEGV]
                 {
                     ItemAttributes
                     {
@@ -186,7 +186,7 @@ WaveSchedule
                     }
                     WeaponRestrictions PrimaryOnly
                 }
-                B
+                B [$SIGSEGV]
                 {
                     WeaponRestrictions PrimaryOnly
                     ItemAttributes
@@ -223,7 +223,7 @@ WaveSchedule
                         "mult debuff duration" 0.5
                     }
                 }
-                C
+                C [$SIGSEGV]
                 {
                     WeaponRestrictions SecondaryOnly
                     ItemAttributes
@@ -256,7 +256,7 @@ WaveSchedule
                         "mult debuff duration" 0.5
                     }
                 }
-                D
+                D [$SIGSEGV]
                 {
                     ItemAttributes
                     {

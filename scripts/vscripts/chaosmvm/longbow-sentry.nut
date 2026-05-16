@@ -2,7 +2,7 @@ IncludeScript("fatcat_library")
 PrecacheSound("weapons/teleporter_send.wav")
 PrecacheSound("weapons/teleporter_receive.wav")
 
-SetScriptVersion("longbow_sentry", "1.0.5")
+SetScriptVersion("longbow_sentry", "1.0.6")
 
 ///// Events! /////
 ::longbow_events <- {
@@ -11,7 +11,7 @@ SetScriptVersion("longbow_sentry", "1.0.5")
 		local player = params.player
 		if(player.GetWeaponIDXInSlot(SLOT_MELEE) != TF_WEAPON_EUREKA_EFFECT) return
 
-		player.AddThink(0, LongBowSentry, 0.0, "LongbowSentry")
+		player.AddThink(LongBowSentry, "LongbowSentry")
 	}
 }
 __CollectGameEventCallbacks(longbow_events)
@@ -21,7 +21,7 @@ function LongBowSentry()
 {
 	if(self.GetWeaponIDXInSlot(SLOT_MELEE) != TF_WEAPON_EUREKA_EFFECT)
 	{
-		ClearThinks(self)
+		self.RemoveThink("LongbowSentry")
 		return 500
 	}
 	local m_iMetal = self.GetMetal()
@@ -41,7 +41,6 @@ function LongBowSentry()
 	if(m_iMetal <= 499)
 	{
 		self.TranslateToHud("LOW_METAL")
-		// self.PrintToHud("Not enough Metal")
 		return -1
 	}
 
@@ -114,7 +113,6 @@ function LongBowSentry()
 		return -1
 	}
 	AddThinkToEnt(building_blueprint, "think")
-	PurgeString("think")
 
 	EmitSoundEx({
 		sound_name = "weapons/teleporter_send.wav"

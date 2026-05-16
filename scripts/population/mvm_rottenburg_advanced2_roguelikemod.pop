@@ -5,18 +5,18 @@
 #base robot_giant.pop
 #base robot_standard.pop
 
-WaveSchedule													
+WaveSchedule
 {
 
 	StartingCurrency 1200
 	RespawnWaveTime 6
 	CanBotsAttackWhileInSpawnRoom no
 	Advanced	1
-	
+
 	ExtendedUpgradesOnly 1
 
 	LuaScriptFile "scripts/roguelikemode_style2.lua" //Example name for lua script file
-	
+
 /////////////////
 //MISSIONS
 /////////////////
@@ -25,7 +25,7 @@ WaveSchedule
 ///////////////////////////////////////////////////////////////////////////
 //SENTRY BUSTER MISSIONS
 ///////////////////////////////////////////////////////////////////////////
-	
+
 	Mission	// Sentry Busters - 1, 2, 3, 4
 	{
 		Objective DestroySentries
@@ -41,7 +41,7 @@ WaveSchedule
 				Template T_TFBot_SentryBuster
             }
 	}
-	
+
 	Mission	// Sentry Busters - 5, 6, 7
 	{
 		Objective DestroySentries
@@ -61,7 +61,7 @@ WaveSchedule
 ///////////////////////////////////////////////////////////////////////////
 //SNIPER MISSIONS
 ///////////////////////////////////////////////////////////////////////////
-	
+
 	Mission	// Sniper wave 2
 	{
 		Objective Sniper
@@ -82,8 +82,8 @@ WaveSchedule
 				"damage bonus"	1.0
 			}
 		}
-	}	
-	
+	}
+
 	Mission	// Sniper wave 4
 	{
 		Objective Sniper
@@ -104,8 +104,8 @@ WaveSchedule
 				"damage bonus"	1.0
 			}
 		}
-	}	
-	
+	}
+
 	Mission	// Sniper wave 5, 6
 	{
 		Objective Sniper
@@ -148,16 +148,16 @@ WaveSchedule
 				"damage bonus"	1.0
 			}
 		}
-	}	
+	}
 
-	
+
 ///////////////////////////////////////////////////////////////////////////
 //SPY MISSIONS
 ///////////////////////////////////////////////////////////////////////////
-	
+
 	Mission // Spy wave 4, 5
 	{
-		Objective Spy  
+		Objective Spy
 
 		InitialCooldown 30
 		Where spawnbot_mission_spy
@@ -172,11 +172,11 @@ WaveSchedule
 			Skill Expert
 			Name Spy
 		}
-	}	
-	
+	}
+
 	Mission // Spy wave 7
 	{
-		Objective Spy  
+		Objective Spy
 
 		InitialCooldown 15
 		Where spawnbot_mission_spy
@@ -191,17 +191,17 @@ WaveSchedule
 			Skill Expert
 			Name Spy
 		}
-	}	
-	
+	}
 
-	
-///////////////////////////////////////////////////////////////////////////	
+
+
+///////////////////////////////////////////////////////////////////////////
 //ENGINEER MISSIONS
-///////////////////////////////////////////////////////////////////////////	
-	
-	Mission // Engineer wave 6 
+///////////////////////////////////////////////////////////////////////////
+
+	Mission // Engineer wave 6
 	{
-		Objective Engineer  
+		Objective Engineer
 
 		InitialCooldown 45
 		Where spawnbot
@@ -218,7 +218,7 @@ WaveSchedule
 			Attributes TeleportToHint
 			Health 600
 		}
-	}	
+	}
 
 
 /////////////////
@@ -227,7 +227,7 @@ WaveSchedule
 //START $1200
 //DROP W1 $1100 /W2 $1100 /W3 $1100 /W4 $1000 /W5 $1000 /W6 $900 /W7 $800
 //START: $1200 / DROP: $7000 / TOTAL: $8200 / TOTAL PLUS BONUS: $8800
-/////////////////	
+/////////////////
 
 //WAVE 1  /////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
@@ -238,7 +238,7 @@ WaveSchedule
 // 20 Heavies (100)
 // 1 Squad 1 Giant RapidFire Soldier, 1 Giant Medic (250)
 // 10 Demomen (100)
-// Missions: Sentries 1/45, 
+// Missions: Sentries 1/45,
 // Cash at start is $1200
 // Total cash in this wave is $1100
 // Running Total cash is $2300
@@ -246,6 +246,12 @@ WaveSchedule
 
 	Wave
 	{
+		InitWaveOutput
+		{
+			Target BigNet
+			Action RunScriptCode
+			Param "EntFire(`tf_objective_resource`, `$SetClientProp$m_iszMvMPopfileName`, `mvm_rottenburg_advanced2`)"
+		}
 		StartWaveOutput
 		{
 			Target wave_start_relay_classic
@@ -258,16 +264,16 @@ WaveSchedule
 		}
 
 		Checkpoint Yes
-		
+
 	WaveSpawn // 32 Soldiers (160)
 		{
-			Where spawnbot	
+			Where spawnbot
 			Name "W1_01"
-			TotalCount 32			
-			MaxActive 16								
-			SpawnCount 8									
-			WaitBetweenSpawns 8							
-			TotalCurrency 160	
+			TotalCount 32
+			MaxActive 16
+			SpawnCount 8
+			WaitBetweenSpawns 8
+			TotalCurrency 160
 
 			TFBot
 				{
@@ -275,49 +281,49 @@ WaveSchedule
 					Skill Easy
 				}
 		}
-		
+
 	WaveSpawn // 2 Super Scouts (140)
 		{
 			Where spawnbot
 			WaitForAllSpawned "W1_01"
-			WaitBetweenSpawns 15	
-			TotalCount 2			
-			MaxActive 2								
-			SpawnCount 1			
-			TotalCurrency 140	
+			WaitBetweenSpawns 15
+			TotalCount 2
+			MaxActive 2
+			SpawnCount 1
+			TotalCurrency 140
 
 			TFBot
 				{
 					Template T_TFBot_Giant_Scout_Fast
 				}
 		}
-		
+
 	WaveSpawn // 20 Demoknight flood (100) flank spawners
 		{
 			Where flankers
 			Name "W1_02"
 			WaitForAllDead "W1_01"
-			TotalCount 20			
-			MaxActive 20								
-			SpawnCount 4									
-			WaitBetweenSpawns 1							
-			TotalCurrency 100	
+			TotalCount 20
+			MaxActive 20
+			SpawnCount 4
+			WaitBetweenSpawns 1
+			TotalCurrency 100
 
 			TFBot
 				{
 					Template T_TFBot_Demoman_Knight
 				}
 		}
-		
+
 	WaveSpawn // 50 Scouts (250)
 		{
-			Where spawnbot	
+			Where spawnbot
 			WaitForAllDead "W1_02"
-			TotalCount 50			
-			MaxActive 12								
-			SpawnCount 5									
-			WaitBetweenSpawns 10							
-			TotalCurrency 250	
+			TotalCount 50
+			MaxActive 12
+			SpawnCount 5
+			WaitBetweenSpawns 10
+			TotalCurrency 250
 
 			TFBot
 				{
@@ -325,7 +331,7 @@ WaveSchedule
 					Skill Easy
 				}
 		}
-		
+
 	WaveSpawn // 20 Heavies (100)
 		{
 			Where flankers
@@ -334,8 +340,8 @@ WaveSchedule
 			TotalCount 20
 			MaxActive 6
 			SpawnCount 4
-			WaitBetweenSpawns 2							
-			TotalCurrency 100	
+			WaitBetweenSpawns 2
+			TotalCurrency 100
 
 			TFBot
 				{
@@ -343,19 +349,19 @@ WaveSchedule
 					Skill Easy
 				}
 		}
-		
+
 	WaveSpawn // 1 Squad 1 Giant RapidFire Soldier, 1  Giant Medic (270)
 		{
 			Where flankers
 			Name "W1_04"
 			WaitForAllDead "W1_03"
 			WaitBeforeStarting 10
-			TotalCount 2			
-			MaxActive 2							
-			SpawnCount 2																
-			TotalCurrency 270	
+			TotalCount 2
+			MaxActive 2
+			SpawnCount 2
+			TotalCurrency 270
 
-			Squad 
+			Squad
 			{
 				TFBot
 					{
@@ -367,17 +373,17 @@ WaveSchedule
 					}
 			}
 		}
-		
+
 	WaveSpawn // 16 Demomen (80)
 		{
-			Where spawnbot	
+			Where spawnbot
 			WaitForAllDead "W1_03"
 			WaitBeforeStarting 20
-			TotalCount 16			
-			MaxActive 16								
-			SpawnCount 4									
-			WaitBetweenSpawns 12 							
-			TotalCurrency 80	
+			TotalCount 16
+			MaxActive 16
+			SpawnCount 4
+			WaitBetweenSpawns 12
+			TotalCurrency 80
 
 			TFBot
 				{
@@ -387,7 +393,7 @@ WaveSchedule
 		}
 	}
 
-	
+
 //WAVE 2  /////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // 5 Squads 1 Giant Crit Pyro 4 FastShot Scorchshot Pyros (200)
@@ -415,18 +421,18 @@ WaveSchedule
 		}
 
 		Checkpoint Yes
-		
+
 	WaveSpawn // 5 Squads 1 Giant Crit Pyro 4 fastShot Scorchshot Pyros (200)
 		{
-			Where spawnbot	
+			Where spawnbot
 			Name "W2_01"
-			TotalCount 25			
-			MaxActive 15								
-			SpawnCount 5									
-			WaitBetweenSpawns 10							
-			TotalCurrency 200	
+			TotalCount 25
+			MaxActive 15
+			SpawnCount 5
+			WaitBetweenSpawns 10
+			TotalCurrency 200
 
-			Squad 
+			Squad
 			{
 				TFBot
 				{
@@ -452,75 +458,75 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 	WaveSpawn // 20 Scouts (100)
 		{
-			Where spawnbot	
+			Where spawnbot
 			Name "W2_01"
 			WaitBeforeStarting 15
-			TotalCount 20			
-			MaxActive 5								
-			SpawnCount 5									
-			WaitBetweenSpawns 5							
-			TotalCurrency 100	
-				
+			TotalCount 20
+			MaxActive 5
+			SpawnCount 5
+			WaitBetweenSpawns 5
+			TotalCurrency 100
+
 			TFBot
 				{
 					Class Scout
 					Skill Normal
 				}
 		}
-		
+
 	WaveSpawn // Tank (200)
-		{						
+		{
 			Name "W2_02"
 			WaitForAllSpawned "W2_01"
 			WaitBeforeStarting 20
 			TotalCount 1
 			TotalCurrency 200
-			
-			FirstSpawnOutput 
-			
+
+			FirstSpawnOutput
+
 			{
-				Target boss_spawn_relay                       
-				Action Trigger                         
+				Target boss_spawn_relay
+				Action Trigger
 			}
 
 			Tank
 			{
-				Health 35000					
-				Speed 75								
+				Health 35000
+				Speed 75
 				Name "TankBossA"
 				StartingPathTrackNode "tank_path_a_10"
-				
-				OnKilledOutput                              
+
+				OnKilledOutput
 				{
-					Target boss_dead_relay					
-					Action Trigger                
+					Target boss_dead_relay
+					Action Trigger
 				}
-					
-				OnBombDroppedOutput                       
+
+				OnBombDroppedOutput
 				{
-					Target boss_deploy_relay 	
-					Action Trigger                  
+					Target boss_deploy_relay
+					Action Trigger
 				}
 			}
-		}	
-		
+		}
+
 	WaveSpawn // 60 Soldier Squads(300)
 		{
-			Where spawnbot	
+			Where spawnbot
 			WaitForAllSpawned "W2_02"
 			WaitBeforeStarting 30
-			TotalCount 60			
-			MaxActive 18								
-			SpawnCount 6									
-			WaitBetweenSpawns 8							
-			TotalCurrency 300	
-			
+			TotalCount 60
+			MaxActive 18
+			SpawnCount 6
+			WaitBetweenSpawns 8
+			TotalCurrency 300
+
 			Support 1
-			
-			Squad 
+
+			Squad
 			{
 				TFBot
 				{
@@ -554,22 +560,22 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 	WaveSpawn // 3 Giant TripleBuff Soldiers Squad (300)
 		{
-			Where spawnbot	
+			Where spawnbot
 			Name "W2_03"
 			WaitForAllSpawned "W2_02"
 			WaitBeforeStarting 90
-			TotalCount 3			
-			MaxActive 3								
-			SpawnCount 3																
-			TotalCurrency 300	
-				
-			Squad 
+			TotalCount 3
+			MaxActive 3
+			SpawnCount 3
+			TotalCurrency 300
+
+			Squad
 			{
 				FormationSize 250
-				
+
 				TFBot
 				{
 					Template T_TFBot_Giant_Soldier_Extended_Buff_Banner
@@ -585,7 +591,7 @@ WaveSchedule
 			}
 		}
 	}
-	
+
 
 //WAVE 3  /////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
@@ -617,33 +623,33 @@ WaveSchedule
 		}
 
 		Checkpoint Yes
-		
+
 	WaveSpawn // 40 shotgun Heavies (200)
 		{
 			Where spawnbot
 			Name "W3_01"
-			TotalCount 40			
-			MaxActive 12								
-			SpawnCount 4									
-			WaitBetweenSpawns 3							
-			TotalCurrency 200	
-				
+			TotalCount 40
+			MaxActive 12
+			SpawnCount 4
+			WaitBetweenSpawns 3
+			TotalCurrency 200
+
 			TFBot
 				{
 					Template T_TFBot_Heavyweapons_Shotgun
 				}
 		}
-		
+
 	WaveSpawn // 30 Baseball Scouts (150)
 		{
 			Where flankers
 			Name "W3_01"
 			WaitBeforeStarting 8
-			TotalCount 30			
-			MaxActive 9								
-			SpawnCount 3									
-			WaitBetweenSpawns 3							
-			TotalCurrency 150	
+			TotalCount 30
+			MaxActive 9
+			SpawnCount 3
+			WaitBetweenSpawns 3
+			TotalCurrency 150
 
 			TFBot
 				{
@@ -651,33 +657,33 @@ WaveSchedule
 					Skill Expert
 				}
 		}
-		
+
 	WaveSpawn // 3 FAN Super Scouts (30)
 		{
 			Where spawnbot
 			WaitBeforeStarting 10
-			TotalCount 3			
-			MaxActive 1								
-			SpawnCount 1									
-			WaitBetweenSpawns 20							
-			TotalCurrency 30	
-			
+			TotalCount 3
+			MaxActive 1
+			SpawnCount 1
+			WaitBetweenSpawns 20
+			TotalCurrency 30
+
 			TFBot
 				{
 					Template T_TFBot_Giant_Scout_FAN
 				}
 		}
-		
+
 	WaveSpawn // 1 Squad 1 Giant Crit Heavy with 2 Giant Medics Squad (120)
 		{
 			Where spawnbot
 			Name "W3_02"
 			WaitForAllDead "W3_01"
-			TotalCount 3			
-			MaxActive 3								
-			SpawnCount 3																
-			TotalCurrency 120	
-				
+			TotalCount 3
+			MaxActive 3
+			SpawnCount 3
+			TotalCurrency 120
+
 			Squad
 			{
 				TFBot
@@ -695,75 +701,75 @@ WaveSchedule
 					}
 			}
 		}
-		
+
 	WaveSpawn // 12 Spy Flood (120)
 		{
 			Where spawnbot
 			Name "W3_03"
 			WaitForAllSpawned "W3_02"
 			WaitBeforeStarting 10
-			TotalCount 12			
-			MaxActive 12								
-			SpawnCount 3									
-			WaitBetweenSpawns 6							
+			TotalCount 12
+			MaxActive 12
+			SpawnCount 3
+			WaitBetweenSpawns 6
 			TotalCurrency 120
-			
+
 			Support limited
-				
+
 			TFBot
 				{
 					Template T_TFBot_Spy
 				}
 		}
-		
+
 	WaveSpawn // 30 Heavies (150)
 		{
 			Where flankers
 			Name "W3_04"
 			WaitForAllSpawned "W3_03"
 			WaitBeforeStarting 30
-			TotalCount 30			
-			MaxActive 10								
-			SpawnCount 5									
-			WaitBetweenSpawns 10							
-			TotalCurrency 150	
-				
+			TotalCount 30
+			MaxActive 10
+			SpawnCount 5
+			WaitBetweenSpawns 10
+			TotalCurrency 150
+
 			TFBot
 				{
 					Class HeavyWeapons
 					Skill Normal
 				}
 		}
-		
+
 	WaveSpawn // 60 Scouts (300)
 		{
 			Where flankers
 			Name "W3_04"
 			WaitForAllSpawned "W3_03"
 			WaitBeforeStarting 30
-			TotalCount 60			
-			MaxActive 12								
-			SpawnCount 6									
-			WaitBetweenSpawns 5							
+			TotalCount 60
+			MaxActive 12
+			SpawnCount 6
+			WaitBetweenSpawns 5
 			TotalCurrency 300
-				
+
 			TFBot
 				{
 					Class Scout
 					Skill Normal
 				}
 		}
-		
+
 	WaveSpawn // 3 FAN Super Scouts (30)
 		{
 			Where spawnbot
 			WaitForAllSpawned "W3_04"
-			TotalCount 3			
-			MaxActive 3								
-			SpawnCount 1									
-			WaitBetweenSpawns 3							
-			TotalCurrency 30	
-			
+			TotalCount 3
+			MaxActive 3
+			SpawnCount 1
+			WaitBetweenSpawns 3
+			TotalCurrency 30
+
 			TFBot
 				{
 					Template T_TFBot_Giant_Scout_FAN
@@ -775,7 +781,7 @@ WaveSchedule
 //WAVE 4  /////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // 30 Demoknight flood (150)
-// 8 Giant Rapidfire Crit Demos(400) 
+// 8 Giant Rapidfire Crit Demos(400)
 // 1 Tank (170)
 // 24 Cow Mangler Soldiers (120)
 // 32 Ali Babas (160)
@@ -799,38 +805,38 @@ WaveSchedule
 		}
 
 		Checkpoint Yes
-	
+
 	WaveSpawn // 30 Demoknight flood (150)
 		{
 			Where spawnbot
 			Name "W4_01"
-			TotalCount 30			
-			MaxActive 20								
-			SpawnCount 5									
-			WaitBetweenSpawns 2							
-			TotalCurrency 150	
-				
+			TotalCount 30
+			MaxActive 20
+			SpawnCount 5
+			WaitBetweenSpawns 2
+			TotalCurrency 150
+
 			TFBot
 				{
 					Template T_TFBot_Demoman_Knight
 				}
 		}
-		
-	WaveSpawn // 8 Giant Rapidfire Crit Demos(400) 
+
+	WaveSpawn // 8 Giant Rapidfire Crit Demos(400)
 		{
 			Where flankers
 			Name "W4_02"
 			WaitBeforeStarting 10
-			TotalCount 8			
-			MaxActive 6								
-			SpawnCount 2									
-			WaitBetweenSpawns 35							
-			TotalCurrency 400	
-				
-			Squad 
+			TotalCount 8
+			MaxActive 6
+			SpawnCount 2
+			WaitBetweenSpawns 35
+			TotalCurrency 400
+
+			Squad
 			{
 				FormationSize 250
-				
+
 				TFBot
 				{
 					Template T_TFBot_Giant_Demo_Burst
@@ -843,67 +849,67 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 	WaveSpawn // Tank (170)
-		{						
+		{
 			Name "W4_03"
 			WaitForAllSpawned "W4_01"
 			TotalCount 1
 			TotalCurrency 170
-			
-			FirstSpawnOutput 
-			
+
+			FirstSpawnOutput
+
 			{
-				Target boss_spawn_relay                       
-				Action Trigger                         
+				Target boss_spawn_relay
+				Action Trigger
 			}
 
 			Tank
 			{
-				Health 35000					
-				Speed 75								
+				Health 35000
+				Speed 75
 				Name "TankBossB"
 				StartingPathTrackNode "tank_path_b_10"
-				
-				OnKilledOutput                              
+
+				OnKilledOutput
 				{
-					Target boss_dead_relay					
-					Action Trigger                
+					Target boss_dead_relay
+					Action Trigger
 				}
-					
-				OnBombDroppedOutput                       
+
+				OnBombDroppedOutput
 				{
-					Target boss_deploy_relay 	
-					Action Trigger                  
+					Target boss_deploy_relay
+					Action Trigger
 				}
 			}
-		}	
-		
+		}
+
 	WaveSpawn // 32 Ali Babas (160)
 		{
 			Where spawnbot
 			WaitForAllSpawned "W4_03"
 			WaitBeforeStarting 20
-			TotalCount 32			
-			MaxActive 12								
-			SpawnCount 4									
-			WaitBetweenSpawns 10							
-			TotalCurrency 160	
-				
+			TotalCount 32
+			MaxActive 12
+			SpawnCount 4
+			WaitBetweenSpawns 10
+			TotalCurrency 160
+
 			TFBot
 				{
 					Class Demoman
 					ClassIcon demoknight
 					Skill Hard
-					Item "Sultan's Ceremonial"	
+					Item "Sultan's Ceremonial"
 					Item "Ali Baba's Wee Booties"
 					Item "The Persian Persuader"
-					Item "The Splendid Screen"	
+					Item "The Splendid Screen"
 					ItemAttributes
 					{
 						ItemName "The Splendid Screen"
 						"Attack not cancel charge" 1
-					}		
+					}
 					WeaponRestrictions MeleeOnly
 					CharacterAttributes
 					{
@@ -911,18 +917,18 @@ WaveSchedule
 					}
 				}
 		}
-		
+
 	WaveSpawn // 24 Cow Mangler Soldiers (120)
 		{
 			Where spawnbot
 			WaitForAllSpawned "W4_03"
 			WaitBeforeStarting 40
-			TotalCount 24			
-			MaxActive 12								
-			SpawnCount 4									
-			WaitBetweenSpawns 10							
-			TotalCurrency 120	
-				
+			TotalCount 24
+			MaxActive 12
+			SpawnCount 4
+			WaitBetweenSpawns 10
+			TotalCurrency 120
+
 			TFBot
 				{
 					Class Soldier
@@ -964,7 +970,7 @@ WaveSchedule
 		}
 
 		Checkpoint Yes
-		
+
 	WaveSpawn // 40 Crit Scouts and Critbat Scouts mixed (200)
 		{
 			FirstSpawnOutput // activating all engineer hints for this wave only
@@ -974,12 +980,12 @@ WaveSchedule
 			}
 			Where spawnbot
 			Name "W5_01"
-			TotalCount 40			
-			MaxActive 20								
-			SpawnCount 5									
-			WaitBetweenSpawns 4							
-			TotalCurrency 200	
-				
+			TotalCount 40
+			MaxActive 20
+			SpawnCount 5
+			WaitBetweenSpawns 4
+			TotalCurrency 200
+
 			RandomChoice
 			{
 				TFBot
@@ -1003,17 +1009,17 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 	WaveSpawn // Squad: 1 Giant HuoLong, 3 FastScorch Pyros, 1 Giant Medics (65)
 		{
 			Where spawnbot
 			Name "W5_02"
 			WaitForAllSpawned "W5_01"
-			TotalCount 5			
-			MaxActive 5								
-			SpawnCount 5															
+			TotalCount 5
+			MaxActive 5
+			SpawnCount 5
 			TotalCurrency 65
-				
+
 			Squad
 			{
 				TFBot
@@ -1039,38 +1045,38 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 	WaveSpawn // 30 Scouts (120)
 		{
 			Where spawnbot
 			Name "W5_03"
 			WaitForAllSpawned "W5_02"
 			WaitBeforeStarting 30
-			TotalCount 30			
-			MaxActive 10								
-			SpawnCount 5									
-			WaitBetweenSpawns 5							
-			TotalCurrency 120	
-				
+			TotalCount 30
+			MaxActive 10
+			SpawnCount 5
+			WaitBetweenSpawns 5
+			TotalCurrency 120
+
 				TFBot
 				{
 					Class Scout
 					Skill Hard
 				}
 		}
-		
+
 	WaveSpawn // 5 Squads 4 Heavies (100)
 		{
 			Where flankers
 			Name "W5_03"
 			WaitForAllSpawned "W5_02"
-			WaitBeforeStarting 30			
-			TotalCount 20			
-			MaxActive 8								
-			SpawnCount 4									
-			WaitBetweenSpawns 5							
-			TotalCurrency 100	
-				
+			WaitBeforeStarting 30
+			TotalCount 20
+			MaxActive 8
+			SpawnCount 4
+			WaitBetweenSpawns 5
+			TotalCurrency 100
+
 			Squad
 			{
 				TFBot
@@ -1093,42 +1099,42 @@ WaveSchedule
 					Class Heavyweapons
 					Skill Normal
 				}
-			}	
+			}
 		}
-		
+
 
 	WaveSpawn // 40 Demos (200)
 		{
 			Where flankers
-			Name "W5_05"			
+			Name "W5_05"
 			WaitForAllSpawned "W5_03"
 			WaitBeforeStarting 20
-			TotalCount 40			
-			MaxActive 15								
-			SpawnCount 5									
-			WaitBetweenSpawns 5							
-			TotalCurrency 200	
-				
+			TotalCount 40
+			MaxActive 15
+			SpawnCount 5
+			WaitBetweenSpawns 5
+			TotalCurrency 200
+
 			TFBot
 				{
 					Class Demoman
 					Skill Easy
 				}
 		}
-		
+
 	WaveSpawn // 5 Battle Engies (75)
 		{
 			Where flankers
-			Name "W5_05"			
+			Name "W5_05"
 			WaitForAllSpawned "W5_03"
-			TotalCount 5			
-			MaxActive 5								
-			SpawnCount 1									
-			WaitBetweenSpawns 5							
-			TotalCurrency 75	
+			TotalCount 5
+			MaxActive 5
+			SpawnCount 1
+			WaitBetweenSpawns 5
+			TotalCurrency 75
 
 			Support limited
-			
+
 			TFBot
 			{
 				Template T_TFBot_Engineer_Sentry_Tele_Battle
@@ -1137,18 +1143,18 @@ WaveSchedule
 				Attributes IgnoreFlag
 			}
 		}
-		
+
 	WaveSpawn // Squad: 1 Giant HuoLong, 3 FastScorch Pyros, 1 Giant Medics (65)
 		{
 			Where spawnbot
 			WaitForAllSpawned "W5_05"
 			WaitBeforeStarting 15
-			TotalCount 5			
-			MaxActive 5								
+			TotalCount 5
+			MaxActive 5
 			SpawnCount 5
-			WaitBetweenSpawns 10				
+			WaitBetweenSpawns 10
 			TotalCurrency 65
-				
+
 			Squad
 			{
 				TFBot
@@ -1174,18 +1180,18 @@ WaveSchedule
 				}
 			}
 		}
-		
+
 	WaveSpawn // 20 Crit Soldiers (100)
 		{
-			Where flankers	
+			Where flankers
 			WaitForAllSpawned "W5_05"
 			WaitBeforeStarting 20
-			TotalCount 20			
-			MaxActive 15								
-			SpawnCount 5									
-			WaitBetweenSpawns 5							
-			TotalCurrency 100	
-			
+			TotalCount 20
+			MaxActive 15
+			SpawnCount 5
+			WaitBetweenSpawns 5
+			TotalCurrency 100
+
 			TFBot
 				{
 					Class Soldier
@@ -1193,18 +1199,18 @@ WaveSchedule
 					Attributes AlwaysCrit
 				}
 		}
-		
+
 	WaveSpawn // 15 Huntsmen Snipers (75)
 		{
-			Where flankers	
+			Where flankers
 			WaitForAllSpawned "W5_05"
 			WaitBeforeStarting 20
-			TotalCount 15			
-			MaxActive 15								
-			SpawnCount 5									
-			WaitBetweenSpawns 5							
-			TotalCurrency 75	
-				
+			TotalCount 15
+			MaxActive 15
+			SpawnCount 5
+			WaitBetweenSpawns 5
+			TotalCurrency 75
+
 			TFBot
 				{
 					Template T_TFBot_Sniper_Huntsman
@@ -1248,17 +1254,17 @@ WaveSchedule
 		}
 
 		Checkpoint Yes
-		
+
 	WaveSpawn // 20 Crit Bat Scouts(40)
 		{
-			Where spawnbot	
+			Where spawnbot
 			Name "W6_01"
-			TotalCount 20			
-			MaxActive 10								
-			SpawnCount 4									
-			WaitBetweenSpawns 4							
-			TotalCurrency 40	
-				
+			TotalCount 20
+			MaxActive 10
+			SpawnCount 4
+			WaitBetweenSpawns 4
+			TotalCurrency 40
+
 				TFBot
 				{
 					Class Scout
@@ -1267,35 +1273,35 @@ WaveSchedule
 					Attributes AlwaysCrit
 				}
 		}
-		
+
 	WaveSpawn // 20 Crit Huntsmen (40)
 		{
-			Where spawnbot	
+			Where spawnbot
 			Name "W6_01"
-			TotalCount 20			
-			MaxActive 10								
-			SpawnCount 4									
-			WaitBetweenSpawns 4							
-			TotalCurrency 40	
-				
+			TotalCount 20
+			MaxActive 10
+			SpawnCount 4
+			WaitBetweenSpawns 4
+			TotalCurrency 40
+
 				TFBot
 				{
 					Template T_TFBot_Sniper_Huntsman
 					Attributes AlwaysCrit
 				}
 		}
-		
+
 	WaveSpawn // 30 Demomen (60)
 		{
 			Where spawnbot
 			Name "W6_02"
 			WaitForAllSpawned "W6_01"
-			TotalCount 30			
-			MaxActive 20								
-			SpawnCount 4									
-			WaitBetweenSpawns 4							
-			TotalCurrency 60	
-				
+			TotalCount 30
+			MaxActive 20
+			SpawnCount 4
+			WaitBetweenSpawns 4
+			TotalCurrency 60
+
 				TFBot
 				{
 					Class Demoman
@@ -1308,11 +1314,11 @@ WaveSchedule
 			Where spawnbot
 			Name "W6_03"
 			WaitForAllSpawned "W6_02"
-			TotalCount 3			
-			MaxActive 3								
-			SpawnCount 3															
-			TotalCurrency 90	
-				
+			TotalCount 3
+			MaxActive 3
+			SpawnCount 3
+			TotalCurrency 90
+
 			Squad
 				{
 					TFBot
@@ -1329,54 +1335,54 @@ WaveSchedule
 					}
 				}
 		}
-			
+
 	WaveSpawn // Tank (200)
-		{						
+		{
 			Name "W6_03"
 			WaitForAllSpawned "W6_02"
 			TotalCount 1
 			TotalCurrency 200
-			
-			FirstSpawnOutput 
-			
+
+			FirstSpawnOutput
+
 			{
-				Target boss_spawn_relay                       
-				Action Trigger                         
+				Target boss_spawn_relay
+				Action Trigger
 			}
 
 			Tank
 			{
-				Health 30000					
-				Speed 75								
+				Health 30000
+				Speed 75
 				Name "TankBossB"
 				StartingPathTrackNode "tank_path_b_10"
-				
-				OnKilledOutput                              
+
+				OnKilledOutput
 				{
-					Target boss_dead_relay					
-					Action Trigger                
+					Target boss_dead_relay
+					Action Trigger
 				}
-					
-				OnBombDroppedOutput                       
+
+				OnBombDroppedOutput
 				{
-					Target boss_deploy_relay 	
-					Action Trigger                  
+					Target boss_deploy_relay
+					Action Trigger
 				}
 			}
-		}	
-		
+		}
+
 	WaveSpawn // 20 Crit Scouts(40)
 		{
-			Where spawnbot	
+			Where spawnbot
 			Name "W6_04"
 			WaitForAllSpawned "W6_03"
 			WaitBeforeStarting 45
-			TotalCount 20			
-			MaxActive 10								
-			SpawnCount 4									
-			WaitBetweenSpawns 4							
-			TotalCurrency 40	
-				
+			TotalCount 20
+			MaxActive 10
+			SpawnCount 4
+			WaitBetweenSpawns 4
+			TotalCurrency 40
+
 				TFBot
 				{
 					Class Scout
@@ -1384,37 +1390,37 @@ WaveSchedule
 					Attributes AlwaysCrit
 				}
 		}
-		
+
 	WaveSpawn // 20 Crit Huntsmen (40)
 		{
-			Where flankers	
+			Where flankers
 			Name "W6_04"
 			WaitForAllSpawned "W6_03"
 			WaitBeforeStarting 45
-			TotalCount 20			
-			MaxActive 10								
-			SpawnCount 4									
-			WaitBetweenSpawns 4							
-			TotalCurrency 40	
-				
+			TotalCount 20
+			MaxActive 10
+			SpawnCount 4
+			WaitBetweenSpawns 4
+			TotalCurrency 40
+
 				TFBot
 				{
 					Template T_TFBot_Sniper_Huntsman
 					Attributes AlwaysCrit
 				}
 		}
-		
+
 	WaveSpawn // 6 Squads of 5 Concheror Soldiers (60)
 		{
 			Where flankers
 			Name "W6_05"
 			WaitForAllSpawned "W6_04"
-			TotalCount 30			
-			MaxActive 20								
-			SpawnCount 5									
-			WaitBetweenSpawns 5							
-			TotalCurrency 60	
-				
+			TotalCount 30
+			MaxActive 20
+			SpawnCount 5
+			WaitBetweenSpawns 5
+			TotalCurrency 60
+
 			Squad
 				{
 					TFBot
@@ -1437,19 +1443,19 @@ WaveSchedule
 					{
 						Template T_TFBot_Soldier_Extended_Concheror
 					}
-				}	
+				}
 		}
-		
+
 	WaveSpawn // Squad: 1 Giant Spammer Soldier 2 Giant Regen Medics (90)
 		{
 			Where flankers
 			Name "W6_06"
 			WaitForAllSpawned "W6_05"
-			TotalCount 3			
-			MaxActive 3								
-			SpawnCount 3															
-			TotalCurrency 90	
-				
+			TotalCount 3
+			MaxActive 3
+			SpawnCount 3
+			TotalCurrency 90
+
 			Squad
 				{
 					TFBot
@@ -1466,19 +1472,19 @@ WaveSchedule
 					}
 				}
 		}
-		
+
 	WaveSpawn // 20 Crit Scouts(40)
 		{
-			Where flankers	
+			Where flankers
 			Name "W6_07"
 			WaitForAllSpawned "W6_06"
 			WaitBeforeStarting 45
-			TotalCount 20			
-			MaxActive 10								
-			SpawnCount 4									
-			WaitBetweenSpawns 4							
-			TotalCurrency 40	
-				
+			TotalCount 20
+			MaxActive 10
+			SpawnCount 4
+			WaitBetweenSpawns 4
+			TotalCurrency 40
+
 				TFBot
 				{
 					Class Scout
@@ -1486,38 +1492,38 @@ WaveSchedule
 					Attributes AlwaysCrit
 				}
 		}
-		
+
 	WaveSpawn // 20 Crit Huntsmen (40)
 		{
-			Where flankers	
+			Where flankers
 			Name "W6_07"
 			WaitForAllSpawned "W6_06"
 			WaitBeforeStarting 45
-			TotalCount 20			
-			MaxActive 10								
-			SpawnCount 4									
-			WaitBetweenSpawns 4							
-			TotalCurrency 40	
-				
+			TotalCount 20
+			MaxActive 10
+			SpawnCount 4
+			WaitBetweenSpawns 4
+			TotalCurrency 40
+
 				TFBot
 				{
 					Template T_TFBot_Sniper_Huntsman
 					Attributes AlwaysCrit
 				}
 		}
-		
+
 	WaveSpawn // 20 Crit Demomen (40)
 		{
 			Where flankers
 			Name "W6_08"
 			WaitForAllSpawned "W6_06"
 			WaitBeforeStarting 60
-			TotalCount 20			
-			MaxActive 20								
-			SpawnCount 5									
-			WaitBetweenSpawns 6							
-			TotalCurrency 40	
-				
+			TotalCount 20
+			MaxActive 20
+			SpawnCount 5
+			WaitBetweenSpawns 6
+			TotalCurrency 40
+
 			TFBot
 				{
 					Class Demoman
@@ -1525,18 +1531,18 @@ WaveSchedule
 					Attributes AlwaysCrit
 				}
 		}
-		
+
 	WaveSpawn // 2 Squads: 1 Giant Deflector Heavy 2 Giant Regen Medics (120)
 		{
 			Where flankers
 			Name "W6_09"
 			WaitForAllSpawned "W6_08"
-			TotalCount 6			
-			MaxActive 6								
+			TotalCount 6
+			MaxActive 6
 			SpawnCount 3
 			WaitBetweenSpawns 20
-			TotalCurrency 120	
-				
+			TotalCurrency 120
+
 			Squad
 				{
 					TFBot
@@ -1555,7 +1561,7 @@ WaveSchedule
 		}
 	}
 
-	
+
 //WAVE 7  /////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // Tank (200)
@@ -1583,53 +1589,53 @@ WaveSchedule
 		}
 
 		Checkpoint Yes
-		
+
 	WaveSpawn // Tank (200)
-		{						
+		{
 			Name "W7_01"
 			TotalCount 1
 			TotalCurrency 200
-			
-			FirstSpawnOutput 
-			
+
+			FirstSpawnOutput
+
 			{
-				Target boss_spawn_relay                       
-				Action Trigger                         
+				Target boss_spawn_relay
+				Action Trigger
 			}
 
 			Tank
 			{
-				Health 30000					
-				Speed 75								
+				Health 30000
+				Speed 75
 				Name "TankBossA"
 				StartingPathTrackNode "tank_path_a_10"
-				
-				OnKilledOutput                              
+
+				OnKilledOutput
 				{
-					Target boss_dead_relay					
-					Action Trigger                
+					Target boss_dead_relay
+					Action Trigger
 				}
-					
-				OnBombDroppedOutput                       
+
+				OnBombDroppedOutput
 				{
-					Target boss_deploy_relay 	
-					Action Trigger                  
+					Target boss_deploy_relay
+					Action Trigger
 				}
 			}
-		}	
-	
+		}
+
 	WaveSpawn // Support Mixed Medics
 		{
 			Where spawnbot
 			WaitBeforeStarting 20
-			TotalCount 50			
-			MaxActive 12								
-			SpawnCount 3									
-			WaitBetweenSpawns 12							
-			TotalCurrency 200	
-			
+			TotalCount 50
+			MaxActive 12
+			SpawnCount 3
+			WaitBetweenSpawns 12
+			TotalCurrency 200
+
 			Support 1
-			
+
 			RandomChoice
 			{
 				TFBot
@@ -1645,18 +1651,18 @@ WaveSchedule
 					Template T_TFBot_Medic_QuickFix
 				}
 			}
-		}	
+		}
 
 	WaveSpawn // 4 Giant Crit Deflector heavies (100)
 		{
 			Where spawnbot
 			WaitBeforeStarting 20
-			TotalCount 4			
-			MaxActive 2								
+			TotalCount 4
+			MaxActive 2
 			SpawnCount 1
 			WaitBetweenSpawns 30
-			TotalCurrency 100	
-				
+			TotalCurrency 100
+
 			TFBot
 				{
 					Template T_TFBot_Giant_Heavyweapons_Deflector
@@ -1668,30 +1674,30 @@ WaveSchedule
 		{
 			Where spawnbot
 			WaitBeforeStarting 35
-			TotalCount 4			
-			MaxActive 2								
+			TotalCount 4
+			MaxActive 2
 			SpawnCount 1
 			WaitBetweenSpawns 30
-			TotalCurrency 100	
-				
+			TotalCurrency 100
+
 			TFBot
 				{
 					Template T_TFBot_Soldier_BurstFire
 				}
 		}
-		
+
 	WaveSpawn // 8 Giant Crit Demo Burst (200)
 		{
 			Where flankers
 			WaitBeforeStarting 32
-			TotalCount 8			
-			MaxActive 4								
+			TotalCount 8
+			MaxActive 4
 			SpawnCount 2
 			WaitBetweenSpawns 30
-			TotalCurrency 200	
-				
+			TotalCurrency 200
+
 			Squad
-			{	
+			{
 				TFBot
 					{
 						Template T_TFBot_Giant_Demo_Burst
@@ -1706,5 +1712,5 @@ WaveSchedule
 					}
 			}
 		}
-	}	
+	}
 }

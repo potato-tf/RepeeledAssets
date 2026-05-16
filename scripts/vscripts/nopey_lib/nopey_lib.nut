@@ -1,20 +1,13 @@
 local ROOT = getroottable()
 
 // stupid script
-if( !("nopey_lib" in ROOT) )
-{
-	::nopey_lib <- 0
-}
-else if ( ::nopey_lib == 1 )
-{
-	return
-}
-else
-{
-	::nopey_lib = 1
-}
+// if( ("nopey_lib" in ROOT) )
+// {
+	// return
+// }
 
 IncludeScript("nopey_lib/constants_nopey_fork", ROOT)
+IncludeScript("nopey_lib/trace_filter_nopey_fork")
 
 ::findAllPlayer <- function(onlyRealPlayer = false)
 {
@@ -177,7 +170,7 @@ const MAX_WEAPONS = 8
 	NetProps.SetPropBool(wearable, "m_AttributeManager.m_Item.m_bInitialized", true)
 	NetProps.SetPropBool(wearable, "m_bValidatedAttachedEntity", true)
 	wearable.DispatchSpawn()
-
+	
 	// (optional) Set the model to something new. (Obeys econ's ragdoll physics when ragdolling as well)
 	if (model_path)
 		wearable.SetModelSimple(model_path)
@@ -759,7 +752,4 @@ const EFL_USER 					= 1048576
 //script_execute lib
 //script lib.CreateTimer(fun.nuke)
 
-IncludeScript("nopey_lib/trace_filter_nopey_fork")
 
-if ( ::nopey_lib == 0 )
-	IncludeScript("nopey_lib/nopey_lib", ROOT)

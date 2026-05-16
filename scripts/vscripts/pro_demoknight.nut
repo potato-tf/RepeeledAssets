@@ -35,7 +35,7 @@ if("prodemoknight" in ROOT) return
 		userid = quick.hOwner.entindex(),
 		victim_entindex = quick.hOwner.entindex()
 	})
-
+	
 }
 
 ::destroy <- function()
@@ -73,16 +73,16 @@ if("prodemoknight" in ROOT) return
 		// quick.hOwner.SetAbsOrigin(Vector(143.587189, 3068.705811, -701.153931))		// maplehill tiny rock
 		// quick.hOwner.SetAbsOrigin(Vector(-836.307434, 1866.599243, -376.190918))		// maplehill mid rock
 		// quick.hOwner.SetAbsOrigin(Vector(1154.430176, 487.961548, -371.381439))		// maplehill spawn ramp
-
+		
 		// quick.interface_trimpAtTarget(me(), "tiny_rock")
 		// quick.interface_trimpAtTarget(me(), "mid_rock_2")
 		// quick.interface_trimpAtTarget(me(), "tworocks")
-
+		
 		// quick.hOwner.SetAbsOrigin(Vector(-3213, -1481, -880))		// frostwynd spot
 		// quick.hOwner.SetAbsOrigin(Vector(-2762, -1472, -920))		// frostwynd spot
 		// quick.hOwner.SetAbsOrigin(Vector(-2931, -928, -694))		// frostwynd spot 2
 		SetPropFloat( quick.hOwner, "m_Shared.m_flChargeMeter", 100 )
-
+		
 		// quick.changeState( State.CHASE )
 	}
 	if ( me() )
@@ -112,20 +112,20 @@ if("prodemoknight" in ROOT) return
 		quick.hOwner.SetHealth(5000)
 		// quick.changeState( State.AIRBORNE )
 		// quick.hOwner.SetAbsOrigin(Vector(-96.911369, 4335.530273, -648.217346))
-
+		
 		// local mod = 500
 		quick.hOwner.SetAbsVelocity(Vector(RandomFloat(-1,1) * mod,RandomInt(-1,1) * mod,100))
 		quick.hOwner.SetAbsVelocity(Vector(RandomInt(-400,400),RandomInt(-400,400),100))
 		// quick.hOwner.SetAbsVelocity(Vector(RandomInt(-50,50),RandomInt(-50,50),100))
 		quick.hOwner.ApplyAbsVelocityImpulse(Vector(0,0,force))
-
+		
 	}
 }
 ::test4 <- function()
 {
 	local cof = [ 7946.33456690, -34574.67752511, 62845.17500149, -61308.21640515, 33933.86369017, -9941.67705575, 1100.18825561, -36.03846614, -0.24083629, 180.00734912 ]
 	cof.reverse()
-
+	
 	local num = ceil(0.9/0.015)
 	// local time
 	for ( local i = 0; i < num; i++)
@@ -166,10 +166,10 @@ if("prodemoknight" in ROOT) return
 	local tickInterval	= 0.015
 	// local currentAccel = maxChargeSpeed * 10
 	local turnRate_perTick = 3
-
+	
 	local chargeDuration  = 1.5
     local chargeTime      = 1.5
-
+	
 	local t = 0
 	local pos = Vector()
 	// local vel = Vector(-maxChargeSpeed, 0 , 0)
@@ -182,13 +182,13 @@ if("prodemoknight" in ROOT) return
 	local wish_speed = maxChargeSpeed
 	//if ( wish_speed > maxChargeSpeed )
 	//	wish_speed = maxChargeSpeed
-
+	
 	local num = ceil(chargeTime / tickInterval)
 	for ( local i = 0; i < num; i++ )
 	{
 		wishDir = dir.Forward();
 		// wishDir.Norm();
-
+	
 		local current_speed = vel.Dot(wishDir)
 		local add_speed = wish_speed - current_speed
 		if ( add_speed > 0 )
@@ -196,22 +196,22 @@ if("prodemoknight" in ROOT) return
 			local accel_speed = maxChargeSpeed * sv_accelerate * tickInterval
 			if ( accel_speed > add_speed )
 				accel_speed = add_speed
-
+			
 			vel += wishDir * accel_speed;
 		}
-
+		
 		// tas_bot.simulated_pos.append(pos)
 		// tas_bot.simulated_dir.append(VectorAngles(wishDir))
 
 		pos += vel * tickInterval;
 		t += tickInterval;
-
+		
 		if ( vel.Length() >= maxChargeSpeed - 1 )
 			dir.y -= turnRate_perTick
 		// printl(t + " " + pos + " " + vel.Length())
-
+		
 		::simulate_inputs.append(tickInterval * i)
-
+		
 		/// how far can we go
         local remaining_time = chargeTime - t
         local final_location = pos + vel * remaining_time
@@ -230,10 +230,10 @@ if("prodemoknight" in ROOT) return
 	local tickInterval	= 0.015
 	// local currentAccel = maxChargeSpeed * 10
 	local turnRate_perTick = 3
-
+	
 	local chargeDuration  = 1.5
     local chargeTime      = charge_time
-
+	
 	local t = 0
 	local pos = Vector()
 	// local vel = Vector(-maxChargeSpeed, 0 , 0)
@@ -246,14 +246,14 @@ if("prodemoknight" in ROOT) return
 	local wish_speed = maxChargeSpeed
 	//if ( wish_speed > maxChargeSpeed )
 	//	wish_speed = maxChargeSpeed
-
+	
 	local prettymuchconstant = maxChargeSpeed * sv_accelerate * tickInterval
 	local num = ceil(chargeTime / tickInterval)
 	for ( local i = 0; i < num; i++ )
 	{
 		wishDir = dir.Forward();
 		// wishDir.Norm();
-
+	
 		local current_speed = vel.Dot(wishDir)
 		local add_speed = wish_speed - current_speed
 		if ( add_speed > 0 )
@@ -261,14 +261,14 @@ if("prodemoknight" in ROOT) return
 			local accel_speed = prettymuchconstant
 			if ( accel_speed > add_speed )
 				accel_speed = add_speed
-
+			
 			vel += wishDir * accel_speed;
 		}
-
-
+		
+		
 		pos += vel * tickInterval;
 		// t += tickInterval;
-
+		
 		// local changed = false
 		if ( vel.Length() >= maxChargeSpeed - 1 )
 		{
@@ -276,27 +276,27 @@ if("prodemoknight" in ROOT) return
 			dir.y -= turnRate_perTick
 		}
 		// printl(t + " " + pos + " " + vel.Length())
-
+		
 		::simulate_inputs.append(tickInterval * i)
-
+		
 		/// how far can we go
         // local remaining_time = chargeTime - t
         // local final_location = pos + vel * remaining_time
         // ::simulate_outputs.append( final_location.Length() )
-
+		
 		/// how far can we go but we simulate some more
 		local vel_extra = vel + Vector()
 		local pos_extra = pos + Vector()
 		wishDir = dir.Forward();
-
-
+		
+		
 		local loop_count = i + 1
 		while ( true )
 		{
 			// loop_count++		// uhm, (num - loop_count) cancels out
 			if ( loop_count == num)
 				break
-
+			
 			current_speed = vel_extra.Dot(wishDir)
 			add_speed = wish_speed - current_speed
 			if ( add_speed > 0.5 )
@@ -304,25 +304,25 @@ if("prodemoknight" in ROOT) return
 				local accel_speed = prettymuchconstant
 				if ( accel_speed > add_speed )
 					accel_speed = add_speed
-
+				
 				vel_extra += wishDir * accel_speed;
 				// printl(" " + vel_extra.Length() + " ")
 			}
 			else
 				break
-
+			
 			pos_extra += vel_extra * tickInterval;
 			// printl("pos_extra " + pos_extra.Length() + " ")
 			loop_count++		// this is the correct place but because t=0 still count toward total simulation time
 		}
-
+		
 		local remaining_time = (num - loop_count) * tickInterval
 		pos_extra += vel_extra * remaining_time;
-
+		
 		// printl(remaining_time)
 		// printl((vel_extra * remaining_time).Length())
 		// printl(" " + vel_extra.Length() + " ")
-
+		
 		::simulate_outputs.append( pos_extra.Length() )
 	}
 
@@ -335,7 +335,7 @@ if("prodemoknight" in ROOT) return
 			clean()
 		}
 	}
-
+	
 	function OnGameEvent_player_spawn(params)
 	{
 		local hPlayer	= GetPlayerFromUserID(params.userid)
@@ -353,7 +353,7 @@ if("prodemoknight" in ROOT) return
 		else
 		{
 			local playerIndex = ListOfRedSnipers.find(hPlayer)
-
+		
 			if ( hPlayer.GetPlayerClass() == TF_CLASS_SNIPER )
 			{
 				if ( playerIndex != null )
@@ -369,9 +369,9 @@ if("prodemoknight" in ROOT) return
 				ListOfRedSnipers.remove(playerIndex)
 				//+printl("remved from sniper list")
 			}
-
+			
 		}
-
+		
 	}
 	function OnGameEvent_player_death(params)
 	{
@@ -379,32 +379,32 @@ if("prodemoknight" in ROOT) return
 		if ( ListOfProDemoknights.rawin(hPlayer) )
 			ListOfProDemoknights[hPlayer].On_Death()
 	}
-
+	
 	function OnGameEvent_player_hurt(params)
 	{
 		if (params.damageamount == 0)
 			return
 		local hAttacker = GetPlayerFromUserID(params.attacker)
 		local hVictim = GetPlayerFromUserID(params.userid)
-
+		
 		if ( ListOfProDemoknights.rawin(hVictim) )
 		{
 			ListOfProDemoknights[hVictim].On_Hurt( hAttacker )
 			return
 		}
-
+		
 		// if ( hAttacker == quick.hOwner )
 		// {
 			// ClientPrint( null, 3, format("\x079EC34F%i\x01", params.damageamount) )
 		// }
-
+		
 		// local player = hVictim	//GetPlayerFromUserID(params.userid)
 		// if (player == me())
 		// {
 			// //local time = Time() - timeStart
 			// //printl("fly time: " + time)
 			// //printl( params.damageamount )
-
+			
 			// max_zvel = 0
 			// printl("reset max_zvel ")
 			// return
@@ -417,13 +417,13 @@ if("prodemoknight" in ROOT) return
 				// {
 					// hBot.EndCords.append(hBot.hOwner.GetOrigin())
 					// hBot.GetToPosition()
-
+					
 					// return
 				// }
 			// }
 		// }
 	}
-
+	
 	function OnGameEvent_player_say(params)
 	{
 		local args		= split(params.text.tolower(), " ")
@@ -431,12 +431,12 @@ if("prodemoknight" in ROOT) return
 		local sText		= args[0]
 		local hPlayer	= GetPlayerFromUserID(params.userid)
 		local redirect	= false
-
+		
 		if ( !(hPlayer == me() || CheckWhiteList(hPlayer)) )
 		{
 			return
 		}
-
+		
 		if ( args.len() > 1 )
 		{
 			local top_index = args.len() - 1
@@ -444,7 +444,7 @@ if("prodemoknight" in ROOT) return
 			{
 				hPlayer = findPlayerByName(args[top_index].slice(2))
 				redirect = true
-
+				
 				args.remove(top_index)
 				// printl("it works")
 			}
@@ -477,21 +477,27 @@ if("prodemoknight" in ROOT) return
 			foreach ( hPlayer in list )
 			{
 				if ( hPlayer.GetTeam() == 3 )	continue;
-
+				
 				SetPropBoolArray(gamerules, "m_bPlayerReady", true, hPlayer.GetEntityIndex())
-
+				
 			}
 		}
+		else if ( sText == "!debug_demo" )
+			debug_state = !debug_state
 		else if ( sText == "!fun" )
 			IncludeScript("fun", ROOT)
 		else if ( sText == "!show" || sText == "s" )
 			::show()
 		else if ( sText == "!ignore" || sText == "i" )
 			ignore = !ignore
-
+		
 	}
 	function OnScriptHook_OnTakeDamage(table)
 	{
+		// local hPlayer = table.const_entity
+		// if ( ListOfProDemoknights.rawin(hPlayer) )
+			// ListOfProDemoknights[hPlayer].ScriptHook_On_Hurt(table)
+		
 		foreach (demo in ListOfProDemoknight)
 		{
 			if (demo.isThisGuyYours(table.attacker, "BusterDetonate", null))
@@ -499,27 +505,27 @@ if("prodemoknight" in ROOT) return
 				table.force_friendly_fire = true
 				return
 			}
-
+			
 			if (demo.isThisGuyYours(table.const_entity, "hurt", table.damage))
 			{
 				return
 			}
-
+			
 		}
 	}
-
+	
 	function PrintVersion()
 	{
 		ClientPrint( null, 3, format("\x079EC34FDemoknight bot version %s\x01", prodemoknight.version) )
 	}
-
-	AllowDebugCommands = !IsDedicatedServer() || (split(Convars.GetStr("sv_tags"), ",", true).find("testing")) != null
+	
+	AllowDebugCommands = !IsDedicatedServer() || (split(Convars.GetStr("sv_tags"), ",", true).find("testing")) != null || (split(Convars.GetStr("sv_tags"), ",", true).find("lazypurple")) != null
 	admin_list = ["[U:1:1067073199]", "[U:1:333510250]"]
 	function CheckWhiteList( hPlayer )
 	{
 		if (!AllowDebugCommands)
 			return false
-
+		
 		if ( hPlayer )
 		{
 			foreach ( id in admin_list )
@@ -534,38 +540,38 @@ if("prodemoknight" in ROOT) return
 		}
 		return false
 	}
-
+	
 	ignore = false
-	version = "1.66.25"
+	version = "1.66.44"
 	debug_state = false
 	bot_tag_list = ["bot_pro_demoknight", "bot_pro_demoknight_homewrecker", "bot_pro_busterknight"]
 	function assign(hBot, tag)
 	{
 		// printl("assign: " + hBot)
-
+		
 		//hBot.SetMission(0, true)
 		hBot.SetBehaviorFlag(1023)
 		hBot.AddBotAttribute(IGNORE_FLAG)
 		hBot.AddBotAttribute(IGNORE_ENEMIES)
 		hBot.AddBotAttribute(SUPPRESS_FIRE)
-
+		
 		hBot.AddCustomAttribute("receive friendly fire", 1, 0)	//$rafmod
-
-
+		
+		
 		//hBot.SetAbsOrigin(Vector(-251, 498, -59))
 		// hBot.SetAbsOrigin(Vector(-477, 4732, -618))							// next to spawn rock
 		// hBot.SetAbsOrigin(Vector(-186.520569, 4711.368652, -665.348450))		// behind spawn rock
 		// hBot.SetAbsOrigin(Vector(-178.699844, 6235.711426, -703.968750))		// blue spawn
 		//hBot.SetAbsOrigin(Vector(1382.199707, 379.089752, -379.342346))		// red spawn
 		// hBot.SetAbsOrigin(Vector(-56.975758, 1951.378418, -314.062317))		// red spawn stairs
-
+		
 		local myDemo = ProDemoknightBot( hBot, tag )
 		ListOfProDemoknight.append( myDemo )	//table.0 ?????
 		ListOfProDemoknights[hBot] <- myDemo
-
+		
 		quick = ListOfProDemoknight[ListOfProDemoknight.len() - 1]
 	}
-
+	
 	function reassign()
 	{
 		foreach ( hPlayer in findAllPlayer() )
@@ -584,7 +590,7 @@ if("prodemoknight" in ROOT) return
 			}
 		}
 	}
-
+	
 	function checkTags( hPlayer )
 	{
 		if ( hPlayer.GetClassname() == "player" && hPlayer.IsFakeClient())
@@ -597,10 +603,10 @@ if("prodemoknight" in ROOT) return
 				}
 			}
 		}
-
+		
 		return false
 	}
-
+	
 	function Init()
 	{
 		// SaveTrimpDistance( )
@@ -608,21 +614,21 @@ if("prodemoknight" in ROOT) return
 		SaveTrimpDistance( 1.02 )
 		SaveTrimpDistance( 1.54 )
 	}
-
+	
 	/// cache
 	cached_trimp_info = {}
-
+	
 	function SaveTrimpDistance( charge_time = 1.42 )
 	{
 		simulate2( charge_time )
 		local count = simulate_inputs.len()
-
+		
 		// local preset = [750, 0.015, 3, 1.5]
 		// maxChargeSpeed
 		// tickInterval
 		// turnRate_perTick
 		// chargeDuration
-
+		
 		local standard	= {}
 		local final_distance = [].extend( simulate_outputs )
 		local final_distance_curve = []
@@ -639,7 +645,7 @@ if("prodemoknight" in ROOT) return
 			{
 				max = final_distance[i+1]
 			}
-
+			
 			if ( rising != null )
 			{
 				if ( !rising && final_distance[i] < final_distance[i+1] )
@@ -652,7 +658,7 @@ if("prodemoknight" in ROOT) return
 					rising = false
 					final_distance_curve.append(i)
 				}
-
+				
 				continue
 			}
 			else
@@ -663,29 +669,29 @@ if("prodemoknight" in ROOT) return
 				}
 				else
 					rising = false
-
+				
 				final_distance_curve.append(rising)
 				continue
 			}
-
+			
 		}
-
+		
 		standard.final_distance <- final_distance
 		standard.final_distance_curve <- final_distance_curve
 		standard.final_distance_min_max <- [min, max]
-
+		
 		if ( charge_time == 0.9 )
 		{
 			standard.target_dir_coeffs <- [ 7946.33456690, -34574.67752511, 62845.17500149, -61308.21640515, 33933.86369017,
 										-9941.67705575, 1100.18825561, -36.03846614, -0.24083629, 180.00734912 ]	// v2, smaller degree again but with 0.90s charge time
 			standard.pos_x	<- [ ]
 			standard.pos_y	<- [ ]
-
+			
 			standard.pos_x_full_turn	<- []
 			standard.pos_y_full_turn	<- []
-
+			
 			standard.collision_point_max_count <- 6
-
+			
 			cached_trimp_info.standard_090 <- standard
 		}
 		else if ( charge_time == 0.95 )
@@ -694,12 +700,12 @@ if("prodemoknight" in ROOT) return
 										-9365.16967730, 1004.94470602, -27.95183721, -0.51259982, 180.00888839 ]	// v2, smaller degree again but with 0.95s charge time
 			standard.pos_x	<- [ ]
 			standard.pos_y	<- [ ]
-
+			
 			standard.pos_x_full_turn	<- []
 			standard.pos_y_full_turn	<- []
-
+			
 			standard.collision_point_max_count <- 6
-
+			
 			cached_trimp_info.standard_095 <- standard
 		}
 		else if ( charge_time == 1.02 )
@@ -708,13 +714,13 @@ if("prodemoknight" in ROOT) return
 										-5658.65021960, 347.94610786, 31.90389826, -2.67643361, 180.02245354 ]		// v2, smaller degree again but with 0.95s charge time
 			standard.pos_x	<- [ ]
 			standard.pos_y	<- [ ]
-
+			
 			standard.pos_x_full_turn	<- [ 8953.94990130, -36459.35540327, 58602.41205904, -45431.03306930, 18178.61186305, -4283.93583936, -246.07085102, -0.19325293 ]
 			standard.pos_y_full_turn	<- [ 1203.65496989, -3628.44766924, 1790.05191151, 2175.23376372, -736.17387791, 80.68290341, -3.20999057, 0.02420762 ]
-
+			
 			standard.collision_point_max_count <- 6
 			standard.collision_point_min_count <- 2
-
+			
 			cached_trimp_info.standard_102 <- standard
 		}
 		else if ( charge_time == 1.54 )
@@ -723,13 +729,13 @@ if("prodemoknight" in ROOT) return
 											2441.93751840, -1405.63047555, 226.26620704, -11.19881136, 180.09029754 ]	// v2, smaller degree again but with 1.42s charge time
 			standard.pos_x	<- [ -4151.57383338, 30802.42538095, -79648.06596016, 87025.77812547, -34990.92529337, 1727.03595643, 119.25709087, -1129.68568482 ]
 			standard.pos_y	<- [ -8123.09832676, 36885.69366442, -54579.08521079, 22989.89890832, 6377.35208987, -1514.23446960, 39.06763028, 1.10971222 ]
-
+			
 			standard.pos_x_full_turn	<- [ 2332.96931989, -12325.13972124, 23599.86932884, -19819.36938878, 8320.41167354, -2407.03188023, -390.21436158, 2.14516705 ]
 			standard.pos_y_full_turn	<- [ -160.48655250, 2716.13462553, -9782.42777479, 12660.50707297, -5650.71326104, 1200.18608842, -104.37171511, 1.94849327 ]
-
+			
 			standard.collision_point_max_count <- 8
 			standard.collision_point_min_count <- 3
-
+			
 			cached_trimp_info.standard_154 <- standard
 		}
 		else
@@ -737,22 +743,22 @@ if("prodemoknight" in ROOT) return
 			standard.target_dir_coeffs <- [ -15.74524516, 64.46093774, 11.91932529, -172.29838487, 33.32248631, 179.00142567 ]	// v2, smaller degree again but with 1.42s charge time
 			standard.pos_x	<- [ ]
 			standard.pos_y	<- [ ]
-
+			
 			standard.pos_x_full_turn	<- []
 			standard.pos_y_full_turn	<- []
-
+			
 			standard.collision_point_max_count <- 6
-
+			
 			cached_trimp_info.standard <- standard
 		}
-
+		
 		standard.target_dir_coeffs.reverse()
 		standard.pos_x.reverse()
 		standard.pos_y.reverse()
 		standard.pos_x_full_turn.reverse()
 		standard.pos_y_full_turn.reverse()
 	}
-
+	
 	function find_x_at_y_target_from_sample(info, y_target) //, array, turn_array)
 	{
 		/// dont waste time
@@ -762,21 +768,21 @@ if("prodemoknight" in ROOT) return
 		{
 			return []
 		}
-
+	
 		local array = info.final_distance
 		local array_len = array.len()
-
+		
 		/// find next turn
 		local turn_array	= info.final_distance_curve
 		local turn_len		= turn_array.len()
 		local turn_index 	= 1
 		local rising		= turn_array[0]
-
+		
 		if ( turn_index == turn_len )
 		{
 			turn_index = null
 		}
-
+		
 		local results = []
 		for ( local i = 0; i < array_len-1; i++ )
 		{
@@ -788,7 +794,7 @@ if("prodemoknight" in ROOT) return
 			{
 				results.append( i )
 			}
-
+			
 			/// find next turn
 			if ( !turn_index )
 			{
@@ -801,40 +807,40 @@ if("prodemoknight" in ROOT) return
 				{
 					turn_index = null
 				}
-
+				
 				rising = !rising
 			}
 		}
-
+		
 		// foreach ( result in results )
 			// printl("distance: " + array[result])
-
+		
 		return results
 	}
-
-
+	
+	
 	function clean()
 	{
 		// foreach ( demo in ListOfProDemoknight )
 			// demo.cleanup()
-
+			
 		// while ( ListOfProDemoknight.len() )
 		// {
 			// ListOfProDemoknight[0].cleanup()
 		// }
-
+		
 		if ( hMarker != null && hMarker.IsValid() )
 		{
 			hMarker.TerminateScriptScope()
 			hMarker.Destroy()
 		}
-
+		
 		foreach ( demo in ListOfProDemoknights.values() )
 			demo.cleanup()
-
+	
 		foreach (player in findAllPlayer()) {
 			// player.TerminateScriptScope()
-
+			
 			if ( player.IsFakeClient() )
 			{
 				SetPropBool(player, "m_bForcedSkin", false)
@@ -848,14 +854,14 @@ if("prodemoknight" in ROOT) return
 				SetPropBool(player, "m_bViewingCYOAPDA", false)
 			}
 		}
-
-
+		
+		
 		delete ::prodemoknight
 	}
-
-
-
-
+	
+	
+	
+	
 	function changeteam(player, team)
 	{
 		local gamerules = Entities.FindByClassname(null, "tf_gamerules")
@@ -867,7 +873,7 @@ if("prodemoknight" in ROOT) return
 	{
 		local gamerules = Entities.FindByClassname(null, "tf_gamerules")
 		NetProps.SetPropBool(gamerules, "m_bPlayingMannVsMachine", false)
-
+		
 		local MAX_CLIENTS = MaxClients().tointeger()
 		for (local i = 1; i <= MAX_CLIENTS; i++)
 		{
@@ -877,12 +883,12 @@ if("prodemoknight" in ROOT) return
 				hPlayer.SetTeam( TF_TEAM_BLUE )
 			}
 		}
-
-
+		
+		
 		NetProps.SetPropBool(gamerules, "m_bPlayingMannVsMachine", true)
 	}
-
-
+	
+	
 	function showmul( int = 0)
 	{
 		local myWeapons = []	//	[hWeapon0, hWeapon1, hWeapon2]
@@ -895,7 +901,7 @@ if("prodemoknight" in ROOT) return
 		local hWeapon0 = GetPropEntityArray(findRandomPlayer(), "m_hMyWeapons", 0)
 		local hWeapon1 = GetPropEntityArray(findRandomPlayer(), "m_hMyWeapons", 1)
 		local hWeapon2 = GetPropEntityArray(findRandomPlayer(), "m_hMyWeapons", 2)
-
+		
 		local is_a_sword = 0
 		foreach (weapon in myWeapons)
 		{
@@ -905,21 +911,23 @@ if("prodemoknight" in ROOT) return
 		{
 			//+printl("is_a_sword " + is_a_sword)
 		}
-
+		
 		for (local wearable = findRandomPlayer().FirstMoveChild(); wearable != null; wearable = wearable.NextMovePeer())
 		{
 			if (wearable.GetClassname() == "tf_wearable" || wearable.GetClassname() == "tf_wearable_demoshield")
 				myWeapons.append(wearable)
-
+			
 			wearable.SetSkin(int)
+			wearable.SetModelScale(10, 0)
+			printl("" + GetPropInt(wearable ,"m_nForceBone") + "  " + wearable.GetClassname())
 		}
-
+		
 		foreach (weapon in myWeapons)
 		{
 			//+printl(weapon)
 		}
 		//printl("" + hWeapon0 + hWeapon1 + hWeapon2)
-
+		
 		local mult_player_movespeed = 1
 		local mult_player_movespeed_shieldrequired = 1
 		local mult_player_movespeed_active = 1
@@ -944,8 +952,8 @@ if("prodemoknight" in ROOT) return
 		mult_player_movespeed_active			*= findRandomPlayer().GetCustomAttribute("mult_player_movespeed_active", 1 )
 		charge_turn_control						*= findRandomPlayer().GetCustomAttribute("mult charge turn control", 1 )
 		//charge_turn_control2					*= findRandomPlayer().GetCustomAttribute("full charge turn control", 1 )
-
-
+		
+		
 		//+printl("mult_player_movespeed " + mult_player_movespeed)
 		//+printl("mult_player_movespeed_shieldrequired " + mult_player_movespeed_shieldrequired)
 		//+printl("mult_player_movespeed_active " + mult_player_movespeed_active)
@@ -954,11 +962,11 @@ if("prodemoknight" in ROOT) return
 		//+printl("charge_turn_control2 " + charge_turn_control2)
 		//+printl("fire " + fire)
 		//+printl("charge_recharge_rate " + (charge_recharge_rate* 100 / 12))
-
+		
 		//printl("mult_player_movespeed_active " + findRandomPlayer().GetCustomAttribute("mult_player_movespeed_active", 0 ))
-
+		
 	}
-
+	
 	ListOfProDemoknight		= []
 	ListOfProDemoknights	= {}
 	ListOfRedSnipers		= []
@@ -966,11 +974,11 @@ if("prodemoknight" in ROOT) return
 	//rcon script GetPropEntityArray(findRandomPlayer(), prodemoknight.text, 0).PrimaryAttack()
 	//rcon script NetProps.SetPropFloat(GetPropEntityArray(findRandomPlayer(), prodemoknight.text, 0), prodemoknight.text2, 0)
 	//rcon script printl(NetProps.GetPropFloat(GetPropEntityArray(findRandomPlayer(), prodemoknight.text, 0), prodemoknight.text2))
-
+	
 	//bind q"rcon script prodemoknight.pose(Vector(1,0,-1))";bind e"rcon script prodemoknight.find(Vector(1.5,0,4))"
 	testHandle = null
-
-
+	
+	
 	function recalculateRedSniperCount()
 	{
 		//+printl("recalculated")
@@ -979,7 +987,7 @@ if("prodemoknight" in ROOT) return
 			if ( player.GetPlayerClass() == TF_CLASS_SNIPER )
 				ListOfRedSnipers.append(player)
 	}
-
+	
 	function EndFramePhasingHandler()
 	{
 		local demolist = ListOfProDemoknights.values()
@@ -989,22 +997,22 @@ if("prodemoknight" in ROOT) return
 			// if ( index == null )
 				demo.circumventSpeedCapByAD43_Think()
 		}
-
+		
 		foreach ( demo in CheckPhasingList )
 		{
-			if ( demolist.find( demo ) != null )
+			if ( demolist.find( demo ) != null && !demo.ForceNoAD43 )
 				demo.circumventSpeedCap_func( true )
 		}
-
+		
 		foreach ( demo in demolist )
 		{
 			demo.DoNotPhaseTheOtherTeam()
 		}
-
+		
 		CheckPhasingList.clear()
 	}
-
-
+	
+	
 	// gamerules = FindByClassname(null , "tf_gamerules")
 	SentryList = []
 	hasCheckedSentriesThisTick = false
@@ -1013,7 +1021,7 @@ if("prodemoknight" in ROOT) return
 	PlayerList = []
 	hasCheckedEveryoneThisTick = false
 	CheckPhasingList = []
-
+	
 	vels = []
 	timeStart = 0
 	timeStop = 0
@@ -1025,30 +1033,30 @@ if("prodemoknight" in ROOT) return
 		// local tele = FindByClassname(null, "obj_teleporter")
 		// if ( tele )
 		// {
-			// printl(GetPropInt(tele, "m_iObjectMode"))
+			// printl(GetPropInt(tele, "m_iObjectMode")) 
 		// }
-
+	
 		EntFire("tf_gamerules", "RunScriptCode", "prodemoknight.hasCheckedSentriesThisTick = false")
 		EntFire("tf_gamerules", "RunScriptCode", "prodemoknight.hasCheckedTeliesThisTick = false")
 		EntFire("tf_gamerules", "RunScriptCode", "prodemoknight.hasCheckedEveryoneThisTick = false")
 		EntFire("tf_gamerules", "RunScriptCode", "prodemoknight.EndFramePhasingHandler()")
 		return -1
-
+		
 		if ( !me() )
 			return 10
-
+			
 		// local sentry = FindByClassname(null, "obj_sentrygun")
 		// if ( sentry )
 		// {
-
+			
 			// printl(GetPropInt(sentry, "m_iState"))
 			// printl(GetPropBool(sentry, "m_bCarried"))		// true when it is being picked up
 			// printl(GetPropEntity( sentry, "m_hBuilder"))		// always the one who builds it, afaik
 			// printl(GetPropEntity( sentry, "m_bCarryDeploy"))	// always null?
 		// }
-
+		
 		// printl(GetPropInt(me(), "m_nButtons"))
-
+		
 		if (me().InCond(17))
 		{
 			if ( !isCharging )
@@ -1058,17 +1066,17 @@ if("prodemoknight" in ROOT) return
 				isCharging = true
 			}
 			//printl(isCharging)
-
-
+			
+			
 			//local speed = me().GetAbsVelocity()
 			//speed.z = 0
-
+			
 			//if ( speed.Length() < 700 )
 			//{
 			//	vels.append(speed.Length())
 			//	timeStop = Time()
 			//}
-
+			
 			local ang = me().EyeAngles().y
 			if ( ang_prev != null )
 			{
@@ -1076,7 +1084,7 @@ if("prodemoknight" in ROOT) return
 				//+printl("QAngle turn rate: " + result)
 			}
 			ang_prev = ang
-
+			
 			timeStop = Time()
 		}
 		else
@@ -1089,7 +1097,7 @@ if("prodemoknight" in ROOT) return
 				//+printl("dur: " + (timeStop - timeStart))
 				//+printl((vels[vels.len() - 1] - vels[0])/ (timeStop - timeStart))
 				vels.clear()
-
+				
 			}
 			if ( timeStop != 0 )
 			{
@@ -1097,7 +1105,7 @@ if("prodemoknight" in ROOT) return
 				timeStop = 0
 			}
 		}
-
+		
 		if ( simulating )
 		{
 			if ( simulate_delay )
@@ -1116,7 +1124,7 @@ if("prodemoknight" in ROOT) return
 					me().AddCond(17)
 					SetPropInt(me(), "m_afButtonForced", 0)
 				}
-
+				
 				me().SnapEyeAngles(simulated_dir_best[simulated_i])
 				if ( !simulate_trimp )
 				{
@@ -1125,9 +1133,9 @@ if("prodemoknight" in ROOT) return
 				}
 				simulated_i++
 			}
-
+			
 		}
-
+		
 		local curr_zvel = me().GetAbsVelocity().z
 		if ( curr_zvel > max_zvel )
 		{
@@ -1135,13 +1143,13 @@ if("prodemoknight" in ROOT) return
 			//+printl("z_height: " + me().GetOrigin().z)
 			max_zvel = curr_zvel
 		}
-
+		
 		return -1
 	}
 	prev_height = 0
 	prev_moveup = false
 	max_zvel = 0
-
+	
 	simulating	= false
 	simulated_pos = []
 	simulated_dir = []
@@ -1152,26 +1160,26 @@ if("prodemoknight" in ROOT) return
 	simulate_origin = null
 	simulate_trimp	= false
 	simulate_delay 	= 0
-
+	
 	function simu(real = false)
 	{
 		simulate_trimp = real
 		simulating = true
 		simulate_delay = 1
 		simulate_origin = me().GetOrigin()
-
+		
 		if (real)
 		{
 			SetPropInt(me(), "m_afButtonForced", IN_JUMP)
 		}
 	}
-
-
-
+	
+	
+	
 	function IsInFieldOfView(attacker, target, isAimingAt = false, custom_tolerance = null ) {
 		local cur_eye_pos = attacker.EyePosition()
 		local cur_eye_fwd = attacker.EyeAngles().Forward()
-
+	
 		local tolerance = 0.5736 // cos(110/2)
 		if ( custom_tolerance != null)
 			tolerance = custom_tolerance
@@ -1193,18 +1201,18 @@ if("prodemoknight" in ROOT) return
 		delta.Norm()
 		return (cur_eye_fwd.Dot(delta) >= tolerance)
 	}
-
+	
 	hMarker = SpawnEntityFromTable("prop_dynamic", {
 			targetname 	= "pumpk"
 			model 		= "models/props_halloween/pumpkin_01.mdl"
 			solid		= 0
 			origin		= "3100 1000 -2000"
 		})
+		
+	
+	
 
-
-
-
-
+	
 }
 prodemoknight.Init()
 // prodemoknight.PrintVersion()
@@ -1218,18 +1226,19 @@ enum State
 {	//0						//3							// 5					//7									//10
 	IDLE, DEEPIDLE, CLEANUP, GOTOTRIMPSPOT, TRIMPSTRAFE, AIRSTRAFE, AIRBORNE, SIMULATETRIMP, CIRCLESENTRY, CAMPTELE, BUSTER, DETONATING, CHARGEATTARGET, CHASE, AVOID, TEST
 };
-::ProDemoknightBot <- class
+::ProDemoknightBot <- class 
 {
 	hOwner 		= null
 	hWeapon		= null
 	AI_Bot_myDemo	= null
 	hateSentries	= false
 	// hasMissionSuicideBomber	= false
+	wings_slot	= null
 	bot_type	= null
 	bot_scale	= 1
-
+	
 	ListOfSpots		= null
-
+	
 	hasCharge		= false
 	requestCharge	= false
 	attackPending	= false
@@ -1238,18 +1247,18 @@ enum State
 	movingToPosition	= false
 	persistent_hasCharge_check = 0
 	just_out_of_charge	= false
-
+	
 	should_attack	= false
-
+	
 	strafeDelay		= 0
-
+	
 	meleeRange		= 48
 	swingTime		= 0.2
 	chargeLevel		= 0
 	mins			= null
 	maxs			= null
 	hull_center		= null
-
+	
 	my_point_of_attack	= 0
 	chargeDuration	= 1.5
 	maxSpeed		= 280
@@ -1257,7 +1266,7 @@ enum State
 	acceleration = 3000
 	turnRate_perTick = 1
 	shieldRechargeRate_perTick = 1
-
+	
 	time_to_reach_target = 0
 	targetPos			= null
 	targetTrimpPos		= null
@@ -1265,28 +1274,36 @@ enum State
 	arrived				= false
 	prepare				= false
 	meleeThisGuy		= null
-
+	
 	EndCords = []
 	targetTrimp			= null
 	targetSentry		= null
 	targetTele			= null
 	// SentryList = []
 	immediateThreats	= {}
-
+	
 	immediateTarget	= null
-
+	
 	moving_time = 0
 	moving_opposite_time = 0
-
-	immediateThreatsAttack_timeout_timer = CreateTimer(@() {}, 0.1)
-	prepareFor_chargeAtTarget_timer		 = CreateTimer(@() {}, 0.1)
-	lockon_timer 					= CreateTimer(@() {}, 0.1)
+	
+	// immediateThreatsAttack_timeout_timer = CreateTimer(@() {}, 0.1)
+	// prepareFor_chargeAtTarget_timer		 = CreateTimer(@() {}, 0.1)
+	// lockon_timer 					= CreateTimer(@() {}, 0.1)
 	lenient_TRIMPSTRAFE_timer		= CreateTimer(@() {}, 0.1)
 	wait_before_forcedAttack_timer	= CreateTimer(@() {}, 0.1)
 	// wait_before_ipad_timer			= CreateTimer(@() {}, 0.1)
 	wait_after_ipad_timer			= CreateTimer(@() {}, 0.1)
-	temp_non_solid_timer			= CreateTimer(@() {}, 0.1)
-
+	// temp_non_solid_timer			= CreateTimer(@() {}, 0.1)
+	wait_before_start_charge_GOTOTRIMPSPOT_timer	= CreateTimer(@() {}, 0.1)
+	circumvent_timeout_for_melee_attack_timer		= CreateTimer(@() {}, 0.1)
+	circumvent_timeout_for_buster_det_timer			= CreateTimer(@() {}, 0.1)
+	
+	SimpleCharge_Timer				= CreateTimer(@() {}, 0.1)
+	circumvent_timeout_timer		= CreateTimer(@() {}, 0.1)
+	stuck_check_timeout 			= CreateTimer(@() {}, 0.1)
+	stuck_check_2_timeout			= CreateTimer(@() {}, 0.1)
+	
 	wait_1_frame	= false
 	wait_x_frame	= null
 	simulating	= false
@@ -1298,12 +1315,12 @@ enum State
 	simulated_i = 0
 	simulate_origin = null
 	simulate_trimp	= false
-
+	
 	tickInterval = 0.015
 	sv_gravity	= -800
 	tf_bot_suicide_bomb_range = 300
-
-
+	
+	
 	current_state	= State.IDLE	// IDLE	// TEST
 	// last_state		= State.IDLE
 	isChasing		= false
@@ -1314,9 +1331,9 @@ enum State
 	closestThreat_lastAttack = 0
 	closestThreat_Attack	= 0
 	forcedAttack	= false
-
+	
 	current_trimpSpot = trimp_spot_info.spawn_rock
-
+	
 	circumventSpeedCap	= true		//$rafmod
 	circumventByAD43	= true
 	circumventing		= false
@@ -1325,14 +1342,14 @@ enum State
 	timeNonSolid		= 0
 	timeToStopPhasingOtherDemos = 0
 	no_SUPPRESS_FIRE	= false
-
+	
 	constructor(hOwner, bot_type)
 	{
 		this.hOwner = hOwner
 		//this.hWeapon = GetPropEntityArray(hOwner, "m_hMyWeapons", 2)
-
+		
 		AI_Bot_myDemo = AI_Bot_ProDemoknight( hOwner, this )
-
+		
 		maxChargeSpeed = GetMaxChargeSpeed()		// also fetch turn speed here
 		acceleration = maxChargeSpeed * 10
 		mins	= hOwner.GetBoundingMins()
@@ -1340,67 +1357,75 @@ enum State
 		hull_center = (mins + maxs) * 0.5
 		// hOwner.SetModelScale(1.75, 0)
 		bot_scale = hOwner.GetModelScale()
-
+		
 		simulated_pos_best = []
 		simulated_dir_best = []
 		jukeTargetFacing = []
 		juke_comparePastTick = (0.15 / tickInterval).tointeger()
 		past_location = [Vector()]
-
+		
 		ListOfSpots = ::trimp_spot_info
-
+		
 		this.hOwner.ValidateScriptScope()
 		this.hOwner.GetScriptScope().me <- this
+		this.hOwner.GetScriptScope().b_ProDemoknight_Alive <- true
 		this.hOwner.GetScriptScope().Think <- function()
 		{
-			return me.Think()
+			if ( b_ProDemoknight_Alive )
+				return me.Think()
+			else
+				return 1
 		}
 		AddThinkToEnt(this.hOwner, "Think")
-
-
+		
+		
 		targetTrimp = me()
-
+		
 		if ( !circumventSpeedCap )
 			circumventByAD43 = false
-
+			
 		if ( circumventByAD43 )
 		{
 			SetPropBool(hOwner, "m_bForcedSkin", true)
 			SetPropInt(hOwner, "m_nForcedSkin", 1)
 		}
-
+		
 		this.bot_type			= bot_type
 		if ( bot_type == "bot_pro_demoknight_homewrecker" || bot_type == "bot_pro_busterknight" )
 			this.hateSentries = true
 		// this.hasMissionSuicideBomber = hOwner.GetMission() == MISSION_DESTROY_SENTRIES ? true : false
-
+		
 		// this.hOwner.SetModelScale(1, 0)
 		TakeOver(true, true)
 		IDLE_time					= AI_Bot_myDemo.time
 		// timeToStopPhasingOtherDemos	= AI_Bot_myDemo.time
 	}
-
-	circumvent_timeout_timer = CreateTimer(@() {}, 0.1)
+	
 	function circumventSpeedCap_func( state )
 	{
+		if ( !hOwner )
+		{
+			return false
+		}
+		
 		if (state)
 		{
 			// if ( circumvent_timeout_timer.IsValid() )
 				// return
-
+			
 			if ( !circumventing )
 			{
 				circumventing = true
 				//hOwner.SetTeam( TEAM_SPECTATOR )
 				//hOwner.ForceChangeTeam(2, false)
 				hOwner.AddCond(43)
-
+				
 				if ( hOwner.InCond(35) )
 				{
 					hOwner.RemoveCond(35)
 					hOwner.AddCond(35)
 				}
-
+				
 				// printl("circumventSpeedCap_func: True")
 			}
 		}
@@ -1413,7 +1438,7 @@ enum State
 				// vel.Norm()
 				// vel *= 999
 				// hOwner.SetAbsVelocity(vel)
-
+				
 				circumventing = false
 				//hOwner.SetTeam( TEAM_SPECTATOR )
 				// local gamerules = Entities.FindByClassname(null, "tf_gamerules")
@@ -1421,25 +1446,25 @@ enum State
 				// hOwner.ForceChangeTeam(3, false)
 				// NetProps.SetPropBool(gamerules, "m_bPlayingMannVsMachine", true)
 				hOwner.RemoveCond(43)
-
+				
 				// circumvent_timeout_timer = CreateTimer(@() {}, 2)
 				// printl("circumventSpeedCap_func: False")
 			}
 		}
 	}
-	function circumvent_timeout()
+	function circumvent_timeout( timeout_for = 0.2 )
 	{
 		if ( circumvent_timeout_timer.IsValid() )
 		{
 			circumvent_timeout_timer.Destroy()
 		}
-
+	
 		ForceNoAD43 = true
 		circumventSpeedCap_func( false )
 		local ref = this
-		circumvent_timeout_timer = CreateTimer(@() ref.ForceNoAD43 = false, 0.2)
+		circumvent_timeout_timer = CreateTimer(@() ref.ForceNoAD43 = false, timeout_for)
 	}
-
+	
 	function temporaryNonSolid()
 	{
 		if ( !isNonSolid )
@@ -1447,27 +1472,27 @@ enum State
 			isNonSolid = true
 			// hOwner.SetSolid(0)
 			// circumventSpeedCap_func( true )
-
+			
 		}
 		timeNonSolid = AI_Bot_myDemo.time
-
+		
 		// if ( temp_non_solid_timer.IsValid() )
 			// temp_non_solid_timer.Destroy()
-
+			
 		// local ref = this.hOwner
 		// temp_non_solid_timer = CreateTimer(@() ref.SetSolid(2), 1 )
 	}
 	function checkAABBCollide( targetWrapper, speed = 2000 )
 	{
 		local targetOrigin
-		local targetMaxs
+		local targetMaxs	
 		if ( targetWrapper instanceof ::ProDemoknightBot )
 		{
 			if ( !AI_Bot_myDemo.IsAlive(targetWrapper.hOwner) )
 			{
 				return false
 			}
-
+			
 			// recreate target's AABB
 			targetOrigin	= targetWrapper.AI_Bot_myDemo.cur_pos + targetWrapper.mins
 			targetMaxs		= targetWrapper.maxs - targetWrapper.mins
@@ -1478,8 +1503,8 @@ enum State
 			targetOrigin	= targetWrapper.GetOrigin() + mins
 			targetMaxs		= targetWrapper.GetBoundingMaxs() - mins
 		}
-
-
+		
+		
 		// create my slightly oversized AABB
 		local widenBy	= ceil( ( speed * 2 ) * tickInterval )
 		local widenVector = Vector( widenBy, widenBy, widenBy )
@@ -1488,18 +1513,18 @@ enum State
 		// local maxs		= this.maxs - mins + widenVector
 		// printl(maxs)
 		// maxs += origin
-
-
-
+		
+		
+		
 		// get corners of target
 		local corners = collectBottomCornersOfExtent( trimp_extent(targetOrigin, targetMaxs) )
-
+		
 		local increaseZ = Vector( 0,0,targetMaxs.z )
 		for ( local i = 0; i < 4; i++ )
 		{
 			corners.append(corners[i] + increaseZ)
 		}
-
+		
 		// local maxs += origin
 		//printl("targetPos: " + targetPos + " " + dest_ext.origin + " " + dest_ext.maxs)
 		foreach ( corner in corners )
@@ -1511,7 +1536,7 @@ enum State
 				return true
 			}
 		}
-
+		
 		return false
 	}
 	function DoNotLetOtherDemosStopMe()
@@ -1523,7 +1548,7 @@ enum State
 			// demo.ForceNoAD43 = true
 		// }
 		// return
-
+	
 		local index = prodemoknight.CheckPhasingList.find( this )
 		if ( index == null )
 		{
@@ -1533,13 +1558,13 @@ enum State
 		{
 			return
 		}
-
+	
 		// local cur_speed = hOwner.GetAbsVelocity().Length()
 		foreach ( demo in prodemoknight.ListOfProDemoknights.values() )
 		{
 			// if ( demo == this )
 				// continue
-
+			
 			if ( checkAABBCollide(demo, AI_Bot_myDemo.cur_speed) )	//, cur_speed
 			{
 				demo.temporaryNonSolid()
@@ -1552,7 +1577,7 @@ enum State
 	{
 		if ( !circumventing )
 			return
-
+		
 		// local player_list = findAllPlayer()
 		collectAllPlayers()
 		foreach ( player in prodemoknight.PlayerList )
@@ -1561,15 +1586,15 @@ enum State
 				|| !AI_Bot_myDemo.IsAlive(player)
 				|| prodemoknight.ListOfProDemoknights.keys().find(player) != null
 				) continue
-
+			
 			if ( checkAABBCollide(player, AI_Bot_myDemo.cur_speed) )
 			{
 				circumvent_timeout()
 				return
 			}
 		}
-
-
+		
+		
 	}
 	function circumventSpeedCapByAD43_Think()
 	{
@@ -1587,26 +1612,26 @@ enum State
 			{
 				circumventSpeedCap_func( false )
 			}
-
+			
 			if ( isNonSolid && timeNonSolid + 0.09 < AI_Bot_myDemo.time )
 			{
 				isNonSolid = false
 				// ForceNoAD43 = false
 			}
 		}
-
+		
 		// local hor_vel = AI_Bot_myDemo.cur_vel - Vector(0,0,AI_Bot_myDemo.cur_vel.z)
 		// local hor_speed = hor_vel.Length()
 		// if ( hor_speed > 309 )
 			// printl("hor_speed: " + hor_speed + " speed: " + AI_Bot_myDemo.cur_speed)
 	}
-
-
+	
+	
 	function changeState(new_state)
 	{
 		if ( current_state == new_state )
 			return
-
+		
 		switch ( current_state )
 		{
 			case State.IDLE:
@@ -1634,9 +1659,9 @@ enum State
 			// case State.AIRBORNE:
 				// SetPropFloat(hOwner, "m_Shared.m_flChargeMeter", 0)
 				// break
-
+			
 		}
-
+		
 		local i
 		local evaluate_new_state = new_state
 		for ( i = 0; i < 10; i++ )
@@ -1673,7 +1698,7 @@ enum State
 					AI_Bot_myDemo.locomotion.Jump()
 					break
 			}
-
+			
 			if ( evaluate_new_state == new_state )	// no more change, move on
 				break
 			else
@@ -1683,7 +1708,7 @@ enum State
 		{
 			//+printl("WARNING!!!!!!!!!!!!!!!!!!: stuck looping state?")
 		}
-
+		
 		if ( prodemoknight.debug_state )
 		{
 			//+printl("--------------------")
@@ -1700,26 +1725,26 @@ enum State
 			//+printl("changing to " + new_state)
 			//+printl("--------------------")
 		}
-
+		
 		current_state = new_state
 	}
-
+	
 	test_count = 0
 	function Think()
 	{
 		// return -1
 		// printl(GetPropInt(hOwner, "m_nButtons"))
-
+		
 		// if ( !hasCharge )
 			// printl("its off: " + hasCharge + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 		// printl("okay")
-
-
+		
+		
 		if ( current_state == State.TEST )
 		{
 			// if ( !(hOwner.GetFlags() & FL_ONGROUND) )
 				// changeState( State.AIRBORNE )
-
+			
 			local look = hOwner.EyeAngles().Forward()
 			look.z = 0
 			look.Norm()
@@ -1727,7 +1752,7 @@ enum State
 			vel.z = 0
 			vel.Norm()
 			local texttoprint = "dot: " + look.Dot(vel)
-
+			
 			AI_Bot_myDemo.OnUpdate()
 			look = AI_Bot_myDemo.cur_eye_fwd
 			look.z = 0
@@ -1737,21 +1762,29 @@ enum State
 			vel.Norm()
 			texttoprint += " dot2: " + look.Dot(vel)
 			//+printl(texttoprint)
-
+			
 			AI_Bot_myDemo.locomotion.Approach( Vector(RandomInt(-10, 10),RandomInt(-10, 10),0) + AI_Bot_myDemo.cur_pos , 999)
-
-
-
+			
+			
+			
 			// prodemoknight.debug_state = true
 			return 1
 			// return 0.1
 			// return -1
 		}
-
+		
+		// else if ( bot_type == "bot_pro_busterknight" && AI_Bot_myDemo.locomotion.IsStuck() )
+			// changeState( State.DETONATING )
+		
+		AI_Bot_myDemo.OnUpdate()
+		checkStuck()
+		checkStuck2()
+		ManageSpy_Think()
+		
 		if ( current_state == State.DETONATING )
 		{
 			StartDetonate()
-			circumventSpeedCap_func( false )
+			circumvent_timeout( 10 )
 			return 10
 		}
 		else if ( bot_type == "bot_pro_busterknight" && targetSentry && targetSentry.IsValid() )
@@ -1760,17 +1793,10 @@ enum State
 			if ( (sentryPos - AI_Bot_myDemo.cur_pos).Length() < tf_bot_suicide_bomb_range/3 )
 				changeState( State.DETONATING )
 		}
-		// else if ( bot_type == "bot_pro_busterknight" && AI_Bot_myDemo.locomotion.IsStuck() )
-			// changeState( State.DETONATING )
-
-		AI_Bot_myDemo.OnUpdate()
-		checkStuck()
-		checkStuck2()
-		ManageSpy_Think()
-
+		
 		// if ( current_state == State.AIRBORNE )
 		// {
-
+			
 		// }
 		// else if ( false )
 		// {
@@ -1779,14 +1805,14 @@ enum State
 				// local mepos = me().GetOrigin()
 				// local dist = AI_Bot_myDemo.cur_pos - mepos
 				// dist.z = 0
-
+				
 				// if (AI_Bot_myDemo.time - test_count < 2)
 				// {
 					// if ( dist.Length() < 10 )
 					// {
 						// printl("reached !!!!!!!!!!!!!!!: " + (AI_Bot_myDemo.time - test_count) )
 					// }
-
+					
 					// if ( abs(AI_Bot_myDemo.cur_pos.z - mepos.z) < 10 )
 					// {
 						// printl("reached XXXXXXXXXXXXXXX: " + (AI_Bot_myDemo.time - test_count) )
@@ -1794,16 +1820,16 @@ enum State
 				// }
 			// }
 		// }
-
+		
 		// circumventSpeedCapByAD43_Think()
-
-
+		
+		
 		if ( no_SUPPRESS_FIRE )
 		{
 			no_SUPPRESS_FIRE = false
 			hOwner.AddBotAttribute(SUPPRESS_FIRE)
 		}
-
+		
 		// it says check but not actually bruh
 		if ( persistent_hasCharge_check && hasCharge )
 		{
@@ -1815,7 +1841,7 @@ enum State
 		{
 			persistent_hasCharge_check = 0
 		}
-
+		
 		// because shield users have their m2 held down, we have to manually manage this
 		if ( !hasCharge )
 		{
@@ -1826,7 +1852,7 @@ enum State
 				hasCharge = false
 		}
 		// printl("chargeLevel: " + chargeLevel)
-
+		
 
 		if ( current_state == State.IDLE )
 		{
@@ -1835,13 +1861,14 @@ enum State
 				ipad_time = true
 				SetPropBool(hOwner, "m_bViewingCYOAPDA", true)
 			}
-
-			findTarget()
-			// if ( !findTarget() )
-				// return 5
+			
+			// findTarget()
+			
+			if ( !findTarget() )
+				return 0.2
 		}
-
-
+		
+		
 		if ( should_attack )
 		{
 			if ( NetProps.GetPropFloat(hWeapon, "m_flNextPrimaryAttack") < AI_Bot_myDemo.time )
@@ -1849,13 +1876,13 @@ enum State
 				meleeThisGuy = null
 				// should_attack = false
 			}
-
+		
 			if ( !meleeThisGuy )
 			{
 				local ThreatList = AI_Bot_myDemo.FindVisibleThreat(100000000, false)
 				if ( targetSentry && targetSentry.IsValid() )
 					ThreatList.append(targetSentry)
-
+				
 				foreach ( threat in ThreatList )
 				{
 					if ( amICloseEnoughInT(threat) )
@@ -1863,24 +1890,24 @@ enum State
 						meleeThisGuy = threat
 						startAttack()
 						// printl(" ///////////////----- " + (AI_Bot_myDemo.time - test_count) )
-
+						
 						if ( circumventByAD43 )
 						{
 							local ref = this
-							CreateTimer( @() ref.circumvent_timeout(), 0.19 )
+							circumvent_timeout_for_melee_attack_timer = CreateTimer( @() ref.circumvent_timeout(), 0.19 )
 						}
 						break
 					}
 				}
 			}
-
+			
 			if ( meleeThisGuy && meleeThisGuy.IsValid()
 				&& current_state != State.AIRSTRAFE
 				&& current_state != State.CHARGEATTARGET
 				&& current_state != State.CAMPTELE )
 			{
 				AI_Bot_myDemo.SnapAt( meleeThisGuy )
-
+				
 				// if ( !lockon_timer.IsValid() )
 				// {
 					// local ref = this
@@ -1888,11 +1915,11 @@ enum State
 														   // ref.meleeThisGuy = null}, 0.9)	/// this will hardcap the swing interval to 0.9
 					// printl("locking into this guy.............")
 				// }
-
+				
 				OnTargetDeath( meleeThisGuy )
 			}
 		}
-
+		
 		if ( current_state == State.CIRCLESENTRY )
 		{
 			fightSentry_think()
@@ -1935,7 +1962,7 @@ enum State
 		{
 			AIRBORNE_Think()
 		}
-
+		
 		if ( current_state == State.SIMULATETRIMP )
 		{
 			if (simulated_i >= simulated_len)
@@ -1943,7 +1970,7 @@ enum State
 				simulated_i = 0
 				changeState( State.IDLE )
 			}
-
+			
 			// if ( simulated_i == 0)
 			// {
 				// prodemoknight.simu(true)
@@ -1953,7 +1980,7 @@ enum State
 				//me().AddCond(17)
 				//SetPropInt(me(), "m_afButtonForced", 0)
 			//}
-
+			
 			hOwner.SnapEyeAngles(simulated_dir_best[simulated_i])
 			//me().SnapEyeAngles(simulated_dir_best[simulated_i])
 			//if ( !simulate_trimp )
@@ -1965,20 +1992,20 @@ enum State
 		}
 		// startOfCharge()
 		// refine()
-
-
+		
+		
 		// keeping track of my velocity direction change to compensate
 		local vel_dir = VectorAngles(hOwner.GetAbsVelocity()).y
 		vel_dir_prev = vel_dir
-
+		
 		if ( current_state == State.CLEANUP )
 		{
 			cleanup()
 		}
-
+		
 		return -1
 	}
-
+	
 	function exitIDLE( new_state )
 	{
 		ipad_time = false
@@ -1993,11 +2020,10 @@ enum State
 			}
 		}, 1.8 )
 	}
-
+	
 	State_AIRBORNE_delay_by_x_ticks = 0
 	can_do_AIRBORNE_trimp = false
 	AIRBORNE_halted		= false
-	SimpleCharge_Timer	=	null
 	save_angle = null
 	function AIRBORNE_Think()
 	{
@@ -2006,12 +2032,12 @@ enum State
 			changeState( State.CHASE )
 			if ( SimpleCharge_Timer && SimpleCharge_Timer.IsValid() )
 				SimpleCharge_Timer.Destroy()
-
+			
 			return
 		}
-
+		
 		// SetPropFloat(hOwner, "m_Shared.m_flChargeMeter", 100)
-
+		
 		if ( State_AIRBORNE_delay_by_x_ticks > 0 )
 		{
 			State_AIRBORNE_delay_by_x_ticks--
@@ -2024,45 +2050,45 @@ enum State
 			if ( !hasCharge )
 			{
 				// time_until_have_charge = (100 - chargeLevel) / shieldRechargeRate_perTick * tickInterval
-
+				
 				if ( chargeLevel < 80 )
 				{
 					time_until_have_charge = (80 - chargeLevel) / shieldRechargeRate_perTick * tickInterval
 				}
 			}
-
+			
 			// printl("chargeLevel: " + chargeLevel)
-
+		
 			State_AIRBORNE_delay_by_x_ticks = -1
 			can_do_AIRBORNE_trimp = CalcForSimpleCharge( time_until_have_charge )
-
+			
 			if ( can_do_AIRBORNE_trimp )
 			{
 				SetPropFloat(hOwner, "m_Shared.m_flChargeMeter", 100)
 				ForceNoAD43 = false
 			}
-
+			
 			// save_angle = CalcClosestCardinalAngle( AI_Bot_myDemo.cur_eye_fwd * 1, AI_Bot_myDemo.cur_vel * 1)
 			// hOwner.SnapEyeAngles( VectorAngles(save_angle) )
 			// save_angle = CalcClosestCardinalAngle( hOwner.EyeAngles().Forward(), hOwner.GetAbsVelocity())
 			// printl("angle: " + save_angle)
 			hOwner.SnapEyeAngles( VectorAngles(CalcClosestCardinalAngle( AI_Bot_myDemo.cur_eye_fwd * 1, AI_Bot_myDemo.cur_vel * 1)) )
 		}
-
+		
 		if ( can_do_AIRBORNE_trimp )
 		{
 			local backward = AI_Bot_myDemo.cur_vel * -1
 			// local backward = hOwner.GetAbsVelocity() * -1
 			backward.z = 0
 			local dir = save_angle.Forward()
-
+			
 			// local texttoprint = "cancelling speed: " + backward.Length() + " " + AIRBORNE_halted
 			// printl(texttoprint)
-
+			
 			if ( !AIRBORNE_halted )
 			{
 				AI_Bot_myDemo.locomotion.Approach(backward+AI_Bot_myDemo.cur_pos, 999)
-
+				
 				if ( backward.Length() < 30 )
 				{
 					AIRBORNE_halted = true
@@ -2073,10 +2099,10 @@ enum State
 				AI_Bot_myDemo.locomotion.Approach(AI_Bot_myDemo.cur_pos + dir*100, 999)
 			}
 		}
-
+		
 		// if ( !targetTrimp || !targetTrimp.IsValid() )
 			// targetTrimp = me()
-
+			
 		// if ( targetTrimp )
 		// {
 			// local vel = hOwner.GetAbsVelocity()
@@ -2093,41 +2119,40 @@ enum State
 	{
 		other_vector.z = 0
 		other_vector.Norm()
-
+		
 		if ( !other_vector.LengthSqr() )
 				return unit_vector
-
+		
 		local cardinals = [other_vector, Vector(other_vector.y, -other_vector.x),
 							other_vector * -1, Vector(-other_vector.y, other_vector.x) ]
-
+		
 		unit_vector.z = 0
 		unit_vector.Norm()
-
+		
 		// foreach ( cardinal_vector in cardinals )
 		// {
 			// printl("dot: " + other_vector.Dot(cardinal_vector))
 			// printl("cardinal_vector: " + cardinal_vector)
 		// }
-
+		
 		foreach ( cardinal_vector in cardinals )
 		{
 			if ( cardinal_vector.Dot(unit_vector) >= 0.707 )
 				return cardinal_vector
 		}
-
+		
 		//+printl("WARNING:!!!!!! this shouldn't happen")
 		return Vector(1,0,0)
 	}
-
+	
 	// timeToForgetSpy = 5
 	function ManageSpy_Think()
 	{
 		AI_Bot_myDemo.ManageSpy_Think()
 	}
-
+	
 	max_stuck_count = 3
 	current_stuck_count = 0
-	stuck_check_timeout = CreateTimer(@() {}, 0.1)
 	function checkStuck()
 	{
 		// printl(current_stuck_count)
@@ -2145,10 +2170,10 @@ enum State
 			current_stuck_count = 0
 			if ( stuck_check_timeout.IsValid() )
 				stuck_check_timeout.Destroy()
-
+			
 			return
 		}
-
+		
 		if ( current_stuck_count >= max_stuck_count )
 		{
 			if ( bot_type == "bot_pro_busterknight" )
@@ -2161,12 +2186,11 @@ enum State
 				hOwner.SetHealth( 0 )
 				hOwner.TakeDamageCustom(hOwner, hOwner, null, Vector(), Vector(), 1, 0, TF_DMG_CUSTOM_TELEFRAG)		// telefrag is forced
 			}
-
+				
 		}
 	}
-
+	
 	past_location = []
-	stuck_check_2_timeout = CreateTimer(@() {}, 0.1)
 	function checkStuck2()
 	{
 		if ( !stuck_check_2_timeout.IsValid() )
@@ -2180,7 +2204,7 @@ enum State
 				past_location.clear()
 				past_location.append( AI_Bot_myDemo.cur_pos )
 			}
-
+			
 			local len = past_location.len()
 			if ( len > 2 )
 			{
@@ -2207,32 +2231,32 @@ enum State
 			stuck_check_2_timeout = CreateTimer(@() {}, 2)
 		}
 	}
-
+	
 	function checkNumberAdvantage( target )
 	{
 		if ( !target )
 			return false
-
+		
 		local targetPos	= target.GetOrigin()
 		local distance	= ( targetPos - AI_Bot_myDemo.cur_pos ).LengthSqr()
 		distance += 100*100	// tolerance
-
+		
 		foreach ( demoknight in prodemoknight.ListOfProDemoknights.values() )
 		{
 			if ( demoknight == this )
 				continue
-
+				
 			if ( ( demoknight.AI_Bot_myDemo.cur_pos - targetPos ).LengthSqr() < distance )
 				return true
 		}
 		return false
 	}
-
+	
 	// loop_count = 0
 	function canChargeToTarget( target )
 	{
 		// loop_count = 0
-
+		
 		local pos_start = AI_Bot_myDemo.cur_eye_pos
 		local pos_end
 		if ( target.GetClassname() == "obj_sentrygun" )
@@ -2240,7 +2264,7 @@ enum State
 		else
 			pos_end   = target.EyePosition()
 
-
+		
 		local area_start = GetNavArea(pos_start, 300.0)
 		local area_end   = GetNavArea(pos_end, 300.0)
 
@@ -2251,7 +2275,7 @@ enum State
 
 		if (!area_start || !area_end)
 			return false
-
+			
 		// printl("hmmm?")
 		if ( target.GetAbsVelocity().z == 0 )
 		{
@@ -2259,60 +2283,60 @@ enum State
 			if ( abs(diff) > 18 )
 				return false
 		}
-
+			
 		if ( area_start == area_end )
 			return true
-
+			
 		local dx = pos_end.x - pos_start.x;
 		local dy = pos_end.y - pos_start.y;
-
+		
 		local dir		= pos_end - pos_start
 		// local dir		= Vector(pos_end.x, pos_end.y, 0) - Vector(pos_start.x, pos_start.y, 0)
 		local rotation	= VectorAngles(Vector(pos_end.x, pos_end.y, 0) - Vector(pos_start.x, pos_start.y, 0))
 		local increment	= RotatePosition( Vector(), rotation, Vector(5,0,0) )
 		local incrementT = increment.x / dx
 		// printl(increment)
-
+		
 		local curr_pos = pos_start
 		local curr_nav
 		local prev_nav
 		local this_nav
-
+		
 		local T
-
+		
 		while ( true )
 		{
 			// loop_count++
-
+			
 			curr_pos = pos_start + dir * T
 			this_nav = GetNavArea(curr_pos, 256.0)
 
 			// if ( !this_nav )
 				// this_nav = GetNearestNavArea(curr_pos, 128.0, false, true)
-
+			
 			if ( !this_nav )
 			{
 				return false
 			}
-
+			
 			if ( !curr_nav || this_nav != curr_nav.area )
 			{
 				prev_nav = curr_nav
 				curr_nav = GetCTFNavAreaWrapper(this_nav)
-
+				
 				if ( prev_nav )
 				{
 					if ( prev_nav.ComputeAdjacentConnectionHeightChange(curr_nav) > 18 )
 						return false
 				}
-
+				
 				if ( curr_nav.area == area_end )
 					return true
-
+					
 				if ( T > 1)
 					return false
 				// Assert( T <= 1 )
-
+				
 				// find the next nav area
 				local result = LineBoxIntersection(pos_start, pos_end, dx, dy, curr_nav)
 				// Assert(result, "LineBoxIntersection failed somehow")
@@ -2326,7 +2350,7 @@ enum State
 				{
 					return false
 				}
-
+				
 				// curr_pos = pos_start + dir * (result.z + incrementT)
 				T = (result.z + incrementT)
 			}
@@ -2335,18 +2359,18 @@ enum State
 				T += incrementT
 				continue
 			}
-
-
+			
+			
 		}
-
+			
 		// local nav = GetCTFNavAreaWrapper(area_start)
 		// printl("" + nav.m_nwCorner + " " + nav.m_seCorner )
 		// printl(LineBoxIntersection(pos_start, pos_end, nav))
-
-
-
+		
+		
+		
 	}
-
+	
 	function LineBoxIntersection(start, end, dx, dy, nav)
 	{
 		// local dx = end.x - start.x;
@@ -2418,11 +2442,11 @@ enum State
 
 		// outPoint = maxPoint;
 		// return true;
-
+		
 		return maxPoint
 	}
 
-
+	
 	findTarget_wait	= 0
 	function findTarget()
 	{
@@ -2433,15 +2457,15 @@ enum State
 			// interface_campTele( tele )
 			// return true
 		// }
-
+		
 		local closestThreat = AI_Bot_myDemo.FindClosestThreat(1e30, false)
 		collectSentries()
 		if ( !closestThreat && !prodemoknight.SentryList.len() )
 			return false
-
+		
 		local spotAndTarget = {}
 		local ListOfTargets
-
+		
 		if ( (closestThreat && !hateSentries) || hateSentries )
 		{
 			foreach ( spot in ListOfSpots )
@@ -2453,7 +2477,7 @@ enum State
 					spotAndTarget[spot] <- ListOfTargets
 			}
 		}
-
+		
 		if ( !spotAndTarget.len() && hateSentries )
 		foreach ( spot in ListOfSpots )
 		{
@@ -2463,16 +2487,16 @@ enum State
 			else if ( AI_Bot_myDemo.CanIMoveToThisSpot( spot.start_pos ) )
 				spotAndTarget[spot] <- ListOfTargets
 		}
-
-
+		
+		
 		local closestSpot		= null
 		local closestSpotSafe	= null
 		local closestSpotLength = 1e30
 		local distance
-
+		
 		// caching threat list to hopefully stop the your taking too long thing
 		AI_Bot_myDemo.cur_threat_list = AI_Bot_myDemo.FindVisibleThreat(1e30, false)
-
+		
 		foreach ( spot, ListOfTargets in spotAndTarget )
 		{
 			distance = (spot.start_pos - AI_Bot_myDemo.cur_pos).LengthSqr()
@@ -2485,12 +2509,12 @@ enum State
 				{
 					closestSpotSafe = spot
 				}
-
+			
 				closestSpot = spot
 				closestSpotLength = distance
 			}
 		}
-
+		
 		if ( closestSpotSafe )
 		{
 			goToTrimpSpot( closestSpotSafe )
@@ -2501,10 +2525,10 @@ enum State
 			goToTrimpSpot( closestSpot )
 			return true
 		}
-
+		
 		// local checkedSentry = false
 		if ( hateSentries )
-		{
+		{	
 			// checkedSentry = true
 			local sentry = FindClosestSentry(1e30)
 			if ( sentry )
@@ -2530,7 +2554,7 @@ enum State
 				changeState( State.CHASE )
 				return true
 			}
-
+			
 			targetSentry = FindClosestSentry(3000 * 3000)
 			if ( targetSentry )
 			{
@@ -2538,21 +2562,21 @@ enum State
 				return true
 			}
 		}
-
+		
 		return false
 	}
-
+	
 	function collectReachableTrimpSpotToTarget( target )
 	{
 		if ( target == null )
 			return []
 		if ( !target.IsValid() )
 			return []
-
+		
 		local targetPos = getSentryPos( target )
-
+		
 		local spots = []
-
+		
 		foreach ( spot in ListOfSpots )
 		{
 			// local skip = false
@@ -2572,15 +2596,15 @@ enum State
 			// if ( skip )
 				// continue
 		}
-
+		
 		return spots
 	}
-
+	
 	function collectReachableTrimpTargets(spot)
 	{
 		local targets
 		if ( hateSentries )
-		{
+		{			
 			collectSentries()
 			targets = prodemoknight.SentryList
 		}
@@ -2588,7 +2612,7 @@ enum State
 		{
 			targets = AI_Bot_myDemo.FindVisibleThreat(1e30, false)
 		}
-
+		
 		local targetPos
 		local ListOfTargets = []
 		foreach (target in targets)
@@ -2614,7 +2638,7 @@ enum State
 		// if ( hateSentries )
 		// {
 			local ListOfSentries = []
-
+			
 			collectSentries()		// be aware of this, this function is only being called at one place and that place called collectSentries() before this
 			foreach ( sentry in prodemoknight.SentryList )
 			{
@@ -2623,11 +2647,11 @@ enum State
 					ListOfSentries.append(sentry)
 				}
 			}
-
+			
 			return ListOfSentries
 		// }
 	}
-
+	
 	// rcon script prodemoknight.ListOfProDemoknight[0].interface_trimpAtTarget(me(), "spawn " )
 	function interface_trimpAtTarget( target = me() , trimpSpot = "tiny_rock")
 	{
@@ -2640,7 +2664,7 @@ enum State
 		{
 			current_trimpSpot = trimpSpot
 		}
-
+		
 		targetTrimp = target
 		changeState( State.GOTOTRIMPSPOT )
 	}
@@ -2648,18 +2672,18 @@ enum State
 	{
 		// if ( prepareFor_chargeAtTarget_timer.IsValid() )
 			// return false
-
+		
 		if ( hasCharge && canChargeToTarget( target ) )
 		{
 			targetTrimp = target
 			changeState( State.CHARGEATTARGET )
-
+			
 			AI_Bot_myDemo.SnapAt(target)
-
+		
 			startCharge()
 			local ref = this
 			// prepareFor_chargeAtTarget_timer = CreateTimer(@() ref.startCharge(), 0.1)
-
+			
 			lenient_TRIMPSTRAFE_timer = CreateTimer(@() ref.changeState( State.IDLE ), 0.1)
 			return true
 		}
@@ -2685,7 +2709,7 @@ enum State
 			{
 				if ( !AI_Bot_myDemo.CanIMoveToThisSpot( spot.start_pos ) )
 					continue
-
+				
 				distance = (AI_Bot_myDemo.cur_pos - spot.start_pos).LengthSqr()
 				if ( distance < closestSpotDistance )
 				{
@@ -2693,8 +2717,8 @@ enum State
 					closestSpotDistance = distance
 				}
 			}
-
-
+			
+			
 			distance = ( getSentryPos( target ) - AI_Bot_myDemo.cur_pos).LengthSqr()
 			if ( closestSpot && distance * 1.5 > closestSpotDistance )
 			{
@@ -2706,10 +2730,10 @@ enum State
 				return interface_chargeAtTarget(target)
 			}
 		}
-
+		
 		return false
 	}
-
+	
 	function chargeAtTarget_think()
 	{
 		if ( !targetTrimp || !targetTrimp.IsValid() )
@@ -2717,12 +2741,12 @@ enum State
 			changeState( State.IDLE )
 			return
 		}
-
+		
 		if ( hOwner.InCond(17) )
 		{
 			if ( lenient_TRIMPSTRAFE_timer.IsValid() )
 				lenient_TRIMPSTRAFE_timer.Destroy()
-
+			
 			if ( chargeLevel < 40 )
 			{
 				if ( targetTrimp.GetClassname() == "player" && targetTrimp.GetPlayerClass() != TF_CLASS_HEAVYWEAPONS)
@@ -2735,7 +2759,7 @@ enum State
 				else
 					should_attack = false
 			}
-
+			
 			local cur_eye_ang = hOwner.EyeAngles()
 			local targetDir = getSentryPos( targetTrimp ) - AI_Bot_myDemo.cur_pos
 			local diffAngleAccelToTar = DiffQAngle( cur_eye_ang, VectorAngles(targetDir) );
@@ -2744,7 +2768,7 @@ enum State
 			{
 				cur_eye_ang.y += turn
 			}
-			else
+			else 
 			{
 				cur_eye_ang.y -= turn
 			}
@@ -2762,36 +2786,36 @@ enum State
 			}
 		}
 	}
-
+	
 	function goToTrimpSpot(trimpSpot)
 	{
 		targetTrimp = null
 		current_trimpSpot = trimpSpot
 		changeState( State.GOTOTRIMPSPOT )
 	}
-
-
+	
+	
 	function IsTargetCloseEnoughInT( target, timeleft = null, targetRange = 0 )
 	{
 		if ( !AI_Bot_myDemo.IsVisible(target) )
 			return false
-
-
+			
+		
 		local targetSpeed = 330
 		local toTarget = target.GetOrigin() - AI_Bot_myDemo.cur_pos
 		toTarget.Norm()
 		local t = timeleft
-
+		
 		local targetHalfBounding = target.GetBoundingMaxs().x
 		local targetPos = target.GetOrigin()
 		local targetVel = target.GetAbsVelocity()
 		local offset	= target.GetBoundingMaxs().z - targetHalfBounding
 		targetPos.z		+= offset
-
+		
 		local targetVelAlong = targetVel.Dot( toTarget * -1 )
 		targetVel = toTarget * -1 * targetVelAlong
 		local targetG = toTarget * -1 * targetSpeed * 10
-
+		
 		local future_targetPos 	//= targetPos + targetVel * t + targetG * t*t * 0.5
 		if ( t <= (targetSpeed - targetVelAlong)/(targetSpeed * 10) )
 		{
@@ -2801,14 +2825,14 @@ enum State
 		{
 			local distance = targetSpeed * t - pow( (targetSpeed - targetVelAlong), 2 ) / ( 2*(targetSpeed * 10) )
 			future_targetPos = targetPos + toTarget * -1 * distance
-
+			
 		}
 			// fun.hMarker.SetAbsOrigin(future_targetPos)
-
-
+		
+		
 		local myVel = hOwner.GetAbsVelocity()
 		local myVelAlong = myVel.Dot( toTarget )
-
+		
 		local myVel	= toTarget * myVelAlong
 		local myPos = AI_Bot_myDemo.cur_eye_pos
 		// if ( circumventSpeedCap && circumventByAD43 )
@@ -2819,14 +2843,14 @@ enum State
 				// myVel *= 1000
 			// }
 		// }
-
+		
 		// local g		= Vector(0, 0, -800)
 		// if (hOwner.GetFlags() & FL_ONGROUND)
 		// {
 			// g.z = 0
 		// }
 		local g	= toTarget * maxSpeed * 10
-
+		
 		local future_myPos		//= myPos + myVel * t +  g * t*t * 0.5
 		if ( t <= (maxSpeed - myVelAlong)/(maxSpeed * 10) )
 		{
@@ -2836,49 +2860,49 @@ enum State
 		{
 			local distance = maxSpeed * t - pow( (maxSpeed - myVelAlong), 2 ) / ( 2*(maxSpeed * 10) )
 			future_myPos = myPos + toTarget * distance
-
+			
 		}
-
+		
 		offset -= targetHalfBounding
 		if ( future_myPos.z < future_targetPos.z && future_myPos.z >= future_targetPos.z - offset)
 			future_targetPos.z = future_myPos.z
 		else if ( future_myPos.z < future_targetPos.z - offset )
 			future_targetPos.z -= offset
-
-		// local range = meleeRange + targetHalfBounding	//
+		
+		// local range = meleeRange + targetHalfBounding	// 
 		local range = targetRange
 		if ( (future_myPos - future_targetPos).LengthSqr() < range * range )
 		{
 			// we shouldn't do it here but every time this function is called, it does the same thing
 			// hOwner.RemoveBotAttribute(SUPPRESS_FIRE)
 			//printl("SUPPRESS_FIRE")
-
+		
 			return true
 		}
-
+		
 		return false
 	}
-
+	
 	function amICloseEnoughInT( target, reverse = false, timeleft = null, targetRange = 0 )
 	{
 		if ( !AI_Bot_myDemo.IsVisible(target) )
 			return false
-
+			
 		local t = swingTime
 		local g		= Vector(0, 0, -800)
 		local myVel = AI_Bot_myDemo.cur_vel * 1
 		if (hOwner.GetFlags() & FL_ONGROUND)
 		{
 			g.z	= 0
-
+			
 			if ( AI_Bot_myDemo.cur_speed > maxSpeed )
 			{
 				myVel.Norm()
 				myVel *= maxSpeed
 			}
-
+			
 		}
-
+		
 		local targetHalfBounding = target.GetBoundingMaxs().x
 		local targetVel = target.GetAbsVelocity()
 		// local range = meleeRange + targetHalfBounding	//
@@ -2886,34 +2910,34 @@ enum State
 		if ( reverse )
 		{
 			local targetSpeed = 330
-
+			
 			local toTarget = target.GetOrigin() - AI_Bot_myDemo.cur_pos
 			toTarget.Norm()
-
+			
 			myVel	= toTarget
 			myVel  *= maxSpeed
 			g		= toTarget * maxSpeed * 10
-
+			
 			local targetVelAlong = targetVel.Dot( toTarget * -1 )
 			// printl(targetVelAlong)
-
+			
 			targetVel = toTarget * -1 * targetVelAlong
 			// targetVel *= targetSpeed
 			targetG = toTarget * -1 * targetSpeed * 10
-
+			
 			t = timeleft
-
+			
 			range = targetRange
 		}
-
+		
 		// local targetHalfBounding = target.GetBoundingMaxs().x
 		local targetPos = target.GetOrigin()
 		// local targetVel = target.GetAbsVelocity()
 		local offset	= target.GetBoundingMaxs().z - targetHalfBounding
 		targetPos.z		+= offset
-
+		
 		local future_targetPos = targetPos + targetVel * t + targetG * t*t * 0.5
-
+		
 		// local myVel = hOwner.GetAbsVelocity()
 		local myPos = AI_Bot_myDemo.cur_eye_pos
 		// if ( circumventSpeedCap && circumventByAD43 )
@@ -2924,64 +2948,64 @@ enum State
 				// myVel *= 1000
 			// }
 		// }
-
+		
 		// local g		= Vector(0, 0, -800)
 		// if (hOwner.GetFlags() & FL_ONGROUND)
 		// {
 			// g.z = 0
 		// }
-
+		
 		local future_myPos = myPos + myVel * t +  g * t*t * 0.5
 		//local v = (myVel.x + g.x*t,
 		//			myVel.y + g.y*t,
 		//			myVel.z + g.z*t)
-
+		
 		offset -= targetHalfBounding
 		if ( future_myPos.z < future_targetPos.z && future_myPos.z >= future_targetPos.z - offset)
 			future_targetPos.z = future_myPos.z
 		else if ( future_myPos.z < future_targetPos.z - offset )
 			future_targetPos.z -= offset
-
-		local range = meleeRange + targetHalfBounding + 20	//
+		
+		local range = meleeRange + targetHalfBounding + 20	// 
 		if ( (future_myPos - future_targetPos).LengthSqr() < range * range )
 		{
 			return true
 		}
-
+		
 		return false
 	}
-
+	
 	function amICloseEnough( target )
 	{
 		if ( !AI_Bot_myDemo.IsVisible(target) )
 			return false
-
+		
 		local targetHalfBounding = target.GetBoundingMaxs().x
 		local targetPos = target.GetOrigin()
 		local offset	= target.GetBoundingMaxs().z - targetHalfBounding
 		targetPos.z		+= offset
-
-
+		
+		
 		local myPos = hOwner.EyePosition()
-
-
-
+		
+		
+		
 		offset -= targetHalfBounding
 		if ( myPos.z < targetPos.z && myPos.z >= targetPos.z - offset)
 			targetPos.z = myPos.z
 		else if ( myPos.z < targetPos.z - offset )
 			targetPos.z -= offset
-
-		local range = meleeRange + targetHalfBounding	//
-
+		
+		local range = meleeRange + targetHalfBounding	// 
+		
 		if ( (myPos - targetPos).LengthSqr() < range * range )
 		{
 			return true
 		}
-
+		
 		return false
 	}
-
+	
 	targetSpeed = 500
 	targetDistance = 400
 	function amITooFast( targetSpeed, targetDistance, myVel, distanceToTarget )
@@ -2989,62 +3013,62 @@ enum State
 		// local myVel = hOwner.GetAbsVelocity()
 		// myVel.z = 0
 		// myVel = myVel.Length()
-
+		
 		// local t = timeleft
 		// local g = maxSpeed * 10
 		// local future_myPos = myPos + myVel * t +  g * t*t * 0.5
-
+		
 		if ( myVel < targetSpeed )
 			return false
-
+		
 		local accel = maxSpeed * 10 * 0.7
 		local timeToDecelerate = ( myVel - targetSpeed ) / accel
 		local distanceToDecelerate = myVel * timeToDecelerate - accel * timeToDecelerate * timeToDecelerate * 0.5
 		// printl("timeToDecelerate and distanceToDecelerate" + timeToDecelerate + " " + distanceToDecelerate)
 		if ( distanceToTarget < targetDistance + distanceToDecelerate )
 			return true
-
+			
 		return false
 	}
 	function amIInChargeDistance( target )
 	{
 		local timeToAccelerate = ( maxChargeSpeed + maxSpeed ) / acceleration
 		local distanceTravelledWhileAccel = ( maxChargeSpeed * maxChargeSpeed - maxSpeed * maxSpeed ) / ( 2 * acceleration )
-
+		
 		local timeRemaining = chargeDuration - timeToAccelerate
 		local distanceTravelledAtConstSpeed = timeRemaining * maxChargeSpeed
-
+		
 		local targetDir = ( getSentryPos( target ) - AI_Bot_myDemo.cur_pos )
 		local distanceToTarget = targetDir.Length()
-
+		
 		targetDir.Norm()
 		local targetEffectiveSpeed = targetDir.Dot( target.GetAbsVelocity() )
 		targetEffectiveSpeed = targetEffectiveSpeed > 0 ? targetEffectiveSpeed : 0
-
+		
 		local targetDistance = targetEffectiveSpeed * chargeDuration + distanceToTarget
 		if ( targetDistance < distanceTravelledWhileAccel + distanceTravelledAtConstSpeed )
 			return true
-
+		
 		return false
 	}
-
+	
 	function simu()
 	{
 		//simulate_trimp = real
 		simulating = true
 		//simulate_origin = me().GetOrigin()
-
+		
 		prodemoknight.simu(true)
-
+		
 	}
 	function tptoheight()
 	{
 		local pos = hOwner.GetOrigin()
 		hOwner.SetAbsOrigin(Vector(pos.x, pos.y, me().GetOrigin().z))
 		hOwner.SetAbsVelocity(Vector())
-
+		
 	}
-
+	
 	function moveToSpot(spot, simple_approach = false)
 	{
 		local targetPos
@@ -3052,18 +3076,18 @@ enum State
 			targetPos = spot
 		else
 			targetPos = spot.start_pos
-
+		
 		local cur_speed_sqr = hOwner.GetAbsVelocity().LengthSqr()
-
+		
 		local scale = 1
 		// if ( bot_scale != 1 )
 			// scale *= bot_scale * bot_scale * 2.5
-
+		
 		if ( cur_speed_sqr > 200 && (AI_Bot_myDemo.cur_pos - targetPos).LengthSqr() < 32 * 32 * scale )
 		{
 			return
 		}
-
+		
 		if ( cur_speed_sqr > 100)
 		{
 			if ( !simple_approach )
@@ -3081,19 +3105,19 @@ enum State
 			{
 				// every 0.5s
 				local alternate = ( (Time() - moving_time) / 0.5 ).tointeger() % 2 == 0
-
+				
 				if ( !alternate )
 				{
 					local area_start = GetNavArea(AI_Bot_myDemo.cur_pos, 128.0)
 					if (!area_start)
 						area_start = GetNearestNavArea(AI_Bot_myDemo.cur_pos, 128.0, false, true)
-
+					
 					if (!area_start)
 					{
 						//+printl("houston we have a problem")
 						return -1
 					}
-
+					
 					local randompos = area_start.FindRandomSpot()
 					hOwner.GetLocomotionInterface().Approach(randompos, 999)
 					//printl("move random")
@@ -3102,34 +3126,34 @@ enum State
 				{
 					local backward = (AI_Bot_myDemo.cur_pos - targetPos)
 					backward.Norm()
-
+					
 					hOwner.GetLocomotionInterface().Approach(AI_Bot_myDemo.cur_pos + backward * 100, 999)
 					//printl("move opposite")
 				}
 			}
 		}
 	}
-
+	
 	function startAttack(bluff = false)
 	{
 		if ( NetProps.GetPropFloat(hWeapon, "m_flNextPrimaryAttack") > AI_Bot_myDemo.time )
 			return
-
+		
 		// printl("startAttack called")
 		my_point_of_attack = AI_Bot_myDemo.time
 		no_SUPPRESS_FIRE = true
 		hOwner.RemoveBotAttribute(SUPPRESS_FIRE)
 		hOwner.PressFireButton(0.015)
 		// wait_1_frame = true
-
+		
 		forcedAttack = false
-
+		
 	}
 	function startCharge( jump = false )
 	{
 		if ( !hasCharge )
 			return false
-
+		
 		// 	does nothing because the level doesn't go below
 		// 100 on the next tick so it will be set to true again
 		// 	ideally we should delay the check here but i'm feeling optimizing
@@ -3138,31 +3162,31 @@ enum State
 		hasCharge	= false
 		// okay i finally made a check here
 		persistent_hasCharge_check = 8
-
+		
 		// chargeLevel	= 0
 		if (jump)
 			hOwner.GetLocomotionInterface().Jump()
-
+		
 		// NetProps.SetPropFloat(hOwner, "m_Shared.m_flChargeMeter", 100)
 		// requestCharge = true
 		// hOwner.PressAltFireButton(0.2)
-
+		
 		no_SUPPRESS_FIRE = true
 		hOwner.RemoveBotAttribute(SUPPRESS_FIRE)
 		hOwner.PressAltFireButton(0.015)
-		// wait_1_frame = true
-
+		// wait_1_frame = true 
+		
 		// wait_x_frame = 2
 		return true
 	}
-
+	
 	function useTrimpSpot(spot)
 	{
 		if ( !spot.rawin("occupied") )
 		{
 			spot.occupied <- false
 		}
-
+	
 		if ( !arrived )
 		{
 			local closestThreat
@@ -3181,16 +3205,16 @@ enum State
 				spot.occupied = false
 				return false
 			}
-
+			
 			moveToSpot( spot , spot.rawin("approachInstruction") )
 			///
-
+		
 			if ( !hasCharge )
 				return false
-
+			
 			if ( spot.occupied )
 				return false
-
+			
 			// printl(( spot.start_pos - AI_Bot_myDemo.cur_pos ).LengthSqr())
 			local scale = 1
 			if ( bot_scale != 1 )
@@ -3200,8 +3224,8 @@ enum State
 				else
 					scale *= bot_scale * bot_scale * 5
 			}
-
-			if ( ( spot.start_pos - AI_Bot_myDemo.cur_pos ).LengthSqr() < 90 * scale )
+			
+			if ( ( spot.start_pos - AI_Bot_myDemo.cur_pos ).LengthSqr() < 90 * scale )	
 			{
 				if ( !targetTrimp || !targetTrimp.IsValid() )
 				{
@@ -3214,7 +3238,7 @@ enum State
 						prepare = false
 						return null
 					}
-
+					
 					/// i should add a function that choose the best target
 					// if ( hateSentries )
 					// {
@@ -3227,19 +3251,19 @@ enum State
 							// }
 						// }
 					// }
-
+					
 					// if ( !targetTrimp )
 					// {
 						targetTrimp = ListOfTargets[0]
 					// }
 				}
-
+				
 				// spot.occupied = true
 				// printl("i have reached my destination, prepare myself")
 				arrived = true
 				prepare = true
 				//targetPos = null
-
+				
 				local angle
 				if ( !spot.start_dir && !spot.start_dir_maxs )
 				{
@@ -3248,7 +3272,7 @@ enum State
 				else
 				{
 					angle = spot.start_dir
-
+					
 					local optimalAngleOffset = FindStartAngleWrapper( spot, getSentryPos( targetTrimp ) )
 					if ( optimalAngleOffset == null )
 					{
@@ -3257,7 +3281,7 @@ enum State
 						prepare = false
 						return null
 					}
-
+					
 					if ( spot.start_dir_mins && spot.start_dir_maxs )
 					{
 						if ( optimalAngleOffset >= 0)
@@ -3273,52 +3297,52 @@ enum State
 							optimalAngleOffset = MAX(maxdiff, optimalAngleOffset)
 						}
 					}
-
+					
 					angle.y += optimalAngleOffset
-
+				
 				}
 				hOwner.SnapEyeAngles(angle)
 				// printl("bot's angle " + angle.y)
 				//printl("recorded angle " + prodemoknight.simulated_dir_best[0].y)
-
+				
 				hOwner.SetAbsVelocity(Vector())
-
+				
 				if ( true )
 				{
-				if ( !RandomInt(0,9) )
+				if ( !RandomInt(0,9) ) 
 					SetPropBool(hOwner, "m_bViewingCYOAPDA", true)
 				else if ( bot_type == "bot_pro_busterknight" )
 					SetPropBool(hOwner, "m_bViewingCYOAPDA", true)
-
+				
 				local ref = this
-				CreateTimer(function() {
+				wait_before_start_charge_GOTOTRIMPSPOT_timer = CreateTimer(function() {
 					ref.startCharge( true )
 					ref.prepare = false
 					SetPropBool(ref.hOwner, "m_bViewingCYOAPDA", false)
 					if ( ref.circumventByAD43 )
 						ref.timeToStopPhasingOtherDemos = ref.AI_Bot_myDemo.time + 1.5
-
+					
 					//ref.simu()
 					//prodemoknight.simu(true)
 				}, 0.4)
 				}
-
+				
 			}
 			//else if ( ( spot.start_pos - AI_Bot_myDemo.cur_pos ).LengthSqr() < 10000 )
 		}
-
+			
 		if ( prepare )
 		{
 			//local forward = AI_Bot_myDemo.cur_pos + AI_Bot_myDemo.cur_eye_fwd * 10
 			if ( !spot.extraMove )
 				return false
-
+			
 			local forward = (spot.start_pos - AI_Bot_myDemo.cur_pos)
 			forward.Norm()
 			hOwner.GetLocomotionInterface().Approach(spot.start_pos + forward * 100, 999)
 			// SetPropInt(hOwner, "m_afButtonForced", IN_FORWARD)
 		}
-
+		
 		if ( arrived && !prepare )
 		{
 			// SetPropInt(hOwner, "m_afButtonForced", 0)
@@ -3327,9 +3351,9 @@ enum State
 			return true
 		}
 		return false
-
+		
 	}
-
+	
 	max_zvel = 0
 	max_zvel_buffer_timer = CreateTimer(@() {}, 0.1)
 	max_zvel_destroy_timer = CreateTimer(@() {}, 0.1)
@@ -3342,7 +3366,7 @@ enum State
 				isCharging = true
 				timeStart = Time()
 			}
-
+			
 		}
 		else
 		{
@@ -3356,13 +3380,13 @@ enum State
 		hor_vel.z = 0
 		if ( curr_zvel > max_zvel )
 		{
-
+			
 			local z_height = this.hOwner.GetOrigin().z
 			local curr_time = Time() - timeStart
-
+			
 			max_zvel = curr_zvel
-
-
+			
+			
 			if ( max_zvel_buffer_timer.IsValid() )
 			{
 				max_zvel_buffer_timer.Destroy()
@@ -3377,26 +3401,26 @@ enum State
 				//+printl("time to climb: " + curr_time)
 				//+printl("horizontal vel: " + hor_vel.Length())
 			}, 1)
-
+			
 			local thisref = this
 			max_zvel_destroy_timer = CreateTimer(function() thisref.max_zvel = 0, 2)
 		}
 	}
-
+	
 	compare_timeout = CreateTimer(@() {}, 0.1)
 	function compare()
 	{
 		if ( compare_timeout.IsValid() )
 			return
-
+		
 		if (simulated_i >= simulated_len)
 		{
 			simulated_i = 0
 			compare_timeout = CreateTimer(@() {}, 2)
 		}
-
+		
 		//+printl("dir diff: " + DiffQAngle(simulated_dir_best[simulated_i], hOwner.EyeAngles()))
-
+		
 		//hOwner.SnapEyeAngles(simulated_dir_best[simulated_i])
 		//me().SnapEyeAngles(simulated_dir_best[simulated_i])
 		//if ( !simulate_trimp )
@@ -3406,7 +3430,7 @@ enum State
 		//}
 		simulated_i++
 	}
-
+	
 	vel_dir_prev = null
 	ang_prev = null
 	function testTurn()
@@ -3419,7 +3443,7 @@ enum State
 				startpos = hOwner.EyeAngles().y
 			}
 			isCharging = true
-
+			
 			local ang = hOwner.EyeAngles().y
 			local veldir = VectorAngles(hOwner.GetAbsVelocity()).y
 			if ( ang_prev != null )
@@ -3431,10 +3455,10 @@ enum State
 			}
 			ang_prev	= ang
 			//vel_dir_prev = veldir
-
+			
 			timeStop = Time()
 		}
-
+		
 		else if ( false )
 		{
 			isCharging = false
@@ -3446,9 +3470,9 @@ enum State
 			}
 		}
 		return -1
-
+		
 	}
-
+	
 	function GetToPosition(target = findRandomPlayer())
 	{
 		movingToPosition = true
@@ -3458,7 +3482,7 @@ enum State
 		//hOwner.SnapEyeAngles(QAngle(0, 10, 0))
 		//rcon script foreach ( cord in prodemoknight.ListOfProDemoknight[0].EndCords) printl(cord)
 	}
-
+	
 	function charge()
 	{
 		NetProps.SetPropFloat(hOwner, "m_Shared.m_flChargeMeter", 100)
@@ -3469,8 +3493,8 @@ enum State
 		AI_Bot_myDemo.OnUpdate()
 		AI_Bot_myDemo.SnapAt(me())
 	}
-
-
+	
+	
 	vels = []
 	timeStart = 0
 	timeStop = 0
@@ -3493,7 +3517,7 @@ enum State
 			distance = maxChargeSpeed * delta - pow( (maxChargeSpeed - initialSpeed), 2 ) / ( 2*acceleration )
 		}
 	}
-
+	
 	function calculateDistanceToTarget_think()
 	{
 		if (hOwner.InCond(17))
@@ -3504,18 +3528,18 @@ enum State
 				startpos = AI_Bot_myDemo.cur_pos
 				initialSpeed = hOwner.GetAbsVelocity().Length()
 			}
-
+			
 			isCharging = true
-
+			
 			local speed = hOwner.GetAbsVelocity()
 			speed.z = 0
-
+			
 			if ( speed.Length() < 700 )
 			{
 				vels.append(speed.Length())
 				timeStop = Time()
 			}
-
+			
 			local distance
 			local delta = Time() - timeStart
 			//printl(delta + " " + maxChargeSpeed + " " + initialSpeed + " " + acceleration)
@@ -3527,12 +3551,12 @@ enum State
 			{
 				distance = maxChargeSpeed * delta - pow( (maxChargeSpeed - initialSpeed), 2 ) / ( 2*acceleration )
 			}
-
-
+			
+			
 			local actual_distance = ( AI_Bot_myDemo.cur_pos - startpos ).Length()
 			//+printl("distance: " + actual_distance + " " + distance)
-
-
+			
+			
 			local del0 = actual_distance - actual_distance_prev
 			local del1 = distance - distance_prev
 			local del2 = actual_distance - distance
@@ -3541,7 +3565,7 @@ enum State
 			//+printl("")
 			actual_distance_prev = actual_distance
 			distance_prev = distance
-
+			
 		}
 		else
 		{
@@ -3552,13 +3576,13 @@ enum State
 				//+printl("dur: " + (timeStop - timeStart))
 				//+printl("huhuh" + (vels[vels.len() - 1] - vels[0])/ (timeStop - timeStart))
 				vels.clear()
-
+				
 			}
 		}
 		return -1
-
+		
 	}
-
+	
 	lastJukeTarget = null
 	jukeTargetFacing = []
 	juke_comparePastTick = 0
@@ -3576,7 +3600,7 @@ enum State
 		// {
 			jukeTargetFacing.append([current_angle, current_tick])
 		// }
-
+	
 		local juke_distance = ( hOwner.GetBoundingMaxs().x + target.GetBoundingMaxs().x ) * 1.8
 		if ( (AI_Bot_myDemo.cur_pos - targetPos).LengthSqr() < juke_distance * juke_distance )
 		{
@@ -3589,7 +3613,7 @@ enum State
 					AI_Bot_myDemo.UpdatePathAndMove(targetPos)
 					break
 				}
-
+				
 				if ( jukeTargetFacing[0][1] < current_tick - juke_comparePastTick )
 				{
 					jukeTargetFacing.remove(0)
@@ -3608,7 +3632,7 @@ enum State
 					break
 				}
 			}
-
+			
 			local right = RotatePosition(Vector(), VectorAngles(move_dir), AI_Bot_myDemo.cur_eye_fwd)
 			AI_Bot_myDemo.locomotion.Approach(AI_Bot_myDemo.cur_pos + right, 999)
 			// printl("YEAAA!!!")
@@ -3617,11 +3641,11 @@ enum State
 		{
 			AI_Bot_myDemo.UpdatePathAndMove(targetPos)
 		}
-
-
-
+		
+		
+		
 	}
-
+	
 	function GOTOTRIMPSPOT_Think()
 	{
 		if ( findTarget_wait + 5 < AI_Bot_myDemo.time  )
@@ -3636,29 +3660,29 @@ enum State
 				{
 					if ( prev_trimpSpot != current_trimpSpot && prev_trimpSpot.rawin("occupied"))
 						prev_trimpSpot.occupied = false
-
+						
 					// arrived = false
 					// prepare = false
-
+					
 					return
 				}
 			}
 		}
-
-		if ( !(hOwner.GetFlags() & FL_ONGROUND) && hOwner.InAirDueToKnockback() )
+		
+		if ( !hateSentries && !(hOwner.GetFlags() & FL_ONGROUND) && hOwner.InAirDueToKnockback() )
 		{
 			changeState( State.AIRBORNE )
 			return
 		}
-
-
+		
+		
 		local result = useTrimpSpot( current_trimpSpot )
 		if ( result )
 		{
 			changeState( State.TRIMPSTRAFE )
 			// changeState( State.SIMULATETRIMP )
 			//+printl("Start strafing..........")
-
+			
 			local ref = this
 			lenient_TRIMPSTRAFE_timer = CreateTimer(@() ref.changeState( State.IDLE ), 0.5)
 		}
@@ -3666,7 +3690,7 @@ enum State
 			changeState( State.IDLE )
 
 	}
-
+	
 	function AIRSTRAFE_Think()
 	{
 		if ( !targetTrimp || !targetTrimp.IsValid() )
@@ -3677,7 +3701,7 @@ enum State
 				return
 			// }
 		}
-
+		
 		if ( hOwner.GetFlags() & FL_ONGROUND )
 		{
 			if ( m_detonateTimer.IsValid() )
@@ -3687,19 +3711,19 @@ enum State
 			}
 			interface_fightThisSentry( targetTrimp )
 		}
-
-		local vel = hOwner.GetAbsVelocity()
+	
+		local vel = AI_Bot_myDemo.cur_vel * 1
 		local dir = VectorAngles( vel )
-		NetProps.SetPropVector(hOwner, "pl.v_angle", dir + Vector())
+		SetPropVector(hOwner, "pl.v_angle", dir + Vector())
 		hOwner.SnapEyeAngles(dir)
-
-
+		
+		
 		local move_dir = Vector()
-
+		
 		local targetPos = getSentryPos( targetTrimp )
 		targetPos.z += targetTrimp.GetBoundingMaxs().z
-
-
+		
+		
 		local timeToZ = calcTimeToTargetZ(AI_Bot_myDemo.cur_pos.z, targetPos.z, vel.z, sv_gravity)
 		if ( timeToZ == null)
 		{
@@ -3708,52 +3732,55 @@ enum State
 		}
 		vel.z = 0
 		local vel_length = vel.Length()
-
+		
 		local targetDir = targetPos - AI_Bot_myDemo.cur_pos
 		targetDir.z = 0
-
+		
 		local distanceToTarget = targetDir.Length()
-		local distanceTravelInT = vel_length * timeToZ
+		// targetDir.Norm()
+		// local distanceTravelInT = vel.Dot(targetDir) * timeToZ	// Dot prod to get effective speed
+		
 		// local timeToXY = calcTimeToTargetZ(0, distanceToTarget, vel_length, -maxSpeed * 10 )
 		// if ( distanceTravelInT > distanceToTarget * 1.2 )
-
-		if ( amITooFast(targetSpeed, targetDistance, vel_length, distanceToTarget) || ( distanceTravelInT > distanceToTarget && distanceTravelInT < targetDistance && vel_length > 100 ))
+		
+		if ( amITooFast(targetSpeed, targetDistance, vel_length, distanceToTarget) || amITooFast( 0, 0, vel_length, distanceToTarget )) // || ( distanceTravelInT > distanceToTarget + 100 && distanceTravelInT < targetDistance && vel_length > 100 ))
 		{
 			// printl("overshoot")
 			move_dir.x = -1
 			// move_dir = Vector( -1, 0, 0)
 		}
-
+		// printl("distanceTravelInT:" + distanceTravelInT + " distanceToTarget: " + distanceToTarget)
+		
 		if ( side_of( vel, targetDir ) > 1 )
 			move_dir.y = 1
 		else if ( side_of( vel, targetDir ) < -1 )
 			move_dir.y = -1
-
+		
 		if ( timeToZ < 2 && bot_type == "bot_pro_busterknight" )
 			StartDetonate()
-
+		
 		local right = RotatePosition(Vector(), VectorAngles(move_dir), AI_Bot_myDemo.cur_eye_fwd)
 		AI_Bot_myDemo.locomotion.Approach(AI_Bot_myDemo.cur_pos + right, 999)
 	}
-
+	
 	wait_for_crit = false
 	function TRIMPSTRAFE_Think()
 	{
 		// air strafing think
 		//compare()
-
-
+		
+		
 		if ( wait_for_crit && chargeLevel > 40 )
 		{
 			should_attack = false
 		}
 		else
 			should_attack = true
-
+		
 		if ( hOwner.InCond(17) )
 		{
 			// printl("compare: " + save_angle + " " + hOwner.EyeAngles())
-
+		
 			local targetPos
 			local isFightingSentry = false
 			if ( !targetTrimp || !targetTrimp.IsValid() )
@@ -3769,10 +3796,10 @@ enum State
 					isFightingSentry = true
 					targetPos = getSentryPos( targetSentry )
 					targetPos.z += targetSentry.GetBoundingMaxs().z
-
+					
 					targetTrimp = targetSentry
 				}
-
+			
 			}
 			else
 			{
@@ -3787,10 +3814,10 @@ enum State
 					targetPos = targetTrimp.GetOrigin()
 				}
 			}
-
+			
 			if ( lenient_TRIMPSTRAFE_timer.IsValid() )
 				lenient_TRIMPSTRAFE_timer.Destroy()
-
+			
 			local vel = hOwner.GetAbsVelocity()
 			if ( isFightingSentry )
 			{
@@ -3803,11 +3830,11 @@ enum State
 						&& bot_type == "bot_pro_busterknight"
 					)
 						StartDetonate()
-
+				
 					local targetDir = targetPos - AI_Bot_myDemo.cur_pos
 					targetDir.z = 0
 					vel.z = 0
-
+					
 					local distanceToTarget = targetDir.Length()
 					local distanceTravelInT = vel.Length() * timeToZ
 					// if ( distanceTravelInT > distanceToTarget * 2 )
@@ -3816,23 +3843,23 @@ enum State
 						startAttack()
 						changeState( State.AIRSTRAFE )
 					}
-
+					
 				}
 			}
 			vel.z = 0
-
+			
 			// CompareSimulation_Think()
-
+			
 			if ( vel.Length() >= maxChargeSpeed - 1 || current_trimpSpot.simplejump )
 			{
 				local result = CalculateOptimalAngle_LimitedTurn( targetPos, AI_Bot_myDemo.cur_pos, vel, AI_Bot_myDemo.cur_eye_ang )
 				local cur_eye_ang = AI_Bot_myDemo.cur_eye_ang + QAngle()
 				cur_eye_ang.y = result
-
+				
 				CleanQAngle( cur_eye_ang )
 				hOwner.SnapEyeAngles(cur_eye_ang)
 			}
-
+			
 			//printl(vel.Length())
 		}
 		else
@@ -3854,25 +3881,25 @@ enum State
 			}
 		}
 	}
-
+	
 	function CalculateOptimalAngle_LimitedTurn( targetPos, cur_pos, cur_vel, cur_dir )
 	{
 		local targetDir = targetPos - cur_pos
 		local diffAngleVelTar = DiffQAngle( VectorAngles(cur_vel), VectorAngles(targetDir) );
 		local diffAngleVelTar_PostSimulation
-
+		
 		local sv_accelerate	= 10
 		local pos = Vector() + cur_pos
 		local vel = Vector() + cur_vel
 		local dir = Vector() + cur_dir
 		// wishDir = dir.Forward();
 		// wishDir.Norm();
-
+		
 		// if ( fabs(cur_dir.y) > 180 )
 		// {
 			// printl("cur_dir is larger than 180: " + cur_dir.y)
 		// }
-
+		
 		if ( fabs(diffAngleVelTar) < 0.05 )
 		{
 			// printl("dead on ==============================")
@@ -3882,20 +3909,20 @@ enum State
 			dir.y += turnRate_perTick
 		else
 			dir.y -= turnRate_perTick
-
-
+		
+		
 		local wish_speed = maxChargeSpeed
 		//if ( wish_speed > maxChargeSpeed )
 		//	wish_speed = maxChargeSpeed
 		local wishDir = dir.Forward()
-
+		
 		local count = 0
 		if ( fabs(diffAngleVelTar) < 20 )
 		while ( true )
 		{
 			// wishDir = dir.Forward();
 			// wishDir.Norm();
-
+		
 			local current_speed = vel.Dot(wishDir)
 			local add_speed = wish_speed - current_speed
 			if ( add_speed > 0 )
@@ -3903,30 +3930,30 @@ enum State
 				local accel_speed = maxChargeSpeed * sv_accelerate * tickInterval
 				if ( accel_speed > add_speed )
 					accel_speed = add_speed
-
+				
 				vel += wishDir * accel_speed;
 			}
 			else	// finish without changing side
 			{
 				break
 			}
-
+			
 			pos += vel * tickInterval;
-
+			
 			targetDir = targetPos - pos
 			diffAngleVelTar_PostSimulation = DiffQAngle( VectorAngles(vel), VectorAngles(targetDir) );
-
+			
 			count++
 			if ( count == 15)
 			{
 				//+printl("limit reached")
 				break
 			}
-
+			
 			if ( diffAngleVelTar * diffAngleVelTar_PostSimulation < 0 )	// crosses
 			{
 				// printl("crosses after: " + count + "\n diffAngleVelTar: " + diffAngleVelTar + "\n diffAngleVelTar_PostSimulation: " + diffAngleVelTar_PostSimulation)
-
+				
 				current_speed = cur_vel.Dot(cur_dir.Forward())
 				add_speed = wish_speed - current_speed
 				// printl("-------------- add_speed: " + add_speed)
@@ -3942,36 +3969,36 @@ enum State
 					}
 					return cur_dir.y - diffAngleVelTar
 				}
-
-
+				
+				
 				return cur_dir.y
 			}
 		}
-
+		
 		// printl("the correct direction is: " + dir.y)
 		return dir.y
-
+		
 	}
-
+	
 	function collectAllPlayers()
 	{
 		if ( prodemoknight.hasCheckedEveryoneThisTick )
 			return
-
+		
 		prodemoknight.hasCheckedEveryoneThisTick = true
-
+	
 		prodemoknight.PlayerList.clear()
 		prodemoknight.PlayerList = findAllPlayer()
 	}
-
+	
 	function OnTargetDeath( target )
 	{
 		if ( !target.IsValid() || AI_Bot_ProDemoknight.IsAlive(target) )
 			return false
-
+		
 		collectSentries()
 		local closestSentry = FindClosestSentry(1000 * 1000)
-
+		
 		if ( closestSentry )
 		{
 			// printl("i fught")
@@ -3988,14 +4015,14 @@ enum State
 			//+printl("lets take a shot every time this happens: " + bug_count)
 			return Vector()
 		}
-
+		
 		local rawpos = sentry.GetOrigin()
 		if ( sentry.GetClassname() != "obj_sentrygun" )
 			return rawpos
-
+		
 		if ( GetPropBool( sentry, "m_bCarried") )
 			return getSentryOwnerPos( sentry )
-
+		
 		if ( !GetPropInt( sentry, "m_iState") )	// == 0
 		{
 			if ( !rawpos.LengthSqr() )			// == Vector()
@@ -4003,7 +4030,7 @@ enum State
 			else
 				return rawpos
 		}
-
+		
 		return rawpos
 	}
 	function getSentryOwnerPos( sentry )
@@ -4024,10 +4051,10 @@ enum State
 	{
 		if ( prodemoknight.hasCheckedTeliesThisTick )
 			return
-
+			
 		prodemoknight.TeleList.clear()
 		local tele = FindByClassname(null, "obj_teleporter")
-
+		
 		while (tele)
 		{
 			if ( !tele.IsValid() ||
@@ -4044,22 +4071,22 @@ enum State
 				prodemoknight.TeleList[tele] <- false
 				tele = FindByClassname( tele, "obj_teleporter" )
 			}
-
-
-
+			
+			
+			
 		}
-
+		
 		prodemoknight.hasCheckedTeliesThisTick = true
 	}
 	function collectSentries()
 	{
 		if ( prodemoknight.hasCheckedSentriesThisTick )
 			return
-
-
+		
+	
 		prodemoknight.SentryList.clear()
 		local sentry = FindByClassname(null, "obj_sentrygun")
-
+		
 		while (sentry)
 		{
 			if ( !sentry.IsValid() || sentry.GetTeam() == AI_Bot_myDemo.team )
@@ -4072,9 +4099,9 @@ enum State
 				prodemoknight.SentryList.append( sentry )
 				sentry = FindByClassname( sentry, "obj_sentrygun" )
 			}
-
+			
 		}
-
+		
 		prodemoknight.hasCheckedSentriesThisTick = true
 	}
 	function FindClosestTele( closestTeleDistanceSqr = 1e30 )
@@ -4086,7 +4113,7 @@ enum State
 		{
 			// printl("theres a sentry")
 			// if (  )
-
+			
 			distance = (getSentryPos( sentry ) - AI_Bot_myDemo.cur_pos).LengthSqr()
 			if ( distance < closestTeleDistanceSqr )
 			{
@@ -4095,7 +4122,7 @@ enum State
 			}
 		}
 		return closestSentry
-
+		
 	}
 	function FindClosestSentry( closestSentryDistanceSqr = 1e30 )
 	{
@@ -4106,7 +4133,7 @@ enum State
 		{
 			// printl("theres a sentry")
 			// if (  )
-
+			
 			distance = (getSentryPos( sentry ) - AI_Bot_myDemo.cur_pos).LengthSqr()
 			if ( distance < closestSentryDistanceSqr )
 			{
@@ -4115,7 +4142,7 @@ enum State
 			}
 		}
 		return closestSentry
-
+		
 	}
 	function trimpToSentry( sentry )
 	{
@@ -4135,16 +4162,16 @@ enum State
 		}
 		else
 			{ state = State.CIRCLESENTRY }
-
+		
 		targetSentry = sentry
 		should_attack = true
-
+		
 		if ( DoNotChangeState )
 			return state
 		else
 			changeState( state )
 	}
-
+	
 	forceCrouch = false
 	function fightSentry_think()
 	{
@@ -4156,16 +4183,15 @@ enum State
 			return
 		}
 		should_attack = true
-
+		
 		hOwner.RemoveCond(7)	// do not taunt when there is a sentry nearby
-
+		
 		local sentryPos = getSentryPos( targetSentry )
 		sentryPos.z 	+= targetSentry.GetBoundingMaxs().z
-
+		
 		// fun.hMarker.SetAbsOrigin(sentryPos)
-		// AI_Bot_myDemo.OnUpdate()
 		//if ( (getSentryPos( targetSentry ) - AI_Bot_myDemo.cur_pos).LengthSqr() > 100 )
-
+		
 		if ( sentryPos.z - 5 < AI_Bot_myDemo.cur_pos.z && (sentryPos - AI_Bot_myDemo.cur_pos).LengthSqr() < 64 * 64 )
 		{
 			//printl("arrived")
@@ -4174,7 +4200,7 @@ enum State
 				forceCrouch = true
 				SetPropInt(hOwner, "m_afButtonForced", IN_DUCK)
 			}
-
+			
 			//rcon script me().SnapEyeAngles(VectorAngles(Vector(1,0,0)));rcon script me().SetAbsOrigin(prodemoknight.prodemoknight.SentryList[0].GetOrigin() + Vector(0,0,67))
 			// at dir(1,0,0) bone 3 y is 89.983604
 			// -> +90 offset
@@ -4184,12 +4210,12 @@ enum State
 				rotation -= 360
 			else if ( rotation < -180)
 				rotation += 360
-
+			
 			local offset = RotatePosition( Vector(), QAngle(0, rotation, 0), Vector(20, 0, 0) )
-
+			
 			if ( (sentryPos + offset - AI_Bot_myDemo.cur_pos).LengthSqr() > 5*5 )
 				hOwner.GetLocomotionInterface().Approach(sentryPos + offset, 9999)
-
+			
 		}
 		else	// ( sentryPos.z - 5 > AI_Bot_myDemo.cur_pos.z || (sentryPos - AI_Bot_myDemo.cur_pos).LengthSqr() > 32 * 32 )
 		{
@@ -4199,39 +4225,39 @@ enum State
 				forceCrouch = false
 				SetPropInt(hOwner, "m_afButtonForced", 0)
 			}
-
+			
 			if ( hasCharge && amIInChargeDistance( targetSentry ) )
 				interface_chargeAtTarget( targetSentry )
 		}
-
+		
 		// if ( amICloseEnoughInT( targetSentry ) )
 		// {
 			// hOwner.SnapEyeAngles(VectorAngles(sentryPos - AI_Bot_myDemo.cur_eye_pos))
 			// hOwner.PressFireButton(0.2)
 		// }
 	}
-
+	
 	function buster_think()
 	{
-
+		
 		if ( !targetSentry || !targetSentry.IsValid() )
 		{
 			changeState( State.IDLE )
 			return
 		}
-
+		
 		if ( findTarget_wait + 0.5 < AI_Bot_myDemo.time  )
 		{
 			if ( hasCharge && evaluateChargeStrat( targetSentry, 100000 * 100000 ) )
 				return
-
+			
 			collectSentries()
 			targetSentry = FindClosestSentry(1e30)
-
+			
 			findTarget_wait = AI_Bot_myDemo.time
 		}
-
-
+		
+		
 		// if ( hOwner.GetFlags() & FL_ONGROUND )
 		// {}
 		// else
@@ -4240,13 +4266,13 @@ enum State
 			// changeState( State.AIRSTRAFE )
 			// return
 		// }
-
+		
 		// local save = getSentryPos( targetSentry )
 		// save.z += 5
 		// me().SetAbsOrigin(save)
-
+		
 		AI_Bot_myDemo.UpdatePathAndMove( getSentryPos( targetSentry ) )
-
+		
 	}
 	function CAMPTELE_think()
 	{
@@ -4256,16 +4282,16 @@ enum State
 			changeState( State.IDLE )
 			return
 		}
-
+		
 		AI_Bot_myDemo.SnapAt( targetTele )
-
+		
 		local telePos	= getSentryPos( targetTele )
 		local toTarget	= telePos - AI_Bot_myDemo.cur_pos
 		toTarget.z = 0
 		local distanceSqr	= toTarget.LengthSqr()
 		toTarget.Norm()
-
-
+		
+		
 		if ( distanceSqr > 200 * 200 )
 		{
 			// if ( distanceSqr < 80 * 80 && toTarget.Dot( hOwner.GetAbsVelocity() ) > 100 )
@@ -4284,7 +4310,7 @@ enum State
 			local backward = toTarget * -80
 			local movehere = telePos + backward
 			telePos.z = AI_Bot_myDemo.cur_pos.z
-
+				
 			if ( hOwner.GetAbsVelocity().Length() > 100 )
 			{}
 			else if ( ( movehere - AI_Bot_myDemo.cur_pos ).LengthSqr() > 32 * 32 )	// 90
@@ -4296,9 +4322,9 @@ enum State
 				AI_Bot_myDemo.UpdatePathAndMove( movehere + backward, false )
 			}
 		}
-
+		
 	}
-
+	
 	function AVOID_Think()
 	{
 		// local targetAvoid = AI_Bot_myDemo.FindClosestThreat(3000 * 3000, false)
@@ -4307,14 +4333,14 @@ enum State
 			changeState( State.CHASE )
 			return
 		}
-
+		
 		// local closestThreat_weapon = targetAvoid.GetActiveWeapon()
-
+		
 		local targetRange = targetAvoid.GetActiveWeapon().GetAttribute("is_a_sword", 48 ) + hOwner.GetBoundingMaxs().x + 36
 		local backward = (AI_Bot_myDemo.cur_pos - targetAvoid.GetOrigin())
 		local distanceSqr = backward.LengthSqr()
 		backward.Norm()
-
+		
 		local canTargetAttackMeIn02 = IsTargetCloseEnoughInT(targetAvoid, swingTime, targetRange )
 		if ( canTargetAttackMeIn02 )
 		{
@@ -4324,7 +4350,7 @@ enum State
 		// local look_dir = RotatePosition(Vector(), QAngle(0,90,0), backward * -1)
 		hOwner.SnapEyeAngles(VectorAngles(backward * -1))
 	}
-
+	
 	function CHASE_Think()
 	{
 		if ( !isChasing )
@@ -4333,17 +4359,17 @@ enum State
 			isChasing = true
 		}
 		else if ( CHASElastSeen + 5 < AI_Bot_myDemo.time )
-		{
+		{ 
 			changeState( State.IDLE )
 			return
 		}
-
+		
 		if ( !(hOwner.GetFlags() & FL_ONGROUND) )
 		{
 			changeState( State.AIRBORNE )
 			return
 		}
-
+		
 		local closestThreat = AI_Bot_myDemo.FindClosestThreat(1e30, false)	// 6000 * 6000,
 		if ( closestThreat && closestThreat.InCond(40) )
 		{
@@ -4351,11 +4377,11 @@ enum State
 			targetAvoid = closestThreat
 			return -1
 		}
-
+		
 		local closestThreatPos
 		if ( closestThreat )
 			closestThreatPos = closestThreat.GetOrigin()
-
+		
 		collectSentries()
 		local closestSentry = FindClosestSentry()
 		if ( closestSentry )
@@ -4369,66 +4395,69 @@ enum State
 				interface_fightThisSentry( closestSentry )
 			}
 		}
-
-		if ( !closestThreat )	//|| (closestThreat.GetOrigin() - AI_Bot_myDemo.cur_eye_pos).LengthSqr() > 1800*1800)
+		
+		if ( !closestThreat )	//|| (closestThreatPos - AI_Bot_myDemo.cur_eye_pos).LengthSqr() > 1800*1800)
 		{
 			changeState( State.IDLE )
 		}
 		else
 		{
 			AI_Bot_myDemo.SnapAt(closestThreat)
-
+			
 			// if ( my_point_of_attack + swingTime < AI_Bot_myDemo.time )
 				// printl("what am i doing")
-
+			
 			local closestThreat_weapon = closestThreat.GetActiveWeapon()
 			local isTargetLookingAtMe = prodemoknight.IsInFieldOfView( closestThreat, hOwner )
 			local numberAdvantage	= checkNumberAdvantage( closestThreat )
+			
+			local backward = (AI_Bot_myDemo.cur_pos - closestThreatPos)
+			local distanceSqr = backward.LengthSqr()
 			// printl("isTargetLookingAtMe: " + isTargetLookingAtMe)
 			if (closestThreat_weapon											&&
 				closestThreat_weapon.IsMeleeWeapon()							&&
 				closestThreat_weapon.GetClassname() != "tf_weapon_laser_pointer" &&
 				closestThreat_weapon.GetClassname() != "tf_weapon_buff_item"	&&	// && my_point_of_attack + swingTime < AI_Bot_myDemo.time)	// already finished my attack, do not run at target
 				isTargetLookingAtMe	&&
-				!numberAdvantage )
+				!numberAdvantage &&
+				distanceSqr < 360000
+				)
 			{	//
 				should_attack = false
-
+				
 				local closestThreat_currAttack = NetProps.GetPropFloat(closestThreat_weapon, "m_flNextPrimaryAttack")
 				local targetRange = closestThreat_weapon.GetAttribute("is_a_sword", 48 ) + hOwner.GetBoundingMaxs().x + 36
-
+				
 				if ( closestThreat_lastAttack != closestThreat_currAttack )
 				{	// he just pressed attack
 					closestThreat_lastAttack = closestThreat_currAttack
 					closestThreat_Attack	= AI_Bot_myDemo.time
-
+					
 				}
-
-				local backward = (AI_Bot_myDemo.cur_pos - closestThreat.GetOrigin())
-				local distanceSqr = backward.LengthSqr()
+				
 				backward.Norm()
 				local point_of_attack = closestThreat_Attack + swingTime
 				local canTargetAttackMe = IsTargetCloseEnoughInT(closestThreat, point_of_attack - AI_Bot_myDemo.time, targetRange )
-
-
+				
+				
 				if ( (my_point_of_attack + swingTime > AI_Bot_myDemo.time) ||										// im swinging
 					 ( point_of_attack < AI_Bot_myDemo.time && closestThreat_lastAttack > AI_Bot_myDemo.time ) ||	// threat has attacked and has not reset
 					 forcedAttack )								// so i don't wait forever for my opponent to attack
-				{
+				{												
 					// printl("attacking")
 					local actualRange = meleeRange + closestThreat.GetBoundingMaxs().x + 36
-
+					
 					if ( distanceSqr > actualRange * actualRange )
-						AI_Bot_myDemo.locomotion.Approach(closestThreat.GetOrigin(), 999)
+						AI_Bot_myDemo.locomotion.Approach(closestThreatPos, 999)
 					else if ( distanceSqr < targetRange * targetRange - 1000 && !just_out_of_charge )
 						AI_Bot_myDemo.locomotion.Approach( AI_Bot_myDemo.cur_pos + backward * 64 , 999)
-
+						
 					if ( just_out_of_charge && my_point_of_attack + swingTime < AI_Bot_myDemo.time )
 					{
 						/// being managed here is kinda not okay, but this is the only place that use it
 						just_out_of_charge = false
 					}
-
+					
 					if ( wait_before_forcedAttack_timer.IsValid() )
 						wait_before_forcedAttack_timer.Destroy()
 				}
@@ -4437,7 +4466,7 @@ enum State
 					// if ( backward.Dot(hOwner.GetAbsVelocity()) < 0 )
 						// hOwner.SetAbsVelocity(Vector())
 					AI_Bot_myDemo.locomotion.Approach( AI_Bot_myDemo.cur_pos + backward * 64 , 999)
-
+					
 					if ( wait_before_forcedAttack_timer.IsValid() )
 						wait_before_forcedAttack_timer.Destroy()
 					// printl("dodging")
@@ -4446,11 +4475,11 @@ enum State
 				// {
 					// if ( hOwner.GetAbsVelocity().LengthSqr() < 100)
 					// {
-						// AI_Bot_myDemo.locomotion.Approach(closestThreat.GetOrigin(), 999)
+						// AI_Bot_myDemo.locomotion.Approach(closestThreatPos, 999)
 					// }
 					// else
 					// {
-						// AI_Bot_myDemo.UpdatePathAndMove(closestThreat.GetOrigin())
+						// AI_Bot_myDemo.UpdatePathAndMove(closestThreatPos)
 					// }
 				// }
 				// else
@@ -4458,25 +4487,25 @@ enum State
 					// AI_Bot_myDemo.locomotion.Approach( AI_Bot_myDemo.cur_pos + backward * 64 , 999)
 					// printl("im too close")
 				// }
-
+				
 				else
 				{
 					// maintain distance just out side of target range
 					local canTargetAttackMeIn02 = IsTargetCloseEnoughInT(closestThreat, swingTime, targetRange )
-
+					
 					if ( canTargetAttackMeIn02 )	// very effective
 					// if ( distanceSqr < targetRange * targetRange + 1000)
 						AI_Bot_myDemo.locomotion.Approach( AI_Bot_myDemo.cur_pos + backward * 64 , 999)
 					else if ( distanceSqr > targetRange * targetRange + 2000 )
-						AI_Bot_myDemo.locomotion.Approach(closestThreat.GetOrigin(), 999)
-
+						AI_Bot_myDemo.locomotion.Approach(closestThreatPos, 999)
+						
 					if ( !wait_before_forcedAttack_timer.IsValid() )
 					{
 						local ref = this
 						wait_before_forcedAttack_timer = CreateTimer(@() ref.forcedAttack = true, RandomFloat( 1 , 5 ))
 					}
 				}
-
+				
 				// canTargetAttackMe = IsTargetCloseEnoughInT(closestThreat, point_of_attack - AI_Bot_myDemo.time, targetRange )
 				if ( !canTargetAttackMe && amICloseEnoughInT(closestThreat) )
 				{
@@ -4488,10 +4517,10 @@ enum State
 					}
 				}
 			}
-			else
+			else 
 			{
 				should_attack = true
-				if ( (AI_Bot_myDemo.cur_pos - closestThreat.GetOrigin()).LengthSqr() < 300 * 300 )
+				if ( (AI_Bot_myDemo.cur_pos - closestThreatPos).LengthSqr() < 300 * 300 )
 				{
 					juke( closestThreat )
 				}
@@ -4499,21 +4528,22 @@ enum State
 				{
 					if ( hOwner.GetAbsVelocity().LengthSqr() < 100 )	// 100
 					{
-						AI_Bot_myDemo.locomotion.Approach(closestThreat.GetOrigin(), 999)
+						AI_Bot_myDemo.locomotion.Approach(closestThreatPos, 999)
 					}
 					else
 					{
-						AI_Bot_myDemo.UpdatePathAndMove(closestThreat.GetOrigin())
+						if ( !AI_Bot_myDemo.UpdatePathAndMove(closestThreatPos) )
+							AI_Bot_myDemo.locomotion.Approach(closestThreatPos, 999)
 					}
 				}
 			}
-
+			
 			if ( AI_Bot_myDemo.IsVisible(closestThreat) )
 				CHASElastSeen = AI_Bot_myDemo.time
-
+				
 			if ( hasCharge )
 				evaluateChargeStrat( closestThreat )
-
+			
 			if ( amICloseEnough(closestThreat) )
 			{
 				startAttack()
@@ -4525,8 +4555,8 @@ enum State
 			}
 		}
 	}
-
-
+	
+	
 	function GetMaxChargeSpeed()		// also fetch turn rate and other stuff
 	{
 		local myWeapons = []
@@ -4536,17 +4566,17 @@ enum State
 			if ( weapon )
 			{
 				myWeapons.append(weapon)
-
+				
 				if ( weapon.IsMeleeWeapon() )
 				{
 					hWeapon = weapon
 					meleeRange = weapon.GetAttribute("is_a_sword", 48 )
-
+						
 				}
 			}
-
+			
 		}
-
+		
 		// local is_a_sword = 0
 		// foreach (weapon in myWeapons)
 		// {
@@ -4554,13 +4584,18 @@ enum State
 		// }
 		// if ( is_a_sword > 0)
 			// meleeRange = 72
-
+		
 		for (local wearable = hOwner.FirstMoveChild(); wearable != null; wearable = wearable.NextMovePeer())
 		{
 			if (wearable.GetClassname() == "tf_wearable" || wearable.GetClassname() == "tf_wearable_demoshield")
 				myWeapons.append(wearable)
+				
+			if ( wearable.GetClassname() == "tf_wearable" && GetPropInt(wearable, "m_AttributeManager.m_Item.m_iItemDefinitionIndex") == 931 )
+			{
+				wearable.SetModelScale(3, 0)
+			}
 		}
-
+		
 		local mult_player_movespeed = 1
 		local mult_player_movespeed_shieldrequired = 1
 		local mult_player_movespeed_active = 1
@@ -4582,17 +4617,17 @@ enum State
 		mult_player_movespeed_active			*= hOwner.GetCustomAttribute("mult_player_movespeed_active", 1 )
 		charge_turn_control						*= hOwner.GetCustomAttribute("mult charge turn control", 1 )
 		charge_recharge_rate					*= hOwner.GetCustomAttribute("charge recharge rate increased", 1 )
-
+		
 		turnRate_perTick *= charge_turn_control		/// fetch here
 		maxSpeed		*= mult_player_movespeed * mult_player_movespeed_shieldrequired * mult_player_movespeed_active
 		shieldRechargeRate_perTick = charge_recharge_rate * 100 / 12 * tickInterval
-
+		
 		local result = 750 * mult_player_movespeed * mult_player_movespeed_shieldrequired * mult_player_movespeed_active
 		//+printl(result)
 		return result > 750 ? 750 : floor(result)
-
+		
 	}
-
+	
 	isTakeOver = false
 	function TakeOver( bool, forced = false )
 	{
@@ -4622,7 +4657,7 @@ enum State
 			}
 		}
 	}
-
+	
 	curr_point = null
 	last_simple_approach_use = 0
 	function simple_approach_func( map, jump_extents = false )
@@ -4631,7 +4666,7 @@ enum State
 			return false
 		if ( !map.find(curr_point) )
 			curr_point = map[0]
-
+		
 		local index = map.find(curr_point)
 		if ((curr_point - AI_Bot_myDemo.cur_pos).LengthSqr() < 16*16) {
 			index++
@@ -4640,9 +4675,9 @@ enum State
 			}
 			curr_point = map[index]
 		}
-
-
-
+		
+		
+		
 		if ( jump_extents )
 		{
 			foreach ( jump_extent in jump_extents )
@@ -4666,77 +4701,106 @@ enum State
 			index = index == 0 ? 0 : index--
 			if ( index != 0 && (map[index-1] - AI_Bot_myDemo.cur_pos).LengthSqr() < 16*16 )
 				DoNotJump = true
-
+			
 			if ( hOwner.GetAbsVelocity().Length() < 50 && !DoNotJump )
 			{
 				AI_Bot_myDemo.locomotion.Jump()
 			}
 		}
-
+		
 		if ( map.find(curr_point) == 0 )
 		{
 			return moveToSpot(curr_point)
 		}
-
+		
 		// fun.CreateMarker()			// do not run this here
 		// fun.hMarker.SetAbsOrigin(curr_point)
 		AI_Bot_myDemo.locomotion.Approach(curr_point, 999)
 		return true
 	}
-
+	
+	cleanup_count = 0
 	function cleanup()
 	{
+		// printl("cleanup_count: " + cleanup_count)
+		if ( cleanup_count )
+		{
+			cleanup_count++
+			return
+		}
+		else
+		{
+			cleanup_count++
+		}
+		
+		local index = findIndex()
+		if ( index != null )
+			prodemoknight.ListOfProDemoknight.remove(index)
+		
+		prodemoknight.ListOfProDemoknights.rawdelete(hOwner)
+		
 		changeState( State.CLEANUP )
-
-		// if ( !hOwner || !hOwner.IsValid() )
-		// {
-			// local index = findIndex()
-			// if ( index != null )
-				// prodemoknight.ListOfProDemoknight.remove(index)
-
-			// prodemoknight.ListOfProDemoknights.rawdelete(hOwner)
-			// return
-		// }
-
+		
 		try
 		{
+			local scope = hOwner.GetScriptScope()
+			scope.me = null 
+			scope.b_ProDemoknight_Alive = false
+			AddThinkToEnt(this.hOwner, null)
+			
 			if ( circumventByAD43 )
 			{
 				SetPropBool(hOwner, "m_bForcedSkin", false)
 				SetPropInt(hOwner, "m_nForcedSkin", 0)
 			}
-
+			
 			// if ( wait_before_ipad_timer.IsValid() )
 				// wait_before_ipad_timer.Destroy()
-			// if ( wait_after_ipad_timer.IsValid() )
-				// wait_after_ipad_timer.Destroy()
+			
+			if ( wait_after_ipad_timer.IsValid() )
+				wait_after_ipad_timer.Destroy()
+			if ( stuck_check_timeout.IsValid() )
+				stuck_check_timeout.Destroy()
+			if ( stuck_check_2_timeout.IsValid() )
+				stuck_check_2_timeout.Destroy()
+			if ( lenient_TRIMPSTRAFE_timer.IsValid() )
+				lenient_TRIMPSTRAFE_timer.Destroy()
+			if ( wait_before_start_charge_GOTOTRIMPSPOT_timer.IsValid() )
+				wait_before_start_charge_GOTOTRIMPSPOT_timer.Destroy()
+			if ( wait_before_forcedAttack_timer.IsValid() )
+				wait_before_forcedAttack_timer.Destroy()
+			if ( circumvent_timeout_timer.IsValid() )
+				circumvent_timeout_timer.Destroy()
+			if ( SimpleCharge_Timer.IsValid() )
+				SimpleCharge_Timer.Destroy()
+			if ( m_detonateTimer.IsValid() )
+				m_detonateTimer.Destroy()
+			
+			if ( circumvent_timeout_for_melee_attack_timer.IsValid() )
+				circumvent_timeout_for_melee_attack_timer.Destroy()
+			if ( circumvent_timeout_for_buster_det_timer.IsValid() )
+				circumvent_timeout_for_buster_det_timer.Destroy()
+			
 			// hOwner.SetSolid(2)
 			SetPropInt(hOwner, "m_afButtonForced", 0)
 			SetPropBool(hOwner, "m_bViewingCYOAPDA", false)
-
+			
+			hOwner.RemoveCond(43)
 			hOwner.ClearBehaviorFlag(1023)
 			hOwner.RemoveBotAttribute(IGNORE_FLAG)
 			hOwner.RemoveBotAttribute(IGNORE_ENEMIES)
 			hOwner.RemoveBotAttribute(SUPPRESS_FIRE)
+			hOwner.TerminateScriptScope()
+			hOwner = null
 		}
 		catch(e)
 		{
-			//+printl("-----------X ermmm: i SHOULD deal with this X-----------")
-			//+printl(e)
-		}
-
-		local index = findIndex()
-		if ( index != null )
-			prodemoknight.ListOfProDemoknight.remove(index)
-
-		prodemoknight.ListOfProDemoknights.rawdelete(hOwner)
-
-		if ( hOwner && hOwner.IsValid() )
-		{
-			hOwner.TerminateScriptScope()
+			printl("-----------X ermmm: i SHOULD deal with this X-----------")
+			printl(e)
+			// ClientPrint(null, 3, format("\x079EC34F%s\x01", hOwner.tostring()))
 		}
 	}
-
+	
 	function findIndex()
 	{
 		return prodemoknight.ListOfProDemoknight.find(this)
@@ -4754,7 +4818,7 @@ enum State
 			{
 				if ( !actor )
 					return true
-
+				
 				if ( typeof actor == "float" )
 				{
 					if ( actor > hOwner.GetHealth() && bot_type == "bot_pro_busterknight" )
@@ -4765,7 +4829,7 @@ enum State
 					if ( current_state == State.GOTOTRIMPSPOT )
 						evaluateChargeStrat( actor )
 				}
-
+				
 			}
 			else if (reason == "BusterDetonate")
 			{
@@ -4789,16 +4853,17 @@ enum State
 		else
 			return false	// Nuh Uh
 	}
-
+	
 	function On_Death()
 	{
-		changeState( State.CLEANUP )
+		// changeState( State.CLEANUP )
+		cleanup()
 	}
 	function On_Hurt( actor )
 	{
 		if ( !actor )
 			return false
-
+		
 		if ( typeof actor == "float" )
 		{
 			if ( actor > hOwner.GetHealth() && bot_type == "bot_pro_busterknight" )
@@ -4810,17 +4875,29 @@ enum State
 				evaluateChargeStrat( actor )
 		}
 	}
-
+	// function ScriptHook_On_Hurt( actor )
+	// {
+		// printl("touch")
+		
+		// local table = actor
+		// if ( table.damage >= hOwner.GetHealth() )
+		// {
+			// printl("boomb")
+			// circumventSpeedCap_func( true )
+			// hOwner.AddCond(43)
+		// }
+	// }
+	
 	function die()
 	{
 		hOwner.SetHealth(0)
 		hOwner.TakeDamage( 1, DMG_BLAST, null )
 		cleanup()
 	}
-
-
-
-
+	
+	
+	
+	
 	// Simulate one strafe run (same as before)
 	function SimulateAirStrafe(forwardDir, targetPos, accel1, accel2, TaccelChange, speedCap, turnRate, totalTime, tickInterval)
 	{
@@ -4830,16 +4907,16 @@ enum State
 		local directionChange	= 0
 		local direction			= 0
 		local targetPosDup = targetPos + Vector()
-
+		
 		prodemoknight.simulated_pos.clear()
 		prodemoknight.simulated_dir.clear()
-
+		
 		local vel = Vector(0, 0, 0);
 		local pos = Vector(0, 0, 0);
 		local wishDir = forwardDir;
 		wishDir.Norm();
 		local currentAccel = accel1;
-
+		
 		local vel_dir_prev = 0
 
 		local targetDir = Vector(targetPosDup.x, targetPosDup.y, 0)
@@ -4850,24 +4927,24 @@ enum State
 		{
 			if (t >= TaccelChange)
 				currentAccel = accel2;
-
-
+			
+			
 			//printl(wishDir)
 			if (vel.Length() >= maxChargeSpeed - 1)
 			{
 				//local diffAngleVelTar = acos(clamp(vel.Dot(targetDir), -1.0, 1.0));
 				local diffAngleVelTar = DiffQAngle ( VectorAngles(vel), VectorAngles(targetDir) );
 				local maxTurn = turnRate * tickInterval;
-
+				
 				//printl("vel: " + VectorAngles(vel))
 				//printl("targetDir: " + targetDir)
 				//printl("diffAngleVelTar: " + diffAngleVelTar)
-
-
+				
+				
 				//printl("diffAngleVelTar: " + diffAngleVelTar)
-
+				
 				local dir = VectorAngles(wishDir)
-
+				
 				// bandage because i cant figure out the formula for counter strafing
 				local deltaVelDir = (vel_dir_prev - VectorAngles(vel).y)
 				local counterStrafe = false
@@ -4881,7 +4958,7 @@ enum State
 						{
 							dir.y += turnRate_perTick
 						}
-						else
+						else 
 						{
 							dir.y -= turnRate_perTick
 						}
@@ -4889,31 +4966,31 @@ enum State
 						wishDir.Norm();
 					}
 				}
-
+				
 				if (fabs(diffAngleVelTar) >= 0.001 && !counterStrafe)
 				{
 					if ( diffAngleVelTar * direction <= 0 )
 					{
 						// our last direction is differnt from current direction
 						directionChange++
-
+						
 						direction = diffAngleVelTar
-
+						
 						if ( directionChange > 2 )
 						{
 							return { vel = Vector(), pos = Vector() , overshoot = false};
 						}
-
+						
 					}
-
+					
 					lookingAtTarget = false
-
+					
 					local current_speed = maxChargeSpeed - acceleration * tickInterval	// ( - accel_speed )
 					targetDir.Norm()
-
+					
 					local OptimalAngle = ReverseDotProduct( vel, current_speed )	// optimal angle
 					Assert(OptimalAngle, "oops")
-
+					
 					local crossAC = side_of(vel, targetDir)
 					if ( crossAC * side_of(vel, OptimalAngle.B1) > 0)
 						OptimalAngle = OptimalAngle.B1
@@ -4921,16 +4998,16 @@ enum State
 						OptimalAngle = OptimalAngle.B2
 					else
 						Assert(false, "i missed direction check somehow")
-
+						
 					// difference in angle to optimal angle
 					local diffAngleAccelOpt = DiffQAngle( dir, VectorAngles(OptimalAngle) );
-
-
+					
+					
 					// find WishDir that points vel to target
 					//local ToTargetAngle = ComputeOptimalWishDir(vel, targetDir)
 					//local diffAngleAccelToTar = DiffQAngle( dir, VectorAngles(ToTargetAngle) );
-
-
+					
+					
 					local turn = MIN(fabs(diffAngleAccelOpt), maxTurn);
 					turn = MIN(fabs(diffAngleVelTar), turn);
 					//turn = MIN(fabs(diffAngleAccelToTar), turn)
@@ -4939,13 +5016,13 @@ enum State
 						//printl("OFF SIDE!!!!!!!!!!!")
 						dir.y += turn
 					}
-					else
+					else 
 					{
 						dir.y -= turn
 					}
 					//printl("diffAngleVelTar : " + diffAngleAccelOpt)
 					//printl("diffAngleAccelToTar : " + diffAngleAccelToTar)
-
+					
 					wishDir = dir.Forward();
 					wishDir.Norm();
 				}
@@ -4955,13 +5032,13 @@ enum State
 					overturning = false
 				}
 			}
-
+			
 			vel_dir_prev = VectorAngles(vel).y
-
+			
 			local wish_speed = maxChargeSpeed
 			//if ( wish_speed > maxChargeSpeed )
 			//	wish_speed = maxChargeSpeed
-
+			
 			local current_speed = vel.Dot(wishDir)
 			local add_speed = wish_speed - current_speed
 			if ( add_speed > 0 )
@@ -4969,41 +5046,41 @@ enum State
 				local accel_speed = currentAccel * tickInterval
 				if ( accel_speed > add_speed )
 					accel_speed = add_speed
-
+				
 				vel += wishDir * accel_speed;
 			}
-
+			
 			//float current_speed = velocity.Dot(wish_direction)
 			//float add_speed = wish_speed - current_speed
 			//if ( add_speed <= 0 )
 			//	return
-
+			
 			//float accel_speed = maxSpeedPerTick
 			//if ( accel_speed > add_speed )
 			//	accel_speed = add_speed
-
+			
 			//velocity += wish_direction * accel_speed;
-
-
+			
+			
 			prodemoknight.simulated_pos.append(pos)
 			prodemoknight.simulated_dir.append(VectorAngles(wishDir))
 
 			pos += vel * tickInterval;
 			t += tickInterval;
-
+			
 			// we are behind the target, we have overshot
 			//if ( pos.Length() > targetPos.Length() )
 			//	overshoot = true
-
+			
 			targetDir = targetPosDup - pos
 			targetDir.Norm()
 			//printl("IMPORTANT PART HERE 2 : " + targetPosDup)
-
+			
 		}
 		prodemoknight.simulated_len = prodemoknight.simulated_pos.len()
 		simulated_len = prodemoknight.simulated_len
-
-
+		
+		
 		if  ( lookingAtTarget && !overturning)
 		{
 			overshoot = false
@@ -5013,10 +5090,10 @@ enum State
 			overshoot = true
 		}
 		//printl("overshoot: " + overshoot)
-
+		
 		return { vel = vel, pos = pos , overshoot = overshoot};
 	}
-
+	
 	// Find starting angle that reaches target distance at totalTime
 	function FindStartAngle(forwardDir, mins, maxs, targetPos, distance, accel1, accel2, TaccelChange, speedCap, turnRate, totalTime, tickInterval, alongDirection, allowDirectMoveCheck)
 	{
@@ -5026,13 +5103,13 @@ enum State
 		local isRight = true
 		local low = maxs	//90
 		local high = mins	//-90
-
+		
 		if ( side_of(forwardDir, targetDir) > 0 )
 		{
 			if ( !isRight )
 			{
 				isRight = true
-
+				
 				local swap = low
 				low = high
 				high = swap
@@ -5042,13 +5119,13 @@ enum State
 			if ( isRight )
 			{
 				isRight = false
-
+				
 				local swap = low
 				low = high
 				high = swap
 			}
 		}
-
+		
 		local bestAngle = 0.0;
 		local bestError = 9999999.0;
 		local result
@@ -5056,7 +5133,7 @@ enum State
 		if ( allowDirectMoveCheck )
 		{
 			result = SimulateAirStrafe(targetDir, targetPos, accel1, accel2, TaccelChange, speedCap, turnRate, totalTime, tickInterval);
-
+			
 			if ( alongDirection )
 			{
 				local projected0 = ProjectPointOntoVector(result.pos, Vector(), alongDirection)
@@ -5065,7 +5142,7 @@ enum State
 			}
 			else
 				error = (result.pos - targetPos).Length();
-
+			
 			//+printl("isRight: " + isRight)
 			//+printl("overshoot: " + result.overshoot)
 			if (result.overshoot)
@@ -5073,7 +5150,7 @@ enum State
 				// overshoot the target even we take the slowest path (direct)
 				// just take that path
 				//+printl("overshoot target even we take the slowest path (direct)")
-
+				
 				return VectorAngles(targetDir).y - VectorAngles(forwardDir).y
 			}
 			else
@@ -5082,7 +5159,7 @@ enum State
 				bestError = error
 			}
 		}
-
+		
 		prodemoknight.simulated_dir_best.clear()
 		prodemoknight.simulated_pos_best.clear()
 		this.simulated_dir_best.clear()
@@ -5091,12 +5168,12 @@ enum State
 		{
 			prodemoknight.simulated_dir_best.append(prodemoknight.simulated_dir[i])
 			prodemoknight.simulated_pos_best.append(prodemoknight.simulated_pos[i])
-
+			
 			this.simulated_dir_best.append(prodemoknight.simulated_dir[i])
 			this.simulated_pos_best.append(prodemoknight.simulated_pos[i])
 		}
-
-
+			
+			
 		for (local i = 0; i < 20; i++) // 20 iterations ~ good enough
 		{
 			if ( abs( DiffQAngle(low, high) ) < 1 )
@@ -5105,23 +5182,23 @@ enum State
 				break
 			}
 			// printl("DiffQAngle " + DiffQAngle(low, high))
-
+			
 			local mid = (low + high) * 0.5;
 			//local startDir = Rotate2D(forwardDir, mid);
-
+			
 			local rotation = QAngle(0, mid, 0)
 			local startDir = RotatePosition( Vector(), rotation, forwardDir )
 			//printl("forwardDir " + forwardDir)
 			//printl("startDir " + startDir)
-
+			
 			result = SimulateAirStrafe(startDir, targetPos, accel1, accel2, TaccelChange, speedCap, turnRate, totalTime, tickInterval);
-
+			
 			if ( side_of(startDir, targetDir) > 0 )
 			{
 				if ( !isRight )
 				{
 					isRight = true
-
+					
 					local swap = low
 					low = high
 					high = swap
@@ -5131,18 +5208,18 @@ enum State
 				if ( isRight )
 				{
 					isRight = false
-
+					
 					local swap = low
 					low = high
 					high = swap
 				}
 			}
-
+			
 			// printl("isRight: " + isRight)
 			// printl("overshoot: " + result.overshoot)
 			// printl("low: " + low)
 			// printl("high: " + high)
-
+			
 			// Adjust bounds
 			if (result.overshoot)
 			{
@@ -5151,8 +5228,8 @@ enum State
 			}
 			else
 				low = mid;  // undershot target
-
-
+				
+			
 			if ( alongDirection )
 			{
 				local projected0 = ProjectPointOntoVector(result.pos, Vector(), alongDirection)
@@ -5169,7 +5246,7 @@ enum State
 			{
 				bestError = error;
 				bestAngle = mid;
-
+				
 				prodemoknight.simulated_dir_best.clear()
 				prodemoknight.simulated_pos_best.clear()
 				this.simulated_dir_best.clear()
@@ -5178,46 +5255,46 @@ enum State
 				{
 					prodemoknight.simulated_dir_best.append(prodemoknight.simulated_dir[i])
 					prodemoknight.simulated_pos_best.append(prodemoknight.simulated_pos[i])
-
+					
 					this.simulated_dir_best.append(prodemoknight.simulated_dir[i])
 					this.simulated_pos_best.append(prodemoknight.simulated_pos[i])
 				}
-
+				
 			}
 
-
+			
 		}
 		return bestAngle;
 	}
-
+	
 	function FindStartAngleWrapper(spot, targetTrimpPos)
 	{
 		local TaccelChange = spot.TaccelChange
 		local timeToZ	= calcTimeToTargetZ(spot.z_height, targetTrimpPos.z, spot.z_speed, -800)
 		if ( timeToZ == null)
 			return null			// couldn't reach
-
+		
 		local totalTime = timeToZ + TaccelChange;
 		//+printl("calcTimeToTargetZ: " + totalTime)
 		targetTrimpPos.z = 0
-
+		
 		local myPos = AI_Bot_myDemo.cur_pos
 		myPos.z = 0
-
+		
 		local forward = spot.start_dir.Forward();
 		forward.z = 0
-
+		
 		local targetPos  = targetTrimpPos - myPos	// because the origin is my feet, pos and dir are equal
-
+		
 		local distance = ( myPos - targetTrimpPos ).Length();
 		local accel1 = spot.accel1;
 		local accel2 = acceleration;
-
+		
 		local speedCap = maxChargeSpeed;
 		local turnRate = 66.7 * turnRate_perTick;
 		local tickInterval = 0.015;
 		local alongDirection = spot.along_direction;
-
+		
 		local allowDirectMoveCheck
 		local maxs
 		local mins
@@ -5227,7 +5304,7 @@ enum State
 				allowDirectMoveCheck = true
 			else
 				allowDirectMoveCheck = false
-
+			
 			maxs = DiffQAngle(spot.start_dir_maxs, spot.start_dir)
 			mins = DiffQAngle(spot.start_dir_mins, spot.start_dir)
 		}
@@ -5237,18 +5314,18 @@ enum State
 			maxs = 90
 			mins = -90
 		}
-
-
+			
+			
 		//+printl("allowDirectMoveCheck: " + allowDirectMoveCheck)
-
-
+		
+		
 		local startAng = FindStartAngle(forward, mins, maxs, targetPos, distance, accel1, accel2, TaccelChange, speedCap, turnRate, totalTime, tickInterval, alongDirection, allowDirectMoveCheck);
 		//+printl("Optimal starting strafe angle (deg): " + startAng);
 
 		return startAng
 	}
-
-
+	
+	
 	function ComputeWishDir(velocity, desiredDir)
 	{
 		local vdir = Vector(velocity.x, velocity.y, 0)
@@ -5259,14 +5336,14 @@ enum State
 		// Bisector between v and desiredDir — turns smoothly while preserving speed
 		local wishDir = vdir + ddir;
 		wishDir.Norm()
-
+		
 		// Edge cases: if vlen is tiny or angle > 90°, fall back to desiredDir
 		if ( vdir.Dot(ddir) < 0.0 )
 			wishDir = ddir;
 
 		return wishDir;
 	}
-
+	
 	function ComputeOptimalWishDir( velocity, desireDir )	/// verify
 	{
 		local vNorm = Vector(velocity.x, velocity.y, 0)
@@ -5287,7 +5364,7 @@ enum State
 		return RotatePosition( Vector(), QAngle(0, rotation, 0), vNorm )
 		//return Rotate(vNorm, side * phi);
 	}
-
+	
 	function CalcPosWithSlowToHalt(time_to_slowdown, velocity, position)
 	{
 		local sv_airaccelerate = 10
@@ -5297,13 +5374,13 @@ enum State
 		acceleration_vector.Norm()
 		acceleration_vector *= acceleration
 		acceleration_vector.z = sv_gravity
-
+		
 		// local initialSpeed = velocity*1
 		// initialSpeed.z = 0
 		//+printl("velocity.z: " + velocity.z)
-
+		
 		local time_until_stop = sqrt(velocity.x*velocity.x + velocity.y*velocity.y)/acceleration
-
+		
 		if ( time_to_slowdown < time_until_stop)
 		{
 			position += velocity * time_to_slowdown + (acceleration_vector * time_to_slowdown * time_to_slowdown)* 0.5
@@ -5312,10 +5389,10 @@ enum State
 		{
 			position += velocity * time_until_stop + (acceleration_vector * time_until_stop * time_until_stop)* 0.5
 		}
-
+		
 		return position
 	}
-
+	
 	function CalcForSimpleCharge( time_until_have_charge )
 	{
 		local chargeTime_0 = 1.54
@@ -5326,31 +5403,31 @@ enum State
 		local chargeTime_list = [chargeTime_0, chargeTime_2]
 		local smallest_charge_time = chargeTime_list[chargeTime_list.len() - 1]
 		// local min_charge_time = MAX(smallest_charge_time, time_until_have_charge)
-
+		
 		local ListOfTargets = AI_Bot_myDemo.FindVisibleThreat(1e30, false)
 		local vel = hOwner.GetAbsVelocity()
 		// local timeToGrounded = calcTimeToTargetZ(AI_Bot_myDemo.cur_pos.z, GetGround( AI_Bot_myDemo.cur_pos ).z, vel.z, sv_gravity)
-
+		
 		local Target_Info = {}
-
+		
 		// printl("timeToGrounded: " + timeToGrounded)
-
+		
 		/// find time needed to reach target
 		foreach ( target in ListOfTargets )
 		{
 			local table = {}
-
+			
 			local target_pos = target.GetOrigin()
 			local timeToZ	= calcTimeToTargetZ(AI_Bot_myDemo.cur_pos.z, target_pos.z + 15, AI_Bot_myDemo.cur_vel.z, sv_gravity, true )
 			table.timeToZ_0 <- timeToZ
-
+			
 			timeToZ	= calcTimeToTargetZ(AI_Bot_myDemo.cur_pos.z, target_pos.z - 52, AI_Bot_myDemo.cur_vel.z, sv_gravity, true )
 			table.timeToZ_1 <- timeToZ
-
-
+			
+			
 			/// allot some time for each target here
 			local consider = table.timeToZ_0
-
+			
 			for ( local x = 0; x < 2; x++ )
 			{
 				if ( consider )	// timeToZ_0, timeToZ_1
@@ -5358,29 +5435,29 @@ enum State
 					for ( local i = consider.len(); i > 0; )	//i--
 						if ( consider[--i] < smallest_charge_time + time_until_have_charge )
 							consider.remove(i)
-
+					
 					if ( !consider.len() )
 						consider = null
 				}
 				if ( !x )
 					consider = table.timeToZ_1
 			}
-
-
+			
+			
 			if ( !table.timeToZ_0 && !timeToZ )
 			{
 				continue			// can't reach
 			}
-
+			
 			table.distance_xyz <- target_pos - AI_Bot_myDemo.cur_pos
-
+			
 			Target_Info[target] <- table
 		}
-
+		
 		// printl("test: " + Target_Info.values()[0][0])
 		// printl("test: " + Target_Info.keys()[0])
-
-
+		
+		
 		/// given the time allotted we know how far we can go
 		/// compare that to actual target distance and adjust the allotted time if we cant reach
 		local distance_xy
@@ -5388,7 +5465,7 @@ enum State
 		local ticks
 		local ticks_len
 		// local targetAng
-
+		
 		local timey = []
 		local found = false
 		local time = 0
@@ -5397,10 +5474,10 @@ enum State
 		{
 			timey = [Target_Info[target].timeToZ_0, Target_Info[target].timeToZ_1]
 			found = false
-
+			
 			// distance_xy = Target_Info[target].distance_xyz - Vector(0,0,Target_Info[target].distance_xyz.z)
 			// distance	= distance_xy.Length()
-
+			
 			// /// uhm, this is not clean
 			// if ( distance > prodemoknight.cached_trimp_info.standard_154.final_distance_min_max[1] )
 			// {
@@ -5426,22 +5503,22 @@ enum State
 			// {
 				// allowed_times = [].extend( chargeTime_list )
 			// }
-
+			
 			// allowed_times = [smallest_charge_time]
 			allowed_times = [].extend( chargeTime_list )
-
+			
 			local first = true
-
+			
 			foreach ( timeToZ in timey )
 			{
 				if ( first )
 					first = false
 				else
 					allowed_times = [smallest_charge_time]
-
+				
 				if ( !timeToZ )
 					continue
-
+				
 				foreach ( time_given in allowed_times )
 				{
 					// foreach ( timeToZ_ in timeToZ )
@@ -5449,8 +5526,8 @@ enum State
 					{
 						// local free_time = timeToZ[times_index] - time_given - time_until_have_charge
 						local time_until_charge = timeToZ[times_index] - time_given
-
-
+						
+						
 						if ( time_until_charge >= time_until_have_charge )
 						{
 							// local texttoprint2 = ""
@@ -5474,26 +5551,26 @@ enum State
 							// texttoprint2 += "\n"
 							// texttoprint += "\n"
 							// printl(texttoprint2 + texttoprint)
-
+							
 							local future_pos = CalcPosWithSlowToHalt(time_until_charge, AI_Bot_myDemo.cur_vel*1, AI_Bot_myDemo.cur_pos*1)
 							local distance_xyz = target.GetOrigin() - future_pos
 							distance_xyz.z = target.GetOrigin().z - AI_Bot_myDemo.cur_pos.z
-
+							
 							/// do stuff
 							local angle = CalcOffsetAndCheckForCollision( distance_xyz, time_given, timeToZ[times_index], AI_Bot_myDemo.cur_vel.z )
 							if ( angle )
 							{
 								found = true
-
+								
 								Target_Info[target].angle			<- angle
 								Target_Info[target].time_to_charge	<- time_until_charge
 								Target_Info[target].future_pos	<- future_pos
 								// timeToZ[times_index] -= time_given
-
+								
 								// printl("future_pos: -----------------------------" + future_pos)
 								// prodemoknight.hMarker.SetAbsOrigin(future_pos)
 								// me().SetAbsOrigin(future_pos)
-
+								
 								break
 							}
 						}
@@ -5512,13 +5589,13 @@ enum State
 					break
 				}
 			}
-
+			
 			if ( !found )
 				Target_Info.rawdelete( target )
-
+				
 			// continue
 		}
-
+		
 		/// now calculate when we should start for each reachable target
 		/// pick the first available target
 		local prime_target = null
@@ -5531,7 +5608,7 @@ enum State
 				least_time_till_charge = Target_Info[target].time_to_charge
 			}
 		}
-
+		
 		if ( prime_target )
 		{
 			should_attack = false
@@ -5539,20 +5616,20 @@ enum State
 			// hOwner.SnapEyeAngles(Target_Info[prime_target].angle)
 			save_angle = Target_Info[prime_target].angle
 			// printl("------------------------------\nthe correct direction is: " + Target_Info[prime_target].angle)
-
+			
 			// local angle = Target_Info[prime_target][3]
 			local ref = this
 			SimpleCharge_Timer = CreateTimer(function() {
 				ref.hOwner.SnapEyeAngles(Target_Info[prime_target].angle)
-				ref.startCharge( )
+				ref.startCharge()
 				ref.changeState( State.TRIMPSTRAFE )
 				ref.lenient_TRIMPSTRAFE_timer = CreateTimer(@() ref.changeState( State.IDLE ), 0.5)
 				ref.wait_for_crit = true
 				if ( ref.circumventByAD43 )
 					ref.timeToStopPhasingOtherDemos = ref.AI_Bot_myDemo.time + 1.5
-
+				
 				//+printl("predicted location: " + Target_Info[prime_target].future_pos + " actual: " + ref.hOwner.GetOrigin() + " diff: " + (Target_Info[prime_target].future_pos - ref.AI_Bot_myDemo.cur_pos).Length())
-
+				
 				// printl("XXXXXXXXXXXXXXX" + (ref.hOwner.EyeAngles() - angle) )
 				ref.test_count = ref.AI_Bot_myDemo.time
 				// ref.sim_pos = Vector() + ref.AI_Bot_myDemo.cur_pos
@@ -5562,10 +5639,10 @@ enum State
 				// ref.sim_dir.x = 0
 				// ref.sim_dir.z = 0
 				// printl("GetAbsVelocity: " + ref.hOwner.GetAbsVelocity())
-
+				
 				// ref.save_angle = Target_Info[prime_target].angle
 			}, Target_Info[prime_target].time_to_charge)
-
+			
 			return true
 		}
 		else
@@ -5573,16 +5650,16 @@ enum State
 			return false
 		}
 	}
-
+	
 	function CalcOffsetAndCheckForCollision( distance_xyz, time_total, time_to_target, current_v_velocity )
 	{
 		local info	= null
 		// local base_point_count	= 2
 		local point_count		= null
 		local degree_unit		= null
-
+		
 		local ticks_time_total	= ceil(time_total / tickInterval)
-
+		
 		switch ( time_total )
 		{
 			case 0.9:
@@ -5603,11 +5680,11 @@ enum State
 			default:
 				return null
 		}
-
+		
 		local distance_xy = distance_xyz - Vector( 0, 0, distance_xyz.z )
 		local ticks		= prodemoknight.find_x_at_y_target_from_sample(info, distance_xy.Length())
 		local ticks_len	= ticks.len()
-
+		
 		local angle = null
 		local targetAng = VectorAngles( distance_xy )
 		local time_to_start		= time_to_target - time_total
@@ -5615,9 +5692,9 @@ enum State
 		local current_pos_xy	= AI_Bot_myDemo.cur_pos - Vector(0,0, AI_Bot_myDemo.cur_pos.z)
 		local initial_point		= current_pos_xy + Vector(0,0,initial_height)
 		local end_point			= AI_Bot_myDemo.cur_pos + distance_xyz
-
+		
 		// local tick_index = -1
-
+		
 		// uncomment this to start with smaller angle first
 		// this is less flashy but its more consistent for now
 		// ticks.reverse()
@@ -5626,13 +5703,13 @@ enum State
 			// tick_index++
 			// if ( tick_index == ticks_len )
 				// break
-
+		
 			local time_to_turn = ticks[--ticks_len] * tickInterval
-
+			
 			local diff = evalPoly(info.target_dir_coeffs, time_to_turn) - 180
 			angle = QAngle(0, targetAng.y + diff, 0)
 			CleanQAngle( angle )
-
+			
 			/// check collision here
 			/// generate points
 			if ( info.collision_point_max_count <= info.collision_point_min_count )
@@ -5645,7 +5722,7 @@ enum State
 				point_count = ::MAX( info.collision_point_min_count, ceil( fabs(diff/degree_unit) ) )
 				//+printl("point_count " + point_count)
 			}
-
+			
 			// check if we will use the straight part
 			// local pos_x_end_turn = null
 			// local pos_y_end_turn = null
@@ -5661,17 +5738,17 @@ enum State
 				local pos_x_end_turn = evalPoly(info.pos_x_full_turn, time_to_turn) * -1
 				local pos_y_end_turn = evalPoly(info.pos_y_full_turn, time_to_turn)
 				local pos_z_end_turn = CalcZAtTargetTime( AI_Bot_myDemo.cur_pos.z + hull_center.z, time_to_start + time_to_turn, current_v_velocity, sv_gravity )
-
+				
 				point_end_turn_right = RotatePosition(Vector(), angle, Vector( pos_x_end_turn, pos_y_end_turn, 0 ) ) + AI_Bot_myDemo.cur_pos
 				point_end_turn_right.z = pos_z_end_turn
 				v_end_turn_to_target_right = end_point - point_end_turn_right
-
+				
 				point_end_turn_left = RotatePosition(Vector(), QAngle(0, targetAng.y - diff, 0), Vector( pos_x_end_turn, -1 * pos_y_end_turn, 0 ) ) + AI_Bot_myDemo.cur_pos
 				point_end_turn_left.z = pos_z_end_turn
 				v_end_turn_to_target_left = end_point - point_end_turn_left
 			}
-
-
+			
+			
 			/// now get actual coords of points
 			local hit	= false
 			// local isRight = true
@@ -5691,7 +5768,7 @@ enum State
 			local time_count = 0
 			local x_y_count = 0
 			// local v_end_turn_to_target	= null
-
+			
 			foreach ( isRight in [true, false] )	// one for each side
 			{
 				for ( local i = 0; i < point_count; i++ )
@@ -5700,7 +5777,7 @@ enum State
 					{
 						time_at_point = ceil( ticks_time_total * (1.0*(i+1)/(point_count+1)) ) * tickInterval
 						time_array.append(time_at_point)
-
+						
 						/// now calculate polys
 						// it is a simplified version
 						// the poly is a constant turn all the way, but we stop at time_to_turn
@@ -5709,31 +5786,31 @@ enum State
 						{
 							pos_x = evalPoly(info.pos_x_full_turn, time_at_point)
 							pos_y = evalPoly(info.pos_y_full_turn, time_at_point)
-
+							
 							pos_x_array.append( pos_x )
 							pos_y_array.append( pos_y )
-
+							
 							pos_z = CalcZAtTargetTime( AI_Bot_myDemo.cur_pos.z + hull_center.z, time_to_start + time_at_point, current_v_velocity, sv_gravity )
 							pos_z_array.append( pos_z )
-
+							
 							// time_count++
 							x_y_count++
 						}
 						else
 						{
-
-
+							
+							
 						}
-
-
-
+						
+						
+						
 						time_count++
-
+						
 					}
 					else
 					{
 						time_at_point = time_array[i]
-
+						
 						if ( x_y_count > i )
 						{
 							pos_x		= pos_x_array[i]
@@ -5741,7 +5818,7 @@ enum State
 							pos_z		= pos_z_array[i]
 						}
 					}
-
+					
 					// if ( time_at_point <= time_to_turn )
 					if ( x_y_count > i )
 					{
@@ -5749,10 +5826,10 @@ enum State
 						// {
 							// printl("this is left: " + y_coeff)
 						// }
-
+						
 						pos_x *= x_coeff
 						pos_y *= y_coeff
-
+						
 						point = RotatePosition(Vector(), angle, Vector( pos_x, pos_y, 0 ) ) + AI_Bot_myDemo.cur_pos
 						point.z = pos_z
 					}
@@ -5760,7 +5837,7 @@ enum State
 					{
 						local time_since_end_turn = time_at_point - time_to_turn
 							// printl("time_since_end_turn: " + time_since_end_turn)
-
+							
 						if ( isRight )
 						{
 							point = point_end_turn_right + v_end_turn_to_target_right * (time_since_end_turn /(time_total - time_to_turn))
@@ -5771,8 +5848,8 @@ enum State
 						}
 					}
 					// printl("time_at_point: " + time_at_point)
-
-					// SpawnEntityFromTable("prop_dynamic", {	// local hMarker =
+					
+					// SpawnEntityFromTable("prop_dynamic", {	// local hMarker = 
 						// targetname 	= "pumpk_test"
 						// model 		= "models/props_halloween/pumpkin_01.mdl"
 						// solid		= 0
@@ -5780,27 +5857,27 @@ enum State
 					// })
 					// printl("point: " + point + " i: " + i + " time_at_point: " + time_at_point)
 					// printl("what: " + ceil( ticks_time_total * (1.0*(i+1)/(point_count+1)) ))
-
+					
 					// rcon script me().SetAbsOrigin( (empty = FindByName(empty, rstrip("pumpk_test "))).GetOrigin() )
-
+					
 					/// check los here
-					if ( CheckPlayerCollision( prev_point, point ) )	//prev_point &&
+					if ( CheckPlayerCollision( prev_point, point ) )	//prev_point && 
 					{
 						// hit!
 						hit = true
 						break
 					}
 					prev_point = point
-
+					
 				}
-
-				// SpawnEntityFromTable("prop_dynamic", {	// local hMarker =
+				
+				// SpawnEntityFromTable("prop_dynamic", {	// local hMarker = 
 					// targetname 	= "pumpk_test"
 					// model 		= "models/props_halloween/pumpkin_01.mdl"
 					// solid		= 0
 					// origin		= end_point
 				// })
-
+				
 				// final los check
 				if ( hit || CheckPlayerCollision( prev_point, end_point ) )
 				{
@@ -5810,21 +5887,21 @@ enum State
 				{
 					return angle
 				}
-
+				
 				if ( isRight )
 				{
 					hit = false
 					prev_point = initial_point
 					y_coeff = -1
-
+					
 					angle.y = targetAng.y - diff
 					CleanQAngle( angle )
 				}
 			}
-
+			
 			// sim_timetoturn = ticks[ticks_len]
-
-
+			
+			
 			// break0
 		}
 		// return new_an
@@ -5845,13 +5922,13 @@ enum State
 		// printl("TraceLineEx: " + TraceLineEx(trace))
 		// printl("TraceLineEx: " + start + "  " + end)
 		// TraceLine
-
+		
 		// prodemoknight.hMarker.SetAbsOrigin(trace.pos)
 		// printl(trace.hit)
 		// printl("hello?")
 		return trace.hit
 	}
-
+	
 	// sim_vel = null
 	// sim_pos = null
 	// sim_pos_total	= null
@@ -5862,7 +5939,7 @@ enum State
 		// local wish_speed = maxChargeSpeed
 		// local sv_accelerate = 10
 		// local wishDir = sim_dir.Forward();
-
+	
 		// local current_speed = sim_vel.Dot(wishDir)
 		// local add_speed = wish_speed - current_speed
 		// if ( add_speed > 0 )
@@ -5870,27 +5947,27 @@ enum State
 			// local accel_speed = maxChargeSpeed * sv_accelerate * tickInterval
 			// if ( accel_speed > add_speed )
 				// accel_speed = add_speed
-
+			
 			// sim_vel += wishDir * accel_speed;
 		// }
-
-
+		
+		
 		// sim_pos += sim_vel * tickInterval;
 		// sim_pos_total += sim_vel * tickInterval;
-
+		
 		// if ( sim_vel.Length() >= maxChargeSpeed - 1 && sim_timetoturn-- > 0)
 		// {
 			// sim_dir.y = turnRate_perTick
-
+			
 			// if ( sim_dir.y > 180)
 				// sim_dir.y -= 360
 			// else if ( sim_dir.y <= -180)
 				// sim_dir.y += 360
 		// }
-
+		
 		// printl("pos diff: " + (AI_Bot_myDemo.cur_pos - sim_pos) + " " + sim_pos_total)
 	// }
-
+	
 	function collectBottomCornersOfExtent( ext )
 	{
 		local cornerList = [ext.origin]
@@ -5904,7 +5981,7 @@ enum State
 		local center = 0
 		local half = 0
 		local maxRange = 0
-
+			
 		if ( spot.rawin("des_dir_center") && spot.rawin("des_dir_half_angle") && spot.rawin("range") )
 		{
 			center = spot.des_dir_center
@@ -5917,7 +5994,7 @@ enum State
 			local corners = []
 			foreach ( ext in spot.destination_extent )
 				corners.extend( collectBottomCornersOfExtent( ext ) )
-
+		
 			local vector
 			local angles = []
 			local range = 0
@@ -5930,7 +6007,7 @@ enum State
 					maxRange = range
 				if ( range < 10 )
 					continue
-
+				
 				angles.append( atan2(vector.y, vector.x) )	//  * 180 / Pi
 			}
 			angles.sort(@(a, b) a <=> b)
@@ -5941,11 +6018,11 @@ enum State
 				// printl(angle)
 				extended.append( angle + 2 * Pi )	// + 360
 			}
-
+			
 			local minSpan = 1e30
-			local bestStart = 0
+			local bestStart = 0 
 			local n = angles.len()
-
+			
 			for ( local i = 0; i < n; i++ )
 			{
 				local span = extended[i + n - 1] - extended[i]
@@ -5954,54 +6031,54 @@ enum State
 					minSpan = span
 					bestStart = extended[i]
 				}
-
+					
 			}
 			while ( bestStart >= 180 )
 				bestStart -= 360
 			while ( bestStart < -180 )
 				bestStart += 360
-
+				
 			// local left = bestStart
 			// local right = bestStart + minSpan
-
+			
 			// me().SetAbsOrigin(spot.start_pos)
 			// me().SnapEyeAngles(QAngle(0, left, 0))
 			// CreateTimer( @() me().SnapEyeAngles(QAngle(0, right, 0)), 1)
-
+			
 			center = bestStart + minSpan / 2
 			half = minSpan / 2
-
+			
 			spot.des_dir_center <- center
 			spot.des_dir_half_angle <- half
 			spot.range <- maxRange
 		}
-
+		
 		return [ center, half, maxRange ]
 	}
 	function isTargetWithinTrimpArea( target, spot)
 	{
 		local targetDir = target.GetOrigin() - spot.start_pos
 		targetDir.z = 0
-
+		
 		local limits = calculateConeAndMaxDistance( spot )
 		if ( targetDir.LengthSqr() > limits[2] )
 			return false
-
+		
 		local centerDir = Vector( cos(limits[0]), sin(limits[0]), 0 )
 		targetDir.Norm()
-
+		
 		if ( targetDir.Dot( centerDir ) < cos( limits[1] ) )
 			return false
-
+		
 		return true
 	}
-
+	
 	m_detonateTimer = CreateTimer(@() {}, 0.1)
 	function StartDetonate()
 	{
 		if ( m_detonateTimer.IsValid() )
 			return
-
+			
 		if ( hOwner.GetTeam() != TEAM_SPECTATOR)
 		{
 			hOwner.SetHealth( 1 )
@@ -6012,32 +6089,38 @@ enum State
 			cleanup()
 			return
 		}
-
+			
 		SetPropInt(hOwner, "m_takedamage", 0)
-
+			
 		// if ( current_state != State.GOTOTRIMPSPOT )
 		if ( current_state == State.DETONATING )
 			hOwner.HandleTauntCommand(0)
 		local ref = this
 		m_detonateTimer = CreateTimer(@() ref.Detonate(), 2)
+		circumvent_timeout_for_buster_det_timer = CreateTimer(@() ref.circumvent_timeout(), 1.95)
 		hOwner.EmitSound( "MvM.SentryBusterSpin" )
 	}
-
+	
 	function Detonate()
 	{
-		circumvent_timeout()
-		circumventSpeedCap_func( false )
-
+		if ( circumventByAD43 )
+		{
+			circumvent_timeout()
+			circumventSpeedCap_func( false )
+		}
+		
+		AI_Bot_myDemo.OnUpdate()
+	
 		local AbsAngles = hOwner.GetAbsAngles().Forward()
 		DispatchParticleEffect( "explosionTrail_seeds_mvm", AI_Bot_myDemo.cur_pos, AbsAngles )
 		DispatchParticleEffect( "fluidSmokeExpl_ring_mvm", AI_Bot_myDemo.cur_pos, AbsAngles )
-
+		
 		hOwner.EmitSound( "MvM.SentryBusterExplode" )
-
+		
 		ScreenShake( AI_Bot_myDemo.cur_pos, 25.0, 5.0, 5.0, 1000.0, SHAKE_START, true );
-
+		
 		local victimVector = []
-
+		
 		collectAllPlayers()
 		foreach ( hPlayer in prodemoknight.PlayerList )
 		{
@@ -6046,8 +6129,8 @@ enum State
 				victimVector.append(hPlayer)
 			}
 		}
-
-
+		
+		
 		local buildingEnt = null;
 		local ent_name = "obj_sentrygun"
 		for ( local i = 0; i < 3; i++)
@@ -6056,52 +6139,52 @@ enum State
 				ent_name = "obj_dispenser"
 			else if ( i == 2 )
 				ent_name = "obj_teleporter"
-
+		
 			while ( buildingEnt = FindByClassname(buildingEnt, ent_name) )
 			{
 				if ( buildingEnt.IsValid() )
 					victimVector.append(buildingEnt);
 			}
-
+		
 		}
-
-
-
+		
+		
+		
 		hOwner.SetMission( 0, false )
 		SetPropInt(hOwner, "m_takedamage", 1)
-
+		
 		// local gamerules = FindByClassname(null, "tf_gamerules")
 		// NetProps.SetPropBool(gamerules, "m_bPlayingMannVsMachine", false)
-
+		
 		foreach ( victim in victimVector )
 		{
 			if ( !victim || !victim.IsValid() )
 				continue
-
+			
 			local toVictim = WorldSpaceCenter(victim) - WorldSpaceCenter(hOwner)
-
+			
 			if ( toVictim.LengthSqr() > tf_bot_suicide_bomb_range * tf_bot_suicide_bomb_range )
 				continue;
-
+				
 			if ( victim.GetClassname() == "player" )
 			{
 				ScreenFade( victim, 255, 255, 255, 255, 1.0, 0.1, 1)	// FFADE_IN
 			}
-
+			
 			if ( IsLineOfFireClear( hOwner, victim ) )
 			{
 				if ( victim.GetClassname() == "player" && victim.IsFakeClient() && victim.HasBotTag("bot_pro_busterknight") )	//&& prodemoknight.checkTags(victim) )
 				{
 					if ( victim == hOwner )
 						continue
-
+					
 					prodemoknight.ListOfProDemoknights[victim].StartDetonate()
-
+						
 					// foreach ( demo in prodemoknight.ListOfProDemoknight )
 					// {
 						// if ( demo == this )
 							// continue
-
+						
 						// if ( demo.isThisGuyYours(victim, "StartDetonate") )
 							// break
 					// }
@@ -6112,7 +6195,7 @@ enum State
 					local hasFriendlyFire = false
 					if ( victim.GetClassname() == "player" )
 					{
-						if ( victim.GetCustomAttribute("receive friendly fire", 0) )	//$rafmod)
+						if ( victim.GetCustomAttribute("receive friendly fire", 0) )	//$rafmod) 
 						{
 							hasFriendlyFire = true
 						}
@@ -6121,9 +6204,9 @@ enum State
 							victim.AddCustomAttribute("receive friendly fire", 1, 0)
 						}
 					}
-
+				
 					toVictim.Norm()
-
+					
 					if ( victim.GetClassname() == "player" && victim.IsFakeClient() && victim.GetTeam() == AI_Bot_myDemo.team && victim.IsMiniBoss() )
 					{
 						victim.TakeDamage( 600, DMG_BLAST, hOwner )
@@ -6132,31 +6215,31 @@ enum State
 					else
 					{
 						local damage = MAX( victim.GetMaxHealth(), victim.GetHealth() )
-
+						
 						victim.TakeDamage( 4 * damage, DMG_BLAST, hOwner )
 					}
-
+					
 					if ( victim && victim.IsValid() && victim.GetClassname() == "player" && !hasFriendlyFire )
 						victim.RemoveCustomAttribute("receive friendly fire")
 				}
 			}
 		}
 		// NetProps.SetPropBool(gamerules, "m_bPlayingMannVsMachine", true)
-
-
+		
+		
 		hOwner.SetHealth( 0 )
 		// hOwner.TakeDamage(0, DMG_PREVENT_PHYSICS_FORCE | DMG_NEVERGIB , hOwner)	// :CommitSuicide( false, true )
 		// hOwner.TakeDamage(1, TF_DMG_CUSTOM_TELEFRAG, null)
 		hOwner.TakeDamageCustom(hOwner, hOwner, null, Vector(), Vector(), 1, 0, TF_DMG_CUSTOM_TELEFRAG)		// telefrag is forced
-
+		
 		if ( AI_Bot_myDemo.IsAlive(hOwner) )
 		{
 			hOwner.ForceChangeTeam( TEAM_SPECTATOR, false )
 		}
-
+		
 		cleanup()
 	}
-
+	
 }
 
 
@@ -6175,25 +6258,25 @@ __CollectGameEventCallbacks(prodemoknight)
 		this.cur_vel     = bot.GetAbsVelocity()
 		this.cur_speed   = cur_vel.Length()
 		this.locomotion = bot.GetLocomotionInterface()
-
+		
 		this.time = Time()
 		this.cur_threat_list	= []
-
+		
 		this.path_points	= []
 		this.path_index		= 0
 		this.path_areas		= {}
 		this.g_SpyWrapper	= {}
-
+		
 		this.path_recompute_time = 0.0
-
+		
 		//this.navdebug = false
-
+		
 		//this.mins = bot.GetBoundingMins()
 		//this.maxs = bot.GetBoundingMaxs()
-
+		
 		this.instance = instance
 	}
-
+	
 	bot       = null
 	scope     = null
 	team      = null
@@ -6204,30 +6287,30 @@ __CollectGameEventCallbacks(prodemoknight)
 	cur_vel		= null
 	cur_speed	= null
 	locomotion = null
-
+	
 	cur_threat_list = []
-
+	
 	time = 0
-
+	
 	path_points = []
 	path_index = 0
 	path_areas = {}
-
+	
 	path_recompute_time = 0
-
+	
 	navdebug = false
-
+	
 	instance	= null
 	ListOfNoticedSpies	= []
 	ListOfSpiesInView	= {}
 	immediateTarget 	= null
 	g_SpyWrapper		= {}
-
+	
 	info_pos	= Vector()
 	info_vel	= Vector()
 	info_ang	= QAngle()
 	info_time_gather = 0
-
+	
 	function GatherInfo(pos, vel, ang, time_gather)
 	{
 		info_pos	= pos
@@ -6235,18 +6318,18 @@ __CollectGameEventCallbacks(prodemoknight)
 		info_ang	= ang
 		info_time_gather = time_gather
 	}
-
+	
 	function PredictingAndShoot()
 	{
-
+		
 		local tray = prodemoknight.head_data[TF_CLASS_SPY]
-
+		
 		local rotation = info_ang
 		rotation.x = 0
 		local middle = RotatePosition( Vector(), rotation, tray.middle )
 		local des = info_pos + middle + info_vel * ( time - info_time_gather )
 		local dir = VectorAngles(des - cur_eye_pos)
-
+		
 		prodemoknight.hMarker.SetAbsOrigin(des)
 		bot.GetLocomotionInterface().FaceTowards( des )
 		if (instance.aim_time + 0.2 < time)
@@ -6255,47 +6338,47 @@ __CollectGameEventCallbacks(prodemoknight)
 			NetProps.SetPropVector(bot, "pl.v_angle", dir + Vector())
 			NetProps.SetPropFloat(instance.hWeapon, "m_flNextPrimaryAttack", 0)
 			//printl(NetProps.GetPropFloat(instance.hWeapon, "m_flNextPrimaryAttack"))
-
+			
 			//instance.hWeapon.PrimaryAttack()
 			bot.PressFireButton(0.01)
-
+			
 			//printl("predict shot")
-
+			
 			return ( instance.m_flLastFireTime != NetProps.GetPropFloat(instance.hWeapon, "m_flLastFireTime") )
 		}
 	}
-
+	
 	function TryToSnap( immediateTarget )
 	{
 		local ThreatList = FindVisibleThreat(9999, true, true)
-
+		
 		if ( !ThreatList.len() )
 		{
 			if ( ListOfNoticedSpies.len() > 0 )
 			{
 				local spy_threat = FindCloserSpyThreat()
 				bot.GetLocomotionInterface().FaceTowards( spy_threat.EyePosition() )
-
+				
 				local pitch = VectorAngles(spy_threat.EyePosition() - cur_eye_pos).x
 				local dir = QAngle(pitch, cur_eye_ang.y, cur_eye_ang.z)
 				NetProps.SetPropVector(bot, "pl.v_angle", dir + Vector())
-
+				
 				ThreatList.append( spy_threat )
 			}
 		}
-
+		
 		foreach ( threat in ThreatList )
 		{
 			if ( IsInFieldOfView( threat, true ) )
 			{
 				local tray = prodemoknight.head_data[threat.GetPlayerClass()]
-
+				
 				local rotation = threat.EyeAngles()
 				rotation.x = 0
 				local middle = RotatePosition( Vector(), rotation, tray.middle )
 				local des = threat.GetBoneOrigin(tray.bone) + middle
 				local dir = VectorAngles(des - cur_eye_pos)
-
+				
 				bot.GetLocomotionInterface().FaceTowards( des )
 				if (instance.aim_time + 0.2 < time)
 				{
@@ -6303,21 +6386,21 @@ __CollectGameEventCallbacks(prodemoknight)
 					NetProps.SetPropVector(bot, "pl.v_angle", dir + Vector())
 					NetProps.SetPropFloat(instance.hWeapon, "m_flNextPrimaryAttack", 0)
 					//printl(NetProps.GetPropFloat(instance.hWeapon, "m_flNextPrimaryAttack"))
-
+					
 					//instance.hWeapon.PrimaryAttack()
 					bot.PressFireButton(0.01)
-
+					
 					//+printl("flick shot")
 					return true
-
+					
 					return ( instance.m_flLastFireTime != NetProps.GetPropFloat(instance.hWeapon, "m_flLastFireTime") )
 				}
 			}
 		}
-
+		
 		return false
 	}
-
+	
 	function checkingForSpysStatus()
 	{
 		foreach ( hSpy in ListOfNoticedSpies )
@@ -6329,15 +6412,15 @@ __CollectGameEventCallbacks(prodemoknight)
 					ListOfNoticedSpies.remove(index)
 			}
 		}
-
+		
 		if ( !ListOfNoticedSpies.len() )
 			instance.TakeOver( false )
 	}
-
+	
 	function SnapAt(target)
 	{
 		local targetPos
-
+		
 		if ( typeof target == "Vector" )
 			targetPos = target
 		else if ( target.GetClassname() == "player" )
@@ -6346,16 +6429,16 @@ __CollectGameEventCallbacks(prodemoknight)
 			targetPos = target.GetOrigin() + Vector(0, 0, 68)
 		else
 			targetPos = instance.getSentryPos( target )
-
+			
 		local dir = VectorAngles(targetPos - cur_eye_pos)
 		NetProps.SetPropVector(bot, "pl.v_angle", dir + Vector())
 		bot.SnapEyeAngles(dir)
 	}
-
+	
 	function IsAlive(player) {
 		return GetPropInt(player, "m_lifeState") == 0
 	}
-
+	
 	function IsInFieldOfView(target, isAimingAt = false, isScoping = false) {
 		local tolerance = 0.5736 	// cos(110/2)
 		if ( isAimingAt )
@@ -6389,7 +6472,7 @@ __CollectGameEventCallbacks(prodemoknight)
 		TraceLineEx(trace)
 		return !trace.hit
 	}
-
+	
 	function IsVisibleFromPoint(target, point) {
 		if (target == null) return false
 		local trace = {
@@ -6401,22 +6484,22 @@ __CollectGameEventCallbacks(prodemoknight)
 		TraceLineEx(trace)
 		return !trace.hit
 	}
-
+	
 	function IsThreatVisible(target, isScoping = false) {
 		return IsInFieldOfView(target, false, isScoping) && IsVisible(target)
 	}
-
+	
 	function GetThreatDistanceSqr(target) {
 		return (target.GetOrigin() - cur_pos).LengthSqr()
 	}
 	function GetThreatDistanceSqrFromPoint(target, point) {
 		return (target.GetOrigin() - point).LengthSqr()
 	}
-
+	
 	function FindClosestThreat( min_dist_sqr, must_be_visible = true ) {
 		local closestThreat = null
 		local closestThreatDist = min_dist_sqr
-
+		
 		local ListOfTargets = FindVisibleThreat( min_dist_sqr, must_be_visible )
 
 		local dist
@@ -6431,8 +6514,8 @@ __CollectGameEventCallbacks(prodemoknight)
 		}
 		return closestThreat
 	}
-
-
+	
+	
 	function IsThreatOnMyPath(min_dist_sqr, point) {
 		local closestThreatDist = min_dist_sqr
 		// local ListOfTargets = cur_threat_list
@@ -6446,14 +6529,14 @@ __CollectGameEventCallbacks(prodemoknight)
 		}
 		return false
 	}
-
-
+	
+	
 	function FindCloserSpyThreat() {
 		local closestThreat = null
 		local closestThreatDist = 1e30
 
 		foreach ( spy in ListOfNoticedSpies ) {
-
+		
 			local dist = GetThreatDistanceSqr(spy)
 			if (dist < closestThreatDist) {
 				closestThreat = spy
@@ -6462,13 +6545,13 @@ __CollectGameEventCallbacks(prodemoknight)
 		}
 		return closestThreat
 	}
-
+	
 	function FindVisibleThreat(min_dist_sqr, must_be_visible = true) {
 		local ThreatList = []
-
+		
 		instance.collectAllPlayers()
 		local players = [].extend(prodemoknight.PlayerList)
-
+		
 		// i have spotted these spies, just inject into the list here
 		foreach ( spyWrapper in g_SpyWrapper )
 		{
@@ -6484,10 +6567,10 @@ __CollectGameEventCallbacks(prodemoknight)
 			if ( me )
 				players.remove( players.find( me ) )
 		}
-
+		
 		foreach (player in players) {
-
-
+			
+			
 			// if ( ListOfSpiesInView.rawin(player) )
 			// {
 				// ThreatList.append(player)
@@ -6495,16 +6578,16 @@ __CollectGameEventCallbacks(prodemoknight)
 			// }
 
 			if (player == bot || !IsAlive(player) || player.GetTeam() == team || (must_be_visible && !IsThreatVisible(player))) continue
-
+			
 			if ( player.GetPlayerClass() == TF_CLASS_SPY )
 			{
 				// he's a spy
 				if ( !IsThisASpy(player) )
 					continue	// he's not suspicious, ignore
-
+				
 				EntFireByHandle(bot, "SpeakResponseConcept", "TLK_PLAYER_CLOAKEDSPY", 0, null, null)
 			}
-
+			
 			local breaky = false
 			foreach ( tag in prodemoknight.bot_tag_list )
 			{
@@ -6515,17 +6598,17 @@ __CollectGameEventCallbacks(prodemoknight)
 				}
 			}
 			if (breaky) continue
-
+			
 			ThreatList.append(player)
-
+			
 		}
 		return ThreatList
 	}
-
+	
 	function IsThisASpy(player)
 	{
 		local isStealthed = player.IsStealthed()
-
+		
 		if ( player.InCond(9) )
 		{
 			if ( IsThreatVisible( player ) )
@@ -6568,7 +6651,7 @@ __CollectGameEventCallbacks(prodemoknight)
 										// ListOfNoticedSpies.append(player)
 									// ListOfSpiesInView[player] <- time
 									// UpdateSpyWrapper( player, time, isStealthed, false )
-
+									
 									return true		///
 								}
 							}
@@ -6580,41 +6663,41 @@ __CollectGameEventCallbacks(prodemoknight)
 		}
 		else if ( !player.IsStealthed() )
 			return true
-
+		
 		return false
 	}
-
+	
 	function ManageSpy_Think()
 	{
 		foreach ( spyWrapper in g_SpyWrapper )
 		{
 			if ( !g_SpyWrapper.spotted )
 				continue
-
+			
 			if ( spyWrapper.timeToForgetSpy < time || !IsAlive( spyWrapper.spy ) )
 			{
 				spyWrapper.spotted = false
 				continue
 			}
-
+			
 			if ( spyWrapper.OnUpdateStealth(time) )
 				continue
 		}
 	}
-
+	
 	function UpdateSpyWrapper(spy, time, isStealthed, shimmer)
 	{
 		if ( !spy )	return
-
+		
 		if ( spy in g_SpyWrapper )
 		{
 			g_SpyWrapper[spy].UpdateSpyWrapper( time, isStealthed, shimmer )
 		}
-
+		
 		g_SpyWrapper[spy] <- SpyAware( spy, time )
 		return
 	}
-
+	
 	function CanIMoveToThisSpot( pos_end )
 	{
 		local area_start = GetNavArea(cur_pos, 128.0)
@@ -6622,10 +6705,10 @@ __CollectGameEventCallbacks(prodemoknight)
 
 		if (!area_start)
 			area_start = GetNearestNavArea(cur_pos, 128.0, false, true)
-
+			
 		return GetNavAreasFromBuildPath(area_start, area_end, pos_end, 0.0, team, false, path_areas)
 	}
-
+	
 	function UpdatePathAndMove(target_pos, advanced = false, check_clear = false)
 	{
 		local dist_to_target = (target_pos - cur_pos).Length()
@@ -6648,7 +6731,7 @@ __CollectGameEventCallbacks(prodemoknight)
 
 			if (!area_start || !area_end)
 				return false
-
+			
 			// target is in their spawn room, don't bother
 			if ( ( bot.GetTeam() == TF_TEAM_RED && area_end.HasAttributeTF( TF_NAV_SPAWN_ROOM_BLUE ) ) ||
 				 ( bot.GetTeam() == TF_TEAM_BLUE && area_end.HasAttributeTF( TF_NAV_SPAWN_ROOM_RED ) ) )
@@ -6658,13 +6741,13 @@ __CollectGameEventCallbacks(prodemoknight)
 					return false;
 				}
 			}
-
+			
 			if (advanced)
 			{
 				path_recompute_time = time + 1
 				local closestArea = null;
 				local functor = CTFBotPathCost(bot, 0)
-
+				
 				local result
 				try
 					result = NavAreaBuildPath(GetCTFNavAreaWrapper(area_start), GetCTFNavAreaWrapper(area_end), pos_end, functor, closestArea, 0.0, team, false)
@@ -6674,7 +6757,7 @@ __CollectGameEventCallbacks(prodemoknight)
 					//+printl("IT FAILLLEDDD!!!!!!!, TOO EXPENSIVE")
 					return false
 				}
-
+				
 				if ( !result )
 				{
 					//+printl("false: can't find a path")
@@ -6692,7 +6775,7 @@ __CollectGameEventCallbacks(prodemoknight)
 				if (!GetNavAreasFromBuildPath(area_start, area_end, pos_end, 0.0, team, false, path_areas))
 					return false
 			}
-
+			
 			if (area_start != area_end && !path_areas.len())
 				return false
 
@@ -6709,7 +6792,7 @@ __CollectGameEventCallbacks(prodemoknight)
 					for (local area = GetCTFNavAreaWrapper(area_end); area && area.m_parent; area = area.m_parent)
 					{
 						path_points.append(PopExtPathPoint(area.area, area.GetCenter(), area.GetParentHow()))
-
+						
 						DebugDrawLine_vCol(area.GetCenter(), area.m_parent.GetCenter(), color, true, 2)
 					}
 					//printl("path_points " + path_points.len())
@@ -6717,11 +6800,11 @@ __CollectGameEventCallbacks(prodemoknight)
 				else
 				{
 					//path_points.clear()
-
+					
 					path_areas["area"+path_areas.len()] <- area_start
 					local area = path_areas["area0"]
 					local area_count = path_areas.len()
-
+					
 					// Initial run grabbing area center
 					for (local i = 0; i < area_count && area; ++i) {
 						// Don't add a point for the end area
@@ -6732,7 +6815,7 @@ __CollectGameEventCallbacks(prodemoknight)
 					}
 					//printl("path_points " + path_points.len())
 				}
-
+				
 				path_points.reverse()
 				path_points.append(PopExtPathPoint(area_end, pos_end, 9)) // NUM_TRAVERSE_TYPES
 
@@ -6787,7 +6870,7 @@ __CollectGameEventCallbacks(prodemoknight)
 					}
 				}
 			}
-
+			
 			if ( check_clear )
 			{
 				foreach ( point in path_points )
@@ -6800,7 +6883,7 @@ __CollectGameEventCallbacks(prodemoknight)
 				}
 				return true
 			}
-
+			
 			// Base recompute off distance to target
 			local dist = ceil(dist_to_target / 500.0)
 			local mod
@@ -6835,10 +6918,10 @@ __CollectGameEventCallbacks(prodemoknight)
 		}
 		if (!path_points.len())
 			return false
-
+		
 		if (path_index == null)
 			path_index = 0
-
+		
 		local pointTol = path_index != path_points.len() - 1 ? 64.0 : 16.0		// 64.0 : 16.0
 		// printl("pointTol: " + pointTol)
 		if ((path_points[path_index].pos - bot.GetOrigin()).Length() < pointTol) {
@@ -6854,13 +6937,13 @@ __CollectGameEventCallbacks(prodemoknight)
 		//uberchain.hMarker.SetAbsOrigin(point)
 		//ClientPrint(null, 3, format("\x079EC34F%s\x01", point.tostring()))
 		locomotion.Approach(point, 999)
-
+		
 		if (bot.GetOrigin().z < point.z - 18 && bot.GetAbsVelocity().Length() < 10)
 		{
 			locomotion.Jump()
 			// printl("needed a jump")
 		}
-
+		
 		return true
 
 		//local look_pos = Vector(point.x, point.y, cur_eye_pos.z);
@@ -6875,7 +6958,7 @@ __CollectGameEventCallbacks(prodemoknight)
 		// set loco on lookahead if no obstacles found
 		// if found obstacle, modify loco
 	}
-
+	
 	mymap = null
 	curr_point = null
 	last_simple_approach_use = 0
@@ -6884,7 +6967,7 @@ __CollectGameEventCallbacks(prodemoknight)
 		if ( !map.len() )
 			return false
 		mymap = map
-
+		
 		local distance
 		local closestPointDistance = 1000000
 		if ( last_simple_approach_use + 2.5 <  time )
@@ -6903,7 +6986,7 @@ __CollectGameEventCallbacks(prodemoknight)
 				curr_point = mymap[0]
 		}
 		last_simple_approach_use = time
-
+		
 		if ((curr_point - cur_pos).LengthSqr() < 32*32) {
 			local index = mymap.find(curr_point) + 1
 			if (index >= mymap.len()) {
@@ -6911,30 +6994,30 @@ __CollectGameEventCallbacks(prodemoknight)
 			}
 			curr_point = mymap[index]
 		}
-
+		
 		local DoNotJump = false
 		// index = index == 0 ? 0 : index--
 		if ( index != 0 && (mymap[index-1] - cur_pos).LengthSqr() < 32*32 )
 			DoNotJump = true
-
+		
 		if ( !DoNotJump && bot.GetAbsVelocity().Length() < 10 )
 		{
 			locomotion.Jump()
 			// printl("needed a jump")
 		}
-
+		
 		if ( mymap.find(curr_point) == 0)
 		{
 			return instance.moveToSpot(curr_point)
 		}
-
+		
 		// fun.hMarker.SetAbsOrigin(curr_point)
 		locomotion.Approach(curr_point, 999)
 		return true
 	}
-
-
-
+	
+	
+	
 	function OnUpdate() {
 		cur_pos     = bot.GetOrigin()
 		cur_vel     = bot.GetAbsVelocity()
@@ -6947,7 +7030,7 @@ __CollectGameEventCallbacks(prodemoknight)
 
 		//SwitchToBestWeapon()
 		//DrawDebugInfo()
-
+		
 		return -1
 	}
 	function ResetPath()
@@ -6966,7 +7049,7 @@ SpyAware <- class {
 		this.time 	= time
 		// this.how 	= how
 	}
-
+	
 	spy		= null
 	time	= null
 	spotted	= true
@@ -6974,7 +7057,7 @@ SpyAware <- class {
 	isStealthed		= false
 	isStealthedPrev	= false
 	shimmer			= false
-
+	
 	function OnUpdateStealth( time )
 	{
 		if ( isStealthedPrev != isStealthed && isStealthed == true )
@@ -6982,16 +7065,16 @@ SpyAware <- class {
 			timeToForgetSpy = time + 1.5
 			return true
 		}
-
+		
 		isStealthedPrev = isStealthed
 		return false
 	}
-
+	
 	function UpdateSpyWrapper( time, isStealthed, shimmer )
 	{
 		if ( timeToForgetSpy < time + 5 )
 			this.timeToForgetSpy = time + 5
-
+		
 		this.spotted	= true
 		this.isStealthed	= isStealthed
 		this.shimmer		= shimmer
@@ -7001,10 +7084,10 @@ SpyAware <- class {
 // ::UpdateSpyWrapper <- function(spy, time)
 // {
 	// if ( !spy )	return
-
+	
 	// if (spy in g_SpyWrapper)
         // g_SpyWrapper[spy].time = time
-
+		
 	// local wrapper = SpyAware( spy, time );
     // g_SpyWrapper[spy] <- wrapper
     // return
@@ -7038,47 +7121,47 @@ SpyAware <- class {
 					// return
 				// }
 			// }, 0.2)
-
+			
 			// printl("this runs")
 		// }
 	// }
-
+	
 	function OnGameEvent_player_hurt(params)
 	{
 		if (params.damageamount == 0)
 			return
 		local hAttacker = GetPlayerFromUserID(params.attacker)
 		local hVictim = GetPlayerFromUserID(params.userid)
-
+		
 		if ( !hAttacker )
 			return
-
+		
 		if ( !hAttacker.IsFakeClient() )
 			return
-
+		
 		if ( hAttacker.HasBotTag("bot_squash") )
 		{
 			if ( hVictim.GetClassname() == "player" )
 				Squash(hVictim)
 		}
 	}
-
+	
 	bot_tag_list = ["bot_squish", "bot_squash"]
 	function assign(hBot, tag)
 	{
 		// printl("assign: " + hBot)
 		ListOfBonkers.append( ProDemoknightBot( hBot, tag ) )
 	}
-
+	
 	ListOfBonkers = []
 	ListOfSquishers = []
 	ListOfSquashers = []
-
+	
 	function Squash( hPlayer = me() )
 	{
 		local scale = hPlayer.GetCustomAttribute("torso scale", 1 )
 		scale = scale > 0.2 ? scale - 0.2 : 0
-
+		
 		hPlayer.StunPlayer(5, 0, TF_STUN_LOSER_STATE, null)
 		hPlayer.AddCustomAttribute("torso scale", scale, 0)
 	}

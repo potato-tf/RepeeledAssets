@@ -872,8 +872,8 @@ WaveSchedule
                 Param  "
                     self.AddCondEx(64,4.0,self)
                     self.SetGravity(0.3)
-                    EntFireByHandle(self, `DisableDamageForces`, null, 0.0, null, null)
-                    EntFireByHandle(self, `EnableDamageForces`, null, 5, null, null)
+                    EntFireByHandle(bot, `DisableDamageForces`, null, 0.0, null, null)
+                    EntFireByHandle(bot, `EnableDamageForces`, null, 5, null, null)
                 "
                 Delay  0.1
             }
@@ -883,7 +883,7 @@ WaveSchedule
                 Action "RunScriptCode"
                 Param  "
                     self.SetAbsOrigin(self.GetOrigin()+Vector(0,0,650))
-                    self.AddCondEx(Constants.ETFCond.TF_COND_TELEPORTED, 0.5, self)
+                    self.AddCondEx(Constants.ETFCond.TF_COND_TELEPORTED, 0.5, bot)
                 "
                 Delay  4
             }
@@ -2278,7 +2278,7 @@ WaveSchedule
             NoFixUp 1
             env_entity_maker
             {   
-                "targetname" "contact_ring_maker"
+                "targetname" "ring_maker"
                 "entitytemplate" "ringshottestcontact"
             }
             info_target
@@ -2588,7 +2588,7 @@ WaveSchedule
             // {
             // 	target "saw_rotate"
             // 	action "RunScriptCode"
-            // 	param "AddThinkToEnt(self, `contactShootThink`)"
+            // 	param "AddThinkToEnt(self, `shootThink`)"
             // }
             OnSpawnOutput
             {
@@ -3668,7 +3668,7 @@ WaveSchedule
         {
             env_entity_maker
             {
-                "targetname" "contact_ring_maker2"
+                "targetname" "ring_maker2"
                 "entitytemplate" "ringshottestcontact"
             }
             OnSpawnOutput
@@ -3764,7 +3764,7 @@ WaveSchedule
             {
                 target "ringmarkerone"
                 action "RunScriptCode"
-                param "AddThinkToEnt(self, `contactShootThink`)"
+                param "AddThinkToEnt(self, `shootThink`)"
                 //delay 0.1
             }
             OnSpawnOutput
@@ -3778,7 +3778,7 @@ WaveSchedule
             {
                 target "ringmarkertwo"
                 action "RunScriptCode"
-                param "AddThinkToEnt(self, `contactShootThink`)"
+                param "AddThinkToEnt(self, `shootThink`)"
                 //delay 0.1
             }
             prop_dynamic
@@ -4760,7 +4760,7 @@ WaveSchedule
             NoFixUp 1
             env_entity_maker
             {   
-                "targetname" "contact_ring_maker"
+                "targetname" "ring_maker"
                 "entitytemplate" "ringshottestcontact"
             }
 			OnParentKilledOutput //kill players after the carrier was dead
@@ -5444,7 +5444,7 @@ WaveSchedule
             SpawnTemplate prop_ufo
             EventChangeAttributes
             {
-                contactIntro
+                contactIntro [$SIGSEGV]
                 {
                     // AddCond
                     // {
@@ -5470,7 +5470,7 @@ WaveSchedule
                         Name "contactNormal" // Name of the bot attributes listed in EventChangeAttributes
                     }	
                 }
-                contactNormal
+                contactNormal [$SIGSEGV]
                 {
                     CharacterAttributes
                     {
@@ -5480,7 +5480,7 @@ WaveSchedule
                         "override footstep sound set" 2						
                     }
                 }
-                phase2
+                phase2 [$SIGSEGV]
                 {
                     AddCond
                     {Index 5 Duration 3}
@@ -5647,7 +5647,7 @@ WaveSchedule
             SpawnTemplate prop_ufo
             EventChangeAttributes
             {
-                contactIntro
+                contactIntro [$SIGSEGV]
                 {
                     // AddCond
                     // {
@@ -5673,7 +5673,7 @@ WaveSchedule
                         Name "contactNormal" // Name of the bot attributes listed in EventChangeAttributes
                     }	
                 }
-                contactNormal
+                contactNormal [$SIGSEGV]
                 {
                     CharacterAttributes
                     {
@@ -5684,7 +5684,7 @@ WaveSchedule
                         "stun on hit no giants" 1
                     }
                 }
-                phase2
+                phase2 [$SIGSEGV]
                 {
                     Item Deflector
                     WeaponRestrictions PrimaryOnly
@@ -5840,7 +5840,7 @@ WaveSchedule
             }
             EventChangeAttributes
             {
-                contactIntro
+                contactIntro [$SIGSEGV]
                 {
                     // AddCond
                     // {
@@ -5866,7 +5866,7 @@ WaveSchedule
                         Name "contactNormal" // Name of the bot attributes listed in EventChangeAttributes
                     }	
                 }
-                contactNormal
+                contactNormal [$SIGSEGV]
                 {
                     CharacterAttributes
                     {
@@ -5919,7 +5919,7 @@ WaveSchedule
             }
             EventChangeAttributes
             {
-                contactIntro
+                contactIntro [$SIGSEGV]
                 {
                     // AddCond
                     // {
@@ -5945,7 +5945,7 @@ WaveSchedule
                         Name "contactNormal" // Name of the bot attributes listed in EventChangeAttributes
                     }	
                 }
-                contactNormal
+                contactNormal [$SIGSEGV]
                 {
                     CharacterAttributes
                     {
@@ -6028,7 +6028,7 @@ WaveSchedule
                 Cooldown 99999 //Time between each bot attribute change (Default: 10)
                 Repeats 1 //How many times should bot change attributes in total (Default: 0 - Infinite)
                 Name "spyphase2" // Name of the bot attributes listed in EventChangeAttributes
-                IfHealthBelow 1500
+                IfHealthBelow 15000
             }
             ChangeAttributes 
             {
@@ -6040,7 +6040,7 @@ WaveSchedule
 
             EventChangeAttributes
             {
-                spyIntro
+                spyIntro [$SIGSEGV]
                 {
                     // AddCond
                     // {
@@ -6074,14 +6074,14 @@ WaveSchedule
                         Name "spyFirstPhase" // Name of the bot attributes listed in EventChangeAttributes
                     }	
                 }
-                spyFirstPhase
+                spyFirstPhase [$SIGSEGV]
                 {		
                     AimAt Head
                     AimLeadProjectileSpeed 1
                     Item "spy_fun_gun"
                     //UseBestWeapon 1
                 }
-                callForBackup
+                callForBackup [$SIGSEGV]
                 {
                     AddCond
                     {
@@ -6172,7 +6172,7 @@ WaveSchedule
                     Item "spy_fun_gun"
                     //UseBestWeapon 1	
                 }
-                goinUpCheck
+                goinUpCheck [$SIGSEGV]
                 {
                     FireInput
                     {
@@ -6184,7 +6184,7 @@ WaveSchedule
                         Delay 0.1
                     }
                 }
-                goinUp
+                goinUp [$SIGSEGV]
                 {
                     AimLeadProjectileSpeed 1 
                     FireInput
@@ -6378,7 +6378,7 @@ WaveSchedule
                         Delay 10
                     }
                 }
-                spyphase2
+                spyphase2 [$SIGSEGV]
                 {		
                     AddCond
                     {
@@ -6513,7 +6513,7 @@ WaveSchedule
                         Delay 19
                     }
                 }
-                spymelee
+                spymelee [$SIGSEGV]
                 {
                     FireInput   
                     {
@@ -6581,7 +6581,7 @@ WaveSchedule
                         IfHealthBelow 1500 
                     }	
                 }
-                neuralyzer
+                neuralyzer [$SIGSEGV]
                 {
                     addcond
                     {
@@ -6710,7 +6710,7 @@ WaveSchedule
                         IfHealthBelow 1500 
                     }	
                 }
-                shieldShoot
+                shieldShoot [$SIGSEGV]
                 {
                     FireInput
                     {
@@ -6752,7 +6752,7 @@ WaveSchedule
                     }
                     FireInput
                     {
-                        target "contact_ring_maker"
+                        target "ring_maker"
                         action "ForceSpawnAtEntityOrigin"
                         param "spy_info"
                         delay 0.5
@@ -6889,7 +6889,7 @@ WaveSchedule
             }	
             EventChangeAttributes
             {
-                medicIntro
+                medicIntro [$SIGSEGV]
                 {                    
                     CharacterAttributes
                     {
@@ -6917,7 +6917,7 @@ WaveSchedule
                         Name "medicNorm" // Name of the bot attributes listed in EventChangeAttributes
                     }
                 }
-                medicNorm
+                medicNorm [$SIGSEGV]
                 {
                     Item "The Crusader's Crossbow"
                     Attributes HoldFireUntilFullReload
@@ -6973,7 +6973,7 @@ WaveSchedule
                         delay 7
                     }
                 }
-                medicSucc
+                medicSucc [$SIGSEGV]
                 {
                     Item "The Crusader's Crossbow"
                     ItemAttributes
@@ -7084,7 +7084,7 @@ WaveSchedule
                         Name "medicNorm" // Name of the bot attributes listed in EventChangeAttributes
                     }	
                 }
-                tagUrIt
+                tagUrIt [$SIGSEGV]
                 {
                     Item "The Crusader's Crossbow"
                     ItemAttributes
@@ -7138,7 +7138,7 @@ WaveSchedule
                         repeats 1
                     }
                 }
-                sawrry
+                sawrry [$SIGSEGV]
                 {
                     FireInput
                     {
@@ -7277,7 +7277,7 @@ WaveSchedule
             }
             EventChangeAttributes
             {
-                demoIntro
+                demoIntro [$SIGSEGV]
                 {
                     FireInput  
                     {
@@ -7313,7 +7313,7 @@ WaveSchedule
                         Name "demoFirstPhase" // Name of the bot attributes listed in EventChangeAttributes
                     }
                 }
-                demoFirstPhase
+                demoFirstPhase [$SIGSEGV]
                 {
                     FireWeapon
                     {
@@ -7330,7 +7330,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                deez
+                deez [$SIGSEGV]
                 {
                     Item "Spent Well Spirits Taunt"
                     Attributes HoldFireUntilFullReload
@@ -7357,7 +7357,7 @@ WaveSchedule
                         "override footstep sound set" 4
                     }
                 }
-                gigafire
+                gigafire [$SIGSEGV]
                 {
                     Item "Spent Well Spirits Taunt"
                     Attributes HoldFireUntilFullReload
@@ -7452,25 +7452,9 @@ WaveSchedule
                 Cooldown 99999							
             }
 
-            // //15 -1050 525
-            // InterruptAction
-            // {
-            //     Target "28 -1294 513" //"877 -830 559" //move target location 
-            //     AimTarget "ClosestPlayer" // Entity / bot / class name as an alternative. Also: RandomEnemy, ClosestPlayer //"controlpanel_baseboss"
-            //     KillAimTarget 1 // Attack aim target (Default: 0)
-            //     //AimTarget "ClosestPlayer"
-            //     Delay 1 // Time before the first task starts. Must be above 0, or it will not execute (Default: 10)
-            //     Repeats 999999 // How many times should bot do the task in total (Default: 0 - Infinite)
-            //     Duration 10 // How long should the ai be interrupted
-            //     Cooldown 10
-            //     Distance 50
-            //     //AddToQueue 1
-            //     WaitUntilDone 1 // If set, duration timer only starts when the bot moves to the target location or the aim target is killed (Default: 0)
-            // }
-
             EventChangeAttributes
             {
-                chooseAnAttack
+                chooseAnAttack [$SIGSEGV]
                 {
                     // InterruptAction
                     // {
@@ -7523,7 +7507,7 @@ WaveSchedule
                     //     Delay 1.0
                     // } // this is because, it uses a think function and think functions get reset on changeattributes
                 }
-                makeItRain
+                makeItRain [$SIGSEGV]
                 { // jumps up and do giant blasts downwards and also pipes maybe
                     FireInput
                     {
@@ -7652,7 +7636,7 @@ WaveSchedule
                         "custom hit sound" "ambient\levels\labs\electric_explosion1.wav"
                     }
                 }
-                makeItRainOnPanel
+                makeItRainOnPanel [$SIGSEGV]
                 { // jumps up and do giant blasts towards panel also pipes maybe
                     InterruptAction
                     {
@@ -7781,7 +7765,7 @@ WaveSchedule
                         "custom hit sound" "ambient\levels\labs\electric_explosion1.wav"
                     }
                 }
-                ringattack
+                ringattack [$SIGSEGV]
                 {
                     CharacterAttributes 
                     {
@@ -7855,7 +7839,7 @@ WaveSchedule
                         Type "Jump"
                     }
                 }
-                spawnJumpPad
+                spawnJumpPad [$SIGSEGV]
                 { // ring downslam plus spawns jump pads
                     Attributes SuppressFire
                     WeaponSwitch 
@@ -7933,7 +7917,7 @@ WaveSchedule
                     }
                     FireInput
                     {
-                        target "contact_ring_maker2"
+                        target "ring_maker2"
                         action "ForceSpawnAtEntityOrigin"
                         param "backoff_indicator"
                         delay 3.0
@@ -8010,7 +7994,7 @@ WaveSchedule
                         Cooldown 4							
                     }
                 }
-                comboIntro
+                comboIntro [$SIGSEGV]
                 {
                     CharacterAttributes 
                     {
@@ -8189,7 +8173,7 @@ WaveSchedule
                         Cooldown 7							
                     }
                 }
-                warpcharge
+                warpcharge [$SIGSEGV]
                 {
                     // InterruptAction
                     // {
@@ -8369,7 +8353,7 @@ WaveSchedule
                     }
                     WeaponRestrictions MeleeOnly
                 }
-                pizzaattack
+                pizzaattack [$SIGSEGV]
                 {
                     RingOfFire 15
                     CharacterAttributes 
@@ -8515,54 +8499,6 @@ WaveSchedule
                     "dmg taken mult from special damage type 3" 2
             }
 
-            // InterruptAction
-            // {
-            //     Target "120 -993 518" //"877 -830 559" //move target location
-            //     // AimTarget "ClosestPlayer"
-            //     // KillAimTarget 1
-            //     Delay 1 // Time before the first task starts. Must be above 0, or it will not execute (Default: 10)
-            //     Repeats 9999 // How many times should bot do the task in total (Default: 0 - Infinite)
-            //     Duration 10 // How long should the ai be interrupted
-            //     Cooldown 15
-            //     //Distance 100
-            //     AddToQueue 1
-            //     WaitUntilDone 1 // If set, duration timer only starts when the bot moves to the target location or the aim target is killed (Default: 0)
-            // }
-            // InterruptAction
-            // {
-            //     Target "149 -1016 681" //"877 -830 559" //move target location
-            //     AimTarget "ClosestPlayer" // Entity / bot / class name as an alternative. Also: RandomEnemy, ClosestPlayer //"controlpanel_baseboss"
-            //     KillAimTarget 1 // Attack aim target (Default: 0)
-            //     Delay 0.5 // Time before the first task starts. Must be above 0, or it will not execute (Default: 10)
-            //     Repeats 9999 // How many times should bot do the task in total (Default: 0 - Infinite)
-            //     Duration 10 // How long should the ai be interrupted
-            //     Cooldown 1
-            //     Distance 100
-            //     AddToQueue 1
-            //     WaitUntilDone 1 // If set, duration timer only starts when the bot moves to the target location or the aim target is killed (Default: 0)
-            // }
-            // InterruptAction
-            // {
-            //     Target "-278 -1291 512" //"877 -830 559" //move target location
-            //     AimTarget "RandomEnemy"
-            //     KillAimTarget 1
-            //     Delay 1 // Time before the first task starts. Must be above 0, or it will not execute (Default: 10)
-            //     Repeats 9999 // How many times should bot do the task in total (Default: 0 - Infinite)
-            //     Duration 10 // How long should the ai be interrupted
-            //     Cooldown 30
-            //     //Distance 100
-            //     AddToQueue 1
-            //     WaitUntilDone 1 // If set, duration timer only starts when the bot moves to the target location or the aim target is killed (Default: 0)
-            // }
-            // FireInput
-            // {
-            //     target "engi_threat"
-            //     action "PickRandomShuffle"
-            //     Delay 0.1
-            //     repeats 1
-            //     CoolDown 99999
-            // }
-
             ChangeAttributes
             {
                 Name "chooseEngiAttack"
@@ -8658,7 +8594,7 @@ WaveSchedule
 
             EventChangeAttributes
             {
-                chooseEngiAttack
+                chooseEngiAttack [$SIGSEGV]
                 {
                     CharacterAttributes
                     {
@@ -8717,7 +8653,7 @@ WaveSchedule
                         IfHealthBelow 37000
                     }
                 }
-                standardA
+                standardA [$SIGSEGV]
                 {
                     CharacterAttributes
                     {
@@ -8750,7 +8686,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                standardB
+                standardB [$SIGSEGV]
                 {
                     InterruptAction
                     {
@@ -8843,7 +8779,7 @@ WaveSchedule
                         Delay 7.5
                     }
                 }
-                standardC
+                standardC [$SIGSEGV]
                 {
                     Attributes SuppressFire
 
@@ -8937,7 +8873,7 @@ WaveSchedule
                         Repeats 1
                     }
                 }
-                hammertime
+                hammertime [$SIGSEGV]
                 {
                     FireInput
                     {
@@ -9030,7 +8966,7 @@ WaveSchedule
                     }
                     FireInput
                     {
-                        target "contact_ring_maker"
+                        target "ring_maker"
                         action "ForceSpawnAtEntityOrigin"
                         param "engi_info"
                         delay 4
@@ -9052,7 +8988,7 @@ WaveSchedule
                         Cooldown 14
                     }
                 }
-                moregun
+                moregun [$SIGSEGV]
                 {
                     Attributes SuppressFire
                     WeaponRestrictions PrimaryOnly
@@ -9143,7 +9079,7 @@ WaveSchedule
                         Cooldown 14
                     }
                 }
-                gogogadgetterroristattack
+                gogogadgetterroristattack [$SIGSEGV]
                 {
                     WeaponRestrictions PrimaryOnly
                     Item "tf_weapon_rocketlauncher"
@@ -9224,7 +9160,7 @@ WaveSchedule
                         Cooldown 14
                     }
                 }
-                gogogadgetterroristattacktheseconds
+                gogogadgetterroristattacktheseconds [$SIGSEGV]
                 {
                     WeaponRestrictions PrimaryOnly
                     Item "tf_weapon_rocketlauncher"
@@ -9314,7 +9250,7 @@ WaveSchedule
                         Cooldown 14
                     }
                 }
-                teleportingmayhem
+                teleportingmayhem [$SIGSEGV]
                 {
                     Item "The Pomson 6000"
                     Item "the eureka effect"
@@ -9476,7 +9412,7 @@ WaveSchedule
                     }
                     FireInput
                     {
-                        target "contact_ring_maker"
+                        target "ring_maker"
                         action "ForceSpawnAtEntityOrigin"
                         param "engi_info"
                         delay 2.2
@@ -9485,7 +9421,7 @@ WaveSchedule
                     }
                     FireInput
                     {
-                        target "contact_ring_maker"
+                        target "ring_maker"
                         action "ForceSpawnAtEntityOrigin"
                         param "engi_info"
                         delay 2.35
@@ -9494,7 +9430,7 @@ WaveSchedule
                     }
                     FireInput
                     {
-                        target "contact_ring_maker"
+                        target "ring_maker"
                         action "ForceSpawnAtEntityOrigin"
                         param "engi_info"
                         delay 2.05
@@ -9512,7 +9448,7 @@ WaveSchedule
                     }
                     FireInput
                     {
-                        target "contact_ring_maker"
+                        target "ring_maker"
                         action "ForceSpawnAtEntityOrigin"
                         param "engi_info"
                         delay 15
@@ -9521,7 +9457,7 @@ WaveSchedule
                     }
                     FireInput
                     {
-                        target "contact_ring_maker"
+                        target "ring_maker"
                         action "ForceSpawnAtEntityOrigin"
                         param "engi_info"
                         delay 15.2
@@ -9546,7 +9482,7 @@ WaveSchedule
                     }
 
                 }
-                thesunisadeadlylaser
+                thesunisadeadlylaser  [$SIGSEGV]
                 {
                     RingOfFire 15
                     FireInput
@@ -9680,7 +9616,6 @@ WaveSchedule
                         Cooldown 15.0
                         Repeats 6
                     }
-
                 }
             }
 

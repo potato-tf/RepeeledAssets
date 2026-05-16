@@ -4,6 +4,5 @@ WaveSchedule
 	{
 		"no revive"				1
         "min respawn time"		5
-        "add attributes on hit"	"cannot swim|1|30"
 	}
 }
