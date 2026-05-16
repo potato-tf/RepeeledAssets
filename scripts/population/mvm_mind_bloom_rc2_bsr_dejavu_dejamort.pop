@@ -8105,6 +8105,7 @@ WaveSchedule
             {
                 Class Demoman
                 Skill Expert
+                Action Mobber
             } 
         }
     }
