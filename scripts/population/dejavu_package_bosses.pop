@@ -369,7 +369,7 @@ WaveSchedule
 			    	CharacterAttributes
 					{
 						"override footstep sound set" 2
-							
+
 						"move speed bonus"	0.4
 						"dmg taken increased" 0.25
 						"deploy time decreased" 0.01
@@ -419,17 +419,6 @@ WaveSchedule
 						"health from healers reduced" 2
 						"cancel falling damage" 1
 					}
-
-					FireWeapon
-					{
-						Type "Primary"
-						Delay 0.05
-						Duration 10
-						Repeats 0
-						Cooldown 0.1
-						IfSeeTarget 1
-						IfLeftSpawn 1
-					}
 				}
 				ShortRange_Soldier [$SIGSEGV]
 				{
@@ -449,16 +438,6 @@ WaveSchedule
 						"increased jump height" 2
 						"cancel falling damage" 1
 						"damage bonus" 1.25
-					}
-
-					FireWeapon
-					{
-						Type "Primary"
-						Delay 0.05
-						Repeats 0
-						Cooldown 0.1
-						IfSeeTarget 1
-						IfLeftSpawn 1
 					}
 				}
 				// phase 3
@@ -499,15 +478,6 @@ WaveSchedule
 						Repeats 1
 						Cooldown 0
 					}
-					FireWeapon
-					{
-						Type "Primary"
-						Delay 3
-						Repeats 0
-						Cooldown 0.1
-						IfSeeTarget 1
-						IfLeftSpawn 1
-					}
 				}
 			}
 		}
@@ -525,7 +495,7 @@ WaveSchedule
 			Skill Expert
 			Scale 1.9
 			Tag bot_squad_leader
-			
+
 			WeaponRestrictions PrimaryOnly
 			Attributes MiniBoss
 			Attributes HoldFireUntilFullReload
@@ -542,8 +512,8 @@ WaveSchedule
 			Item "Forest Footwear"
 			Tag  "kill_src_abc"
 
-			SpawnTemplate Yan_DeathTracker		
-					
+			SpawnTemplate Yan_DeathTracker
+
 			ItemAttributes
 			{
 				ItemName "The Loose Cannon"

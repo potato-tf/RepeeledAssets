@@ -193,6 +193,16 @@ local hWorld_scope = hWorld.GetScriptScope()
 		hPlayer.Weapon_Equip(hWeapon)
 		hPlayer.Weapon_Switch(hWeapon)
 
+		// fellen: For whatever reason, weapon swapping is giving Mimicry insane amounts of reserve ammo,
+		//          which eventually overflows and prevents the bot from shooting (as it has a negative amount of ammo now).
+		//         Force set ammo to 200 here.
+		local primary_ammo_type = hWeapon.GetPrimaryAmmoType()
+		if (primary_ammo_type != -1)
+			SetPropIntArray(hPlayer, "m_iAmmo", 200, primary_ammo_type)
+		local secondary_ammo_type = hWeapon.GetSecondaryAmmoType()
+		if (secondary_ammo_type != -1)
+			SetPropIntArray(hPlayer, "m_iAmmo", 200, secondary_ammo_type)
+
 		return hWeapon
 	}
 
