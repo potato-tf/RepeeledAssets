@@ -362,14 +362,14 @@ WaveSchedule
 			EventChangeAttributes
 			{
 			    // phase 1
-				LongRange_FOS
+				LongRange_FOS [$SIGSEGV]
 				{
 					WeaponRestrictions MeleeOnly
 					Skill Expert
 			    	CharacterAttributes
 					{
 						"override footstep sound set" 2
-							
+
 						"move speed bonus"	0.4
 						"dmg taken increased" 0.25
 						"deploy time decreased" 0.01
@@ -382,7 +382,7 @@ WaveSchedule
 						"displace touched enemies" 1
                     }
 				}
-				ShortRange_Pyro
+				ShortRange_Pyro [$SIGSEGV]
 				{
 					WeaponRestrictions PrimaryOnly
 					Skill Expert
@@ -403,7 +403,7 @@ WaveSchedule
 					}
 				}
 				// phase 2
-				LongRange_DeflectorHeavy
+				LongRange_DeflectorHeavy [$SIGSEGV]
 				{
 					WeaponRestrictions PrimaryOnly
 					Skill Expert
@@ -420,7 +420,7 @@ WaveSchedule
 						"cancel falling damage" 1
 					}
 				}
-				ShortRange_Soldier
+				ShortRange_Soldier [$SIGSEGV]
 				{
 					WeaponRestrictions PrimaryOnly
 					Skill Expert
@@ -441,7 +441,7 @@ WaveSchedule
 					}
 				}
 				// phase 3
-				ConchSoldier
+				ConchSoldier [$SIGSEGV]
 				{
 					WeaponRestrictions PrimaryOnly
 					Attributes HoldFireUntilFullReload
@@ -470,6 +470,14 @@ WaveSchedule
 						"increased jump height" 1.5
 						"cancel falling damage" 1
 					}
+
+					WeaponSwitch
+					{
+						Type "Primary"
+						Delay 3
+						Repeats 1
+						Cooldown 0
+					}
 				}
 			}
 		}
@@ -487,7 +495,7 @@ WaveSchedule
 			Skill Expert
 			Scale 1.9
 			Tag bot_squad_leader
-			
+
 			WeaponRestrictions PrimaryOnly
 			Attributes MiniBoss
 			Attributes HoldFireUntilFullReload
@@ -504,8 +512,8 @@ WaveSchedule
 			Item "Forest Footwear"
 			Tag  "kill_src_abc"
 
-			SpawnTemplate Yan_DeathTracker		
-					
+			SpawnTemplate Yan_DeathTracker
+
 			ItemAttributes
 			{
 				ItemName "The Loose Cannon"
@@ -605,7 +613,7 @@ WaveSchedule
 			}
 			EventChangeAttributes
 			{
-				Hand_Death
+				Hand_Death [$SIGSEGV]
 				{
 					FireInput
 					{
@@ -684,7 +692,7 @@ WaveSchedule
 			}
 			EventChangeAttributes
 			{
-				Hand_Death
+				Hand_Death [$SIGSEGV]
 				{
 					FireInput
 					{

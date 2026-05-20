@@ -1,10 +1,10 @@
 WaveSchedule
 {
-    PrecacheSound "mentrillum/mvm/sfx/attack_groundpound.wav"  
-	PrecacheSound "mentrillum/mvm/sfx/attack_chestbeam.wav"  
-	PrecacheModel "models/mentrillum/bots/soviet_tonka_weapons_02.mdl"  
+    PrecacheSound "mentrillum/mvm/sfx/attack_groundpound.wav" [$SIGSEGV]
+	PrecacheSound "mentrillum/mvm/sfx/attack_chestbeam.wav" [$SIGSEGV]
+	PrecacheModel "models/mentrillum/bots/soviet_tonka_weapons_02.mdl" [$SIGSEGV]
 
-    CustomWeapon  
+    CustomWeapon [$SIGSEGV]
 	{
 		"Advanced Training Gauntlets"
 		{
@@ -117,7 +117,7 @@ WaveSchedule
 
 			EventChangeAttributes
 			{
-				Minigun_Action
+				Minigun_Action [$SIGSEGV]
 				{
 					WeaponRestrictions PrimaryOnly
 					Item "TF_WEAPON_MINIGUN"
@@ -140,7 +140,7 @@ WaveSchedule
 					}
 				}
 
-				Shotgun_Action_Dragonsbreath
+				Shotgun_Action_Dragonsbreath [$SIGSEGV]
 				{
 					WeaponRestrictions SecondaryOnly
 					Item "Dragonsbreath"
@@ -167,7 +167,7 @@ WaveSchedule
 					}
 				}
 
-				Shotgun_Action_ResupplyShotgun
+				Shotgun_Action_ResupplyShotgun [$SIGSEGV]
 				{
 					WeaponRestrictions SecondaryOnly
 					Attributes HoldFireUntilFullReload
@@ -199,7 +199,7 @@ WaveSchedule
 					}
 				}
 
-				Melee_Action
+				Melee_Action [$SIGSEGV]
 				{
 					WeaponRestrictions MeleeOnly
 					Item "TF_WEAPON_MINIGUN"
@@ -226,7 +226,7 @@ WaveSchedule
 					}
 				}
 
-				Sandvich_Action
+				Sandvich_Action [$SIGSEGV]
 				{
 					WeaponRestrictions SecondaryOnly
 					Attributes AlwaysFireWeapon

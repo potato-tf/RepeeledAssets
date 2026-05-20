@@ -48,6 +48,7 @@ WaveSchedule
             "mod projectile heat aim error" 360
             "mod projectile heat aim time" 1
             "mult projectile scale" 1.4
+            "damage bonus" 1.7
             "fire rate bonus" 0.6
             "faster reload rate" -0.5
             "projectile trail particle" "eyeboss_projectile"
@@ -222,14 +223,13 @@ WaveSchedule
 		{
 			OriginalItemName "The Rescue Ranger"
 			"projectile gravity" -1
-			"projectile speed decreased" 0.6
-
+			"projectile speed decreased" 0.9
+            "damage bonus" 3
 			"penetrate teammates" 1
 			
 			"no damage falloff" 1
 			"dmg bonus vs buildings" 5
             "clip size bonus" 50
-            "fire rate penalty" 1.25
 			"faster reload rate" 0.2
 
 			"add damage type" 128
@@ -247,7 +247,7 @@ WaveSchedule
         "BeamDamage"
         {
             OriginalItemName "The Cow Mangler 5000"
-            "damage bonus" 3
+            "damage bonus" 4
         }
         "SwordmanSwordBeam"
         {
@@ -374,7 +374,7 @@ WaveSchedule
 		    "custom projectile model"		"models/empty.mdl"
             "projectile speed decreased"	0.4
             "projectile no deflect"			1
-            "damage bonus"                  2
+            "damage bonus"                  4
             "projectile acceleration start time" "0.5"
             "projectile acceleration time" "0.5"
             "projectile acceleration" "2000"
@@ -427,14 +427,14 @@ WaveSchedule
 		    "custom projectile model"		"models/empty.mdl"
             "projectile speed decreased"	0.4
             "projectile no deflect"			1
-            "damage bonus"                  3
+            "damage bonus"                  6
             "projectile acceleration start time" "0.5"
             "projectile acceleration time" "0.5"
             "projectile acceleration" "2000"
             "custom weapon fire sound"		"npc/strider/fire.wav"
             "custom impact sound" "Weapon_CowMangler.ExplodeCharged"
-            "spread angle pattern" "0 -8 0|0 0 0|0 8 0"
-            "faster reload rate" 0.75
+            "spread angle pattern" "0 -8 0|0 -16 0|0 0 0|0 16 0|0 8 0"
+            "faster reload rate" 0.6
             "fire rate bonus" 0.2
         }
     }
@@ -1192,7 +1192,7 @@ WaveSchedule
             {
                 target "roundbeamtest"
                 action "RunScriptCode"
-                param "RingRegister(self,300,CzUtil.GetTracking(`ringOwnerShocks`))"
+                param "RingRegister(self,800,CzUtil.GetTracking(`ringOwnerShocks`))"
                 delay 0.0
             }
             OnSpawnOutput
@@ -5170,11 +5170,11 @@ WaveSchedule
                 "mins"       "-175 -175 -250"
                 "maxs"       "175 175 250"
                 "spawnflags" "64" //1: players; 64 everything
-                "damage"     "100"
+                "damage"     "150"
                 "damagetype" "128"
                 "StartDisabled" "1"
                 "filtername" "filter_redteam_nouber"
-                "OnHurtPlayer" "!activator,bleedplayer,1,0,-1"
+                "OnHurtPlayer" "!activator,bleedplayer,6,0,-1"
                 "OnHurtPlayer" "!activator,$PlaySoundToSelf,weapons\samurai\tf_katana_01.wav,0,-1"
             }
             // Spinning Stomp
@@ -5290,7 +5290,7 @@ WaveSchedule
 				"mins" "-300 -300 -300"
 				"maxs" "300 300 300"
 				"damagetype" "64"
-				"damage" "600"
+				"damage" "800"
                 "filtername" "filter_redteam_nouber"
 				"StartDisabled" "1"
 				"spawnflags" "64"
@@ -6772,7 +6772,7 @@ WaveSchedule
                 "maxs" "4096 4096 20"
                 "mins" "-4096 -4096 -30"
                 "spawnflags" "64" //1: players; 64 everything
-                "damage"     "400"
+                "damage"     "1200"
                 "damagetype" "8"
                 "StartDisabled" "1"
                 "filtername" "filter_redteam_nouber"
@@ -7142,11 +7142,11 @@ WaveSchedule
 			{
 				"targetname" "LightningAttackDamage"
 				"origin" "0 0 0"
-				"mins" "-32 -32 -32"
-				"maxs" "32 32 32"
+				"mins" "-64 -64 -64"
+				"maxs" "64 64 64"
 
 				"damagetype" "1048576"
-				"damage" "100"
+				"damage" "500"
 				"filtername" "filter_redteam_nouber"
                 "spawnflags" "64"
 				"startdisabled" "1"
@@ -8455,12 +8455,12 @@ WaveSchedule
                 "OnTrigger" "tf_gamerules,PlayVO,major_shocks_spin.mp3,1.16,-1"
                 "OnTrigger" "VortexPush,Enable,,2,-1"
                 "OnTrigger" "VortexEffect,Start,,2,-1"
-                "OnTrigger" "LightningRainLauncher2,FireMultiple,15,0,-1"
-                "OnTrigger" "LightningRainLauncher3,FireMultiple,15,0,-1"
-                "OnTrigger" "LightningRainLauncher2,FireMultiple,15,2,-1"
-                "OnTrigger" "LightningRainLauncher3,FireMultiple,15,2,-1"
-                "OnTrigger" "LightningRainLauncher2,FireMultiple,15,4,-1"
-                "OnTrigger" "LightningRainLauncher3,FireMultiple,15,4,-1"
+                "OnTrigger" "LightningRainLauncher2,FireMultiple,8,0,-1"
+                "OnTrigger" "LightningRainLauncher3,FireMultiple,8,0,-1"
+                "OnTrigger" "LightningRainLauncher2,FireMultiple,8,2,-1"
+                "OnTrigger" "LightningRainLauncher3,FireMultiple,8,2,-1"
+                "OnTrigger" "LightningRainLauncher2,FireMultiple,8,4,-1"
+                "OnTrigger" "LightningRainLauncher3,FireMultiple,8,4,-1"
                 "OnTrigger" "tf_gamerules,PlayVO,vo/mvm/mght/soldier_mvm_m_kaboomalts01.mp3,7,-1"
                 "OnTrigger" "tf_gamerules,PlayVO,ambient/halloween/thunder_04.wav,7,-1"
                 "OnTrigger" "playerrunscriptcodeScreenFade(null, 255, 255, 255, 110, 0.7, 0.1, 1)7-1"
@@ -10187,6 +10187,7 @@ WaveSchedule
         {
             SpawnTemplate boss_dead_dave
             SpawnTemplate w4boss
+            SpawnTemplate punch_projectiles
             SpawnTemplate
             {
                 Name w4transition
@@ -10197,7 +10198,7 @@ WaveSchedule
                 Name w4transition
                 Bone "bip_hand_R"
             }
-            Health	40000
+            Health	60000
             Name	"Overclocked Dave"
             Class	HeavyWeapons
             Skill	Expert
@@ -10225,7 +10226,6 @@ WaveSchedule
             {
                 ItemName TF_WEAPON_SHOTGUN_HWG
                 "bullets per shot bonus" 10
-                "damage bonus" 0.5
                 "fire rate bonus" 2.5
                 "faster reload rate" 0.1
             }
@@ -10234,17 +10234,18 @@ WaveSchedule
                 ItemName tf_weapon_minigun
                 "override projectile type" 2
                 "mini rockets" 1
-                "fire rate penalty" 2.70
+                "fire rate penalty" 2
                 "centerfire projectile" 1
                 "mod projectile heat follow crosshair" 1
                 "mod projectile heat seek power" 360
                 "projectile lifetime" 3.0
                 "projectile detonate time" 2.8
                 "minigun spinup time increased"	-0.5
+                "projectile spread angle penalty" 3
                 "dont count damage towards crit rate" 1
                 "custom projectile model" "models\weapons\w_models\w_repair_claw.mdl"
                 "projectile trail particle" "flaregun_trail_crit_blue"
-                "damage bonus" 3
+                "damage bonus" 10
                 "mod minigun can holster while spinning" 1
             }
             CharacterAttributes
@@ -10274,7 +10275,7 @@ WaveSchedule
                 Repeats 0
                 Cooldown 10
                 IfSeeTarget 1
-                IfHealthAbove 20001
+                IfHealthAbove 30000
             }
             WeaponSwitch
             {
@@ -10283,7 +10284,7 @@ WaveSchedule
                 Repeats 0
                 Cooldown 10
                 IfSeeTarget 1
-                IfHealthAbove 20001
+                IfHealthAbove 30000
             }
             FireInput
             {
@@ -10292,13 +10293,13 @@ WaveSchedule
                 Delay 20.15
                 Cooldown 20
                 Repeats 0
-                IfHealthBelow 20001
+                IfHealthBelow 30000
             }
             ChangeAttributes    
             {
                 Delay 0
                 Repeats 1
-                IfHealthBelow 20001
+                IfHealthBelow 30000
                 Name "phase2"
             }
             EventChangeAttributes
@@ -10306,13 +10307,22 @@ WaveSchedule
                 phase2 [$SIGSEGV]
                 {
                     FireInput
-                        {
-                            Target player //targets the bot this is on
-                            Action $PlaySoundToSelf
-                            Param "=90|ambient\alarms\razortrain_horn1.wav"
-                            Cooldown 999
-                            Delay 0
-                        }
+                    {
+                        Target player //targets the bot this is on
+                        Action $PlaySoundToSelf
+                        Param "=90|ambient\alarms\razortrain_horn1.wav"
+                        Cooldown 999
+                        Delay 0
+                    }
+                    ItemAttributes
+                    {
+                        ItemName "fists of steel"
+                        "fire input on attack" "throwpuncheshoming^firemultiple^1"
+                        "always crit" 1
+                        "fire rate bonus" 0.4
+                        "damage bonus" 2
+                        "gesture speed increase" 3
+                    }
                     WeaponSwitch
                     {
                         Type "Primary"
@@ -10320,7 +10330,7 @@ WaveSchedule
                         Repeats 0
                         Cooldown 8
                         IfSeeTarget 1
-                        IfHealthBelow 20000
+                        IfHealthBelow 30000
                     }
                     Taunt
                     {
@@ -10329,7 +10339,7 @@ WaveSchedule
                         Repeats 99
                         Name "Taunt: Yeti Smash"
                         IfSeeTarget 0
-                        IfHealthBelow 20001
+                        IfHealthBelow 30000
                     }
                     Taunt
                     {
@@ -10337,7 +10347,7 @@ WaveSchedule
                         Cooldown 9999
                         Repeats 99
                         IfSeeTarget 0
-                        IfHealthBelow 20001
+                        IfHealthBelow 30000
                     }
                     FireInput
                     {
@@ -10346,7 +10356,7 @@ WaveSchedule
                         Param "=90|ambient\explosions\explode_1.wav"
                         Cooldown 20
                         Delay 20.1
-                        IfHealthBelow 20001
+                        IfHealthBelow 30000
                     }
                     FireInput
                     {
@@ -10355,7 +10365,7 @@ WaveSchedule
                         Cooldown 0.2
                         Delay 0.2
                         Repeats 99999999
-                        IfHealthBelow 20001
+                        IfHealthBelow 30000
                     }
                     FireInput
                     {
@@ -10382,37 +10392,6 @@ WaveSchedule
                         "damage bonus" 0.5
                         "fire rate bonus" 2.5
                         "faster reload rate" 0.1
-                    }
-                    ItemAttributes
-                    {
-                        ItemName "TF_WEAPON_ROCKETLAUNCHER"
-                        "custom item model" "models/weapons/c_models/c_fists_of_steel/c_fists_of_steel.mdl"
-                        "custom projectile model" "models/props_halloween/fist_projectile_purple.mdl"
-                        "custom weapon fire sound" "Weapon_BoxingGloves.Miss"
-                        "custom impact sound" "Weapon_BoxingGloves.HitWorld"
-                        "explosion particle" mvm_soldier_shockwave
-                        "custom kill icon" steel_fists
-                        "dmg pierces resists absorbs" 1
-                        "mod projectile heat seek power" 150
-                        "mod projectile heat aim error" 90
-                        "mod projectile heat aim time" 1.25
-                        "mult projectile scale" 1.4
-                        "fire rate bonus" 0.6
-                        "faster reload rate" -0.5
-                        "projectile trail particle" "eyeboss_projectile"
-                        "Projectile speed increased" 0.5
-                        "blast radius increased" 0.25
-                        "dmg from ranged reduced" 0.6
-                        "dmg from melee increased" 2
-                        "Set DamageType Ignite" 5
-
-                        "projectile spread angle penalty" 20
-                        "projectile trail particle" "~spell_fireball_small_trail_blue"
-                    }
-                    ItemAttributes
-                    {
-                        ItemName "fists of steel"
-                        "is_passive_weapon" 1
                     }
                     CharacterAttributes
                     {
