@@ -3,6 +3,7 @@ if(!("SetLibraryVersion" in getroottable()) || ("FatCatLibForce" in ROOT && FatC
 
 // CREDITS
 // Standard Chinese		--		Pepper[^▽^] 	(pepper_1656 on Discord)
+// Traditional Chinese  --		quality			(bonkthequality on Discord)
 // Swedish				--		Decimate 		(decimatetf on Discord)
 // Russian				--		Liverfull 		(liverfullprod@gmail.com)
 // Polish				--		Kimmy 		 	(steamcommunity.com/id/KimmyPL)
@@ -966,7 +967,7 @@ if("SetScriptVersion" in getroottable())
 		// 
 		//
 		SPLENDIDSCREEN_NAME 	= "辉煌护盾"
-		SPLENDIDSCREEN_DESC 	= "连续冲锋 - 大幅提升护盾冷却时间."
+		SPLENDIDSCREEN_DESC 	= "连续冲锋 - 大幅提升护盾冷却速度."
 		// 
 		//
 		TIDETURNER_NAME 		= "力挽狂澜"
@@ -1258,7 +1259,7 @@ if("SetScriptVersion" in getroottable())
 		INVISWATCH_DESC 		= "隐身时间无限, +10% 移动速度."
 		//
 		DEADRINGER_NAME 		= "死亡之铃"
-		DEADRINGER_DESC 		= "免疫摔落伤害, +20%伤害抗性, +100%隐身恢复速度."
+		DEADRINGER_DESC 		= "在激活时获得短时间的爆发冲刺, 允许你往任何方向冲刺. 冲刺时-80%受到的伤害."
 		//
 		CLOAKANDDAGGER_NAME		= "隐形刺客"
 		CLOAKANDDAGGER_DESC		= "能够立刻进入隐形与解除隐形."
@@ -1294,6 +1295,638 @@ if("SetScriptVersion" in getroottable())
 		//
 		PRINNYMACHETE_NAME 			= "普利尼砍刀"
 		PRINNYMACHETE_DESC 			= "功能物品 - 挥舞时会向前高速推动自己. 免疫摔落伤害."
+		//------------------------------------
+	}
+	tchinese = {
+		IH_TRANSLATE_ITEM		= IH_color + "[%s]" + IH_text_color + "%s"
+		IH_INCLUDES				= IH_color_header + "[►]\x0826beffBB 你的裝備配置包含了..."
+		IH_DIS_MSG_2			= IH_disable_color + "輸入 '/itemhelp 1' 以在回合中隱藏訊息. \n輸入 '/itemhelp 0' 以完全隱藏此訊息."
+		IH_DIS_MSG				= IH_disable_color + "輸入 '/itemhelp 0' 以隱藏這些訊息. \n輸入 '/itemhelp 2' 以持續顯示此訊息."
+		IH_BAD_ARGS				= IH_color_header + "[裝備配置]" + IH_error_color + " {錯誤}\x01 參數出錯！!\n/itemhelp 2 -顯示\n/itemhelp 1 - 僅在回合準備階段中顯示\n/itemhelp 0 - 隱藏"
+		IH_OOB_ARG				= IH_color_header + "[裝備配置]" + IH_error_color + " {錯誤}\x01 超出配置最大範圍！ : %s"
+		IH_HELP_MSG				= IH_color_header + "[裝備配置]\x01 裝備配置會顯示的改動 \x03每個武器\x01 的改動!" 
+		IH_DISABLE				= IH_color_header + "[►]\x01 以隱藏裝備配置訊息."
+		IH_WAVE_SETUP			= IH_color_header + "[►]\x01 裝備配置訊息只在準備階段顯示."
+		IH_ENABLE 				= IH_color_header + "[►]\x01 已啟用裝備配置訊息."
+		LOW_METAL 				= "金屬不足"
+		TOMISLAV_HEAT			= "托米斯拉夫 熱量: %s%%"
+		STUCK_RESPAWNED 		= "已將你重生，以防你被卡住."
+		ABILITY_READY			= "%s\n► 就緒 ◄"
+		ABILITY_CHARGING		= "%s\n%s"
+		ABILITY_CHARGING_MSG	= "冷卻: %ss"
+		ABILITY_CHARGING_D_MSG	= "冷卻: %s%%"
+		MEGACRUSH 				= "超級粉碎"
+		VITALRESURGENCE 		= "強力再生"
+		VEHICULARMANNSLAUGHTER 	= "肇事屠宰"
+		TEST 					= "Test Ability"
+		REPROG_BOT_STRONG		= TF_TEAM_COLOR_REPROG_B+"%s\x01 抵抗了你的重構."
+		REPROG_BOT_NOT_SUIT		= TF_TEAM_COLOR_REPROG_B+"%s\x01 不適合戰鬥且無法被重構."
+		REPROG_BOT_LEAVE		= TF_TEAM_COLOR_SPEC+"%s 死亡."
+		REPROG_BOT_MESSAGE 		= TF_TEAM_COLOR_RED+"%s\x01 已重構了 "+TF_TEAM_COLOR_REPROG_B+"%s\x01!"
+		//---------------------------------------------------------
+		CHECKPOINT_CREATED      = "\x077c8cc2Checkpoint created:\x078165cf [/%s]"
+        CHECKPOINT_WRONG_MAP    = CHECKPOINT_ERROR+"此檢查點不在此地圖."
+        CHECKPOINT_WRONG_MISS   = CHECKPOINT_ERROR+"此檢查點不在此任務."
+        CHECKPOINT_EXPIRE       = CHECKPOINT_ERROR+"檢查點已過期."
+        CHECKPOINT_RESTORE      = "\x0744CC44已恢復至最近儲存的檢查點"
+        CHECKPOINT_RESTORE_HUD  = "已恢復至最近儲存的檢查點."
+		//---------------------------------------------------------	
+		SCATTERGUN_NAME 		= "雙管霰彈槍"
+		SCATTERGUN_DESC 		= "能造成不俗傷害的武器，近距離效果更強."
+		//
+		FORCENATURE_NAME		= "自然之力"
+		FORCENATURE_DESC		= "擊中時提升擊退效果，dps稍微低於雙管霰彈槍."
+		//
+		SHORTSTOP_NAME 			= "游擊手"
+		SHORTSTOP_DESC 			= "極高額的開火速度且能對浸濕的敵人造成暴擊，但裝填速度緩慢."
+		//
+		SODAPOPPER_NAME 		= "汽水槍手"
+		SODAPOPPER_DESC 		= "按住開火鍵進行一次4連速射."
+		//
+		BABYFACEBLASTER_NAME	= "型男霰彈槍"
+		BABYFACEBLASTER_DESC	= "按住開火鍵以進行一次最大到200發的高額連射，穿透任何近距離的目標，但有高額後坐."
+		//
+		BACKSCATTER_NAME		= "背襲霰彈槍"
+		BACKSCATTER_DESC		= "背後射擊造成全額暴擊，不需要彈藥且彈夾無限."
+		///
+		PISTOL_NAME 			= "手槍"
+		PISTOL_DESC 			= "發射物改為火箭，大幅增加機動性."
+		//
+		BONK_NAME 				= "Bonk! 原子能量飲料"
+		BONK_DESC 				= "超級充能飲料，允許你獲得無敵的同時進行攻擊."
+		//
+		CRITACOLA_NAME 			= "爆擊可樂"
+		CRITACOLA_DESC 			= "超級充能飲料，獲得全額暴擊."
+		//
+		MADMILK_NAME 			= "瘋狂牛奶"
+		MADMILK_DESC 			= "被牛奶覆蓋的敵人無法移動."
+		//
+		WINGER_NAME 			= "御風遊俠"
+		WINGER_DESC 			= "使用時獲得無限空中跳躍. 發射一發專注的射擊，在空中時能造成暴擊，該攻擊也能擊退敵人."
+		//
+		PRETTYBOYS_NAME 		= "俊男掌心雷"
+		PRETTYBOYS_DESC 		= "發射能依目標生命造成傷害的火箭，目標生命越低造成的傷害越高，此傷害無視距離，次要開火：發射一枚傷害減少20%的火箭"
+		//
+		CLEAVER_NAME 			= "斷頭血刃"
+		CLEAVER_DESC 			= "勇度之箭：召喚一個自主追蹤的箭協助作戰，次要開火：干擾模式，傷害-75%."
+		//
+		MATATEDMILK_NAME 		= "突變牛奶"
+		MATATEDMILK_DESC 		= "快速投擲爆炸性的牛奶瓶，對敵人造成傷害，次要開火：一次投擲大量牛奶瓶."
+		///
+		BAT_NAME 				= "球棒"
+		BAT_DESC 				= "有機會免死一次且以一血的狀態回到重生點."
+		//
+		SANDMAN_NAME			= "睡魔"
+		SANDMAN_DESC 			= "允許連續發射有著高容量和快速充能的棒球，可以對單體目標造成可觀的傷害."
+		//
+		HOLYMACKEREL_NAME		= "尚方寶鯖"
+		HOLYMACKEREL_DESC		= "允許對多個目標打上死亡印記."
+		//
+		CANDYCANE_NAME 			= "拐杖糖"
+		CANDYCANE_DESC 			= "特殊物品：使你重力歸零且能自由飛翔."
+		//
+		BOSTONBASHSER_NAME 		= "波士頓狼牙棒"
+		BOSTONBASHSER_DESC 		= "高風險 / 高回報. 可以瞬間擊殺大部分小型敵人，獲得10秒暴擊加成，被醫療槍連接的敵人也會受到傷害，但是每次揮空都會殺死你."
+		//
+		SUNONASTICK_NAME		= "炎日法杖"
+		SUNONASTICK_DESC		= "擊中時有機會擊暈敵人或短暫獲得暴擊加成，攻擊所有被醫療槍連接的敵人，但每次揮空都會擊暈你."
+		//
+		FANOWAR_NAME 			= "鐵軍扇"
+		FANOWAR_DESC 			= "特殊武器：揮舞時可以使你向前高速衝刺，免疫摔傷."
+		//
+		ATOMIZER_NAME 			= "原子棒"
+		ATOMIZER_DESC 			= "無法正常造成傷害，但每次嘲諷殺成功時會獲得3分鐘的暴擊加成."
+		//
+		THREERUNEBLADE_NAME 	= "盧恩古刃"
+		THREERUNEBLADE_DESC 	= "使用時，獲得巨額移動速度加成且能三段跳，免疫摔傷."
+		//
+		UNARMEDCOMBAT_NAME 		= "一臂之力"
+		UNARMEDCOMBAT_DESC 		= "每擊殺10個敵人，獲得骷髏召喚術（需裝備魔法書）."
+		//
+		WRAPAASSASSIN_NAME 		= "包裝紙殺手"
+		WRAPAASSASSIN_DESC 		= "允許對彈射物進行攻擊，並將其反彈回去，同時免疫擊暈."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		ROCKETLAUNCHER_NAME		= "火箭發射器"
+		ROCKETLAUNCHER_DESC		= "能造成不俗傷害的武器."
+		//
+		DIRECTHIT_NAME			= "直擊火箭"
+		DIRECTHIT_DESC			= "次要開火：把一名小型敵人射到空中以更易造成小爆擊. 火箭有輕微的追蹤效果."
+		//
+		BLACKBOX_NAME			= "黑盒子"
+		BLACKBOX_DESC			= "能夠造成減速和流血效果. 對火箭兵機器人傷害加倍."
+		//
+		ROCKETJUMPER_NAME		= "火箭跳躍者"
+		ROCKETJUMPER_DESC		= "開火和裝填速度緩慢，但有高額傷害和爆炸範圍，非常適合對付大量目標."
+		//
+		LIBERTYLAUNCHER_NAME	= "自由推進者"
+		LIBERTYLAUNCHER_DESC	= "發射一枚飛行緩慢但能在大範圍造成巨額傷害的火箭，裝填速度極其緩慢且只有少量彈藥，此武器在已裝填的情況下會自動開火."
+		//
+		COWMANGLER_NAME			= "要牛命5000"
+		COWMANGLER_DESC			= "擊中能使目標動彈不得,蓄力攻擊能控制更長時間，按住次要開火鍵來發射多重攻擊，並額外加長控制時間."
+		//
+		ORIGINAL_NAME			= "原型雷神火砲"
+		ORIGINAL_DESC			= "按住開火鍵以進行一次最多4發火箭的速射. 此武器在已裝填的情況下會自動開火."
+		//
+		BEGGARSBAZOOKA_NAME		= "街友火箭砲"
+		BEGGARSBAZOOKA_DESC		= "按住開火鍵以裝填最多100發的火箭，隨後以極高速的連射全打出去，此武器不會過載裝填."
+		//
+		AIRSTRIKE_NAME			= "空襲火箭"
+		AIRSTRIKE_DESC			= "最多可裝填10發火箭，並以固定散步發射，這些火箭會自動追蹤目標."
+		///
+		SHOTGUN_SOLD_NAME 		= "散彈槍 - 火箭兵" 
+		SHOTGUN_SOLD_DESC 		= "火箭跳時獲得高額開火速度與暴擊." 
+		//
+		SHOTGUN_NAME 			= "散彈槍" 
+		SHOTGUN_DESC 			= "能造成不俗傷害的武器." 
+		//
+		BUFFBANNER_NAME 		= "增幅旗幟" 
+		BUFFBANNER_DESC 		= "無限範圍和大幅增加持續時間." 
+		//
+		GUNBOATS_NAME 			= "鐵砲護靴" 
+		GUNBOATS_DESC 			= "允許按住跳躍鍵以進行兔子跳，大幅提升台階高度，免疫跌倒傷害." 
+		//
+		BATTALIONS_NAME 		= "營隊後援" 
+		BATTALIONS_DESC 		= "無限範圍和大幅增加持續時間." 
+		//
+		CONCHEROR_NAME 			= "家徽旗" 
+		CONCHEROR_DESC 			= "無限範圍和大幅增加持續時間." 
+		//
+		RESERVESHOOTER_NAME 	= "後勤防空員" 
+		RESERVESHOOTER_DESC 	= "造成無視距離的10000點傷害且擊殺獲得3秒小暴擊加成，但此武器無法被暴擊加成和對坦克造成傷害，按住次要開火鍵來瞄準." 
+		//
+		BISON_NAME 				= "正義狂牛" 
+		BISON_DESC 				= "發射全自動瞄準的連續的可穿透敵人的激光." 
+		//
+		MANTREADS_NAME 			= "踏板戰靴" 
+		MANTREADS_DESC 			= "大幅減少受傷帶來的擊退，空中轉向能大幅提升加速度，踐踏傷害提升且能按速度額外提升." 
+		//
+		BASEJUMPER_NAME 		= "低空跳傘員" 
+		BASEJUMPER_DESC 		= "可以打開降落傘，獲得擊退和子彈抗性，使你在空中更堅固." 
+		//
+		PANICATTACK_NAME 		= "背水散彈槍" 
+		PANICATTACK_DESC 		= "需要瞬間治療的選擇，擊中時最多能恢復10000點生命，使用此武器時受傷有機會短暫進入uber." 
+		///
+		SHOVEL_NAME 			= "鐵鍬"
+		SHOVEL_DESC 			= "防禦和機動性的標準選擇."
+		//
+		EQUALIZER_NAME 			= "傷害均衡十字鎬"
+		EQUALIZER_DESC 			= "嘲諷攻擊造成巨額傷害且能把敵人擊飛到空中."
+		//
+		PAINTRAIN_NAME 			= "天堂路"
+		PAINTRAIN_DESC 			= "擊中造成減速和流血. 免疫跌倒傷害."
+		//
+		HALFZATOICHI_NAME 		= "半盲劍俠"
+		HALFZATOICHI_DESC 		= "造成傷害，且有更高生命值，並擴大攻擊範圍."
+		//
+		MARKETGARDENER_NAME 	= "市場花園園丁"
+		MARKETGARDENER_DESC 	= "造成高額加成的暴擊傷害，殺死敵人可進入狂暴，獲得額外生命，抗性和傷害加成，但揮空會殺死你."
+		//
+		DISCIPLINARYACTION_NAME = "紀律行動"
+		DISCIPLINARYACTION_DESC	= "防禦和機動性的標準選擇."
+		//
+		ESCAPEPLAN_NAME			= "速度均衡十字鎬"
+		ESCAPEPLAN_DESC			= "防禦和機動性的標準選擇."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		FLAMETHROWER_NAME 		= "火焰噴射器"
+		FLAMETHROWER_DESC		= "能造成不俗傷害的武器. 擊殺獲得短暫小爆擊加成."
+		//
+		BACKBURNER_NAME 		= "背後火焰發射器"
+		BACKBURNER_DESC			= "綠焰：打上死亡標記且能短暫擊暈空中敵人. 對火焰兵機器人傷害加倍."
+		//
+		DEGREASER_NAME 			= " 除油者"
+		DEGREASER_DESC			= "能造成高額直擊傷害的長距離火焰噴射器, 但餘火傷害歸零. 此火焰噴射器無法壓縮氣爆."
+		//
+		PHLOGISTINATOR_NAME 	= "燃素噴射器"
+		PHLOGISTINATOR_DESC		= "綠焰：打上死亡標記且能短暫擊暈空中敵人. 對坦克非常有效，但減少你的移動速度."
+		//
+		RAINBLOWER_NAME 		= "彩虹放射器"
+		RAINBLOWER_DESC			= "造成少量直擊傷害的長距離火焰噴射器, 但餘火傷害更高. 且能立即摧毀工程師的建築、點燃敵方火焰兵. 壓縮氣爆較弱，但發射速度很快."
+		//
+		DRAGONSFURY_NAME 		= "龍之怒"
+		DRAGONSFURY_DESC		= "大幅提升開火和壓縮氣爆速度."
+		//
+		NOSTROMONAPALMER_NAME 	= "諾斯托羅莫火焰噴射器"
+		NOSTROMONAPALMER_DESC	= "击中能减速敌人，擊中能減速敵人，增加像是燃素噴射器mmmph的充能, 但改為獲得家徽旗的增益. 此火焰噴射器無法壓縮氣爆."
+		///
+		SHOTGUN_PYRO_NAME 		= "散彈槍 - 火焰兵" 
+		SHOTGUN_PYRO_DESC 		= "對著火的目標必定暴擊." 
+		//
+		FLAREGUN_NAME 			= "信號槍" 
+		FLAREGUN_DESC 			= "攻擊即時命中且能穿透敵人. 傷害會隨著穿透的敵人數量而指數增加傷害. 同時有機會使目標暈眩." 
+		//
+		DETONATOR_NAME 			= "爆破信號槍" 
+		DETONATOR_DESC 			= "信號彈的爆炸半徑改為無限並會擊中視線範圍內的所有目標. 強迫所有間諜機器人解除隱形和偽裝. 同時提供高額機動性." 
+		//
+		MANMELTER_NAME 			= "要人命死光槍" 
+		MANMELTER_DESC 			= "高速發射能自動追蹤敵人的信號彈. 擁有無限彈藥，無需裝填. 次要攻擊: 一次發射大量信號彈." 
+		//
+		SCORCHSHOT_NAME 		= "灼熱信號槍" 
+		SCORCHSHOT_DESC 		= "擊中時：造成大量傷害，滅掉目標身上的火焰並造成強力擊退，你的目標必須已著火，不然攻擊無法造成任何效果，次要攻擊：發射一枚緩慢但能追踪的信號彈." 
+		//
+		THERMALTHRUSTER_NAME 	= "熱能推進器" 
+		THERMALTHRUSTER_DESC 	= "減少燃料消耗並取消發射間隔. 允許在空中再次使用並造成巨額踐踏傷害. 擊殺時獲得短暫暴擊加成." 
+		//
+		GASPASSER_NAME 			= "瓦斯罐" 
+		GASPASSER_DESC 			= "充能從零開始且死亡時重置，需要造成150000傷害才能填滿，點燃爆炸造成105000傷害." 
+		///
+		FIREAXE_NAME 			= "消防斧"
+		FIREAXE_DESC 			= "防禦和機動性的標準選擇."
+		//	
+		AXTINGUISHER_NAME 		= "火斧"
+		AXTINGUISHER_DESC		= "大幅提升對著火目標的傷害."
+		//
+		HOMEWRECKER_NAME 		= "家用破壞者"
+		HOMEWRECKER_DESC 		= "允許從任何位置立即破壞工程師的建築且有無限範圍."
+		//
+		POWERJACK_NAME 			= "強力千斤頂"
+		POWERJACK_DESC 			= "高攻速和移動速度，擊中造成燃燒和流血且擊殺獲得小暴擊."
+		//
+		BACKSCRATCHER_NAME 		= "不求人"
+		BACKSCRATCHER_DESC 		= "背後攻擊能造成致命傷害，擊殺可進入狂暴，獲得額外速度，抗性和傷害."
+		//
+		VOLCANOFRAGMENT_NAME 	= "熔岩巨斧"
+		VOLCANOFRAGMENT_DESC 	= "有機會擊暈敵人."
+		//
+		POSTALPUMMELER_NAME 	= "掛號專員"
+		POSTALPUMMELER_DESC 	= "擊中時: 造成混亂，使敵人在短時間內往炸彈路徑的反方向行走. 攻擊時按住次要攻擊鍵可以傳送回重生點."
+		//
+		MAUL_NAME 				= "巨型釘錘"
+		MAUL_DESC 				= "擊中可擊飛敵人，揮空則擊飛自己."
+		//
+		THIRDDEGREE_NAME 		= "三度灼傷"
+		THIRDDEGREE_DESC 		= "裝備時讓你近乎免疫火焰傷害，同時啟用時獲得高額遠程傷害抗性."
+		//
+		LOLLICHOP_NAME 			= "棒棒斧"
+		LOLLICHOP_DESC 			= "每擊殺10個敵人，獲得隕雨召喚術 (需要裝備魔法書)."
+		//
+		NEONANNIHILATOR_NAME 	= "震電之寶"
+		NEONANNIHILATOR_DESC 	= "減少你受到的重力."
+		//
+		HOTHAND_NAME 			= "炙手可熱"
+		HOTHAND_DESC 			= "擊中可擊飛敵人."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		GRENADELAUNCHER_NAME 	= "榴彈發射器"
+		GRENADELAUNCHER_DESC	= "能造成不俗傷害的武器."
+		//
+		LOCHNLOAD_NAME 			= "直擊榴彈"
+		LOCHNLOAD_DESC			= "發射緩慢卻能造成大範圍的高額傷害的榴彈，適合對付大群敵人."
+		//
+		ALIBABA_NAME			= "阿里巴巴尖頭靴"
+		ALIBABA_DESC			= "強化速度，跳躍高度和盾牌衝刺，提供額外的傷害抗性，盾牌充能和盾撞傷害."
+		//
+		BOOTLEGGER_NAME			= "私藏海盜靴"
+		BOOTLEGGER_DESC			= "強化速度，跳躍高度和盾牌衝刺. 額外提供高額的近戰抗性，但受到更多的暴擊傷害."
+		//
+		LOOSECANNON_NAME		= "脫韁火炮"
+		LOOSECANNON_DESC		= "可一次裝填最多4發砲彈且以垂直散步全射出去. 砲彈會在碰到地面時爆炸“
+
+		IRONBOMBER_NAME			= "迫擊鐵砲"
+		IRONBOMBER_DESC			= "無視傷害抗性且擊殺獲得暴擊加成，無需彈藥且有無限彈夾，投射物可以在牆壁之間反彈."
+		///
+		STICKYBOMB_NAME 		= "黏性炸彈發射器"
+		STICKYBOMB_DESC 		= "能造成不俗傷害的武器. 可以放置50發黏彈."
+		//
+		SCOTTISHRES_NAME 		= "蘇格蘭式防禦黏彈"
+		SCOTTISHRES_DESC 		= "黏彈需要5秒鐘準備且10秒後自毀，但擊中能造成巨額傷害."
+		//
+		STICKYJUMPER_NAME 		= "黏彈跳躍者"
+		STICKYJUMPER_DESC 		= "製造一個靜止力場，擊暈範圍內所有敵人（小領袖敵人免疫此效果）"
+		//
+		CHARGINTARGE_NAME 		= "衝擊刺盾"
+		CHARGINTARGE_DESC 		= "重擊衝鋒：大幅提升盾牌衝撞傷害."
+		//
+		SPLENDIDSCREEN_NAME 	= "輝煌戰盾"
+		SPLENDIDSCREEN_DESC 	= "連續衝鋒：衝鋒冷卻時間大幅減少."
+		//
+		TIDETURNER_NAME 		= "潮汐戰舵"
+		TIDETURNER_DESC 		= "爆發衝鋒：大幅提升衝鋒速度."
+		//
+		QUICKIEBOMB_NAME 		= "速成黏彈發射器"
+		QUICKIEBOMB_DESC 		= "自動以高額射速發射準備時間極短的黏彈，擊殺獲得小暴擊加成."
+		///
+		BOTTLE_NAME 			= "瓶子"
+		BOTTLE_DESC 			= "防禦和機動性的標準選擇."
+		//
+		EYELANDER_NAME 			= "魔眼闊劍"
+		EYELANDER_DESC 			= "高傷害且能快速攻擊，擊殺能獲得暴擊，但無法使用榴彈."
+		//
+		SKULLCUTTER_NAME 		= "蘇格蘭頭骨切割者"
+		SKULLCUTTER_DESC 		= "攻擊可無視Ubercharge且能幹擾敵人的醫療槍，對相同職業的敵人造成額外傷害."
+		//
+		CABER_NAME 				= "阿勒浦木製手榴彈"
+		CABER_DESC 				= "傷害會隨著你的受傷程度而提升，生命低於2%獲得暴擊加成，此武器的爆炸能殺死你."
+		//
+		CLAIDHEAMHMOR_NAME 		= "蓋爾巨劍"
+		CLAIDHEAMHMOR_DESC 		= "每擊殺10個敵人，獲得魔眼召喚術（需要裝備魔法書）
+		//
+		PERSIANPERSUADER_NAME 	= "波斯使者"
+		PERSIANPERSUADER_DESC 	= "和盾牌一起裝備時，獲得無限衝鋒，衝鋒無法因急轉，撞到牆壁，敵人或是其他障礙而停下，免疫擊暈."
+		//
+		NINEIRON_NAME 			= "尼斯九號鐵桿"
+		NINEIRON_DESC 			= "提升攻擊範圍且能同時攻擊多名敵人，暴擊傷害加倍."
+		//
+		SCOTTISHHANDSHAKE_NAME 	= "蘇格蘭式握手禮"
+		SCOTTISHHANDSHAKE_DESC 	= "使用時，獲得90%遠程傷害抗性，免疫擊退且獲得高額最大生命，但你無法補充彈藥且補血包提供的生命減少."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		MINIGUN_NAME 			= "格林機槍"
+		MINIGUN_DESC 			= "能造成不俗傷害的武器. 擊殺獲得短暫小暴擊加成."
+		//
+		NATASCHA_NAME 			= "娜塔莎"
+		NATASCHA_DESC 			= "擊中造成減速並打上死亡標記."
+		//
+		BRASSBEAST_NAME 		= "黃銅野獸"
+		BRASSBEAST_DESC 		= "預熱時間增加但造成更高傷害，槍管旋轉時無法移動，可擊落飛行物."
+		//
+		TOMISLAV_NAME 			= "托米斯拉夫"
+		TOMISLAV_DESC 			= "造成傷害能累積熱量，熱量越高，此武器的各項數值越高，但若長時間未造成傷害則會開始冷卻."
+		//
+		HUOHEATER_NAME 			= "龍火重機槍"
+		HUOHEATER_DESC 			= "發射能量光束，點燃敵人"
+		//
+		GENUINEHUOHEATER_NAME 	= "正統 龍火重機槍"
+		GENUINEHUOHEATER_DESC 	= "發射火箭，對著火的敵人必定暴擊."
+		///
+		SHOTGUN_HVY_NAME 		= "散彈槍 - 重裝兵"
+		SHOTGUN_HVY_DESC 		= "單發高傷害，擊殺獲得8秒暴擊."
+		//
+		SANDVICH_NAME 			= "三明治"
+		SANDVICH_DESC 			= "恢復最多150000點生命值，使用此物品時受到的任何傷害都能殺死你."
+		//
+		DALOKOHSBAR_NAME 		= "美味巧克力"
+		DALOKOHSBAR_DESC 		= "恢復最多20000點生命，使用時若生命低於350則獲得高額過量治療。被動：你會受到更多傷害但受傷有機會進入uber."
+		//
+		BUFFALOSTEAK_NAME 		= "水牛排三明治"
+		BUFFALOSTEAK_DESC 		= "被動：免疫暴擊."
+		//
+		FAMILYBUSINESS_NAME 	= "家族事業"
+		FAMILYBUSINESS_DESC 	= "無限彈藥。受到治療時開火速度加倍，擊殺獲得暴擊加成."
+		//
+		FISHCAKE_NAME 			= "太空魚酥餅
+		FISHCAKE_DESC 			= "獲得高額子彈抗性，但受到更多爆炸和火焰傷害."
+		//
+		SECONDBANANA_NAME 		= "第二蕉"
+		SECONDBANANA_DESC 		= "獲得高額爆炸抗性，但受到更多火焰和子彈傷害."
+		///
+		FISTS_NAME 				= "拳頭"
+		FISTS_DESC 				= "防禦和機動性的標準選擇."
+		//
+		KILLINGGLOVES_NAME 		= "殺人拳套"
+		KILLINGGLOVES_DESC 		= "特殊技能：超級粉碎 - 當可用時，在炸彈上按下動作鍵可以立即重置炸彈，同時短暫給予速度，抗性和暴擊加成s."
+		//
+		GLOVESRUNNING_NAME 		= "狂奔手套"
+		GLOVESRUNNING_DESC 		= "被動：可使用降落傘，使用時，獲得巨額跳躍高度，抗性和生命恢復加成n."
+		//
+		BREADBITE_NAME 			= "咬咬麵包拳"
+		BREADBITE_DESC 			= “暴擊擊中讓目標受到腐蝕, 能讓敵人永久持續受到最大生命一定比例的傷害並在死亡後爆炸成一朵腐蝕雲, 使其傳播給其他目標."
+		//
+		WARRIRORSSPIRIT_NAME 	= "戰士之魂"
+		WARRIRORSSPIRIT_DESC 	= "左鍵可以躍至高空，落到目標時造成巨額摔傷. 移除所有主武器和副武器的彈藥."
+		//
+		FISTSOFSTEEL_NAME 		= "鐵拳"
+		FISTSOFSTEEL_DESC 		= "變成一個擁有250000生命的巨型重裝拳擊手，獲得免疫擊退且能造成高額傷害，移除所有主武器和副武器彈藥，只能從午餐盒類物品來回血."
+		//
+		EVICTIONNOTICE_NAME 	= "驅逐警告"
+		EVICTIONNOTICE_DESC 	= "擊殺恢復大量生命."
+		//
+		APOCOFISTS_NAME 		= "末世戰拳"
+		APOCOFISTS_DESC 		= "拳擊能擊退敵人."
+		//
+		HOLIDAYPUNCH_NAME 		= "快樂拳"
+		HOLIDAYPUNCH_DESC 		= "使用時，所有敵人都會無視你，免疫眩暈，但此武器無法造成傷害."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		SHOTGUN_ENGI_NAME		= "散彈槍 - 工程師"
+		SHOTGUN_ENGI_DESC 		= "對你步哨的目標造成4倍傷害."
+		//
+		FRONTIERJUSTICE_NAME 	= "邊疆正義"
+		FRONTIERJUSTICE_DESC 	= "開火速度極快。獲得基於復仇暴擊的彈夾，受到治療時裝填速度加快."
+		//
+		WIDOWMAKER_NAME 		= "黑寡夫"
+		WIDOWMAKER_DESC 		= "消耗2000金屬，以發射能擊退敵人的大範圍射擊."
+		//
+		POMSON_NAME 			= "潘森 6000"
+		POMSON_DESC 			= "擊中造成流血，點燃和減速."
+		//
+		RESCUERANGER_NAME 		= "遊騎兵援隊"
+		RESCUERANGER_DESC		= "每發消耗20金屬，不需要裝填且最大金屬提升至1000."
+		///
+		WRANGLER_NAME 			= "牧馬者遙控器"
+		WRANGLER_DESC 			= "使用時：提升步哨傷害和加倍補給器的範圍."
+		//
+		SHORTCIRCUIT_NAME 		= "脈衝電場放射儀"
+		SHORTCIRCUIT_DESC 		= "每擊殺10個敵人，獲得磁暴漩渦術 (需要裝備魔法書)"
+		///
+		WRENCH_NAME 			= "扳手"
+		WRENCH_DESC 			= "能造成不俗傷害的武器."
+		//
+		GUNSLINGER_NAME 		= "機械槍手"
+		GUNSLINGER_DESC	 		= "允許建造第二台步哨，三拳連擊可以處決小型機器人和對巨型機器人造成高額傷害."
+		//
+		SOUTHERNHOS_NAME 		= "南方盛情"
+		SOUTHERNHOS_DESC 		= "步哨改為火焰步哨，射程短但傷害高."
+		//
+		JAG_NAME 				= "鉤爪扳手"
+		JAG_DESC 				= "步哨擁有無限範圍."
+		//
+		EUREKAEFFECT_NAME 		= "靈光乍現"
+		EUREKAEFFECT_DESC 		= "當你搬運你的步哨時，按下裝填鍵以在任何牆壁或天花板放置步哨."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		SYRINGEGUN_NAME			= "注射槍"
+		SYRINGEGUN_DESC			= "擊中獲得0.5% Ubercharge."
+		//
+		BLUTSAUGER_NAME			= "嗜血針槍"
+		BLUTSAUGER_DESC			= "消耗100% Ubercharge 來重構一個機器人, 讓其短暫為你作戰
+		//
+		CRUSADERSCROSSBOW_NAME	= "聖十字弩弓"
+		CRUSADERSCROSSBOW_DESC	= "擊中時獲得0.25% Ubercharge, 並造成流血同時每次流血傷害額外獲得0.5% Ubercharge."
+		//
+		OVERDOSE_NAME 			= "超速注射槍"
+		OVERDOSE_DESC 			= "消耗100% Ubercharge以發送一個推車，讓周圍的機器人停機最多15秒."
+		///
+		MEDIGUN_NAME			= "醫療槍"
+		MEDIGUN_DESC			= "超量治療上限改為10倍，可部署長時間持續的等級1能量護盾."
+		//
+		KRITZKRIEG_NAME			= "爆擊製造者"
+		KRITZKRIEG_DESC			= "允許吸取敵人的生命值，為自己治療和獲得Uber."
+		//
+		QUICKFIX_NAME			= "快速治療者"
+		QUICKFIX_DESC			= "治療速度極快且有等級2的能量護盾，能從護盾接觸傷害獲得Uber."
+		//
+		VACCINATOR_NAME			= "疫苗接種者"
+		VACCINATOR_DESC			= "治療給你和目標獲得100%所選種類的傷害抗性，Ubercharge則能在30秒內完全免疫該種傷害."
+		///
+		BONESAW_NAME 			= "骨鋸"
+		BONESAW_DESC			= "防禦和機動性的標準選擇. 擊中獲得10% Uber."
+		//
+		UBERSAW_NAME 			= "超能骨鋸"
+		UBERSAW_DESC			= "擊中造成流血. 擊中獲得2%Uber."
+		//
+		VITASAW_NAME 			= "還魂鋸"
+		VITASAW_DESC			= "擊中獲得集體治癒術 (需要裝備魔法書). 擊中獲得5% Uber."
+		//
+		AMPUTATOR_NAME 			= "截肢鋸"
+		AMPUTATOR_DESC			= "擊中時：你的醫療槍獲得超級充能，短暫強化治療，uber累積和範圍，擊殺敵人可獲得更強的效果."
+		//
+		SOLEMNVOW_NAME 			= "神聖誓言"
+		SOLEMNVOW_DESC			= "無限範圍，對所有倍醫療強連結的敵人造成傷害並對醫療兵機器人造成200倍傷害. 每擊中一個敵人就獲得5% Uber."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		SNIPERRIFLE_NAME 		= "狙擊槍"
+		SNIPERRIFLE_DESC 		= "完全充能的爆頭造成450000傷害."
+		//
+		MACHINA_NAME 			= "神授貫殺獵槍"
+		MACHINA_DESC 			= "充能速度很慢，但滿充能可對坦克造成高額傷害，擊殺獲得1秒暴擊加成，在暴擊加成下滿充能射擊能重創坦克."
+		//
+		HITMANSHEATMAKER_NAME 	= "全面狙殺令"
+		HITMANSHEATMAKER_DESC 	= "高速連射且不用開鏡，命中身體沒有傷害."
+		//
+		AWPERHAND_NAME 			= "AWP"
+		AWPERHAND_DESC 			= "發射爆炸彈藥且擊殺能累積充能，充能滿時可以按下裝填鍵來提升最大生命和生命恢復，只有瞄準鏡裡有敵人才能充能."
+		//
+		HUNTSMAN_NAME 			= "獵人長弓"
+		HUNTSMAN_DESC 			= "一次發射5支箭，若火焰兵點燃你的箭則能造成巨額燃燒傷害."
+		//
+		SYDNEYSLEEPER_NAME 		= "雪梨沉睡者"
+		SYDNEYSLEEPER_DESC 		= "發射一枚能阻止敵方小型機器人移動、接受醫療兵機器人治療的飛鏢."
+		//
+		BAZAARBARGAIN_NAME 		= "巴剎長槍"
+		BAZAARBARGAIN_DESC 		= "擊殺相同職業的敵人能加快開火速度，最多疊加3次，擊殺其他兵種會重置."
+		//
+		FORTIFIEDCOMPOUND_NAME 	= "強化組合弓"
+		FORTIFIEDCOMPOUND_DESC 	= "傷害低於獵人長弓, 但開火速度更快，能穿透和對打濕的敵人暴擊."
+		//
+		CLASSIC_NAME 			= "典雅絕殺獵槍"
+		CLASSIC_DESC 			= "開火速度隨著按下開火鍵的速度而提升, 或是充能一發擁有極高爆炸爆頭的攻擊，以湮滅一切範圍內的非巨型機器人."
+		///
+		SMG_NAME 				= "衝鋒槍"
+		SMG_DESC 				= "可以爆頭，次要開火：進入瞄準模式以獲得100%準確度，但開火速度砍半."
+		//
+		RAZORBACK_NAME 			= "劍脊野豬盾"
+		RAZORBACK_DESC 			= "充能速度很快，且能對攻擊施加瓶手道效果."
+		//
+		JARATE_NAME 			= "瓶手道"
+		JARATE_DESC 			= "充能速度極快，且能減速敵人."
+		//
+		DARWIN_NAME 			= "達爾文鱷魚盾"
+		DARWIN_DESC 			= "幾乎免疫火焰傷害，但子彈和爆炸會對你額外造成50%傷害."
+		//
+		COZYCAMPER_NAME 		= "舒適的露營家"
+		COZYCAMPER_DESC 		= "稍微提升最大生命，速度和生命恢復，免疫餘火."
+		//
+		CLEANERSCARBINE_NAME 	= "湮滅者卡賓槍"
+		CLEANERSCARBINE_DESC 	= "小暴擊加成持續30秒."
+		//
+		BEAUTYMARK_NAME 		= "有自我意識的美妙有機體"
+		BEAUTYMARK_DESC 		= "降下附有聖之獄焰的箭矢，次要開火:一次發射多重箭矢."
+		///
+		KUKRI_NAME 				= "喀爾克大彎刀"
+		KUKRI_DESC 				= "防禦和機動性的標準選擇."
+		//
+		TRIBALMANSSHIV_NAME 	= "部落戰刀"
+		TRIBALMANSSHIV_DESC 	= "特殊物品：你無視重力且可以自由飛翔."
+		//
+		BUSHWACKA_NAME 			= "布伊刀"
+		BUSHWACKA_DESC 			= "無限近戰範圍且能對著火的敵人暴擊."
+		//
+		SHAHANSHAH_NAME 		= "王中之王"
+		SHAHANSHAH_DESC 		= "左鍵可使你飛至高空，適合到達高處，你同時免疫摔傷."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		REVOLVER_NAME 			= "左輪手槍"
+		REVOLVER_DESC 			= "擊中能附加多種負面效果, 使敵人受到傷害增加，減少醫療兵機器人的uber充能且強制讓間諜機器人解除偽裝，可以擊暈空中的敵人."
+		//
+		AMBASSADOR_NAME 		= "全能大使"
+		AMBASSADOR_DESC 		= "爆頭造成巨額傷害，非偽裝時傷害加倍."
+		//
+		LETRANGER_NAME 			= "局外人左輪"
+		LETRANGER_DESC 			= "允許你一擊處決所有非巨型機器人. 對坦克和巨型機器人無效."
+		//
+		ENFORCER_NAME 			= "脅威使"
+		ENFORCER_DESC 			= "無視任何傷害抗性並且能透過背刺或使用電子破壞器摧毀建築獲得暴擊充能."
+		//
+		DIAMONDBACK_NAME 		= "鑽紋響尾蛇""
+		DIAMONDBACK_DESC 		= "產生一個能吸引敵人的黑洞."
+		///
+		SAPPER_NAME 			= "電子破壞器"
+		SAPPER_DESC 			= "獲得滿等的影響範圍和持續時間. 充能更快."
+		//
+		REDTAPE_NAME 			= "倒轉錄音機"
+		REDTAPE_DESC 			= "瞬間摧毀工程師的建築，但只能一次影響一個機器人."
+		///
+		KNIFE_NAME 				= "刀子"
+		KNIFE_DESC 				= "使用時，會使你不斷流失生命但使你免疫任何傷害，擊殺可以恢復生命."
+		//
+        YOURETERNALREWARD_NAME 	= "您的永恆獎賞"
+		YOURETERNALREWARD_DESC 	= "當你受傷時增加其傷害且生命低於10%獲得暴擊，但此增益只能適用於正面擊中，獲得90%的傷害抗性."
+		//
+		KUNAI_NAME 				= "陰謀苦無"
+		KUNAI_DESC 				= "攻擊範圍變為無限，背刺能造成爆炸，對周圍的敵人造成額外傷害."
+		//
+		BIGEARNER_NAME 			= "暴利之刃"
+		BIGEARNER_DESC 			= "獲得巨額生命上限且空揮時大幅治療自身，但你會受到友方的誤傷."
+		//
+		WANGAPRICK_NAME 		= "巫毒咒錐"
+		WANGAPRICK_DESC 		= "擊殺敵人時能使你立即持續幾秒的隱形，隱形期間可以攻擊敵人且連殺可以維持隱形，無法使用偽裝."
+		//
+		SHARPDRESSER_NAME 		= "刺客袖劍"
+		SHARPDRESSER_DESC 		= "背刺能造成爆炸，對周圍的敵人造成額外傷害."
+		//
+		SPYCICLE_NAME 			= "寒冽冰錐"
+		SPYCICLE_DESC 			= "空揮能讓你躍至空中從而進行空中背刺, 但你無法偽裝. 背刺巨型機器人能造成高額傷害."
+		///
+		INVISWATCH_NAME 		= "隱形手錶"
+		INVISWATCH_DESC 		= "無限隱形時間, +10%移動速度."
+		//
+		DEADRINGER_NAME 		= "死亡送終者"
+		DEADRINGER_DESC 		= "啟動時短暫獲得高額移動速度，允許你往任何方向衝刺，衝刺時受到的傷害減少80%."
+		//
+		CLOAKANDDAGGER_NAME		= "隱身匕首"
+		CLOAKANDDAGGER_DESC		= "能立即進入並解除隱形."
+		//----------------------------
+		//----------------------------
+		//----------------------------
+		FRYINGPAN_NAME 				= "油炸平底鍋"
+		FRYINGPAN_DESC 				= "對和你相同職業的目標造成30倍傷害同時擊殺時獲得暴擊."
+		//
+		SAXXY_NAME 					= "薩氏金像獎小金人"
+		SAXXY_DESC 					= "對和你相同職業的目標造成30倍傷害同時擊殺時獲得暴擊."
+		//
+		MEMORYMAKER_NAME 			= "過往回憶"
+		MEMORYMAKER_DESC			= "對和你相同職業的目標造成30倍傷害同時擊殺時獲得暴擊."
+		//
+		CONOBJECTOR_NAME			= "良心反對者的舉牌"
+		CONOBJECTOR_DESC			= "每擊殺10個敵人，隨機抽出一個魔咒 (需要裝備魔法書)."
+		//
+		FREEDOMSTAFF_NAME 			= "自由權杖"
+		FREEDOMSTAFF_DESC 			= "受到傷害時小幾率閃避此次傷害並獲得3秒無敵."
+		//
+		BATOUTTAHELL_NAME 			= "地獄骨杖"
+		BATOUTTAHELL_DESC 			= "使用時使你免疫所有傷害且獲得高額超量治療, 但極度提升受到的擊退."
+		//
+		HAMSHANK_NAME 				= "帶骨火腿肉"
+		HAMSHANK_DESC 				= "特殊技: '強力再生' -  當可用時，按下動作鍵可獲得10倍的超量治療且在20秒內免疫擊退."
+		//
+		NECROSMASHER_NAME 			= "滅絕之錘"
+		NECROSMASHER_DESC 			= "特殊技: '肇事屠宰' -  當可用時，按下動作鍵以進入碰碰車模式，在該模式下獲得無敵，生命恢復且能碾過敵人		
+		//
+		CROSSINGGAURD_NAME 			= "此路不通"
+		CROSSINGGAURD_DESC 			= "獲得包含背刺在內的高額近戰抗性."
+		//
+		PRINNYMACHETE_NAME 			= "普利尼短刀"
+		PRINNYMACHETE_DESC 			= "實用工具 - 揮動武器能高速向前衝刺，免疫摔傷."
 		//------------------------------------
 	}
 	swedish = {
