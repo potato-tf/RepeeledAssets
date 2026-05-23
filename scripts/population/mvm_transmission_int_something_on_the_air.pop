@@ -11,78 +11,78 @@ WaveSchedule
 	CanBotsAttackWhileInSpawnRoom	no
 	FixedRespawnWaveTime	Yes
 	Advanced	1
-	NoRomevisionCosmetics 1  
-	TextPrintTime 0  
-	AllowBotExtraSlots 1  
-	RobotLimit 50  
-	PrecacheModel "models/bots/boss_bot/boss_tank_color.mdl"  
-	PrecacheModel "models/bots/boss_bot/boss_blimp.mdl"  
-	PrecacheModel "models/bots/boss_bot/boss_blimp_damage1.mdl"  
-	PrecacheModel "models/bots/boss_bot/boss_blimp_damage2.mdl"  
-	PrecacheModel "models/bots/boss_bot/boss_blimp_damage3.mdl"  
-	PrecacheModel "models/bots/boss_bot/boss_blimp_damage_explode.mdl"  
-	PrecacheModel "models/bots/boss_bot/boss_blimp_explode.mdl"  
-	PrecacheModel "models/brewstersmodels/little_nightmares_ii/the_viewer(1).mdl"  
-	PrecacheModel "models/brewstersmodels/little_nightmares_ii/the_viewer(2).mdl"  
-	PrecacheModel "models/brewstersmodels/little_nightmares_ii/the_viewer(3).mdl"  
-	PrecacheModel "models/brewstersmodels/little_nightmares_ii/the_viewer(4).mdl"  
-	PrecacheModel "models/brewstersmodels/little_nightmares_ii/the_viewer(5).mdl"  
-	PrecacheModel "models/brewstersmodels/little_nightmares_ii/the_viewer(6).mdl"  
-	PrecacheModel "models/brewstersmodels/little_nightmares_ii/television1.mdl"  
-	PrecacheModel "models/brewstersmodels/little_nightmares_ii/television2.mdl"  
-	PrecacheModel "models/brewstersmodels/little_nightmares_ii/television3.mdl"  
-	PrecacheModel "models/brewstersmodels/little_nightmares_ii/television(broken1).mdl"  
-	PrecacheModel "models/brewstersmodels/little_nightmares_ii/television(broken2).mdl"  
-	PrecacheModel "models/brewstersmodels/little_nightmares_ii/television(broken3).mdl"  
-	PrecacheModel "models/brewstersmodels/little_nightmares_ii/television(broken4).mdl"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/viewers.vmt"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/viewers.vtf"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/viewersn.vtf"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/viewersskin.vmt"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/viewersskin.vtf"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/viewersskin2.vmt"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/viewersskinglow.vtf"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/viewersskinn.vtf"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_antennae.vmt"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_antennae.vtf"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_base.vmt"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_base.vtf"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_basen.vtf"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tvapartment_tex1.vmt"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tvapartment_tex1.vtf"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tvapartment_tex1n.vtf"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tvapartment_tex2.vmt"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tvapartment_tex2.vtf"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tvapartment_tex2n.vtf"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_flicker1.vmt"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_flicker1.vtf"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_flicker2.vmt"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_flicker2.vtf"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_screen1.vmt"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_screen1.vtf"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_screen3.vmt"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_screen3.vtf"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tvscreen_screen1broke.vmt"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tvscreen_screen1d.vtf"  
-	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/albedotint.vtf"  
-	PrecacheSound "soda_viewers_swarm.mp3"  
-	PrecacheSound "soda_w1.mp3"  
-    PrecacheSound "soda_w2.mp3"  
-	PrecacheSound "soda_nostats.mp3"  
-    PrecacheSound "soda_w2end.mp3"  
-    PrecacheSound "soda_nyancat.mp3"  
-    PrecacheSound "soda_tf2contentcreator_gaslightingself.mp3"  
-	PrecacheSound "soda_w5subwave1.mp3"  
-    PrecacheSound "soda_w5subwave2intro.mp3"  
-	PrecacheSound "soda_w5subwave2.mp3"  
-    PrecacheSound "soda_w5subwave3intro.mp3"  
-    PrecacheSound "soda_w5subwave3.mp3"  
-    PrecacheSound "soda_w5subwave4intro.mp3"  
-	PrecacheSound "soda_w5subwave4.mp3"  
-    PrecacheSound "soda_w5end.mp3"  
-	PrecacheSound "soda_missinformation.mp3"  
-    PrecacheSound "soda_leastschizonfnplayers.mp3"  
-	ExtraTankPath  
+	NoRomevisionCosmetics 1
+	TextPrintTime 0
+	AllowBotExtraSlots 1
+	RobotLimit 50
+	PrecacheModel "models/bots/boss_bot/boss_tank_color.mdl"
+	PrecacheModel "models/bots/boss_bot/boss_blimp.mdl"
+	PrecacheModel "models/bots/boss_bot/boss_blimp_damage1.mdl"
+	PrecacheModel "models/bots/boss_bot/boss_blimp_damage2.mdl"
+	PrecacheModel "models/bots/boss_bot/boss_blimp_damage3.mdl"
+	PrecacheModel "models/bots/boss_bot/boss_blimp_damage_explode.mdl"
+	PrecacheModel "models/bots/boss_bot/boss_blimp_explode.mdl"
+	PrecacheModel "models/brewstersmodels/little_nightmares_ii/the_viewer(1).mdl"
+	PrecacheModel "models/brewstersmodels/little_nightmares_ii/the_viewer(2).mdl"
+	PrecacheModel "models/brewstersmodels/little_nightmares_ii/the_viewer(3).mdl"
+	PrecacheModel "models/brewstersmodels/little_nightmares_ii/the_viewer(4).mdl"
+	PrecacheModel "models/brewstersmodels/little_nightmares_ii/the_viewer(5).mdl"
+	PrecacheModel "models/brewstersmodels/little_nightmares_ii/the_viewer(6).mdl"
+	PrecacheModel "models/brewstersmodels/little_nightmares_ii/television1.mdl"
+	PrecacheModel "models/brewstersmodels/little_nightmares_ii/television2.mdl"
+	PrecacheModel "models/brewstersmodels/little_nightmares_ii/television3.mdl"
+	PrecacheModel "models/brewstersmodels/little_nightmares_ii/television(broken1).mdl"
+	PrecacheModel "models/brewstersmodels/little_nightmares_ii/television(broken2).mdl"
+	PrecacheModel "models/brewstersmodels/little_nightmares_ii/television(broken3).mdl"
+	PrecacheModel "models/brewstersmodels/little_nightmares_ii/television(broken4).mdl"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/viewers.vmt"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/viewers.vtf"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/viewersn.vtf"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/viewersskin.vmt"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/viewersskin.vtf"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/viewersskin2.vmt"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/viewersskinglow.vtf"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/viewersskinn.vtf"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_antennae.vmt"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_antennae.vtf"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_base.vmt"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_base.vtf"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_basen.vtf"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tvapartment_tex1.vmt"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tvapartment_tex1.vtf"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tvapartment_tex1n.vtf"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tvapartment_tex2.vmt"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tvapartment_tex2.vtf"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tvapartment_tex2n.vtf"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_flicker1.vmt"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_flicker1.vtf"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_flicker2.vmt"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_flicker2.vtf"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_screen1.vmt"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_screen1.vtf"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_screen3.vmt"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tv_screen3.vtf"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tvscreen_screen1broke.vmt"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/tvscreen_screen1d.vtf"
+	PrecacheGeneric "materials/models/brewstersmodels/littlenightmaresii/albedotint.vtf"
+	PrecacheSound "soda_viewers_swarm.mp3"
+	PrecacheSound "soda_w1.mp3"
+    PrecacheSound "soda_w2.mp3"
+	PrecacheSound "soda_nostats.mp3"
+    PrecacheSound "soda_w2end.mp3"
+    PrecacheSound "soda_nyancat.mp3"
+    PrecacheSound "soda_tf2contentcreator_gaslightingself.mp3"
+	PrecacheSound "soda_w5subwave1.mp3"
+    PrecacheSound "soda_w5subwave2intro.mp3"
+	PrecacheSound "soda_w5subwave2.mp3"
+    PrecacheSound "soda_w5subwave3intro.mp3"
+    PrecacheSound "soda_w5subwave3.mp3"
+    PrecacheSound "soda_w5subwave4intro.mp3"
+	PrecacheSound "soda_w5subwave4.mp3"
+    PrecacheSound "soda_w5end.mp3"
+	PrecacheSound "soda_missinformation.mp3"
+    PrecacheSound "soda_leastschizonfnplayers.mp3"
+	ExtraTankPath
 	{
 		Name	"blimppath"
 		Node	"-600 2040 500"
@@ -91,7 +91,7 @@ WaveSchedule
 		Node	"2600 -36 300"
 		Node	"440 -36 200"
 	}
-	ExtraTankPath  
+	ExtraTankPath
 	{
 		Name	"nyantankpath"
 		Node	"-600 2040 500"
@@ -121,7 +121,7 @@ WaveSchedule
 		Node	"800 -36 200"
 		Node	"440 -36 200"
 	}
-	ExtraSpawnPoint  
+	ExtraSpawnPoint
     {
         Name	"spawnbot_red1"
         TeamNum	3
@@ -129,15 +129,15 @@ WaveSchedule
         Y		"3948"
         Z		"132"
     }
-	ExtraSpawnPoint  
+	ExtraSpawnPoint
     {
         Name	"spawnbot_redhatch"
         TeamNum	3
 		X		"-400"
         Y		"0"
-        Z		"132"    
+        Z		"132"
     }
-	PointTemplates   
+	PointTemplates
 	{
 		Prop_Test
 		{
@@ -151,6 +151,7 @@ WaveSchedule
 				"Origin" "1100 -1280 64"
 				"Angles" "0 90 0"
 				//"DefaultAnim" "SwampFenceLoopC"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -161,6 +162,7 @@ WaveSchedule
 				"Origin" "1336 -1268 64"
 				"Angles" "0 90 0"
 				//"DefaultAnim" "WatchTVStandingUpsetLoopC"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -171,6 +173,7 @@ WaveSchedule
 				"Origin" "1234 -1100 64"
 				"Angles" "0 90 0"
 				//"DefaultAnim" "SwampFenceLoopB"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -181,6 +184,7 @@ WaveSchedule
 				"Origin" "955 -1322 64"
 				"Angles" "0 90 0"
 				//"DefaultAnim" "WatchTVStandingReallyUpsetLoopShort"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -191,6 +195,7 @@ WaveSchedule
 				"Origin" "776 -1249 64"
 				"Angles" "0 90 0"
 				//"DefaultAnim" "NoTVHandleLifeB"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -201,6 +206,7 @@ WaveSchedule
 				"Origin" "960 -1098 64"
 				"Angles" "0 90 0"
 				//"DefaultAnim" "SwampFenceLoopA"
+				"DisableBoneFollowers" "1"
 			}
 		}
 		Props_Hatch
@@ -214,6 +220,7 @@ WaveSchedule
 				"Origin" "-406 137 64"
 				"Angles" "0 90 0"
 				//"DefaultAnim" "StandIdle"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -222,6 +229,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "-370 215 64"
 				"Angles" "0 -90 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -230,6 +238,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "-414 215 64"
 				"Angles" "0 -90 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -239,6 +248,7 @@ WaveSchedule
 				"Origin" "-401 214 92"
 				"Angles" "0 -90 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -247,6 +257,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1159 914 -15"
 				"Angles" "0 90 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -255,6 +266,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1164 1118 -15"
 				"Angles" "0 -90 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -264,6 +276,7 @@ WaveSchedule
 				"Origin" "1164 1118 27"
 				"Angles" "0 -90 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -272,6 +285,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1149 593 -15"
 				"Angles" "0 90 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -280,6 +294,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "299 965 64"
 				"Angles" "0 0 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -288,6 +303,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "-131 -943 200"
 				"Angles" "0 90 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -296,6 +312,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "673 -969 64"
 				"Angles" "0 0 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -305,6 +322,7 @@ WaveSchedule
 				"Origin" "1370 -937 64"
 				"Angles" "0 -130 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -313,6 +331,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1379 -888 64"
 				"Angles" "0 160 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -321,6 +340,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1431 -875 64"
 				"Angles" "0 90 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -329,6 +349,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1393 -1022 176"
 				"Angles" "0 -150 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -337,6 +358,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1436 -1018 176"
 				"Angles" "0 140 0"
+				"DisableBoneFollowers" "1"
 			}
 		}
 		Props_Middle
@@ -348,6 +370,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1820 -250 64"
 				"Angles" "0 130 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -356,6 +379,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1578 243 138"
 				"Angles" "0 -75 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -364,6 +388,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1592 281 138"
 				"Angles" "0 -20 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -372,6 +397,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1559 285 138"
 				"Angles" "0 -10 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -380,6 +406,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "2082 218 64"
 				"Angles" "0 180 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -389,6 +416,7 @@ WaveSchedule
 				"Origin" "2829 260 64"
 				"Angles" "0 145 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -397,6 +425,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "2095 1046 64"
 				"Angles" "0 90 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -406,6 +435,7 @@ WaveSchedule
 				"Origin" "2093 1125 112"
 				"Angles" "0 -90 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -414,6 +444,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "2900 1288 260"
 				"Angles" "0 90 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -423,6 +454,7 @@ WaveSchedule
 				"Origin" "2900 1390 260"
 				"Angles" "0 -90 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -431,6 +463,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "2720 1765 64"
 				"Angles" "0 180 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -439,6 +472,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1640 1690 11"
 				"Angles" "0 45 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -447,6 +481,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1640 2283 -32"
 				"Angles" "0 -60 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -455,6 +490,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "2073 2583 64"
 				"Angles" "0 45 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -463,6 +499,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "3241 2455 192"
 				"Angles" "0 130 0"
+				"DisableBoneFollowers" "1"
 			}
 		}
 		Props_OutOfBounds
@@ -474,6 +511,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "3489 99 260"
 				"Angles" "0 30 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -482,6 +520,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "3489 162 260"
 				"Angles" "0 -30 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -490,6 +529,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "3573 130 260"
 				"Angles" "0 180 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -499,6 +539,7 @@ WaveSchedule
 				"Origin" "3573 130 302"
 				"Angles" "0 180 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -507,6 +548,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "3346 751 260"
 				"Angles" "0 30 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -515,6 +557,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "3346 814 260"
 				"Angles" "0 -30 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -524,6 +567,7 @@ WaveSchedule
 				"Origin" "3414 777 326"
 				"Angles" "0 180 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -532,6 +576,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "3605 1924 332"
 				"Angles" "0 -30 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -541,6 +586,7 @@ WaveSchedule
 				"Origin" "3711 1876 364"
 				"Angles" "0 145 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 		}
 		Props_Around_Gate
@@ -552,6 +598,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "2913 4234 64"
 				"Angles" "0 60 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -561,6 +608,7 @@ WaveSchedule
 				"Origin" "2947 4319 120"
 				"Angles" "0 -90 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -569,6 +617,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "2940 4363 120"
 				"Angles" "0 -130 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -577,6 +626,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1739 3693 64"
 				"Angles" "0 130 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -585,6 +635,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1253 2992 212"
 				"Angles" "0 90 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -593,6 +644,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1208 2993 212"
 				"Angles" "0 90 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -601,6 +653,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1158 3502 64"
 				"Angles" "0 -150 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -609,6 +662,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "3121 2982 64"
 				"Angles" "0 0 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -618,6 +672,7 @@ WaveSchedule
 				"Origin" "3239 2982 172"
 				"Angles" "0 180 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -626,6 +681,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "3247 3036 64"
 				"Angles" "0 180 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -634,6 +690,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "2909 2875 64"
 				"Angles" "0 90 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -642,6 +699,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "2909 2875 106"
 				"Angles" "0 90 0"
+				"DisableBoneFollowers" "1"
 			}
 		}
 		Props_Inside_Gate
@@ -654,6 +712,7 @@ WaveSchedule
 				"Origin" "2445 5281 120"
 				"Angles" "0 -90 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -663,6 +722,7 @@ WaveSchedule
 				"Origin" "2694 5767 147"
 				"Angles" "0 -90 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -672,6 +732,7 @@ WaveSchedule
 				"Origin" "2816 5750 190"
 				"Angles" "0 -90 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -681,6 +742,7 @@ WaveSchedule
 				"Origin" "2671 5744 276"
 				"Angles" "0 -90 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -690,6 +752,7 @@ WaveSchedule
 				"Origin" "3112 5473 215"
 				"Angles" "0 -90 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -699,6 +762,7 @@ WaveSchedule
 				"Origin" "3157 5346 120"
 				"Angles" "0 -130 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -708,6 +772,7 @@ WaveSchedule
 				"Origin" "2126 5482 162"
 				"Angles" "0 -90 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -717,6 +782,7 @@ WaveSchedule
 				"Origin" "1957 5632 120"
 				"Angles" "0 -90 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -726,6 +792,7 @@ WaveSchedule
 				"Origin" "1758 5363 189"
 				"Angles" "0 -50 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 		}
 		Props_Botspawn
@@ -738,6 +805,7 @@ WaveSchedule
 				"Origin" "138 3023 352"
 				"Angles" "0 0 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -746,6 +814,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "126 2957 352"
 				"Angles" "0 -20 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -754,6 +823,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "130 3088 352"
 				"Angles" "0 20 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -762,6 +832,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "-864 1903 352"
 				"Angles" "0 -140 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -771,6 +842,7 @@ WaveSchedule
 				"Origin" "-926 1840 352"
 				"Angles" "0 30 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -779,6 +851,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "-191 2410 352"
 				"Angles" "0 90 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -788,6 +861,7 @@ WaveSchedule
 				"Origin" "-188 2501 352"
 				"Angles" "0 -90 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -796,6 +870,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "11 1702 176"
 				"Angles" "0 20 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -804,6 +879,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1695 1457 384"
 				"Angles" "0 180 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -812,6 +888,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1537 1182 384"
 				"Angles" "0 135 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -820,6 +897,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "1081 1753 176"
 				"Angles" "0 -60 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -829,6 +907,7 @@ WaveSchedule
 				"Origin" "1116 1700 254"
 				"Angles" "0 130 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -837,6 +916,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "547 4556 64"
 				"Angles" "0 180 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -846,6 +926,7 @@ WaveSchedule
 				"Origin" "467 4560 92"
 				"Angles" "0 0 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -854,6 +935,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "466 4541 64"
 				"Angles" "0 0 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -862,6 +944,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "469 4584 64"
 				"Angles" "0 -30 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -870,6 +953,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "78 3713 64"
 				"Angles" "0 -145 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -878,6 +962,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "78 3621 64"
 				"Angles" "0 145 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -886,6 +971,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "0 3648 64"
 				"Angles" "0 0 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -894,6 +980,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "0 3692 64"
 				"Angles" "0 0 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -902,6 +989,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "0 3648 92"
 				"Angles" "0 0 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -910,6 +998,7 @@ WaveSchedule
 				"disableshadows" "1"
 				"Origin" "0 3693 92"
 				"Angles" "0 0 0"
+				"DisableBoneFollowers" "1"
 			}
 			prop_dynamic
 			{
@@ -919,6 +1008,7 @@ WaveSchedule
 				"Origin" "0 3670 120"
 				"Angles" "0 0 0"
 				"body" 2
+				"DisableBoneFollowers" "1"
 			}
 		}
 		Music_W1
@@ -1358,7 +1448,7 @@ WaveSchedule
 			logic_timer
 			{
 				"targetname"    "tank_color_timer"
-				"RefireTime"    "0.05"            
+				"RefireTime"    "0.05"
 				"spawnflags"    "0"
 				"StartDisabled" "0"
 				"UseRandomTime" "0"
@@ -1369,7 +1459,7 @@ WaveSchedule
 				"targetname" "tank_color_state"
 				"startvalue" "1"
 				"min"        "1"
-				"max"        "3" 
+				"max"        "3"
 				"OnGetValue" "tank_color_changecase,InValue,,0,-1"
 			}
 			logic_case
@@ -1393,7 +1483,7 @@ WaveSchedule
 				"OnHitMax"      "tank_color_state,SetValueNoFire,2,0,-1"
 				"OnHitMax"      "!self,SetValueNoFire,0,0.01,-1"
 				"OnHitMax"      "!self,Disable,,0.02,-1"
-				"OnHitMax"      "tank_color_gb,Enable,,0.02,-1"                
+				"OnHitMax"      "tank_color_gb,Enable,,0.02,-1"
 			}
 			math_colorblend
 			{
@@ -1415,8 +1505,8 @@ WaveSchedule
 				"OutValue"      "tank_color_gb_blend,InValue,,0,-1"
 				"OnHitMax"      "tank_color_state,SetValueNoFire,3,0,-1"
 				"OnHitMax"      "!self,SetValueNoFire,0,0.01,-1"
-				"OnHitMax"      "!self,Disable,,0.02,-1"        
-				"OnHitMax"      "tank_color_br,Enable,,0.02,-1"    
+				"OnHitMax"      "!self,Disable,,0.02,-1"
+				"OnHitMax"      "tank_color_br,Enable,,0.02,-1"
 			}
 			math_colorblend
 			{
@@ -1439,7 +1529,7 @@ WaveSchedule
 				"OnHitMax"      "tank_color_state,SetValueNoFire,1,0,-1"
 				"OnHitMax"      "!self,SetValueNoFire,0,0.01,-1"
 				"OnHitMax"      "!self,Disable,,0.02,-1"
-				"OnHitMax"      "tank_color_rg,Enable,,0.02,-1"         
+				"OnHitMax"      "tank_color_rg,Enable,,0.02,-1"
 			}
 			math_colorblend
 			{
@@ -1627,24 +1717,25 @@ WaveSchedule
 				"Origin" "440 -36 64"
 				"Angles" "0 0 0"
 				"StartDisabled" "1"
+				"DisableBoneFollowers" "1"
 			}
 		}
 	}
-	SpawnTemplate Prop_Test  
-	SpawnTemplate Props_Hatch  
-	SpawnTemplate Props_Middle  
-	SpawnTemplate Props_OutOfBounds  
-	SpawnTemplate Props_Around_Gate  
-	SpawnTemplate Props_Inside_Gate  
-	SpawnTemplate Props_Botspawn  
-	SpawnTemplate Music_W1  
-	SpawnTemplate Music_W2  
-	SpawnTemplate Music_W3  
-	SpawnTemplate Music_W4  
-	SpawnTemplate Music_W5  
-	SpawnTemplate Music_W6  
-	SpawnTemplate ViewerSwarmAmbience  
-	SpawnTemplate MissInfo_Annotations  
+	SpawnTemplate Prop_Test
+	SpawnTemplate Props_Hatch
+	SpawnTemplate Props_Middle
+	SpawnTemplate Props_OutOfBounds
+	SpawnTemplate Props_Around_Gate
+	SpawnTemplate Props_Inside_Gate
+	SpawnTemplate Props_Botspawn
+	SpawnTemplate Music_W1
+	SpawnTemplate Music_W2
+	SpawnTemplate Music_W3
+	SpawnTemplate Music_W4
+	SpawnTemplate Music_W5
+	SpawnTemplate Music_W6
+	SpawnTemplate ViewerSwarmAmbience
+	SpawnTemplate MissInfo_Annotations
 	Templates
 	{
 		Inky_Scout
@@ -1750,7 +1841,7 @@ WaveSchedule
 			WeaponRestrictions PrimaryOnly
 			MaxVisionRange 1200
 			Tag bot_bombbot
-			Action FetchFlag  
+			Action FetchFlag
 		}
 		Inky_Giant_Shotgun_Engineer
 		{
@@ -1764,7 +1855,7 @@ WaveSchedule
 			MaxVisionRange 1200
 			Tag	bot_giant
 			Tag bot_bombbot
-			Action FetchFlag  
+			Action FetchFlag
 			ItemAttributes
 			{
 				ItemName "TF_WEAPON_SHOTGUN_PRIMARY"
@@ -1794,7 +1885,7 @@ WaveSchedule
 			MaxVisionRange 1200
 			Tag	bot_giant
 			Tag bot_bombbot
-			Action FetchFlag  
+			Action FetchFlag
 			ItemAttributes
 			{
 				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
@@ -1820,7 +1911,7 @@ WaveSchedule
 			MaxVisionRange 1200
 			Tag	bot_giant
 			Tag bot_bombbot
-			Action FetchFlag  
+			Action FetchFlag
 			CharacterAttributes
 			{
 				"airblast vulnerability multiplier" 0.3
@@ -1886,7 +1977,7 @@ WaveSchedule
 					Tag nav_prefer_gate1_flank
 					BehaviorModifiers push
 					Attributes IgnoreFlag
-					
+
 					Skill Normal
 					Item "The Direct Hit"
 					Attributes HoldFireUntilFullReload
@@ -1983,7 +2074,7 @@ WaveSchedule
 					Tag nav_prefer_gate1_upper
 					BehaviorModifiers push
 					Attributes IgnoreFlag
-					
+
 					Skill Normal
 					Item "The Loch-n-load"
 					Item "Scotch Bonnet"
@@ -2063,7 +2154,7 @@ WaveSchedule
 					Tag nav_prefer_gate1_flank
 					BehaviorModifiers push
 					Attributes IgnoreFlag
-					
+
 					Skill Easy
 					Item "The Brass Beast"
 					Item "Big Chief"
@@ -2248,9 +2339,9 @@ WaveSchedule
 			Item "Bonk Helm"
 			Attributes	HoldFireUntilFullReload
 			Tag bot_bombbot
-			RocketCustomModel "models/weapons/c_models/c_energy_drink/c_energy_drink.mdl"  
-			RocketCustomParticle eyeboss_projectile  
-			HomingRockets  
+			RocketCustomModel "models/weapons/c_models/c_energy_drink/c_energy_drink.mdl"
+			RocketCustomParticle eyeboss_projectile
+			HomingRockets
 			{
 				IgnoreDisguisedSpies 1
 				IgnoreStealthedSpies 1
@@ -2259,13 +2350,13 @@ WaveSchedule
 				MaxAimError 40
 				AimTime 3
 			}
-			AddCond  
+			AddCond
 			{
 				Index 36
 				Delay 0
 				Duration 88888888
 			}
-			AddCond  
+			AddCond
 			{
 				Index 14
 				Delay 0
@@ -2301,7 +2392,7 @@ WaveSchedule
 			ItemAttributes
 			{
 				ItemName "TF_WEAPON_GRENADELAUNCHER"
-				"custom projectile model" "models/weapons/c_models/c_energy_drink/c_energy_drink.mdl"  
+				"custom projectile model" "models/weapons/c_models/c_energy_drink/c_energy_drink.mdl"
 			}
 		}
 		MissInfo_Bottle_Demo
@@ -2315,8 +2406,8 @@ WaveSchedule
 			ItemAttributes
 			{
 				ItemName "TF_WEAPON_GRENADELAUNCHER"
-				"grenade explode on impact" 1  
-				"custom projectile model" "models/weapons/c_models/c_bottle/c_bottle.mdl"  
+				"grenade explode on impact" 1
+				"custom projectile model" "models/weapons/c_models/c_bottle/c_bottle.mdl"
 				"bleeding duration" 3
 			}
 		}
@@ -2348,7 +2439,7 @@ WaveSchedule
 			Item "The Freedom Staff"
 			Item "Summer Shades"
 			WeaponRestrictions MeleeOnly
-			AddCond  
+			AddCond
 			{
 				Index 14
 				Delay 0
@@ -2359,7 +2450,7 @@ WaveSchedule
 				ItemName	"Summer Shades"
 				"set item tint RGB"	5801378
 			}
-			ItemModel  
+			ItemModel
 			{
 				ItemName "The Freedom Staff"
 				Model "models/weapons/c_models/c_energy_drink/c_energy_drink.mdl"
@@ -2367,8 +2458,8 @@ WaveSchedule
 			ItemAttributes
 			{
 				ItemName "The Freedom Staff"
-				"add cond on hit" 14  
-				"add cond on hit duration" 1  
+				"add cond on hit" 14
+				"add cond on hit duration" 1
 			}
 		}
 		MissInfo_Sandvich_Heavy
@@ -2378,7 +2469,7 @@ WaveSchedule
 			Skill Expert
 			ClassIcon heavy_sandvich2_nys
 			Item "Mannvich"
-			UseCustomModel "models/player/heavy.mdl"  
+			UseCustomModel "models/player/heavy.mdl"
 			WeaponRestrictions MeleeOnly
 			Tag bot_bombbot
 			ItemAttributes
@@ -2499,7 +2590,7 @@ WaveSchedule
 			Item "The Bolt Boy"
 			Attributes MiniBoss
 			WeaponRestrictions MeleeOnly
-			RingOfFire 4  
+			RingOfFire 4
 			Tag bot_bombbot
 			Tag bot_giant
 			CharacterAttributes
@@ -2534,8 +2625,8 @@ WaveSchedule
 				"heal on hit for rapidfire" 0
 				"projectile spread angle penalty" 4
 				"Projectile speed increased" 0.5
-				"add cond on hit" 57  
-				"add cond on hit duration" 5  
+				"add cond on hit" 57
+				"add cond on hit duration" 5
 			}
 			CharacterAttributes
 			{
@@ -2609,7 +2700,7 @@ WaveSchedule
 			WeaponRestrictions PrimaryOnly
 			Tag bot_bombbot
 			Tag bot_giant
-			ItemModel  
+			ItemModel
 			{
 				ItemName "TF_WEAPON_FLAMETHROWER"
 				Model "models/workshop/weapons/c_models/c_drg_phlogistinator/c_drg_phlogistinator.mdl"
@@ -2642,11 +2733,11 @@ WaveSchedule
 			Item "The Bat Outta Hell"
 			Item "Shady Shelby"
 			Item "Zombie Sniper"
-			UseCustomModel "models/player/sniper.mdl"  
-			Skin 5  
+			UseCustomModel "models/player/sniper.mdl"
+			Skin 5
 			WeaponRestrictions MeleeOnly
 			Tag bot_bombbot
-			FireInput  
+			FireInput
 			{
 				Target !activator
 				Action RunScriptCode
@@ -2664,18 +2755,18 @@ WaveSchedule
 			Item "Hero's Tail"
 			Item "Unarmed Combat"
 			Item "Zombie Scout"
-			UseCustomModel "models/player/scout.mdl"  
-			Skin 5  
+			UseCustomModel "models/player/scout.mdl"
+			Skin 5
 			WeaponRestrictions MeleeOnly
 			Tag bot_bombbot
-			FireInput  
+			FireInput
 			{
 				Target !activator
 				Action RunScriptCode
 				Param "self.SetSkin(5)"
 				Delay 0.01
 			}
-			ItemColor  
+			ItemColor
 			{
 				ItemName "Hero's Tail"
 				Red 105
@@ -2699,19 +2790,19 @@ WaveSchedule
 			//Item "Friendly Item"
 			Item "The Bat Outta Hell"
 			Item "Zombie Demo"
-			UseCustomModel "models/player/demo.mdl"  
-			Skin 5  
+			UseCustomModel "models/player/demo.mdl"
+			Skin 5
 			WeaponRestrictions MeleeOnly
 			Attributes	HoldFireUntilFullReload
 			Tag bot_bombbot
-			FireInput  
+			FireInput
 			{
 				Target !activator
 				Action RunScriptCode
 				Param "self.SetSkin(5)"
 				Delay 0.01
 			}
-			WeaponSwitch  
+			WeaponSwitch
 			{
 				Delay 0
 				Cooldown 3
@@ -2719,7 +2810,7 @@ WaveSchedule
 				Type "Primary"
 				IfHealthBelow 191
 			}
-			FireWeapon  
+			FireWeapon
 			{
 				Delay 1
 				Cooldown 3
@@ -2727,7 +2818,7 @@ WaveSchedule
 				Type "Primary"
 				IfHealthBelow 191
 			}
-			WeaponSwitch  
+			WeaponSwitch
 			{
 				Delay 3
 				Cooldown 3
@@ -2744,8 +2835,8 @@ WaveSchedule
 				"dmg taken from fire reduced" 0.25
 				"dmg from melee increased" 0.25
 				"dmg taken from crit reduced" 0.1
-				"grenade explode on impact" 1  
-				"custom projectile model" "models/props_lab/monitor02.mdl"  
+				"grenade explode on impact" 1
+				"custom projectile model" "models/props_lab/monitor02.mdl"
 				"damage bonus" 2
 				"fire rate bonus" 5
 			}
@@ -2763,8 +2854,8 @@ WaveSchedule
 			Item "The Persian Persuader"
 			Item "Camera Helm"
 			Item "Zombie Demo"
-			UseCustomModel "models/player/demo.mdl"  
-			Skin 5  
+			UseCustomModel "models/player/demo.mdl"
+			Skin 5
 			WeaponRestrictions MeleeOnly
 			Tag bot_giant
 			Tag bot_bombbot
@@ -2781,14 +2872,14 @@ WaveSchedule
 				"damage bonus" 1.5
 				"cannot pick up intelligence"	1
 			}
-			FireInput  
+			FireInput
 			{
 				Target !activator
 				Action RunScriptCode
 				Param "self.SetSkin(5)"
 				Delay 0.01
 			}
-			ItemModel  
+			ItemModel
 			{
 				ItemName "The Persian Persuader"
 				Model "models/props_spytech/chair.mdl"
@@ -2806,25 +2897,25 @@ WaveSchedule
 			Item "White Russian"
 			Item "The Siberian Sophisticate"
 			Item "Zombie Heavy"
-			UseCustomModel "models/player/heavy.mdl"  
-			Skin 5  
+			UseCustomModel "models/player/heavy.mdl"
+			Skin 5
 			WeaponRestrictions MeleeOnly
 			Tag bot_giant
-			FireInput  
+			FireInput
 			{
 				Target !activator
 				Action RunScriptCode
 				Param "self.SetSkin(5)"
 				Delay 0.01
 			}
-			ItemColor  
+			ItemColor
 			{
 				ItemName "White Russian"
-				Red 231 
+				Red 231
 				Green 181
 				Blue 59
 			}
-			ItemModel  
+			ItemModel
 			{
 				ItemName "The Freedom Staff"
 				Model "models/weapons/c_models/c_bat.mdl"
@@ -2843,14 +2934,14 @@ WaveSchedule
 			Item "Prohibition Opposition"
 			Item "Unarmed Combat"
 			Item "Zombie Scout"
-			UseCustomModel "models/player/scout.mdl"  
-			Skin 5  
+			UseCustomModel "models/player/scout.mdl"
+			Skin 5
 			Attributes MiniBoss
 			Attributes DisableDodge
 			WeaponRestrictions MeleeOnly
 			Tag	bot_giant
-			Action Mobber  
-			FireInput  
+			Action Mobber
+			FireInput
 			{
 				Target !activator
 				Action RunScriptCode
@@ -2881,20 +2972,20 @@ WaveSchedule
 			Item "The Rotation Sensation"
 			Item "Crosshair Cardigan"
 			Item "Zombie Sniper"
-			UseCustomModel "models/player/sniper.mdl"  
-			Skin 4  
+			UseCustomModel "models/player/sniper.mdl"
+			Skin 4
 			MaxVisionRange 1200
 			WeaponRestrictions SecondaryOnly
 			Tag	bot_giant
-			Action Mobber  
-			FireInput  
+			Action Mobber
+			FireInput
 			{
 				Target !activator
 				Action RunScriptCode
 				Param "self.SetSkin(4)"
 				Delay 0.01
 			}
-			AddCond  
+			AddCond
 			{
 				Name "TF_COND_REPROGRAMMED"
 				Delay 0
@@ -2906,9 +2997,9 @@ WaveSchedule
 				"clip size penalty" 0.2
 				"maxammo secondary reduced" 0.66
 				"fire rate penalty" 4
-				"mod projectile heat seek power" 80  
-				"mod projectile heat aim error" 40  
-				"mod projectile heat aim time" 1  
+				"mod projectile heat seek power" 80
+				"mod projectile heat aim error" 40
+				"mod projectile heat aim time" 1
 				"set item tint RGB" 16738740
 				"override projectile type" 13
 			}
@@ -2934,18 +3025,18 @@ WaveSchedule
 			Attributes AlwaysCrit
 			Attributes MiniBoss
 			Item "Taunt: Unleashed Rage"
-			UseCustomModel "models/player/heavy.mdl"  
+			UseCustomModel "models/player/heavy.mdl"
 			WeaponRestrictions MeleeOnly
 			Tag	bot_giant
 			Tag	bot_bombbot
-			AlwaysGlow 1  
-			AddCond  
+			AlwaysGlow 1
+			AddCond
 			{
 				Index 52
 				Delay 0
 				Duration 88888888
 			}
-			Taunt  
+			Taunt
 			{
 				Delay 60
 				Cooldown 1
@@ -2962,7 +3053,7 @@ WaveSchedule
 				"fire rate bonus" 0.6
 				"dmg bonus vs buildings" 3
 				"bombinomicon effect on death" 1
-				"always allow taunt" 1  
+				"always allow taunt" 1
 			}
 		}
 		Schizo_Boss
@@ -2980,25 +3071,25 @@ WaveSchedule
 			Attributes AlwaysFireWeapon
 			Attributes DisableDodge
 			MaxVisionRange 1200
-			UseCustomModel "models/player/sniper.mdl"  
+			UseCustomModel "models/player/sniper.mdl"
 			WeaponRestrictions MeleeOnly
 			Tag	bot_giant
-			AlwaysGlow 1  
-			Action Mobber  
-			AddCond  
+			AlwaysGlow 1
+			Action Mobber
+			AddCond
 			{
 				Index 14
 				Delay 0
 				Duration 22
 			}
-			AddCond  
+			AddCond
 			{
 				Index 52
 				Delay 0
 				Duration 8
 				IfHealthBelow 35001
 			}
-			WeaponSwitch  
+			WeaponSwitch
 			{
 				Delay 0
 				Cooldown 3
@@ -3006,14 +3097,14 @@ WaveSchedule
 				Type "Secondary"
 				IfHealthBelow 35001
 			}
-			AddCond  
+			AddCond
 			{
 				Index 52
 				Delay 0
 				Duration 8
 				IfHealthBelow 20001
 			}
-			WeaponSwitch  
+			WeaponSwitch
 			{
 				Delay 0
 				Cooldown 3
@@ -3074,8 +3165,8 @@ WaveSchedule
 	}
 	Wave
 	{
-		CustomWaveNumber 1  
-		CustomMaxWaveNumber 5  
+		CustomWaveNumber 1
+		CustomMaxWaveNumber 5
 		WaitWhenDone	65
 		Checkpoint	Yes
 		StartWaveOutput
@@ -3083,7 +3174,7 @@ WaveSchedule
 			Target	wave_start_relay
 			Action	Trigger
 		}
-		InitWaveOutput  
+		InitWaveOutput
 		{
 			Target relaystopmusicw1
 			Action Trigger
@@ -3093,7 +3184,7 @@ WaveSchedule
 			Target	wave_finished_relay
 			Action	Trigger
 		}
-		Explanation  
+		Explanation
 		{
 			Line "{grey}Broadcaster{reset} : Greetings players, normally I wouldn't be getting others involved but this incident concerns you all as well."
 			Line "{grey}Broadcaster{reset} : While we've been performing preparations to broadcast the 2026 meme event, we discovered that some lifeform, we don't know what and we don't know why, has been hijacking this station."
@@ -3102,17 +3193,17 @@ WaveSchedule
 		}
 		WaveSpawn
 		{
-			FirstSpawnMessage "{yellow}Now playing: Eversion OST - World 6 Confusion"  
-			FirstSpawnOutput  
+			FirstSpawnMessage "{yellow}Now playing: Eversion OST - World 6 Confusion"
+			FirstSpawnOutput
 			{
 				Target relayplaymusicw1
 				Action Trigger
-			} 
+			}
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	1
-			FirstSpawnMessage "{yellow}https://www.youtube.com/watch?v=qgyoNoZ_Abo"  
+			FirstSpawnMessage "{yellow}https://www.youtube.com/watch?v=qgyoNoZ_Abo"
 		}
 		WaveSpawn
 		{
@@ -3130,7 +3221,7 @@ WaveSchedule
 				Name "Giant Demoman"
 				ClassIcon demo_giant
 				Tag	bot_giant
-				FireInput  
+				FireInput
 				{
 					Target "!self"
 					Action "$SetLocalOrigin"
@@ -3161,7 +3252,7 @@ WaveSchedule
 				Name "Giant Demoman"
 				ClassIcon demo_giant
 				Tag	bot_giant
-				FireInput  
+				FireInput
 				{
 					Target "!self"
 					Action "$SetLocalOrigin"
@@ -3192,7 +3283,7 @@ WaveSchedule
 				Name "Giant Demoman"
 				ClassIcon demo_giant
 				Tag	bot_giant
-				FireInput  
+				FireInput
 				{
 					Target "!self"
 					Action "$SetLocalOrigin"
@@ -3223,7 +3314,7 @@ WaveSchedule
 				Name "Giant Demoman"
 				ClassIcon demo_giant
 				Tag	bot_giant
-				FireInput  
+				FireInput
 				{
 					Target "!self"
 					Action "$SetLocalOrigin"
@@ -3252,7 +3343,7 @@ WaveSchedule
 				Skill Easy
 				Name "Giant Demoman"
 				ClassIcon demo_giant
-				FireInput  
+				FireInput
 				{
 					Target "!self"
 					Action "$SetLocalOrigin"
@@ -3282,7 +3373,7 @@ WaveSchedule
 				Skill Easy
 				Name "Giant Demoman"
 				ClassIcon demo_giant
-				FireInput  
+				FireInput
 				{
 					Target "!self"
 					Action "$SetLocalOrigin"
@@ -3334,7 +3425,7 @@ WaveSchedule
 				Template	Inky_Scout
 				Name "Steel Gauntlet"
 				ClassIcon heavy_steelfist
-				FireInput  
+				FireInput
 				{
 					Target "!self"
 					Action "$SetLocalOrigin"
@@ -3385,7 +3476,7 @@ WaveSchedule
 				Skill Normal
 				Name "Steel Gauntlet"
 				ClassIcon heavy_steelfist
-				FireInput  
+				FireInput
 				{
 					Target "!self"
 					Action "$SetLocalOrigin"
@@ -3414,7 +3505,7 @@ WaveSchedule
 				Template	Inky_Heavy
 				Name "Steel Gauntlet"
 				ClassIcon heavy_steelfist
-				FireInput  
+				FireInput
 				{
 					Target "!self"
 					Action "$SetLocalOrigin"
@@ -3446,7 +3537,7 @@ WaveSchedule
 				ClassIcon heavy_steelfist
 				WeaponRestrictions PrimaryOnly
 				MaxVisionRange 1200
-				Action FetchFlag  
+				Action FetchFlag
 				CharacterAttributes
 				{
 					"damage penalty" 0.1
@@ -3512,7 +3603,7 @@ WaveSchedule
 				Template	T_TFBot_Scout_Shortstop
 				Name "Pyro"
 				ClassIcon pyro
-				FireInput  
+				FireInput
 				{
 					Target "!self"
 					Action "$SetLocalOrigin"
@@ -3566,7 +3657,7 @@ WaveSchedule
 				Skill Easy
 				Name "Pyro"
 				ClassIcon pyro
-				FireInput  
+				FireInput
 				{
 					Target "!self"
 					Action "$SetLocalOrigin"
@@ -3626,7 +3717,7 @@ WaveSchedule
 				Skill Easy
 				MaxVisionRange 1200
 				Tag bot_bombbot
-				Action FetchFlag  
+				Action FetchFlag
 				CharacterAttributes
 				{
 					"damage penalty" 0.25
@@ -3655,14 +3746,14 @@ WaveSchedule
 				Skill Expert
 				MaxVisionRange 1200
 				Attributes AlwaysFireWeapon
-				Action Mobber  
-				AddCond  
+				Action Mobber
+				AddCond
 				{
 					Name "TF_COND_REPROGRAMMED"
 					Delay 0
 					Duration 88888888
 				}
-				AddCond  
+				AddCond
 				{
 					Index 52
 					Delay 0
@@ -3677,8 +3768,8 @@ WaveSchedule
 					"minicrits become crits" 1
 					"dmg pierces resists absorbs" 1
 					"cannot pick up intelligence"	1
-					"add cond on hit" 24  
-					"add cond on hit duration" 5  
+					"add cond on hit" 24
+					"add cond on hit duration" 5
 				}
 			}
 		}
@@ -3700,14 +3791,14 @@ WaveSchedule
 				Item "Night Vision Gawkers"
 				Skill Easy
 				MaxVisionRange 1200
-				Action Mobber  
-				AddCond  
+				Action Mobber
+				AddCond
 				{
 					Name "TF_COND_REPROGRAMMED"
 					Delay 0
 					Duration 88888888
 				}
-				AddCond  
+				AddCond
 				{
 					Index 52
 					Delay 0
@@ -3728,17 +3819,17 @@ WaveSchedule
 		WaveSpawn
 		{
 			WaitForAllDead wave1
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target relaystopmusicw1
 				Action Trigger
-			} 
+			}
 		}
 	}
 	Wave
 	{
-		CustomWaveNumber 1  
-		CustomMaxWaveNumber 3  
+		CustomWaveNumber 1
+		CustomMaxWaveNumber 3
 		WaitWhenDone	65
 		Checkpoint	Yes
 		StartWaveOutput
@@ -3746,7 +3837,7 @@ WaveSchedule
 			Target	wave_start_relay
 			Action	Trigger
 		}
-		InitWaveOutput  
+		InitWaveOutput
 		{
 			Target relaystopmusicw2
 			Action Trigger
@@ -3756,7 +3847,7 @@ WaveSchedule
 			Target	wave_finished_relay
 			Action	Trigger
 		}
-		Explanation  
+		Explanation
 		{
 			Line "{grey}Broadcaster{reset} : Alright, you can handle waves that dissociate from what is being previewed."
 			Line "{grey}Broadcaster{reset} : Speaking of previews, it appears this one is going to be a reboot and remix of previously existing meme mission waves."
@@ -3787,11 +3878,11 @@ WaveSchedule
 		{
 			WaitForAllDead 2c
 			FirstSpawnWarningSound "soda_w2end.mp3"
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target relaystopmusicw2
 				Action Trigger
-			} 
+			}
 		}
 		WaveSpawn
 		{
@@ -4044,8 +4135,8 @@ WaveSchedule
 				Template	T_TFBot_Soldier_Buff_Fixed
 				Skill Expert
 				ClassIcon	uno_reverse
-				Action Mobber  
-				AddCond  
+				Action Mobber
+				AddCond
 				{
 					Name "TF_COND_REPROGRAMMED"
 					Delay 0
@@ -4075,8 +4166,8 @@ WaveSchedule
 				Template	T_TFBot_Soldier_Backup_Fixed
 				Skill Expert
 				ClassIcon	uno_reverse
-				Action Mobber  
-				AddCond  
+				Action Mobber
+				AddCond
 				{
 					Name "TF_COND_REPROGRAMMED"
 					Delay 0
@@ -4106,8 +4197,8 @@ WaveSchedule
 				Template	T_TFBot_Soldier_Conch_Fixed
 				Skill Expert
 				ClassIcon	uno_reverse
-				Action Mobber  
-				AddCond  
+				Action Mobber
+				AddCond
 				{
 					Name "TF_COND_REPROGRAMMED"
 					Delay 0
@@ -4137,14 +4228,14 @@ WaveSchedule
 				Template	T_TFBot_Soldier_Buff_Fixed
 				Skill Expert
 				ClassIcon	uno_reverse
-				Action Mobber  
-				AddCond  
+				Action Mobber
+				AddCond
 				{
 					Name "TF_COND_REPROGRAMMED"
 					Delay 0
 					Duration 88888888
 				}
-				AddCond  
+				AddCond
 				{
 					Index 52
 					Delay 0
@@ -4173,14 +4264,14 @@ WaveSchedule
 				Template	T_TFBot_Soldier_Backup_Fixed
 				Skill Expert
 				ClassIcon	uno_reverse
-				Action Mobber  
-				AddCond  
+				Action Mobber
+				AddCond
 				{
 					Name "TF_COND_REPROGRAMMED"
 					Delay 0
 					Duration 88888888
 				}
-				AddCond  
+				AddCond
 				{
 					Index 52
 					Delay 0
@@ -4209,14 +4300,14 @@ WaveSchedule
 				Template	T_TFBot_Soldier_Conch_Fixed
 				Skill Expert
 				ClassIcon	uno_reverse
-				Action Mobber  
-				AddCond  
+				Action Mobber
+				AddCond
 				{
 					Name "TF_COND_REPROGRAMMED"
 					Delay 0
 					Duration 88888888
 				}
-				AddCond  
+				AddCond
 				{
 					Index 52
 					Delay 0
@@ -4233,23 +4324,23 @@ WaveSchedule
 		}
 		WaveSpawn
 		{
-			FirstSpawnMessage "{yellow}Now playing: Free Association - d3molish"  
-			FirstSpawnOutput  
+			FirstSpawnMessage "{yellow}Now playing: Free Association - d3molish"
+			FirstSpawnOutput
 			{
 				Target relayplaymusicw2
 				Action Trigger
-			} 
+			}
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	1
-			FirstSpawnMessage "{yellow}https://www.youtube.com/watch?v=kufyVEphH7g"  
+			FirstSpawnMessage "{yellow}https://www.youtube.com/watch?v=kufyVEphH7g"
 		}
 	}
 	Wave
 	{
-		CustomWaveNumber 1  
-		CustomMaxWaveNumber 2  
+		CustomWaveNumber 1
+		CustomMaxWaveNumber 2
 		WaitWhenDone	65
 		Checkpoint	Yes
 		StartWaveOutput
@@ -4262,7 +4353,7 @@ WaveSchedule
 			Target	wave_finished_relay
 			Action	Trigger
 		}
-		Explanation  
+		Explanation
 		{
 			Line "{grey}Broadcaster{reset} : A wave of just tanks and blimps?"
 			Line "{grey}Broadcaster{reset} : This seems too normal, there must be something that will happen."
@@ -4282,14 +4373,14 @@ WaveSchedule
 				Speed	100
 				Skin	1
 				StartingPathTrackNode	tank_path
-				DisableSmokestack 1  
-                Classicon blimp2_lite  
-				Model "models/bots/boss_bot/boss_blimp.mdl"  
-				DisableChildModels 1  
-                DisableTracks 1  
-				ReplaceModelCollisions 1  
-				EngineLoopSound "npc/combine_gunship/dropship_engine_distant_loop1.wav"  
-                PingSound "npc/combine_gunship/ping_search.wav"  
+				DisableSmokestack 1
+                Classicon blimp2_lite
+				Model "models/bots/boss_bot/boss_blimp.mdl"
+				DisableChildModels 1
+                DisableTracks 1
+				ReplaceModelCollisions 1
+				EngineLoopSound "npc/combine_gunship/dropship_engine_distant_loop1.wav"
+                PingSound "npc/combine_gunship/ping_search.wav"
 				OnKilledOutput
 				{
 					Target	boss_dead_relay
@@ -4314,8 +4405,8 @@ WaveSchedule
 				Health	20000
 				Name	tankboss
 				Speed	75
-				StartingPathTrackNode	blimppath_1  
-                Gravity 0  
+				StartingPathTrackNode	blimppath_1
+                Gravity 0
 				OnKilledOutput
 				{
 					Target	boss_dead_relay
@@ -4331,27 +4422,27 @@ WaveSchedule
 			{
 				Target tank_door
 				Action open
-			} 
+			}
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	5
-			FirstSpawnMessage "{grey}Broadcaster{reset} : I don't trust this, this wave has to be more than swapped places."  
+			FirstSpawnMessage "{grey}Broadcaster{reset} : I don't trust this, this wave has to be more than swapped places."
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	10
-			FirstSpawnMessage "{grey}Broadcaster{reset} : If this is a WaitForAllDead subwave, maybe something unorthodox will show up."  
+			FirstSpawnMessage "{grey}Broadcaster{reset} : If this is a WaitForAllDead subwave, maybe something unorthodox will show up."
 		}
 		WaveSpawn
 		{
 			WaitForAllDead 3a
 			WaitBeforeStarting	4.5
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target relayplaymusicw3
 				Action Trigger
-			} 
+			}
 		}
 		WaveSpawn
 		{
@@ -4367,10 +4458,10 @@ WaveSchedule
 				Health	8000
 				Name	tankboss
 				Speed	400
-				StartingPathTrackNode	nyantankpath_1  
-                Gravity 0  
-				SpawnTemplate NyanTank  
-				Model "models/bots/boss_bot/boss_tank_color.mdl"  
+				StartingPathTrackNode	nyantankpath_1
+                Gravity 0
+				SpawnTemplate NyanTank
+				Model "models/bots/boss_bot/boss_tank_color.mdl"
 				OnKilledOutput
 				{
 					Target	boss_dead_relay
@@ -4397,10 +4488,10 @@ WaveSchedule
 				Health	5000
 				Name	rngtankboss
 				Speed	400
-				StartingPathTrackNode	nyantankpath_1  
-                Gravity 0  
-				SpawnTemplate NyanTankTrail  
-				Model "models/bots/boss_bot/boss_tank_color.mdl"  
+				StartingPathTrackNode	nyantankpath_1
+                Gravity 0
+				SpawnTemplate NyanTankTrail
+				Model "models/bots/boss_bot/boss_tank_color.mdl"
 				OnKilledOutput
 				{
 					Target	boss_dead_relay
@@ -4427,9 +4518,9 @@ WaveSchedule
 				Health	5000
 				Name	rngtankboss
 				Speed	400
-				StartingPathTrackNode	nyantankpath_1  
-                Gravity 0  
-				Model "models/bots/boss_bot/boss_tank_color.mdl"  
+				StartingPathTrackNode	nyantankpath_1
+                Gravity 0
+				Model "models/bots/boss_bot/boss_tank_color.mdl"
 				OnKilledOutput
 				{
 					Target	boss_dead_relay
@@ -4457,10 +4548,10 @@ WaveSchedule
 				Health	5000
 				Name	rngtankboss
 				Speed	400
-				StartingPathTrackNode	nyantankpath_1  
-				Classicon blimp2_lite  
-                Gravity 0  
-				Model "models/bots/boss_bot/boss_tank_color.mdl"  
+				StartingPathTrackNode	nyantankpath_1
+				Classicon blimp2_lite
+                Gravity 0
+				Model "models/bots/boss_bot/boss_tank_color.mdl"
 				OnKilledOutput
 				{
 					Target	boss_dead_relay
@@ -4477,35 +4568,35 @@ WaveSchedule
 		{
 			WaitForAllDead 3a
 			WaitBeforeStarting	10
-			FirstSpawnMessage "{grey}Broadcaster{reset} : Not the meme I expected, but still called it."  
+			FirstSpawnMessage "{grey}Broadcaster{reset} : Not the meme I expected, but still called it."
 		}
 		WaveSpawn
 		{
 			WaitForAllDead 3a
 			WaitBeforeStarting	15
-			FirstSpawnMessage "{grey}Broadcaster{reset} : Also if you don't know what this is, I fear that many internet communities may use this as an excuse to exile you."  
+			FirstSpawnMessage "{grey}Broadcaster{reset} : Also if you don't know what this is, I fear that many internet communities may use this as an excuse to exile you."
 		}
 		WaveSpawn
 		{
 			WaitForAllDead 3a
 			WaitBeforeStarting	20
-			FirstSpawnMessage "{yellow}But here is the source anyway: https://www.youtube.com/watch?v=2yJgwwDcgV8"  
+			FirstSpawnMessage "{yellow}But here is the source anyway: https://www.youtube.com/watch?v=2yJgwwDcgV8"
 		}
 		WaveSpawn
 		{
 			WaitForAllDead 3b
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target relaystopmusicw3
 				Action Trigger
-			} 
+			}
 		}
 	}
 	Wave
 	{
-		CustomWaveNumber 2  
-		CustomMaxWaveNumber 3  
-		RedTeamWipeCausesWaveLoss 1  
+		CustomWaveNumber 2
+		CustomMaxWaveNumber 3
+		RedTeamWipeCausesWaveLoss 1
 		WaitWhenDone	65
 		Checkpoint	Yes
 		StartWaveOutput
@@ -4513,7 +4604,7 @@ WaveSchedule
 			Target	wave_start_relay
 			Action	Trigger
 		}
-		InitWaveOutput  
+		InitWaveOutput
 		{
 			Target relaystopmusicw4
 			Action Trigger
@@ -4523,7 +4614,7 @@ WaveSchedule
 			Target	wave_finished_relay
 			Action	Trigger
 		}
-		Explanation  
+		Explanation
 		{
 			Line "{grey}Broadcaster{reset} : Now it is empty. Is this an intentional empty wave, a wave where the bot icons are hidden?"
 			Line "{grey}Broadcaster{reset} : Wait maybe this could be one of those cutscene waves that provides explanation."
@@ -4574,9 +4665,9 @@ WaveSchedule
 						WeaponRestrictions PrimaryOnly
 						MaxVisionRange 1200
 						Tag	bot_giant
-						Action Mobber  
-						UseCustomModel "models/player/engineer.mdl"  
-						AddCond  
+						Action Mobber
+						UseCustomModel "models/player/engineer.mdl"
+						AddCond
 						{
 							Name "TF_COND_REPROGRAMMED"
 							Delay 0
@@ -4632,7 +4723,7 @@ WaveSchedule
 						WeaponRestrictions MeleeOnly
 						Attributes AlwaysCrit
 						Name "Workshop Downvoter"
-						UseCustomModel "models/player/scout.mdl"  
+						UseCustomModel "models/player/scout.mdl"
 					}
 					TFBot
 					{
@@ -4641,13 +4732,13 @@ WaveSchedule
 						WeaponRestrictions MeleeOnly
 						Attributes AlwaysCrit
 						Name "Workshop Downvoter"
-						UseCustomModel "models/player/scout.mdl"  
+						UseCustomModel "models/player/scout.mdl"
 					}
 					TFBot
 					{
 						Template	Inky_Scout
 						Name "Workshop Downvoter"
-						UseCustomModel "models/player/scout.mdl"  
+						UseCustomModel "models/player/scout.mdl"
 					}
 					TFBot
 					{
@@ -4655,14 +4746,14 @@ WaveSchedule
 						Skill Easy
 						Attributes	AlwaysFireWeapon
 						Name "Workshop Flamer"
-						UseCustomModel "models/player/pyro.mdl"  
+						UseCustomModel "models/player/pyro.mdl"
 					}
 					TFBot
 					{
 						Class Pyro
 						Skill Easy
 						Name "Workshop Flamer"
-						UseCustomModel "models/player/pyro.mdl"  
+						UseCustomModel "models/player/pyro.mdl"
 					}
 				}
 			}
@@ -4687,7 +4778,7 @@ WaveSchedule
 						Template	Inky_Soldier
 						Name "Obeying Livestock"
 						Item "The Beggar's Bazooka"
-						UseCustomModel "models/player/soldier.mdl"  
+						UseCustomModel "models/player/soldier.mdl"
 						ItemAttributes
 						{
 							ItemName "The Beggar's Bazooka"
@@ -4699,7 +4790,7 @@ WaveSchedule
 					{
 						Template	Inky_Kritz_Medic
 						Name "Blind Follower"
-						UseCustomModel "models/player/medic.mdl"  
+						UseCustomModel "models/player/medic.mdl"
 					}
 				}
 			}
@@ -4724,13 +4815,13 @@ WaveSchedule
 						Template	Inky_Heavy
 						Name "Obeying Livestock"
 						Item "The Brass Beast"
-						UseCustomModel "models/player/heavy.mdl"  
+						UseCustomModel "models/player/heavy.mdl"
 					}
 					TFBot
 					{
 						Template	Inky_Kritz_Medic
 						Name "Blind Follower"
-						UseCustomModel "models/player/medic.mdl"  
+						UseCustomModel "models/player/medic.mdl"
 					}
 				}
 			}
@@ -4757,7 +4848,7 @@ WaveSchedule
 						Name "Obeying Livestock"
 						Item "The Scottish Resistance"
 						WeaponRestrictions SecondaryOnly
-						UseCustomModel "models/player/demo.mdl"  
+						UseCustomModel "models/player/demo.mdl"
 						CharacterAttributes
 						{
 							"stickybomb charge rate" 0.1
@@ -4768,148 +4859,148 @@ WaveSchedule
 					{
 						Template	Inky_Kritz_Medic
 						Name "Blind Follower"
-						UseCustomModel "models/player/medic.mdl"  
+						UseCustomModel "models/player/medic.mdl"
 					}
 				}
 			}
 		}
 		WaveSpawn
 		{
-			FirstSpawnMessage "{yellow}Now playing: https://www.youtube.com/watch?v=W5QsFYLmWuE&t=137s"  
+			FirstSpawnMessage "{yellow}Now playing: https://www.youtube.com/watch?v=W5QsFYLmWuE&t=137s"
 		}
 		WaveSpawn
 		{
-			FirstSpawnMessage "{red}TF2 Workshop Creator{reset} : That's impossible, that's not how TF2 works."  
-			FirstSpawnOutput  
+			FirstSpawnMessage "{red}TF2 Workshop Creator{reset} : That's impossible, that's not how TF2 works."
+			FirstSpawnOutput
 			{
 				Target relayplaymusicw4
 				Action Trigger
-			} 
+			}
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	2.5
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : Don't you understand?!"  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : Don't you understand?!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	3.5
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : I have so many subscribers!"  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : I have so many subscribers!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	6
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : Which means I know exactly how TF2 works!"  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : Which means I know exactly how TF2 works!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	8
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : And what the playerbase really need!"  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : And what the playerbase really need!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	11
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : They want Dustbowl artpass maps."  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : They want Dustbowl artpass maps."
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	12.5
-			FirstSpawnMessage "{blue}Workshop Downvoters{reset} : YEAH!"  
+			FirstSpawnMessage "{blue}Workshop Downvoters{reset} : YEAH!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	13.5
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : Cosmetics that fit with the characters' profession."  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : Cosmetics that fit with the characters' profession."
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	15
-			FirstSpawnMessage "{blue}Workshop Downvoters{reset} : YEAH!"  
+			FirstSpawnMessage "{blue}Workshop Downvoters{reset} : YEAH!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	16
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : And VAC bans for anyone with porn decals."  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : And VAC bans for anyone with porn decals."
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	18.5
-			FirstSpawnMessage "{blue}Workshop Downvoters{reset} : uh..."  
+			FirstSpawnMessage "{blue}Workshop Downvoters{reset} : uh..."
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	21
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : TF2 is a free game, boy!"  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : TF2 is a free game, boy!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	23
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : Free, but with thousands of rules and regulations!"  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : Free, but with thousands of rules and regulations!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	27.5
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : To keep malicious emporiums like you in line!"  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : To keep malicious emporiums like you in line!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	31.5
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : If you don't like it?"  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : If you don't like it?"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	33.5
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : Move to CS2."  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : Move to CS2."
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	35
-			FirstSpawnMessage "{red}TF2 Workshop Creator{reset} : But I don't make maps for monetary gain!"  
+			FirstSpawnMessage "{red}TF2 Workshop Creator{reset} : But I don't make maps for monetary gain!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	37
-			FirstSpawnMessage "{red}TF2 Workshop Creator{reset} : I just upload them so others can enjoy my creations!"  
+			FirstSpawnMessage "{red}TF2 Workshop Creator{reset} : I just upload them so others can enjoy my creations!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	40.5
-			FirstSpawnMessage "{red}TF2 Workshop Creator{reset} : We just want a sensible discussion of the issue!"  
+			FirstSpawnMessage "{red}TF2 Workshop Creator{reset} : We just want a sensible discussion of the issue!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	43
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : Oh, you are nothing short of a disgrace!"  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : Oh, you are nothing short of a disgrace!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	46.5
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : If peaceful protest won't change your mind!"  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : If peaceful protest won't change your mind!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	49
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : We're going to have to solve this, the old-fashioned way!"  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : We're going to have to solve this, the old-fashioned way!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	53
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : With Mind...!"  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : With Mind...!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	54.5
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : Bending!"  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : Bending!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	55.5
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : ENTITLED!"  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : ENTITLED!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	57
-			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : {red}I M P O T E N T   R A G E !{reset}"  
+			FirstSpawnMessage "{blue}TF2 Content Creator{reset} : {red}I M P O T E N T   R A G E !{reset}"
 		}
 		WaveSpawn
 		{
@@ -4940,11 +5031,11 @@ WaveSchedule
 		{
 			WaitBeforeStarting	62
 			FirstSpawnWarningSound "ambient\machines\wall_crash1.wav"
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target relaystopmusicw4
 				Action Trigger
-			} 
+			}
 		}
 	}
 	Wave
@@ -4956,7 +5047,7 @@ WaveSchedule
 			Target	wave_start_relay
 			Action	Trigger
 		}
-		InitWaveOutput  
+		InitWaveOutput
 		{
 			Target relaystopmusicw5all
 			Action Trigger
@@ -4966,7 +5057,7 @@ WaveSchedule
 			Target	wave_finished_relay
 			Action	Trigger
 		}
-		Explanation  
+		Explanation
 		{
 			Line "{grey}Broadcaster{reset} : And that person just kamikazed themself, but it seems that their existance was just a decoy."
 			Line "{grey}Broadcaster{reset} : Luckily that means we are getting close to who's really behind the hijackings."
@@ -4975,33 +5066,33 @@ WaveSchedule
 		}
 		WaveSpawn
 		{
-			FirstSpawnMessage "{yellow}Now playing: PvZ2c OST - Zcorp"  
-			FirstSpawnOutput  
+			FirstSpawnMessage "{yellow}Now playing: PvZ2c OST - Zcorp"
+			FirstSpawnOutput
 			{
 				Target relayplaymusicw5a
 				Action Trigger
-			} 
+			}
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	1
-			FirstSpawnMessage "{yellow}https://www.youtube.com/watch?v=hL5-xKwNyq0"  
+			FirstSpawnMessage "{yellow}https://www.youtube.com/watch?v=hL5-xKwNyq0"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	5
-			FirstSpawnMessage "(Source TV) Basil : 2c? No way, 2 shitties reference"  
+			FirstSpawnMessage "(Source TV) Basil : 2c? No way, 2 shitties reference"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	12
-			FirstSpawnMessage "(Source TV) Basil : Fourth best tour for Australium weapons"  
+			FirstSpawnMessage "(Source TV) Basil : Fourth best tour for Australium weapons"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	15
 			Support	Limited
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target annotation1
 				Action Show
@@ -5011,7 +5102,7 @@ WaveSchedule
 		{
 			WaitBeforeStarting	30
 			Support	Limited
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target annotation2
 				Action Show
@@ -5021,7 +5112,7 @@ WaveSchedule
 		{
 			WaitBeforeStarting	45
 			Support	Limited
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target annotation3
 				Action Show
@@ -5031,7 +5122,7 @@ WaveSchedule
 		{
 			WaitBeforeStarting	60
 			Support	Limited
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target annotation4
 				Action Show
@@ -5041,7 +5132,7 @@ WaveSchedule
 		{
 			WaitBeforeStarting	75
 			Support	Limited
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target annotation5
 				Action Show
@@ -5051,7 +5142,7 @@ WaveSchedule
 		{
 			WaitBeforeStarting	90
 			Support	Limited
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target annotation6
 				Action Show
@@ -5061,7 +5152,7 @@ WaveSchedule
 		{
 			WaitBeforeStarting	105
 			Support	Limited
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target annotation7
 				Action Show
@@ -5071,7 +5162,7 @@ WaveSchedule
 		{
 			WaitBeforeStarting	120
 			Support	Limited
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target annotation8
 				Action Show
@@ -5081,7 +5172,7 @@ WaveSchedule
 		{
 			WaitBeforeStarting	135
 			Support	Limited
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target annotation9
 				Action Show
@@ -5091,7 +5182,7 @@ WaveSchedule
 		{
 			WaitBeforeStarting	150
 			Support	Limited
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target annotation10
 				Action Show
@@ -5101,7 +5192,7 @@ WaveSchedule
 		{
 			WaitBeforeStarting	165
 			Support	Limited
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target annotation11
 				Action Show
@@ -5111,7 +5202,7 @@ WaveSchedule
 		{
 			WaitBeforeStarting	180
 			Support	Limited
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target annotation12
 				Action Show
@@ -5121,7 +5212,7 @@ WaveSchedule
 		{
 			WaitBeforeStarting	195
 			Support	Limited
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target annotation13
 				Action Show
@@ -5131,7 +5222,7 @@ WaveSchedule
 		{
 			WaitBeforeStarting	210
 			Support	Limited
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target annotation14
 				Action Show
@@ -5141,7 +5232,7 @@ WaveSchedule
 		{
 			WaitBeforeStarting	225
 			Support	Limited
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target annotation15
 				Action Show
@@ -5151,7 +5242,7 @@ WaveSchedule
 		{
 			WaitBeforeStarting	240
 			Support	Limited
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target annotation16
 				Action Show
@@ -5172,8 +5263,8 @@ WaveSchedule
 				Template	Inky_Soldier
 				Skill Expert
 				ClassIcon	red2_lite
-				Action Mobber  
-				AddCond  
+				Action Mobber
+				AddCond
 				{
 					Name "TF_COND_REPROGRAMMED"
 					Delay 0
@@ -5204,14 +5295,14 @@ WaveSchedule
 				Template	Inky_Natascha_Heavy
 				Skill Expert
 				ClassIcon	red2_lite
-				Action Mobber  
-				AddCond  
+				Action Mobber
+				AddCond
 				{
 					Name "TF_COND_REPROGRAMMED"
 					Delay 0
 					Duration 88888888
 				}
-				AddCond  
+				AddCond
 				{
 					Index 52
 					Delay 0
@@ -5295,21 +5386,21 @@ WaveSchedule
 		{
 			WaitForAllSpawned	5a
 			WaitBeforeStarting	10
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target relaystopmusicw5a
 				Action Trigger
-			} 
+			}
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned	5a
 			WaitBeforeStarting	10
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target relayplaymusicw5b
 				Action Trigger
-			} 
+			}
 		}
 		WaveSpawn
 		{
@@ -5469,21 +5560,21 @@ WaveSchedule
 		{
 			WaitForAllSpawned	5b2
 			WaitBeforeStarting	10
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target relaystopmusicw5b
 				Action Trigger
-			} 
+			}
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned	5b2
 			WaitBeforeStarting	10
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target relayplaymusicw5c
 				Action Trigger
-			} 
+			}
 		}
 		WaveSpawn
 		{
@@ -5587,8 +5678,8 @@ WaveSchedule
 			{
 				Template	Zcorp_Gargimp_Legal
 				Attributes DisableDodge
-				Action Mobber  
-				FireInput  
+				Action Mobber
+				FireInput
 				{
 					Target "!self"
 					Action "$SetLocalOrigin"
@@ -5597,11 +5688,11 @@ WaveSchedule
 					Repeats 1
 				}
 			}
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target fake_bomb
 				Action Enable
-			} 
+			}
 		}
 		WaveSpawn
 		{
@@ -5636,21 +5727,21 @@ WaveSchedule
 		{
 			WaitForAllSpawned	5c
 			WaitBeforeStarting	10
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target relaystopmusicw5c
 				Action Trigger
-			} 
+			}
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned	5c
 			WaitBeforeStarting	10
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target relayplaymusicw5d
 				Action Trigger
-			} 
+			}
 		}
 		WaveSpawn
 		{
@@ -5686,11 +5777,11 @@ WaveSchedule
 				Template	Inky_Giant_Syringe_Medic
 				Name "Giant Projectile Shield Medic"
 				ClassIcon medic_shield_lite
-				RocketCustomModel "models/weapons/c_models/c_targe/c_targe.mdl"  
+				RocketCustomModel "models/weapons/c_models/c_targe/c_targe.mdl"
 				ItemAttributes
 				{
 					ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
-					"custom projectile model" "models/weapons/c_models/c_targe/c_targe.mdl"  
+					"custom projectile model" "models/weapons/c_models/c_targe/c_targe.mdl"
 					"override projectile type" 2
 					"projectile spread angle penalty" 3
 					"Projectile speed increased" 0.5
@@ -5751,7 +5842,7 @@ WaveSchedule
 			{
 				Template	MissInfo_Giant_Burning_Scout
 				Attributes DisableDodge
-				Action Mobber  
+				Action Mobber
 			}
 		}
 		WaveSpawn
@@ -5775,17 +5866,17 @@ WaveSchedule
 		WaveSpawn
 		{
 			WaitForAllDead	5d
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target relaystopmusicw5all
 				Action Trigger
-			} 
+			}
 		}
 		WaveSpawn
 		{
 			WaitForAllDead 5d
 			FirstSpawnWarningSound "soda_w5end.mp3"
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target fake_bomb
 				Action Disable
@@ -5799,9 +5890,9 @@ WaveSchedule
 	}
 	Wave
 	{
-		CustomWaveNumber 1  
-		CustomMaxWaveNumber 1  
-		RedTeamWipeCausesWaveLoss 1  
+		CustomWaveNumber 1
+		CustomMaxWaveNumber 1
+		RedTeamWipeCausesWaveLoss 1
 		WaitWhenDone	65
 		Checkpoint	Yes
 		StartWaveOutput
@@ -5809,7 +5900,7 @@ WaveSchedule
 			Target	wave_start_relay
 			Action	Trigger
 		}
-		InitWaveOutput  
+		InitWaveOutput
 		{
 			Target relaystopmusicw6all
 			Action Trigger
@@ -5819,25 +5910,25 @@ WaveSchedule
 			Target	wave_finished_relay
 			Action	Trigger
 		}
-		Explanation  
+		Explanation
 		{
 			Line "{grey}Broadcaster{reset} : We've got the one responsible cornered, but it looks like they still have more resources."
 			Line "{grey}Broadcaster{reset} : This is their last ditch, be careful, {red}a team wipe will result in wave loss."
 		}
 		WaveSpawn
 		{
-			FirstSpawnMessage "{grey}Broadcaster{reset} : Hold on, there seems to be interference..."  
+			FirstSpawnMessage "{grey}Broadcaster{reset} : Hold on, there seems to be interference..."
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	3
-			FirstSpawnMessage "{grey}Broadcaster{reset} : Something is being summoned to hinder us."  
+			FirstSpawnMessage "{grey}Broadcaster{reset} : Something is being summoned to hinder us."
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	6
-			FirstSpawnMessage "{blue}Miss Information{reset} : Good Morning Mercenaries!"  
-			FirstSpawnOutput  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Good Morning Mercenaries!"
+			FirstSpawnOutput
 			{
 				Target relayplaymusicw6
 				Action Trigger
@@ -5846,42 +5937,42 @@ WaveSchedule
 		WaveSpawn
 		{
 			WaitBeforeStarting	8
-			FirstSpawnMessage "{yellow}Now playing: PvZ2 Reflourished OST - Miss Information's Theme"  
+			FirstSpawnMessage "{yellow}Now playing: PvZ2 Reflourished OST - Miss Information's Theme"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	9
-			FirstSpawnMessage "{yellow}https://www.youtube.com/watch?v=Q2o4tygvLb8"  
+			FirstSpawnMessage "{yellow}https://www.youtube.com/watch?v=Q2o4tygvLb8"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	13
-			FirstSpawnMessage "{blue}Miss Information{reset} : Where it appears the rumors are true, these mercenaries are the cause of the delays for the 2026 memes event broadcast!"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Where it appears the rumors are true, these mercenaries are the cause of the delays for the 2026 memes event broadcast!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	16
-			FirstSpawnMessage "{grey}Broadcaster{reset} : What? No, They were brought out here to hunt the one delaying the broadcast!"  
+			FirstSpawnMessage "{grey}Broadcaster{reset} : What? No, They were brought out here to hunt the one delaying the broadcast!"
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	19
-			FirstSpawnMessage "{blue}Miss Information{reset} : Really now? What interesting development, we were told this was some kind of self-sabotage."  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Really now? What interesting development, we were told this was some kind of self-sabotage."
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	22
-			FirstSpawnMessage "{blue}Miss Information{reset} : I would like to interview you but you currently... have a physically incomprehensible cognitohazardous form."  
+			FirstSpawnMessage "{blue}Miss Information{reset} : I would like to interview you but you currently... have a physically incomprehensible cognitohazardous form."
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	25
-			FirstSpawnMessage "{blue}Miss Information{reset} : So instead we'll go with the next report, our higher-ups wouldn't like having our broadcast ending before it begins."  
+			FirstSpawnMessage "{blue}Miss Information{reset} : So instead we'll go with the next report, our higher-ups wouldn't like having our broadcast ending before it begins."
 		}
 		WaveSpawn
 		{
 			WaitBeforeStarting	28
-			FirstSpawnMessage "{grey}Broadcaster{reset} : Well... Looks like you players need to clear out all these workers before we can continue."  
+			FirstSpawnMessage "{grey}Broadcaster{reset} : Well... Looks like you players need to clear out all these workers before we can continue."
 		}
 		WaveSpawn
 		{
@@ -5893,7 +5984,7 @@ WaveSchedule
 			WaitBeforeStarting	10
 			WaitBetweenSpawns	2
 			Where	spawnbot_main0
-			FirstSpawnMessage "{blue}Miss Information{reset} : We're here live in the indigenous Mann co. TV station and warehouse..."  
+			FirstSpawnMessage "{blue}Miss Information{reset} : We're here live in the indigenous Mann co. TV station and warehouse..."
 			TFBot
 			{
 				Template	Zcorp_New_Hire
@@ -5993,350 +6084,350 @@ WaveSchedule
 		{
 			WaitForAllSpawned 6a
 			WaitBeforeStarting	3
-			FirstSpawnMessage "{blue}Miss Information{reset} : We got approval to skip the first (now falsified) report, now onto the program!"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : We got approval to skip the first (now falsified) report, now onto the program!"
 		}
 		WaveSpawn
 		{
 			Name	word
 			WaitForAllSpawned 6a
 			WaitBeforeStarting	6
-			FirstSpawnMessage "{blue}Miss Information{reset} : But first, we would like to thank our sponsors."  
+			FirstSpawnMessage "{blue}Miss Information{reset} : But first, we would like to thank our sponsors."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	2
-			FirstSpawnMessage "{grey}Broadcaster{reset} : Speed this up as much as possible."  
+			FirstSpawnMessage "{grey}Broadcaster{reset} : Speed this up as much as possible."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	3.5
-			FirstSpawnMessage "{blue}Miss Information{reset} : Alright, Alright, I will."  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Alright, Alright, I will."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	5
-			FirstSpawnMessage "{blue}Miss Information{reset} : Mann Co. , ''We sell products and get in fights!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Mann Co. , ''We sell products and get in fights!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	7
-			FirstSpawnMessage "{blue}Miss Information{reset} : Gray Gravel Co. , ''A slogan? I don't have time for stupid things like that.''"    
+			FirstSpawnMessage "{blue}Miss Information{reset} : Gray Gravel Co. , ''A slogan? I don't have time for stupid things like that.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	8
-			FirstSpawnMessage "{blue}Miss Information{reset} : Bonk! Atomic Punch, ''Fuel your body with real energy!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Bonk! Atomic Punch, ''Fuel your body with real energy!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	9
-			FirstSpawnMessage "{blue}Miss Information{reset} : Sandvich Central, ''Moist and delicious!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Sandvich Central, ''Moist and delicious!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	9.5
-			FirstSpawnMessage "{blue}Miss Information{reset} : DeGroot Brewery, ''(unintelligible) Scrumpy! (unintelligible)''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : DeGroot Brewery, ''(unintelligible) Scrumpy! (unintelligible)''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	10
-			FirstSpawnMessage "{blue}Miss Information{reset} : Dr. Wilson's Auto-Borax, ''Self scrubbing mechanical soap.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Dr. Wilson's Auto-Borax, ''Self scrubbing mechanical soap.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	10.5
-			FirstSpawnMessage "{blue}Miss Information{reset} : 2fort Water Reservoir, ''Now with legal ammounts of lead.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : 2fort Water Reservoir, ''Now with legal ammounts of lead.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	10.75
-			FirstSpawnMessage "{blue}Miss Information{reset} : Badlands Hydroelectric Dam, ''Significant lack of mercenary battles for almost two decades!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Badlands Hydroelectric Dam, ''Significant lack of mercenary battles for almost two decades!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	11
-			FirstSpawnMessage "{blue}Miss Information{reset} : Carbon Copy Tailors, ''Blend in with the crowd and get away with murders!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Carbon Copy Tailors, ''Blend in with the crowd and get away with murders!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	11.25
-			FirstSpawnMessage "{blue}Miss Information{reset} : Atelophobia Art Classes, ''Value satisfying others rather than yourself!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Atelophobia Art Classes, ''Value satisfying others rather than yourself!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	11.5
-			FirstSpawnMessage "{blue}Miss Information{reset} : Hemorrhage Campgrounds, ''Only you can prevent lawsuits.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Hemorrhage Campgrounds, ''Only you can prevent lawsuits.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	11.75
-			FirstSpawnMessage "{blue}Miss Information{reset} : Violet Eight Streaming Service, ''Violet Eight yourself in front of an audience!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Violet Eight Streaming Service, ''Violet Eight yourself in front of an audience!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	12
-			FirstSpawnMessage "{blue}Miss Information{reset} : Pißwasser, ''Cheap German lager for export only!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Pißwasser, ''Cheap German lager for export only!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	12.2
-			FirstSpawnMessage "{blue}Miss Information{reset} : Stressball Electronics, ''Now with bloatware that bricks the device!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Stressball Electronics, ''Now with bloatware that bricks the device!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	12.4
-			FirstSpawnMessage "{blue}Miss Information{reset} : The Spoiled Milk Archives, ''Find out what was socially acceptable before.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : The Spoiled Milk Archives, ''Find out what was socially acceptable before.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	12.6
-			FirstSpawnMessage "{blue}Miss Information{reset} : Klepto Superstore, ''Buy things you don't need, it will make you happy!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Klepto Superstore, ''Buy things you don't need, it will make you happy!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	12.7
-			FirstSpawnMessage "{blue}Miss Information{reset} : Burning Drain Hotel, ''Overpay for a room you'll stay in only one day!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Burning Drain Hotel, ''Overpay for a room you'll stay in only one day!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	12.8
-			FirstSpawnMessage "{blue}Miss Information{reset} : Egochaser's Energy Bar, ''Doctors are liars, You ARE an athlete!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Egochaser's Energy Bar, ''Doctors are liars, You ARE an athlete!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	12.9
-			FirstSpawnMessage "{blue}Miss Information{reset} : In-Security, ''The home security system ready to shoot anyone that makes you feel unsafe!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : In-Security, ''The home security system ready to shoot anyone that makes you feel unsafe!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	13
-			FirstSpawnMessage "{blue}Miss Information{reset} : The Compulsory Sterilization Squad, ''We will bust your nuts!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : The Compulsory Sterilization Squad, ''We will bust your nuts!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	13.1
-			FirstSpawnMessage "{blue}Miss Information{reset} : Foreigner or Mental?, ''The popular game show where you Enforce Your Prejudices!(TM)''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Foreigner or Mental?, ''The popular game show where you Enforce Your Prejudices!(TM)''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	13.2
-			FirstSpawnMessage "{blue}Miss Information{reset} : Eugenics Enterprises, ''Don't accept an imperfect life, allow us to change you the way we see fit.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Eugenics Enterprises, ''Don't accept an imperfect life, allow us to change you the way we see fit.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	13.3
-			FirstSpawnMessage "{blue}Miss Information{reset} : Rehab Island Season One Director's Cut DVD, ''Watch people battle addictions and each other in competitive sobriety, Featuring uncensored suicides and gang bangs!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Rehab Island Season One Director's Cut DVD, ''Watch people battle addictions and each other in competitive sobriety, Featuring uncensored suicides and gang bangs!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	13.4
-			FirstSpawnMessage "{blue}Miss Information{reset} : Jack's Automobiles, ''Get jacked at buying a vehicle that totally wasn't jacked!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Jack's Automobiles, ''Get jacked at buying a vehicle that totally wasn't jacked!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	13.5
-			FirstSpawnMessage "{blue}Miss Information{reset} : Laugh is Fun, ''Laugh with us! Laugh with us! Laugh! Laugh! Laugh and let us in!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Laugh is Fun, ''Laugh with us! Laugh with us! Laugh! Laugh! Laugh and let us in!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	13.6
-			FirstSpawnMessage "{blue}Miss Information{reset} : Rapture Pesticide, ''Bring judgement upon the plagues devoring your garden.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Rapture Pesticide, ''Bring judgement upon the plagues devoring your garden.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	13.7
-			FirstSpawnMessage "{blue}Miss Information{reset} : This Crimination, ''Let us help you get the people you hate arrested!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : This Crimination, ''Let us help you get the people you hate arrested!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	13.8
-			FirstSpawnMessage "{blue}Miss Information{reset} : M.T. Party Sized Chips, ''Larger bags to fit more air and less chips!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : M.T. Party Sized Chips, ''Larger bags to fit more air and less chips!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	13.9
-			FirstSpawnMessage "{blue}Miss Information{reset} : The Everywhere's Real Estate, ''Helping angels and demons integrate themselves into human life without people realising.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : The Everywhere's Real Estate, ''Helping angels and demons integrate themselves into human life without people realising.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	14
-			FirstSpawnMessage "{blue}Miss Information{reset} : The Lunar Rainbow Market, ''More of you? Did Greedy sent you here to- What?! No, I will not spon-!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : The Lunar Rainbow Market, ''More of you? Did Greedy sent you here to- What?! No, I will not spon-!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	14.1
-			FirstSpawnMessage "{blue}Miss Information{reset} : Can-o-Bulls MREs, ''Unforgettable manly flavor, now preserved until you need it.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Can-o-Bulls MREs, ''Unforgettable manly flavor, now preserved until you need it.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	14.2
-			FirstSpawnMessage "{blue}Miss Information{reset} : STD Condoms, ''For when you want a STD but don't want to waste money on a family.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : STD Condoms, ''For when you want a STD but don't want to waste money on a family.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	14.3
-			FirstSpawnMessage "{blue}Miss Information{reset} : Deviation Attorneys-at-law, ''Because it was clearly not your fault.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Deviation Attorneys-at-law, ''Because it was clearly not your fault.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	14.4
-			FirstSpawnMessage "{blue}Miss Information{reset} : Diventare Grasso, ''Italian cuisines of American proportions.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Diventare Grasso, ''Italian cuisines of American proportions.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	14.5
-			FirstSpawnMessage "{blue}Miss Information{reset} : The Suicide Assistance Architects, ''Make your death seem like a design flaw.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : The Suicide Assistance Architects, ''Make your death seem like a design flaw.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	14.6
-			FirstSpawnMessage "{blue}Miss Information{reset} : E-Rational Social Networking Site, ''Discover real and fake people with a variety of interests.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : E-Rational Social Networking Site, ''Discover real and fake people with a variety of interests.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	14.7
-			FirstSpawnMessage "{blue}Miss Information{reset} : Self-loathing Dietary Plans, ''You are not thin enough, even if others can see your ribcage!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Self-loathing Dietary Plans, ''You are not thin enough, even if others can see your ribcage!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	14.8
-			FirstSpawnMessage "{blue}Miss Information{reset} : Asbestos Toothpaste, ''Enforce your mouth from the dangers of decay.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Asbestos Toothpaste, ''Enforce your mouth from the dangers of decay.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	14.9
-			FirstSpawnMessage "{blue}Miss Information{reset} : Corner Cutters Construction, ''Fast and fragile buildings in record time!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Corner Cutters Construction, ''Fast and fragile buildings in record time!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	15
-			FirstSpawnMessage "{blue}Miss Information{reset} : Wing It Computer Software, ''Make your co-workers think you know what you are talking about.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Wing It Computer Software, ''Make your co-workers think you know what you are talking about.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	15.1
-			FirstSpawnMessage "{blue}Miss Information{reset} : Fermented Punch, ''The fruit beverage without an experation date!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Fermented Punch, ''The fruit beverage without an experation date!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	15.2
-			FirstSpawnMessage "{blue}Miss Information{reset} : The Church of Fearmongers, ''You don't want God to be angry at you.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : The Church of Fearmongers, ''You don't want God to be angry at you.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	15.3
-			FirstSpawnMessage "{blue}Miss Information{reset} : Aperture Science Dietetic Pudding Substitutes, ''Comes in Repulsive Blueberry, Propulsive Orange, and Adhesive Grape Flavors.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Aperture Science Dietetic Pudding Substitutes, ''Comes in Repulsive Blueberry, Propulsive Orange, and Adhesive Grape Flavors.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	15.4
-			FirstSpawnMessage "{blue}Miss Information{reset} : Dysmorphia's Beauty Products, ''The ONLY solution, become perfect.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Dysmorphia's Beauty Products, ''The ONLY solution, become perfect.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	15.6
-			FirstSpawnMessage "{blue}Miss Information{reset} : Double Parent Trait DNA Analysis, ''Find out who is really your daddy.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Double Parent Trait DNA Analysis, ''Find out who is really your daddy.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	15.8
-			FirstSpawnMessage "{blue}Miss Information{reset} : Oops Just One Flavor!, ''Limited time only, a recently fired employees' failed attempt at going on disability!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Oops Just One Flavor!, ''Limited time only, a recently fired employees' failed attempt at going on disability!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	16
-			FirstSpawnMessage "{blue}Miss Information{reset} : Sealed Mouths Media, ''Make our opinions yours as well.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Sealed Mouths Media, ''Make our opinions yours as well.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	16.25
-			FirstSpawnMessage "{blue}Miss Information{reset} : Dr. Dephro's Electric Massage Chair, ''Being executed never felt more relaxing.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Dr. Dephro's Electric Massage Chair, ''Being executed never felt more relaxing.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	16.5
-			FirstSpawnMessage "{blue}Miss Information{reset} : Krapea's DIY Furniture, ''At least one missing part guaranteed!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Krapea's DIY Furniture, ''At least one missing part guaranteed!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	17
-			FirstSpawnMessage "{blue}Miss Information{reset} : CompetentWorkers4Hire, ''Because you don't bother to learn the skills.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : CompetentWorkers4Hire, ''Because you don't bother to learn the skills.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	17.5
-			FirstSpawnMessage "{blue}Miss Information{reset} : The Anything's Dimensional Data Center, ''Nothing goes undocumented.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : The Anything's Dimensional Data Center, ''Nothing goes undocumented.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	18
-			FirstSpawnMessage "{blue}Miss Information{reset} : International Nuclear Containers Incorporated, ''Detecting, collecting, and eliminating unwanted biohazards.''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : International Nuclear Containers Incorporated, ''Detecting, collecting, and eliminating unwanted biohazards.''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	19
-			FirstSpawnMessage "{blue}Miss Information{reset} : Tsih Excavation, ''Unearth those rocks and assassinate targets with them!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Tsih Excavation, ''Unearth those rocks and assassinate targets with them!''"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned word
 			WaitBeforeStarting	20
-			FirstSpawnMessage "{blue}Miss Information{reset} : Konparo Konparo Pharmacy and Floristry, ''Konparo Konparo, poison gathers!''"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Konparo Konparo Pharmacy and Floristry, ''Konparo Konparo, poison gathers!''"
 		}
 		WaveSpawn
 		{
@@ -6450,32 +6541,32 @@ WaveSchedule
 				Template	T_TFBot_Giant_Scout_Bonk_Improved
 				Name "Giant Bonk Scout"
 				Attributes DisableDodge
-				Action Mobber  
+				Action Mobber
 			}
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6b
 			WaitBeforeStarting	5
-			FirstSpawnMessage "{blue}Miss Information{reset} : Now, without further delay, tonights story!"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Now, without further delay, tonights story!"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6b
 			WaitBeforeStarting	8
-			FirstSpawnMessage "{blue}Miss Information{reset} : Nightfall Nexus, How malware disguised as a shitpost compromised thousands of Steam accounts!"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Nightfall Nexus, How malware disguised as a shitpost compromised thousands of Steam accounts!"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6b
 			WaitBeforeStarting	11
-			FirstSpawnMessage "{blue}Miss Information{reset} : We go live to Jermey on the scene!"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : We go live to Jermey on the scene!"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6b
 			WaitBeforeStarting	13
-			FirstSpawnMessage "{blue}Miss Information{reset} : Jermey?"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : Jermey?"
 		}
 		WaveSpawn
 		{
@@ -6486,7 +6577,7 @@ WaveSchedule
 			SpawnCount	1
 			Where	spawnbot_red1
 			WaitBeforeStarting	14
-			FirstSpawnMessage "{red}Jermey{reset} : Oh, hi"  
+			FirstSpawnMessage "{red}Jermey{reset} : Oh, hi"
 			Support	Limited
 			TFBot
 			{
@@ -6511,37 +6602,37 @@ WaveSchedule
 		{
 			WaitForAllSpawned 6b
 			WaitBeforeStarting	17
-			FirstSpawnMessage "{red}Jermey{reset} : So basically this Nightfall Nexus map is infamous within the mvm community."  
+			FirstSpawnMessage "{red}Jermey{reset} : So basically this Nightfall Nexus map is infamous within the mvm community."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6b
 			WaitBeforeStarting	20
-			FirstSpawnMessage "{red}Jermey{reset} : With the stolen assets and server crashing capabilities."  
+			FirstSpawnMessage "{red}Jermey{reset} : With the stolen assets and server crashing capabilities."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6b
 			WaitBeforeStarting	23
-			FirstSpawnMessage "{red}Jermey{reset} : Despite the multiple attempts at manually removing it from testing servers, it keeps getting reuploaded."  
+			FirstSpawnMessage "{red}Jermey{reset} : Despite the multiple attempts at manually removing it from testing servers, it keeps getting reuploaded."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6b
 			WaitBeforeStarting	26
-			FirstSpawnMessage "{red}Jermey{reset} : Many members within Potato are concerned for what its continued existance will lead to."  
+			FirstSpawnMessage "{red}Jermey{reset} : Many members within Potato are concerned for what its continued existance will lead to."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6b
 			WaitBeforeStarting	29
-			FirstSpawnMessage "{red}Jermey{reset} : With some expressing worry that the fanbase it created will lead to another Jonestown, South America."  
+			FirstSpawnMessage "{red}Jermey{reset} : With some expressing worry that the fanbase it created will lead to another Jonestown, South America."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6b
 			WaitBeforeStarting	32
-			FirstSpawnMessage "{red}Jermey{reset} : So tell me mercenaries, is there anything you know about this potential disaster tha-"  
+			FirstSpawnMessage "{red}Jermey{reset} : So tell me mercenaries, is there anything you know about this potential disaster tha-"
 		}
 		WaveSpawn
 		{
@@ -6579,545 +6670,545 @@ WaveSchedule
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target relaystopmusicw6
 				Action Trigger
-			} 
+			}
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target relayplaymusicw6boss
 				Action Trigger
-			} 
+			}
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
-			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : Exactly, South America!"  
+			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : Exactly, South America!"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	3
-			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : When I was growing up, people in the South of America..."  
+			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : When I was growing up, people in the South of America..."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	7
-			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : Spoke English!"  
+			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : Spoke English!"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	8.5
-			FirstSpawnMessage "{red}Jermey{reset} : What?"  
+			FirstSpawnMessage "{red}Jermey{reset} : What?"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	9
-			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : But that goes to show you, its about the dark antimatter of medals..."  
+			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : But that goes to show you, its about the dark antimatter of medals..."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	13.5
-			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : and how the map and mission creators have been corrupted by the emporium..."  
+			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : and how the map and mission creators have been corrupted by the emporium..."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	17.5
-			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : in a totally different way to the way you imagined."  
+			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : in a totally different way to the way you imagined."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	20
-			FirstSpawnMessage "{red}Jermey{reset} : What?"  
+			FirstSpawnMessage "{red}Jermey{reset} : What?"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	21
-			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : RED ALERT PEOPLE!"  
+			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : RED ALERT PEOPLE!"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	23
-			FirstSpawnMessage "{blue}Miss Information{reset} : This guy is insane, someone cut the film, cut the-"  
+			FirstSpawnMessage "{blue}Miss Information{reset} : This guy is insane, someone cut the film, cut the-"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	24.5
-			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : Demo files aren't just used for creators to gain feedback and for toxic watch parties to laugh at your performance!"  
+			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : Demo files aren't just used for creators to gain feedback and for toxic watch parties to laugh at your performance!"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	26
-			FirstSpawnMessage "{grey}Broadcaster{reset} : We got a confirmed match, {yellow}this guy is the hijacker!"  
+			FirstSpawnMessage "{grey}Broadcaster{reset} : We got a confirmed match, {yellow}this guy is the hijacker!"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	28
-			FirstSpawnMessage "{grey}Broadcaster{reset} : Players, eliminate this creature {red}before it manages to finish its message."  
+			FirstSpawnMessage "{grey}Broadcaster{reset} : Players, eliminate this creature {red}before it manages to finish its message."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	29
-			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : They actually..."  
+			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : They actually..."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	30
-			FirstSpawnMessage "{grey}Broadcaster{reset} : We'll handle what happens afterward."  
+			FirstSpawnMessage "{grey}Broadcaster{reset} : We'll handle what happens afterward."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	32
-			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : are used by government organizations to document you into their databases..."  
+			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : are used by government organizations to document you into their databases..."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	37.5
-			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : and they use that data to code replica versions of you..."  
+			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : and they use that data to code replica versions of you..."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	42
-			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : that has the exact same weapons and cosmetics as the ones you are equipped with in TF2!"  
+			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : that has the exact same weapons and cosmetics as the ones you are equipped with in TF2!"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	46.5
-			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : And they keep leveling up in casual and buying shit to make themselves seem human!"  
+			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : And they keep leveling up in casual and buying shit to make themselves seem human!"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	51
-			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : And that's the truth everyone ignores..."  
+			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : And that's the truth everyone ignores..."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	53.5
-			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : There is a clone of me with my exact loadout, somewhere!"  
+			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : There is a clone of me with my exact loadout, somewhere!"
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	57.5
-			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : And I intend on finding them, and killing them."  
+			FirstSpawnMessage "{blue}Nightfall Nexus Player{reset} : And I intend on finding them, and killing them."
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	61.5
-			FirstSpawnMessage "*SPEC* {grey}Another Nightfall Nexus Player{reset} : Ron, I've been wanting to call your show for a while and leave a message."  
+			FirstSpawnMessage "*SPEC* {grey}Another Nightfall Nexus Player{reset} : Ron, I've been wanting to call your show for a while and leave a message."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	65
-			FirstSpawnMessage "*SPEC* {grey}Another Nightfall Nexus Player{reset} : What you said about doppelgängers is true."  
+			FirstSpawnMessage "*SPEC* {grey}Another Nightfall Nexus Player{reset} : What you said about doppelgängers is true."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	68
-			FirstSpawnMessage "*SPEC* {grey}Another Nightfall Nexus Player{reset} : I have doppelgänger..."  
+			FirstSpawnMessage "*SPEC* {grey}Another Nightfall Nexus Player{reset} : I have doppelgänger..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	69.5
-			FirstSpawnMessage "*SPEC* {grey}Another Nightfall Nexus Player{reset} : and we have sex..."  
+			FirstSpawnMessage "*SPEC* {grey}Another Nightfall Nexus Player{reset} : and we have sex..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	71
-			FirstSpawnMessage "*SPEC* {grey}Another Nightfall Nexus Player{reset} : and its not remotely creepy or gay..."  
+			FirstSpawnMessage "*SPEC* {grey}Another Nightfall Nexus Player{reset} : and its not remotely creepy or gay..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	73.5
-			FirstSpawnMessage "*SPEC* {grey}Another Nightfall Nexus Player{reset} : at all!"  
+			FirstSpawnMessage "*SPEC* {grey}Another Nightfall Nexus Player{reset} : at all!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	75
-			FirstSpawnMessage "{blue}''Ron''{reset} : I wish she would've left her callback number, because I would've warned her."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : I wish she would've left her callback number, because I would've warned her."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	79
-			FirstSpawnMessage "{blue}''Ron''{reset} : Listen to me, all you twins out there, it's an abomination!"  
+			FirstSpawnMessage "{blue}''Ron''{reset} : Listen to me, all you twins out there, it's an abomination!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	83
-			FirstSpawnMessage "{blue}''Ron''{reset} : You have to kill your twin, in their sleep!"  
+			FirstSpawnMessage "{blue}''Ron''{reset} : You have to kill your twin, in their sleep!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	86
-			FirstSpawnMessage "{blue}''Ron''{reset} : Tonight, right now, immediately!"  
+			FirstSpawnMessage "{blue}''Ron''{reset} : Tonight, right now, immediately!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	89
-			FirstSpawnMessage "{blue}''Ron''{reset} : And for that matter, kill the alien mother that spawned you!"  
+			FirstSpawnMessage "{blue}''Ron''{reset} : And for that matter, kill the alien mother that spawned you!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	92.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : Shes got a cloning factory in that DNA disaster of a womb!"  
+			FirstSpawnMessage "{blue}''Ron''{reset} : Shes got a cloning factory in that DNA disaster of a womb!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	96.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : Back to demo files and the replicas..."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : Back to demo files and the replicas..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	99.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : They not only want you to default..."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : They not only want you to default..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	101.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : But also, sometimes they switch people for their own avatars."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : But also, sometimes they switch people for their own avatars."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	106
-			FirstSpawnMessage "{blue}''Ron''{reset} : So the question becomes, of course..."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : So the question becomes, of course..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	108.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : Am I me or my own digital reflection?"  
+			FirstSpawnMessage "{blue}''Ron''{reset} : Am I me or my own digital reflection?"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	112.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : Sometimes when I drink, things get all pixely..."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : Sometimes when I drink, things get all pixely..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	115.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : Its pretty out there stuff, I know, but..."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : Its pretty out there stuff, I know, but..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	119.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : STICK THAT IN YOUR GARDEN WIND-SPINNER AND BLOW IT OUT YOUR ASS!"  
+			FirstSpawnMessage "{blue}''Ron''{reset} : STICK THAT IN YOUR GARDEN WIND-SPINNER AND BLOW IT OUT YOUR ASS!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	124.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : Lets get back to this plot by the custom mvm community..."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : Lets get back to this plot by the custom mvm community..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	126.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : To use your DNA to build, entirely with you legal permission and documents you signed..."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : To use your DNA to build, entirely with you legal permission and documents you signed..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	132.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : A digital slave avatar of you."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : A digital slave avatar of you."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	135
-			FirstSpawnMessage "{blue}''Ron''{reset} : And that slave version will one day replace you, only it won't have free will at all."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : And that slave version will one day replace you, only it won't have free will at all."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	140
-			FirstSpawnMessage "{blue}''Ron''{reset} : You know how they do it? I said it a thousand times..."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : You know how they do it? I said it a thousand times..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	143
-			FirstSpawnMessage "{blue}''Ron''{reset} : Memory Foam."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : Memory Foam."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	145.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : Heres a caller that agrees with me."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : Heres a caller that agrees with me."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	148
-			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : Yeah hello? Yeah it said wait for the beep, but..."  
+			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : Yeah hello? Yeah it said wait for the beep, but..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	151
-			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : Anyway, what you said about memory foam on your last show..."  
+			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : Anyway, what you said about memory foam on your last show..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	155
-			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : That scares the shit out of me!"  
+			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : That scares the shit out of me!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	157.5
-			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : I have one of those memory foam beds, I think its listening..."  
+			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : I have one of those memory foam beds, I think its listening..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	160.5
-			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : When I black out, I bang a fat girl..."  
+			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : When I black out, I bang a fat girl..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	164
-			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : And then shes not there the next day..."  
+			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : And then shes not there the next day..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	165.5
-			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : but I know because theres a big dent there the next morning!"  
+			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : but I know because theres a big dent there the next morning!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	170
-			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : That bed remembers!"  
+			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : That bed remembers!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	171.5
-			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : Its downloading my memories and my life every night!"  
+			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : Its downloading my memories and my life every night!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	175
-			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : While. I. Sleep."  
+			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : While. I. Sleep."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	178.5
-			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : RON, I'M SCARED!"  
+			FirstSpawnMessage "*SPEC* {grey}Nightfall Nexus Mission Maker{reset} : RON, I'M SCARED!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	182.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : Memory Foam!"  
+			FirstSpawnMessage "{blue}''Ron''{reset} : Memory Foam!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	184.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : No wonder you're getting such a comfortable night sleep, mvm players."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : No wonder you're getting such a comfortable night sleep, mvm players."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	187.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : WAKE UP, OPEN YOUR EARS!"  
+			FirstSpawnMessage "{blue}''Ron''{reset} : WAKE UP, OPEN YOUR EARS!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	190.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : We're going to drag those demon mattresses out into the square of every city, and burn them!"  
+			FirstSpawnMessage "{blue}''Ron''{reset} : We're going to drag those demon mattresses out into the square of every city, and burn them!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	197
-			FirstSpawnMessage "{blue}''Ron''{reset} : And those memories and spirits will be set free!"  
+			FirstSpawnMessage "{blue}''Ron''{reset} : And those memories and spirits will be set free!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	202.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : Open your ears, Seriously!"  
+			FirstSpawnMessage "{blue}''Ron''{reset} : Open your ears, Seriously!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	206
-			FirstSpawnMessage "{blue}''Ron''{reset} : I've heard there is a government facility somewhere in Blaine County..."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : I've heard there is a government facility somewhere in Blaine County..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	209
-			FirstSpawnMessage "{blue}''Ron''{reset} : That is developing a nerve toxin, so powerful..."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : That is developing a nerve toxin, so powerful..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	212.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : A single drop could turn the entire TF2 community into a bunch of vapid asswipes..."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : A single drop could turn the entire TF2 community into a bunch of vapid asswipes..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	217
-			FirstSpawnMessage "{blue}''Ron''{reset} : Who stare at the sun and have forgotten how to read!"  
+			FirstSpawnMessage "{blue}''Ron''{reset} : Who stare at the sun and have forgotten how to read!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	220
-			FirstSpawnMessage "{blue}''Ron''{reset} : (Totally not the VA breaking character, laughing)"  
+			FirstSpawnMessage "{blue}''Ron''{reset} : (Totally not the VA breaking character, laughing)"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	224
-			FirstSpawnMessage "{blue}''Ron''{reset} : Stay on your toes people, because someone is out to get you and you're probably paying for the privilage!"  
+			FirstSpawnMessage "{blue}''Ron''{reset} : Stay on your toes people, because someone is out to get you and you're probably paying for the privilage!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	231
-			FirstSpawnMessage "{blue}''Ron''{reset} : Remember, if you got something for me..."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : Remember, if you got something for me..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	233.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : https://www.youtube.com/watch?v=aaXui87cF5Y"  
+			FirstSpawnMessage "{blue}''Ron''{reset} : https://www.youtube.com/watch?v=aaXui87cF5Y"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	235
-			FirstSpawnMessage "{blue}''Ron''{reset} : Then call or email the show, until next time..."  
+			FirstSpawnMessage "{blue}''Ron''{reset} : Then call or email the show, until next time..."
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	239.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : Someone is reading your thoughts!"  
+			FirstSpawnMessage "{blue}''Ron''{reset} : Someone is reading your thoughts!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllSpawned 6c
 			WaitBeforeStarting	242.5
-			FirstSpawnMessage "{blue}''Ron''{reset} : So make sure they're scrambled!"  
+			FirstSpawnMessage "{blue}''Ron''{reset} : So make sure they're scrambled!"
 			Support Limited
 		}
 		WaveSpawn
 		{
 			WaitForAllDead 6c
-			FirstSpawnOutput  
+			FirstSpawnOutput
 			{
 				Target relaystopmusicw6boss
 				Action Trigger
-			} 
+			}
 		}
 		WaveSpawn
 		{
@@ -7128,7 +7219,7 @@ WaveSchedule
 			{
 				Target	boss_deploy_relay
 				Action	Trigger
-			} 
+			}
 		}
 	}
 }
