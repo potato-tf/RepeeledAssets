@@ -2,15 +2,15 @@ WaveSchedule
 {
     PrecacheModel "models/projectiles/fos_hologram_projectile_blu_r_static.mdl"
     PrecacheModel "models/projectiles/fos_hologram_projectile_blu_l_static.mdl"
-    PrecacheModel "models/projectiles/fos_hologram_projectile_blu_l_spin.mdl" 
-    PrecacheModel "models/projectiles/fos_hologram_projectile_blu_r_spin.mdl" 
+    PrecacheModel "models/projectiles/fos_hologram_projectile_blu_l_spin.mdl"
+    PrecacheModel "models/projectiles/fos_hologram_projectile_blu_r_spin.mdl"
     PrecacheModel "models/props_gameplay/cap_circle_768.mdl"
-    PrecacheModel "models/props_invasion/props_alien/walker.mdl" 
-    PrecacheModel "models/props_invasion/props_alien/walker_explode_gib01.mdl" 
-    PrecacheModel "models/props_invasion/props_alien/walker_explode_gib02.mdl" 
-    PrecacheModel "models/props_invasion/props_alien/walker_explode_gib03.mdl" 
-    PrecacheModel "models/props_invasion/props_alien/walker_explode_gib04.mdl" 
-    PrecacheModel "models/props_invasion/props_alien/raygun.mdl" 
+    PrecacheModel "models/props_invasion/props_alien/walker.mdl"
+    PrecacheModel "models/props_invasion/props_alien/walker_explode_gib01.mdl"
+    PrecacheModel "models/props_invasion/props_alien/walker_explode_gib02.mdl"
+    PrecacheModel "models/props_invasion/props_alien/walker_explode_gib03.mdl"
+    PrecacheModel "models/props_invasion/props_alien/walker_explode_gib04.mdl"
+    PrecacheModel "models/props_invasion/props_alien/raygun.mdl"
     PrecacheModel "models/props_invasion/props_alien/saucer.mdl"
     PrecacheModel "models/props_invasion/props_alien/eye.mdl"
     PrecacheModel "models/props_invasion/props_alien/canister_mineral_s.mdl"
@@ -19,6 +19,7 @@ WaveSchedule
     PrecacheModel "models/props_invasion/skybox/mothership_glow.mdl"
     PrecacheModel "models/props_invasion/skybox/mothership_clouds.mdl"
     PrecacheModel "models/weapons/c_models/c_screwiatan_7000/c_screwiatan_7000.mdl"
+    PrecacheModel "models/weapons/c_models/c_firelauncher/c_firelauncher.mdl"
     PrecacheModel "models/mvm_ufo/ufo_core.mdl"
     PrecacheModel "models/mvm_ufo/ufo_dome.mdl"
     PrecacheModel "models/mvm_ufo/ufo_ring.mdl"
@@ -107,7 +108,7 @@ WaveSchedule
             "projectile acceleration start time" 1.85
             "projectile speed decreased" 0.1
             "projectile spread angle penalty" 10
-            "mod projectile heat no predict target speed" 1  
+            "mod projectile heat no predict target speed" 1
             "mod projectile heat seek power" 360
             "mod projectile heat aim error" 360
             "mod projectile heat aim time" 0.9
@@ -115,7 +116,7 @@ WaveSchedule
         }
         "not_this_one"
         {
-            OriginalItemName "The Pomson 6000"	
+            OriginalItemName "The Pomson 6000"
             "Projectile speed decreased"	0.4
             "projectile spread angle penalty" 10
             "projectile trail particle" "eyeboss_projectile"
@@ -126,7 +127,7 @@ WaveSchedule
             "projectile acceleration" 220
             "projectile acceleration start time" 0.8
             "projectile speed decreased" 0.1
-            "mult projectile scale" 0.6 
+            "mult projectile scale" 0.6
             "mod projectile heat seek power" 180
             "mod projectile heat aim error" 99
             "mod projectile heat aim time" 2
@@ -229,7 +230,7 @@ WaveSchedule
         "The Silent Tracer"
         {
             Name "The Silent Tracer"
-            OriginalItemName "The Pomson 6000"	
+            OriginalItemName "The Pomson 6000"
             //OriginalItemName "The Righteous Bison"
             "mod projectile heat seek power" 240
             "mod projectile heat aim error" 90
@@ -289,18 +290,18 @@ WaveSchedule
                 "Negated" "1"
                 "tfclass" "9" //engineer
             }
-            filter_activator_tfteam 
+            filter_activator_tfteam
             {
                 "targetname" "filter_is_blue"
                 "Negated" "0"
                 "TeamNum" "3"
-            }	
-            filter_activator_tfteam 
+            }
+            filter_activator_tfteam
             {
                 "targetname" "filter_is_red"
                 "Negated" "0"
                 "TeamNum" "2"
-            }	
+            }
             filter_tf_condition
             {
                 "targetname" "filter_is_not_ubered"
@@ -332,7 +333,7 @@ WaveSchedule
                 "Negated" "1"
                 "condition" "130" //i set players in redspawn to have this cond
             }
-            filter_multi 
+            filter_multi
             {
                 "targetname" "filter_is_red_not_uber"
                 "Negated" "0"
@@ -343,7 +344,7 @@ WaveSchedule
                 "Filter03" "filter_is_not_redspawn"
                 "Filter04" "filter_is_not_ubered2"
             }
-            filter_multi 
+            filter_multi
             {
                 "targetname" "filter_friendlyfire_not_uber"
                 "Negated" "0"
@@ -376,7 +377,7 @@ WaveSchedule
                 "Filter01" "filter_is_blu_engi"
                 "Filter02" "filter_is_red"
             }
-            filter_multi 
+            filter_multi
             {
                 "targetname" "filter_is_not_blu_engi_or_ubered"
                 "Negated" "1"
@@ -396,13 +397,13 @@ WaveSchedule
                 "OnTrigger" "tf_gamerules,PlayVO,ambient\alarms\razortrain_horn1.wav,3,1"
                 "OnTrigger" "pop_interface,ChangeBotAttributes,phase2,0,1"
             }
-            
+
             logic_relay
             {
                 "targetname" "deathanim_bigboom_relay"
                 "ontrigger" "tf_gamerules,PlayVO,ambient\explosions\explode_2.wav,0,-1"
             }
-          
+
             filter_activator_tfteam
             {
                 "targetname" "redteam"
@@ -413,7 +414,7 @@ WaveSchedule
                 "targetname" "blueteam"
                 "teamnum" "3"
             }
-            
+
         }
         w6music
         {
@@ -470,7 +471,7 @@ WaveSchedule
         contactmusic
         {
             NoFixUp 1
-            
+
             ambient_generic
             {
                 "targetname" "xtermination"
@@ -612,7 +613,7 @@ WaveSchedule
 				"OnTrigger"	"engitheme2*,PlaySound,,432.6,-1"
                 "OnTrigger"	"engitheme2*,StopSound,,540.7,-1"
             }
-            
+
         }
         bossdemo2thinguses
         {
@@ -720,7 +721,7 @@ WaveSchedule
                 "OnTrigger" "chooseyourperks,PickRandomShuffle,,3,-1"
                 "OnTrigger" "oops_you_died,enable,,2.85,-1"
                 "OnTrigger" "oops_you_died,disable,,3.26,-1"
-                
+
             }
             info_particle_system
             {
@@ -754,8 +755,8 @@ WaveSchedule
                 "OnTrigger" "!activator,$AddPlayerAttribute,move speed bonus|0.5,2.5,-1"
                 "OnTrigger" "!activator,$AddPlayerAttribute,no_attack|1,0,-1"
                 "OnTrigger" "!activator,$RemovePlayerAttribute,no_attack,2.5,-1"
-                "OnTrigger" "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_paincrticialdeath02.mp3,0,1" 
-                "OnTrigger" "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_specialcompleted07.mp3,2.5,1" 
+                "OnTrigger" "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_paincrticialdeath02.mp3,0,1"
+                "OnTrigger" "tf_gamerules,PlayVO,vo\mvm\mght\demoman_mvm_m_specialcompleted07.mp3,2.5,1"
                 "ontrigger" "tf_gamerules,PlayVO,ambient\explosions\explode_2.wav,0,-1"
             }
         }
@@ -935,7 +936,7 @@ WaveSchedule
                 "renderfx" "0"
                 "renderamt" "0"
             }
- 
+
             logic_relay
             {
                 "targetname" "nomoremusiccauseimlazy"
@@ -949,7 +950,7 @@ WaveSchedule
                 "OnTrigger" "clouds,$SetKey$renderfx,6,0.0"
 
             }
-            
+
             logic_relay
             {
                 "targetname" "seriously"
@@ -1028,7 +1029,7 @@ WaveSchedule
             }
             env_shake
             {
-                "spawnflags" "29" 
+                "spawnflags" "29"
                 "amplitude" "5"
                 "duration" "10"
                 "frequency" "15"
@@ -1179,13 +1180,13 @@ WaveSchedule
                 "solid" "0"
                 "origin" "-13136 4057 1005"
             }
-            
+
             env_entity_maker
-			{   
+			{
 				"targetname" "dronestrikemarker_maker"
 				"entitytemplate" "dronestrikemarker"
                 "$autoparent" "1"
-			}            
+			}
             tf_point_weapon_mimic // the most rudest way to die from this shit
             {
                 "targetname" "dronestrike1"
@@ -1196,7 +1197,7 @@ WaveSchedule
                 "$OnFire" "dronestrikemarker_maker,ForceSpawnAtEntityOrigin,!activator,0,-1"
 
             }
-            
+
             tf_point_weapon_mimic // the most rudest way to die from this shit
             {
                 "targetname" "dronestrike2"
@@ -1207,7 +1208,7 @@ WaveSchedule
                 "$OnFire" "dronestrikemarker_maker,ForceSpawnAtEntityOrigin,!activator,0,-1"
 
             }
-            
+
             tf_point_weapon_mimic // the most rudest way to die from this shit
             {
                 "targetname" "dronestrike3"
@@ -1223,25 +1224,25 @@ WaveSchedule
                 "targetname" "teleport"
                 "origin" "-12960 3329 -780"
             }
-            
+
             info_target
             { // catwalk
                 "targetname" "teleport2"
                 "origin" "-13794 3604 -807"
             }
-            
+
             info_target
             { // rock
                 "targetname" "teleport3"
                 "origin" "-12311 4561 -833"
             }
-           
+
             info_target
             { //  shed roof
                 "targetname" "teleport4"
                 "origin" "-12960 3329 -780"
             }
-            
+
             info_target
             { // container
                 "targetname" "teleport5"
@@ -1305,7 +1306,7 @@ WaveSchedule
                 "OnTrigger" "kablooey,StopSound,,5.49,1"
                 "OnTrigger" "kablooey_2,PlaySound,,5.3,1"
             }
-            
+
             info_particle_system
             {
                 "targetname" "boss_about_to_blow"
@@ -1319,7 +1320,7 @@ WaveSchedule
                 "target" "!parent"
                 "startdisabled" "0"
             }
-            
+
             obj_sentrygun //obj_teleporter
             {
                 "targetname" "nuker_hitbox"
@@ -1338,7 +1339,7 @@ WaveSchedule
                 //"OnDestroyed" "!parent:kill:0:0:-1,0,-1" //for some reason, OnDestroyed has stopped working
                 "OnDamaged" "player,$DisplayTextCenter,$$=test(!caller.m_iHealth>1,'Nuke HP: '..string(max(!caller.m_iHealth, 0)),''),0,-1"
                 "OnDamaged" "!parentRunScriptCodetry{if(caller.GetHealth()<1){self.Kill()}}catch(e){}0-1"
-            } 
+            }
             OnSpawnOutput
             {
                 Target "!parent"
@@ -1460,7 +1461,7 @@ WaveSchedule
                 "StartDisabled" "0"
                 "origin" "30 -0 100"
             }
-            
+
             tf_point_weapon_mimic
             {
                 "targetname" "random_stickies_why_not"
@@ -1480,7 +1481,7 @@ WaveSchedule
 
                 "OnUser4" "!self,DetonateStickies,,5,-1"
             }
-            
+
             tf_point_weapon_mimic // the most rudest way to die from this shit
             {
                 "targetname" "death_by_homing"
@@ -1491,7 +1492,7 @@ WaveSchedule
             }
             logic_timer
             {
-                
+
                 "Ontimer"	"tf_gamerules,PlayVO,vo\mvm\mght\heavy_mvm_m_battlecry02.mp3,0.17,-1"
                 "Ontimer"	"tf_gamerules,PlayVO,vo\mvm\mght\heavy_mvm_m_battlecry02.mp3,0.17,-1"
                 "targetname" "flaretimer"
@@ -1553,7 +1554,7 @@ WaveSchedule
                 "targetname" "letssee"
                 "OnTrigger"	"muerte,FireMultiple,8,0,-1"
             }
-            
+
         }
 		droneBotGib
 		{
@@ -1589,7 +1590,7 @@ WaveSchedule
                 "delay" "15.0"
             }
             OnSpawnOutput
-            { 
+            {
                 Target "drone_bot_gib*"
                 Action "RunScriptCode"
                 Param "self.ApplyLocalAngularVelocityImpulse(Vector(300,0,300))"
@@ -1701,7 +1702,7 @@ WaveSchedule
                 Delay  0.1
             }
             env_entity_maker
-			{   
+			{
 				"targetname" "droneBotGib_maker2"
 				"entitytemplate" "droneBotGib"
                 "origin" "0 0 95"
@@ -1767,7 +1768,7 @@ WaveSchedule
                 "fanfriction" "100"
                 "volume" "7"
             }
-            prop_dynamic 
+            prop_dynamic
             {
                 "parentname" "drone_rotating"
                 "targetname" "drone_model"
@@ -2031,7 +2032,7 @@ WaveSchedule
                 "Angles" "93 0 0"
 
                 //"$killicon" "eyeball_rocket"
-                //"$weaponname" "tf_weapon_rocketlauncher" 
+                //"$weaponname" "tf_weapon_rocketlauncher"
                 "$weaponname" "The_UFO_Mangler"
 
                 //"OnUser1" "laser_model,FireUser1,,0,-1"
@@ -2089,22 +2090,22 @@ WaveSchedule
             logic_case
             {
                 "targetname" "med_succ_lines"
-                "oncase01" "med_promise,PlaySound,,0.01,-1"    				
-                "oncase02" "med_fest,PlaySound,,0.01,-1"    				
+                "oncase01" "med_promise,PlaySound,,0.01,-1"
+                "oncase02" "med_fest,PlaySound,,0.01,-1"
                 "oncase03" "med_rewarding,PlaySound,,0.01,-1"
-                "oncase01" "med_promise,StopSound,,6,-1"    				
-                "oncase02" "med_fest,StopSound,,6,-1"    				
+                "oncase01" "med_promise,StopSound,,6,-1"
+                "oncase02" "med_fest,StopSound,,6,-1"
                 "oncase03" "med_rewarding,StopSound,,6,-1"
             }
             logic_case
             {
                 "targetname" "med_saw_lines"
-                "oncase01" "med_bones,PlaySound,,0.01,-1"    				
-                "oncase02" "med_laugh1,PlaySound,,0.01,-1"    				
+                "oncase01" "med_bones,PlaySound,,0.01,-1"
+                "oncase02" "med_laugh1,PlaySound,,0.01,-1"
                 "oncase03" "med_laugh2,PlaySound,,0.01,-1"
                 "oncase04" "med_sawry,PlaySound,,0.01,-1"
-                "oncase01" "med_bones,StopSound,,5,-1"    				
-                "oncase02" "med_laugh1,StopSound,,5,-1"    				
+                "oncase01" "med_bones,StopSound,,5,-1"
+                "oncase02" "med_laugh1,StopSound,,5,-1"
                 "oncase03" "med_laugh2,StopSound,,5,-1"
                 "oncase04" "med_sawry,StopSound,,5,-1"
             }
@@ -2128,7 +2129,7 @@ WaveSchedule
                 "spawnflags" "33"
                 "origin" "0 0 0"
             }
-            
+
             ambient_generic
             {
                 "targetname" "med_bones"
@@ -2266,7 +2267,7 @@ WaveSchedule
             }
             logic_case
             {
-                "targetname" "medbossattacks"				
+                "targetname" "medbossattacks"
                 "OnCase01" "pop_interface,ChangeBotAttributes,medicSucc,0,-1"
                 "OnCase02" "pop_interface,ChangeBotAttributes,tagUrIt,0,-1"
                 "OnCase03" "pop_interface,ChangeBotAttributes,sawrry,0,-1"
@@ -2277,7 +2278,7 @@ WaveSchedule
         {
             NoFixUp 1
             env_entity_maker
-            {   
+            {
                 "targetname" "contact_ring_maker"
                 "entitytemplate" "ringshottestcontact"
             }
@@ -2369,7 +2370,7 @@ WaveSchedule
             }
             logic_case
             {
-                "targetname" "spybossattacks"				
+                "targetname" "spybossattacks"
                 "OnCase01" "pop_interface,ChangeBotAttributes,neuralyzer,0,-1"
                 "OnCase02" "pop_interface,ChangeBotAttributes,goinUpCheck,0,-1"
                 "OnCase03" "pop_interface,ChangeBotAttributes,shieldShoot,0,-1" //"pop_interface,ChangeBotAttributes,shieldShoot,0,-1"
@@ -2418,7 +2419,7 @@ WaveSchedule
                 "StartDisabled" 1
                 "modelscale" 0.6
             }
-            
+
             // logic_relay
             // {
             // 	"targetname" "triggerResParticles"
@@ -2744,28 +2745,28 @@ WaveSchedule
         engi_ufo_gibs
         {
             OnSpawnOutput
-            { 
+            {
                 Target "ufo_gib"
                 Action "RunScriptCode"
                 Param "self.ApplyAbsVelocityImpulse(Vector(0,0,500))"
                 Delay 0.1
             }
             OnSpawnOutput
-            { 
+            {
                 Target "ufo_gib_piece"
                 Action "RunScriptCode"
                 Param "self.ApplyAbsVelocityImpulse(Vector(0,0,300))"
                 Delay 0.1
             }
             OnSpawnOutput
-            { 
+            {
                 Target "ufo_gib_piece"
                 Action "RunScriptCode"
                 Param "self.ApplyLocalAngularVelocityImpulse(Vector(1200,0,1200))"
                 Delay 0.1
             }
             OnSpawnOutput
-            { 
+            {
                 Target "ufo_gib_gun*"
                 Action "RunScriptCode"
                 Param "self.ApplyLocalAngularVelocityImpulse(Vector(1200,0,1200))"
@@ -3072,7 +3073,7 @@ WaveSchedule
         {
             KeepAlive 1
             env_entity_maker
-			{   
+			{
 				"targetname" "EngiGib_maker2"
 				"entitytemplate" "engi_ufo_gibs"
                 "origin" "0 0 95"
@@ -3103,7 +3104,7 @@ WaveSchedule
             obj_dispenser
             {
                 "targetname" "ufo_headspot"
-                "origin" "5 0 100"  //"895 -885 760" //868 -868 547 //high "950 -921 660" 
+                "origin" "5 0 100"  //"895 -885 760" //868 -868 547 //high "950 -921 660"
                 "angles" "0 0 0"
                 "solid" "1"
                 "modelscale" "0.4"
@@ -3114,11 +3115,11 @@ WaveSchedule
                 "defaultupgrade" "2"
                 "rendermode" "10"
                 "renderamt" "0"
-            } 
+            }
             obj_dispenser
             {
                 "targetname" "ufo_weakspot"
-                "origin" "-50 0 90"  //"895 -885 760" //868 -868 547 //high "950 -921 660" 
+                "origin" "-50 0 90"  //"895 -885 760" //868 -868 547 //high "950 -921 660"
                 "angles" "0 0 0"
                 "solid" "1"
                 "modelscale" "1.1"
@@ -3129,7 +3130,7 @@ WaveSchedule
                 "defaultupgrade" "2"
                 "rendermode" "1"
                 "renderamt" "255"
-            } 
+            }
 
             info_particle_system
             {
@@ -3223,12 +3224,12 @@ WaveSchedule
             }
             info_particle_system
             {
-                "origin" "0 0 0"	
+                "origin" "0 0 0"
                 "targetname" "engi_ufo_effect"
                 "parentname" "engi_ufo"
                 "effect_name" "medic_resist_blast"
                 "start_active" "1"
-            } 
+            }
             logic_relay
             {
                 "targetname" "chargeup_ufo_anim"
@@ -3390,7 +3391,7 @@ WaveSchedule
         }
         engiguns
         { // most of the attack related point templates are in this one
-            NoFixup 1			
+            NoFixup 1
             // OnSpawnOutput
             // {
             // 	Target "switch_ufo_weapons_blast"
@@ -3489,7 +3490,7 @@ WaveSchedule
             {
                 "targetname" "switch_ufo_weapons_gun"
                 "OnTrigger" "laser_firer1_engi,$StopFiring,,0,-1"
-                "OnTrigger" "laser_firer2_engi,$StopFiring,,0,-1"      
+                "OnTrigger" "laser_firer2_engi,$StopFiring,,0,-1"
                 "OnTrigger" "laser_firer3_engi,$StartFiring,,2.2,-1"
                 "OnTrigger" "laser_firer4_engi,$StartFiring,,2.2,-1"
                 "OnTrigger" "player,$PlaySoundToSelf,=50|items\powerup_pickup_agility.wav,0,-1"
@@ -3501,7 +3502,7 @@ WaveSchedule
             {
                 "targetname" "switch_ufo_weapons_blast"
                 "OnTrigger" "laser_firer3_engi,$StopFiring,,0,-1"
-                "OnTrigger" "laser_firer4_engi,$StopFiring,,0,-1"        
+                "OnTrigger" "laser_firer4_engi,$StopFiring,,0,-1"
                 "OnTrigger" "laser_firer1_engi,$StartFiring,,2.7,-1"
                 "OnTrigger" "laser_firer2_engi,$StartFiring,,2.2,-1"
                 "OnTrigger" "player,$PlaySoundToSelf,=50|items\powerup_pickup_haste.wav,0,-1"
@@ -3518,7 +3519,7 @@ WaveSchedule
                 "teamnum" "3"
                 "ModelScale" "1"
                 "$preventshootparent" "1"
-                //"$weaponname" "tf_weapon_rocketlauncher" 
+                //"$weaponname" "tf_weapon_rocketlauncher"
                 "$weaponname" "The Cow Mangler 5000"
 
                 "$firetime" "1.0"
@@ -3582,7 +3583,7 @@ WaveSchedule
                 Param "damage bonus|1.5"
                 Delay 0.1
             }
-        
+
             tf_point_weapon_mimic
             {
                 "parentname" "laser_2_engi"
@@ -3591,7 +3592,7 @@ WaveSchedule
                 "teamnum" "3"
                 "$preventshootparent" "1"
                 "$weaponname" "The Cow Mangler 5000"
-                
+
                 "$firetime" "1.0"
             }
             tf_point_weapon_mimic
@@ -3621,7 +3622,7 @@ WaveSchedule
                 Param "dmg bonus vs buildings|4.5"
                 Delay 0.1
             }
-        
+
             OnSpawnOutput
             {
                 Target "!activator"
@@ -3682,7 +3683,7 @@ WaveSchedule
             info_particle_system
             {
                 "origin" "0 0 20"
-                "targetname" "shockwave_fx" 
+                "targetname" "shockwave_fx"
                 "effect_name" "hammer_bell_ring_shockwave" // too big hammer_bell_ring_shockwave
                 "start_active" "0"
             }
@@ -3787,7 +3788,7 @@ WaveSchedule
                 "targetname" "ringmarkerone"
                 "model" "models/empty.mdl"
                 "solid" "0"
-                "origin" "0 0 30"                
+                "origin" "0 0 30"
             }
             prop_dynamic
             {
@@ -3797,7 +3798,7 @@ WaveSchedule
                 "solid" "0"
                 "angles" "0 180 0"
                 "origin" "0 0 30"
-            }	
+            }
             env_beam
             {
                 "parentname" ""
@@ -3840,7 +3841,7 @@ WaveSchedule
                 Action "Trigger"
                 Delay 2
             }
-            logic_relay 
+            logic_relay
             {
                 "parentname" "beammarker1"
                 "targetname" "target_check2"
@@ -3850,12 +3851,12 @@ WaveSchedule
                 "OnTrigger" "beamtesttwo,StrikeOnce,,0,-1"
                 "OnTrigger" "beamtestTHREE,StrikeOnce,,0,-1"
                 "OnTrigger" "beamtestFOUR,StrikeOnce,,0,-1"
-                
+
 
                 "OnTrigger" "tf_gamerules,PlayVO,ror_titan_laser_loop.wav,0,-1"
                 "OnTrigger" "!self,Trigger,,1.8,-1"
             }
-            logic_relay 
+            logic_relay
             {
                 "parentname" "beammarker1"
                 "targetname" "target_check"
@@ -4089,7 +4090,7 @@ WaveSchedule
                 Target "beamtestFOUR"
                 Action "TurnOff"
                 Delay 6
-            }	
+            }
             OnSpawnOutput
             {
                 Target "beamtestTHREE"
@@ -4101,7 +4102,7 @@ WaveSchedule
                 Target "beamtestFOUR"
                 Action "kill"
                 Delay 6.1
-            }		
+            }
             env_beam
             {
                 "parentname" "beam_rotate"
@@ -4186,7 +4187,7 @@ WaveSchedule
             }
             logic_case
             { //chooseAnAttack
-                "targetname" "engiUfobossattacks"				
+                "targetname" "engiUfobossattacks"
                 "OnCase01" "pop_interface,ChangeBotAttributes,makeItRain,0,-1"
                 "OnCase02" "pop_interface,ChangeBotAttributes,spawnJumpPad,0,-1"
                 "OnCase03" "pop_interface,ChangeBotAttributes,ringattack,0,-1"
@@ -4197,7 +4198,7 @@ WaveSchedule
             }
             env_shake
             {
-                "spawnflags" "28" 
+                "spawnflags" "28"
                 "amplitude" "10"
                 "duration" "1.5"
                 "frequency" "10"
@@ -4275,7 +4276,7 @@ WaveSchedule
                 "radius" "3000"
                 "spawnflags" "33"
                 "origin" "0 0 0"
-            } 
+            }
 			OnParentKilledOutput
 			{
 				target "engi_ship_travel"
@@ -4369,23 +4370,23 @@ WaveSchedule
                 "OnCatapulted" "!activator,$AddPlayerAttribute,increased air control|50,0,-1"
                 "OnCatapulted" "!activator,$AddPlayerAttribute,increased air control|0,3,-1"
                 //"OnCatapulted" "!activatorRunScriptCodeself.ApplyAbsVelocityImpulse(Vector(0,0,600))0-1"
-            } 
+            }
             info_particle_system
             {
-                "origin" "0 0 0"	
+                "origin" "0 0 0"
                 "targetname" "jumppad_particle"
                 "parentname" "jumpad"
                 "effect_name" "unusual_invasion_abduction"
                 "start_active" "1"
-            } 
+            }
             info_particle_system
             {
-                "origin" "0 0 0"	
+                "origin" "0 0 0"
                 "targetname" "jumppad_2particle"
                 "parentname" "jumpad"
                 "effect_name" "medic_resist_blast"
                 "start_active" "1"
-            } 
+            }
         }
         jumppadengi
         {
@@ -4420,24 +4421,24 @@ WaveSchedule
                 "OnCatapulted" "!activator,$AddPlayerAttribute,increased air control|50,0,-1"
                 "OnCatapulted" "!activator,$AddPlayerAttribute,increased air control|0,3,-1"
                 "OnCatapulted" "!activatorRunScriptCodeself.ApplyAbsVelocityImpulse(Vector(0,0,100))0-1"
-            } 
+            }
             info_particle_system
             {
-                "origin" "0 0 0"	
+                "origin" "0 0 0"
                 "targetname" "jumppad_particle"
                 "parentname" "jumpad"
                 "effect_name" "unusual_invasion_abduction"
                 "start_active" "1"
-            } 
+            }
             info_particle_system
             {
-                "origin" "0 0 0"	
+                "origin" "0 0 0"
                 "targetname" "jumppad_2particle"
                 "parentname" "jumpad"
                 "effect_name" "medic_resist_blast"
                 "start_active" "1"
-            } 
-        }        
+            }
+        }
         engi_boss_audio
         {
             NoFixUp 1
@@ -4450,9 +4451,9 @@ WaveSchedule
                 "OnCase04" "player,$PlaySoundToSelf,=100|vo\mvm\norm\engineer_mvm_laughevil06.mp3,0,-1"
 
 
-                // "OnCase01" "engilaugh1,PlaySound,,0.1,-1"   				
-                // "OnCase02" "engilaugh2,PlaySound,,0.1,-1"     	  				
-                // "OnCase03" "engilaugh3,PlaySound,,0.1,-1"   
+                // "OnCase01" "engilaugh1,PlaySound,,0.1,-1"
+                // "OnCase02" "engilaugh2,PlaySound,,0.1,-1"
+                // "OnCase03" "engilaugh3,PlaySound,,0.1,-1"
                 // "OnCase04" "engilaugh4,PlaySound,,0.1,-1"
             }
             logic_case
@@ -4463,19 +4464,19 @@ WaveSchedule
                 "OnCase03" "player,$PlaySoundToSelf,=100|vo\mvm\norm\engineer_mvm_cheers07.mp3,0,-1"
                 "OnCase04" "player,$PlaySoundToSelf,=100|vo\mvm\norm\engineer_mvm_gunslingertriplepunchfinal01.mp3,0,-1"
 
-                // "OnCase01" "engicheer1,PlaySound,,0.1,-1"   				
-                // "OnCase02" "engicheer2,PlaySound,,0.1,-1"     	  				
-                // "OnCase03" "engicheer3,PlaySound,,0.1,-1"   
-                // "OnCase04" "engicheer4,PlaySound,,0.1,-1"     
+                // "OnCase01" "engicheer1,PlaySound,,0.1,-1"
+                // "OnCase02" "engicheer2,PlaySound,,0.1,-1"
+                // "OnCase03" "engicheer3,PlaySound,,0.1,-1"
+                // "OnCase04" "engicheer4,PlaySound,,0.1,-1"
             }
             logic_case
             {
                 "targetname" "engi_threat"
                 "OnCase01" "player,$PlaySoundToSelf,=100|vo\mvm\norm\engineer_mvm_dominationengineer_mvm09.mp3,0.0,1"
-                "OnCase02" "player,$PlaySoundToSelf,=100|vo\mvm\norm\engineer_mvm_dominationengineer_mvm06.mp3,0.0,1" 
-                "OnCase03" "player,$PlaySoundToSelf,=100|vo\mvm\norm\engineer_mvm_dominationdemoman01.mp3,0.0,1" 
-                "OnCase04" "player,$PlaySoundToSelf,=100|vo\mvm\norm\engineer_mvm_dominationsniper05.mp3,0.0,1" 
-                "OnCase05" "player,$PlaySoundToSelf,=100|vo\mvm\norm\engineer_mvm_dominationheavy09.mp3,0.0,1" 
+                "OnCase02" "player,$PlaySoundToSelf,=100|vo\mvm\norm\engineer_mvm_dominationengineer_mvm06.mp3,0.0,1"
+                "OnCase03" "player,$PlaySoundToSelf,=100|vo\mvm\norm\engineer_mvm_dominationdemoman01.mp3,0.0,1"
+                "OnCase04" "player,$PlaySoundToSelf,=100|vo\mvm\norm\engineer_mvm_dominationsniper05.mp3,0.0,1"
+                "OnCase05" "player,$PlaySoundToSelf,=100|vo\mvm\norm\engineer_mvm_dominationheavy09.mp3,0.0,1"
             }
             ambient_generic
             {
@@ -4557,7 +4558,7 @@ WaveSchedule
                 "pitch" "100"
                 "radius" "2000"
                 "spawnflags" "17"
-            } 
+            }
 
 			logic_case
             {
@@ -4631,7 +4632,7 @@ WaveSchedule
             //     Action "Trigger"
             //     Delay 2
             // }
-            // logic_relay 
+            // logic_relay
             // {
             //     "targetname" "target_check"
             //     "spawnflags" "2"
@@ -4759,7 +4760,7 @@ WaveSchedule
 			KeepAlive 1
             NoFixUp 1
             env_entity_maker
-            {   
+            {
                 "targetname" "contact_ring_maker"
                 "entitytemplate" "ringshottestcontact"
             }
@@ -4777,7 +4778,7 @@ WaveSchedule
 				Action "Stop"
 				Delay 0.00
 			}
-			
+
             info_target
             {
                 "TargetName" "engi_info"
@@ -4785,7 +4786,7 @@ WaveSchedule
             }
 
 			env_entity_maker
-			{   
+			{
 				"targetname" "orbital_maker"
 				"entitytemplate" "orbitalfirer"
                 "$autoparent" 1
@@ -4846,7 +4847,7 @@ WaveSchedule
                 "OnCase03" "dronestrike3,fireonce,,0,-1"
             }
             env_entity_maker
-			{   
+			{
 				"targetname" "jump_maker"
 				"entitytemplate" "jumppadengi"
 			}
@@ -4864,7 +4865,7 @@ WaveSchedule
             logic_case
             { //chooseAnAttack
                 "targetname" "engibossattacks"
-                "OnCase01" "pop_interface,ChangeBotAttributes,hammertime,0,-1"               
+                "OnCase01" "pop_interface,ChangeBotAttributes,hammertime,0,-1"
                 "OnCase02" "pop_interface,ChangeBotAttributes,standardA,0,-1"
                 "OnCase03" "pop_interface,ChangeBotAttributes,standardB,0,-1"
                 "OnCase04" "pop_interface,ChangeBotAttributes,standardC,0,-1"
@@ -4873,9 +4874,9 @@ WaveSchedule
 			logic_case
             { //chooseAnAttack
                 "targetname" "engibossattacks2nd"
-                //"OnCase01" "pop_interface,ChangeBotAttributes,shieldshoot2electricboogaloo,0,-1"               
+                //"OnCase01" "pop_interface,ChangeBotAttributes,shieldshoot2electricboogaloo,0,-1"
                 "OnCase02" "pop_interface,ChangeBotAttributes,standardB,0,-1"
-				"OnCase03" "pop_interface,ChangeBotAttributes,standardC,0,-1"              
+				"OnCase03" "pop_interface,ChangeBotAttributes,standardC,0,-1"
                 "OnCase04" "pop_interface,ChangeBotAttributes,standardA,0,-1"
                 "OnCase05" "pop_interface,ChangeBotAttributes,gogogadgetterroristattacktheseconds,0,-1"
                 "OnCase06" "pop_interface,ChangeBotAttributes,teleportingmayhem,0,-1"
@@ -4884,7 +4885,7 @@ WaveSchedule
 
             env_shake
             {
-                "spawnflags" "29" 
+                "spawnflags" "29"
                 "amplitude" "5"
                 "duration" "6"
                 "frequency" "10"
@@ -4950,7 +4951,7 @@ WaveSchedule
 				"startdisabled" 1
 				"spawnflags" 8
 				"origin" "0 0 10"
-			}			
+			}
 			trigger_hurt
 			{
 				"targetname" "vortexdamage"
@@ -4986,7 +4987,7 @@ WaveSchedule
 				"origin" "0 0 20"
 				"angles" "0 0 0"
 				"effect_name" "eb_death_vortex01"
-			}            
+			}
             info_particle_system
 			{
 				"targetname" "suckingin"
@@ -5029,7 +5030,7 @@ WaveSchedule
 				"origin" "0 0 0"
 				"angles" "0 0 0"
 				"effect_name" "medic_resist_fire"
-			}   
+			}
             info_particle_system
 			{
 				"targetname" "engitele"
@@ -5119,7 +5120,7 @@ WaveSchedule
             logic_relay
             {
                 "targetname" "heyguyslookup"
-                                
+
                 //"OnTrigger" "tf_gamerules,PlayVO,mvm\mvm_tele_deliver.wav,22.5,-1"
                 "OnTrigger" "tf_gamerules,PlayVO,mvm\mvm_mothership_loop.wav,0,-1"
                 "OnTrigger" "tf_gamerules,$StopVO,mvm\mvm_mothership_loop.wav,10,-1"
@@ -5178,7 +5179,7 @@ WaveSchedule
             obj_teleporter
             {
                 "targetname" "tp1"
-                "origin" "-189 -11218 -1215" 
+                "origin" "-189 -11218 -1215"
                 "teamnum" "2"
                 //"skin" "1"
                 //"health" "220"
@@ -5221,8 +5222,8 @@ WaveSchedule
     ExtraSpawnPoint
     {
         Name "spawnbot_extrspy1"
-        X -12908  
-        Y 3123 
+        X -12908
+        Y 3123
         Z -1032
         TeamNum 3
         StartDisabled 1
@@ -5231,7 +5232,7 @@ WaveSchedule
     ExtraSpawnPoint
     {
         Name "spawnbot_final"
-        X -13825  
+        X -13825
         Y 3610
         Z -807
         TeamNum 3
@@ -5252,12 +5253,12 @@ WaveSchedule
             Name "Cannon Demoman"
             Class Demoman
             ClassIcon demo_cannon
-        
+
             Skill Hard
-            MaxVisionRange 2000  
+            MaxVisionRange 2000
             WeaponRestrictions PrimaryOnly
             Item "The Loose Cannon"
-        
+
             ItemAttributes
             {
                 ItemName "The Loose Cannon"
@@ -5328,7 +5329,7 @@ WaveSchedule
             Item "Deflector"
             WeaponRestrictions PrimaryOnly
             MaxVisionRange 1200
-            ItemAttributes 
+            ItemAttributes
             {
                 ItemName "Deflector"
                 "attack projectiles" 1
@@ -5354,7 +5355,7 @@ WaveSchedule
             Action Mobber
             NoGlow 1
             MaxVisionRange 1800
-            CharacterAttributes 
+            CharacterAttributes
             {
                 "move speed bonus" 0.4
                 "fire rate penalty" 9999
@@ -5370,7 +5371,7 @@ WaveSchedule
             }
         }
         T_TFBot_Contact_W4Pair_Heavy_EMPer
-        { 
+        {
             SpawnTemplate boss_emp
             Class Heavyweapons
             Name "Otherworldly Elite EMPer"
@@ -5400,13 +5401,13 @@ WaveSchedule
                 "gesture speed increase" 2.5
                 "stun on hit no giants" 1
             }
-            
+
             ItemAttributes
-            {						
+            {
                 ItemName "TF_WEAPON_ROCKETLAUNCHER"
                 "is invisible" 1
                 "custom kill icon" obj_attachment_sapper
-                "custom projectile model" "models/projectiles/fos_hologram_projectile_blu_l_spin.mdl" 
+                "custom projectile model" "models/projectiles/fos_hologram_projectile_blu_l_spin.mdl"
                 "dmg pierces resists absorbs" 1
                 "fire rate bonus" 3.5
                 "faster reload rate" -0.5
@@ -5432,9 +5433,9 @@ WaveSchedule
                 "move speed bonus"	0.5
                 "damage force reduction" 0.3
                 "airblast vulnerability multiplier" 0.3
-                "override footstep sound set" 2						
+                "override footstep sound set" 2
             }
-            ChangeAttributes 
+            ChangeAttributes
             {
                 Delay 0 //Time before the first bot attribute change (Default: 10)
                 Cooldown 999999 //Time between each bot attribute change (Default: 10)
@@ -5462,13 +5463,13 @@ WaveSchedule
                         "damage force reduction"	0.99
                         "cancel falling damage" 1
                     }
-                    ChangeAttributes 
+                    ChangeAttributes
                     {
                         Delay 6.5 //Time before the first bot attribute change (Default: 10)
                         Cooldown 9 //Time between each bot attribute change (Default: 10)
                         Repeats 1 //How many times should bot change attributes in total (Default: 0 - Infinite)
                         Name "contactNormal" // Name of the bot attributes listed in EventChangeAttributes
-                    }	
+                    }
                 }
                 contactNormal
                 {
@@ -5477,14 +5478,14 @@ WaveSchedule
                         "move speed bonus"	0.5
                         "damage force reduction" 0.3
                         "airblast vulnerability multiplier" 0.3
-                        "override footstep sound set" 2						
+                        "override footstep sound set" 2
                     }
                 }
                 phase2
                 {
                     AddCond
                     {Index 5 Duration 3}
-                    AddAttribute   
+                    AddAttribute
                     {
                         Item "player" // Item name to which add the attribute, or Player for player attribute, or Active for active weapon
                         Name "no_attack" // Attribute name
@@ -5493,7 +5494,7 @@ WaveSchedule
                         Cooldown 9999 //Cooldown between adding attributes
                         Repeats 1 //How many times should the attribute be added (Matters only if it was previously removed)
                     }
-                    RemoveAttribute   
+                    RemoveAttribute
                     {
                         Item "player" // Item name from which remove the attribute, or Player for player attribute, or Active for active weapon
                         Name "no_attack" // Attribute name
@@ -5501,7 +5502,7 @@ WaveSchedule
                         Cooldown 999999 //Cooldown between removing attributes
                         Repeats 1 //How many times should the attribute be added (Matters only if it was previously added)
                     }
-                    AddAttribute   
+                    AddAttribute
                     {
                         Item "player" // Item name to which add the attribute, or Player for player attribute, or Active for active weapon
                         Name "move speed bonus" // Attribute name
@@ -5510,7 +5511,7 @@ WaveSchedule
                         Cooldown 9999 //Cooldown between adding attributes
                         Repeats 1 //How many times should the attribute be added (Matters only if it was previously removed)
                     }
-                    AddAttribute   
+                    AddAttribute
                     {
                         Item "player" // Item name to which add the attribute, or Player for player attribute, or Active for active weapon
                         Name "move speed bonus" // Attribute name
@@ -5573,7 +5574,7 @@ WaveSchedule
                         Cooldown 0
                         Repeats 1
                     }
-                    FireInput   
+                    FireInput
                     {
                         Target "tf_objective_resource"
                         Action "$setprop$m_iszMannVsMachineWaveClassNames$7"
@@ -5592,7 +5593,7 @@ WaveSchedule
             }
         }
         T_TFBot_Contact_W4Pair_Heavy_Gunner
-        { 
+        {
             SpawnTemplate boss_gsteelie
             Class Heavyweapons
             Name "Otherworldly Elite Gunner"
@@ -5628,7 +5629,7 @@ WaveSchedule
                 ItemName "Mad Mask"
                 "set item tint RGB" 8626083
             }
-            
+
             CharacterAttributes
             {
                 "move speed bonus"	0.5
@@ -5637,7 +5638,7 @@ WaveSchedule
                 "override footstep sound set" 2
                 "stun on hit no giants" 1
             }
-            ChangeAttributes 
+            ChangeAttributes
             {
                 Delay 0 //Time before the first bot attribute change (Default: 10)
                 Cooldown 999999 //Time between each bot attribute change (Default: 10)
@@ -5665,13 +5666,13 @@ WaveSchedule
                         "damage force reduction"	0.99
                         "cancel falling damage" 1
                     }
-                    ChangeAttributes 
+                    ChangeAttributes
                     {
                         Delay 6.5 //Time before the first bot attribute change (Default: 10)
                         Cooldown 9 //Time between each bot attribute change (Default: 10)
                         Repeats 1 //How many times should bot change attributes in total (Default: 0 - Infinite)
                         Name "contactNormal" // Name of the bot attributes listed in EventChangeAttributes
-                    }	
+                    }
                 }
                 contactNormal
                 {
@@ -5690,7 +5691,7 @@ WaveSchedule
                     WeaponRestrictions PrimaryOnly
                     AddCond
                     {Index 5 Duration 3}
-                    AddAttribute   
+                    AddAttribute
                     {
                         Item "player" // Item name to which add the attribute, or Player for player attribute, or Active for active weapon
                         Name "no_attack" // Attribute name
@@ -5699,7 +5700,7 @@ WaveSchedule
                         Cooldown 9999 //Cooldown between adding attributes
                         Repeats 1 //How many times should the attribute be added (Matters only if it was previously removed)
                     }
-                    RemoveAttribute   
+                    RemoveAttribute
                     {
                         Item "player" // Item name from which remove the attribute, or Player for player attribute, or Active for active weapon
                         Name "no_attack" // Attribute name
@@ -5707,7 +5708,7 @@ WaveSchedule
                         Cooldown 999999 //Cooldown between removing attributes
                         Repeats 1 //How many times should the attribute be added (Matters only if it was previously added)
                     }
-                    AddAttribute   
+                    AddAttribute
                     {
                         Item "player" // Item name to which add the attribute, or Player for player attribute, or Active for active weapon
                         Name "move speed bonus" // Attribute name
@@ -5716,7 +5717,7 @@ WaveSchedule
                         Cooldown 9999 //Cooldown between adding attributes
                         Repeats 1 //How many times should the attribute be added (Matters only if it was previously removed)
                     }
-                    AddAttribute   
+                    AddAttribute
                     {
                         Item "player" // Item name to which add the attribute, or Player for player attribute, or Active for active weapon
                         Name "move speed bonus" // Attribute name
@@ -5740,7 +5741,7 @@ WaveSchedule
                         Cooldown 0
                         Repeats 1
                     }
-                    FireInput   
+                    FireInput
                     {
                         Target "tf_objective_resource"
                         Action "$setprop$m_iszMannVsMachineWaveClassNames$6"
@@ -5748,7 +5749,7 @@ WaveSchedule
                         Delay 0
                         Repeats 1
                     }
-                    FireInput   
+                    FireInput
                     {
                         Target "flaretimer"
                         Action "enable"
@@ -5771,7 +5772,7 @@ WaveSchedule
             Item "The Loch-n-Load"
             Item "Upgradeable TF_WEAPON_PIPEBOMBLAUNCHER"
             WeaponRestrictions SecondaryOnly
-            CustomEyeGlowColor "13 229 229" 
+            CustomEyeGlowColor "13 229 229"
             Attributes SuppressFire
             Action Mobber
             AddCond
@@ -5831,7 +5832,7 @@ WaveSchedule
                 AttachToProjectile 1
                 ItemName "Upgradeable TF_WEAPON_PIPEBOMBLAUNCHER"
             }
-            ChangeAttributes 
+            ChangeAttributes
             {
                 Delay 0 //Time before the first bot attribute change (Default: 10)
                 Cooldown 999999 //Time between each bot attribute change (Default: 10)
@@ -5858,13 +5859,13 @@ WaveSchedule
                         "damage force reduction"	0.99
                         "cancel falling damage" 1
                     }
-                    ChangeAttributes 
+                    ChangeAttributes
                     {
                         Delay 6.5 //Time before the first bot attribute change (Default: 10)
                         Cooldown 9 //Time between each bot attribute change (Default: 10)
                         Repeats 1 //How many times should bot change attributes in total (Default: 0 - Infinite)
                         Name "contactNormal" // Name of the bot attributes listed in EventChangeAttributes
-                    }	
+                    }
                 }
                 contactNormal
                 {
@@ -5901,7 +5902,7 @@ WaveSchedule
                 "explosion particle" drg_cow_explosioncore_charged_blue
                 "projectile sound" "npc\strider\strider_minigun.wav"
                 "custom weapon fire sound" "weapons\batsaber_swing3.wav"
-                "custom projectile model" "models/projectiles/fos_hologram_projectile_blu_l_spin.mdl" 
+                "custom projectile model" "models/projectiles/fos_hologram_projectile_blu_l_spin.mdl"
                 "hand scale" 1.6
                 "ignores other projectiles" 1
             }
@@ -5910,7 +5911,7 @@ WaveSchedule
                 "attach particle effect" 3150
             }
             SpawnTemplate prop_ufo
-            ChangeAttributes 
+            ChangeAttributes
             {
                 Delay 0 //Time before the first bot attribute change (Default: 10)
                 Cooldown 999999 //Time between each bot attribute change (Default: 10)
@@ -5937,13 +5938,13 @@ WaveSchedule
                         "damage force reduction"	0.99
                         "cancel falling damage" 1
                     }
-                    ChangeAttributes 
+                    ChangeAttributes
                     {
                         Delay 6.5 //Time before the first bot attribute change (Default: 10)
                         Cooldown 9 //Time between each bot attribute change (Default: 10)
                         Repeats 1 //How many times should bot change attributes in total (Default: 0 - Infinite)
                         Name "contactNormal" // Name of the bot attributes listed in EventChangeAttributes
-                    }	
+                    }
                 }
                 contactNormal
                 {
@@ -5972,15 +5973,15 @@ WaveSchedule
             Health 30000
             Attributes MiniBoss
             Attributes UseBossHealthBar
-            Attributes HoldFireUntilFullReload		
-            Attributes IgnoreFlag	
-            AlwaysGlow 1	
+            Attributes HoldFireUntilFullReload
+            Attributes IgnoreFlag
+            AlwaysGlow 1
             Skill Expert
             MaxVisionRange 3000
             Action Mobber
             UseHumanModel 1
             //UseBestWeapon 1
-            UseMeleeThreatPrioritization 1 
+            UseMeleeThreatPrioritization 1
             Item "The Graylien"
             //Item "Graybanns"
             //Item "Assassin's Attire"
@@ -6015,13 +6016,13 @@ WaveSchedule
                 "faster reload rate" 0.4
             }
 
-            ChangeAttributes 
+            ChangeAttributes
             {
                 Delay 0 //Time before the first bot attribute change (Default: 10)
                 Cooldown 999999 //Time between each bot attribute change (Default: 10)
                 Repeats 1 //How many times should bot change attributes in total (Default: 0 - Infinite)
                 Name "spyIntro" // Name of the bot attributes listed in EventChangeAttributes
-            }	
+            }
             ChangeAttributes
             {
                 Delay 0 //Time before the first bot attribute change (Default: 10)
@@ -6030,7 +6031,7 @@ WaveSchedule
                 Name "spyphase2" // Name of the bot attributes listed in EventChangeAttributes
                 IfHealthBelow 1500
             }
-            ChangeAttributes 
+            ChangeAttributes
             {
                 Delay 7 //Time before the first bot attribute change (Default: 10)
                 Cooldown 999999 //Time between each bot attribute change (Default: 10)
@@ -6066,16 +6067,16 @@ WaveSchedule
                         "
                         Delay  2.5
                     }
-                    ChangeAttributes 
+                    ChangeAttributes
                     {
                         Delay 5.5 //Time before the first bot attribute change (Default: 10)
                         Cooldown 9 //Time between each bot attribute change (Default: 10)
                         Repeats 1 //How many times should bot change attributes in total (Default: 0 - Infinite)
                         Name "spyFirstPhase" // Name of the bot attributes listed in EventChangeAttributes
-                    }	
+                    }
                 }
                 spyFirstPhase
-                {		
+                {
                     AimAt Head
                     AimLeadProjectileSpeed 1
                     Item "spy_fun_gun"
@@ -6095,9 +6096,9 @@ WaveSchedule
                         Action "RunScriptCode"
                         Param "self.AddCond(Constants.ETFCond.TF_COND_MEDIGUN_UBER_BULLET_RESIST);self.AddCond(Constants.ETFCond.TF_COND_MEDIGUN_UBER_BLAST_RESIST);self.AddCond(Constants.ETFCond.TF_COND_MEDIGUN_UBER_FIRE_RESIST);"
                         Delay 0
-                        IfHealthBelow 1500 
+                        IfHealthBelow 1500
                     }
-                    FireInput   
+                    FireInput
                     {
                         Target "spylogic"
                         Action "trigger"
@@ -6106,7 +6107,7 @@ WaveSchedule
                         Cooldown 10
                     }
                     CharacterAttributes
-                    { 					
+                    {
                         "move speed bonus"	0.7
                         "damage force reduction" 0.3
                         "airblast vulnerability multiplier" 0.4
@@ -6133,18 +6134,18 @@ WaveSchedule
                         Cooldown 10
                         Delay 0
                         Repeats 1
-                    } 
+                    }
                     FireInput
                     {
                         Target "!self"
-                        Action "$BotCommand" 
+                        Action "$BotCommand"
                         Param "switch_action Spy"
                         Delay 2
                     }
                     FireInput
                     {
                         Target "!self"
-                        Action "$BotCommand" 
+                        Action "$BotCommand"
                         Param "switch_action Mobber"
                         Delay 10
                     }
@@ -6170,7 +6171,7 @@ WaveSchedule
                         Delay 11
                     }
                     Item "spy_fun_gun"
-                    //UseBestWeapon 1	
+                    //UseBestWeapon 1
                 }
                 goinUpCheck
                 {
@@ -6186,16 +6187,16 @@ WaveSchedule
                 }
                 goinUp
                 {
-                    AimLeadProjectileSpeed 1 
+                    AimLeadProjectileSpeed 1
                     FireInput
                     {
                         Target "!self"
                         Action "RunScriptCode"
                         Param "self.AddCond(Constants.ETFCond.TF_COND_MEDIGUN_UBER_BULLET_RESIST);self.AddCond(Constants.ETFCond.TF_COND_MEDIGUN_UBER_BLAST_RESIST);self.AddCond(Constants.ETFCond.TF_COND_MEDIGUN_UBER_FIRE_RESIST);"
                         Delay 0
-                        IfHealthBelow 1500 
-                    }	
-                    FireInput   
+                        IfHealthBelow 1500
+                    }
+                    FireInput
                     {
                         Target "spylogic"
                         Action "trigger"
@@ -6232,7 +6233,7 @@ WaveSchedule
                         Delay 1 //Time before the first weapon switch starts (Default: 10)
                         Cooldown 10 //Time between each weapon switch (Default: 10)
                         Repeats 1 //How many times should bot switch weapons in total (Default: 0 - Infinite)
-                        Type "Primary" 
+                        Type "Primary"
                     }
                     FireInput
                     {
@@ -6253,7 +6254,7 @@ WaveSchedule
 
                     //AimAt Head
                     CharacterAttributes
-                    { 
+                    {
                         "move speed bonus"	0.7
                         "airblast vulnerability multiplier" 0.4
                         "cancel falling damage" 1
@@ -6379,20 +6380,20 @@ WaveSchedule
                     }
                 }
                 spyphase2
-                {		
+                {
                     AddCond
                     {
                         Name "TF_COND_INVULNERABLE"
                         Delay 0.5
                         Duration 1
-                    }		
+                    }
                     FireInput
                     {
                         Target "!self"
                         Action "RunScriptCode"
                         Param "self.StopTaunt(false);"
                         Delay 0
-                    }		
+                    }
                     FireInput
                     {
                         Target "spy_phase_2_warn"
@@ -6400,7 +6401,7 @@ WaveSchedule
                         Cooldown 15
                         Delay 0
                         Repeats 1
-                    }				
+                    }
                     FireInput
                     {
                         Target "spy_laugh"
@@ -6421,7 +6422,7 @@ WaveSchedule
                         action "Enable"
                         delay 20
                     }
-                    FireInput   
+                    FireInput
                     {
                         Target "spylogic"
                         Action "trigger"
@@ -6430,7 +6431,7 @@ WaveSchedule
                         Cooldown 10
                     }
                     CharacterAttributes
-                    { 
+                    {
                         "move speed bonus"	0.7
                         "damage force reduction" 0.4
                         "airblast vulnerability multiplier" 0.4
@@ -6482,15 +6483,15 @@ WaveSchedule
                         Name "TF_COND_STEALTHED"
                         Delay 6
                         Duration 5
-                    }	
+                    }
                     FireInput
                     {
                         Target "!self"
                         Action "RunScriptCode"
                         Param "self.AddCond(Constants.ETFCond.TF_COND_MEDIGUN_UBER_BULLET_RESIST);self.AddCond(Constants.ETFCond.TF_COND_MEDIGUN_UBER_BLAST_RESIST);self.AddCond(Constants.ETFCond.TF_COND_MEDIGUN_UBER_FIRE_RESIST);"
                         Delay 9
-                        IfHealthBelow 1500 
-                    }	
+                        IfHealthBelow 1500
+                    }
                     FireInput
                     {
                         Target "!self"
@@ -6501,21 +6502,21 @@ WaveSchedule
                     FireInput
                     {
                         Target "!self"
-                        Action "$BotCommand" 
+                        Action "$BotCommand"
                         Param "switch_action Spy"
                         Delay 6
                     }
                     FireInput
                     {
                         Target "!self"
-                        Action "$BotCommand" 
+                        Action "$BotCommand"
                         Param "switch_action Mobber"
                         Delay 19
                     }
                 }
                 spymelee
                 {
-                    FireInput   
+                    FireInput
                     {
                         Target "spylogic"
                         Action "trigger"
@@ -6543,14 +6544,14 @@ WaveSchedule
                     FireInput
                     {
                         Target "!self"
-                        Action "$BotCommand" 
+                        Action "$BotCommand"
                         Param "switch_action Spy"
                         Delay 1
                     }
                     FireInput
                     {
                         Target "!self"
-                        Action "$BotCommand" 
+                        Action "$BotCommand"
                         Param "switch_action Mobber"
                         Delay 6
                     }
@@ -6570,7 +6571,7 @@ WaveSchedule
                         Delay 5.5
                         Repeats 1
                     }
-                    //UseBestWeapon 1	
+                    //UseBestWeapon 1
                     Item "spy_fun_gun"
                     FireInput
                     {
@@ -6578,8 +6579,8 @@ WaveSchedule
                         Action "RunScriptCode"
                         Param "self.AddCond(Constants.ETFCond.TF_COND_MEDIGUN_UBER_BULLET_RESIST);self.AddCond(Constants.ETFCond.TF_COND_MEDIGUN_UBER_BLAST_RESIST);self.AddCond(Constants.ETFCond.TF_COND_MEDIGUN_UBER_FIRE_RESIST);"
                         Delay 3.5
-                        IfHealthBelow 1500 
-                    }	
+                        IfHealthBelow 1500
+                    }
                 }
                 neuralyzer
                 {
@@ -6589,7 +6590,7 @@ WaveSchedule
                         Duration 3
                         IfHealthBelow 20000
                     }
-                    FireInput   
+                    FireInput
                     {
                         Target "spylogic"
                         Action "trigger"
@@ -6663,7 +6664,7 @@ WaveSchedule
                     // 	Cooldown 5
                     // 	Delay 0
                     // 	Repeats 1
-                    // } 
+                    // }
                     FireInput
                     {
                         Target player
@@ -6672,7 +6673,7 @@ WaveSchedule
                         Cooldown 5
                         Delay 0
                         Repeats 1
-                    } 
+                    }
                     FireInput
                     {
                         Target "spy_flash_sound"
@@ -6680,7 +6681,7 @@ WaveSchedule
                         Cooldown 10
                         Delay 0
                         Repeats 1
-                    } 
+                    }
                     FireInput
                     {
                         Target "spy_flash_sound"
@@ -6688,10 +6689,10 @@ WaveSchedule
                         Cooldown 10
                         Delay 5
                         Repeats 1
-                    } 
+                    }
 
                     Item "spy_fun_gun"
-                    //UseBestWeapon 1		
+                    //UseBestWeapon 1
 
                     // FireInput
                     // {
@@ -6707,8 +6708,8 @@ WaveSchedule
                         Action "RunScriptCode"
                         Param "self.AddCond(Constants.ETFCond.TF_COND_MEDIGUN_UBER_BULLET_RESIST);self.AddCond(Constants.ETFCond.TF_COND_MEDIGUN_UBER_BLAST_RESIST);self.AddCond(Constants.ETFCond.TF_COND_MEDIGUN_UBER_FIRE_RESIST);"
                         Delay 0
-                        IfHealthBelow 1500 
-                    }	
+                        IfHealthBelow 1500
+                    }
                 }
                 shieldShoot
                 {
@@ -6764,14 +6765,14 @@ WaveSchedule
                         Delay 0.2 //Time before the first weapon switch starts (Default: 10)
                         Cooldown 5 //Time between each weapon switch (Default: 10)
                         Repeats 2 //How many times should bot switch weapons in total (Default: 0 - Infinite)
-                        Type "Primary" 
+                        Type "Primary"
                     }
                     WeaponSwitch  //Periodically switches weapon
                     {
                         Delay 2 //Time before the first weapon switch starts (Default: 10)
                         Cooldown 5 //Time between each weapon switch (Default: 10)
                         Repeats 1 //How many times should bot switch weapons in total (Default: 0 - Infinite)
-                        Type "Melee" 
+                        Type "Melee"
                     }
                     FireWeapon  //Periodically fires weapon
                     {
@@ -6817,19 +6818,19 @@ WaveSchedule
                         Action "RunScriptCode"
                         Param "self.AddCond(Constants.ETFCond.TF_COND_MEDIGUN_UBER_BULLET_RESIST);self.AddCond(Constants.ETFCond.TF_COND_MEDIGUN_UBER_BLAST_RESIST);self.AddCond(Constants.ETFCond.TF_COND_MEDIGUN_UBER_FIRE_RESIST);"
                         Delay 3
-                        IfHealthBelow 1500 
-                    }	
+                        IfHealthBelow 1500
+                    }
                     FireInput
                     {
                         Target "!self"
-                        Action "$BotCommand" 
+                        Action "$BotCommand"
                         Param "switch_action Spy"
                         Delay 1
                     }
                     FireInput
                     {
                         Target "!self"
-                        Action "$BotCommand" 
+                        Action "$BotCommand"
                         Param "switch_action Mobber"
                         Delay 5
                     }
@@ -6851,8 +6852,8 @@ WaveSchedule
             Health 30000
             Attributes MiniBoss
             Attributes UseBossHealthBar
-            Attributes HoldFireUntilFullReload		
-            Attributes DisableDodge		
+            Attributes HoldFireUntilFullReload
+            Attributes DisableDodge
             Skill Expert
             MaxVisionRange 2000
             Action Mobber
@@ -6880,17 +6881,17 @@ WaveSchedule
                 "crit kill will gib" 1
                 "ragdolls plasma effect" 0
             }
-            ChangeAttributes 
+            ChangeAttributes
             {
                 Delay 0 //Time before the first bot attribute change (Default: 10)
                 Cooldown 9999 //Time between each bot attribute change (Default: 10)
                 Repeats 1 //How many times should bot change attributes in total (Default: 0 - Infinite)
                 Name "medicIntro" // Name of the bot attributes listed in EventChangeAttributes
-            }	
+            }
             EventChangeAttributes
             {
                 medicIntro
-                {                    
+                {
                     CharacterAttributes
                     {
                         "move speed bonus" 0.001
@@ -6909,7 +6910,7 @@ WaveSchedule
                         "
                         Delay  2.5
                     }
-                    ChangeAttributes 
+                    ChangeAttributes
                     {
                         Delay 5.5 //Time before the first bot attribute change (Default: 10)
                         Cooldown 9 //Time between each bot attribute change (Default: 10)
@@ -6929,7 +6930,7 @@ WaveSchedule
                         Itemname "The Crusader's Crossbow"
                         "projectile penetration" 1
                         "damage penalty" 0.7
-                        //"Projectile speed increased" 1.1	
+                        //"Projectile speed increased" 1.1
                         //"fire rate bonus" 0.7
                         "faster reload rate" 0.15
                         "clip size bonus" 5
@@ -7076,13 +7077,13 @@ WaveSchedule
                     // }
                     // AddCond
                     // 	{Name TF_COND_RADIUSHEAL_ON_DAMAGE Duration 9}
-                    ChangeAttributes 
+                    ChangeAttributes
                     {
                         Delay 12 //Time before the first bot attribute change (Default: 10)
                         Cooldown 9 //Time between each bot attribute change (Default: 10)
                         Repeats 1 //How many times should bot change attributes in total (Default: 0 - Infinite)
                         Name "medicNorm" // Name of the bot attributes listed in EventChangeAttributes
-                    }	
+                    }
                 }
                 tagUrIt
                 {
@@ -7096,10 +7097,10 @@ WaveSchedule
                         "add cond on hit" 26
                         "add cond on hit duration" 5
                         //pretty brutal to freeze on a last wave, so give temp res when hit TF_COND_DEFENSEBUFF
-                        "fire input on hit name restrict" "player" 
+                        "fire input on hit name restrict" "player"
                         //"projectile trail particle" "~bombonomicon_spell_trail"
-                        //"Projectile speed increased" 1.1	
-                        "fire rate bonus" 0.1						
+                        //"Projectile speed increased" 1.1
+                        "fire rate bonus" 0.1
                         "attach particle effect" 15
                         "hand scale" 1.0
                         "override projectile type extra" "breadmonster"
@@ -7108,13 +7109,13 @@ WaveSchedule
                         "custom kill icon" "bread_bite"
                         "projectile speed decreased" 0.8
                     }
-                    ChangeAttributes 
+                    ChangeAttributes
                     {
                         Delay 7 //Time before the first bot attribute change (Default: 10)
                         Cooldown 6 //Time between each bot attribute change (Default: 10)
                         Repeats 1 //How many times should bot change attributes in total (Default: 0 - Infinite)
                         Name "medicNorm" // Name of the bot attributes listed in EventChangeAttributes
-                    }	
+                    }
                     //\mvm\norm\taunts\medic_mvm_taunts14.mp3
                     FireInput
                     {
@@ -7185,7 +7186,7 @@ WaveSchedule
                         "damage bonus" 2.0
                         "heal on kill" 400
                     }
-                    ChangeAttributes 
+                    ChangeAttributes
                     {
                         Delay 10 //Time before the first bot attribute change (Default: 10)
                         Cooldown 9 //Time between each bot attribute change (Default: 10)
@@ -7194,7 +7195,7 @@ WaveSchedule
                     }
                 }
             }
-        }	
+        }
 
         T_TFBot_Contact_Demo_Miniboss
         { // demo boss
@@ -7220,7 +7221,7 @@ WaveSchedule
             Item "The Xeno Suit"
             Item "Spent Well Spirits Taunt"
 
-            FireInput  
+            FireInput
             {
                 Target "cannonattacks"
                 Action "disable"
@@ -7228,7 +7229,7 @@ WaveSchedule
                 Repeats 1
                 IfHealthBelow 23000
             }
-            FireInput  
+            FireInput
             {
                 Target "timetodie"
                 Action "trigger"
@@ -7237,7 +7238,7 @@ WaveSchedule
                 Cooldown 13
                 IfHealthBelow 20000
             }
-            FireInput  
+            FireInput
             {
                 Target "phasetwoshenenigans"
                 Action "trigger"
@@ -7251,13 +7252,13 @@ WaveSchedule
                 Duration 3
                 IfHealthBelow 23000
             }
-            ChangeAttributes 
+            ChangeAttributes
             {
                 Delay 0 //Time before the first bot attribute change (Default: 10)
                 Cooldown 9999 //Time between each bot attribute change (Default: 10)
                 Repeats 1 //How many times should bot change attributes in total (Default: 0 - Infinite)
                 Name "demoIntro" // Name of the bot attributes listed in EventChangeAttributes
-            }	
+            }
 
             ItemAttributes
             {
@@ -7279,11 +7280,11 @@ WaveSchedule
             {
                 demoIntro
                 {
-                    FireInput  
+                    FireInput
                     {
                         Target "!self"
                         Action "$TauntFromItem"
-                        Param "Taunt: Drunk Mann's Cannon|taunt move speed|100|taunt turn speed|70,0,-1" 
+                        Param "Taunt: Drunk Mann's Cannon|taunt move speed|100|taunt turn speed|70,0,-1"
                         Delay 0.2
                         Repeats 1
                     }
@@ -7305,7 +7306,7 @@ WaveSchedule
                         "
                         Delay  2.5
                     }
-                    ChangeAttributes 
+                    ChangeAttributes
                     {
                         Delay 5.5 //Time before the first bot attribute change (Default: 10)
                         Cooldown 9 //Time between each bot attribute change (Default: 10)
@@ -7321,11 +7322,11 @@ WaveSchedule
                         Delay 18.4
                         Cooldown 10
                     }
-                    FireInput  
+                    FireInput
                     {
                         Target "!self"
                         Action "$TauntFromItem"
-                        Param "Taunt: Drunk Mann's Cannon|taunt move speed|100|taunt turn speed|70,0,-1" 
+                        Param "Taunt: Drunk Mann's Cannon|taunt move speed|100|taunt turn speed|70,0,-1"
                         Delay 0.2
                         Repeats 1
                     }
@@ -7404,7 +7405,7 @@ WaveSchedule
 
             MaxVisionRange 2500
 
-            CharacterAttributes 
+            CharacterAttributes
             {
                 "move speed bonus" 0.75
                 "fire rate penalty" 1.0
@@ -7412,10 +7413,10 @@ WaveSchedule
                 "afterburn immunity" 1
                 "damage force reduction" 1.0
                 "ignored by enemy sentries" 1
-                "cancel falling damage" 1	
-                "falling_impact_radius_pushback" 200		
+                "cancel falling damage" 1
+                "falling_impact_radius_pushback" 200
                 "stomp building damage" 500
-                "stomp player damage" 200	
+                "stomp player damage" 200
                 "stomp player force" 270
                 //"destroy buildings on death" 1
                 "engy disposable sentries" 20
@@ -7449,13 +7450,13 @@ WaveSchedule
                 Name "comboIntro"
                 Delay 3
                 Repeats 1
-                Cooldown 99999							
+                Cooldown 99999
             }
 
             // //15 -1050 525
             // InterruptAction
             // {
-            //     Target "28 -1294 513" //"877 -830 559" //move target location 
+            //     Target "28 -1294 513" //"877 -830 559" //move target location
             //     AimTarget "ClosestPlayer" // Entity / bot / class name as an alternative. Also: RandomEnemy, ClosestPlayer //"controlpanel_baseboss"
             //     KillAimTarget 1 // Attack aim target (Default: 0)
             //     //AimTarget "ClosestPlayer"
@@ -7474,7 +7475,7 @@ WaveSchedule
                 {
                     // InterruptAction
                     // {
-                    //     Target "28 -1294 513" //"877 -830 559" //move target location 
+                    //     Target "28 -1294 513" //"877 -830 559" //move target location
 
                     //     //AimTarget "ClosestPlayer"
                     //     Delay 1 // Time before the first task starts. Must be above 0, or it will not execute (Default: 10)
@@ -7485,27 +7486,27 @@ WaveSchedule
                     //     //AddToQueue 1
                     //     WaitUntilDone 1 // If set, duration timer only starts when the bot moves to the target location or the aim target is killed (Default: 0)
                     // }
-                    CharacterAttributes 
+                    CharacterAttributes
                     {
                         "move speed bonus" 1.0
                         "increased jump height" 1.5
                     }
-                    WeaponSwitch 
+                    WeaponSwitch
                     {
-                        Delay 0 
+                        Delay 0
                         Repeats 1
                         Type "PDA" // Weapon slot, possible values:
                     }
-                    ClientCommand 
+                    ClientCommand
                     { //this is pretty funny
                         Name "build 2" // Name of the client command, notable examples:
                         Delay 0.1 //Time before the first execution of the task (Default: 10)
                         Cooldown 6 //Time between each execution of the task (Default: 10)
                         Repeats 1 //How many times should the task be executed in total (Default: 0 - Infinite)
                     }
-                    WeaponSwitch 
+                    WeaponSwitch
                     {
-                        Delay 1.5 
+                        Delay 1.5
                         Repeats 1
                         Type "Melee"
                     }
@@ -7519,7 +7520,7 @@ WaveSchedule
                     // { //need to include this in every block or else laser wont aim for players
                     //     Target "!self"
                     //     Action "RunScriptCode"
-                    //     Param "Contact.SetEngiUfoTrigger(self)" 
+                    //     Param "Contact.SetEngiUfoTrigger(self)"
                     //     Delay 1.0
                     // } // this is because, it uses a think function and think functions get reset on changeattributes
                 }
@@ -7532,22 +7533,22 @@ WaveSchedule
                         repeats 1
                         delay 1.0
                     }
-                    WeaponSwitch 
+                    WeaponSwitch
                     {
-                        Delay 0 
+                        Delay 0
                         Repeats 1
                         Type "PDA" // Weapon slot, possible values:
                     }
-                    ClientCommand 
+                    ClientCommand
                     { //this is pretty funny
                         Name "build 2" // Name of the client command, notable examples:
                         Delay 0.1 //Time before the first execution of the task (Default: 10)
                         Cooldown 6 //Time between each execution of the task (Default: 10)
                         Repeats 1 //How many times should the task be executed in total (Default: 0 - Infinite)
                     }
-                    WeaponSwitch 
+                    WeaponSwitch
                     {
-                        Delay 3.0 
+                        Delay 3.0
                         Repeats 1
                         Type "Primary" // Weapon slot, possible values:
                     }
@@ -7578,7 +7579,7 @@ WaveSchedule
                         Cooldown 0.8
                         Repeats 5
                     }
-                    CharacterAttributes 
+                    CharacterAttributes
                     {
                         "move speed bonus" 0.9
                         "increased jump height" 1.8
@@ -7628,7 +7629,7 @@ WaveSchedule
                         Name "chooseAnAttack"
                         Delay 9
                         Repeats 1
-                        Cooldown 14							
+                        Cooldown 14
                     }
                     Item "The Cow Mangler 5000"
                     AimOffset "0 0 -300"
@@ -7636,7 +7637,7 @@ WaveSchedule
                     {
                         ItemName "The Cow Mangler 5000"
                         "is invisible" 1
-                        "custom projectile model" "models/projectiles/fos_hologram_projectile_blu_l_spin.mdl" 
+                        "custom projectile model" "models/projectiles/fos_hologram_projectile_blu_l_spin.mdl"
                         "dmg bonus vs buildings" 5
                         "projectile trail particle" "eyeboss_projectile"
                         "explosion particle" "drg_cow_explosioncore_charged_blue"
@@ -7667,16 +7668,16 @@ WaveSchedule
                         //AddToQueue 1
                         //WaitUntilDone 1 // If set, duration timer only starts when the bot moves to the target location or the aim target is killed (Default: 0)
                     }
-                    WeaponSwitch 
+                    WeaponSwitch
                     {
-                        Delay 0 
+                        Delay 0
                         Repeats 1
                         Type "PDA" // Weapon slot, possible values:
                     }
 
-                    WeaponSwitch 
+                    WeaponSwitch
                     {
-                        Delay 3.0 
+                        Delay 3.0
                         Repeats 1
                         Type "Primary" // Weapon slot, possible values:
                     }
@@ -7707,7 +7708,7 @@ WaveSchedule
                         Cooldown 0.8
                         Repeats 5
                     }
-                    CharacterAttributes 
+                    CharacterAttributes
                     {
                         "move speed bonus" 0.9
                         "increased jump height" 1.8
@@ -7758,7 +7759,7 @@ WaveSchedule
                         Name "chooseAnAttack"
                         Delay 9
                         Repeats 1
-                        Cooldown 14							
+                        Cooldown 14
                     }
                     Item "The Cow Mangler 5000"
                     AimOffset "0 0 -300"
@@ -7766,7 +7767,7 @@ WaveSchedule
                     {
                         ItemName "The Cow Mangler 5000"
                         "is invisible" 1
-                        "custom projectile model" "models/projectiles/fos_hologram_projectile_blu_l_spin.mdl" 
+                        "custom projectile model" "models/projectiles/fos_hologram_projectile_blu_l_spin.mdl"
                         "dmg bonus vs buildings" 8
                         "projectile trail particle" "eyeboss_projectile"
                         "explosion particle" "drg_cow_explosioncore_charged_blue"
@@ -7783,7 +7784,7 @@ WaveSchedule
                 }
                 ringattack
                 {
-                    CharacterAttributes 
+                    CharacterAttributes
                     {
                         "move speed bonus" 0.9
                         "increased jump height" 1.5
@@ -7828,7 +7829,7 @@ WaveSchedule
                         Name "chooseAnAttack"
                         Delay 10
                         Repeats 1
-                        Cooldown 9							
+                        Cooldown 9
                     }
                     FireInput
                     {
@@ -7858,15 +7859,15 @@ WaveSchedule
                 spawnJumpPad
                 { // ring downslam plus spawns jump pads
                     Attributes SuppressFire
-                    WeaponSwitch 
+                    WeaponSwitch
                     {
-                        Delay 0 
+                        Delay 0
                         Repeats 1
                         Type "Melee" // Weapon slot, possible values:
                     }
-                    WeaponSwitch 
+                    WeaponSwitch
                     {
-                        Delay 2.9 
+                        Delay 2.9
                         Repeats 1
                         Type "Primary" // Weapon slot, possible values:
                     }
@@ -7949,7 +7950,7 @@ WaveSchedule
                         cooldown 0.24
                         Repeats 7
                     }
-                    CharacterAttributes 
+                    CharacterAttributes
                     {
                         "move speed bonus" 0.9
                         "increased jump height" 2.0
@@ -8007,12 +8008,12 @@ WaveSchedule
                         Name "chooseAnAttack"
                         Delay 6
                         Repeats 1
-                        Cooldown 4							
+                        Cooldown 4
                     }
                 }
                 comboIntro
                 {
-                    CharacterAttributes 
+                    CharacterAttributes
                     {
                         "move speed bonus" 0.1
                         "increased jump height" 3.0
@@ -8059,13 +8060,13 @@ WaveSchedule
                         Repeats 0
                         Type "Jump"
                     }
-                    WeaponSwitch 
+                    WeaponSwitch
                     {
                         Delay 0.0
                         Repeats 1
                         Type "Primary" // Weapon slot, possible values:
                     }
-                    WeaponSwitch 
+                    WeaponSwitch
                     {
                         Delay 8.0
                         Repeats 1
@@ -8186,7 +8187,7 @@ WaveSchedule
                         Name "chooseAnAttack"
                         Delay 10
                         Repeats 1
-                        Cooldown 7							
+                        Cooldown 7
                     }
                 }
                 warpcharge
@@ -8195,7 +8196,7 @@ WaveSchedule
                     // {
                     //     //Target "-66 -918 706" //"877 -830 559" //move target location
                     //     AimTarget "ClosestPlayer"
-                    //     KillAimTarget 1 
+                    //     KillAimTarget 1
                     //     Delay 0 // Time before the first task starts. Must be above 0, or it will not execute (Default: 10)
                     //     Repeats 1 // How many times should bot do the task in total (Default: 0 - Infinite)
                     //     Duration 6 // How long should the ai be interrupted
@@ -8208,7 +8209,7 @@ WaveSchedule
                     {
                         //Target "-66 -918 706" //"877 -830 559" //move target location
                         AimTarget "ClosestPlayer"
-                        KillAimTarget 1 
+                        KillAimTarget 1
                         Delay 0 // Time before the first task starts. Must be above 0, or it will not execute (Default: 10)
                         Repeats 0 // How many times should bot do the task in total (Default: 0 - Infinite)
                         Duration 1 // How long should the ai be interrupted
@@ -8365,35 +8366,35 @@ WaveSchedule
                         Name "chooseAnAttack"
                         Delay 6
                         Repeats 1
-                        Cooldown 9							
+                        Cooldown 9
                     }
                     WeaponRestrictions MeleeOnly
                 }
                 pizzaattack
                 {
                     RingOfFire 15
-                    CharacterAttributes 
+                    CharacterAttributes
                     {
                         "move speed bonus" 0.0
                         "move speed penalty" 100
                         //"increased jump height" 0.0
-                    }                        
-                    WeaponSwitch 
+                    }
+                    WeaponSwitch
                     {
-                        Delay 0 
+                        Delay 0
                         Repeats 1
                         Type "PDA" // Weapon slot, possible values:
                     }
-                    ClientCommand 
+                    ClientCommand
                     { //this is pretty funny
                         Name "build 2" // Name of the client command, notable examples:
                         Delay 0.3 //Time before the first execution of the task (Default: 10)
                         Cooldown 6 //Time between each execution of the task (Default: 10)
                         Repeats 1 //How many times should the task be executed in total (Default: 0 - Infinite)
                     }
-                    WeaponSwitch 
+                    WeaponSwitch
                     {
-                        Delay 1.0 
+                        Delay 1.0
                         Repeats 1
                         Type "Primary" // Weapon slot, possible values:
                     }
@@ -8425,7 +8426,7 @@ WaveSchedule
                         Name "chooseAnAttack"
                         Delay 8
                         Repeats 1
-                        Cooldown 8							
+                        Cooldown 8
                     }
                     ItemAttributes
                     {
@@ -8486,7 +8487,7 @@ WaveSchedule
             //Item "Frontier Flyboy"
 
             Item "the gunslinger"
-            
+
             Item "Taunt: The Jumping Jack"
             //Item "Teufort Knight"
             //UseMeleeThreatPrioritization 1
@@ -8496,7 +8497,7 @@ WaveSchedule
                 "set item tint rgb" 15185211
             }
             //Item "The Hanger-On Hood"
-            
+
             CharacterAttributes
             {
                 //"move speed bonus"	0.7
@@ -9508,7 +9509,7 @@ WaveSchedule
                         Repeats 3
                         Delay 3
                         Cooldown 3
-                        
+
                     }
                     FireInput
                     {
