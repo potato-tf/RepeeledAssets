@@ -20,7 +20,7 @@ WaveSchedule
 	NoRomevisionCosmetics 1 [$SIGSEGV]
 	UpgradeStationKeepWeapons 1 [$SIGSEGV]
 	TextPrintTime 0 [$SIGSEGV]
-	PrecacheModel "models/weapons/c_models/c_wasp_launcher/c_wasp_launcher.mdl"  [$SIGSEGV]
+	PrecacheModel "models/weapons/c_models/c_wasp_launcher/c_wasp_launcher_1.mdl"  [$SIGSEGV]
 	RemoveGrapplingHooks 4 [$SIGSEGV]
 
 	PrecacheModel "models\player\soldier.mdl" [$SIGSEGV]
@@ -2676,7 +2676,7 @@ WaveSchedule
 		{
 			Name "W.A.S.P. Launcher"
 			OriginalItemName "TF_WEAPON_ROCKETLAUNCHER"
-			"custom item model" "models/weapons/c_models/c_wasp_launcher/c_wasp_launcher.mdl"
+			"custom item model" "models/weapons/c_models/c_wasp_launcher/c_wasp_launcher_1.mdl"
 			"damage penalty" 0.9
 			"Projectile speed decreased" 0.8
 			"Blast radius increased" 1.5
