@@ -32,7 +32,7 @@ if("SetScriptVersion" in getroottable())
 		IH_DIS_MSG				= IH_disable_color + "Type '/itemhelp 0' to disable these messages. \nType '/itemhelp 2' to Always display this message."
 		IH_BAD_ARGS				= IH_color_header + "[Item Helper]" + IH_error_color + " {Error}\x01 Incorrect arguments!\n/itemhelp 2 - Enable\n/itemhelp 1 - Enable during Wave Setup only\n/itemhelp 0 - Disable"
 		IH_OOB_ARG				= IH_color_header + "[Item Helper]" + IH_error_color + " {Error}\x01 Out Of Bounds Value Set! : %s"
-		IH_HELP_MSG				= IH_color_header + "[Item Helper]\x01 Item helper provides simple descriptions for each \x03Chaos\x01 Item!" 
+		IH_HELP_MSG				= IH_color_header + "[Item Helper]\x01 Item helper provides simple descriptions for each \x03Chaos\x01 Item!"
 		IH_DISABLE				= IH_color_header + "[►]\x01 Item Helper disabled."
 		IH_WAVE_SETUP			= IH_color_header + "[►]\x01 Item Helper enabled on Wave Setup only."
 		IH_ENABLE 				= IH_color_header + "[►]\x01 Item Helper enabled."
@@ -164,38 +164,38 @@ if("SetScriptVersion" in getroottable())
 		AIRSTRIKE_NAME			= "AIR STRIKE"
 		AIRSTRIKE_DESC			= " Load up to 10 rockets before firing all at once in a fixed spread pattern. These rockets automatically seek enemies."
 		///
-		SHOTGUN_SOLD_NAME 		= "SHOTGUN - SOLDIER" 
-		SHOTGUN_SOLD_DESC 		= " Very fast fire rate and crits while rocket jumping." 
+		SHOTGUN_SOLD_NAME 		= "SHOTGUN - SOLDIER"
+		SHOTGUN_SOLD_DESC 		= " Very fast fire rate and crits while rocket jumping."
 		//
-		SHOTGUN_NAME 			= "SHOTGUN" 
-		SHOTGUN_DESC 			= " Standard option for reliable damage." 
+		SHOTGUN_NAME 			= "SHOTGUN"
+		SHOTGUN_DESC 			= " Standard option for reliable damage."
 		//
-		BUFFBANNER_NAME 		= "BUFF BANNER" 
-		BUFFBANNER_DESC 		= " Unlimited range and significantly increased duration." 
+		BUFFBANNER_NAME 		= "BUFF BANNER"
+		BUFFBANNER_DESC 		= " Unlimited range and significantly increased duration."
 		//
-		GUNBOATS_NAME 			= "GUNBOATS" 
-		GUNBOATS_DESC 			= " Enables bunnyhopping by holding 'jump' key. Grants immunity to fall damage." 
+		GUNBOATS_NAME 			= "GUNBOATS"
+		GUNBOATS_DESC 			= " Enables bunnyhopping by holding 'jump' key. Grants immunity to fall damage."
 		//
-		BATTALIONS_NAME 		= "BATTALION'S BACKUP" 
-		BATTALIONS_DESC 		= " Unlimited range and significantly increased duration." 
+		BATTALIONS_NAME 		= "BATTALION'S BACKUP"
+		BATTALIONS_DESC 		= " Unlimited range and significantly increased duration."
 		//
-		CONCHEROR_NAME 			= "CONCHEROR" 
-		CONCHEROR_DESC 			= " Unlimited range and significantly increased duration." 
+		CONCHEROR_NAME 			= "CONCHEROR"
+		CONCHEROR_DESC 			= " Unlimited range and significantly increased duration."
 		//
-		RESERVESHOOTER_NAME 	= "RESERVE SHOOTER" 
-		RESERVESHOOTER_DESC 	= " Deals a flat 10,000 damage per shot no matter the range with 3s mini-crits on kill. However this weapon cannot be crit boosted, and cannot damage Tanks. Hold Alt-Fire to zoom in." 
+		RESERVESHOOTER_NAME 	= "RESERVE SHOOTER"
+		RESERVESHOOTER_DESC 	= " Deals a flat 10,000 damage per shot no matter the range with 3s mini-crits on kill. However this weapon cannot be crit boosted, and cannot damage Tanks. Hold Alt-Fire to zoom in."
 		//
-		BISON_NAME 				= "RIGHTEOUS BISON" 
-		BISON_DESC 				= " Fires a continuous beam of penetrating damage with full auto-aim." 
+		BISON_NAME 				= "RIGHTEOUS BISON"
+		BISON_DESC 				= " Fires a continuous beam of penetrating damage with full auto-aim."
 		//
-		MANTREADS_NAME 			= "MANTREADS" 
-		MANTREADS_DESC 			= " Major reduction in knockback taken from damage. Air strafing now has massively increased acceleration. Stomp damage buffed and velocity-based." 
+		MANTREADS_NAME 			= "MANTREADS"
+		MANTREADS_DESC 			= " Major reduction in knockback taken from damage. Air strafing now has massively increased acceleration. Stomp damage buffed and velocity-based."
 		//
-		BASEJUMPER_NAME 		= "B.A.S.E. JUMPER" 
-		BASEJUMPER_DESC 		= " Able to toggle parachute. Increases resistance to knockback and bullet damage, reducing your vulnerability in the air." 
+		BASEJUMPER_NAME 		= "B.A.S.E. JUMPER"
+		BASEJUMPER_DESC 		= " Able to toggle parachute. Increases resistance to knockback and bullet damage, reducing your vulnerability in the air."
 		//
-		PANICATTACK_NAME 		= "PANIC ATTACK" 
-		PANICATTACK_DESC 		= " For when you need emergency healing. Immediately restores up to 10,000 health on hit. Taking damage with this weapon active has a chance to trigger a brief self-uber." 
+		PANICATTACK_NAME 		= "PANIC ATTACK"
+		PANICATTACK_DESC 		= " For when you need emergency healing. Immediately restores up to 10,000 health on hit. Taking damage with this weapon active has a chance to trigger a brief self-uber."
 		///
 		SHOVEL_NAME 			= "SHOVEL"
 		SHOVEL_DESC 			= " Standard option for defense and mobility."
@@ -241,30 +241,30 @@ if("SetScriptVersion" in getroottable())
 		NOSTROMONAPALMER_NAME 	= "NOSTROMO NAPALMER"
 		NOSTROMONAPALMER_DESC	= " Slow enemies down on hit. Builds 'Mmmph' charge similar to the Phlogistinator, but grants yourself Concheror buff. This flamethrower cannot airblast."
 		///
-		SHOTGUN_PYRO_NAME 		= "SHOTGUN - PYRO" 
-		SHOTGUN_PYRO_DESC 		= " Guaranteed crits against burning enemies." 
+		SHOTGUN_PYRO_NAME 		= "SHOTGUN - PYRO"
+		SHOTGUN_PYRO_DESC 		= " Guaranteed crits against burning enemies."
 		//
-		FLAREGUN_NAME 			= "FLARE GUN" 
-		FLAREGUN_DESC 			= " Fires a hitscan attack that penetrates enemies. Damage exponentially increases with each penetrated enemy along the path. Also has a chance to stun enemies on hit." 
+		FLAREGUN_NAME 			= "FLARE GUN"
+		FLAREGUN_DESC 			= " Fires a hitscan attack that penetrates enemies. Damage exponentially increases with each penetrated enemy along the path. Also has a chance to stun enemies on hit."
 		//
-		DETONATOR_NAME 			= "DETONATOR" 
-		DETONATOR_DESC 			= " Flare has infinite explosion radius and will hit anything within line of sight. Forces all spy bots to uncloak and undisguise. Also great choice for mobility." 
+		DETONATOR_NAME 			= "DETONATOR"
+		DETONATOR_DESC 			= " Flare has infinite explosion radius and will hit anything within line of sight. Forces all spy bots to uncloak and undisguise. Also great choice for mobility."
 		//
-		MANMELTER_NAME 			= "MANMELTER" 
-		MANMELTER_DESC 			= " Rapid-fire flares specialized to automatically seek out enemies. Unlimited ammo and no reload. Alt-Fire: Launch a burst of flares at once." 
+		MANMELTER_NAME 			= "MANMELTER"
+		MANMELTER_DESC 			= " Rapid-fire flares specialized to automatically seek out enemies. Unlimited ammo and no reload. Alt-Fire: Launch a burst of flares at once."
 		//
-		SCORCHSHOT_NAME 		= "SCORCH SHOT" 
-		SCORCHSHOT_DESC 		= " On hit: Deal large damage, extinguish the enemy and inflict knockback. Your target MUST be on fire, or this attack will do nothing. Alt-Fire: Use slow seeker flare." 
+		SCORCHSHOT_NAME 		= "SCORCH SHOT"
+		SCORCHSHOT_DESC 		= " On hit: Deal large damage, extinguish the enemy and inflict knockback. Your target MUST be on fire, or this attack will do nothing. Alt-Fire: Use slow seeker flare."
 		//
-		THERMALTHRUSTER_NAME 	= "THERMAL THRUSTER" 
-		THERMALTHRUSTER_DESC 	= " Reduced fuel consumption with no launch delay. Able to redeploy in-air and deal massive stomp damage. Gain a brief critboost on kill." 
+		THERMALTHRUSTER_NAME 	= "THERMAL THRUSTER"
+		THERMALTHRUSTER_DESC 	= " Reduced fuel consumption with no launch delay. Able to redeploy in-air and deal massive stomp damage. Gain a brief critboost on kill."
 		//
-		GASPASSER_NAME 			= "GAS PASSER" 
-		GASPASSER_DESC 			= " Gas meter starts empty and resets on death. Deal 150,000 damage to fill the meter. Explode-on-Ignite deals 105,000 damage." 
+		GASPASSER_NAME 			= "GAS PASSER"
+		GASPASSER_DESC 			= " Gas meter starts empty and resets on death. Deal 150,000 damage to fill the meter. Explode-on-Ignite deals 105,000 damage."
 		///
 		FIREAXE_NAME 			= "FIRE AXE"
 		FIREAXE_DESC 			= " Standard option for defense and mobility."
-		//	
+		//
 		AXTINGUISHER_NAME 		= "AXTINGUISHER"
 		AXTINGUISHER_DESC		= " Significantly increased damage against burning enemies."
 		//
@@ -665,7 +665,7 @@ if("SetScriptVersion" in getroottable())
 		IH_DIS_MSG				= IH_disable_color + "输入 '/itemhelp 0' 可隐藏武器配置信息. \n输入 '/itemhelp 2' 可持续显示武器配置信息."
 		IH_BAD_ARGS				= IH_color_header + "[武器配置]" + IH_error_color + " {错误}\x01 参数错误!\n/itemhelp 2 - 显示\n/itemhelp 1 - 仅在准备阶段显示\n/itemhelp 0 - 隐藏e"
 		IH_OOB_ARG				= IH_color_header + "[武器配置]" + IH_error_color + " {错误}\x01 设置超出范围值! : %s"
-		IH_HELP_MSG				= IH_color_header + "[武器配置]\x01 武器配置信息会显示 \x03每一把 \x01 武器的特殊改动!" 
+		IH_HELP_MSG				= IH_color_header + "[武器配置]\x01 武器配置信息会显示 \x03每一把 \x01 武器的特殊改动!"
 		IH_DISABLE				= IH_color_header + "[►]\x01 已隐藏武器配置信息."
 		IH_WAVE_SETUP			= IH_color_header + "[►]\x01 武器配置信息仅在准备阶段显示."
 		IH_ENABLE 				= IH_color_header + "[►]\x01 已显示武器配置信息."
@@ -685,7 +685,7 @@ if("SetScriptVersion" in getroottable())
 		REPROG_BOT_NOT_SUIT		= TF_TEAM_COLOR_REPROG_B+"%s\x01 不适合战斗且无法被重编程."
 		REPROG_BOT_LEAVE		= TF_TEAM_COLOR_SPEC+"%s 死亡."
 		REPROG_BOT_MESSAGE 		= TF_TEAM_COLOR_RED+"%s\x01 重编程了 "+TF_TEAM_COLOR_REPROG_B+"%s\x01!"
-		//--------------------------------------------------------- 
+		//---------------------------------------------------------
 		CHECKPOINT_CREATED		= "\x077c8cc2已设置检查点:\x078165cf [/%s]"
 		CHECKPOINT_WRONG_MAP	= CHECKPOINT_ERROR+"此检查点设置为另一地图."
 		CHECKPOINT_WRONG_MISS	= CHECKPOINT_ERROR+"此检查点设置为另一任务."
@@ -797,38 +797,38 @@ if("SetScriptVersion" in getroottable())
 		AIRSTRIKE_NAME			= "空袭火箭筒"
 		AIRSTRIKE_DESC			= "以固定的散射分布发射最多 10 枚火箭. 火箭能够追踪敌人."
 		///
-		SHOTGUN_SOLD_NAME 		= "霰弹枪 - 士兵" 
-		SHOTGUN_SOLD_DESC 		= "在火箭跳式必定暴击且大幅提升开火速度." 
+		SHOTGUN_SOLD_NAME 		= "霰弹枪 - 士兵"
+		SHOTGUN_SOLD_DESC 		= "在火箭跳式必定暴击且大幅提升开火速度."
 		//
-		SHOTGUN_NAME 			= "霰弹枪" 
-		SHOTGUN_DESC 			= "标准的输出选择." 
+		SHOTGUN_NAME 			= "霰弹枪"
+		SHOTGUN_DESC 			= "标准的输出选择."
 		//
-		BUFFBANNER_NAME 		= "战旗" 
-		BUFFBANNER_DESC 		= "极大幅度提升增益范围与持续时间." 
+		BUFFBANNER_NAME 		= "战旗"
+		BUFFBANNER_DESC 		= "极大幅度提升增益范围与持续时间."
 		//
-		GUNBOATS_NAME 			= "炮艇" 
-		GUNBOATS_DESC 			= "按住 '跳跃' 键可自动连跳. 免疫摔落伤害." 
+		GUNBOATS_NAME 			= "炮艇"
+		GUNBOATS_DESC 			= "按住 '跳跃' 键可自动连跳. 免疫摔落伤害."
 		//
-		BATTALIONS_NAME 		= "军队的支援" 
-		BATTALIONS_DESC 		= "极大幅度提升增益范围与持续时间." 
+		BATTALIONS_NAME 		= "军队的支援"
+		BATTALIONS_DESC 		= "极大幅度提升增益范围与持续时间."
 		//
-		CONCHEROR_NAME 			= "征服者战旗" 
-		CONCHEROR_DESC 			= "极大幅度提升增益范围与持续时间." 
+		CONCHEROR_NAME 			= "征服者战旗"
+		CONCHEROR_DESC 			= "极大幅度提升增益范围与持续时间."
 		//
-		RESERVESHOOTER_NAME 	= "预备役射手" 
-		RESERVESHOOTER_DESC 	= "按住次要攻击键可以缩放. 造成不受距离影响影响的高额伤害并在击杀时候获得 3 秒迷你暴击. 无法暴击, 无法对坦克造成伤害." 
+		RESERVESHOOTER_NAME 	= "预备役射手"
+		RESERVESHOOTER_DESC 	= "按住次要攻击键可以缩放. 造成不受距离影响影响的高额伤害并在击杀时候获得 3 秒迷你暴击. 无法暴击, 无法对坦克造成伤害."
 		//
-		BISON_NAME 				= "正义野牛" 
-		BISON_DESC 				= "能够连射并能够追踪敌人的穿透光束." 
+		BISON_NAME 				= "正义野牛"
+		BISON_DESC 				= "能够连射并能够追踪敌人的穿透光束."
 		//
-		MANTREADS_NAME 			= "踏步靴" 
-		MANTREADS_DESC 			= "极大幅降低伤害导致的击退效果. 大幅提升空中转向能力. 提升踩踏造成的伤害并能根据自身速度进一步提升." 
+		MANTREADS_NAME 			= "踏步靴"
+		MANTREADS_DESC 			= "极大幅降低伤害导致的击退效果. 大幅提升空中转向能力. 提升踩踏造成的伤害并能根据自身速度进一步提升."
 		//
-		BASEJUMPER_NAME 		= "极限降落伞" 
-		BASEJUMPER_DESC 		= "能够多次打开降落伞. 提升击退抗性与子弹伤害抗性, 在空中会受到额外的伤害." 
+		BASEJUMPER_NAME 		= "极限降落伞"
+		BASEJUMPER_DESC 		= "能够多次打开降落伞. 提升击退抗性与子弹伤害抗性, 在空中会受到额外的伤害."
 		//
-		PANICATTACK_NAME 		= "恐慌打击" 
-		PANICATTACK_DESC 		= "紧急时候的回复手段. 命中时立刻恢复 10000 点生命值. 手持此武器时受到伤害时会有几率获得无敌." 
+		PANICATTACK_NAME 		= "恐慌打击"
+		PANICATTACK_DESC 		= "紧急时候的回复手段. 命中时立刻恢复 10000 点生命值. 手持此武器时受到伤害时会有几率获得无敌."
 		///
 		SHOVEL_NAME 			= "铁锹"
 		SHOVEL_DESC 			= "标准选择, 提升移动速度与防御."
@@ -874,30 +874,30 @@ if("SetScriptVersion" in getroottable())
 		NOSTROMONAPALMER_NAME 	= "诺斯魔焰"
 		NOSTROMONAPALMER_DESC	= "攻击能够减速敌人. 造成火焰伤害可以积攒 '呜唔' 值, 能够给予自身征服者战旗效果. 无法气爆."
 		///
-		SHOTGUN_PYRO_NAME 		= "霰弹枪 - 火焰兵" 
-		SHOTGUN_PYRO_DESC 		= "攻击燃烧的敌人时必定暴击." 
+		SHOTGUN_PYRO_NAME 		= "霰弹枪 - 火焰兵"
+		SHOTGUN_PYRO_DESC 		= "攻击燃烧的敌人时必定暴击."
 		//
-		FLAREGUN_NAME 			= "信号枪" 
-		FLAREGUN_DESC 			= "发射能够穿透敌人的子弹. 每穿透一个敌人伤害都会大幅度提升. 攻击有几率击晕敌人." 
+		FLAREGUN_NAME 			= "信号枪"
+		FLAREGUN_DESC 			= "发射能够穿透敌人的子弹. 每穿透一个敌人伤害都会大幅度提升. 攻击有几率击晕敌人."
 		//
-		DETONATOR_NAME 			= "起爆者" 
-		DETONATOR_DESC 			= "极大幅度提升爆炸范围. 使范围内所有间谍机器人立刻解除伪装与隐形. 提升对自身的推动力." 
+		DETONATOR_NAME 			= "起爆者"
+		DETONATOR_DESC 			= "极大幅度提升爆炸范围. 使范围内所有间谍机器人立刻解除伪装与隐形. 提升对自身的推动力."
 		//
-		MANMELTER_NAME 			= "熔人枪" 
-		MANMELTER_DESC 			= "连射出能够追踪敌人的信号弹. 不需要弹药. 次要开火键: 一次发射多发信号弹." 
+		MANMELTER_NAME 			= "熔人枪"
+		MANMELTER_DESC 			= "连射出能够追踪敌人的信号弹. 不需要弹药. 次要开火键: 一次发射多发信号弹."
 		//
-		SCORCHSHOT_NAME 		= "焦化枪" 
-		SCORCHSHOT_DESC 		= "命中燃烧的敌人时大幅提升伤害, 为敌人灭火且击退敌人. 攻击未燃烧的敌人时无任何效果. 次要开火键: 发射缓慢追踪敌人的信号弹." 
+		SCORCHSHOT_NAME 		= "焦化枪"
+		SCORCHSHOT_DESC 		= "命中燃烧的敌人时大幅提升伤害, 为敌人灭火且击退敌人. 攻击未燃烧的敌人时无任何效果. 次要开火键: 发射缓慢追踪敌人的信号弹."
 		//
-		THERMALTHRUSTER_NAME 	= "热能推进器" 
-		THERMALTHRUSTER_DESC 	= "降低能量消耗并提升动作速度. 能在空中再次启动并提升踩踏伤害. 击杀敌人时获得一段时间暴击." 
+		THERMALTHRUSTER_NAME 	= "热能推进器"
+		THERMALTHRUSTER_DESC 	= "降低能量消耗并提升动作速度. 能在空中再次启动并提升踩踏伤害. 击杀敌人时获得一段时间暴击."
 		//
-		GASPASSER_NAME 			= "纵火者的油桶" 
-		GASPASSER_DESC 			= "起始充能为空且死亡时清空充能. 造成 150,000 伤害以充能. 大幅提升汽油爆炸伤害." 
+		GASPASSER_NAME 			= "纵火者的油桶"
+		GASPASSER_DESC 			= "起始充能为空且死亡时清空充能. 造成 150,000 伤害以充能. 大幅提升汽油爆炸伤害."
 		///
 		FIREAXE_NAME 			= "消防斧"
 		FIREAXE_DESC 			= "标准选择, 提升移动速度与防御."
-		//	
+		//
 		AXTINGUISHER_NAME 		= "火焰战斧"
 		AXTINGUISHER_DESC		= "大幅提升对燃烧敌人的伤害."
 		//
@@ -941,11 +941,11 @@ if("SetScriptVersion" in getroottable())
 		//
 		ALIBABA_NAME			= "阿里巴巴的尖头靴"
 		ALIBABA_DESC			= "提升护盾冲撞伤害. 免疫摔落伤害."
-		// 
+		//
 		//
 		BOOTLEGGER_NAME			= "海盗头子的假腿"
 		BOOTLEGGER_DESC			= "提升护盾冷却速度. 免疫摔落伤害."
-		// 
+		//
 		//
 		LOOSECANNON_NAME		= "脱缰巨炮"
 		LOOSECANNON_DESC		= "以固定的散射分布发射最多 4 枚炮弹. 炮弹在接触物体表面时立刻爆炸."
@@ -964,15 +964,15 @@ if("SetScriptVersion" in getroottable())
 		//
 		CHARGINTARGE_NAME 		= "冲锋盾"
 		CHARGINTARGE_DESC 		= "重击冲锋 - 大幅提升护盾冲撞伤害."
-		// 
+		//
 		//
 		SPLENDIDSCREEN_NAME 	= "辉煌护盾"
 		SPLENDIDSCREEN_DESC 	= "连续冲锋 - 大幅提升护盾冷却速度."
-		// 
+		//
 		//
 		TIDETURNER_NAME 		= "力挽狂澜"
 		TIDETURNER_DESC 		= "爆发冲锋 - 大幅提升冲锋速度."
-		// 
+		//
 		//
 		QUICKIEBOMB_NAME 		= "快速黏弹发射器"
 		QUICKIEBOMB_DESC 		= "大幅提升开火速度以及粘弹就绪时间. 击杀时获得一段时间的迷你暴击."
@@ -985,7 +985,7 @@ if("SetScriptVersion" in getroottable())
 		//
 		SKULLCUTTER_NAME 		= "苏格兰颅骨切割者"
 		SKULLCUTTER_DESC 		= "能够无视Ubercharge效果并干扰敌人的医疗枪. 对与你同职业的敌人造成额外的伤害."
-		// 
+		//
 		//
 		CABER_NAME 				= "木柄手榴弹"
 		CABER_DESC 				= "生命值越低此武器伤害越高. 生命值低于 2% 时必定暴击. 手榴弹的爆炸会杀死你."
@@ -1304,7 +1304,7 @@ if("SetScriptVersion" in getroottable())
 		IH_DIS_MSG				= IH_disable_color + "輸入 '/itemhelp 0' 以隱藏這些訊息. \n輸入 '/itemhelp 2' 以持續顯示此訊息."
 		IH_BAD_ARGS				= IH_color_header + "[裝備配置]" + IH_error_color + " {錯誤}\x01 參數出錯！!\n/itemhelp 2 -顯示\n/itemhelp 1 - 僅在回合準備階段中顯示\n/itemhelp 0 - 隱藏"
 		IH_OOB_ARG				= IH_color_header + "[裝備配置]" + IH_error_color + " {錯誤}\x01 超出配置最大範圍！ : %s"
-		IH_HELP_MSG				= IH_color_header + "[裝備配置]\x01 裝備配置會顯示的改動 \x03每個武器\x01 的改動!" 
+		IH_HELP_MSG				= IH_color_header + "[裝備配置]\x01 裝備配置會顯示的改動 \x03每個武器\x01 的改動!"
 		IH_DISABLE				= IH_color_header + "[►]\x01 以隱藏裝備配置訊息."
 		IH_WAVE_SETUP			= IH_color_header + "[►]\x01 裝備配置訊息只在準備階段顯示."
 		IH_ENABLE 				= IH_color_header + "[►]\x01 已啟用裝備配置訊息."
@@ -1330,7 +1330,7 @@ if("SetScriptVersion" in getroottable())
         CHECKPOINT_EXPIRE       = CHECKPOINT_ERROR+"檢查點已過期."
         CHECKPOINT_RESTORE      = "\x0744CC44已恢復至最近儲存的檢查點"
         CHECKPOINT_RESTORE_HUD  = "已恢復至最近儲存的檢查點."
-		//---------------------------------------------------------	
+		//---------------------------------------------------------
 		SCATTERGUN_NAME 		= "雙管霰彈槍"
 		SCATTERGUN_DESC 		= "能造成不俗傷害的武器，近距離效果更強."
 		//
@@ -1435,38 +1435,38 @@ if("SetScriptVersion" in getroottable())
 		AIRSTRIKE_NAME			= "空襲火箭"
 		AIRSTRIKE_DESC			= "最多可裝填10發火箭，並以固定散步發射，這些火箭會自動追蹤目標."
 		///
-		SHOTGUN_SOLD_NAME 		= "散彈槍 - 火箭兵" 
-		SHOTGUN_SOLD_DESC 		= "火箭跳時獲得高額開火速度與暴擊." 
+		SHOTGUN_SOLD_NAME 		= "散彈槍 - 火箭兵"
+		SHOTGUN_SOLD_DESC 		= "火箭跳時獲得高額開火速度與暴擊."
 		//
-		SHOTGUN_NAME 			= "散彈槍" 
-		SHOTGUN_DESC 			= "能造成不俗傷害的武器." 
+		SHOTGUN_NAME 			= "散彈槍"
+		SHOTGUN_DESC 			= "能造成不俗傷害的武器."
 		//
-		BUFFBANNER_NAME 		= "增幅旗幟" 
-		BUFFBANNER_DESC 		= "無限範圍和大幅增加持續時間." 
+		BUFFBANNER_NAME 		= "增幅旗幟"
+		BUFFBANNER_DESC 		= "無限範圍和大幅增加持續時間."
 		//
-		GUNBOATS_NAME 			= "鐵砲護靴" 
-		GUNBOATS_DESC 			= "允許按住跳躍鍵以進行兔子跳，大幅提升台階高度，免疫跌倒傷害." 
+		GUNBOATS_NAME 			= "鐵砲護靴"
+		GUNBOATS_DESC 			= "允許按住跳躍鍵以進行兔子跳，大幅提升台階高度，免疫跌倒傷害."
 		//
-		BATTALIONS_NAME 		= "營隊後援" 
-		BATTALIONS_DESC 		= "無限範圍和大幅增加持續時間." 
+		BATTALIONS_NAME 		= "營隊後援"
+		BATTALIONS_DESC 		= "無限範圍和大幅增加持續時間."
 		//
-		CONCHEROR_NAME 			= "家徽旗" 
-		CONCHEROR_DESC 			= "無限範圍和大幅增加持續時間." 
+		CONCHEROR_NAME 			= "家徽旗"
+		CONCHEROR_DESC 			= "無限範圍和大幅增加持續時間."
 		//
-		RESERVESHOOTER_NAME 	= "後勤防空員" 
-		RESERVESHOOTER_DESC 	= "造成無視距離的10000點傷害且擊殺獲得3秒小暴擊加成，但此武器無法被暴擊加成和對坦克造成傷害，按住次要開火鍵來瞄準." 
+		RESERVESHOOTER_NAME 	= "後勤防空員"
+		RESERVESHOOTER_DESC 	= "造成無視距離的10000點傷害且擊殺獲得3秒小暴擊加成，但此武器無法被暴擊加成和對坦克造成傷害，按住次要開火鍵來瞄準."
 		//
-		BISON_NAME 				= "正義狂牛" 
-		BISON_DESC 				= "發射全自動瞄準的連續的可穿透敵人的激光." 
+		BISON_NAME 				= "正義狂牛"
+		BISON_DESC 				= "發射全自動瞄準的連續的可穿透敵人的激光."
 		//
-		MANTREADS_NAME 			= "踏板戰靴" 
-		MANTREADS_DESC 			= "大幅減少受傷帶來的擊退，空中轉向能大幅提升加速度，踐踏傷害提升且能按速度額外提升." 
+		MANTREADS_NAME 			= "踏板戰靴"
+		MANTREADS_DESC 			= "大幅減少受傷帶來的擊退，空中轉向能大幅提升加速度，踐踏傷害提升且能按速度額外提升."
 		//
-		BASEJUMPER_NAME 		= "低空跳傘員" 
-		BASEJUMPER_DESC 		= "可以打開降落傘，獲得擊退和子彈抗性，使你在空中更堅固." 
+		BASEJUMPER_NAME 		= "低空跳傘員"
+		BASEJUMPER_DESC 		= "可以打開降落傘，獲得擊退和子彈抗性，使你在空中更堅固."
 		//
-		PANICATTACK_NAME 		= "背水散彈槍" 
-		PANICATTACK_DESC 		= "需要瞬間治療的選擇，擊中時最多能恢復10000點生命，使用此武器時受傷有機會短暫進入uber." 
+		PANICATTACK_NAME 		= "背水散彈槍"
+		PANICATTACK_DESC 		= "需要瞬間治療的選擇，擊中時最多能恢復10000點生命，使用此武器時受傷有機會短暫進入uber."
 		///
 		SHOVEL_NAME 			= "鐵鍬"
 		SHOVEL_DESC 			= "防禦和機動性的標準選擇."
@@ -1512,30 +1512,30 @@ if("SetScriptVersion" in getroottable())
 		NOSTROMONAPALMER_NAME 	= "諾斯托羅莫火焰噴射器"
 		NOSTROMONAPALMER_DESC	= "击中能减速敌人，擊中能減速敵人，增加像是燃素噴射器mmmph的充能, 但改為獲得家徽旗的增益. 此火焰噴射器無法壓縮氣爆."
 		///
-		SHOTGUN_PYRO_NAME 		= "散彈槍 - 火焰兵" 
-		SHOTGUN_PYRO_DESC 		= "對著火的目標必定暴擊." 
+		SHOTGUN_PYRO_NAME 		= "散彈槍 - 火焰兵"
+		SHOTGUN_PYRO_DESC 		= "對著火的目標必定暴擊."
 		//
-		FLAREGUN_NAME 			= "信號槍" 
-		FLAREGUN_DESC 			= "攻擊即時命中且能穿透敵人. 傷害會隨著穿透的敵人數量而指數增加傷害. 同時有機會使目標暈眩." 
+		FLAREGUN_NAME 			= "信號槍"
+		FLAREGUN_DESC 			= "攻擊即時命中且能穿透敵人. 傷害會隨著穿透的敵人數量而指數增加傷害. 同時有機會使目標暈眩."
 		//
-		DETONATOR_NAME 			= "爆破信號槍" 
-		DETONATOR_DESC 			= "信號彈的爆炸半徑改為無限並會擊中視線範圍內的所有目標. 強迫所有間諜機器人解除隱形和偽裝. 同時提供高額機動性." 
+		DETONATOR_NAME 			= "爆破信號槍"
+		DETONATOR_DESC 			= "信號彈的爆炸半徑改為無限並會擊中視線範圍內的所有目標. 強迫所有間諜機器人解除隱形和偽裝. 同時提供高額機動性."
 		//
-		MANMELTER_NAME 			= "要人命死光槍" 
-		MANMELTER_DESC 			= "高速發射能自動追蹤敵人的信號彈. 擁有無限彈藥，無需裝填. 次要攻擊: 一次發射大量信號彈." 
+		MANMELTER_NAME 			= "要人命死光槍"
+		MANMELTER_DESC 			= "高速發射能自動追蹤敵人的信號彈. 擁有無限彈藥，無需裝填. 次要攻擊: 一次發射大量信號彈."
 		//
-		SCORCHSHOT_NAME 		= "灼熱信號槍" 
-		SCORCHSHOT_DESC 		= "擊中時：造成大量傷害，滅掉目標身上的火焰並造成強力擊退，你的目標必須已著火，不然攻擊無法造成任何效果，次要攻擊：發射一枚緩慢但能追踪的信號彈." 
+		SCORCHSHOT_NAME 		= "灼熱信號槍"
+		SCORCHSHOT_DESC 		= "擊中時：造成大量傷害，滅掉目標身上的火焰並造成強力擊退，你的目標必須已著火，不然攻擊無法造成任何效果，次要攻擊：發射一枚緩慢但能追踪的信號彈."
 		//
-		THERMALTHRUSTER_NAME 	= "熱能推進器" 
-		THERMALTHRUSTER_DESC 	= "減少燃料消耗並取消發射間隔. 允許在空中再次使用並造成巨額踐踏傷害. 擊殺時獲得短暫暴擊加成." 
+		THERMALTHRUSTER_NAME 	= "熱能推進器"
+		THERMALTHRUSTER_DESC 	= "減少燃料消耗並取消發射間隔. 允許在空中再次使用並造成巨額踐踏傷害. 擊殺時獲得短暫暴擊加成."
 		//
-		GASPASSER_NAME 			= "瓦斯罐" 
-		GASPASSER_DESC 			= "充能從零開始且死亡時重置，需要造成150000傷害才能填滿，點燃爆炸造成105000傷害." 
+		GASPASSER_NAME 			= "瓦斯罐"
+		GASPASSER_DESC 			= "充能從零開始且死亡時重置，需要造成150000傷害才能填滿，點燃爆炸造成105000傷害."
 		///
 		FIREAXE_NAME 			= "消防斧"
 		FIREAXE_DESC 			= "防禦和機動性的標準選擇."
-		//	
+		//
 		AXTINGUISHER_NAME 		= "火斧"
 		AXTINGUISHER_DESC		= "大幅提升對著火目標的傷害."
 		//
@@ -1584,7 +1584,7 @@ if("SetScriptVersion" in getroottable())
 		BOOTLEGGER_DESC			= "強化速度，跳躍高度和盾牌衝刺. 額外提供高額的近戰抗性，但受到更多的暴擊傷害."
 		//
 		LOOSECANNON_NAME		= "脫韁火炮"
-		LOOSECANNON_DESC		= "可一次裝填最多4發砲彈且以垂直散步全射出去. 砲彈會在碰到地面時爆炸“
+		LOOSECANNON_DESC		= "可一次裝填最多4發砲彈且以垂直散步全射出去. 砲彈會在碰到地面時爆炸"
 
 		IRONBOMBER_NAME			= "迫擊鐵砲"
 		IRONBOMBER_DESC			= "無視傷害抗性且擊殺獲得暴擊加成，無需彈藥且有無限彈夾，投射物可以在牆壁之間反彈."
@@ -1623,7 +1623,7 @@ if("SetScriptVersion" in getroottable())
 		CABER_DESC 				= "傷害會隨著你的受傷程度而提升，生命低於2%獲得暴擊加成，此武器的爆炸能殺死你."
 		//
 		CLAIDHEAMHMOR_NAME 		= "蓋爾巨劍"
-		CLAIDHEAMHMOR_DESC 		= "每擊殺10個敵人，獲得魔眼召喚術（需要裝備魔法書）
+		CLAIDHEAMHMOR_DESC 		= "每擊殺10個敵人，獲得魔眼召喚術（需要裝備魔法書）"
 		//
 		PERSIANPERSUADER_NAME 	= "波斯使者"
 		PERSIANPERSUADER_DESC 	= "和盾牌一起裝備時，獲得無限衝鋒，衝鋒無法因急轉，撞到牆壁，敵人或是其他障礙而停下，免疫擊暈."
@@ -1669,7 +1669,7 @@ if("SetScriptVersion" in getroottable())
 		FAMILYBUSINESS_NAME 	= "家族事業"
 		FAMILYBUSINESS_DESC 	= "無限彈藥。受到治療時開火速度加倍，擊殺獲得暴擊加成."
 		//
-		FISHCAKE_NAME 			= "太空魚酥餅
+		FISHCAKE_NAME 			= "太空魚酥餅"
 		FISHCAKE_DESC 			= "獲得高額子彈抗性，但受到更多爆炸和火焰傷害."
 		//
 		SECONDBANANA_NAME 		= "第二蕉"
@@ -1685,7 +1685,7 @@ if("SetScriptVersion" in getroottable())
 		GLOVESRUNNING_DESC 		= "被動：可使用降落傘，使用時，獲得巨額跳躍高度，抗性和生命恢復加成n."
 		//
 		BREADBITE_NAME 			= "咬咬麵包拳"
-		BREADBITE_DESC 			= “暴擊擊中讓目標受到腐蝕, 能讓敵人永久持續受到最大生命一定比例的傷害並在死亡後爆炸成一朵腐蝕雲, 使其傳播給其他目標."
+		BREADBITE_DESC 			= "暴擊擊中讓目標受到腐蝕, 能讓敵人永久持續受到最大生命一定比例的傷害並在死亡後爆炸成一朵腐蝕雲, 使其傳播給其他目標."
 		//
 		WARRIRORSSPIRIT_NAME 	= "戰士之魂"
 		WARRIRORSSPIRIT_DESC 	= "左鍵可以躍至高空，落到目標時造成巨額摔傷. 移除所有主武器和副武器的彈藥."
@@ -1746,7 +1746,7 @@ if("SetScriptVersion" in getroottable())
 		SYRINGEGUN_DESC			= "擊中獲得0.5% Ubercharge."
 		//
 		BLUTSAUGER_NAME			= "嗜血針槍"
-		BLUTSAUGER_DESC			= "消耗100% Ubercharge 來重構一個機器人, 讓其短暫為你作戰
+		BLUTSAUGER_DESC			= "消耗100% Ubercharge 來重構一個機器人, 讓其短暫為你作戰"
 		//
 		CRUSADERSCROSSBOW_NAME	= "聖十字弩弓"
 		CRUSADERSCROSSBOW_DESC	= "擊中時獲得0.25% Ubercharge, 並造成流血同時每次流血傷害額外獲得0.5% Ubercharge."
@@ -1857,7 +1857,7 @@ if("SetScriptVersion" in getroottable())
 		ENFORCER_NAME 			= "脅威使"
 		ENFORCER_DESC 			= "無視任何傷害抗性並且能透過背刺或使用電子破壞器摧毀建築獲得暴擊充能."
 		//
-		DIAMONDBACK_NAME 		= "鑽紋響尾蛇""
+		DIAMONDBACK_NAME 		= "鑽紋響尾蛇"
 		DIAMONDBACK_DESC 		= "產生一個能吸引敵人的黑洞."
 		///
 		SAPPER_NAME 			= "電子破壞器"
@@ -1920,7 +1920,7 @@ if("SetScriptVersion" in getroottable())
 		HAMSHANK_DESC 				= "特殊技: '強力再生' -  當可用時，按下動作鍵可獲得10倍的超量治療且在20秒內免疫擊退."
 		//
 		NECROSMASHER_NAME 			= "滅絕之錘"
-		NECROSMASHER_DESC 			= "特殊技: '肇事屠宰' -  當可用時，按下動作鍵以進入碰碰車模式，在該模式下獲得無敵，生命恢復且能碾過敵人		
+		NECROSMASHER_DESC 			= "特殊技: '肇事屠宰' -  當可用時，按下動作鍵以進入碰碰車模式，在該模式下獲得無敵，生命恢復且能碾過敵人"
 		//
 		CROSSINGGAURD_NAME 			= "此路不通"
 		CROSSINGGAURD_DESC 			= "獲得包含背刺在內的高額近戰抗性."
@@ -1936,7 +1936,7 @@ if("SetScriptVersion" in getroottable())
 		IH_DIS_MSG				= IH_disable_color + "Skriv '/itemhelp 0' för att avaktivera dessa meddelanden. \nSkriv '/itemhelp 2' för att Alltid visa detta meddelande."
 		IH_BAD_ARGS				= IH_color_header + "[Föremålshjälpare]" + IH_error_color + " {Fel}\x01 Fel argument!\n/itemhelp 2 - Aktivera\n/föremålshjälp 1 - Sätt på under Våg Förberedelse endast\n/itemhelp 0 - Avaktivera"
 		IH_OOB_ARG				= IH_color_header + "[Föremålshjälpare]" + IH_error_color + " {Fel}\x01 Värde Utanför Gränsen Inställd! : %s"
-		IH_HELP_MSG				= IH_color_header + "[Föremålshjälpare]\x01 Föremålshjälpare ger en enkel beskrivning för vajre \x03Chaos\x01 Föremål!" 
+		IH_HELP_MSG				= IH_color_header + "[Föremålshjälpare]\x01 Föremålshjälpare ger en enkel beskrivning för vajre \x03Chaos\x01 Föremål!"
 		IH_DISABLE				= IH_color_header + "[►]\x01 Föremålshjälpare avaktiverad."
 		IH_WAVE_SETUP			= IH_color_header + "[►]\x01 Föremålshjälpare aktiverad på Våg Förberedelse endast."
 		IH_ENABLE 				= IH_color_header + "[►]\x01 Föremålshjälpare aktiverad."
@@ -2068,38 +2068,38 @@ if("SetScriptVersion" in getroottable())
 		AIRSTRIKE_NAME			= "LUFTANGREPPET"
 		AIRSTRIKE_DESC			= " Ladda upp till 10 raketer innan man avfyrar alla på en gång i ett fixerat spridmönster. Dessa raketer går efter fiender automatiskt."
 		///
-		SHOTGUN_SOLD_NAME 		= "HAGELGEVÄR - SOLDAT" 
-		SHOTGUN_SOLD_DESC 		= " Very fast fire rate and crits while rocket jumping." 
+		SHOTGUN_SOLD_NAME 		= "HAGELGEVÄR - SOLDAT"
+		SHOTGUN_SOLD_DESC 		= " Very fast fire rate and crits while rocket jumping."
 		//
-		SHOTGUN_NAME 			= "HAGELGEVÄR" 
-		SHOTGUN_DESC 			= " Standardval för pålitig skada." 
+		SHOTGUN_NAME 			= "HAGELGEVÄR"
+		SHOTGUN_DESC 			= " Standardval för pålitig skada."
 		//
-		BUFFBANNER_NAME 		= "BUFFBANERET" 
-		BUFFBANNER_DESC 		= " Oändligt avstånd och har mycket ökad varaktighet." 
+		BUFFBANNER_NAME 		= "BUFFBANERET"
+		BUFFBANNER_DESC 		= " Oändligt avstånd och har mycket ökad varaktighet."
 		//
-		GUNBOATS_NAME 			= "KANONBÅTARNA" 
-		GUNBOATS_DESC 			= " Aktiverar kaninhopp genom att hålla ner 'hopp' tangenten. Ger immunitet mot fallskada." 
+		GUNBOATS_NAME 			= "KANONBÅTARNA"
+		GUNBOATS_DESC 			= " Aktiverar kaninhopp genom att hålla ner 'hopp' tangenten. Ger immunitet mot fallskada."
 		//
-		BATTALIONS_NAME 		= "BATALJONENS FÖRSTÄRKNING" 
-		BATTALIONS_DESC 		= " Oändligt avstånd och har mycket ökad varaktighet." 
+		BATTALIONS_NAME 		= "BATALJONENS FÖRSTÄRKNING"
+		BATTALIONS_DESC 		= " Oändligt avstånd och har mycket ökad varaktighet."
 		//
-		CONCHEROR_NAME 			= "TRUMPETSNÄCKA" 
-		CONCHEROR_DESC 			= " Oändligt avstånd och har mycket ökad varaktighet." 
+		CONCHEROR_NAME 			= "TRUMPETSNÄCKA"
+		CONCHEROR_DESC 			= " Oändligt avstånd och har mycket ökad varaktighet."
 		//
-		RESERVESHOOTER_NAME 	= "RESERVSKJUTAREN" 
-		RESERVESHOOTER_DESC 	= " Utdelar en stadig 10,000 skada per skott oavsett avståndet med 3s mini-kritiska träffar vid döende träff. Dock detta vapen kan inte laddas med kritiska träffar, och kan inte skada Pansarvagnar. Håll ner Alternativattack för att zooma in." 
+		RESERVESHOOTER_NAME 	= "RESERVSKJUTAREN"
+		RESERVESHOOTER_DESC 	= " Utdelar en stadig 10,000 skada per skott oavsett avståndet med 3s mini-kritiska träffar vid döende träff. Dock detta vapen kan inte laddas med kritiska träffar, och kan inte skada Pansarvagnar. Håll ner Alternativattack för att zooma in."
 		//
-		BISON_NAME 				= "RÄTTSKAFFENS BISONOXE" 
-		BISON_DESC 				= " Avfyrar en konstant stråle av penetrerande skada med fulla auto-träffsäkning." 
+		BISON_NAME 				= "RÄTTSKAFFENS BISONOXE"
+		BISON_DESC 				= " Avfyrar en konstant stråle av penetrerande skada med fulla auto-träffsäkning."
 		//
-		MANTREADS_NAME 			= "MANSTÖVLARNA" 
-		MANTREADS_DESC 			= " Stor minskning i knuff tagen från skada. Luftrörelser har nu en massivt ökad acceleration. Stampskada förstärkt och velocitet-baserad." 
+		MANTREADS_NAME 			= "MANSTÖVLARNA"
+		MANTREADS_DESC 			= " Stor minskning i knuff tagen från skada. Luftrörelser har nu en massivt ökad acceleration. Stampskada förstärkt och velocitet-baserad."
 		//
-		BASEJUMPER_NAME 		= "B.A.S.E-HOPPAREN" 
-		BASEJUMPER_DESC 		= " Kan växla fallskärmen. Ökad motstånd mot knuff och skada mot kulor, som minskar din sårbarhet i luften." 
+		BASEJUMPER_NAME 		= "B.A.S.E-HOPPAREN"
+		BASEJUMPER_DESC 		= " Kan växla fallskärmen. Ökad motstånd mot knuff och skada mot kulor, som minskar din sårbarhet i luften."
 		//
-		PANICATTACK_NAME 		= "PANIKATTACKEN" 
-		PANICATTACK_DESC 		= " För när du behöver helande i nöden. Omedelbart återställer upp till 10,000 hälsa vid träff. Att ta skada med detta vapen aktiv har en chans att sätta på en kort själv-uber." 
+		PANICATTACK_NAME 		= "PANIKATTACKEN"
+		PANICATTACK_DESC 		= " För när du behöver helande i nöden. Omedelbart återställer upp till 10,000 hälsa vid träff. Att ta skada med detta vapen aktiv har en chans att sätta på en kort själv-uber."
 		///
 		SHOVEL_NAME 			= "SKYFFEL"
 		SHOVEL_DESC 			= " Standardval för försvar och rörelse."
@@ -2145,30 +2145,30 @@ if("SetScriptVersion" in getroottable())
 		NOSTROMONAPALMER_NAME 	= "NOSTROMO-ELDKASTAREN"
 		NOSTROMONAPALMER_DESC	= " Saktar ner fiender vid träff. Bygger 'Mmmph' laddning likt Flogistoneraren, men ger dig Trumpetsnäckans förstärkning. Denna eldkastare kan inte utföra luftstötar."
 		///
-		SHOTGUN_PYRO_NAME 		= "HAGELGEVÄR - PYRO" 
-		SHOTGUN_PYRO_DESC 		= " Garanterade kritiska träffar mot brinnande fiender." 
+		SHOTGUN_PYRO_NAME 		= "HAGELGEVÄR - PYRO"
+		SHOTGUN_PYRO_DESC 		= " Garanterade kritiska träffar mot brinnande fiender."
 		//
-		FLAREGUN_NAME 			= "SIGNALPISTOL" 
-		FLAREGUN_DESC 			= " Avfyrar en träffskann attack som penetrerar fiender. Skada ökas exponentiellt med varje penetrerad fiende längst vägen. Har också en chans att bedöva fiender vid träff." 
+		FLAREGUN_NAME 			= "SIGNALPISTOL"
+		FLAREGUN_DESC 			= " Avfyrar en träffskann attack som penetrerar fiender. Skada ökas exponentiellt med varje penetrerad fiende längst vägen. Har också en chans att bedöva fiender vid träff."
 		//
-		DETONATOR_NAME 			= "DETONATORN" 
-		DETONATOR_DESC 			= " Blosset har en oändlig explosionsradie och kommer träffa allt inom siktlinje. Tvingar alla Spionbotar att avslöja sig och sluta förklä sig. Också ett bra val för rörelse." 
+		DETONATOR_NAME 			= "DETONATORN"
+		DETONATOR_DESC 			= " Blosset har en oändlig explosionsradie och kommer träffa allt inom siktlinje. Tvingar alla Spionbotar att avslöja sig och sluta förklä sig. Också ett bra val för rörelse."
 		//
-		MANMELTER_NAME 			= "MÄNNISKOSMÄLTAREN" 
-		MANMELTER_DESC 			= " Snabbt-avfyrande specialiserad till att automatiskt följa fiender. Oändligt ammunition och ingen omladdning. Alternativattack: Avfyra ett utbrott av bloss på en gång." 
+		MANMELTER_NAME 			= "MÄNNISKOSMÄLTAREN"
+		MANMELTER_DESC 			= " Snabbt-avfyrande specialiserad till att automatiskt följa fiender. Oändligt ammunition och ingen omladdning. Alternativattack: Avfyra ett utbrott av bloss på en gång."
 		//
-		SCORCHSHOT_NAME 		= "SVEDSKOTTET" 
-		SCORCHSHOT_DESC 		= " Vid träff: Utdela en stor mängd skada, som släcker fienden och utdelar knuff. Ditt mål MUSTA vara på eld, eller denna attack kommer inte göra något. Alternativattack: Använd långsamma följande bloss." 
+		SCORCHSHOT_NAME 		= "SVEDSKOTTET"
+		SCORCHSHOT_DESC 		= " Vid träff: Utdela en stor mängd skada, som släcker fienden och utdelar knuff. Ditt mål MUSTA vara på eld, eller denna attack kommer inte göra något. Alternativattack: Använd långsamma följande bloss."
 		//
-		THERMALTHRUSTER_NAME 	= "HÖGTRYCKET" 
-		THERMALTHRUSTER_DESC 	= " Minskade bränsle användning utan någon fördröjning. Kan återanvändas i luften och utdelar massiv stampskada. Gå en kort kritisk laddning vid träff." 
+		THERMALTHRUSTER_NAME 	= "HÖGTRYCKET"
+		THERMALTHRUSTER_DESC 	= " Minskade bränsle användning utan någon fördröjning. Kan återanvändas i luften och utdelar massiv stampskada. Gå en kort kritisk laddning vid träff."
 		//
-		GASPASSER_NAME 			= "BENSINDUNKEN" 
-		GASPASSER_DESC 			= " Gasmätaren börjar tom och återställs när man dör. Utdela 150,000 skada till att fylla mätaren. Exploderar-vid-Antändning utdelar 105,000 skada." 
+		GASPASSER_NAME 			= "BENSINDUNKEN"
+		GASPASSER_DESC 			= " Gasmätaren börjar tom och återställs när man dör. Utdela 150,000 skada till att fylla mätaren. Exploderar-vid-Antändning utdelar 105,000 skada."
 		///
 		FIREAXE_NAME 			= "BRANDYXA"
 		FIREAXE_DESC 			= " Standardval för försvar och rörelse."
-		//	
+		//
 		AXTINGUISHER_NAME 		= "BRANDSLAKTAREN"
 		AXTINGUISHER_DESC		= " Mycket ökad skada mot fiender som brinner."
 		//
@@ -2569,7 +2569,7 @@ if("SetScriptVersion" in getroottable())
 		IH_DIS_MSG				= IH_disable_color + "Введите '/itemhelp 0' чтобы отключить данные сообщения. \nType '/itemhelp 2' чтобы эти сообщения показывались вновь."
 		IH_BAD_ARGS				= IH_color_header + "[Item Helper]" + IH_error_color + " {Error}\x01 Incorrect arguments!\n/itemhelp 2 - Enable\n/itemhelp 1 - Enable during Wave Setup only\n/itemhelp 0 - Disable"
 		IH_OOB_ARG				= IH_color_header + "[Item Helper]" + IH_error_color + " {Error}\x01 Out Of Bounds Value Set! : %s"
-		IH_HELP_MSG				= IH_color_header + "[Item Helper]\x01 Помощник по предметам показывает краткое описание каждого \x03Chaos\x01 предмета!" 
+		IH_HELP_MSG				= IH_color_header + "[Item Helper]\x01 Помощник по предметам показывает краткое описание каждого \x03Chaos\x01 предмета!"
 		IH_DISABLE				= IH_color_header + "[►]\x01 Помощник по предметам отключён."
 		IH_WAVE_SETUP			= IH_color_header + "[►]\x01 Помощник по предметам включён только во время подготовки."
 		IH_ENABLE 				= IH_color_header + "[►]\x01 Помощник по предметам включён."
@@ -2701,38 +2701,38 @@ if("SetScriptVersion" in getroottable())
 		AIRSTRIKE_NAME			= "АВИАУДАР"
 		AIRSTRIKE_DESC			= " Зарядите до 10 ракет, прежде чем выпустить их все за раз по точной траектории. Самонаводящиеся ракеты."
 		///
-		SHOTGUN_SOLD_NAME 		= "ДРОБОВИК - СОЛДАТ" 
-		SHOTGUN_SOLD_DESC 		= " Очень высокая скорострельность и криты во время прыжка на ракете." 
+		SHOTGUN_SOLD_NAME 		= "ДРОБОВИК - СОЛДАТ"
+		SHOTGUN_SOLD_DESC 		= " Очень высокая скорострельность и криты во время прыжка на ракете."
 		//
-		SHOTGUN_NAME 			= "ДРОБОВИК" 
-		SHOTGUN_DESC 			= " Стандартный вариант для надёжного урона." 
+		SHOTGUN_NAME 			= "ДРОБОВИК"
+		SHOTGUN_DESC 			= " Стандартный вариант для надёжного урона."
 		//
-		BUFFBANNER_NAME 		= "ВДОХНОВЛЯЮЩЕЕ ЗНАМЯ" 
-		BUFFBANNER_DESC 		= " Бесконечная дальность и значительно увеличенная продолжительность действия." 
+		BUFFBANNER_NAME 		= "ВДОХНОВЛЯЮЩЕЕ ЗНАМЯ"
+		BUFFBANNER_DESC 		= " Бесконечная дальность и значительно увеличенная продолжительность действия."
 		//
-		GUNBOATS_NAME 			= "ШТУРМБОТИНКИ" 
-		GUNBOATS_DESC 			= " Позволяют совершать bunnyhop, удерживая клавишу прыжка. Дарует иммунитет к урону от падения." 
+		GUNBOATS_NAME 			= "ШТУРМБОТИНКИ"
+		GUNBOATS_DESC 			= " Позволяют совершать bunnyhop, удерживая клавишу прыжка. Дарует иммунитет к урону от падения."
 		//
-		BATTALIONS_NAME 		= "ПОДДЕРЖКА БАТАЛЬОНА" 
+		BATTALIONS_NAME 		= "ПОДДЕРЖКА БАТАЛЬОНА"
 		BATTALIONS_DESC 		= " Бесконечная дальность и значительно увеличенная продолжительность действия."
 		//
-		CONCHEROR_NAME 			= "ЗАВОЕВАТЕЛЬ" 
+		CONCHEROR_NAME 			= "ЗАВОЕВАТЕЛЬ"
 		CONCHEROR_DESC 			= " Бесконечная дальность и значительно увеличенная продолжительность действия."
 		//
-		RESERVESHOOTER_NAME 	= "ОФИЦЕР ЗАПАСА" 
-		RESERVESHOOTER_DESC 	= " Наносит ровно 10 000 урона за выстрел независимо от дистанции с мини-критами на 3 секунды за убийство. Однако это оружие не может получить усиление критами и не может наносить урон Танкам. Удерживайте клавишу альтернативной атаки, чтобы прицелиться." 
+		RESERVESHOOTER_NAME 	= "ОФИЦЕР ЗАПАСА"
+		RESERVESHOOTER_DESC 	= " Наносит ровно 10 000 урона за выстрел независимо от дистанции с мини-критами на 3 секунды за убийство. Однако это оружие не может получить усиление критами и не может наносить урон Танкам. Удерживайте клавишу альтернативной атаки, чтобы прицелиться."
 		//
-		BISON_NAME 				= "БЛАГОЧЕСТИВЫЙ БИЗОН" 
-		BISON_DESC 				= " Выпускает непрерывный луч пронзающего урона с автоприцеливанием." 
+		BISON_NAME 				= "БЛАГОЧЕСТИВЫЙ БИЗОН"
+		BISON_DESC 				= " Выпускает непрерывный луч пронзающего урона с автоприцеливанием."
 		//
-		MANTREADS_NAME 			= "ЛЮДОДАВЫ" 
-		MANTREADS_DESC 			= " Значительное снижение отбрасывания от получаемого урона. Воздушное маневрирование теперь имеет значительно увеличенное ускорение. Урон от приземления усилен и зависит от скорости." 
+		MANTREADS_NAME 			= "ЛЮДОДАВЫ"
+		MANTREADS_DESC 			= " Значительное снижение отбрасывания от получаемого урона. Воздушное маневрирование теперь имеет значительно увеличенное ускорение. Урон от приземления усилен и зависит от скорости."
 		//
-		BASEJUMPER_NAME 		= "ПАРАШЮТИСТ" 
-		BASEJUMPER_DESC 		= " Позволяет раскрыть парашют. Увеличивает сопротивление к отбрасыванию и имеет сопротивляемость пулям, снижая уязвимость в воздухе." 
+		BASEJUMPER_NAME 		= "ПАРАШЮТИСТ"
+		BASEJUMPER_DESC 		= " Позволяет раскрыть парашют. Увеличивает сопротивление к отбрасыванию и имеет сопротивляемость пулям, снижая уязвимость в воздухе."
 		//
-		PANICATTACK_NAME 		= "ПАНИЧЕСКАЯ АТАКА" 
-		PANICATTACK_DESC 		= " Срочное лечение. Мгновенно восстанавливает до 10 000 здоровья при попадании. Получение урона с оружием в руках имеет шанс вызвать кратковременный убер-заряд." 
+		PANICATTACK_NAME 		= "ПАНИЧЕСКАЯ АТАКА"
+		PANICATTACK_DESC 		= " Срочное лечение. Мгновенно восстанавливает до 10 000 здоровья при попадании. Получение урона с оружием в руках имеет шанс вызвать кратковременный убер-заряд."
 		///
 		SHOVEL_NAME 			= "ЛОПАТА"
 		SHOVEL_DESC 			= " Стандартный вариант для защиты и мобильности."
@@ -2778,30 +2778,30 @@ if("SetScriptVersion" in getroottable())
 		NOSTROMONAPALMER_NAME 	= "НОСТРОМСКИЙ ПЛАМЕМЕТ"
 		NOSTROMONAPALMER_DESC	= " Замедляет роботов при попадании. Накапливает заряд 'Mmmph', как у Флогистонатора, но даёт бафф Завоевателя. Не может использовать сжатый воздух."
 		///
-		SHOTGUN_PYRO_NAME 		= "ДРОБОВИК - ПОДЖИГАТЕЛЬ" 
-		SHOTGUN_PYRO_DESC 		= " Гарантированные криты по горящим роботам." 
+		SHOTGUN_PYRO_NAME 		= "ДРОБОВИК - ПОДЖИГАТЕЛЬ"
+		SHOTGUN_PYRO_DESC 		= " Гарантированные криты по горящим роботам."
 		//
-		FLAREGUN_NAME 			= "РАКЕТНИЦА" 
-		FLAREGUN_DESC 			= " Выпускает атаку с определением попадания (hitscan), которая пронзает роботов. Урон экспоненциально увеличивается с каждым пронзённых роботов на пути. Есть шанс оглушить роботов при попадании." 
+		FLAREGUN_NAME 			= "РАКЕТНИЦА"
+		FLAREGUN_DESC 			= " Выпускает атаку с определением попадания (hitscan), которая пронзает роботов. Урон экспоненциально увеличивается с каждым пронзённых роботов на пути. Есть шанс оглушить роботов при попадании."
 		//
-		DETONATOR_NAME 			= "ДЕТОНАТОР" 
-		DETONATOR_DESC 			= " Снаряд имеет бесконечный радиус взрыва и поражает всё, что находится в прямой видимости. Заставляет всех роботов-шпионов выйти из невидимости и снять маскировку. Отличный выбор для мобильности." 
+		DETONATOR_NAME 			= "ДЕТОНАТОР"
+		DETONATOR_DESC 			= " Снаряд имеет бесконечный радиус взрыва и поражает всё, что находится в прямой видимости. Заставляет всех роботов-шпионов выйти из невидимости и снять маскировку. Отличный выбор для мобильности."
 		//
-		MANMELTER_NAME 			= "ЛЮДОПЛАВ" 
-		MANMELTER_DESC 			= " Быстрострельные снаряды с автонаведением. Бесконечный боезапас и отсутствие перезарядки. Альтернативная атака: выпустить сразу несколько снарядов." 
+		MANMELTER_NAME 			= "ЛЮДОПЛАВ"
+		MANMELTER_DESC 			= " Быстрострельные снаряды с автонаведением. Бесконечный боезапас и отсутствие перезарядки. Альтернативная атака: выпустить сразу несколько снарядов."
 		//
-		SCORCHSHOT_NAME 		= "ОБЖИГАЮЩИЙ ВЫСТРЕЛ" 
-		SCORCHSHOT_DESC 		= " При попадании: наносит большой урон, тушит робота и отбрасывает его. Ваша цель ОБЯЗАТЕЛЬНО должна гореть, иначе этот снаряд ничего не сделает. Алтернативная атака: использовать медленный самонаводящийся снаряд." 
+		SCORCHSHOT_NAME 		= "ОБЖИГАЮЩИЙ ВЫСТРЕЛ"
+		SCORCHSHOT_DESC 		= " При попадании: наносит большой урон, тушит робота и отбрасывает его. Ваша цель ОБЯЗАТЕЛЬНО должна гореть, иначе этот снаряд ничего не сделает. Алтернативная атака: использовать медленный самонаводящийся снаряд."
 		//
-		THERMALTHRUSTER_NAME 	= "ТЕРМИЧЕСКАЯ ТЯГА" 
-		THERMALTHRUSTER_DESC 	= " Уменьшенный расход топлива без задержки. Возможность повторного использования в воздухе и нанесение огромного урона от приземления на роботов. Даёт кратковременное усиление критами за убийство." 
+		THERMALTHRUSTER_NAME 	= "ТЕРМИЧЕСКАЯ ТЯГА"
+		THERMALTHRUSTER_DESC 	= " Уменьшенный расход топлива без задержки. Возможность повторного использования в воздухе и нанесение огромного урона от приземления на роботов. Даёт кратковременное усиление критами за убийство."
 		//
-		GASPASSER_NAME 			= "ЗАПАСНОЙ БАК" 
-		GASPASSER_DESC 			= " Нанесите 150 000 урона, чтобы заполнить шкалу. Взрыв при поджигании газа наносит 105 000 урона." 
+		GASPASSER_NAME 			= "ЗАПАСНОЙ БАК"
+		GASPASSER_DESC 			= " Нанесите 150 000 урона, чтобы заполнить шкалу. Взрыв при поджигании газа наносит 105 000 урона."
 		///
 		FIREAXE_NAME 			= "ПОЖАРНЫЙ ТОПОР"
 		FIREAXE_DESC 			= " Стандартный вариант для защиты и мобильности."
-		//	
+		//
 		AXTINGUISHER_NAME 		= "Огнетопор"
 		AXTINGUISHER_DESC		= " Значительно увеличенный урон по горящим роботам."
 		//
@@ -2873,7 +2873,7 @@ if("SetScriptVersion" in getroottable())
 		SPLENDIDSCREEN_NAME 	= "РОСКОШНОЕ ПРИКРЫТИЕ"
 		SPLENDIDSCREEN_DESC 	= "Высокая сопротивляемость к урону от огня, но повышенная уязвимость к взрывам и пулям. Также даёт дополнительную сопротивляемость к отбрасыванию и критам."
 		// TODO: Update! " Rapid Charge - Superior shield recharge rate."
-		// 
+		//
 		TIDETURNER_NAME 		= "ВЕРНЫЙ ШТУРВАЛ"
 		TIDETURNER_DESC 		= " Высокая сопротивляемость к урону от пуль, но повышенная уязвимость к огню и взрывам. Также даёт дополнительную сопротивляемость к отбрасыванию и критам."
 		// TODO: Update! " Burst Charge - Superior shield charge move speed."
@@ -3208,7 +3208,7 @@ if("SetScriptVersion" in getroottable())
 		IH_DIS_MSG				= IH_disable_color + "Wpisz „/itemhelp 0”, by wyłączyć te wiadomości. \nWpisz „/itemhelp 2”, by zawsze wyświetlać tę wiadomość."
 		IH_BAD_ARGS				= IH_color_header + "[Asystent przedmiotów]" + IH_error_color + " {Error}\x01 Błędne argumenty!\n/itemhelp 2 - włącz\n/itemhelp 1 - włącz tylko podczas przygotowania przed falą\n/itemhelp 0 - wyłącz"
 		IH_OOB_ARG				= IH_color_header + "[Asystent przedmiotów]" + IH_error_color + " {Error}\x01 Wprowadzono wartość poza zakresem! : %s"
-		IH_HELP_MSG				= IH_color_header + "[Asystent przedmiotów]\x01 Asystent przedmiotów zapewnia krótkie opisy dla każdego \x03Chaos\x01 przedmiotu!" 
+		IH_HELP_MSG				= IH_color_header + "[Asystent przedmiotów]\x01 Asystent przedmiotów zapewnia krótkie opisy dla każdego \x03Chaos\x01 przedmiotu!"
 		IH_DISABLE				= IH_color_header + "[►]\x01 Asystent przedmiotów jest wyłączony."
 		IH_WAVE_SETUP			= IH_color_header + "[►]\x01 Asystent przedmiotów jest włączony tylko podczas przygotowania przed falą."
 		IH_ENABLE 				= IH_color_header + "[►]\x01 Asystent przedmiotów jest włączony."
@@ -3340,38 +3340,38 @@ if("SetScriptVersion" in getroottable())
 		AIRSTRIKE_NAME			= "ATAK POWIETRZNY"
 		AIRSTRIKE_DESC			= " Załaduj aż do 10 rakiet i wystrzel je naraz w stałym wzorze rozrzutu. Rakiety automatycznie naprowadzają się na wrogów."
 		///
-		SHOTGUN_SOLD_NAME 		= "STRZELBA - ŻOŁNIERZ" 
-		SHOTGUN_SOLD_DESC 		= " Bardzo duża szybkostrzelność i trafienia krytyczne podczas rakietowych skoków." 
+		SHOTGUN_SOLD_NAME 		= "STRZELBA - ŻOŁNIERZ"
+		SHOTGUN_SOLD_DESC 		= " Bardzo duża szybkostrzelność i trafienia krytyczne podczas rakietowych skoków."
 		//
-		SHOTGUN_NAME 			= "STRZELBA" 
-		SHOTGUN_DESC 			= " Standardowa opcja zapewniająca solidne obrażenia." 
+		SHOTGUN_NAME 			= "STRZELBA"
+		SHOTGUN_DESC 			= " Standardowa opcja zapewniająca solidne obrażenia."
 		//
-		BUFFBANNER_NAME 		= "SZTANDAR CHWAŁY" 
-		BUFFBANNER_DESC 		= " Nieograniczony zasięg i znacznie wydłużony czas trwania efektu." 
+		BUFFBANNER_NAME 		= "SZTANDAR CHWAŁY"
+		BUFFBANNER_DESC 		= " Nieograniczony zasięg i znacznie wydłużony czas trwania efektu."
 		//
-		GUNBOATS_NAME 			= "KANONIERKI" 
-		GUNBOATS_DESC 			= " Umożliwia wykonywanie „bunnyhopów” poprzez przytrzymanie klawisza skoku. Zapewnia odporność na obrażenia od upadku." 
+		GUNBOATS_NAME 			= "KANONIERKI"
+		GUNBOATS_DESC 			= " Umożliwia wykonywanie „bunnyhopów” poprzez przytrzymanie klawisza skoku. Zapewnia odporność na obrażenia od upadku."
 		//
-		BATTALIONS_NAME 		= "WSPARCIE BATALIONU" 
-		BATTALIONS_DESC 		= " Nieograniczony zasięg i znacznie wydłużony czas trwania efektu." 
+		BATTALIONS_NAME 		= "WSPARCIE BATALIONU"
+		BATTALIONS_DESC 		= " Nieograniczony zasięg i znacznie wydłużony czas trwania efektu."
 		//
-		CONCHEROR_NAME 			= "SASHIMONO STRACEŃCA" 
-		CONCHEROR_DESC 			= " Nieograniczony zasięg i znacznie wydłużony czas trwania efektu." 
+		CONCHEROR_NAME 			= "SASHIMONO STRACEŃCA"
+		CONCHEROR_DESC 			= " Nieograniczony zasięg i znacznie wydłużony czas trwania efektu."
 		//
-		RESERVESHOOTER_NAME 	= "REZERWISTA" 
-		RESERVESHOOTER_DESC 	= " Zadaje stałe 10 000 pkt. obrażeń na strzał niezależnie od odległości i przyznaje 3 sekundy trafień minikrytycznych po zabiciu wroga. Nie może uzyskać krytycznych obrażeń i nie zadaje obrażeń czołgom. Przytrzymaj atak alternatywny, by przybliżyć widok." 
+		RESERVESHOOTER_NAME 	= "REZERWISTA"
+		RESERVESHOOTER_DESC 	= " Zadaje stałe 10 000 pkt. obrażeń na strzał niezależnie od odległości i przyznaje 3 sekundy trafień minikrytycznych po zabiciu wroga. Nie może uzyskać krytycznych obrażeń i nie zadaje obrażeń czołgom. Przytrzymaj atak alternatywny, by przybliżyć widok."
 		//
-		BISON_NAME 				= "PRAWY BIZON" 
-		BISON_DESC 				= " Wystrzeliwuje ciągłą wiązkę penetrującą wrogów z pełnym automatycznym celowaniem." 
+		BISON_NAME 				= "PRAWY BIZON"
+		BISON_DESC 				= " Wystrzeliwuje ciągłą wiązkę penetrującą wrogów z pełnym automatycznym celowaniem."
 		//
-		MANTREADS_NAME 			= "MIAŻDŻYCIELE" 
-		MANTREADS_DESC 			= " Znacznie redukuje odrzut przy otrzymywaniu obrażeń. Skręcanie w powietrzu ma teraz znacznie większe przyspieszenie. Obrażenia od upadku na wroga są zwiększone i zależą od szybkości spadania noszącego." 
+		MANTREADS_NAME 			= "MIAŻDŻYCIELE"
+		MANTREADS_DESC 			= " Znacznie redukuje odrzut przy otrzymywaniu obrażeń. Skręcanie w powietrzu ma teraz znacznie większe przyspieszenie. Obrażenia od upadku na wroga są zwiększone i zależą od szybkości spadania noszącego."
 		//
-		BASEJUMPER_NAME 		= "SPADOCHRONOWY SKOCZEK" 
-		BASEJUMPER_DESC 		= " Umożliwia wielokrotne otwieranie i zamykanie spadochronu w powietrzu. Zwiększa odporność na odrzut i naboje, zmniejszając podatność na ataki będąc w powietrzu." 
+		BASEJUMPER_NAME 		= "SPADOCHRONOWY SKOCZEK"
+		BASEJUMPER_DESC 		= " Umożliwia wielokrotne otwieranie i zamykanie spadochronu w powietrzu. Zwiększa odporność na odrzut i naboje, zmniejszając podatność na ataki będąc w powietrzu."
 		//
-		PANICATTACK_NAME 		= "ATAK PANIKI" 
-		PANICATTACK_DESC 		= " Gdy potrzebujesz natychmiastowego leczenia. Natychmiast odnawia do 10 000 pkt. zdrowia przy trafieniu we wroga. Otrzymywanie obrażeń, gdy broń jest dobyta, ma szansę na aktywowanie krótkiego ładunku ÜberCharge." 
+		PANICATTACK_NAME 		= "ATAK PANIKI"
+		PANICATTACK_DESC 		= " Gdy potrzebujesz natychmiastowego leczenia. Natychmiast odnawia do 10 000 pkt. zdrowia przy trafieniu we wroga. Otrzymywanie obrażeń, gdy broń jest dobyta, ma szansę na aktywowanie krótkiego ładunku ÜberCharge."
 		///
 		SHOVEL_NAME 			= "SAPERKA"
 		SHOVEL_DESC 			= " Standardowa opcja zapewniająca ochronę i mobilność."
@@ -3417,30 +3417,30 @@ if("SetScriptVersion" in getroottable())
 		NOSTROMONAPALMER_NAME 	= "NAPALM Z NOSTROMO"
 		NOSTROMONAPALMER_DESC	= " Spowalnia wrogów przy trafieniu. Buduje ładunek „Mmmph” podobnie jak Flogistynator, ale przyznaje efekt Sashimona straceńca. Nie posiada podmuchu sprężonego powietrza."
 		///
-		SHOTGUN_PYRO_NAME 		= "STRZELBA - PYRO" 
-		SHOTGUN_PYRO_DESC 		= " Zadaje trafienia krytyczne płonącym wrogom." 
+		SHOTGUN_PYRO_NAME 		= "STRZELBA - PYRO"
+		SHOTGUN_PYRO_DESC 		= " Zadaje trafienia krytyczne płonącym wrogom."
 		//
-		FLAREGUN_NAME 			= "PISTOLET SYGNAŁOWY" 
-		FLAREGUN_DESC 			= " Wystrzeliwuje pocisk w linii prostej, który penetruje wrogów. Obrażenia pocisku są zwiększane z każdym kolejnym trafionym po drodze przeciwnikiem. Ma też szansę ogłuszyć wrogów przy trafieniu." 
+		FLAREGUN_NAME 			= "PISTOLET SYGNAŁOWY"
+		FLAREGUN_DESC 			= " Wystrzeliwuje pocisk w linii prostej, który penetruje wrogów. Obrażenia pocisku są zwiększane z każdym kolejnym trafionym po drodze przeciwnikiem. Ma też szansę ogłuszyć wrogów przy trafieniu."
 		//
-		DETONATOR_NAME 			= "DETONATOR" 
-		DETONATOR_DESC 			= " Flara ma nieskończony promień wybuchu i trafia w każdego wroga w jej polu widzenia. Zmusza wszystkich roboszpiegów do usunięcia swoich przebrań i wyłączenia niewidzialności. Świetna opcja zapewniająca mobilność." 
+		DETONATOR_NAME 			= "DETONATOR"
+		DETONATOR_DESC 			= " Flara ma nieskończony promień wybuchu i trafia w każdego wroga w jej polu widzenia. Zmusza wszystkich roboszpiegów do usunięcia swoich przebrań i wyłączenia niewidzialności. Świetna opcja zapewniająca mobilność."
 		//
-		MANMELTER_NAME 			= "CZŁEKOROZTAPIACZ" 
+		MANMELTER_NAME 			= "CZŁEKOROZTAPIACZ"
 		MANMELTER_DESC 			= " Szybkostrzelne flary automatycznie namierzające wrogów. Nieskończona amunicja i brak przeładowania. Atak alternatywny: wystrzel naraz serię wielu flar."
 		//
-		SCORCHSHOT_NAME 		= "PIEKĄCA PALBA" 
-		SCORCHSHOT_DESC 		= " Przy trafieniu we wroga: zadaje duże obrażenia, gasi wroga i odrzuca go. Przeciwnik musi być podpalony, w przeciwnym razie atak nie zadziała. Atak alternatywny: użyj wolnej samonaprowadzającej flary." 
+		SCORCHSHOT_NAME 		= "PIEKĄCA PALBA"
+		SCORCHSHOT_DESC 		= " Przy trafieniu we wroga: zadaje duże obrażenia, gasi wroga i odrzuca go. Przeciwnik musi być podpalony, w przeciwnym razie atak nie zadziała. Atak alternatywny: użyj wolnej samonaprowadzającej flary."
 		//
-		THERMALTHRUSTER_NAME 	= "CIEPLNY CIĄG" 
-		THERMALTHRUSTER_DESC 	= " Zmniejszone zużycie paliwa i brak opóźnienia startu. Umożliwia ponowne użycie plecaka w powietrzu i zadaje ogromne obrażenia przeciwnikowi, na którym wylądujesz. Po zabiciu wroga otrzymujesz na krótki czas trafienia krytyczne." 
+		THERMALTHRUSTER_NAME 	= "CIEPLNY CIĄG"
+		THERMALTHRUSTER_DESC 	= " Zmniejszone zużycie paliwa i brak opóźnienia startu. Umożliwia ponowne użycie plecaka w powietrzu i zadaje ogromne obrażenia przeciwnikowi, na którym wylądujesz. Po zabiciu wroga otrzymujesz na krótki czas trafienia krytyczne."
 		//
-		GASPASSER_NAME 			= "CIEPLNY CIĄG" 
-		GASPASSER_DESC 			= " Wskaźnik benzyny jest na początku pusty i resetuje się przy śmierci. Wymaga 150 000 pkt. obrażeń do napełnienia. Wybuch po podpaleniu zadaje 105 000 pkt. obrażeń." 
+		GASPASSER_NAME 			= "CIEPLNY CIĄG"
+		GASPASSER_DESC 			= " Wskaźnik benzyny jest na początku pusty i resetuje się przy śmierci. Wymaga 150 000 pkt. obrażeń do napełnienia. Wybuch po podpaleniu zadaje 105 000 pkt. obrażeń."
 		///
 		FIREAXE_NAME 			= "TOPÓR STRAŻACKI"
 		FIREAXE_DESC 			= " Standardowa opcja zapewniająca ochronę i mobilność."
-		//	
+		//
 		AXTINGUISHER_NAME 		= "POSKRAMIACZ PŁOMIENI"
 		AXTINGUISHER_DESC		= " Znacznie zwiększone obrażenia przeciw płonącym wrogom."
 		//
@@ -3841,7 +3841,7 @@ if("SetScriptVersion" in getroottable())
 		IH_DIS_MSG				= IH_disable_color + "Type '/itemhelp 0' これらのメッセージを非表示にする \nType '/itemhelp 2' このメッセージを常に表示する"
 		IH_BAD_ARGS				= IH_color_header + "[Item Helper]" + IH_error_color + " {エラー}\x01 引数が正しくありません!\n/itemhelp 2 - Enable\n/itemhelp 1 - セットアップ中のみ有効にする\n/itemhelp 0 - Disable"
 		IH_OOB_ARG				= IH_color_header + "[Item Helper]" + IH_error_color + " {エラー}\x01 範囲外の値が設定されました! : %s"
-		IH_HELP_MSG				= IH_color_header + "[Item Helper]\x01 アイテムヘルパーは、各カオスアイテムについて簡単な説明を提供します \x03Chaos\x01 Item!" 
+		IH_HELP_MSG				= IH_color_header + "[Item Helper]\x01 アイテムヘルパーは、各カオスアイテムについて簡単な説明を提供します \x03Chaos\x01 Item!"
 		IH_DISABLE				= IH_color_header + "[►]\x01 アイテムヘルパーが無効になっています"
 		IH_WAVE_SETUP			= IH_color_header + "[►]\x01 アイテムヘルパーは、セットアップ中のみ有効になっています"
 		IH_ENABLE 				= IH_color_header + "[►]\x01 アイテムヘルパーが有効になっています"
@@ -3973,38 +3973,38 @@ if("SetScriptVersion" in getroottable())
 		AIRSTRIKE_NAME			= "エアストライク"
 		AIRSTRIKE_DESC			= " 最大10発のロケット弾を装填し、固定された散弾パターンで一斉に発射する　ロケット弾は自動的に敵を追尾する"
 		///
-		SHOTGUN_SOLD_NAME 		= "ショットガン - ソルジャー" 
-		SHOTGUN_SOLD_DESC 		= " ロケットジャンプ中は、発射速度が非常に速く、クリティカルヒットも発生しやすくなる" 
+		SHOTGUN_SOLD_NAME 		= "ショットガン - ソルジャー"
+		SHOTGUN_SOLD_DESC 		= " ロケットジャンプ中は、発射速度が非常に速く、クリティカルヒットも発生しやすくなる"
 		//
-		SHOTGUN_NAME 			= "ショットガン" 
-		SHOTGUN_DESC 			= " 安定したダメージを与えられる頼もしい選択肢" 
+		SHOTGUN_NAME 			= "ショットガン"
+		SHOTGUN_DESC 			= " 安定したダメージを与えられる頼もしい選択肢"
 		//
-		BUFFBANNER_NAME 		= "バフ・バナー" 
-		BUFFBANNER_DESC 		= " バフの射程が無制限になり、持続時間が大幅に延長された" 
+		BUFFBANNER_NAME 		= "バフ・バナー"
+		BUFFBANNER_DESC 		= " バフの射程が無制限になり、持続時間が大幅に延長された"
 		//
-		GUNBOATS_NAME 			= "GUNBOATS" 
-		GUNBOATS_DESC 			= " ジャンプキーを押し続ける事でバニーホップが可能にする　落下ダメージを無効化する" 
+		GUNBOATS_NAME 			= "GUNBOATS"
+		GUNBOATS_DESC 			= " ジャンプキーを押し続ける事でバニーホップが可能にする　落下ダメージを無効化する"
 		//
-		BATTALIONS_NAME 		= "BATTALION'S BACKUP" 
-		BATTALIONS_DESC 		= " バフの射程が無制限になり、持続時間が大幅に延長された" 
+		BATTALIONS_NAME 		= "BATTALION'S BACKUP"
+		BATTALIONS_DESC 		= " バフの射程が無制限になり、持続時間が大幅に延長された"
 		//
-		CONCHEROR_NAME 			= "カンケラー" 
-		CONCHEROR_DESC 			= " バフの射程が無制限になり、持続時間が大幅に延長された" 
+		CONCHEROR_NAME 			= "カンケラー"
+		CONCHEROR_DESC 			= " バフの射程が無制限になり、持続時間が大幅に延長された"
 		//
-		RESERVESHOOTER_NAME 	= "リザーブ・シューター" 
-		RESERVESHOOTER_DESC 	= " 射程に関係なく、1発につき10,000の固定ダメージを与え、敵を倒すと3秒間ミニクリティカルが発生する　ただし、この武器はクリティカル倍率の恩恵を受けず、タンクにはダメージを与えられない　サブ攻撃キーでズームイン使用可能" 
+		RESERVESHOOTER_NAME 	= "リザーブ・シューター"
+		RESERVESHOOTER_DESC 	= " 射程に関係なく、1発につき10,000の固定ダメージを与え、敵を倒すと3秒間ミニクリティカルが発生する　ただし、この武器はクリティカル倍率の恩恵を受けず、タンクにはダメージを与えられない　サブ攻撃キーでズームイン使用可能"
 		//
-		BISON_NAME 				= "ライチャス・バイソン" 
-		BISON_DESC 				= " 完全自動照準で、貫通ダメージを与えるビームを連続して発射する" 
+		BISON_NAME 				= "ライチャス・バイソン"
+		BISON_DESC 				= " 完全自動照準で、貫通ダメージを与えるビームを連続して発射する"
 		//
-		MANTREADS_NAME 			= "マントレッズ" 
-		MANTREADS_DESC 			= " ダメージによるノックバックが大幅に軽減され、空中ストレイフの加速力が大幅にアップした　踏みつけ攻撃のダメージが強化され、移動速度に比例するようになった" 
+		MANTREADS_NAME 			= "マントレッズ"
+		MANTREADS_DESC 			= " ダメージによるノックバックが大幅に軽減され、空中ストレイフの加速力が大幅にアップした　踏みつけ攻撃のダメージが強化され、移動速度に比例するようになった"
 		//
-		BASEJUMPER_NAME 		= "B.A.S.E. ジャンパー" 
-		BASEJUMPER_DESC 		= " パラシュートの開閉が可能　ノックバックや銃弾によるダメージへの耐性が上がり、空中の無防備な状態を軽減" 
+		BASEJUMPER_NAME 		= "B.A.S.E. ジャンパー"
+		BASEJUMPER_DESC 		= " パラシュートの開閉が可能　ノックバックや銃弾によるダメージへの耐性が上がり、空中の無防備な状態を軽減"
 		//
-		PANICATTACK_NAME 		= "パニック・アタック" 
-		PANICATTACK_DESC 		= " 緊急で回復が必要な時に命中すると、最大10,000のHPを即座に回復する　この武器が有効な状態でダメージを受けると、短時間のセルフ・ユーバーが発動する可能性がある" 
+		PANICATTACK_NAME 		= "パニック・アタック"
+		PANICATTACK_DESC 		= " 緊急で回復が必要な時に命中すると、最大10,000のHPを即座に回復する　この武器が有効な状態でダメージを受けると、短時間のセルフ・ユーバーが発動する可能性がある"
 		///
 		SHOVEL_NAME 			= "シャベル"
 		SHOVEL_DESC 			= " 防御と機動性のための標準的な選択肢"
@@ -4050,30 +4050,30 @@ if("SetScriptVersion" in getroottable())
 		NOSTROMONAPALMER_NAME 	= "ノストロモ・ナパーマー"
 		NOSTROMONAPALMER_DESC	= " 命中すると敵の移動速度を低下させる　フロギストネイターと同様に「Mmmph」チャージを蓄積し、自身に「カンケラー」バフを付与する　この火炎放射器はエアブラストを発動できない"
 		///
-		SHOTGUN_PYRO_NAME 		= "ショットガン - パイロ" 
-		SHOTGUN_PYRO_DESC 		= " 燃えているプレイヤーに対して 100% クリティカルヒット" 
+		SHOTGUN_PYRO_NAME 		= "ショットガン - パイロ"
+		SHOTGUN_PYRO_DESC 		= " 燃えているプレイヤーに対して 100% クリティカルヒット"
 		//
-		FLAREGUN_NAME 			= "フレアガン" 
-		FLAREGUN_DESC 			= " 敵を貫通するヒットスキャン攻撃を発動する　経路上の敵を貫通するたびに、ダメージが指数関数的に増加する　また、命中時に敵をスタンさせる可能性がある" 
+		FLAREGUN_NAME 			= "フレアガン"
+		FLAREGUN_DESC 			= " 敵を貫通するヒットスキャン攻撃を発動する　経路上の敵を貫通するたびに、ダメージが指数関数的に増加する　また、命中時に敵をスタンさせる可能性がある"
 		//
-		DETONATOR_NAME 			= "雷管" 
-		DETONATOR_DESC 			= " フレア弾の爆発範囲は無限で、視界内にあるあらゆる対象に命中する　すべてのスパイボットをステルス状態から解除し、変装を解除させる　機動性を高めるのにも最適な選択肢だ" 
+		DETONATOR_NAME 			= "雷管"
+		DETONATOR_DESC 			= " フレア弾の爆発範囲は無限で、視界内にあるあらゆる対象に命中する　すべてのスパイボットをステルス状態から解除し、変装を解除させる　機動性を高めるのにも最適な選択肢だ"
 		//
-		MANMELTER_NAME 			= "マンメルター" 
-		MANMELTER_DESC 			= " 敵を自動的に探知する高速発射型フレア弾を発射する　弾薬は無制限で、リロードも不要　サブ攻撃キー：フレア弾を一斉に発射する" 
+		MANMELTER_NAME 			= "マンメルター"
+		MANMELTER_DESC 			= " 敵を自動的に探知する高速発射型フレア弾を発射する　弾薬は無制限で、リロードも不要　サブ攻撃キー：フレア弾を一斉に発射する"
 		//
-		SCORCHSHOT_NAME 		= "スコーチ・ショット" 
-		SCORCHSHOT_DESC 		= " 命中時：大ダメージを与え、敵の炎を消化し、ノックバックさせる　ターゲットが炎に包まれていなければならず、そうでない場合、効果を発揮しない　サブ攻撃キー：低速追尾フレア弾を発射する" 
+		SCORCHSHOT_NAME 		= "スコーチ・ショット"
+		SCORCHSHOT_DESC 		= " 命中時：大ダメージを与え、敵の炎を消化し、ノックバックさせる　ターゲットが炎に包まれていなければならず、そうでない場合、効果を発揮しない　サブ攻撃キー：低速追尾フレア弾を発射する"
 		//
-		THERMALTHRUSTER_NAME 	= "サーマルスラスター" 
-		THERMALTHRUSTER_DESC 	= " 発射の遅延がなく、燃料消費も抑えられる　空中での再展開が可能で、踏みつけによる大ダメージを与えることができる　敵を倒すと、一時的にクリティカル率が高まる" 
+		THERMALTHRUSTER_NAME 	= "サーマルスラスター"
+		THERMALTHRUSTER_DESC 	= " 発射の遅延がなく、燃料消費も抑えられる　空中での再展開が可能で、踏みつけによる大ダメージを与えることができる　敵を倒すと、一時的にクリティカル率が高まる"
 		//
-		GASPASSER_NAME 			= "ガスパサー" 
-		GASPASSER_DESC 			= " メーターは空の状態から始まり、死亡時にリセットされる　150,000のダメージを与えるとメーターが満タンとなる　「点火時に爆発」の効果で105,000のダメージを与える" 
+		GASPASSER_NAME 			= "ガスパサー"
+		GASPASSER_DESC 			= " メーターは空の状態から始まり、死亡時にリセットされる　150,000のダメージを与えるとメーターが満タンとなる　「点火時に爆発」の効果で105,000のダメージを与える"
 		///
 		FIREAXE_NAME 			= "消防斧"
 		FIREAXE_DESC 			= " 防御と機動性のための標準的な選択肢"
-		//	
+		//
 		AXTINGUISHER_NAME 		= "アクスティングイシャー"
 		AXTINGUISHER_DESC		= " 燃えている敵へのダメージが大幅に増加する"
 		//
@@ -4466,7 +4466,7 @@ if("SetScriptVersion" in getroottable())
 		PRINNYMACHETE_NAME 		= "プリニー・マチェーテ"
 		PRINNYMACHETE_DESC 		= " 便利アイテム - この近接武器をスイングして、高速で前方に突進する事ができる　落下ダメージを無効化する"
 		//------------------------------------
-	} 
+	}
 	danish = {
 		IH_TRANSLATE_ITEM		= IH_color + "[%s]" + IH_text_color + "%s"
 		IH_INCLUDES				= IH_color_header + "[►]\x0826beffBB Your loadout includes..."
@@ -4474,7 +4474,7 @@ if("SetScriptVersion" in getroottable())
 		IH_DIS_MSG				= IH_disable_color + "Skriv '/itemhelp 0' for at deaktivere disse beskeder. \nSkriv '/itemhelp 2' for altid at vise denne besked."
 		IH_BAD_ARGS				= IH_color_header + "[Genstandshjælper]" + IH_error_color + " {Fejl}\x01 Forkerte argumenter!\n/itemhelp 2 - Aktiver\n/genstandshjælp 1 - Aktiver kun under bølge-setup\n/itemhelp 0 - Deaktiver"
 		IH_OOB_ARG				= IH_color_header + "[Genstandshjælper]" + IH_error_color + " {Error}\x01 Ugyldig værdi angivet! : %s"
-		IH_HELP_MSG				= IH_color_header + "[Genstandsjælper]\x01 Genstandshjælper giver enkle beskrivelser for hver \x03Chaos\x01 genstand!" 
+		IH_HELP_MSG				= IH_color_header + "[Genstandsjælper]\x01 Genstandshjælper giver enkle beskrivelser for hver \x03Chaos\x01 genstand!"
 		IH_DISABLE				= IH_color_header + "[►]\x01 Genstandshjælper deaktiveret!."
 		IH_WAVE_SETUP			= IH_color_header + "[►]\x01 Genstandshjælper kun aktiveret under bølge-setup."
 		IH_ENABLE 				= IH_color_header + "[►]\x01 Genstandshjælper aktiveret!."
@@ -4606,38 +4606,38 @@ if("SetScriptVersion" in getroottable())
 		AIRSTRIKE_NAME			= "LUFTANGREBET"
 		AIRSTRIKE_DESC			= " Læg op til 10 raketter i magasinet, før du affyrer dem alle på én gang i et fast spredningsmønster. Raketterne søger automatisk mod fjenderne."
 		///
-		SHOTGUN_SOLD_NAME 		= "HAGLGEVÆR - SOLDIER" 
-		SHOTGUN_SOLD_DESC 		= " Meget høj skudhastighed og kritiske træffere under rakethop." 
+		SHOTGUN_SOLD_NAME 		= "HAGLGEVÆR - SOLDIER"
+		SHOTGUN_SOLD_DESC 		= " Meget høj skudhastighed og kritiske træffere under rakethop."
 		//
-		SHOTGUN_NAME 			= "HAGLGEVÆR" 
-		SHOTGUN_DESC 			= " Standard valg for pålidelig skade." 
+		SHOTGUN_NAME 			= "HAGLGEVÆR"
+		SHOTGUN_DESC 			= " Standard valg for pålidelig skade."
 		//
-		BUFFBANNER_NAME 		= "BUFF-BANNERET" 
-		BUFFBANNER_DESC 		= " Ubegrænset rækkevidde og markant længere varighed." 
+		BUFFBANNER_NAME 		= "BUFF-BANNERET"
+		BUFFBANNER_DESC 		= " Ubegrænset rækkevidde og markant længere varighed."
 		//
-		GUNBOATS_NAME 			= "BLYSÅLERNE" 
-		GUNBOATS_DESC 			= " Aktiverer bunnyhopping ved at holde 'hop' tasten nede. Giver immunitet over for faldskade." 
+		GUNBOATS_NAME 			= "BLYSÅLERNE"
+		GUNBOATS_DESC 			= " Aktiverer bunnyhopping ved at holde 'hop' tasten nede. Giver immunitet over for faldskade."
 		//
-		BATTALIONS_NAME 		= "FORSVARSFANEN" 
-		BATTALIONS_DESC 		= " Ubegrænset rækkevidde og markant længere varighed." 
+		BATTALIONS_NAME 		= "FORSVARSFANEN"
+		BATTALIONS_DESC 		= " Ubegrænset rækkevidde og markant længere varighed."
 		//
-		CONCHEROR_NAME 			= "KONG-KYLIEN" 
-		CONCHEROR_DESC 			= " Ubegrænset rækkevidde og markant længere varighed." 
+		CONCHEROR_NAME 			= "KONG-KYLIEN"
+		CONCHEROR_DESC 			= " Ubegrænset rækkevidde og markant længere varighed."
 		//
-		RESERVESHOOTER_NAME 	= "BAGHÅNDSGEVÆRET" 
-		RESERVESHOOTER_DESC 	= " Gør 10.000 skade pr. skud uanset afstand og udløser mini-kritiske slag på 3 sekunder ved drab. Våbnet kan dog ikke forstærkes med kritiske slag og kan ikke skade tanks. Hold Alt-Skyd nede for at zoome ind." 
+		RESERVESHOOTER_NAME 	= "BAGHÅNDSGEVÆRET"
+		RESERVESHOOTER_DESC 	= " Gør 10.000 skade pr. skud uanset afstand og udløser mini-kritiske slag på 3 sekunder ved drab. Våbnet kan dog ikke forstærkes med kritiske slag og kan ikke skade tanks. Hold Alt-Skyd nede for at zoome ind."
 		//
-		BISON_NAME 				= "RETSKAFNE BISON" 
-		BISON_DESC 				= " Affyrer en kontinuerlig stråle af gennemtrængende skade med fuld automatisk sigtning." 
+		BISON_NAME 				= "RETSKAFNE BISON"
+		BISON_DESC 				= " Affyrer en kontinuerlig stråle af gennemtrængende skade med fuld automatisk sigtning."
 		//
-		MANTREADS_NAME 			= "MANDETRÆDERNE" 
-		MANTREADS_DESC 			= " Skaden, der forårsager tilbageslag, er blevet væsentligt reduceret. Luftangreb har nu fået en markant øget acceleration. Stomp-skaden er blevet forbedret og er nu baseret på hastighed." 
+		MANTREADS_NAME 			= "MANDETRÆDERNE"
+		MANTREADS_DESC 			= " Skaden, der forårsager tilbageslag, er blevet væsentligt reduceret. Luftangreb har nu fået en markant øget acceleration. Stomp-skaden er blevet forbedret og er nu baseret på hastighed."
 		//
-		BASEJUMPER_NAME 		= "B.A.S.E.-HOPPEREN" 
-		BASEJUMPER_DESC 		= " Mulighed for at aktivere faldskærm. Øger modstandsdygtigheden over for tilbageslag og skudskader, hvilket mindsker din sårbarhed i luften." 
+		BASEJUMPER_NAME 		= "B.A.S.E.-HOPPEREN"
+		BASEJUMPER_DESC 		= " Mulighed for at aktivere faldskærm. Øger modstandsdygtigheden over for tilbageslag og skudskader, hvilket mindsker din sårbarhed i luften."
 		//
-		PANICATTACK_NAME 		= "PANIKANFALDET" 
-		PANICATTACK_DESC 		= " Når du har brug for akut helbredelse. Gendanner straks op til 10.000 livspoint ved træf. Hvis du tager skade, mens dette våben er aktivt, er der en chance for, at det udløser en kortvarig selv-über." 
+		PANICATTACK_NAME 		= "PANIKANFALDET"
+		PANICATTACK_DESC 		= " Når du har brug for akut helbredelse. Gendanner straks op til 10.000 livspoint ved træf. Hvis du tager skade, mens dette våben er aktivt, er der en chance for, at det udløser en kortvarig selv-über."
 		///
 		SHOVEL_NAME 			= "SKOVL"
 		SHOVEL_DESC 			= " Standard valg for pålidelig skade."
@@ -4683,30 +4683,30 @@ if("SetScriptVersion" in getroottable())
 		NOSTROMONAPALMER_NAME 	= "NOSTROMO NAPALMEREN"
 		NOSTROMONAPALMER_DESC	= " Bremser fjender ved træf. Opbygger 'Mmmph' ladning på samme måde som Phlogistinatoren, men giver dig selv Kong-kylien buffen. Denne flammekaster kan ikke bruge luftstød."
 		///
-		SHOTGUN_PYRO_NAME 		= "HAGLGEVÆR- PYRO" 
-		SHOTGUN_PYRO_DESC 		= " Garanterede kritiske træffere mod brændende fjender." 
+		SHOTGUN_PYRO_NAME 		= "HAGLGEVÆR- PYRO"
+		SHOTGUN_PYRO_DESC 		= " Garanterede kritiske træffere mod brændende fjender."
 		//
-		FLAREGUN_NAME 			= "SIGNALPISTOLEN" 
-		FLAREGUN_DESC 			= " Affyrer et hitscan-angreb, der trænger igennem fjender. Skaden stiger eksponentielt for hver fjende, der gennemtrænges på vejen. Der er også en chance for at lamme fjender ved træf." 
+		FLAREGUN_NAME 			= "SIGNALPISTOLEN"
+		FLAREGUN_DESC 			= " Affyrer et hitscan-angreb, der trænger igennem fjender. Skaden stiger eksponentielt for hver fjende, der gennemtrænges på vejen. Der er også en chance for at lamme fjender ved træf."
 		//
-		DETONATOR_NAME 			= "DETONATOREN" 
-		DETONATOR_DESC 			= " Signalblus har en uendelig eksplosionsradius og rammer alt, hvad der befinder sig inden for synsfeltet. Den tvinger alle Spy robotter til at afsløre sig selv og fjerne deres forklædning. Et fremragende valg, hvis man har brug for mobilitet." 
+		DETONATOR_NAME 			= "DETONATOREN"
+		DETONATOR_DESC 			= " Signalblus har en uendelig eksplosionsradius og rammer alt, hvad der befinder sig inden for synsfeltet. Den tvinger alle Spy robotter til at afsløre sig selv og fjerne deres forklædning. Et fremragende valg, hvis man har brug for mobilitet."
 		//
-		MANMELTER_NAME 			= "MANDESMELTEREN" 
-		MANMELTER_DESC 			= " Hurtigskydende signalblus, der er specialudviklet til automatisk at opspore fjender. Ubegrænset ammunition og ingen genladning. Alt-Skyd: Affyr en hel salve af signalblus på én gang." 
+		MANMELTER_NAME 			= "MANDESMELTEREN"
+		MANMELTER_DESC 			= " Hurtigskydende signalblus, der er specialudviklet til automatisk at opspore fjender. Ubegrænset ammunition og ingen genladning. Alt-Skyd: Affyr en hel salve af signalblus på én gang."
 		//
-		SCORCHSHOT_NAME 		= "BRANDSKUDDET" 
-		SCORCHSHOT_DESC 		= " Ved træf: Gør stor skade, slukker fjendens ild og skubber ham væk. Der SKAL være ild i dit mål, ellers har dette angreb ingen effekt. Alt-Skyd: Brug en langsomt søgende signalblus." 
+		SCORCHSHOT_NAME 		= "BRANDSKUDDET"
+		SCORCHSHOT_DESC 		= " Ved træf: Gør stor skade, slukker fjendens ild og skubber ham væk. Der SKAL være ild i dit mål, ellers har dette angreb ingen effekt. Alt-Skyd: Brug en langsomt søgende signalblus."
 		//
-		THERMALTHRUSTER_NAME 	= "TERMISKE TRYKMOTOR" 
-		THERMALTHRUSTER_DESC 	= " Reduceret brændstofforbrug uden forsinkelse ved start. Kan genindsættes i luften og gøre massiv stomp skade. Får en kortvarig kritboost ved drab." 
+		THERMALTHRUSTER_NAME 	= "TERMISKE TRYKMOTOR"
+		THERMALTHRUSTER_DESC 	= " Reduceret brændstofforbrug uden forsinkelse ved start. Kan genindsættes i luften og gøre massiv stomp skade. Får en kortvarig kritboost ved drab."
 		//
-		GASPASSER_NAME 			= "BENZINDUNKEN" 
-		GASPASSER_DESC 			= " Måleren starter tom og nulstilles, når du dør. Gør 150.000 skade for at fylde måleren. Eksploder ved antænding gør 105.000 skade." 
+		GASPASSER_NAME 			= "BENZINDUNKEN"
+		GASPASSER_DESC 			= " Måleren starter tom og nulstilles, når du dør. Gør 150.000 skade for at fylde måleren. Eksploder ved antænding gør 105.000 skade."
 		///
 		FIREAXE_NAME 			= "BRANDØKSE"
 		FIREAXE_DESC 			= " Standardvalg til forsvar og mobilitet."
-		//	
+		//
 		AXTINGUISHER_NAME 		= "UDBRÆNDEREN"
 		AXTINGUISHER_DESC		= " Gør markant mere skade mod brændende spillere."
 		//
@@ -5107,7 +5107,7 @@ if("SetScriptVersion" in getroottable())
 		IH_DIS_MSG				= IH_disable_color + "Por «/itemhelp 0» para desactivar estos mensajes. \nPon «/itemhelp 2» para que se muestren siempre."
 		IH_BAD_ARGS				= IH_color_header + "[Asistente de artículos]" + IH_error_color + " {Error}\x01 ¡Argumentos incorrectos!\n/itemhelp 2: Activar.\n/itemhelp 1: Activar solo en preparación.\n/itemhelp 0: Desactivar."
 		IH_OOB_ARG				= IH_color_header + "[Asistente de artículos]" + IH_error_color + " {Error}\x01 ¡Valor fuera de límites! : %s"
-		IH_HELP_MSG				= IH_color_header + "[Asistente de artículos]\x01 El asistente de artículos da descripciones para cada artículo de \x03Caos\x01!" 
+		IH_HELP_MSG				= IH_color_header + "[Asistente de artículos]\x01 El asistente de artículos da descripciones para cada artículo de \x03Caos\x01!"
 		IH_DISABLE				= IH_color_header + "[►]\x01 Asistente de artículos desactivado."
 		IH_WAVE_SETUP			= IH_color_header + "[►]\x01 Asistente de artículos activado para la preparación."
 		IH_ENABLE 				= IH_color_header + "[►]\x01 Asistente de artículos activado."
@@ -5239,38 +5239,38 @@ if("SetScriptVersion" in getroottable())
 		AIRSTRIKE_NAME			= "ATAQUE AÉREO"
 		AIRSTRIKE_DESC			= " Carga hasta 10 cohetes, que dispara a la vez formado un patrón. Estos proyectiles son guiados."
 		///
-		SHOTGUN_SOLD_NAME 		= "ESCOPETA DEL SOLDIER" 
-		SHOTGUN_SOLD_DESC 		= " Gran velocidad de disparo y críticos al saltar con explosivos." 
+		SHOTGUN_SOLD_NAME 		= "ESCOPETA DEL SOLDIER"
+		SHOTGUN_SOLD_DESC 		= " Gran velocidad de disparo y críticos al saltar con explosivos."
 		//
-		SHOTGUN_NAME 			= "ESCOPETA" 
-		SHOTGUN_DESC 			= " Una opción estándar para un daño contundente." 
+		SHOTGUN_NAME 			= "ESCOPETA"
+		SHOTGUN_DESC 			= " Una opción estándar para un daño contundente."
 		//
-		BUFFBANNER_NAME 		= "ESTANDARTE DE ÁNIMO" 
-		BUFFBANNER_DESC 		= " Alcance ilimitado y gran aumento de duración." 
+		BUFFBANNER_NAME 		= "ESTANDARTE DE ÁNIMO"
+		BUFFBANNER_DESC 		= " Alcance ilimitado y gran aumento de duración."
 		//
-		GUNBOATS_NAME 			= "BOTAS BLINDADAS" 
-		GUNBOATS_DESC 			= " Permiten hacer el salto del conejo, conocido como «bunnyhop» con la tecla de saltar. Otorga inmunidad al daño por caída." 
+		GUNBOATS_NAME 			= "BOTAS BLINDADAS"
+		GUNBOATS_DESC 			= " Permiten hacer el salto del conejo, conocido como «bunnyhop» con la tecla de saltar. Otorga inmunidad al daño por caída."
 		//
-		BATTALIONS_NAME 		= "REFUERZO DEL BATALLÓN" 
-		BATTALIONS_DESC 		= " Alcance ilimitado y gran aumento de duración." 
+		BATTALIONS_NAME 		= "REFUERZO DEL BATALLÓN"
+		BATTALIONS_DESC 		= " Alcance ilimitado y gran aumento de duración."
 		//
-		CONCHEROR_NAME 			= "CONCHEROR" 
-		CONCHEROR_DESC 			= " Alcance ilimitado y gran aumento de duración." 
+		CONCHEROR_NAME 			= "CONCHEROR"
+		CONCHEROR_DESC 			= " Alcance ilimitado y gran aumento de duración."
 		//
-		RESERVESHOOTER_NAME 	= "TIRADOR DE RESERVA" 
-		RESERVESHOOTER_DESC 	= " Causa 10 000 de daño por disparo sin importar la distancia, con 3 segundos de minicríticos por víctima. Sin embargo, esta arma no puede recibir críticos. Mantén el disparo secundario para apuntar con ella." 
+		RESERVESHOOTER_NAME 	= "TIRADOR DE RESERVA"
+		RESERVESHOOTER_DESC 	= " Causa 10 000 de daño por disparo sin importar la distancia, con 3 segundos de minicríticos por víctima. Sin embargo, esta arma no puede recibir críticos. Mantén el disparo secundario para apuntar con ella."
 		//
-		BISON_NAME 				= "BISONTE JUSTICIERO" 
-		BISON_DESC 				= " Dispara un rayo continuo de daño penetrante con puntería automática." 
+		BISON_NAME 				= "BISONTE JUSTICIERO"
+		BISON_DESC 				= " Dispara un rayo continuo de daño penetrante con puntería automática."
 		//
-		MANTREADS_NAME 			= "APLASTACABEZAS" 
-		MANTREADS_DESC 			= " Reduce mucho el retroceso recibido. Aumenta la velocidad de giro al estrafear por el aire. Aumenta el daño al caer sobre otro jugador." 
+		MANTREADS_NAME 			= "APLASTACABEZAS"
+		MANTREADS_DESC 			= " Reduce mucho el retroceso recibido. Aumenta la velocidad de giro al estrafear por el aire. Aumenta el daño al caer sobre otro jugador."
 		//
-		BASEJUMPER_NAME 		= "SALTADOR B.A.S.E." 
-		BASEJUMPER_DESC 		= " Permite abrir y cerrar el paracaídas. Aumenta la resistencia al retroceso y daño de balas, reduciendo la vulnerabilidad en el aire." 
+		BASEJUMPER_NAME 		= "SALTADOR B.A.S.E."
+		BASEJUMPER_DESC 		= " Permite abrir y cerrar el paracaídas. Aumenta la resistencia al retroceso y daño de balas, reduciendo la vulnerabilidad en el aire."
 		//
-		PANICATTACK_NAME 		= "ATAQUE DE PÁNICO" 
-		PANICATTACK_DESC 		= " Para cuando se necesita un botiquín de emergencia. Restaura 10 000 PS al instante al impactar. Recibir daño empuñando esta arma, puede otorgar invlunerabilidad temporal." 
+		PANICATTACK_NAME 		= "ATAQUE DE PÁNICO"
+		PANICATTACK_DESC 		= " Para cuando se necesita un botiquín de emergencia. Restaura 10 000 PS al instante al impactar. Recibir daño empuñando esta arma, puede otorgar invlunerabilidad temporal."
 		///
 		SHOVEL_NAME 			= "PALA"
 		SHOVEL_DESC 			= " Una opción estándar para defensa y movilidad."
@@ -5316,30 +5316,30 @@ if("SetScriptVersion" in getroottable())
 		NOSTROMONAPALMER_NAME 	= "NAPALMEADOR DE NOSTROMO"
 		NOSTROMONAPALMER_DESC	= " Ralentiza a los enemigos. Llena un medidor de «Mmmf» similar al Flogistonador, que otorga el efecto del Conchistador. Esta arma no tiene aire comprimido."
 		///
-		SHOTGUN_PYRO_NAME 		= "ESCOPETA DEL PYRO" 
-		SHOTGUN_PYRO_DESC 		= " Causa críticos a enemigos en llamas." 
+		SHOTGUN_PYRO_NAME 		= "ESCOPETA DEL PYRO"
+		SHOTGUN_PYRO_DESC 		= " Causa críticos a enemigos en llamas."
 		//
-		FLAREGUN_NAME 			= "PISTOLA DE BENGALAS" 
-		FLAREGUN_DESC 			= " Dispara balas que impactan en enemigos. El daño aumenta exponencialmente con cada enemigo en el camino. Además puede llegar a aturdir." 
+		FLAREGUN_NAME 			= "PISTOLA DE BENGALAS"
+		FLAREGUN_DESC 			= " Dispara balas que impactan en enemigos. El daño aumenta exponencialmente con cada enemigo en el camino. Además puede llegar a aturdir."
 		//
-		DETONATOR_NAME 			= "DETONADOR" 
-		DETONATOR_DESC 			= " La bengala tiene el mismo alcance de explosión. Golpeará todo aquello que esté en la línea de visión del jugador. Gran elección para movilidad." 
+		DETONATOR_NAME 			= "DETONADOR"
+		DETONATOR_DESC 			= " La bengala tiene el mismo alcance de explosión. Golpeará todo aquello que esté en la línea de visión del jugador. Gran elección para movilidad."
 		//
-		MANMELTER_NAME 			= "DERRITEGENTE" 
-		MANMELTER_DESC 			= " Dispara munición rápidamente que rastrea automáticamente en busca de enemigos. Tiene munición ilimitada y no necesita recargar. Disparo secundario: Dispara muchas a la vez." 
+		MANMELTER_NAME 			= "DERRITEGENTE"
+		MANMELTER_DESC 			= " Dispara munición rápidamente que rastrea automáticamente en busca de enemigos. Tiene munición ilimitada y no necesita recargar. Disparo secundario: Dispara muchas a la vez."
 		//
-		SCORCHSHOT_NAME 		= "CHAMUSCADOR" 
-		SCORCHSHOT_DESC 		= " Al impactar: Causa mucho daño, apaga las llamas del enemigo y causa retroceso. El objetivo debe estar en llamas o el ataque no hará nada. Disparo secundario: Usa una bengala guiada más lenta." 
+		SCORCHSHOT_NAME 		= "CHAMUSCADOR"
+		SCORCHSHOT_DESC 		= " Al impactar: Causa mucho daño, apaga las llamas del enemigo y causa retroceso. El objetivo debe estar en llamas o el ataque no hará nada. Disparo secundario: Usa una bengala guiada más lenta."
 		//
-		THERMALTHRUSTER_NAME 	= "PROPULSOR TÉRMICO" 
-		THERMALTHRUSTER_DESC 	= " Reduce el consumo de combustible sin ralentizar el lanzamiento. Se puede reutilizar en el aire y causa mucho daño a otro jugador al caer sobre él. Otorga un pequeño subidón de críticos al matar." 
+		THERMALTHRUSTER_NAME 	= "PROPULSOR TÉRMICO"
+		THERMALTHRUSTER_DESC 	= " Reduce el consumo de combustible sin ralentizar el lanzamiento. Se puede reutilizar en el aire y causa mucho daño a otro jugador al caer sobre él. Otorga un pequeño subidón de críticos al matar."
 		//
-		GASPASSER_NAME 			= "Lanzacombustible" 
-		GASPASSER_DESC 			= " El medidor de gasolina empieza vacío y se reinicia al morir. El medidor se llena al causar 150 000 de daño. La explosión al arder causa 105 000 de daño." 
+		GASPASSER_NAME 			= "Lanzacombustible"
+		GASPASSER_DESC 			= " El medidor de gasolina empieza vacío y se reinicia al morir. El medidor se llena al causar 150 000 de daño. La explosión al arder causa 105 000 de daño."
 		///
 		FIREAXE_NAME 			= "HACHA DE BOMBERO"
 		FIREAXE_DESC 			= " Una opción estándar para defensa y movilidad."
-		//	
+		//
 		AXTINGUISHER_NAME 		= "HACHERMINADOR"
 		AXTINGUISHER_DESC		= " Aumenta significativamente el daño contra enemigos en llamas."
 		//
